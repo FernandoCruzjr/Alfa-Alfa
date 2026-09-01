@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAAML-703 · Simulado — Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Simulado interativo do manual CAAML-703 (Embarcações Miúdas e Segurança / Apresentação Marinheira), com modo estudo, modo prova e acompanhamento de desempenho.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Fraunces (títulos, caráter naval/editorial) + Inter (texto e interface) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: {
+              800: '#0B192C',
+              900: '#000F26',
+              700: '#1E3E62',
+              600: '#1E56A0',
+              500: '#0066CC',
+              100: '#E6F0FA'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes access-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shake {
+      10%, 90% { transform: translateX(-1px); }
+      20%, 80% { transform: translateX(2px); }
+      30%, 50%, 70% { transform: translateX(-4px); }
+      40%, 60% { transform: translateX(4px); }
+    }
+    .shake { animation: shake .5s; }
+    @keyframes question-in {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #question-card.question-in { animation: question-in .28s ease-out; }
+    @media (prefers-reduced-motion: reduce) {
+      #access-card, #question-card, .shake { animation: none !important; }
+    }
+    button:focus-visible, input:focus-visible, [role="button"]:focus-visible {
+      outline: 2px solid #2384d6;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso: login / cadastro / recuperação de senha via Supabase Auth -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-8 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">⚓</div>
+      <div class="font-serif font-semibold text-[26px] text-white tracking-tight">CAAML-703</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div class="w-full bg-navy-900 p-1 rounded-lg flex text-xs mb-5" role="tablist">
+        <button type="button" id="tab-login" onclick="switchAuthTab('login')" class="flex-1 py-2 rounded-md font-semibold transition-all bg-navy-600 text-white">Entrar</button>
+        <button type="button" id="tab-signup" onclick="switchAuthTab('signup')" class="flex-1 py-2 rounded-md font-semibold transition-all text-slate-400 hover:text-white">Criar conta</button>
+      </div>
+
+      <form id="login-form" class="w-full flex flex-col gap-3" onsubmit="return handleLogin(event)">
+        <input id="login-email" type="email" required autocomplete="email" placeholder="seu e-mail" class="w-full h-12 rounded-xl border border-[#2c73b5] bg-[#06172a] px-4 text-sm text-white outline-none focus:ring-2 focus:ring-[#2384d6] transition-shadow">
+        <input id="login-password" type="password" required autocomplete="current-password" placeholder="senha" class="w-full h-12 rounded-xl border border-[#2c73b5] bg-[#06172a] px-4 text-sm text-white outline-none focus:ring-2 focus:ring-[#2384d6] transition-shadow">
+        <button type="submit" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-white text-sm font-bold transition-all shadow-lg">🔐 Entrar</button>
+        <button type="button" onclick="handleForgotPassword()" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2 mt-1">Esqueci minha senha</button>
+      </form>
+
+      <form id="signup-form" class="w-full hidden flex-col gap-3" onsubmit="return handleSignup(event)">
+        <input id="signup-name" type="text" required autocomplete="name" placeholder="nome completo" class="w-full h-12 rounded-xl border border-[#2c73b5] bg-[#06172a] px-4 text-sm text-white outline-none focus:ring-2 focus:ring-[#2384d6] transition-shadow">
+        <input id="signup-email" type="email" required autocomplete="email" placeholder="seu e-mail" class="w-full h-12 rounded-xl border border-[#2c73b5] bg-[#06172a] px-4 text-sm text-white outline-none focus:ring-2 focus:ring-[#2384d6] transition-shadow">
+        <input id="signup-password" type="password" required minlength="6" autocomplete="new-password" placeholder="crie uma senha (mín. 6 caracteres)" class="w-full h-12 rounded-xl border border-[#2c73b5] bg-[#06172a] px-4 text-sm text-white outline-none focus:ring-2 focus:ring-[#2384d6] transition-shadow">
+        <button type="submit" class="w-full h-12 rounded-xl bg-emerald-700 hover:bg-emerald-600 active:scale-[.99] text-white text-sm font-bold transition-all shadow-lg">✉️ Criar conta</button>
+      </form>
+
+      <form id="recovery-form" class="w-full hidden flex-col gap-3" onsubmit="return handleSetNewPassword(event)">
+        <p class="text-xs text-[#9bb5d2] mb-1">Defina sua nova senha de acesso.</p>
+        <input id="recovery-password" type="password" required minlength="6" autocomplete="new-password" placeholder="nova senha (mín. 6 caracteres)" class="w-full h-12 rounded-xl border border-[#2c73b5] bg-[#06172a] px-4 text-sm text-white outline-none focus:ring-2 focus:ring-[#2384d6] transition-shadow">
+        <button type="submit" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] text-white text-sm font-bold transition-all shadow-lg">Salvar nova senha</button>
+      </form>
+
+      <div id="access-message" class="min-h-5 mt-4 text-xs" role="alert" aria-live="polite"></div>
+      <div class="text-[11px] text-[#7895b5] mt-4 pt-4 border-t border-[#1c3a5c] w-full">Embarcações Miúdas &amp; Segurança / Apresentação Marinheira</div>
+    </div>
+  </div>
+
+
+  <!-- Header -->
+  <header class="bg-navy-900 border-b border-navy-700 sticky top-0 z-30 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="bg-navy-600 text-white p-2.5 rounded-lg shadow">
+          <i class="fa-solid fa-anchor text-2xl"></i>
+        </div>
+        <div>
+          <h1 class="font-serif text-xl font-semibold text-white tracking-wide">CAAML-703</h1>
+          <p class="text-xs text-slate-400">Embarcações Miúdas & Segurança / Apresentação Marinheira</p>
+        </div>
+      </div>
+
+      <!-- Mode Switcher & Actions -->
+      <div class="flex items-center gap-3">
+        <div class="bg-navy-800 p-1 rounded-lg border border-navy-700 flex text-xs">
+          <button id="btn-mode-study" onclick="setMode('study')" class="px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-white shadow">
+            <i class="fa-solid fa-graduation-cap mr-1"></i> Modo Estudo
+          </button>
+          <button id="btn-mode-exam" onclick="setMode('exam')" class="px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-white">
+            <i class="fa-solid fa-clock mr-1"></i> Modo Prova
+          </button>
+        </div>
+
+        <div id="elapsed-timer" class="bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg flex items-center gap-1.5" title="Tempo decorrido">
+          <i class="fa-solid fa-stopwatch text-navy-500"></i><span>00:00:00</span>
+        </div>
+
+        <div id="user-bar" class="hidden bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2" title="Conectado">
+          <i class="fa-solid fa-user text-navy-500"></i>
+          <span id="user-email" class="max-w-[140px] truncate"></span>
+          <button onclick="handleLogout()" class="ml-1 text-rose-300 hover:text-rose-200 transition-colors" title="Sair da conta">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
+
+        <button onclick="resetQuiz()" class="bg-rose-900/40 hover:bg-rose-800 text-rose-200 border border-rose-700/50 text-xs px-3 py-2 rounded-lg transition-all flex items-center gap-1.5" title="Reiniciar Simulado">
+          <i class="fa-solid fa-rotate-right"></i> Reiniciar
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+    <!-- Left / Center: Question Panel -->
+    <section class="lg:col-span-3 flex flex-col gap-6">
+
+      <!-- Progress Bar & Stats -->
+      <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 shadow-sm flex flex-col gap-3">
+        <div class="flex justify-between items-center text-sm font-semibold">
+          <span id="question-tracker" class="text-navy-500 font-bold">Questão 1 de 65</span>
+          <span id="answered-tracker" class="text-slate-400 text-xs">0 de 65 respondidas</span>
+        </div>
+        <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+          <div id="progress-bar" class="bg-navy-500 h-full w-0 transition-all duration-300"></div>
+        </div>
+      </div>
+
+      <!-- Question Card -->
+      <div id="question-card" class="bg-navy-800/90 border border-navy-700 rounded-xl p-6 shadow-xl flex flex-col justify-between min-h-[420px] relative">
+        <div>
+          <!-- Question Header Badge -->
+          <div class="flex justify-between items-center mb-4">
+            <span id="question-badge" class="bg-navy-700/60 text-navy-100 text-xs px-3 py-1 rounded-full font-mono border border-navy-600">
+              Questão #599
+            </span>
+            <span id="question-status-tag" class="text-xs px-2.5 py-1 rounded font-medium hidden"></span>
+          </div>
+
+          <!-- Question Body -->
+          <div id="question-text" class="text-base md:text-lg font-medium text-slate-100 leading-relaxed whitespace-pre-line mb-6">
+            Carregando questão...
+          </div>
+
+          <!-- Options Container -->
+          <div id="options-container" class="space-y-3">
+            <!-- Options will be dynamically rendered -->
+          </div>
+        </div>
+
+        <!-- Explanation Block (Study Mode) -->
+        <div id="explanation-box" class="mt-6 p-4 rounded-lg bg-slate-900/90 border border-slate-700 hidden">
+          <div class="flex items-center gap-2 text-sm font-bold mb-1" id="explanation-title"></div>
+          <div class="text-xs md:text-sm text-slate-300" id="explanation-text"></div>
+        </div>
+
+        <!-- Question Navigation Buttons -->
+        <div class="mt-8 pt-4 border-t border-navy-700/60 flex justify-between items-center gap-3">
+          <button id="btn-prev" onclick="prevQuestion()" class="bg-navy-700 hover:bg-navy-600 text-white text-sm px-4 py-2.5 rounded-lg transition-all flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed">
+            <i class="fa-solid fa-arrow-left"></i> Anterior
+          </button>
+
+          <div class="flex gap-2">
+            <button id="btn-finish" onclick="finishQuiz()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-sm px-5 py-2.5 rounded-lg font-semibold transition-all flex items-center gap-2 shadow-lg shadow-emerald-900/30">
+              <i class="fa-solid fa-check-double"></i> Finalizar Simulado
+            </button>
+            <button id="btn-next" onclick="nextQuestion()" class="bg-navy-600 hover:bg-navy-500 text-white text-sm px-4 py-2.5 rounded-lg transition-all flex items-center gap-2">
+              Próxima <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right: Question Drawer / Grid Nav -->
+    <aside class="lg:col-span-1 bg-navy-800/80 border border-navy-700 rounded-xl p-4 flex flex-col gap-4 h-fit">
+      <div class="flex justify-between items-center border-b border-navy-700 pb-3">
+        <h2 class="text-sm font-bold text-slate-200 flex items-center gap-2">
+          <i class="fa-solid fa-list-ol text-navy-500"></i> Navegação (65)
+        </h2>
+        <span class="text-xs bg-slate-900 px-2 py-1 rounded text-slate-400 font-mono" id="score-counter">
+          0/65
+        </span>
+      </div>
+
+      <!-- Filters -->
+      <div class="grid grid-cols-3 gap-1 text-[11px] font-medium bg-navy-900 p-1 rounded-lg">
+        <button onclick="setFilter('all')" id="filter-all" class="py-1 rounded text-center bg-navy-700 text-white">Todas</button>
+        <button onclick="setFilter('unanswered')" id="filter-unanswered" class="py-1 rounded text-center text-slate-400 hover:text-white">Faltam</button>
+        <button onclick="setFilter('answered')" id="filter-answered" class="py-1 rounded text-center text-slate-400 hover:text-white">Feitas</button>
+      </div>
+
+      <!-- Grid of Buttons -->
+      <div id="questions-grid" class="grid grid-cols-5 gap-1.5 max-h-[380px] overflow-y-auto p-1 custom-scrollbar">
+        <!-- Grid Items injected via JS -->
+      </div>
+
+      <!-- Legend -->
+      <div class="border-t border-navy-700 pt-3 text-[11px] space-y-1.5 text-slate-400">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-navy-600 border border-navy-500 inline-block"></span>
+          <span>Atual</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-slate-700 inline-block"></span>
+          <span>Respondida</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-emerald-700 inline-block"></span>
+          <span>Correta (Estudo)</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-rose-700 inline-block"></span>
+          <span>Incorreta (Estudo)</span>
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer class="max-w-7xl w-full mx-auto px-4 md:px-6 pb-6 pt-2 text-center text-[11px] text-slate-500">
+    Plataforma de Estudos · CA-AA/AFN — seu progresso neste simulado fica salvo automaticamente neste navegador.
+  </footer>
+
+  <!-- Modal Results -->
+  <div id="results-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-navy-800 border border-navy-700 rounded-2xl max-w-lg w-full p-6 text-center shadow-2xl relative animate-fade-in">
+      <div class="w-16 h-16 bg-navy-700 text-navy-500 rounded-full flex items-center justify-center mx-auto mb-4 border border-navy-600 text-2xl shadow-inner">
+        <i class="fa-solid fa-trophy"></i>
+      </div>
+      <h2 class="font-serif text-2xl font-semibold text-white mb-1">Resultado do Simulado</h2>
+      <p class="text-xs text-slate-400 mb-6">CAAML-703 – Embarcações Miúdas e Marinharia</p>
+
+      <div class="grid grid-cols-3 gap-3 mb-6">
+        <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
+          <div class="text-xs text-slate-400">Acertos</div>
+          <div id="modal-correct" class="text-2xl font-bold text-emerald-400">0</div>
+        </div>
+        <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
+          <div class="text-xs text-slate-400">Erros</div>
+          <div id="modal-wrong" class="text-2xl font-bold text-rose-400">0</div>
+        </div>
+        <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
+          <div class="text-xs text-slate-400">Aproveitamento</div>
+          <div id="modal-percent" class="text-2xl font-bold text-sky-400">0%</div>
+        </div>
+      </div>
+
+      <p id="modal-feedback" class="text-sm text-slate-300 mb-6 px-2">
+        Continue praticando para consolidar seus conhecimentos!
+      </p>
+
+      <div class="flex gap-3 justify-center">
+        <button onclick="closeModal()" class="bg-navy-700 hover:bg-navy-600 text-white px-5 py-2.5 rounded-lg text-sm transition-all font-medium">
+          Revisar Respostas
+        </button>
+        <button onclick="resetQuiz(); closeModal();" class="bg-navy-600 hover:bg-navy-500 text-white px-5 py-2.5 rounded-lg text-sm transition-all font-semibold shadow-lg">
+          Tentar Novamente
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Code -->
+  <script>
+    // Quiz Questions Dataset (599 to 662)
+    const questionsData = [
+      {
+        id: 599,
+        text: "599. CAAML-703 – São embarcações com proa e popa semelhantes, finas e elevadas. Em razão de sua forma, são muito seguras para o mar:",
+        options: [
+          "A) Hovercraft",
+          "B) Chalana",
+          "C) Embarcação de Casco semi-rígido",
+          "D) Balsa salva-vidas",
+          "E) Baleeira"
+        ],
+        correct: 4
+      },
+      {
+        id: 600,
+        text: "600. CAAML-703 – Nos navios, encontraremos diversos tipos de embarcações miúdas que, de acordo com o tipo de construção, são classifiedas como as citadas abaixo, EXCETO:",
+        options: [
+          "A) Embarcação de casco semi-rígido",
+          "B) Chalana",
+          "C) Baleeira",
+          "D) Bota inflável",
+          "E) Jet ski"
+        ],
+        correct: 4
+      },
+      {
+        id: 601,
+        text: "601. CAAML-703 – Das embarcações utilizadas a bordo dos navios, qual é a de introdução mais recente na MB?",
+        options: [
+          "A) Lancha",
+          "B) Jet ski",
+          "C) Embarcação de casco semi-rígido",
+          "D) Hovercraft",
+          "E) Balsa salva-vidas"
+        ],
+        correct: 2
+      },
+      {
+        id: 602,
+        text: "602. CAAML-703 – Assinale abaixo a opção que representa o material do casco e dos flutuadores das embarcações de casco semi-rígido:",
+        options: [
+          "A) Casco de madeira e flutuadores de borracha auto infláveis",
+          "B) Casco de fibra de carbono e flutuadores térmicos",
+          "C) Casco de fibra de vidro e flutuadores de borracha infláveis",
+          "D) Casco de fibra e flutuadores auto infláveis",
+          "E) Casco de fibra de vidro e flutuadores de borracha"
+        ],
+        correct: 2
+      },
+      {
+        id: 603,
+        text: "603. CAAML-703 – Esse tipo de embarcação foi adotado com o propósito de contribuir para reduzir pesos altos a bordo e permitir o emprego de aparelhos de carga menos robustos e mais leves:",
+        options: [
+          "A) Embarcação de casco semi-rígido",
+          "B) Baleeira",
+          "C) Chalana",
+          "D) Lanchas",
+          "E) Balsa salva vidas"
+        ],
+        correct: 0
+      },
+      {
+        id: 604,
+        text: "604. CAAML-703 – As embarcações de casco semi-rígido apresentam as seguintes vantagens quando comparadas às embarcações encontradas a bordo, exceto:",
+        options: [
+          "A) Podem operar em manuseio mais rápido e fácil (são rapidamente retirada do berço e colocadas na água)",
+          "B) Podem operar em condições piores de mar",
+          "C) Por conta do seu material, são mais seguras e possuem maior resistência aos impactos das vagas e aos possíveis impactos no costado do navio",
+          "D) Desenvolvem velocidade superior à maioria das lanchas tradicionais",
+          "E) Apresentam boa manobrabilidade, além de conferirem ao patrão um amplo campo de visão"
+        ],
+        correct: 2
+      },
+      {
+        id: 605,
+        text: "605. CAAML-703 – Conforme a propulsão empregada, a embarcação miúda pode possuir, EXCETO:",
+        options: [
+          "A) pás laterais",
+          "B) Velas",
+          "C) Motor fixo",
+          "D) Motor removível",
+          "E) Remos"
+        ],
+        correct: 0
+      },
+      {
+        id: 606,
+        text: "606. CAAML-703 – As embarcações de propulsão a motor, utilizadas nos navios podem ser do tipo motor fixo ou removível. O caso do motor fixo que se acopla ao hélice através de um eixo longo é chamado de:",
+        options: [
+          "A) Motor de eixo",
+          "B) Motor central",
+          "C) Motor fixo de rabeta",
+          "D) Motor fixo central",
+          "E) Motor de rabeta"
+        ],
+        correct: 3
+      },
+      {
+        id: 607,
+        text: "607. CAAML-703 – Com uso desse tipo de motor, fica dispensado a necessidade do leme, uma vez que as mudanças de rumo são obtidas mediante o giro do conjunto do hélice em torno de um eixo vertical:",
+        options: [
+          "A) Hélice sobre a embarcação",
+          "B) Motor de rabeta",
+          "C) Propulsão a jato d’água",
+          "D) Motor fixo",
+          "E) Motor fixo central"
+        ],
+        correct: 1
+      },
+      {
+        id: 608,
+        text: "608. CAAML-703 – Entre os outros tipos de propulsão de pouco uso nas embarcações miúdas encontradas a bordo, podem-se destacar as(os):",
+        options: [
+          "A) Embarcações com propulsão a jato d’água ou com hélice sobre a embarcação",
+          "B) Propulsão a jato sólido e com a hélice sob a embarcação",
+          "C) Autopropulsadas e com hélice sobre a embarcação",
+          "D) Embarcações com propulsão a jato d’água ou com rodas de pás laterais",
+          "E) Jet skis e hovercraft"
+        ],
+        correct: 0
+      },
+      {
+        id: 609,
+        text: "609. CAAML-703 – As ___________________ não são projetadas para abicar ou abarrancar e podem ser esperados danos à embarcação em caso de escalhe",
+        options: [
+          "A) Chalanas",
+          "B) Somente as embarcações infláveis de casco semi-rígido",
+          "C) Embarcações infláveis de casco rígido ou semi-rígido",
+          "D) Somente as embarcações infláveis de casco rígido",
+          "E) Baleeiras"
+        ],
+        correct: 2
+      },
+      {
+        id: 610,
+        text: "610. CAAML-703 – Quem é o responsável pelo equipamento da embarcação miúda?",
+        options: [
+          "A) O mestre da OM",
+          "B) O patrão da embarcação",
+          "C) A guarnição da embarcação",
+          "D) A tripulação da embarcação",
+          "E) O Imediato"
+        ],
+        correct: 2
+      },
+      {
+        id: 611,
+        text: "611. CAAML-703 – Perdas ou danos ao material devem ser informados imediatamente:",
+        options: [
+          "A) Ao Imediato e ao patrão da embarcação",
+          "B) Ao oficial de serviço e ao mestre",
+          "C) Ao Imediato e ao oficial de serviço",
+          "D) Ao patrão da embarcação e ao oficial de serviço",
+          "E) Ao mestre e ao imediato"
+        ],
+        correct: 3
+      },
+      {
+        id: 612,
+        text: "612. CAAML-703 – As embarcações são conduzidas nos:",
+        options: [
+          "A) Turcos e picadeiros",
+          "B) Berços",
+          "C) Turcos",
+          "D) Picadeiros",
+          "E) Berços e turcos"
+        ],
+        correct: 0
+      },
+      {
+        id: 613,
+        text: "613. CAAML-703 – São aparelhos montados aos pares, servindo apenas às embarcações por eles sustentadas:",
+        options: [
+          "A) Berços",
+          "B) Turcos",
+          "C) Picadeiros",
+          "D) Guindastes",
+          "E) Turco singelo"
+        ],
+        correct: 1
+      },
+      {
+        id: 614,
+        text: "614. CAAML-703 – Podem ser manobrados por um turco singelo, ou mesmo, sem o auxílio destes:",
+        options: [
+          "A) Botes e balsa salva-vidas",
+          "B) Chalanas e balsa salva-vidas",
+          "C) Embarcação de casco semi-rígido e chalana",
+          "D) Chalanas e botes",
+          "E) Baleeiras e balsa salva-vidas"
+        ],
+        correct: 3
+      },
+      {
+        id: 615,
+        text: "615. CAAML-703 – Podem servir às diversas embarcações que moram em picadeiros próximos:",
+        options: [
+          "A) Turco de rolante ou deslizante",
+          "B) Lanças e guindastes",
+          "C) Apenas as lanças",
+          "D) Apenas os guindastes",
+          "E) Turco comum"
+        ],
+        correct: 1
+      },
+      {
+        id: 616,
+        text: "616. CAAML-703 – São os tipos de turcos utilizados nos navios da MB, EXCETO:",
+        options: [
+          "A) Comum",
+          "B) Rolante ou deslizante",
+          "C) Quadrantal",
+          "D) de rebater",
+          "E) Removível"
+        ],
+        correct: 4
+      },
+      {
+        id: 617,
+        text: "617. CAAML-703 – Correlacione:\n(1) Turco comum\n(2) Turco de rebater\n(3) Turco quadrantal\n(4) Turco rolante ou deslizante\n\n( ) O turco é recolhido ou disparado inclinando-se sobre um setor dentado que constitui seu pé e engraza numa cremalheira sobre o convés.\n( ) É constituído por dois braços montados com rodetes sobre duas calhas (trilhos)Estas são paralelas e dispostas num plano perpendicular ao costado do navio. O turco é disparado por gravidade, sob ação do peso da embarcação.\n( ) Constituído por ferro redondo (maciço ou oco) ou por perfis retangulares, podendo ser recurvado na parte superior ou possuir ângulo de 90º (no caso de perfis). Gira em torno de seu eixo vertical ou pode ser fixo, dependendo de sua base\n( ) Semelhante ao turco comum, mas em vez de girar em torno de seu eixo vertical, é rebatido para dentro, movendo-se em torno de um eixo horizontal na sua base, paralelo ao costado.",
+        options: [
+          "A) 3 – 4 – 1 – 2",
+          "B) 1 – 2 – 3 – 4",
+          "C) 3 – 4 – 2 – 1",
+          "D) 4 – 3 – 2 – 1",
+          "E) 4 – 3 – 1 – 2"
+        ],
+        correct: 0
+      },
+      {
+        id: 618,
+        text: "618. CAAML-703 – Em relação aos procedimentos com o turco rolante ou deslizante, assinale V ou F e marque a alternativa correta:\n\n( ) O movimento de disparar é dado por uma alavanca que libera e solta o frio do sarilho, onde está enrolado o cabo que iça a embarcação.\n( ) No primeiro momento, o braço e a embarcação descem sobre a calha até ficar totalmente disparada.\n( ) A seguir, a embarcação desce até ficar no nível do convés (a meia talha), para embarque dos passageiros ou do material.\n( ) Um terceiro movimento da alavanca do freio permite que a embarcação seja arriada até a superfície da água.",
+        options: [
+          "A) VFFV",
+          "B) VVVF",
+          "C) Todas são verdadeiras",
+          "D) VFVF",
+          "E) FVFV"
+        ],
+        correct: 2
+      },
+      {
+        id: 619,
+        text: "619. CAAML-703 – Analise a imagem abaixo e correlacione os itens de acordo com as lacunas:",
+        options: [
+          "A) 1 – Estropo de segurança / 2 – Estropo de mau tempo / 3 – Cabo de contrabalanço / 4 – Cabo guia",
+          "B) 1 – Cabo guia / 2 – Estropo de segurança / 3 – Estropo de mau tempo / 4 – Cabo de contrabalanço",
+          "C) 1 – Cabo de contrabalanço / 2 – estropo de mau tempo / 3 – Estropo de segurança / 4 – Cabo guia",
+          "D) 1 – Estropo de mau tempo / 2 – Estropo de segurança / 3 – Cabo guia / 4 – Cabo de contrabalanço",
+          "E) 1 – Estropo de mau tempo / 2 – Estropo de segurança / 3 – Cabo de contrabalanço / 4 – Sea Jackstay"
+        ],
+        correct: 0
+      },
+      {
+        id: 620,
+        text: "620. CAAML-703 – É o cabo que tem seu chicote superior fixado em olhal na base do turco e sua outra extremidade, no costado do navio, junto a linha d’água:",
+        options: [
+          "A) Estropo de segurança",
+          "B) Estropo de mau tempo",
+          "C) Cabo de contrabalanço",
+          "D) Cabo guia (“sea jackstay”)",
+          "E) Cabo de contrabalanço"
+        ],
+        correct: 3
+      },
+      {
+        id: 621,
+        text: "621. CAAML-703 – Serve para atenuar o movimento pendular da embarcação durante a faina, reduzindo a intensidade de eventuais choques com o navio, os quais podem ocorrer em determinadas situações de balanço, causando avarias:",
+        options: [
+          "A) Estropo de contrabalanço",
+          "B) Cabo de contrabalanço",
+          "C) Estropo de mau tempo",
+          "D) Cabo guia (sea jackstay)",
+          "E) Estropo de segurança"
+        ],
+        correct: 3
+      },
+      {
+        id: 622,
+        text: "622. CAAML-703 – Qual classe de navio dispõe de pontos de fixação de cabos guias no costa?",
+        options: [
+          "A) Fragatas classe Niterói",
+          "B) Fragatas classe Greenhalg",
+          "C) Corveta classe Inhaúma",
+          "D) Fragatas classe Tamandaré",
+          "E) Navio doca"
+        ],
+        correct: 0
+      },
+      {
+        id: 623,
+        text: "623. CAAML-703 – O instante crítico da faina de arriar uma embarcação, normalmente, ocorre:",
+        options: [
+          "A) Quando a embarcação é retirada do picadeiro, pois não se sabe ao certo se os cabos estão devidamente presos",
+          "B) Quando por ocasião do embarque de civis na embarcação, uma vez que esse público não é acostumado a guarnecer tal meio.",
+          "C) Quando o jogo do navio faz com que a embarcação possa vir arremessar o pessoal embarcado no mar, causando risco de vida aos mesmos.",
+          "D) Quando ela atinge a superfície do mar e ainda está presa ou sendo liberada dos cabos dos turcos",
+          "E) Quando está no meio do procedimento para arriar a embarcação, tendo em vista o possível movimento pendular ocasionado pelo navio"
+        ],
+        correct: 3
+      },
+      {
+        id: 624,
+        text: "624. CAAML-703 – Quem é o responsável por cumprir a lista de verificação da embarcação?",
+        options: [
+          "A) Patrão da lancha",
+          "B) Popeiro",
+          "C) Proeiro",
+          "D) Motorista",
+          "E) Contramestre"
+        ],
+        correct: 0
+      },
+      {
+        id: 625,
+        text: "625. CAAML-703 – Assinale abaixo a única opção que não é responsabilidade do contramestre da embarcação:",
+        options: [
+          "A) Solicita ao oficial de serviço permissão para reunir o pessoal para a manobra da lancha (quando necessário)",
+          "B) Providencia a palamenta completa da embarcação",
+          "C) Verifica se foi cumprida a lista de verificação da embarcação pelo patrão da lancha",
+          "D) Verifica se os equipamentos a serem utilizados na manobra foram alimentados, tais como motores, guinchos, etc.",
+          "E) Verifica se o pessoal envolvido na faina está utilizando o equipamento de proteção individual"
+        ],
+        correct: 1
+      },
+      {
+        id: 626,
+        text: "626. CAAML-703 – Assinale abaixo a única opção que não é responsabilidade do contramestre da embarcação:",
+        options: [
+          "A) Coordena o embarque de pessoal e material na embarcação",
+          "B) Verifica as boças de proa e popa e das catarinas, quando aplicáveis",
+          "C) Providencia, caso determinado, o disparo do pau de surriola e manda arriar a escada de portaló",
+          "D) Verifica os andorinhos e a boça de viagem",
+          "E) Tampona os bueiros com bujões de rosca"
+        ],
+        correct: 4
+      },
+      {
+        id: 627,
+        text: "627. CAAML-703 – Assinale abaixo a única opção que não é responsabilidade do patrão da embarcação:",
+        options: [
+          "A) Verifica a apresentação marinheira da lancha, corrigindo as discrepâncias",
+          "B) Verifica cumprimento das precauções de segurança por parte da guarnição (utilização de coletes de flutuabilidade permanente, capacetes e luvas)",
+          "C) Coordena o embarque de pessoal e material na embarcação",
+          "D) Exige correção de atitudes e apresentação pessoal da guarnição.",
+          "E) Providenciar a palamenta completa da embarcação, tamponar os bueiros com os bujões de rosca, verificar a cana do leme (operação em emergência) e testar as comunicações (transceptor portátil)"
+        ],
+        correct: 2
+      },
+      {
+        id: 628,
+        text: "628. CAAML-703 – em relação às atribuições do proeiro e do popeiro, analise as proposições abaixo:\n\nI – São os responsáveis por verificar se as boças reserva estão a bordo\nII – Mediante ordem do patrão, quando a embarcação estiver tocando a água e os cabos de aço solecados, retiram os gatos das catarinas dos arganéis da embarcação e largam as boças de proa e de popa (o proeiro faz primeiro)\nIII – O popeiro larga a boça de viagem (após ser largada, a boça fica pendurada por um cabo, em uma altura safa para ser recolhida pelo proeiro, quando a lancha aproximar-se para atracar)",
+        options: [
+          "A) Apenas a I está correta",
+          "B) Todas estão incorretas",
+          "C) I e III estão corretas",
+          "D) I, II e III estão corretas",
+          "E) I e II estão corretas"
+        ],
+        correct: 0
+      },
+      {
+        id: 629,
+        text: "629. CAAML-703 – Assinale abaixo a única opção que não é responsabilidade do Motorista da embarcação:",
+        options: [
+          "A) Cumprir a lista de verificação da lancha",
+          "B) Verificar o nível de óleo e combustível a bordo",
+          "C) Verificar os equipamentos de combate à incêndio",
+          "D) Cumprir as recomendações do patrão da lancha em relação ao regime de máquinas",
+          "E) Verificar o kit de ferramentas e partir o motor da lancha"
+        ],
+        correct: 0
+      },
+      {
+        id: 630,
+        text: "630. CAAML-703 – Nos navios da MB, as lanchas podem ser içadas/arriadas com o navio em movimento dependendo do estado do mar. Nos casos das baleeiras, a velocidade limite para essa faina é de:",
+        options: [
+          "A) 5 nós",
+          "B) 3 nós",
+          "C) 2 nós",
+          "D) 6 nós",
+          "E) 4 nós"
+        ],
+        correct: 0
+      },
+      {
+        id: 631,
+        text: "631. CAAML-703 – Assinale V ou F nas afirmativas abaixo:\n\n( ) Nas situações e que o navio esteja atracado ou fundeado e não havendo corrente expressiva a boça de viagem pode ser dispensada, usando-se apenas as boças de proa e de popa.\n( ) Independente do tipo de embarcação (lanchas ou botes), ao atracarem a contrabordo, devem receber as boças de proa e popa passadas pelo navio e ao desatracarem, os proeiros/popeiros devem larga-las dos cunhos (das lanchas) ou dos estropos com trambelhos (dos botes), para que o navio as recolham.\n( ) As boças reservas das embarcações servem para atracação em caso de um eventual problema das boças de proa e popa.",
+        options: [
+          "A) FVV",
+          "B) VVV",
+          "C) VFF",
+          "D) VVF",
+          "E) VFV"
+        ],
+        correct: 3
+      },
+      {
+        id: 632,
+        text: "632. CAAML-703 – A direção de rotação do hélice, denominada passo, pode ser direita ou esquerda. O passo __________ é quando a rotação é no sentido horário, com o hélice visto da parte de ré e o passo é ____________ quando, nas mesmas condições, esse sentido é antihorário:",
+        options: [
+          "A) direito - esquedo",
+          "B) Esquerdo - dextrogiro",
+          "C) esquerdo - sinistrogiro",
+          "D) direito - sinistrogiro",
+          "E) direito - dextrogiro"
+        ],
+        correct: 0
+      },
+      {
+        id: 633,
+        text: "633. CAAML-703 – Qual é o valor máximo do ângulo do leme?",
+        options: [
+          "A) 35º",
+          "B) 15º",
+          "C) 45º",
+          "D) 30º",
+          "E) 25º"
+        ],
+        correct: 0
+      },
+      {
+        id: 634,
+        text: "634. CAAML-703 – Quando um barco guina por efeito do seu leme, le gira em torno de um ponto denominado:",
+        options: [
+          "A) Meia nau",
+          "B) Pivô",
+          "C) Ângulo do leme",
+          "D) Ponto médio da embarcação",
+          "E) Cana do leme"
+        ],
+        correct: 1
+      },
+      {
+        id: 635,
+        text: "635. CAAML-703 – Está normalmente localizado acerca de um terço do comprimento, a partir da proa do navio:",
+        options: [
+          "A) Ângulo do leme",
+          "B) Meia nau",
+          "C) Centro de gravidade",
+          "D) Pivô",
+          "E) Cana do leme"
+        ],
+        correct: 3
+      },
+      {
+        id: 636,
+        text: "636. CAAML-703 – Durante a faina de içar e arriar, todo pessoal na embarcação guarnece:",
+        options: [
+          "A) O estropo de segurança",
+          "B) Os arganéis",
+          "C) Os andorinhos",
+          "D) A boça de viagem",
+          "E) As catarinas"
+        ],
+        correct: 2
+      },
+      {
+        id: 637,
+        text: "637. CAAML-703 – As embarcações são o espelho do asseio e cuidado observado na unidade a que pertencem. Deve-se exigir a manutenção da tradição de boa apresentação marinheira nas embarcações miúdas. Recomenda-se, EXCETO:",
+        options: [
+          "A) Evitar que as embarcações fiquem atracadas por longo período ao portaló dos navios ou às escadas do cais (devem ficar ao largo ou amarradas ao surriola, atracando somente quando preciso e pelo tempo necessário)",
+          "B) Içar a chalana logo que terminar o serviço para o qual foi arriada",
+          "C) Manter a guarnição completa a bordo das embarcações em serviço, quando afastadas do navio, e quando atracadas ao cais ou a outro navio (o patrão não pode ausentar-se da embarcação)",
+          "D) Içar, baldear e limpar a embarcação, logo que terminado seu serviço, como exercícios e conduções",
+          "E) Manter sempre uma equipe de prontidão para guarnecimento da embarcação miúda em qualquer situação."
+        ],
+        correct: 4
+      },
+      {
+        id: 638,
+        text: "638. CAAML-703 – Quanto à apresentação, as falhas mais frequentes observadas nas lanchas são, EXCETO:",
+        options: [
+          "A) Guarnição displicente ou mal apresentada",
+          "B) Pavilhão nacional grande demais para o tamanho da embarcação",
+          "C) Capas sujas e mal arrumadas; paineiros sujos e maltratados",
+          "D) Croques e demais palamentas sujos e sem verniz",
+          "E) suportes para a palamenta faltando ou com a fixação folgada"
+        ],
+        correct: 1
+      },
+      {
+        id: 639,
+        text: "639. CAAML-703 – Correlacione as colunas de acordo com a sinalização das bandeiras por ocasião do arriamento de uma embarcação:\n\n(1) Bandeira encarnada na manobra\n(2) Bandeira encarnada na estação\n(3) Bandeira verde na estação\n(4) Bandeira verde na manobra\n\n( ) Arriar a embarcação\n( ) Preparando para arriar a embarcação\n( ) Preparar para arriar a embarcação\n( ) Embarcação pronta para ser arriada",
+        options: [
+          "A) 4 – 2 – 1 – 3",
+          "B) 1 – 2 – 3 – 4",
+          "C) 1 – 4 – 2 – 3",
+          "D) 4 – 2 – 1 – 3",
+          "E) 2 – 1 – 4 – 3"
+        ],
+        correct: 0
+      },
+      {
+        id: 640,
+        text: "640. CAAML-703 – Correlacione as colunas de acordo com a sinalização das bandeiras por ocasião da faina de receber e içar uma embarcação de uma embarcação:\n\n(1) Bandeira encarnada na manobra\n(2) Bandeira encarnada na estação\n(3) Bandeira verde na estação\n(4) Bandeira verde na manobra\n\n( ) Receber a embarcação a contrabordo\n( ) Embarcação a contrabordo preparando para ser içada\n( ) Embarcação pronta para ser içada\n( ) Içar a embarcação",
+        options: [
+          "A) 4 – 1 – 2 – 3",
+          "B) 4 – 2 – 1 – 3",
+          "C) 1 – 3 – 2 – 4",
+          "D) 1 – 2 – 3 – 4",
+          "E) 2 – 1 – 4 – 3"
+        ],
+        correct: 3
+      },
+      {
+        id: 641,
+        text: "641. CAAML-703 – Por ocasião da apresentação marinheira, assinale abaixo quem são os responsáveis, no porto, durante o expediente, por inspecionar frequentemente o navio, verificando a limpeza, arrumação dos compartimentos e o aspecto marinheiro:",
+        options: [
+          "A) Mestre e o Sargento-polícia",
+          "B) Encarregado de divisão, Mestre e o Sargento-Polícia",
+          "C) Oficial de serviço, Mestre e o Sargento-Polícia",
+          "D) Encarregado de divisão e o Mestre",
+          "E) Oficial de serviço e contramestre"
+        ],
+        correct: 1
+      },
+      {
+        id: 642,
+        text: "642. CAAML-703 – Após o expediente, quem são os responsáveis por inspecionar o navio?",
+        options: [
+          "A) Sargento-polícia",
+          "B) Oficial de serviço e o Sargento-Polícia",
+          "C) Oficial de serviço e o Contramestre",
+          "D) Contramestre",
+          "E) Contramestre e o Sargento-Polícia"
+        ],
+        correct: 1
+      },
+      {
+        id: 643,
+        text: "643. CAAML-703 – Após o expediente, quem será empregado para manter o navio limpo?",
+        options: [
+          "A) O quarto de serviço, exceto o 00 às 04, uma vez que este é dispensado do quarto D’Alva",
+          "B) O quarto de serviço",
+          "C) A faxina do Mestre",
+          "D) Os cônicos",
+          "E) O quarto de serviço e os crônicos"
+        ],
+        correct: 1
+      },
+      {
+        id: 644,
+        text: "644. CAAML-703 - Por ocasião da apresentação marinheira, assinale abaixo quem são os responsáveis, em viagem, por inspecionar frequentemente o navio, verificando a limpeza, arrumação dos compartimentos e o aspecto marinheiro:",
+        options: [
+          "A) Contramestre de quarto e Sargento-Polícia",
+          "B) Mestre e Sargento-Polícia",
+          "C) Oficial de quarto e Mestre",
+          "D) Mestre e Contramestre de quarto",
+          "E) Mestre, Contramestre de quarto e o Sargento-Polícia"
+        ],
+        correct: 4
+      },
+      {
+        id: 645,
+        text: "645. CAAML-703 – Quais militares serão empregados, em viagem, para manutenção da limpeza e aspecto marinheiro do navio?",
+        options: [
+          "A) Grupo de limpeza e fainas marinheiras",
+          "B) Todos os CB/MN de bordo, desde que não estejam no horário de serviço",
+          "C) Os militares de serviço no horário serão os responsáveis pela manutenção dos locais sob suas responsabilidades",
+          "D) Faxina do Mestre",
+          "E) Os CB/MN destacados"
+        ],
+        correct: 0
+      },
+      {
+        id: 646,
+        text: "646. CAAML-703 – Assinale a alternativa correta em relação às orientações básicas que devem ser consideradas a bordo:",
+        options: [
+          "A) Os sinais de rotina, como os de rancho, uniforme, etc., entre o nascer e o pôr do sol, serão executados por apito e os quartos marcados pelo sino de bordo",
+          "B) Os sinais de rotina, como os de rancho, uniforme, etc., entre a alvorada e o silêncio, serão executados por apito, com correção e os quartos marcados pelo sino de bordo",
+          "C) Os sinais de rotina, como os de rancho, uniforme, etc., entre o nascer e o pôr do sol, serão executados por apito, com correção e os quartos marcados pelo sino de bordo",
+          "D) Os sinais de rotina, como os de rancho, uniforme, etc., entre a alvorada e o silêncio, serão executados por apito e os quartos marcados pelo sino de bordo",
+          "E) Todos sinais de bordo, entre a alvorada e o silêncio, serão executados por apito, com correção e os quartos marcados pelo sino de bordo"
+        ],
+        correct: 1
+      },
+      {
+        id: 647,
+        text: "647. CAAML-703 – Em relação às falhas mais comuns quanto à apresentação marinheira, assinale abaixo a alternativa incorreta:",
+        options: [
+          "A) Parafusos, porcas, grampos, orelhas de portas, válvulas e vigias de combate não emperrados pela tinta indevidamente aplicada",
+          "B) Continência aos navios ou às embarcações que passam deve ser feita com correção, aoapito respectivo",
+          "C) Amarelos limpos, porém com a pintura adjacente borrada, devido ao extravasamento do preparado de limpeza (kaol ou similar)",
+          "D) O não cumprimento, por ocasião do quarto d’alva/pôr do sol do regime de luzes",
+          "E) Vergueiros e balaustradas solecados"
+        ],
+        correct: 0
+      },
+      {
+        id: 648,
+        text: "648. CAAML-703 – Deve ser mantida na(o) __________, na(o) ____________e na(o) ______________, a relação dos materiais perigosos existentes a bordo, por categoria, discriminando local, precauções para armazenagens, manuseio e procedimentos a serem adotados (no mar e em terra) no caso de contaminação de pessoal:",
+        options: [
+          "A) Enfermaria de emergência, passadiço e camarote do comandante",
+          "B) Enfermaria, gabinete do comando e estação central do CAv",
+          "C) Enfermaria, estação central do CAv e portaló",
+          "D) Enfermaria, estação central do CAv e passadiço",
+          "E) Enfermaria de combate, portaló e passadiço"
+        ],
+        correct: 2
+      },
+      {
+        id: 649,
+        text: "649. CAAML-703 – Nas fainas marinheiras em conveses abertos, é obrigatório o uso:",
+        options: [
+          "A) Do colete de flutuabilidade permanente (tradicionalmente conhecido como colete de paina)",
+          "B) Do colete de flutuabilidade permanente ou colete de espuma positiva",
+          "C) Do colete de flutuabilidade permanente (tradicionalmente conhecido como colete de paina) ou auto-inflável",
+          "D) Do colete de paina ou colete flutuante",
+          "E) Do colete auto-inflável"
+        ],
+        correct: 2
+      },
+      {
+        id: 650,
+        text: "650. CAAML-703 – Correlacione as cores do capacete de acordo com a sua codificação:\n\n(1) Branco\n(2) Banco com uma cruz verde\n(3) Branco com uma cruz vermelha\n(4) Amarelo\n(5) Verde\n(6) Vermelho\n(7) Marrom\n(8) Púrpura\n(9) Azul\n(10) Laranja\n(11) Cinza\n\n( ) Lançador de rebolo/fuzil lança retinida\n( ) Laboradores de cabos/faxina do mestre\n( ) Enfermeiro\n( ) Oficial de segurança\n( ) Reparador\n( ) Operador de cabrestante/guincho/CAv\n( ) Sr. Mestre\n( ) Verificador/inspetor/Pessoal de fornecimento\n( ) Oficiais\n( ) Outros\n( ) Raqueteiro/telefonista",
+        options: [
+          "A) 5 – 8 – 3 – 4 – 7 – 11 – 10 – 9 – 1 – 2 – 6",
+          "B) 6 – 9 – 3 – 2 – 8 – 7 – 4 – 10 – 1 – 11 – 5",
+          "C) 6 – 8 – 3 – 2 – 9 – 7 – 4 – 11 – 1 – 10 – 5",
+          "D) 6 – 9 – 2 – 3 – 7 – 8 – 10 – 4 – 5 – 11 – 1",
+          "E) 5 – 3 – 8 – 7 – 4 – 10 – 11 – 1 – 9 – 6 – 2"
+        ],
+        correct: 1
+      },
+      {
+        id: 651,
+        text: "651. CAAML-703 – Assinale abaixo a única alternativa que não condiz com os cuidados que devem ser observados quando trabalhando com espias e cabos:",
+        options: [
+          "A) Não permitir a presença de pessoal nas proximidades de cabos sob tensão",
+          "B) O primeiro homem que guarnece qualquer cabo sob pressão deve manter um socairo mínimo de 1,8 metros de um cabrestante, cabeço, buzina, rodete ou de qualquer outro aparelho ou equipamento por onde o cabo seja tracionado ou laborado",
+          "C) Todas as espias e cabos de reboque devem possuir fusíveis",
+          "D) Usar luvas do tipo “raspa de coco” ou de vaqueta quando laborando cabos",
+          "E) Não exercer muito esforço em um cabo que já teha trabalhado próximo a sua carga de ruptura ou em serviço contínuo"
+        ],
+        correct: 1
+      },
+      {
+        id: 652,
+        text: "652. CAAML-703 – Analise as proposições abaixo e depois marque a alternativa correta:\n\nI – É imperativo a presença de um observador de segurança em todos os casos em que se laboram cabos;\nII – Mater um socairo mínimo de 2 metros\nIII – Não se deve ficar por fora de cabo laborando ou não na direção em que ele é tracionado\nIV – Não se deve aumentar a carga (esforço) num cabo depois de se travar ou de se ter dado volta num cunho, cabeço ou similar",
+        options: [
+          "A) Apenas I e IV estão corretas",
+          "B) Todas estão corretas",
+          "C) Apenas a IV está correta",
+          "D) Apenas I e II estão corretas",
+          "E) Apenas a I, II e IV estão corretas"
+        ],
+        correct: 4
+      },
+      {
+        id: 653,
+        text: "653. CAAML-703 – Quando laboramos cabos e espias, devemos observar quatro regras de segurança, independente do material de fabricação, EXCETO:",
+        options: [
+          "A) Não se deve aumentar a carga (esforço) num cabo depois de se travar ou de se ter dado volta num cunho, cabeço ou similar.",
+          "B) Manter um enfermeiro com kit de primeiros socorros na área.",
+          "C) Não se deve ficar por dentro do cabo laborando ou na direção em que ele é tracionado,",
+          "D) É imperativo a presença de um observador de segurança em todos os casos em que se laboram cabos.",
+          "E) Manter um socairo mínimo de 2 metros"
+        ],
+        correct: 1
+      },
+      {
+        id: 654,
+        text: "654. CAAML-703 – Os seguintes aspectos devem ser observados durante as fainas de transferência no mar, EXCETO:",
+        options: [
+          "A) Todo o pessoal deve estar adestrado para: manter-se afastado de retornos, seios de cabo, guarnecer os cabos se posicionando para dentro de bordo e, se praticável, permanecer a pelos menos 1,8 m de distância de moitões, cunhos, sarilhos, cabrestantes etc. por onde os cabos gurnem.",
+          "B) A balaustrada não deve ser arriada a não ser que absolutamente necessário",
+          "C) Todo o pessoal deve estar atento a um possível movimento da carga devido ao jogo do navio. Ninguém deve se posicionar entre a carga e a borda do navio.",
+          "D) Manter um enfermeiro disponível na estação, bem como um oficial com a função de Oficial de Segurança.",
+          "E) Usar cabo de recolhimento de flutuabilidade positiva (polipropileno)"
+        ],
+        correct: 4
+      },
+      {
+        id: 655,
+        text: "655. CAAML-703 – Em relação às fainas de recolhimento de homem ao mar, assinale V ou F nas proposições abaixo:\n\n( ) Os homens que guarnecem as estações para o recolhimento devem portar coletes de flutuabilidade permanente ou auto-infláveis e luvas.\n( ) Por ocasião de recolhimento noturno, o nadador deve sempre possuir um “cyalume” preso ao “sling”, pela parte posterior, próximo ao engate do gato do cabo de recolhimento e uma lanterna estroboscópica fixada ao punho.\n( ) Em situação de guerra, no caso de recolhimento de inimigo, manter homens armados postados em local elevado e próximo à estação de recolhimento, de modo a prevenir-se contra eventual ação adversa (não esquecer de revistar os náufragos rigorosamente, tão logo cheguem a bordo, independentemente do estado de saúde aparente)",
+        options: [
+          "A) VFF",
+          "B) VVV",
+          "C) FVF",
+          "D) VFV",
+          "E) FFF"
+        ],
+        correct: 3
+      },
+      {
+        id: 656,
+        text: "656. CAAML-703 – Qual OM é responsável por homologar a escada do prático?",
+        options: [
+          "A) DPC",
+          "B) DEN",
+          "C) DGN",
+          "D) DIM",
+          "E) BNIC"
+        ],
+        correct: 0
+      },
+      {
+        id: "656b",
+        text: "656. CAAML-703 – Assinale a alternativa incorreta em relação aos procedimentos para embarque e desembarque de prático:",
+        options: [
+          "A) A escada deve ser montada por militar capacitado e sob a supervisão de um Oficial. Para receber o prático, a escada deverá ser lançada a barlavento.",
+          "B) Para que possa ter acesso ao navio, com segurança e comodidade, o prático não deverá subir menos do que 1,50 m, nem mais do que 9 m.",
+          "C) Em caso de necessidade, devem ser mantidas prontas para serem usadas duas boças, solidamente amarradas ao navio, tendo pelo menos 32 mm de diâmetro.",
+          "D) Quando a altura a ser escalada pelo Prático for superior a 9 m, a subida a bordo, a partir da escada de prático, deve ser efetuada com o auxílio da escada de portaló.",
+          "E) Se o navio estiver em movimento, o embarque ou desembarque do prático deve ser feito com máquinas adiante e velocidade máxima de 5 a 6 nós."
+        ],
+        correct: 0
+      },
+      {
+        id: 657,
+        text: "657. CAAML-703 – Analise as informações abaixo relacionadas aos procedimentos para montagem da escada do prático:\n\nI – O 5º degrau deve ser um travessão.\nII – No máximo 9 degraus entre os travessões.\nIII – Nos navios com borda-livre maior que 9 metros, a escada de portaló deverá dizer para ré e ter a inclinação máxima de 45º.\nIV – Nos navios com borda-livre maior que 9 metros, o patim inferior deve estar, no mínimo a 5 metros acima do mar.",
+        options: [
+          "A) Apenas a I está incorreta.",
+          "B) Todas as opções estão corretas.",
+          "C) Apenas a II está incorreta.",
+          "D) Apenas a III está incorreta.",
+          "E) Apenas IV está incorreta."
+        ],
+        correct: 3
+      },
+      {
+        id: 658,
+        text: "658. CAAML-703 – A bordo, os seguintes aparelhos ou equipamentos são fontes de energia eletromagnética, EXCETO:",
+        options: [
+          "A) Transmissores e receptores de comunicações.",
+          "B) Radares.",
+          "C) Radares de direção de tiro.",
+          "D) Sistema de guiagem de mísseis.",
+          "E) Aeronave engrazada no convoo."
+        ],
+        correct: 3
+      },
+      {
+        id: 659,
+        text: "659. CAAML-703 - A possibilidade de ignição do combustível por ação de radiofrequência é remota, na medida em que o desenvolvimento dos requisitos de projeto dos navios (como, localização das antenas não interferindo com estações de abastecimento ou suspiros de tanques), a adoção de procedimentos e equipamentos de abastecimento mais seguros e de combustíveis menos voláteis (JP-5, por exemplo) reduziram a possibilidade deste tipo de ocorrência.\nEntretanto, ainda há algum risco no manuseio de gasolina, particularmente a de aviação.\nAssinale abaixo a única alternativa que não representa uma das precauções de segurança para minimizar a possibilidade de acidentes:",
+        options: [
+          "A) não alimente qualquer transmissor (radar ou de comunicações) nas proximidades de aeronave ou veículo sendo abastecido (ao menos 15 metros afastado).",
+          "B) não faça ou desfaça o aterramento ou qualquer outra conexão elétrica de uma aeronave ou veículo sendo abastecido (ou nas suas proximidades). Faça a conexão antes de começar o abastecimento e a desfaça após o término da faina.",
+          "C) É recomendável que a pressão de abastecimento não ultrapasse 5 bar, de modo que não cause sobrecarga e rompimento na rede.",
+          "D) não coloque tanques portáteis de combustível perto de antenas.",
+          "E) nunca dirija o feixe radar na direção de aeronave ou veiculo sendo abastecido;"
+        ],
+        correct: 2
+      },
+      {
+        id: 660,
+        text: "660. CAAML-703 - Complete a lacuna:\n\"É proibido o posicionamento de ampolas de oxigênio e/ou acetileno no interior de espaços confinados (exceção feita à ampola de ________________)\"",
+        options: [
+          "A) Oxigênio no paiol de CAv do navio.",
+          "B) Acetileno na enfermaria",
+          "C) Acetileno na praça de máquinas",
+          "D) Acetileno no compartimento de refrigeração",
+          "E) Oxigênio na enfermaria"
+        ],
+        correct: 4
+      },
+      {
+        id: 661,
+        text: "661. CAAML-703 - \"Durante os períodos de manutenção, os cuidados com a segurança devem ser redobrados considerando-se que o navio fica mais vulnerável, devido à grande quantidade de equipamentos e sistemas, inclusive de CBINC, que são retirados para reparo, além dos diversos serviços que são realizados simultaneamente.\"\nUma das recomendações gerais durante os períodos de manutenção é instituir uma comissão encarregada da segurança e prevenção de acidentes, constituída ao início do período de manutenção e integrada pelos militares abaixo, EXCETO:",
+        options: [
+          "A) CHEOP",
+          "B) Oficial médico",
+          "C) Imediato",
+          "D) CHEMAQ",
+          "E) Comandante"
+        ],
+        correct: 4
+      },
+      {
+        id: 662,
+        text: "662. CAAML-703 - Assinale a opção que NÃO CONSTA entre as precauções gerais de segurança do pessoal citadas no item 15, anexo B do presente manual.",
+        options: [
+          "A) avisar a central do CAv quando for trabalhar em compartimentos isolados e sem fonograma, principalmente quando a tripulação estiver licenciada.",
+          "B) Não se apoiar sobre os cabeços.",
+          "C) Nunca passar sobre espiãs, cabos e amarras tensionados",
+          "D) Limitar o uso de óculos escuros aos conveses abertos.",
+          "E) Fumar apenas nos locais permitidos."
+        ],
+        correct: 1
+      }
+    ];
+
+    // App State
+    let currentIndex = 0;
+    let userAnswers = {}; // { questionIndex: selectedOptionIndex }
+    let mode = 'study'; // 'study' or 'exam'
+    let activeFilter = 'all'; // 'all', 'unanswered', 'answered'
+    let discardedOptions = {}; // { questionIndex: { optionIndex: true } }
+    let timerInterval = null;
+
+    // Local Storage Keys (cache local / fallback offline)
+    const STORAGE_KEY_ANSWERS = 'caaml_703_answers';
+    const STORAGE_KEY_MODE = 'caaml_703_mode';
+    const STORAGE_KEY_DISCARDED = 'caaml_703_discarded_options';
+    const STORAGE_KEY_START = 'caaml_703_elapsed_start';
+
+    // --- Supabase: autenticação e persistência na nuvem ---
+    const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const QUIZ_ID = 'CAAML-703';
+    let currentUser = null;
+    let saveDebounceTimer = null;
+
+    function traduzErro(msg) {
+      const map = {
+        'Invalid login credentials': 'E-mail ou senha incorretos.',
+        'User already registered': 'Já existe uma conta com esse e-mail.',
+        'Email not confirmed': 'Confirme seu e-mail antes de entrar (verifique sua caixa de entrada).',
+        'Password should be at least 6 characters': 'A senha precisa ter pelo menos 6 caracteres.'
+      };
+      return map[msg] || msg;
+    }
+
+    function shakeAccessCard() {
+      const card = document.getElementById('access-card');
+      card.classList.remove('shake');
+      void card.offsetWidth;
+      card.classList.add('shake');
+    }
+
+    function switchAuthTab(tab) {
+      const loginForm = document.getElementById('login-form');
+      const signupForm = document.getElementById('signup-form');
+      const tabLogin = document.getElementById('tab-login');
+      const tabSignup = document.getElementById('tab-signup');
+      document.getElementById('access-message').textContent = '';
+      const activeCls = 'flex-1 py-2 rounded-md font-semibold transition-all bg-navy-600 text-white';
+      const inactiveCls = 'flex-1 py-2 rounded-md font-semibold transition-all text-slate-400 hover:text-white';
+      if (tab === 'login') {
+        loginForm.classList.remove('hidden'); loginForm.classList.add('flex');
+        signupForm.classList.add('hidden'); signupForm.classList.remove('flex');
+        tabLogin.className = activeCls; tabSignup.className = inactiveCls;
+      } else {
+        signupForm.classList.remove('hidden'); signupForm.classList.add('flex');
+        loginForm.classList.add('hidden'); loginForm.classList.remove('flex');
+        tabSignup.className = activeCls; tabLogin.className = inactiveCls;
+      }
+    }
+
+    async function handleLogin(event) {
+      event.preventDefault();
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+      const msg = document.getElementById('access-message');
+      msg.className = 'min-h-5 mt-4 text-xs text-slate-300';
+      msg.textContent = 'Entrando...';
+      const { error } = await sb.auth.signInWithPassword({ email, password });
+      if (error) {
+        msg.className = 'min-h-5 mt-4 text-xs text-rose-300';
+        msg.textContent = traduzErro(error.message);
+        shakeAccessCard();
+      } else {
+        msg.textContent = '';
+      }
+      return false;
+    }
+
+    async function handleSignup(event) {
+      event.preventDefault();
+      const nome = document.getElementById('signup-name').value.trim();
+      const email = document.getElementById('signup-email').value.trim();
+      const password = document.getElementById('signup-password').value;
+      const msg = document.getElementById('access-message');
+      msg.className = 'min-h-5 mt-4 text-xs text-slate-300';
+      msg.textContent = 'Criando conta...';
+      const { data, error } = await sb.auth.signUp({ email, password, options: { data: { nome } } });
+      if (error) {
+        msg.className = 'min-h-5 mt-4 text-xs text-rose-300';
+        msg.textContent = traduzErro(error.message);
+      } else if (data.user && !data.session) {
+        msg.className = 'min-h-5 mt-4 text-xs text-emerald-300';
+        msg.textContent = 'Conta criada! Verifique seu e-mail para confirmar o acesso.';
+      } else {
+        msg.textContent = '';
+      }
+      return false;
+    }
+
+    async function handleForgotPassword() {
+      const email = document.getElementById('login-email').value.trim();
+      const msg = document.getElementById('access-message');
+      if (!email) {
+        msg.className = 'min-h-5 mt-4 text-xs text-rose-300';
+        msg.textContent = 'Digite seu e-mail no campo acima e clique novamente.';
+        return;
+      }
+      msg.className = 'min-h-5 mt-4 text-xs text-slate-300';
+      msg.textContent = 'Enviando link de recuperação...';
+      const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: window.location.href.split('#')[0] });
+      msg.className = error ? 'min-h-5 mt-4 text-xs text-rose-300' : 'min-h-5 mt-4 text-xs text-emerald-300';
+      msg.textContent = error ? traduzErro(error.message) : 'Link enviado! Verifique seu e-mail.';
+    }
+
+    function showRecoveryForm() {
+      document.getElementById('login-form').classList.add('hidden');
+      document.getElementById('login-form').classList.remove('flex');
+      document.getElementById('signup-form').classList.add('hidden');
+      document.getElementById('signup-form').classList.remove('flex');
+      document.getElementById('recovery-form').classList.remove('hidden');
+      document.getElementById('recovery-form').classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    async function handleSetNewPassword(event) {
+      event.preventDefault();
+      const password = document.getElementById('recovery-password').value;
+      const msg = document.getElementById('access-message');
+      const { error } = await sb.auth.updateUser({ password });
+      if (error) {
+        msg.className = 'min-h-5 mt-4 text-xs text-rose-300';
+        msg.textContent = traduzErro(error.message);
+      } else {
+        msg.className = 'min-h-5 mt-4 text-xs text-emerald-300';
+        msg.textContent = 'Senha atualizada com sucesso!';
+      }
+      return false;
+    }
+
+    async function handleLogout() {
+      if (timerInterval) clearInterval(timerInterval);
+      await sb.auth.signOut();
+    }
+
+    async function onUserAuthenticated() {
+      document.getElementById('access-screen').classList.add('hidden');
+      const bar = document.getElementById('user-bar');
+      bar.classList.remove('hidden');
+      bar.classList.add('flex');
+      document.getElementById('user-email').textContent = currentUser.email;
+
+      const nome = currentUser.user_metadata && currentUser.user_metadata.nome;
+      sb.from('profiles').upsert({ id: currentUser.id, nome: nome || null }).then(() => {});
+
+      await loadSavedState();
+      currentIndex = 0;
+      renderQuestion();
+      renderGrid();
+      updateTrackers();
+
+      if (!localStorage.getItem(STORAGE_KEY_START)) {
+        localStorage.setItem(STORAGE_KEY_START, String(Date.now()));
+      }
+      startElapsedTimer();
+      updateElapsedTimer();
+    }
+
+    function showAccessScreen() {
+      document.getElementById('access-screen').classList.remove('hidden');
+      document.getElementById('user-bar').classList.add('hidden');
+      document.getElementById('user-bar').classList.remove('flex');
+      if (timerInterval) clearInterval(timerInterval);
+      const loginEmail = document.getElementById('login-email');
+      if (loginEmail) loginEmail.focus();
+    }
+
+    // Init App
+    window.addEventListener('DOMContentLoaded', () => {
+      sb.auth.onAuthStateChange((event, session) => {
+        if (event === 'PASSWORD_RECOVERY') {
+          showRecoveryForm();
+          return;
+        }
+        if (session && session.user) {
+          currentUser = session.user;
+          onUserAuthenticated();
+        } else if (event === 'SIGNED_OUT' || event === 'INITIAL_SESSION') {
+          currentUser = null;
+          showAccessScreen();
+        }
+      });
+    });
+
+    // Atalhos de teclado: ← / → navegam entre questões, A–E marcam a alternativa
+    document.addEventListener('keydown', (e) => {
+      const locked = !document.getElementById('access-screen').classList.contains('hidden');
+      if (locked) return;
+      const typingInField = ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName);
+      if (typingInField) return;
+
+      if (e.key === 'ArrowRight') { nextQuestion(); }
+      else if (e.key === 'ArrowLeft') { prevQuestion(); }
+      else {
+        const letterIndex = 'abcde'.indexOf(e.key.toLowerCase());
+        if (letterIndex > -1 && questionsData[currentIndex] && letterIndex < questionsData[currentIndex].options.length) {
+          selectOption(letterIndex);
+        }
+      }
+    });
+
+    function startElapsedTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(updateElapsedTimer, 1000);
+    }
+
+    function formatElapsed(ms) {
+      const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+      const h = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+      const m = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+      const sec = String(totalSeconds % 60).padStart(2, '0');
+      return `${h}:${m}:${sec}`;
+    }
+
+    function updateElapsedTimer() {
+      const el = document.getElementById('elapsed-timer');
+      if (!el) return;
+      const start = Number(localStorage.getItem(STORAGE_KEY_START));
+      el.querySelector('span').innerText = start ? formatElapsed(Date.now() - start) : '00:00:00';
+    }
+
+    async function loadSavedState() {
+      userAnswers = {};
+      discardedOptions = {};
+      let loadedFromCloud = false;
+
+      if (currentUser) {
+        try {
+          const { data, error } = await sb
+            .from('progresso')
+            .select('respostas, descartadas, modo')
+            .eq('user_id', currentUser.id)
+            .eq('quiz_id', QUIZ_ID)
+            .maybeSingle();
+          if (!error && data) {
+            userAnswers = data.respostas || {};
+            discardedOptions = data.descartadas || {};
+            if (data.modo) setMode(data.modo, false);
+            loadedFromCloud = true;
+          }
+        } catch (e) { /* segue para o cache local */ }
+      }
+
+      if (!loadedFromCloud) {
+        const savedAnswers = localStorage.getItem(STORAGE_KEY_ANSWERS);
+        if (savedAnswers) {
+          try { userAnswers = JSON.parse(savedAnswers); } catch(e) { userAnswers = {}; }
+        }
+        const savedMode = localStorage.getItem(STORAGE_KEY_MODE);
+        if (savedMode) setMode(savedMode, false);
+        const savedDiscarded = localStorage.getItem(STORAGE_KEY_DISCARDED);
+        if (savedDiscarded) {
+          try { discardedOptions = JSON.parse(savedDiscarded) || {}; } catch(e) { discardedOptions = {}; }
+        }
+      }
+    }
+
+    async function syncProgressToCloud() {
+      if (!currentUser) return;
+      await sb.from('progresso').upsert({
+        user_id: currentUser.id,
+        quiz_id: QUIZ_ID,
+        respostas: userAnswers,
+        descartadas: discardedOptions,
+        modo: mode,
+        atualizado_em: new Date().toISOString()
+      });
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY_ANSWERS, JSON.stringify(userAnswers));
+      localStorage.setItem(STORAGE_KEY_DISCARDED, JSON.stringify(discardedOptions));
+      if (currentUser) {
+        clearTimeout(saveDebounceTimer);
+        saveDebounceTimer = setTimeout(syncProgressToCloud, 600);
+      }
+    }
+
+    function isDiscarded(qIndex, optIndex) {
+      return !!(discardedOptions[qIndex] && discardedOptions[qIndex][optIndex]);
+    }
+
+    function toggleDiscard(optIndex) {
+      if (!discardedOptions[currentIndex]) discardedOptions[currentIndex] = {};
+      if (discardedOptions[currentIndex][optIndex]) {
+        delete discardedOptions[currentIndex][optIndex];
+      } else {
+        discardedOptions[currentIndex][optIndex] = true;
+        // If the user had selected this option, remove that answer so the discarded option cannot remain selected.
+        if (userAnswers[currentIndex] === optIndex) delete userAnswers[currentIndex];
+      }
+      if (Object.keys(discardedOptions[currentIndex]).length === 0) delete discardedOptions[currentIndex];
+      saveState();
+      renderQuestion();
+      renderGrid();
+    }
+
+    function setMode(newMode, render = true) {
+      mode = newMode;
+      localStorage.setItem(STORAGE_KEY_MODE, mode);
+      if (currentUser && render) {
+        clearTimeout(saveDebounceTimer);
+        saveDebounceTimer = setTimeout(syncProgressToCloud, 600);
+      }
+
+      const studyBtn = document.getElementById('btn-mode-study');
+      const examBtn = document.getElementById('btn-mode-exam');
+
+      if (mode === 'study') {
+        studyBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-white shadow';
+        examBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-white';
+      } else {
+        examBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-white shadow';
+        studyBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-white';
+      }
+
+      if (render) {
+        renderQuestion();
+        renderGrid();
+      }
+    }
+
+    function renderQuestion() {
+      const q = questionsData[currentIndex];
+      const selectedOption = userAnswers[currentIndex];
+
+      // Update question text and badge
+      document.getElementById('question-badge').innerText = `Questão #${q.id}`;
+      document.getElementById('question-text').innerText = q.text;
+
+      // Status tag
+      const statusTag = document.getElementById('question-status-tag');
+      if (selectedOption !== undefined) {
+        statusTag.classList.remove('hidden');
+        if (mode === 'study') {
+          if (selectedOption === q.correct) {
+            statusTag.className = 'text-xs px-2.5 py-1 rounded font-medium bg-emerald-900/60 text-emerald-300 border border-emerald-700';
+            statusTag.innerText = 'Correta';
+          } else {
+            statusTag.className = 'text-xs px-2.5 py-1 rounded font-medium bg-rose-900/60 text-rose-300 border border-rose-700';
+            statusTag.innerText = 'Incorreta';
+          }
+        } else {
+          statusTag.className = 'text-xs px-2.5 py-1 rounded font-medium bg-slate-700 text-slate-300';
+          statusTag.innerText = 'Respondida';
+        }
+      } else {
+        statusTag.classList.add('hidden');
+      }
+
+      // Options
+      const container = document.getElementById('options-container');
+      container.innerHTML = '';
+
+      q.options.forEach((optText, optIdx) => {
+        const discarded = isDiscarded(currentIndex, optIdx);
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.onclick = () => { if (!isDiscarded(currentIndex, optIdx)) selectOption(optIdx); };
+
+        let baseClasses = 'w-full text-left p-4 pr-3 rounded-xl border text-sm md:text-base font-medium transition-all flex items-start gap-3 ';
+
+        if (discarded) {
+          baseClasses += 'bg-slate-800/30 border-slate-700/50 text-slate-500 opacity-50 line-through cursor-pointer';
+        } else if (selectedOption === undefined) {
+          // Unanswered
+          baseClasses += 'bg-navy-900/60 border-navy-700/80 text-slate-200 hover:bg-navy-700/50 hover:border-navy-500';
+        } else {
+          if (mode === 'study') {
+            // Study Mode: reveal correct & incorrect immediately
+            if (optIdx === q.correct) {
+              baseClasses += 'bg-emerald-950/70 border-emerald-600 text-emerald-200 shadow-sm';
+            } else if (optIdx === selectedOption && selectedOption !== q.correct) {
+              baseClasses += 'bg-rose-950/70 border-rose-600 text-rose-200 shadow-sm';
+            } else {
+              baseClasses += 'bg-navy-900/30 border-navy-800 text-slate-500 opacity-60';
+            }
+          } else {
+            // Exam Mode: show only user selection
+            if (optIdx === selectedOption) {
+              baseClasses += 'bg-navy-600/80 border-navy-400 text-white shadow-md';
+            } else {
+              baseClasses += 'bg-navy-900/60 border-navy-700/80 text-slate-300 hover:bg-navy-700/40';
+            }
+          }
+        }
+
+        btn.className = baseClasses;
+
+        // Custom indicator radio
+        let radioIcon = '';
+        if (selectedOption === undefined || discarded) {
+          radioIcon = `<span class="w-5 h-5 rounded-full border border-slate-500 flex items-center justify-center shrink-0 mt-0.5 ${discarded ? 'opacity-40' : ''}"></span>`;
+        } else if (mode === 'study') {
+          if (optIdx === q.correct) {
+            radioIcon = `<span class="w-5 h-5 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center shrink-0 mt-0.5 text-xs"><i class="fa-solid fa-check"></i></span>`;
+          } else if (optIdx === selectedOption && selectedOption !== q.correct) {
+            radioIcon = `<span class="w-5 h-5 rounded-full bg-rose-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs"><i class="fa-solid fa-xmark"></i></span>`;
+          } else {
+            radioIcon = `<span class="w-5 h-5 rounded-full border border-slate-700 flex items-center justify-center shrink-0 mt-0.5"></span>`;
+          }
+        } else { // Exam mode
+          if (optIdx === selectedOption) {
+            radioIcon = `<span class="w-5 h-5 rounded-full bg-white text-navy-900 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold"><i class="fa-solid fa-circle text-[8px]"></i></span>`;
+          } else {
+            radioIcon = `<span class="w-5 h-5 rounded-full border border-slate-500 flex items-center justify-center shrink-0 mt-0.5"></span>`;
+          }
+        }
+
+        const lockState = discarded ? 'fa-lock-open text-slate-300' : 'fa-lock text-slate-500';
+        btn.innerHTML = `${radioIcon}<span class="flex-1 ${discarded ? 'line-through' : ''}">${optText}</span><span role="button" tabindex="0" aria-label="${discarded ? 'Restaurar alternativa' : 'Descartar alternativa'}" title="${discarded ? 'Restaurar alternativa' : 'Cortar/descartar alternativa'}" class="ml-2 shrink-0 w-7 h-7 rounded-md flex items-center justify-center hover:bg-white/10 ${discarded ? 'bg-slate-700/50' : ''}" onclick="event.stopPropagation(); toggleDiscard(${optIdx})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();toggleDiscard(${optIdx})}"><i class="fa-solid ${lockState} text-xs"></i></span>`;
+        container.appendChild(btn);
+      });
+
+      // Explanation Box (Study Mode)
+      const expBox = document.getElementById('explanation-box');
+      if (mode === 'study' && selectedOption !== undefined) {
+        expBox.classList.remove('hidden');
+        const isRight = selectedOption === q.correct;
+        const expTitle = document.getElementById('explanation-title');
+        const expText = document.getElementById('explanation-text');
+
+        if (isRight) {
+          expTitle.className = 'flex items-center gap-2 text-sm font-bold text-emerald-400 mb-1';
+          expTitle.innerHTML = `<i class="fa-solid fa-circle-check"></i> Resposta Correta!`;
+          expText.innerText = `A alternativa gabarito é: ${q.options[q.correct]}`;
+        } else {
+          expTitle.className = 'flex items-center gap-2 text-sm font-bold text-rose-400 mb-1';
+          expTitle.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> Resposta Incorreta`;
+          expText.innerText = `Você selecionou a opção (${String.fromCharCode(65 + selectedOption)}), mas a correta é a alternativa: ${q.options[q.correct]}`;
+        }
+      } else {
+        expBox.classList.add('hidden');
+      }
+
+      // Nav buttons state
+      document.getElementById('btn-prev').disabled = currentIndex === 0;
+      document.getElementById('btn-next').disabled = currentIndex === questionsData.length - 1;
+
+      updateTrackers();
+
+      // Pequena transição ao trocar de questão
+      const card = document.getElementById('question-card');
+      card.classList.remove('question-in');
+      void card.offsetWidth;
+      card.classList.add('question-in');
+    }
+
+    function selectOption(optIndex) {
+      if (isDiscarded(currentIndex, optIndex)) return;
+      userAnswers[currentIndex] = optIndex;
+      saveState();
+      renderQuestion();
+      renderGrid();
+    }
+
+    function prevQuestion() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderQuestion();
+        renderGrid();
+      }
+    }
+
+    function nextQuestion() {
+      if (currentIndex < questionsData.length - 1) {
+        currentIndex++;
+        renderQuestion();
+        renderGrid();
+      }
+    }
+
+    function setFilter(filter) {
+      activeFilter = filter;
+      document.getElementById('filter-all').className = filter === 'all' ? 'py-1 rounded text-center bg-navy-700 text-white' : 'py-1 rounded text-center text-slate-400 hover:text-white';
+      document.getElementById('filter-unanswered').className = filter === 'unanswered' ? 'py-1 rounded text-center bg-navy-700 text-white' : 'py-1 rounded text-center text-slate-400 hover:text-white';
+      document.getElementById('filter-answered').className = filter === 'answered' ? 'py-1 rounded text-center bg-navy-700 text-white' : 'py-1 rounded text-center text-slate-400 hover:text-white';
+      renderGrid();
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('questions-grid');
+      grid.innerHTML = '';
+
+      questionsData.forEach((q, idx) => {
+        const isAnswered = userAnswers[idx] !== undefined;
+
+        // Apply filter
+        if (activeFilter === 'unanswered' && isAnswered) return;
+        if (activeFilter === 'answered' && !isAnswered) return;
+
+        const btn = document.createElement('button');
+        btn.onclick = () => {
+          currentIndex = idx;
+          renderQuestion();
+          renderGrid();
+        };
+
+        let classes = 'h-9 w-full rounded text-xs font-mono font-bold flex items-center justify-center transition-all border ';
+
+        if (idx === currentIndex) {
+          classes += 'bg-navy-500 border-white text-white shadow-md ring-2 ring-navy-400/50 ';
+        } else if (isAnswered) {
+          if (mode === 'study') {
+            if (userAnswers[idx] === q.correct) {
+              classes += 'bg-emerald-900/80 border-emerald-600 text-emerald-200 ';
+            } else {
+              classes += 'bg-rose-900/80 border-rose-600 text-rose-200 ';
+            }
+          } else {
+            classes += 'bg-slate-700 border-slate-600 text-slate-200 ';
+          }
+        } else {
+          classes += 'bg-navy-900/80 border-navy-700 text-slate-400 hover:bg-navy-700/50 hover:text-white ';
+        }
+
+        btn.className = classes;
+        btn.innerText = idx + 1;
+        grid.appendChild(btn);
+      });
+    }
+
+    function updateTrackers() {
+      const total = questionsData.length;
+      const answeredCount = Object.keys(userAnswers).length;
+
+      document.getElementById('question-tracker').innerText = `Questão ${currentIndex + 1} de ${total}`;
+      document.getElementById('answered-tracker').innerText = `${answeredCount} de ${total} respondidas`;
+
+      const percentage = (answeredCount / total) * 100;
+      document.getElementById('progress-bar').style.width = `${percentage}%`;
+
+      // Score counter in drawer
+      let correctCount = 0;
+      Object.keys(userAnswers).forEach(idx => {
+        if (userAnswers[idx] === questionsData[idx].correct) {
+          correctCount++;
+        }
+      });
+      document.getElementById('score-counter').innerText = `${correctCount}/${total}`;
+    }
+
+    function resetQuiz() {
+      if (confirm('Tem certeza de que deseja reiniciar o simulado? Suas respostas salvas serão apagadas.')) {
+        userAnswers = {};
+        discardedOptions = {};
+        localStorage.removeItem(STORAGE_KEY_ANSWERS);
+        localStorage.removeItem(STORAGE_KEY_DISCARDED);
+        localStorage.setItem(STORAGE_KEY_START, String(Date.now()));
+        if (currentUser) {
+          sb.from('progresso').delete().eq('user_id', currentUser.id).eq('quiz_id', QUIZ_ID).then(() => {});
+        }
+        currentIndex = 0;
+        renderQuestion();
+        renderGrid();
+        updateElapsedTimer();
+      }
+    }
+
+    function finishQuiz() {
+      const total = questionsData.length;
+      let correct = 0;
+      let answered = 0;
+
+      questionsData.forEach((q, idx) => {
+        if (userAnswers[idx] !== undefined) {
+          answered++;
+          if (userAnswers[idx] === q.correct) {
+            correct++;
+          }
+        }
+      });
+
+      const wrong = answered - correct;
+      const percent = Math.round((correct / total) * 100);
+
+      document.getElementById('modal-correct').innerText = correct;
+      document.getElementById('modal-wrong').innerText = wrong;
+      document.getElementById('modal-percent').innerText = `${percent}%`;
+
+      const feedback = document.getElementById('modal-feedback');
+      if (percent >= 80) {
+        feedback.innerText = 'Excelente desempenho! Você demonstrou forte domínio dos manuais do CAAML-703.';
+      } else if (percent >= 60) {
+        feedback.innerText = 'Bom resultado! Revise os tópicos incorretos para atingir uma nota ainda maior.';
+      } else {
+        feedback.innerText = 'Recomendamos uma revisão nos tópicos do manual CAAML-703 e tentar o simulado novamente.';
+      }
+
+      document.getElementById('results-modal').classList.remove('hidden');
+
+      if (currentUser) {
+        sb.from('resultados').insert({
+          user_id: currentUser.id,
+          quiz_id: QUIZ_ID,
+          acertos: correct,
+          erros: wrong,
+          percentual: percent,
+          respostas: userAnswers
+        }).then(() => {});
+      }
+    }
+
+    function closeModal() {
+      document.getElementById('results-modal').classList.add('hidden');
+    }
+  </script>
+
+  <!-- Estilo das alternativas descartadas -->
+  <style>
+    .option-discarded {
+      opacity: .48 !important;
+      filter: grayscale(.7);
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      text-decoration-color: rgba(148,163,184,.9);
+    }
+  </style>
+
+  <!-- Custom Scrollbar Styling -->
+  <style>
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #000F26;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #1E3E62;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #1E56A0;
+    }
+  </style>
+</body>
+</html>
