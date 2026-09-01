@@ -7,17 +7,19 @@
   <meta name="description" content="Simulados gratuitos e interativos para o Concurso de Admissão ao Curso de Formação de Oficiais Auxiliares (CA-AA/AFN).">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
             sans: ['Inter', 'ui-sans-serif', 'system-ui'],
-            serif: ['Fraunces', 'ui-serif', 'Georgia']
+            serif: ['Fraunces', 'ui-serif', 'Georgia'],
+            script: ['"Dancing Script"', 'cursive']
           },
           colors: {
             navy: { 800: '#0B192C', 900: '#000F26', 700: '#1E3E62', 600: '#1E56A0', 500: '#0066CC', 100: '#E6F0FA' }
@@ -26,17 +28,89 @@
       }
     }
   </script>
+  <style>
+    @keyframes access-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shake {
+      10%, 90% { transform: translateX(-1px); }
+      20%, 80% { transform: translateX(2px); }
+      30%, 50%, 70% { transform: translateX(-4px); }
+      40%, 60% { transform: translateX(4px); }
+    }
+    .shake { animation: shake .5s; }
+    @media (prefers-reduced-motion: reduce) {
+      #access-card, .shake { animation: none !important; }
+    }
+    button:focus-visible, input:focus-visible, a:focus-visible {
+      outline: 2px solid #2384d6;
+      outline-offset: 2px;
+    }
+  </style>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso: login / cadastro / recuperação de senha via Supabase Auth -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-8 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">⚓</div>
+      <div class="font-script font-bold text-[32px] leading-tight text-white">Fernando Cruz</div>
+      <div class="text-[11px] text-[#91a9c3] mt-1 italic mb-5">"O sucesso é a soma de pequenos esforços repetidos dia após dia"</div>
+      <div class="font-serif font-semibold text-[24px] text-white tracking-tight">CA-AA/AFN</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6 max-w-[300px]">Concurso de Admissão ao Curso de Formação de Oficiais Auxiliares</div>
+
+      <div class="w-full bg-navy-900 p-1 rounded-lg flex text-xs mb-5" role="tablist">
+        <button type="button" id="tab-login" onclick="switchAuthTab('login')" class="flex-1 py-2 rounded-md font-semibold transition-all bg-navy-600 text-white">Entrar</button>
+        <button type="button" id="tab-signup" onclick="switchAuthTab('signup')" class="flex-1 py-2 rounded-md font-semibold transition-all text-slate-400 hover:text-white">Criar conta</button>
+      </div>
+
+      <form id="login-form" class="w-full flex flex-col gap-3" onsubmit="return handleLogin(event)">
+        <input id="login-email" type="email" required autocomplete="email" placeholder="seu e-mail" class="w-full h-12 rounded-xl border border-[#2c73b5] bg-[#06172a] px-4 text-sm text-white outline-none focus:ring-2 focus:ring-[#2384d6] transition-shadow">
+        <input id="login-password" type="password" required autocomplete="current-password" placeholder="senha" class="w-full h-12 rounded-xl border border-[#2c73b5] bg-[#06172a] px-4 text-sm text-white outline-none focus:ring-2 focus:ring-[#2384d6] transition-shadow">
+        <button type="submit" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-white text-sm font-bold transition-all shadow-lg">🔐 Entrar</button>
+        <button type="button" onclick="handleForgotPassword()" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2 mt-1">Esqueci minha senha</button>
+      </form>
+
+      <form id="signup-form" class="w-full hidden flex-col gap-3" onsubmit="return handleSignup(event)">
+        <input id="signup-name" type="text" required autocomplete="name" placeholder="nome completo" class="w-full h-12 rounded-xl border border-[#2c73b5] bg-[#06172a] px-4 text-sm text-white outline-none focus:ring-2 focus:ring-[#2384d6] transition-shadow">
+        <input id="signup-email" type="email" required autocomplete="email" placeholder="seu e-mail" class="w-full h-12 rounded-xl border border-[#2c73b5] bg-[#06172a] px-4 text-sm text-white outline-none focus:ring-2 focus:ring-[#2384d6] transition-shadow">
+        <input id="signup-password" type="password" required minlength="6" autocomplete="new-password" placeholder="crie uma senha (mín. 6 caracteres)" class="w-full h-12 rounded-xl border border-[#2c73b5] bg-[#06172a] px-4 text-sm text-white outline-none focus:ring-2 focus:ring-[#2384d6] transition-shadow">
+        <button type="submit" class="w-full h-12 rounded-xl bg-emerald-700 hover:bg-emerald-600 active:scale-[.99] text-white text-sm font-bold transition-all shadow-lg">✉️ Criar conta</button>
+      </form>
+
+      <form id="recovery-form" class="w-full hidden flex-col gap-3" onsubmit="return handleSetNewPassword(event)">
+        <p class="text-xs text-[#9bb5d2] mb-1">Defina sua nova senha de acesso.</p>
+        <input id="recovery-password" type="password" required minlength="6" autocomplete="new-password" placeholder="nova senha (mín. 6 caracteres)" class="w-full h-12 rounded-xl border border-[#2c73b5] bg-[#06172a] px-4 text-sm text-white outline-none focus:ring-2 focus:ring-[#2384d6] transition-shadow">
+        <button type="submit" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] text-white text-sm font-bold transition-all shadow-lg">Salvar nova senha</button>
+      </form>
+
+      <div id="pending-panel" class="w-full hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Conta criada! Seu acesso ainda está aguardando liberação do administrador.</p>
+        <button type="button" onclick="handleLogout()" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Sair</button>
+      </div>
+
+      <div id="access-message" class="min-h-5 mt-4 text-xs" role="alert" aria-live="polite"></div>
+      <div class="text-[11px] text-[#7895b5] mt-4 pt-4 border-t border-[#1c3a5c] w-full">Embarcações Miúdas &amp; Segurança / Apresentação Marinheira</div>
+    </div>
+  </div>
 
   <header class="bg-navy-900 border-b border-navy-700">
     <div class="max-w-5xl mx-auto px-6 py-5 flex items-center gap-3">
       <div class="bg-navy-600 text-white p-2.5 rounded-lg shadow">
         <i class="fa-solid fa-anchor text-2xl"></i>
       </div>
-      <div>
+      <div class="flex-1">
         <h1 class="font-serif text-xl font-semibold text-white tracking-wide">Plataforma de Estudos</h1>
         <p class="text-xs text-slate-400">CA-AA/AFN — Concurso de Admissão ao Curso de Formação de Oficiais Auxiliares</p>
+      </div>
+      <div id="user-bar" class="hidden bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2">
+        <i class="fa-solid fa-user text-navy-500"></i>
+        <span id="user-email" class="max-w-[160px] truncate"></span>
+        <button onclick="handleLogout()" class="ml-1 text-rose-300 hover:text-rose-200 transition-colors" title="Sair da conta">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
       </div>
     </div>
   </header>
@@ -65,6 +139,184 @@
   <footer class="max-w-5xl w-full mx-auto px-6 pb-8 text-center text-[11px] text-slate-500">
     Plataforma de Estudos · CA-AA/AFN
   </footer>
+
+  <script>
+    // --- Supabase: autenticação central da plataforma ---
+    const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    let currentUser = null;
+
+    function traduzErro(msg) {
+      const map = {
+        'Invalid login credentials': 'E-mail ou senha incorretos.',
+        'User already registered': 'Já existe uma conta com esse e-mail.',
+        'Email not confirmed': 'Confirme seu e-mail antes de entrar (verifique sua caixa de entrada).',
+        'Password should be at least 6 characters': 'A senha precisa ter pelo menos 6 caracteres.'
+      };
+      return map[msg] || msg;
+    }
+
+    function shakeAccessCard() {
+      const card = document.getElementById('access-card');
+      card.classList.remove('shake');
+      void card.offsetWidth;
+      card.classList.add('shake');
+    }
+
+    function showForm(name) {
+      ['login-form', 'signup-form', 'recovery-form', 'pending-panel'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(name);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-message').textContent = '';
+    }
+
+    function switchAuthTab(tab) {
+      const tabLogin = document.getElementById('tab-login');
+      const tabSignup = document.getElementById('tab-signup');
+      const activeCls = 'flex-1 py-2 rounded-md font-semibold transition-all bg-navy-600 text-white';
+      const inactiveCls = 'flex-1 py-2 rounded-md font-semibold transition-all text-slate-400 hover:text-white';
+      showForm(tab === 'login' ? 'login-form' : 'signup-form');
+      tabLogin.className = tab === 'login' ? activeCls : inactiveCls;
+      tabSignup.className = tab === 'signup' ? activeCls : inactiveCls;
+    }
+
+    async function handleLogin(event) {
+      event.preventDefault();
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+      const msg = document.getElementById('access-message');
+      msg.className = 'min-h-5 mt-4 text-xs text-slate-300';
+      msg.textContent = 'Entrando...';
+      const { error } = await sb.auth.signInWithPassword({ email, password });
+      if (error) {
+        msg.className = 'min-h-5 mt-4 text-xs text-rose-300';
+        msg.textContent = traduzErro(error.message);
+        shakeAccessCard();
+      } else {
+        msg.textContent = '';
+      }
+      return false;
+    }
+
+    async function handleSignup(event) {
+      event.preventDefault();
+      const nome = document.getElementById('signup-name').value.trim();
+      const email = document.getElementById('signup-email').value.trim();
+      const password = document.getElementById('signup-password').value;
+      const msg = document.getElementById('access-message');
+      msg.className = 'min-h-5 mt-4 text-xs text-slate-300';
+      msg.textContent = 'Criando conta...';
+      const { data, error } = await sb.auth.signUp({ email, password, options: { data: { nome } } });
+      if (error) {
+        msg.className = 'min-h-5 mt-4 text-xs text-rose-300';
+        msg.textContent = traduzErro(error.message);
+      } else if (data.user && !data.session) {
+        msg.className = 'min-h-5 mt-4 text-xs text-emerald-300';
+        msg.textContent = 'Conta criada! Verifique seu e-mail para confirmar o acesso.';
+      } else {
+        msg.textContent = '';
+      }
+      return false;
+    }
+
+    async function handleForgotPassword() {
+      const email = document.getElementById('login-email').value.trim();
+      const msg = document.getElementById('access-message');
+      if (!email) {
+        msg.className = 'min-h-5 mt-4 text-xs text-rose-300';
+        msg.textContent = 'Digite seu e-mail no campo acima e clique novamente.';
+        return;
+      }
+      msg.className = 'min-h-5 mt-4 text-xs text-slate-300';
+      msg.textContent = 'Enviando link de recuperação...';
+      const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: window.location.href.split('#')[0] });
+      msg.className = error ? 'min-h-5 mt-4 text-xs text-rose-300' : 'min-h-5 mt-4 text-xs text-emerald-300';
+      msg.textContent = error ? traduzErro(error.message) : 'Link enviado! Verifique seu e-mail.';
+    }
+
+    async function handleSetNewPassword(event) {
+      event.preventDefault();
+      const password = document.getElementById('recovery-password').value;
+      const msg = document.getElementById('access-message');
+      const { error } = await sb.auth.updateUser({ password });
+      if (error) {
+        msg.className = 'min-h-5 mt-4 text-xs text-rose-300';
+        msg.textContent = traduzErro(error.message);
+      } else {
+        msg.className = 'min-h-5 mt-4 text-xs text-emerald-300';
+        msg.textContent = 'Senha atualizada com sucesso!';
+      }
+      return false;
+    }
+
+    async function handleLogout() {
+      await sb.auth.signOut();
+    }
+
+    async function onUserAuthenticated() {
+      const { data: perfil } = await sb
+        .from('profiles')
+        .select('aprovado')
+        .eq('id', currentUser.id)
+        .maybeSingle();
+
+      const nome = currentUser.user_metadata && currentUser.user_metadata.nome;
+
+      if (!perfil) {
+        await sb.from('profiles').upsert({ id: currentUser.id, nome: nome || null });
+      } else if (nome) {
+        await sb.from('profiles').update({ nome }).eq('id', currentUser.id);
+      }
+
+      const aprovado = perfil ? perfil.aprovado : false;
+
+      if (!aprovado) {
+        document.getElementById('access-screen').classList.remove('hidden');
+        document.getElementById('user-bar').classList.add('hidden');
+        document.getElementById('user-bar').classList.remove('flex');
+        showForm('pending-panel');
+        return;
+      }
+
+      document.getElementById('access-screen').classList.add('hidden');
+      const bar = document.getElementById('user-bar');
+      bar.classList.remove('hidden');
+      bar.classList.add('flex');
+      document.getElementById('user-email').textContent = currentUser.email;
+    }
+
+    function showAccessScreen() {
+      document.getElementById('access-screen').classList.remove('hidden');
+      document.getElementById('user-bar').classList.add('hidden');
+      document.getElementById('user-bar').classList.remove('flex');
+      showForm('login-form');
+      const loginEmail = document.getElementById('login-email');
+      if (loginEmail) loginEmail.focus();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      sb.auth.onAuthStateChange((event, session) => {
+        if (event === 'PASSWORD_RECOVERY') {
+          document.getElementById('access-screen').classList.remove('hidden');
+          showForm('recovery-form');
+          return;
+        }
+        if (session && session.user) {
+          currentUser = session.user;
+          onUserAuthenticated();
+        } else if (event === 'SIGNED_OUT' || event === 'INITIAL_SESSION') {
+          currentUser = null;
+          showAccessScreen();
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
