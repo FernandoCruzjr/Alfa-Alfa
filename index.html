@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plataforma de Estudos · CA-AA/AFN</title>
+  <meta name="description" content="Simulados gratuitos e interativos para o Concurso de Admissão ao Curso de Formação de Oficiais Auxiliares (CA-AA/AFN).">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: { 800: '#0B192C', 900: '#000F26', 700: '#1E3E62', 600: '#1E56A0', 500: '#0066CC', 100: '#E6F0FA' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <header class="bg-navy-900 border-b border-navy-700">
+    <div class="max-w-5xl mx-auto px-6 py-5 flex items-center gap-3">
+      <div class="bg-navy-600 text-white p-2.5 rounded-lg shadow">
+        <i class="fa-solid fa-anchor text-2xl"></i>
+      </div>
+      <div>
+        <h1 class="font-serif text-xl font-semibold text-white tracking-wide">Plataforma de Estudos</h1>
+        <p class="text-xs text-slate-400">CA-AA/AFN — Concurso de Admissão ao Curso de Formação de Oficiais Auxiliares</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-6 py-12">
+    <h2 class="font-serif text-3xl font-semibold text-white mb-2">Simulados disponíveis</h2>
+    <p class="text-sm text-slate-400 mb-10 max-w-[60ch]">Escolha um manual abaixo para praticar. Seu progresso e histórico ficam salvos automaticamente na sua conta.</p>
+
+    <div class="grid sm:grid-cols-2 gap-5">
+      <a href="caaml-703.html" class="group bg-navy-800/80 border border-navy-700 rounded-xl p-6 shadow-xl hover:border-navy-500 transition-all flex flex-col gap-3">
+        <div class="flex items-center justify-between">
+          <span class="bg-navy-700/60 text-navy-100 text-xs px-3 py-1 rounded-full font-mono border border-navy-600">CAAML-703</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 group-hover:text-white group-hover:translate-x-1 transition-all"></i>
+        </div>
+        <h3 class="font-serif text-lg font-semibold text-white">Embarcações Miúdas &amp; Segurança</h3>
+        <p class="text-xs text-slate-400">Apresentação Marinheira · 65 questões · Modo estudo e modo prova</p>
+      </a>
+
+      <div class="bg-navy-800/40 border border-dashed border-navy-700 rounded-xl p-6 flex flex-col items-center justify-center text-center gap-2 text-slate-500">
+        <i class="fa-solid fa-book-open text-2xl"></i>
+        <p class="text-xs">Novos simulados aparecem aqui conforme forem adicionados</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="max-w-5xl w-full mx-auto px-6 pb-8 text-center text-[11px] text-slate-500">
+    Plataforma de Estudos · CA-AA/AFN
+  </footer>
+
+</body>
+</html>
