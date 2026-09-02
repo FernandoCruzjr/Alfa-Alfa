@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Desempenho · Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Histórico e desempenho do aluno na Plataforma de Estudos CA-AA/AFN.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: { 800: '#0B192C', 900: '#000F26', 700: '#1E3E62', 600: '#1E56A0', 500: '#0066CC', 100: '#E6F0FA' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes access-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) { #access-card { animation: none !important; } }
+    button:focus-visible, a:focus-visible { outline: 2px solid #2384d6; outline-offset: 2px; }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso: apenas verifica sessão/aprovação (login fica no index) -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">⚓</div>
+      <div class="font-serif font-semibold text-[26px] text-white tracking-tight">Meu Desempenho</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial para ver seu desempenho.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-white text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+
+      <div class="text-[11px] text-[#7895b5] mt-6 pt-4 border-t border-[#1c3a5c] w-full">Plataforma de Estudos CA-AA/AFN</div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-navy-900 border-b border-navy-700 sticky top-0 z-30 shadow-lg">
+    <div class="max-w-5xl mx-auto px-6 py-5 flex items-center gap-3">
+      <a href="index.html" class="bg-navy-600 text-white p-2.5 rounded-lg shadow hover:bg-navy-500 transition-colors" title="Voltar à página inicial">
+        <i class="fa-solid fa-anchor text-2xl"></i>
+      </a>
+      <div class="flex-1">
+        <h1 class="font-serif text-xl font-semibold text-white tracking-wide">Meu Desempenho</h1>
+        <p class="text-xs text-slate-400">Histórico de simulados realizados</p>
+      </div>
+      <a href="index.html" class="hidden sm:flex items-center gap-1.5 text-xs text-slate-300 hover:text-white transition-colors">
+        <i class="fa-solid fa-book-open"></i> Simulados
+      </a>
+      <div id="user-bar" class="hidden bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2">
+        <i class="fa-solid fa-user text-navy-500"></i>
+        <span id="user-email" class="max-w-[160px] truncate"></span>
+        <button onclick="handleLogout()" class="ml-1 text-rose-300 hover:text-rose-200 transition-colors" title="Sair da conta">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-6 py-10">
+
+    <!-- Resumo geral -->
+    <div id="summary-cards" class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
+      <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 text-center">
+        <div id="stat-total" class="font-serif text-2xl font-semibold text-white">0</div>
+        <div class="text-[11px] text-slate-400 mt-1">Simulados feitos</div>
+      </div>
+      <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 text-center">
+        <div id="stat-materias" class="font-serif text-2xl font-semibold text-white">0</div>
+        <div class="text-[11px] text-slate-400 mt-1">Matérias praticadas</div>
+      </div>
+      <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 text-center">
+        <div id="stat-media" class="font-serif text-2xl font-semibold text-emerald-400">0%</div>
+        <div class="text-[11px] text-slate-400 mt-1">Média geral (melhores)</div>
+      </div>
+      <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 text-center">
+        <div id="stat-melhor" class="font-serif text-2xl font-semibold text-white">—</div>
+        <div class="text-[11px] text-slate-400 mt-1">Melhor matéria</div>
+      </div>
+    </div>
+
+    <div id="empty-state" class="hidden bg-navy-800/40 border border-dashed border-navy-700 rounded-xl p-10 text-center text-slate-400">
+      <i class="fa-solid fa-chart-simple text-3xl mb-3"></i>
+      <p class="text-sm">Você ainda não finalizou nenhum simulado. Assim que terminar um, o resultado aparece aqui.</p>
+    </div>
+
+    <div id="subjects-list" class="space-y-5"></div>
+  </main>
+
+  <footer class="max-w-5xl w-full mx-auto px-6 pb-8 text-center text-[11px] text-slate-500">
+    Plataforma de Estudos · CA-AA/AFN
+  </footer>
+
+  <script>
+    const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    let currentUser = null;
+
+    const QUIZ_LABELS = {
+      'CAAML-703': 'Embarcações Miúdas & Segurança',
+      'CERIMONIAL': 'Cerimonial da Marinha',
+      'PORTUGUES': 'Língua Portuguesa'
+    };
+
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    async function handleLogout() {
+      await sb.auth.signOut();
+    }
+
+    function fmtDate(iso) {
+      const d = new Date(iso);
+      return d.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' }) +
+             ' às ' + d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+    }
+
+    function barColor(pct) {
+      if (pct >= 70) return 'bg-emerald-500';
+      if (pct >= 50) return 'bg-amber-500';
+      return 'bg-rose-500';
+    }
+
+    async function carregarDesempenho() {
+      const { data: resultados, error } = await sb
+        .from('resultados')
+        .select('quiz_id, acertos, erros, percentual, criado_em')
+        .eq('user_id', currentUser.id)
+        .order('criado_em', { ascending: false });
+
+      if (error || !resultados || resultados.length === 0) {
+        document.getElementById('empty-state').classList.remove('hidden');
+        return;
+      }
+
+      // Agrupa por matéria
+      const bySubject = {};
+      resultados.forEach(r => {
+        if (!bySubject[r.quiz_id]) bySubject[r.quiz_id] = [];
+        bySubject[r.quiz_id].push(r);
+      });
+
+      const subjectIds = Object.keys(bySubject);
+      const bestBySubject = subjectIds.map(id => {
+        const attempts = bySubject[id];
+        const best = Math.max(...attempts.map(a => a.percentual));
+        return { id, best };
+      });
+
+      const mediaGeral = bestBySubject.reduce((s, x) => s + x.best, 0) / bestBySubject.length;
+      const melhorMateria = bestBySubject.reduce((a, b) => (b.best > a.best ? b : a));
+
+      document.getElementById('stat-total').innerText = resultados.length;
+      document.getElementById('stat-materias').innerText = subjectIds.length;
+      document.getElementById('stat-media').innerText = Math.round(mediaGeral) + '%';
+      document.getElementById('stat-melhor').innerText = QUIZ_LABELS[melhorMateria.id] || melhorMateria.id;
+
+      const container = document.getElementById('subjects-list');
+      container.innerHTML = '';
+
+      subjectIds.forEach(id => {
+        const attempts = bySubject[id];
+        const best = Math.max(...attempts.map(a => a.percentual));
+        const last = attempts[0];
+        const label = QUIZ_LABELS[id] || id;
+
+        const card = document.createElement('div');
+        card.className = 'bg-navy-800/80 border border-navy-700 rounded-xl p-5 shadow-lg';
+        card.innerHTML = `
+          <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+            <div>
+              <h3 class="font-serif text-lg font-semibold text-white">${label}</h3>
+              <p class="text-[11px] text-slate-400">${attempts.length} tentativa${attempts.length > 1 ? 's' : ''} · última em ${fmtDate(last.criado_em)}</p>
+            </div>
+            <span class="text-xs px-3 py-1 rounded-full font-mono border border-navy-600 bg-navy-700/60 text-navy-100">Melhor: ${Math.round(best)}%</span>
+          </div>
+          <div class="w-full bg-navy-900 rounded-full h-2.5 mb-4 overflow-hidden">
+            <div class="${barColor(best)} h-2.5 rounded-full transition-all" style="width:${Math.round(best)}%"></div>
+          </div>
+          <div class="space-y-1.5">
+            ${attempts.slice(0, 5).map(a => `
+              <div class="flex items-center justify-between text-xs text-slate-300 py-1 border-b border-navy-700/60 last:border-0">
+                <span>${fmtDate(a.criado_em)}</span>
+                <span class="text-slate-400">${a.acertos} acertos · ${a.erros} erros</span>
+                <span class="font-semibold ${a.percentual >= 70 ? 'text-emerald-400' : a.percentual >= 50 ? 'text-amber-400' : 'text-rose-400'}">${Math.round(a.percentual)}%</span>
+              </div>
+            `).join('')}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    async function onUserAuthenticated() {
+      const { data: perfil } = await sb
+        .from('profiles')
+        .select('aprovado')
+        .eq('id', currentUser.id)
+        .maybeSingle();
+
+      const aprovado = perfil ? perfil.aprovado : false;
+      if (!aprovado) {
+        showGate('gate-pending');
+        return;
+      }
+
+      document.getElementById('access-screen').classList.add('hidden');
+      const bar = document.getElementById('user-bar');
+      bar.classList.remove('hidden');
+      bar.classList.add('flex');
+      document.getElementById('user-email').textContent = currentUser.email;
+
+      await carregarDesempenho();
+    }
+
+    function showAccessScreen() {
+      document.getElementById('user-bar').classList.add('hidden');
+      document.getElementById('user-bar').classList.remove('flex');
+      showGate('gate-logged-out');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      sb.auth.onAuthStateChange((event, session) => {
+        if (session && session.user) {
+          currentUser = session.user;
+          onUserAuthenticated();
+        } else if (event === 'SIGNED_OUT' || event === 'INITIAL_SESSION') {
+          currentUser = null;
+          showAccessScreen();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
