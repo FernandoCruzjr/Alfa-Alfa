@@ -120,13 +120,22 @@
     <p class="text-sm text-slate-400 mb-10 max-w-[60ch]">Escolha um manual abaixo para praticar. Seu progresso e histórico ficam salvos automaticamente na sua conta.</p>
 
     <div class="grid sm:grid-cols-2 gap-5">
-      <a href="caaml-703.html" class="group bg-navy-800/80 border border-navy-700 rounded-xl p-6 shadow-xl hover:border-navy-500 transition-all flex flex-col gap-3">
+      <a href="caaml-703.html" data-quiz-id="CAAML-703" class="group bg-navy-800/80 border border-navy-700 rounded-xl p-6 shadow-xl hover:border-navy-500 transition-all flex flex-col gap-3">
         <div class="flex items-center justify-between">
           <span class="bg-navy-700/60 text-navy-100 text-xs px-3 py-1 rounded-full font-mono border border-navy-600">CAAML-703</span>
-          <i class="fa-solid fa-arrow-right text-slate-500 group-hover:text-white group-hover:translate-x-1 transition-all"></i>
+          <i class="fa-solid fa-arrow-right lock-icon text-slate-500 group-hover:text-white group-hover:translate-x-1 transition-all"></i>
         </div>
         <h3 class="font-serif text-lg font-semibold text-white">Embarcações Miúdas &amp; Segurança</h3>
         <p class="text-xs text-slate-400">Apresentação Marinheira · 65 questões · Modo estudo e modo prova</p>
+      </a>
+
+      <a href="cerimonial.html" data-quiz-id="CERIMONIAL" class="group bg-navy-800/80 border border-navy-700 rounded-xl p-6 shadow-xl hover:border-navy-500 transition-all flex flex-col gap-3">
+        <div class="flex items-center justify-between">
+          <span class="bg-navy-700/60 text-navy-100 text-xs px-3 py-1 rounded-full font-mono border border-navy-600">CERIMONIAL</span>
+          <i class="fa-solid fa-arrow-right lock-icon text-slate-500 group-hover:text-white group-hover:translate-x-1 transition-all"></i>
+        </div>
+        <h3 class="font-serif text-lg font-semibold text-white">Cerimonial da Marinha</h3>
+        <p class="text-xs text-slate-400">Honras, continências e visitas · 280 questões · Filtro por assunto</p>
       </a>
 
       <div class="bg-navy-800/40 border border-dashed border-navy-700 rounded-xl p-6 flex flex-col items-center justify-center text-center gap-2 text-slate-500">
@@ -289,6 +298,32 @@
       bar.classList.remove('hidden');
       bar.classList.add('flex');
       document.getElementById('user-email').textContent = currentUser.email;
+
+      await applyAccessLocks();
+    }
+
+    async function applyAccessLocks() {
+      const { data: acessos } = await sb.from('acessos').select('quiz_id').eq('user_id', currentUser.id);
+      const liberadas = new Set((acessos || []).map(a => a.quiz_id));
+
+      document.querySelectorAll('[data-quiz-id]').forEach(card => {
+        const quizId = card.getAttribute('data-quiz-id');
+        if (!liberadas.has(quizId)) {
+          card.removeAttribute('href');
+          card.classList.add('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
+          const icon = card.querySelector('.lock-icon');
+          if (icon) {
+            icon.classList.remove('fa-arrow-right');
+            icon.classList.add('fa-lock');
+          }
+          if (!card.querySelector('.lock-note')) {
+            const note = document.createElement('p');
+            note.className = 'lock-note text-[11px] text-amber-300 mt-1';
+            note.textContent = 'Acesso não liberado ainda';
+            card.appendChild(note);
+          }
+        }
+      });
     }
 
     function showAccessScreen() {
