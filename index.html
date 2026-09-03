@@ -121,135 +121,156 @@
   <main class="flex-1 max-w-5xl w-full mx-auto px-6 py-12">
     <h2 class="font-serif text-3xl font-semibold text-white mb-2">Simulados disponíveis</h2>
     <p class="text-sm text-slate-400 mb-4 max-w-[60ch]">Escolha um manual abaixo para praticar. Seu progresso e histórico ficam salvos automaticamente na sua conta.</p>
-    <div class="inline-flex items-center gap-2 bg-navy-800/60 border border-navy-700 rounded-full px-4 py-1.5 text-xs text-navy-100 mb-10">
-      <i class="fa-solid fa-layer-group text-navy-500"></i> 1.015 questões disponíveis em 11 matérias
+    <div class="flex flex-wrap items-center gap-2 mb-10">
+      <div class="inline-flex items-center gap-2 bg-navy-800/60 border border-navy-700 rounded-full px-4 py-1.5 text-xs text-navy-100">
+        <i class="fa-solid fa-layer-group text-navy-500"></i> 1.015 questões disponíveis em 11 matérias
+      </div>
+      <div class="inline-flex items-center gap-2 bg-navy-800/30 border border-dashed border-navy-700 rounded-full px-4 py-1.5 text-xs text-slate-400">
+        <i class="fa-solid fa-rocket text-navy-500"></i> Em breve: mais de 1.500 questões em 15+ matérias
+      </div>
     </div>
 
     <!-- Grupo 1: Conhecimento Geral -->
-    <div class="flex items-center gap-3 mb-4">
-      <i class="fa-solid fa-graduation-cap text-navy-500"></i>
-      <h3 class="font-serif text-lg font-semibold text-white tracking-wide">Conhecimento Geral</h3>
-    </div>
-    <div class="grid sm:grid-cols-2 gap-5 mb-12">
-      <a href="portugues.html" data-quiz-id="PORTUGUES" class="group bg-navy-800/80 border border-navy-700 rounded-xl p-6 shadow-xl hover:border-navy-500 transition-all flex flex-col gap-3">
-        <div class="flex items-center justify-between">
-          <span class="bg-navy-700/60 text-navy-100 text-xs px-3 py-1 rounded-full font-mono border border-navy-600">PORTUGUÊS</span>
-          <i class="fa-solid fa-arrow-right lock-icon text-slate-500 group-hover:text-white group-hover:translate-x-1 transition-all"></i>
+    <div class="bg-navy-800/80 border border-navy-700 rounded-xl overflow-hidden mb-8">
+      <button type="button" class="topic-toggle w-full flex items-center justify-between px-6 py-4" data-target="grupo-geral">
+        <span class="flex items-center gap-3 font-serif text-lg font-semibold text-white tracking-wide">
+          <i class="fa-solid fa-graduation-cap text-navy-500"></i> Conhecimento Geral
+        </span>
+        <i class="fa-solid fa-chevron-down text-slate-400 topic-chevron transition-transform"></i>
+      </button>
+      <div id="grupo-geral" class="border-t border-navy-700">
+        <a href="portugues.html" data-quiz-id="PORTUGUES" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-white font-medium">Língua Portuguesa</span>
+            <span class="block text-xs text-slate-400">Gramática e norma-padrão · 372 questões · 21 assuntos filtráveis</span>
+          </span>
+          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
+        </a>
+
+        <a href="historia-naval.html" data-quiz-id="HISTORIA_NAVAL" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-white font-medium">História Militar Naval</span>
+            <span class="block text-xs text-slate-400">Marinha do Brasil: origens, combates e tratados · 36 questões</span>
+          </span>
+          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
+        </a>
+
+        <a href="geografia.html" data-quiz-id="GEOGRAFIA" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-white font-medium">Geografia</span>
+            <span class="block text-xs text-slate-400">Geografia geral para concursos · 6 questões</span>
+          </span>
+          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
+        </a>
+
+        <div class="flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 text-slate-500">
+          <span class="w-6 h-6 rounded border-2 border-dashed border-slate-600 flex-shrink-0"></span>
+          <span class="flex-1 min-w-0">
+            <span class="block font-medium">Matemática</span>
+            <span class="block text-xs">Em breve</span>
+          </span>
         </div>
-        <h3 class="font-serif text-lg font-semibold text-white">Língua Portuguesa</h3>
-        <p class="text-xs text-slate-400">Gramática e norma-padrão · 372 questões · 21 assuntos filtráveis</p>
-      </a>
 
-      <a href="historia-naval.html" data-quiz-id="HISTORIA_NAVAL" class="group bg-navy-800/80 border border-navy-700 rounded-xl p-6 shadow-xl hover:border-navy-500 transition-all flex flex-col gap-3">
-        <div class="flex items-center justify-between">
-          <span class="bg-navy-700/60 text-navy-100 text-xs px-3 py-1 rounded-full font-mono border border-navy-600">HISTÓRIA NAVAL</span>
-          <i class="fa-solid fa-arrow-right lock-icon text-slate-500 group-hover:text-white group-hover:translate-x-1 transition-all"></i>
+        <div class="flex items-center gap-4 px-6 py-4 text-slate-500">
+          <span class="w-6 h-6 rounded border-2 border-dashed border-slate-600 flex-shrink-0"></span>
+          <span class="flex-1 min-w-0">
+            <span class="block font-medium">Redação</span>
+            <span class="block text-xs">Em breve</span>
+          </span>
         </div>
-        <h3 class="font-serif text-lg font-semibold text-white">História Militar Naval</h3>
-        <p class="text-xs text-slate-400">Marinha do Brasil: origens, combates e tratados · 36 questões</p>
-      </a>
-
-      <a href="geografia.html" data-quiz-id="GEOGRAFIA" class="group bg-navy-800/80 border border-navy-700 rounded-xl p-6 shadow-xl hover:border-navy-500 transition-all flex flex-col gap-3">
-        <div class="flex items-center justify-between">
-          <span class="bg-navy-700/60 text-navy-100 text-xs px-3 py-1 rounded-full font-mono border border-navy-600">GEOGRAFIA</span>
-          <i class="fa-solid fa-arrow-right lock-icon text-slate-500 group-hover:text-white group-hover:translate-x-1 transition-all"></i>
-        </div>
-        <h3 class="font-serif text-lg font-semibold text-white">Geografia</h3>
-        <p class="text-xs text-slate-400">Geografia geral para concursos · 6 questões</p>
-      </a>
-
-      <div class="bg-navy-800/40 border border-dashed border-navy-700 rounded-xl p-6 flex flex-col items-center justify-center text-center gap-2 text-slate-500">
-        <i class="fa-solid fa-calculator text-2xl"></i>
-        <p class="text-xs">Matemática — em breve</p>
-      </div>
-
-      <div class="bg-navy-800/40 border border-dashed border-navy-700 rounded-xl p-6 flex flex-col items-center justify-center text-center gap-2 text-slate-500">
-        <i class="fa-solid fa-pen-nib text-2xl"></i>
-        <p class="text-xs">Redação — em breve</p>
       </div>
     </div>
 
     <!-- Grupo 2: Conhecimento Militar Naval -->
-    <div class="flex items-center gap-3 mb-4">
-      <i class="fa-solid fa-anchor text-navy-500"></i>
-      <h3 class="font-serif text-lg font-semibold text-white tracking-wide">Conhecimento Militar Naval</h3>
-    </div>
-    <div class="grid sm:grid-cols-2 gap-5">
-      <a href="caaml-703.html" data-quiz-id="CAAML-703" class="group bg-navy-800/80 border border-navy-700 rounded-xl p-6 shadow-xl hover:border-navy-500 transition-all flex flex-col gap-3">
-        <div class="flex items-center justify-between">
-          <span class="bg-navy-700/60 text-navy-100 text-xs px-3 py-1 rounded-full font-mono border border-navy-600">CAAML-703</span>
-          <i class="fa-solid fa-arrow-right lock-icon text-slate-500 group-hover:text-white group-hover:translate-x-1 transition-all"></i>
-        </div>
-        <h3 class="font-serif text-lg font-semibold text-white">Embarcações Miúdas &amp; Segurança</h3>
-        <p class="text-xs text-slate-400">Apresentação Marinheira · 65 questões · Modo estudo e modo prova</p>
-      </a>
+    <div class="bg-navy-800/80 border border-navy-700 rounded-xl overflow-hidden">
+      <button type="button" class="topic-toggle w-full flex items-center justify-between px-6 py-4" data-target="grupo-naval">
+        <span class="flex items-center gap-3 font-serif text-lg font-semibold text-white tracking-wide">
+          <i class="fa-solid fa-anchor text-navy-500"></i> Conhecimento Militar Naval
+        </span>
+        <i class="fa-solid fa-chevron-down text-slate-400 topic-chevron transition-transform"></i>
+      </button>
+      <div id="grupo-naval" class="border-t border-navy-700">
+        <a href="caaml-703.html" data-quiz-id="CAAML-703" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-white font-medium">Embarcações Miúdas &amp; Segurança</span>
+            <span class="block text-xs text-slate-400">Apresentação Marinheira · 65 questões · Modo estudo e modo prova</span>
+          </span>
+          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
+        </a>
 
-      <a href="cerimonial.html" data-quiz-id="CERIMONIAL" class="group bg-navy-800/80 border border-navy-700 rounded-xl p-6 shadow-xl hover:border-navy-500 transition-all flex flex-col gap-3">
-        <div class="flex items-center justify-between">
-          <span class="bg-navy-700/60 text-navy-100 text-xs px-3 py-1 rounded-full font-mono border border-navy-600">CERIMONIAL</span>
-          <i class="fa-solid fa-arrow-right lock-icon text-slate-500 group-hover:text-white group-hover:translate-x-1 transition-all"></i>
-        </div>
-        <h3 class="font-serif text-lg font-semibold text-white">Cerimonial da Marinha</h3>
-        <p class="text-xs text-slate-400">Honras, continências e visitas · 280 questões · Filtro por assunto</p>
-      </a>
+        <a href="cerimonial.html" data-quiz-id="CERIMONIAL" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-white font-medium">Cerimonial da Marinha</span>
+            <span class="block text-xs text-slate-400">Honras, continências e visitas · 280 questões · Filtro por assunto</span>
+          </span>
+          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
+        </a>
 
-      <a href="rosas-virtudes.html" data-quiz-id="ROSAS_VIRTUDES" class="group bg-navy-800/80 border border-navy-700 rounded-xl p-6 shadow-xl hover:border-navy-500 transition-all flex flex-col gap-3">
-        <div class="flex items-center justify-between">
-          <span class="bg-navy-700/60 text-navy-100 text-xs px-3 py-1 rounded-full font-mono border border-navy-600">ROSAS DAS VIRTUDES</span>
-          <i class="fa-solid fa-arrow-right lock-icon text-slate-500 group-hover:text-white group-hover:translate-x-1 transition-all"></i>
-        </div>
-        <h3 class="font-serif text-lg font-semibold text-white">Rosas das Virtudes</h3>
-        <p class="text-xs text-slate-400">Valores e virtudes militares · 30 questões</p>
-      </a>
+        <a href="rosas-virtudes.html" data-quiz-id="ROSAS_VIRTUDES" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-white font-medium">Rosas das Virtudes</span>
+            <span class="block text-xs text-slate-400">Valores e virtudes militares · 30 questões</span>
+          </span>
+          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
+        </a>
 
-      <a href="lideranca-atributos.html" data-quiz-id="LIDERANCA_ATRIBUTOS" class="group bg-navy-800/80 border border-navy-700 rounded-xl p-6 shadow-xl hover:border-navy-500 transition-all flex flex-col gap-3">
-        <div class="flex items-center justify-between">
-          <span class="bg-navy-700/60 text-navy-100 text-xs px-3 py-1 rounded-full font-mono border border-navy-600">LIDERANÇA · ATRIBUTOS</span>
-          <i class="fa-solid fa-arrow-right lock-icon text-slate-500 group-hover:text-white group-hover:translate-x-1 transition-all"></i>
-        </div>
-        <h3 class="font-serif text-lg font-semibold text-white">Liderança — Atributos</h3>
-        <p class="text-xs text-slate-400">Atributos do líder militar · 25 questões</p>
-      </a>
+        <a href="lideranca-atributos.html" data-quiz-id="LIDERANCA_ATRIBUTOS" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-white font-medium">Liderança — Atributos</span>
+            <span class="block text-xs text-slate-400">Atributos do líder militar · 25 questões</span>
+          </span>
+          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
+        </a>
 
-      <a href="justica-disciplina.html" data-quiz-id="JUSTICA_DISCIPLINA" class="group bg-navy-800/80 border border-navy-700 rounded-xl p-6 shadow-xl hover:border-navy-500 transition-all flex flex-col gap-3">
-        <div class="flex items-center justify-between">
-          <span class="bg-navy-700/60 text-navy-100 text-xs px-3 py-1 rounded-full font-mono border border-navy-600">JUSTIÇA E DISCIPLINA</span>
-          <i class="fa-solid fa-arrow-right lock-icon text-slate-500 group-hover:text-white group-hover:translate-x-1 transition-all"></i>
-        </div>
-        <h3 class="font-serif text-lg font-semibold text-white">Justiça e Disciplina (Sindicância)</h3>
-        <p class="text-xs text-slate-400">Regulamento disciplinar e sindicâncias · 38 questões</p>
-      </a>
+        <a href="justica-disciplina.html" data-quiz-id="JUSTICA_DISCIPLINA" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-white font-medium">Justiça e Disciplina (Sindicância)</span>
+            <span class="block text-xs text-slate-400">Regulamento disciplinar e sindicâncias · 38 questões</span>
+          </span>
+          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
+        </a>
 
-      <a href="lideranca.html" data-quiz-id="LIDERANCA" class="group bg-navy-800/80 border border-navy-700 rounded-xl p-6 shadow-xl hover:border-navy-500 transition-all flex flex-col gap-3">
-        <div class="flex items-center justify-between">
-          <span class="bg-navy-700/60 text-navy-100 text-xs px-3 py-1 rounded-full font-mono border border-navy-600">LIDERANÇA</span>
-          <i class="fa-solid fa-arrow-right lock-icon text-slate-500 group-hover:text-white group-hover:translate-x-1 transition-all"></i>
-        </div>
-        <h3 class="font-serif text-lg font-semibold text-white">Liderança</h3>
-        <p class="text-xs text-slate-400">Fundamentos de liderança militar · 41 questões</p>
-      </a>
+        <a href="lideranca.html" data-quiz-id="LIDERANCA" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-white font-medium">Liderança</span>
+            <span class="block text-xs text-slate-400">Fundamentos de liderança militar · 41 questões</span>
+          </span>
+          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
+        </a>
 
-      <a href="ogsa.html" data-quiz-id="OGSA" class="group bg-navy-800/80 border border-navy-700 rounded-xl p-6 shadow-xl hover:border-navy-500 transition-all flex flex-col gap-3">
-        <div class="flex items-center justify-between">
-          <span class="bg-navy-700/60 text-navy-100 text-xs px-3 py-1 rounded-full font-mono border border-navy-600">OGSA</span>
-          <i class="fa-solid fa-arrow-right lock-icon text-slate-500 group-hover:text-white group-hover:translate-x-1 transition-all"></i>
-        </div>
-        <h3 class="font-serif text-lg font-semibold text-white">OGSA</h3>
-        <p class="text-xs text-slate-400">Organização Geral do Serviço na Marinha · 44 questões</p>
-      </a>
+        <a href="ogsa.html" data-quiz-id="OGSA" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-white font-medium">OGSA</span>
+            <span class="block text-xs text-slate-400">Organização Geral do Serviço na Marinha · 44 questões</span>
+          </span>
+          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
+        </a>
 
-      <a href="camaal-cav.html" data-quiz-id="CAMAAL_CAV" class="group bg-navy-800/80 border border-navy-700 rounded-xl p-6 shadow-xl hover:border-navy-500 transition-all flex flex-col gap-3">
-        <div class="flex items-center justify-between">
-          <span class="bg-navy-700/60 text-navy-100 text-xs px-3 py-1 rounded-full font-mono border border-navy-600">CAMAAL 1202 (CAV)</span>
-          <i class="fa-solid fa-arrow-right lock-icon text-slate-500 group-hover:text-white group-hover:translate-x-1 transition-all"></i>
-        </div>
-        <h3 class="font-serif text-lg font-semibold text-white">CAMAAL 1202 (CAV)</h3>
-        <p class="text-xs text-slate-400">CAMAAL 1202 — Corpo Auxiliar de Praças · 78 questões</p>
-      </a>
+        <a href="camaal-cav.html" data-quiz-id="CAMAAL_CAV" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-white font-medium">CAMAAL 1202 (CAV)</span>
+            <span class="block text-xs text-slate-400">CAMAAL 1202 — Corpo Auxiliar de Praças · 78 questões</span>
+          </span>
+          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
+        </a>
 
-      <div class="bg-navy-800/40 border border-dashed border-navy-700 rounded-xl p-6 flex flex-col items-center justify-center text-center gap-2 text-slate-500">
-        <i class="fa-solid fa-book-open text-2xl"></i>
-        <p class="text-xs">Novos simulados aparecem aqui conforme forem adicionados</p>
+        <div class="flex items-center gap-4 px-6 py-4 text-slate-500">
+          <span class="w-6 h-6 rounded border-2 border-dashed border-slate-600 flex-shrink-0"></span>
+          <span class="flex-1 min-w-0">
+            <span class="block font-medium">Novas matérias em breve</span>
+          </span>
+        </div>
       </div>
     </div>
   </main>
@@ -433,6 +454,15 @@
     }
 
     window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.topic-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const target = document.getElementById(btn.getAttribute('data-target'));
+          const chevron = btn.querySelector('.topic-chevron');
+          if (target) target.classList.toggle('hidden');
+          if (chevron) chevron.classList.toggle('rotate-180');
+        });
+      });
+
       sb.auth.onAuthStateChange((event, session) => {
         if (event === 'PASSWORD_RECOVERY') {
           document.getElementById('access-screen').classList.remove('hidden');
