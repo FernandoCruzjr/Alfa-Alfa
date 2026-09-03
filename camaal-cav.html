@@ -212,8 +212,8 @@
       <!-- Progress Bar & Stats -->
       <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 shadow-sm flex flex-col gap-3">
         <div class="flex justify-between items-center text-sm font-semibold">
-          <span id="question-tracker" class="text-navy-500 font-bold">Questão 1 de 78</span>
-          <span id="answered-tracker" class="text-slate-400 text-xs">0 de 78 respondidas</span>
+          <span id="question-tracker" class="text-navy-500 font-bold">Questão 1 de 122</span>
+          <span id="answered-tracker" class="text-slate-400 text-xs">0 de 122 respondidas</span>
         </div>
         <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
           <div id="progress-bar" class="bg-navy-500 h-full w-0 transition-all duration-300"></div>
@@ -273,10 +273,10 @@
     <aside class="lg:col-span-1 bg-navy-800/80 border border-navy-700 rounded-xl p-4 flex flex-col gap-4 h-fit">
       <div class="flex justify-between items-center border-b border-navy-700 pb-3">
         <h2 class="text-sm font-bold text-slate-200 flex items-center gap-2">
-          <i class="fa-solid fa-list-ol text-navy-500"></i> Navegação (78)
+          <i class="fa-solid fa-list-ol text-navy-500"></i> Navegação (122)
         </h2>
         <span class="text-xs bg-slate-900 px-2 py-1 rounded text-slate-400 font-mono" id="score-counter">
-          0/78
+          0/122
         </span>
       </div>
 
@@ -374,7 +374,7 @@
 const questionsData = [
       {
         id: 1,
-        text: "De acordo com o CAML-1201, o militar responsávelpelas ações na área do sinistro, já em Postos de Combatee capacitado pelo C-EXP-CBINC, é chamado de:",
+        text: "De acordo com o CAML-1201, o militar responsável pelas ações na área do sinistro, já em Postos de Combate e capacitado pelo C-EXP-CBINC, é chamado de:",
         options: [
           "A) militar de contenção.",
           "B) investigador.",
@@ -383,24 +383,11 @@ const questionsData = [
           "E) líder do reparo."
         ],
         correct: 4,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
       },
       {
         id: 2,
-        text: "35) extintor do tipo carreta de espuma mecânica tem as seguintes características(A) 9 litros de capacidade e alcance médio do jato de 5 metros.(B) 10 litros de capacidade e alcance médio metros.(C) 25 a 50 litros de capacidade e alcance médio do jato 3 metros(D) 50 a 75 litros de capacidade e alcance médio do jato de 13 metros.(E) 75 a 150 litros de capacidade e alcance médio do jato de 7,5 metros.",
-        options: [
-          "A) C",
-          "B) A",
-          "C) B",
-          "D) D",
-          "E) E"
-        ],
-        correct: 4,
-        subject: "CAMAAL 1202 (CAV)"
-      },
-      {
-        id: 3,
-        text: "47)Os pós químicos secos são substâncias constituídas de bicarbonato de sódio, bicarbonato de potássio ou cloreto de potássio, que, pulverizadas, formam umanuvem de pó sobre o fogo, extinguindo-o por quebra da reação em cadeia e por abafamento. Estes pós deverão receber um tratamento:",
+        text: "Os pós químicos secos são substâncias constituídas de bicarbonato de sódio, bicarbonato de potássio ou cloreto de potássio, que, pulverizadas, formam uma nuvem de pó sobre o fogo, extinguindo-o por quebra da reação em cadeia e por abafamento. Estes pós deverão receber um tratamento:",
         options: [
           "A) antiparticularização.",
           "B) antirresfriamento.",
@@ -409,11 +396,11 @@ const questionsData = [
           "E) anti-hidroscópico"
         ],
         correct: 2,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 4,
-        text: "qual a capacidade do extintor de água pressurizada",
+        id: 3,
+        text: "Qual a capacidade do extintor de água pressurizada?",
         options: [
           "A) 8 litros",
           "B) 9 litros",
@@ -422,24 +409,24 @@ const questionsData = [
           "E) 7 litros"
         ],
         correct: 3,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 5,
+        id: 4,
         text: "Qual ao alcance mínimo do jato do extintor de água pressurizada?",
         options: [
           "A) 4 metros",
           "B) 7 metros",
-          "C) 3  metros",
+          "C) 3 metros",
           "D) 5 metros",
           "E) 6 metros"
         ],
         correct: 0,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 6,
-        text: "Qual o tempo mínimo de descarga do extintor de água pressurizada",
+        id: 5,
+        text: "Qual o tempo mínimo de descarga do extintor de água pressurizada?",
         options: [
           "A) 40 segundos",
           "B) 30 segundos",
@@ -448,11 +435,11 @@ const questionsData = [
           "E) 20 segundos"
         ],
         correct: 3,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 7,
-        text: "Qual o tempo para manutenção deu um extintor de água pressurizada",
+        id: 6,
+        text: "Qual o tempo para manutenção de um extintor de água pressurizada?",
         options: [
           "A) máximo sete anos",
           "B) máximo cinco anos",
@@ -461,24 +448,24 @@ const questionsData = [
           "E) máximo quatro anos"
         ],
         correct: 1,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 8,
-        text: "Qual a capacidade de um extintor CO2",
+        id: 7,
+        text: "Qual a capacidade de um extintor CO2?",
         options: [
-          "A) 2 A 4 kg e 4 a 6 kg",
+          "A) 2 a 4 kg e 4 a 6 kg",
           "B) 1 a 2 kg e 6 a 8 kg",
           "C) 1 a 2 kg e 4 a 6 kg",
           "D) 2 a 4 kg e 3 a 6 kg",
           "E) 1 a 2 kg e 3 a 6 kg"
         ],
         correct: 2,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 9,
-        text: "Qual o tempo mínimo de descarga de um extintor de CO2",
+        id: 8,
+        text: "Qual o tempo mínimo de descarga de um extintor de CO2?",
         options: [
           "A) 9 segundos e 13 segundos",
           "B) 8 segundos e 12 segundos",
@@ -487,11 +474,11 @@ const questionsData = [
           "E) 8 segundos e 13 segundos"
         ],
         correct: 4,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 10,
-        text: "Qual a capacidade de um extintor de pó químico pressurizado",
+        id: 9,
+        text: "Qual a capacidade de um extintor de pó químico pressurizado?",
         options: [
           "A) 1 a 4 kg e 4 a 12 kg",
           "B) 2 a 4 kg e 6 a 12 kg",
@@ -500,11 +487,11 @@ const questionsData = [
           "E) 2 a 4 kg e 10 a 12 kg"
         ],
         correct: 0,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 11,
-        text: "qual o tempo mínimo de descarga de um extintor de pó químico pressurizado",
+        id: 10,
+        text: "Qual o tempo mínimo de descarga de um extintor de pó químico pressurizado?",
         options: [
           "A) seis segundos",
           "B) oito segundos",
@@ -513,11 +500,11 @@ const questionsData = [
           "E) nove segundos"
         ],
         correct: 1,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 12,
-        text: "qual a capacidade de um extintor classe k",
+        id: 11,
+        text: "Qual a capacidade de um extintor classe K?",
         options: [
           "A) oito litros",
           "B) seis litros",
@@ -526,11 +513,11 @@ const questionsData = [
           "E) cinco litros"
         ],
         correct: 1,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 13,
-        text: "qual o tempo mínimo de descarga de um extintor classe K",
+        id: 12,
+        text: "Qual o tempo mínimo de descarga de um extintor classe K?",
         options: [
           "A) 80 segundos",
           "B) 50 segundos",
@@ -539,11 +526,11 @@ const questionsData = [
           "E) 70 segundos"
         ],
         correct: 2,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 14,
-        text: "Qual é a capacidade de uma carreta de água ?",
+        id: 13,
+        text: "Qual é a capacidade de uma carreta de água?",
         options: [
           "A) 75 a 150 L",
           "B) 50 a 100 L",
@@ -552,10 +539,10 @@ const questionsData = [
           "E) 25 a 50 L"
         ],
         correct: 0,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 15,
+        id: 14,
         text: "Qual é o alcance médio do jato da carreta de água?",
         options: [
           "A) 15 metros",
@@ -565,23 +552,23 @@ const questionsData = [
           "E) 13 metros"
         ],
         correct: 4,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
+      },
+      {
+        id: 15,
+        text: "Qual é o tempo mínimo de descarga da carreta de água?",
+        options: [
+          "A) 75 L e 90 segundos",
+          "B) 70 L e 180 segundos",
+          "C) 75 L e 180 segundos",
+          "D) 75 L e 75 segundos",
+          "E) 75 L e 360 segundos"
+        ],
+        correct: 2,
+        subject: "Extintores e Agentes Extintores"
       },
       {
         id: 16,
-        text: "qual é o tempo mínimo de descarga carreta de água",
-        options: [
-          "A) 75 L é 90 segundos",
-          "B) 70 L é 180 segundos",
-          "C) 75 L é 180 segundos",
-          "D) 75 L é 75 segundos",
-          "E) 75 L é 360 segundos"
-        ],
-        correct: 2,
-        subject: "CAMAAL 1202 (CAV)"
-      },
-      {
-        id: 17,
         text: "Qual é a capacidade da carreta de espuma mecânica",
         options: [
           "A) 75 a 150 L",
@@ -591,11 +578,11 @@ const questionsData = [
           "E) 75 a 100 L"
         ],
         correct: 0,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 18,
-        text: "Qual é o alcance mede-o da carreta de espuma mecânica?",
+        id: 17,
+        text: "Qual é o alcance médio da carreta de espuma mecânica?",
         options: [
           "A) 7,5 metros",
           "B) 6,5 metros",
@@ -604,24 +591,24 @@ const questionsData = [
           "E) 7 metros"
         ],
         correct: 0,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
+      },
+      {
+        id: 18,
+        text: "Qual o tempo mínimo de descarga da carreta de espuma mecânica",
+        options: [
+          "A) 75 litros e 180 segundos",
+          "B) 50 litros e 180 segundos",
+          "C) 60 litros e 120 segundos",
+          "D) 50 litros e 120 segundos",
+          "E) 70 litros e 100 segundos"
+        ],
+        correct: 0,
+        subject: "Extintores e Agentes Extintores"
       },
       {
         id: 19,
-        text: "Qual o tempo mínimo de descarga da carreta de espuma mecânica",
-        options: [
-          "A) 75 litros é 180 Segundos",
-          "B) 50 litros 180 segundos",
-          "C) 60 litros 120 segundos",
-          "D) 50 litros 120 segundos",
-          "E) 70 litros é 100 segundos"
-        ],
-        correct: 0,
-        subject: "CAMAAL 1202 (CAV)"
-      },
-      {
-        id: 20,
-        text: "Qual a capacidade da carreta de pó químico seco ?",
+        text: "Qual a capacidade da carreta de pó químico seco?",
         options: [
           "A) 20 a 40 kg",
           "B) 75 a 150 kg",
@@ -630,24 +617,24 @@ const questionsData = [
           "E) 50 a 100 kg"
         ],
         correct: 2,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
+      },
+      {
+        id: 20,
+        text: "Qual o tempo mínimo de descarga da carreta de pó químico seco?",
+        options: [
+          "A) 20 kg e 40 segundos",
+          "B) 20 kg e 120 segundos",
+          "C) 20 kg e 100 segundos",
+          "D) 20 kg e 180 segundos",
+          "E) 20 kg e 60 segundos"
+        ],
+        correct: 1,
+        subject: "Extintores e Agentes Extintores"
       },
       {
         id: 21,
-        text: "Qual o tempo mínimo de descarga da carreta de pó por seco?",
-        options: [
-          "A) 20 kg é 40 segundos",
-          "B) 20 kg é 120 segundos",
-          "C) 20 kg é 100 segundos",
-          "D) 20 kg é 180 segundos",
-          "E) 20 kg é 60 segundos"
-        ],
-        correct: 1,
-        subject: "CAMAAL 1202 (CAV)"
-      },
-      {
-        id: 22,
-        text: "Qual  a capacidade da carreta de gás carbônico?",
+        text: "Qual a capacidade da carreta de gás carbônico?",
         options: [
           "A) 75 a 150 kg",
           "B) 20 a 100 kg",
@@ -656,10 +643,10 @@ const questionsData = [
           "E) 20 a 80 kg"
         ],
         correct: 3,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 23,
+        id: 22,
         text: "Qual o alcance médio do jato da carreta de gás carbônico?",
         options: [
           "A) 4 metros",
@@ -669,24 +656,24 @@ const questionsData = [
           "E) 3 metros"
         ],
         correct: 4,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
+      },
+      {
+        id: 23,
+        text: "Qual o tempo mínimo de descarga da carreta de gás carbônico?",
+        options: [
+          "A) 30 kg e 180 segundos",
+          "B) 30 kg e 100 segundos",
+          "C) 30 kg e 90 segundos",
+          "D) 30 kg e 120 segundos",
+          "E) 30 kg e 60 segundos"
+        ],
+        correct: 4,
+        subject: "Extintores e Agentes Extintores"
       },
       {
         id: 24,
-        text: "Qual o tempo mínimo de descarga da carreta de gás carbônico?",
-        options: [
-          "A) 30 kg é 180 segundos",
-          "B) 30 kg é 100 segundos",
-          "C) 30 kg é 90 segundos",
-          "D) 30 kg é 120 segundos",
-          "E) 30 kg é 60 segundos"
-        ],
-        correct: 4,
-        subject: "CAMAAL 1202 (CAV)"
-      },
-      {
-        id: 25,
-        text: "Qual o período em que é verificado o Acesso, Visibilidade e  Sinalização dos extintores de incêndio?",
+        text: "Qual o período em que é verificado o Acesso, Visibilidade e Sinalização dos extintores de incêndio?",
         options: [
           "A) quinquenal",
           "B) semestral",
@@ -695,10 +682,10 @@ const questionsData = [
           "E) semanal"
         ],
         correct: 4,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 26,
+        id: 25,
         text: "Qual é o período em que é verificado o bico ou Mangueira, pressão no manômetro, lacre, pino de segurança, existência de cartão de controle de pesagem e pesagem do extintor de incêndio?",
         options: [
           "A) semanal",
@@ -708,11 +695,11 @@ const questionsData = [
           "E) quinquenal"
         ],
         correct: 1,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 27,
-        text: "Qual é o período em que é verificado bico ou Mangueira pressão no manômetro, lacre, pino de segurança, existência de cartão de controle de pesagem e carregamento do extintor quando ouver perda superior a 10% do peso do extintor de incêndio?",
+        id: 26,
+        text: "Qual é o período em que é verificado bico ou mangueira, pressão no manômetro, lacre, pino de segurança, existência de cartão de controle de pesagem e carregamento do extintor quando houver perda superior a 10% do peso do extintor de incêndio?",
         options: [
           "A) semestral",
           "B) quinquenal",
@@ -721,11 +708,11 @@ const questionsData = [
           "E) mensal"
         ],
         correct: 0,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 28,
-        text: "qual o período estipulado para manutenção de segunda o nível dos extintores de incêndio?",
+        id: 27,
+        text: "Qual o período estipulado para manutenção de segundo nível dos extintores de incêndio?",
         options: [
           "A) semestral",
           "B) semanal",
@@ -734,11 +721,11 @@ const questionsData = [
           "E) quinquenal"
         ],
         correct: 3,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 29,
-        text: "Qual período que a executado o teste hidrostático os nos extintores de incêndio?",
+        id: 28,
+        text: "Qual o período em que é executado o teste hidrostático nos extintores de incêndio?",
         options: [
           "A) anual",
           "B) semestral",
@@ -747,11 +734,11 @@ const questionsData = [
           "E) semanal"
         ],
         correct: 2,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 30,
-        text: "e quais são as substâncias constituídas por bicarbonato de sódio bicarbonato de potássio ou cloreto de potássio que pulverizada e formam uma nuvem de voz sobre o fogo extinguindo-o?",
+        id: 29,
+        text: "Quais são as substâncias constituídas por bicarbonato de sódio, bicarbonato de potássio ou cloreto de potássio que, pulverizadas, formam uma nuvem de pó sobre o fogo, extinguindo-o?",
         options: [
           "A) compostos halocarbonatos",
           "B) espuma mecânica",
@@ -760,89 +747,89 @@ const questionsData = [
           "E) gás carbônico"
         ],
         correct: 3,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
+      },
+      {
+        id: 30,
+        text: "É um agente extintor à base de bicarbonato de potássio, muito eficiente na extinção de incêndios em líquidos inflamáveis em forma pulverizada e em gases inflamáveis.",
+        options: [
+          "A) Purple-K (PKP)",
+          "B) solução aquosa de pó químico (APC)",
+          "C) pó químico ABC (FORAY)",
+          "D) Plus Fifty (PQS)",
+          "E) pó químico especial (MET-L-X)"
+        ],
+        correct: 0,
+        subject: "Extintores e Agentes Extintores"
       },
       {
         id: 31,
-        text: "é um agente extintor a base de bicarbonato de potássio muito eficiente na extinção de incêndios em líquidos inflamados em forma pulverizada e em gases inflamáveis",
+        text: "É um agente extintor à base de bicarbonato de sódio contendo aditivos químicos secos que o mantém com uma vazão livre e não higroscópico, codificado com a cor azul clara?",
         options: [
-          "A) Purple-k (pkp)",
-          "B) solução aquosa de pó químico (APC)",
-          "C) pó químico ABC (FORAY)",
-          "D) plus fifty ○(PQS)",
-          "E) pó químico seco Especial (MET-L-X)"
+          "A) pó químico ABC (FORAY)",
+          "B) pó químico especial (MET-L-X)",
+          "C) Purple-K (PKP)",
+          "D) solução aquosa de pó químico (APC)",
+          "E) Plus Fifty (PQS)"
         ],
-        correct: 0,
-        subject: "CAMAAL 1202 (CAV)"
+        correct: 4,
+        subject: "Extintores e Agentes Extintores"
       },
       {
         id: 32,
-        text: "é um agente extintor a base de bicarbonato de sódio contendo aditivos químicos secos que o mantém com uma vazão Livre e não igoroscópico codificada com a cor azul Clara?",
+        text: "É um agente extintor à base de fosfato de monoamônia + sulfato de amônia e codificado com a cor amarela.",
         options: [
           "A) pó químico ABC (FORAY)",
-          "B) pó químico especial- (MET-L-X)",
-          "C) purple - k(PKP)",
-          "D) solução aquosa  de pó químico (APC)",
-          "E) plus fifty r(PQS)"
+          "B) pó químico especial (MET-L-X)",
+          "C) Purple-K (PKP)",
+          "D) solução aquosa de pó químico (APC)",
+          "E) Plus Fifty (PQS)"
         ],
-        correct: 4,
-        subject: "CAMAAL 1202 (CAV)"
+        correct: 0,
+        subject: "Extintores e Agentes Extintores"
       },
       {
         id: 33,
-        text: "é um agente extintor a base de fosfato de monoamônia + sulfato de amônia ecodificado com a cor amarela",
+        text: "O fosfato de monoamônia é ligeiramente ácido na presença de umidade, o que resulta em propriedades corrosivas moderadas, derretendo quando aquecido a uma temperatura de?",
         options: [
-          "A) pó químico ABC (FORAY)",
-          "B) pó químico especial- (MET-L-X)",
-          "C) purple - k(PKP)",
-          "D) solução aquosa  de pó químico (APC)",
-          "E) plus fifty r(PQS)"
+          "A) 300°F - 149°C",
+          "B) 300°F - 150°C",
+          "C) 100 °F - 50°C",
+          "D) 100 °C - 50°F",
+          "E) 300 °C - 149°F"
         ],
         correct: 0,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
         id: 34,
-        text: "o fosfato de monoamônia é ligeralmente ácido na presença de umidade o que resulta  em propriedades corrosivas moderadas, derretendo quando aquecido a uma temperatura de?",
+        text: "É um agente extintor empregado exclusivamente no combate a incêndios em metais combustíveis classe \"D\".",
         options: [
-          "A) 300º F - 149⁰ C",
-          "B) 300⁰ F - 150⁰ C",
-          "C) 100 ⁰ F - 50⁰ C",
-          "D) 100 ⁰ C - 50⁰ F",
-          "E) 300 ⁰C - 149⁰ F"
+          "A) Purple-K (PKP)",
+          "B) Plus Fifty (PQS)",
+          "C) pó químico especial (MET-L-X)",
+          "D) solução aquosa de pó químico (APC)",
+          "E) solução aquosa de pó químico (APC)"
         ],
-        correct: 0,
-        subject: "CAMAAL 1202 (CAV)"
+        correct: 2,
+        subject: "Extintores e Agentes Extintores"
       },
       {
         id: 35,
-        text: "é um agente extintor é empregado exclusivamente no combate a incêndios em metais combustíveis classe \"D\"",
+        text: "É um agente extintor que contém uma solução aquosa de carbonato de potássio que, em contato com a superfície em chamas, gera uma espuma parecida com a do sabão, impedindo o contato do ar com a superfície em chamas. A espuma leve de sabão contém vapor e causa bolhas de CO2 e glicerina que flutuam na superfície.",
         options: [
-          "A) purple - k(PKP)",
-          "B) plus fifty r(PQS)",
-          "C) pó químico especial- (MET-L-X)",
-          "D) solução aquosa  de pó químico (APC)",
-          "E) solução aquosa  de pó químico (APC)"
+          "A) pó químico especial (MET-L-X)",
+          "B) pó químico ABC (FORAY)",
+          "C) Plus Fifty (PQS)",
+          "D) Purple-K (PKP)",
+          "E) solução aquosa de pó químico (APC)"
         ],
-        correct: 2,
-        subject: "CAMAAL 1202 (CAV)"
+        correct: 4,
+        subject: "Extintores e Agentes Extintores"
       },
       {
         id: 36,
-        text: "é um agente extintor que contém uma solução aquosa de carbonato de potássio que em contato com a superfície Em Chamas, gera uma espuma parecida com a do sabão impedindo o contato do ar com a superfície Em Chamas, a espuma leve de sabão contém vapor e causa bolhas de CO2 e glicerina que flutu um na superfície",
-        options: [
-          "A) pó químico especial- (MET-L-X)",
-          "B) pó químico ABC (FORAY)",
-          "C) plus fifty r(PQS)",
-          "D) purple - k(PKP)",
-          "E) solução aquosa  de pó químico (APC)"
-        ],
-        correct: 4,
-        subject: "CAMAAL 1202 (CAV)"
-      },
-      {
-        id: 37,
-        text: "ocorre em um período relativamente curto de tempo e pode ser considerada um evento do incêndio combustão subita generalizada trata-se do momento no Qual a temperatura da camada superior de fumaça atingem temperaturas em tornos de 600⁰ C",
+        text: "Ocorre em um período relativamente curto de tempo e pode ser considerado um evento do incêndio: combustão súbita generalizada. Trata-se do momento no qual a temperatura da camada superior de fumaça atinge temperaturas em torno de 600°C.",
         options: [
           "A) incêndio desenvolvido",
           "B) fase normal",
@@ -851,11 +838,11 @@ const questionsData = [
           "E) queda de intensidade"
         ],
         correct: 3,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Fases e Fenômenos do Incêndio"
       },
       {
-        id: 38,
-        text: "a característica principal deixa a fase é o repentino de pagamento das chamas a todo o material combustível existente no compartimento este fenômeno conhecido pelo nome de flash over é um dos principais causadores de acidentes graves com o pessoal envolvido no combate incêndio",
+        id: 37,
+        text: "A característica principal dessa fase é o repentino alastramento das chamas a todo o material combustível existente no compartimento. Este fenômeno, conhecido pelo nome de flashover, é um dos principais causadores de acidentes graves com o pessoal envolvido no combate a incêndio.",
         options: [
           "A) fase normal",
           "B) fase de desenvolvimento",
@@ -864,11 +851,11 @@ const questionsData = [
           "E) fase de queda de intensidade"
         ],
         correct: 1,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Fases e Fenômenos do Incêndio"
       },
       {
-        id: 39,
-        text: "o aparecimento do Flashover marca qual entrada da fase de incêndio",
+        id: 38,
+        text: "O aparecimento do flashover marca qual entrada da fase de incêndio?",
         options: [
           "A) fase de desenvolvimento",
           "B) incêndio desenvolvido",
@@ -877,24 +864,24 @@ const questionsData = [
           "E) fase de queda de intensidade"
         ],
         correct: 1,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Fases e Fenômenos do Incêndio"
       },
       {
-        id: 40,
-        text: "a manutenção da doutrina do Cave inclusive a detecção e correção de irregularidades observadas que venham apresentar riscos de incêndio a bordo é ter responsabilidade de todos a bordo cabendo a quem as suas supervisão",
+        id: 39,
+        text: "A manutenção da doutrina do CAv, inclusive a detecção e correção de irregularidades observadas que venham a apresentar riscos de incêndio a bordo, é de responsabilidade de todos a bordo, cabendo a quem a sua supervisão?",
         options: [
           "A) do pessoal e de serviço",
           "B) encarregados das divisões",
-          "C) Fiel de cav e do navio",
-          "D) Fiel de Cav de divisões",
-          "E) encarregado do Cav"
+          "C) Fiel de CAv e do navio",
+          "D) Fiel de CAv de divisões",
+          "E) encarregado do CAv"
         ],
         correct: 4,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
       },
       {
-        id: 41,
-        text: "conduz eletricidade e pode causar acidentes se utilizada contra equipamentos elétricos energizados reduz a resistência de isolamento de equipamentos e circuitos elétricos e eletrônicos alguns tipos possuem propriedades corrosivas sobre diversos materiais produz irritação na pele e Principalmente nos olhos",
+        id: 40,
+        text: "Conduz eletricidade e pode causar acidentes se utilizada contra equipamentos elétricos energizados. Reduz a resistência de isolamento de equipamentos e circuitos elétricos e eletrônicos. Alguns tipos possuem propriedades corrosivas sobre diversos materiais. Produz irritação na pele e principalmente nos olhos.",
         options: [
           "A) espuma mecânica",
           "B) compostos halojenados",
@@ -903,11 +890,11 @@ const questionsData = [
           "E) pó químico"
         ],
         correct: 0,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 42,
-        text: "o gás carbônico é um gás inerte que não alimenta a combustão agindo na redução do comburente a níveis abaixo de",
+        id: 41,
+        text: "O gás carbônico é um gás inerte que não alimenta a combustão, agindo na redução do comburente a níveis abaixo de:",
         options: [
           "A) 17%",
           "B) 16%",
@@ -916,24 +903,24 @@ const questionsData = [
           "E) 15%"
         ],
         correct: 1,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
+      },
+      {
+        id: 42,
+        text: "O HALON 1301, numa concentração de 5% a 7%:",
+        options: [
+          "A) até 5 min não causa efeito danoso",
+          "B) até 5 min causa efeito danoso",
+          "C) até 5 min perda da coordenação motora e redução da acuidade mental",
+          "D) até 5 min incapacidade",
+          "E) até 5 min desmaio e possível morte"
+        ],
+        correct: 0,
+        subject: "Extintores e Agentes Extintores"
       },
       {
         id: 43,
-        text: "O HALON 1301, numa concentração de 5% A 7% ?",
-        options: [
-          "A) até 5 min. não causa efeito danoso",
-          "B) até  5 min causa efeito danoso",
-          "C) até 5 min. perda da coordenação motora e redução da acuidade mental",
-          "D) até 5 min incapacidade",
-          "E) até  5 min. desmaio e possível morte"
-        ],
-        correct: 0,
-        subject: "CAMAAL 1202 (CAV)"
-      },
-      {
-        id: 44,
-        text: "O HALON 1301, numa concentração de 7% A 10%?",
+        text: "O HALON 1301, numa concentração de 7% a 10%:",
         options: [
           "A) em 1 min. desmaio e possível morte",
           "B) em 1 min. não causa efeito danoso",
@@ -942,11 +929,11 @@ const questionsData = [
           "E) em 1 min. evitar qualquer contato"
         ],
         correct: 3,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 45,
-        text: "O HALON 1301, numa concentração acima de 10٪ ?",
+        id: 44,
+        text: "O HALON 1301, numa concentração acima de 10%?",
         options: [
           "A) em 1 min perda da coordenação motora e redução da acuidade mental",
           "B) em 1 min embriagues",
@@ -955,11 +942,11 @@ const questionsData = [
           "E) em 1 min totalmente incapacitado, desmaio e possível morte"
         ],
         correct: 4,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 46,
-        text: "O HALON 1211, numa concentração de  até 4%",
+        id: 45,
+        text: "O HALON 1211, numa concentração de até 4%:",
         options: [
           "A) aceitável até 4 min",
           "B) aceitável até 1 min",
@@ -968,11 +955,11 @@ const questionsData = [
           "E) aceitável até 6 min"
         ],
         correct: 3,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 47,
-        text: "O HALON 1211, numa concentração de 4% A 5%",
+        id: 46,
+        text: "O HALON 1211, numa concentração de 4% a 5%:",
         options: [
           "A) aceitável até 1 min",
           "B) aceitável até 6 min",
@@ -981,11 +968,11 @@ const questionsData = [
           "E) aceitável até 4 min"
         ],
         correct: 0,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 48,
-        text: "O HALON 1211, numa concentração acima de 5%",
+        id: 47,
+        text: "O HALON 1211, numa concentração acima de 5%:",
         options: [
           "A) evitar qualquer contato",
           "B) aceitável até 4 min",
@@ -994,11 +981,11 @@ const questionsData = [
           "E) aceitável até 5 min"
         ],
         correct: 0,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
       },
       {
-        id: 49,
-        text: "sabendo-se que o alon foi utilizado para extinguir incêndio em um compartimento para se efetuar arreia entrada será obrigatoriamente necessário ou uso de um equipamento autônomo de respiração observando-se um tempo mínimo de XX minutos após ter sido comprovada a extinção do incêndio pela redução da temperatura no compartimento",
+        id: 48,
+        text: "Sabendo-se que o Halon foi utilizado para extinguir incêndio em um compartimento, para se efetuar aí a entrada será obrigatoriamente necessário o uso de um equipamento autônomo de respiração, observando-se um tempo mínimo de XX minutos após ter sido comprovada a extinção do incêndio pela redução da temperatura no compartimento.",
         options: [
           "A) 16 minutos",
           "B) 13 minutos",
@@ -1007,63 +994,63 @@ const questionsData = [
           "E) 14 minutos"
         ],
         correct: 3,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Extintores e Agentes Extintores"
+      },
+      {
+        id: 49,
+        text: "Qual a temperatura em que o Halon se decompõe, formando diversos elementos tóxicos que podem causar a morte quase instantânea?",
+        options: [
+          "A) 600°C - 1200°F",
+          "B) 400°C - 900°F",
+          "C) 500°C - 900°F",
+          "D) 200°C - 500°F",
+          "E) 300°C - 700°F"
+        ],
+        correct: 2,
+        subject: "Extintores e Agentes Extintores"
       },
       {
         id: 50,
-        text: "Qual a temperatura que o Halon se decompõe formando diversos elementos tóxicos que podem causar a morte quase instantânea",
-        options: [
-          "A) 600⁰ C - 1200⁰ F",
-          "B) 400⁰ C - 900⁰ F",
-          "C) 500⁰ C - 900⁰ F",
-          "D) 200⁰ C - 500⁰F",
-          "E) 300⁰ C - 700⁰ F"
-        ],
-        correct: 2,
-        subject: "CAMAAL 1202 (CAV)"
-      },
-      {
-        id: 51,
-        text: "quem é o responsável perante o Comandante pelas atribuições de planejar preparar e executar as falhas específicas do cav antes é após a ocorrência o sinistro",
+        text: "Quem é o responsável perante o Comandante pelas atribuições de planejar, preparar e executar as fainas específicas do CAv antes e após a ocorrência do sinistro?",
         options: [
           "A) líder da turma de incêndio",
           "B) líder do reparo",
-          "C) Fiel de cav",
-          "D) encarregado do cav",
+          "C) Fiel de CAv",
+          "D) encarregado do CAv",
           "E) encarregado do reparo"
         ],
         correct: 3,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
       },
       {
-        id: 52,
-        text: "qual militar é responsável por receber dos reparos as avarias é informar ao comando",
+        id: 51,
+        text: "Qual militar é responsável por receber dos reparos as avarias e informar ao comando?",
         options: [
-          "A) Fiel de cav",
+          "A) Fiel de CAv",
           "B) líder do reparo",
-          "C) encarregado do cav",
+          "C) encarregado do CAv",
           "D) encarregado do reparo",
           "E) líder da turma de incêndio"
         ],
         correct: 2,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
       },
       {
-        id: 53,
-        text: "Qual o militar é responsável por solicitar ao comando autorização para alterar a condição de fechamento do material ?",
+        id: 52,
+        text: "Qual o militar é responsável por solicitar ao comando autorização para alterar a condição de fechamento do material?",
         options: [
-          "A) encarregado do cav",
+          "A) encarregado do CAv",
           "B) encarregado do reparo",
           "C) líder da turma de incêndio",
           "D) líder do reparo",
-          "E) Fiel de cav"
+          "E) Fiel de CAv"
         ],
         correct: 0,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
       },
       {
-        id: 54,
-        text: "acima de quantos militares o navio deve possuir um mínimo de duas enfermarias de combate com capacidade de atender emergência acidente com o pessoal em combate",
+        id: 53,
+        text: "Acima de quantos militares o navio deve possuir um mínimo de duas enfermarias de combate com capacidade de atender emergência e acidente com o pessoal em combate?",
         options: [
           "A) 300",
           "B) 400",
@@ -1072,319 +1059,904 @@ const questionsData = [
           "E) 200"
         ],
         correct: 0,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
       },
       {
-        id: 55,
-        text: "é uma função exercida por um oficial suboficial ou Sargento o qual supervisora a atuação do reparo é responsável por todos pessoal e material designado para a área do reparo e armário do cav, e é tem o Curso de C-EXP-FICAV",
+        id: 54,
+        text: "É uma função exercida por um oficial, suboficial ou sargento, o qual supervisiona a atuação do reparo, é responsável por todo o pessoal e material designado para a área do reparo e armário do CAv, e tem o curso de C-EXP-FICAV.",
         options: [
-          "A) Fiel de cav",
+          "A) Fiel de CAv",
           "B) líder da turma de incêndio",
-          "C) encarregado do cav",
+          "C) encarregado do CAv",
           "D) encarregado do reparo",
           "E) líder do reparo"
         ],
         correct: 3,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
       },
       {
-        id: 56,
-        text: "quem é responsável manter atualizadas as normas e os procedimentos para pois serviços relacionados ao controle de avarias",
+        id: 55,
+        text: "Quem é responsável por manter atualizadas as normas e os procedimentos para os serviços relacionados ao controle de avarias?",
         options: [
-          "A) encarregado do cav",
+          "A) encarregado do CAv",
           "B) líder da turma de incêndio",
           "C) líder do reparo",
-          "D) Fiel de cav",
+          "D) Fiel de CAv",
           "E) encarregado do reparo"
         ],
         correct: 0,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
       },
       {
-        id: 57,
-        text: "Quem é responsável por elaborar ou manter atualizado um programa de adestramentos incluindo a avaliação para ser ministrado para toda tripulação assim como preparar instrutores para por em prática estes adestramentos",
+        id: 56,
+        text: "Quem é responsável por elaborar ou manter atualizado um programa de adestramentos, incluindo a avaliação, para ser ministrado para toda a tripulação, assim como preparar instrutores para pôr em prática estes adestramentos?",
         options: [
           "A) líder da turma de incêndio",
           "B) encarregado do reparo",
-          "C) encarregado do cav",
+          "C) encarregado do CAv",
           "D) líder do reparo",
-          "E) Fiel de cav"
+          "E) Fiel de CAv"
         ],
         correct: 2,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
       },
       {
-        id: 58,
-        text: "Quem é responsável por conduzir inspeções periódicas no material de controle de avarias dos reparos do navio",
+        id: 57,
+        text: "Quem é responsável por conduzir inspeções periódicas no material de controle de avarias dos reparos do navio?",
         options: [
-          "A) encarregado do cav",
-          "B) Fiel de cav",
+          "A) encarregado do CAv",
+          "B) Fiel de CAv",
           "C) líder da turma de incêndio",
           "D) líder do reparo",
           "E) encarregado do reparo"
         ],
         correct: 0,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
       },
       {
-        id: 59,
-        text: "quem é responsável por manter atualizado o livro de controle de avarias conforme as alterações feitas no navio",
+        id: 58,
+        text: "Quem é responsável por manter atualizado o livro de controle de avarias conforme as alterações feitas no navio?",
         options: [
-          "A) encarregado do cav",
+          "A) encarregado do CAv",
           "B) encarregado do reparo",
-          "C) Fiel de cav",
+          "C) Fiel de CAv",
           "D) líder do reparo",
           "E) líder da turma de incêndio"
         ],
         correct: 0,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
+      },
+      {
+        id: 59,
+        text: "Quem é responsável por manter todas as listas de verificação atualizadas?",
+        options: [
+          "A) encarregado do CAv",
+          "B) encarregado do reparo",
+          "C) líder do reparo",
+          "D) líder da turma de incêndio",
+          "E) Fiel de CAv"
+        ],
+        correct: 0,
+        subject: "Organização e Funções do CAv"
       },
       {
         id: 60,
-        text: "Quem é responsável por manter todas as listas de verificação atualizadas",
+        text: "Quem é responsável por manter informado o chefe do departamento de máquinas de qualquer situação ou prática que diminua o grau de prontidão do controle de avarias do navio?",
         options: [
-          "A) encarregado do cav",
-          "B) encarregado do reparo",
-          "C) líder do reparo",
-          "D) líder da turma de incêndio",
-          "E) Fiel de cav"
+          "A) líder do reparo",
+          "B) Fiel de CAv",
+          "C) líder da turma de incêndio",
+          "D) encarregado do reparo",
+          "E) encarregado do CAv"
         ],
-        correct: 0,
-        subject: "CAMAAL 1202 (CAV)"
+        correct: 4,
+        subject: "Organização e Funções do CAv"
       },
       {
         id: 61,
-        text: "Quem é responsável por manter informado o chefe do departamento de máquinas de qualquer situação ou prática que diminua o grau de prontidão do controle de avarias do navio",
+        text: "Quem é responsável por fiscalizar a adoção das medidas de segurança necessárias à entrada de pessoal em compartimentos fechados ou espaços vazios?",
         options: [
-          "A) líder do reparo",
-          "B) Fiel de cav",
+          "A) encarregado do reparo",
+          "B) encarregado do CAv",
           "C) líder da turma de incêndio",
-          "D) encarregado do reparo",
-          "E) encarregado do cav"
+          "D) líder do reparo",
+          "E) Fiel de CAv"
         ],
-        correct: 4,
-        subject: "CAMAAL 1202 (CAV)"
+        correct: 1,
+        subject: "Organização e Funções do CAv"
       },
       {
         id: 62,
-        text: "Quem é responsável por fiscalizar a adoção das medidas de segurança necessárias a entrada de pessoal em compartimentos fechados ou espaços vazios",
+        text: "Quem é responsável por autorizar os trabalhos de corte e solda a bordo e como responsável pelos testes de atmosfera pela liberação de compartimentos ou tanques com gases tóxicos ou explosivos após serem desgaseificados?",
         options: [
-          "A) encarregado do reparo",
-          "B) encarregado do cav",
-          "C) líder da turma de incêndio",
-          "D) líder do reparo",
-          "E) Fiel de cav"
-        ],
-        correct: 1,
-        subject: "CAMAAL 1202 (CAV)"
-      },
-      {
-        id: 63,
-        text: "Quem é responsável por autorizar os trabalhos de corte e solda a borda e como responsável pelo testes de atmosfera pela liberação de compartimentos ou tanques com gases tóxicos ou explosivos após serem desgaseificados?",
-        options: [
-          "A) Fiel de cav",
+          "A) Fiel de CAv",
           "B) encarregado do reparo",
           "C) líder do reparo",
           "D) líder da turma de incêndio",
-          "E) encarregado do cav"
+          "E) encarregado do CAv"
         ],
         correct: 4,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
       },
       {
-        id: 64,
-        text: "Quem é responsável por manter o Comandante informado do Estado de prontidão do controle de avarias do navio tanto em termos de material quanto em termos de pessoal",
+        id: 63,
+        text: "Quem é responsável por manter o Comandante informado do estado de prontidão do controle de avarias do navio, tanto em termos de material quanto em termos de pessoal?",
         options: [
-          "A) encarregado do cav",
+          "A) encarregado do CAv",
           "B) encarregado do reparo",
           "C) líder do reparo",
           "D) imediato",
-          "E) Fiel de cav"
+          "E) Fiel de CAv"
         ],
         correct: 3,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
       },
       {
-        id: 65,
-        text: "Quem é responsável por fazer cumprir as decisões do Comandante no que diz respeito a instrução e ao adestramento de controle de avarias",
+        id: 64,
+        text: "Quem é responsável por fazer cumprir as decisões do Comandante no que diz respeito à instrução e ao adestramento de controle de avarias?",
         options: [
           "A) encarregado do reparo",
-          "B) encarregado do cav",
-          "C) Fiel de cav",
+          "B) encarregado do CAv",
+          "C) Fiel de CAv",
           "D) líder do reparo",
           "E) imediato"
         ],
         correct: 4,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
       },
       {
-        id: 66,
-        text: "quem deverá estar familiarizado com pois procedimentos do controle de avarias no porto e no mar",
+        id: 65,
+        text: "Quem deverá estar familiarizado com os procedimentos do controle de avarias no porto e no mar?",
         options: [
           "A) encarregado do reparo",
-          "B) encarregado do cav",
+          "B) encarregado do CAv",
           "C) líder do reparo",
-          "D) Fiel de cav",
+          "D) Fiel de CAv",
           "E) imediato"
         ],
         correct: 4,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
       },
       {
-        id: 67,
-        text: "quem é responsável manter a supervisão geral de todas as ações relacionadas ao controle de avarias incluindo os exercícios sob um ponto de vista específico e discriminado",
+        id: 66,
+        text: "Quem é responsável por manter a supervisão geral de todas as ações relacionadas ao controle de avarias, incluindo os exercícios sob um ponto de vista específico e discriminado?",
         options: [
           "A) imediato",
           "B) líder do reparo",
-          "C) Fiel de cav",
-          "D) encarregado do cav",
+          "C) Fiel de CAv",
+          "D) encarregado do CAv",
           "E) encarregado do reparo"
         ],
         correct: 0,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
       },
       {
-        id: 68,
-        text: "Quem é responsável por prover material e pessoal de outros controles para o auxílio do controle de avarias nos casos de grandes avarias obedecendo as prioridades do comando",
+        id: 67,
+        text: "Quem é responsável por prover material e pessoal de outros controles para o auxílio do controle de avarias nos casos de grandes avarias, obedecendo às prioridades do comando?",
         options: [
           "A) líder da turma de incêndio",
           "B) imediato",
           "C) líder do reparo",
-          "D) Fiel de cav",
+          "D) Fiel de CAv",
           "E) encarregado do reparo"
         ],
         correct: 1,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
+      },
+      {
+        id: 68,
+        text: "Em casos graves, e se a situação tática assim permitir, deve se posicionar no CCM ou o mais próximo das avarias para assessorar o Comandante em tempo real. Quem é?",
+        options: [
+          "A) líder do reparo",
+          "B) imediato",
+          "C) Fiel de CAv",
+          "D) encarregado do CAv",
+          "E) encarregado do reparo"
+        ],
+        correct: 1,
+        subject: "Organização e Funções do CAv"
       },
       {
         id: 69,
-        text: "em casos graves e se a situação tática assim permitir se posicionar no ccm ou o mais próximo das avarias para assessorar o Comandante em tempo real",
-        options: [
-          "A) líder do reparo",
-          "B) imediato",
-          "C) Fiel de cav",
-          "D) encarregado do cav",
-          "E) encarregado do reparo"
-        ],
-        correct: 1,
-        subject: "CAMAAL 1202 (CAV)"
-      },
-      {
-        id: 70,
-        text: "quem deverá se atentar para uma necessidade de prover suplementos alimentares e água para o pessoal é envolvido em ações de emergência",
+        text: "Quem deverá se atentar para a necessidade de prover suplementos alimentares e água para o pessoal envolvido em ações de emergência?",
         options: [
           "A) imediato",
-          "B) encarregado do cav",
+          "B) encarregado do CAv",
           "C) encarregado do reparo",
-          "D) Fiel de cav",
+          "D) Fiel de CAv",
           "E) líder do reparo"
         ],
         correct: 0,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
       },
       {
-        id: 71,
-        text: "quem é responsável por prover apoio logístico (pessoal e material) para a cena de ação, se necessário com coordenação através estação central do cav",
+        id: 70,
+        text: "Quem é responsável por prover apoio logístico (pessoal e material) para a cena de ação, se necessário, com coordenação através da estação central do CAv?",
         options: [
-          "A) encarregado do cav",
+          "A) encarregado do CAv",
           "B) líder do reparo",
           "C) encarregado do reparo",
-          "D) Fiel de cav",
+          "D) Fiel de CAv",
           "E) imediato"
         ],
         correct: 2,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
       },
       {
-        id: 72,
-        text: "quem deverá ter um papel ativo no adestramento do pessoal bem como conhecer profundamente as deficiências logísticas (pessoal e material) na área de responsabilidade do seu reparo",
+        id: 71,
+        text: "Quem deverá ter um papel ativo no adestramento do pessoal, bem como conhecer profundamente as deficiências logísticas (pessoal e material) na área de responsabilidade do seu reparo?",
         options: [
           "A) líder do reparo",
           "B) imediato",
           "C) encarregado do reparo",
-          "D) Fiel de cav",
-          "E) encarregado do cav"
+          "D) Fiel de CAv",
+          "E) encarregado do CAv"
         ],
         correct: 2,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
       },
       {
-        id: 73,
-        text: "quem deverá certificar que os isolamentos mecânicos e elétricos estão estabelecidos para a situação",
+        id: 72,
+        text: "Quem deverá certificar que os isolamentos mecânicos e elétricos estão estabelecidos para a situação?",
         options: [
           "A) imediato",
           "B) líder do reparo",
           "C) encarregado do reparo",
-          "D) encarregado do cav",
-          "E) Fiel de cav"
+          "D) encarregado do CAv",
+          "E) Fiel de CAv"
         ],
         correct: 2,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
       },
       {
-        id: 74,
-        text: "quem deverá certificar se de que o pessoal da turma de incêndio e está com a roupa de proteção corretamente vestida",
+        id: 73,
+        text: "Quem deverá certificar-se de que o pessoal da turma de incêndio está com a roupa de proteção corretamente vestida?",
         options: [
-          "A) Fiel de cav",
+          "A) Fiel de CAv",
           "B) imediato",
           "C) líder do reparo",
-          "D) encarregado do cav",
+          "D) encarregado do CAv",
           "E) encarregado do reparo"
         ],
         correct: 4,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
+      },
+      {
+        id: 74,
+        text: "Quem deverá conduzir as inspeções diárias pelo navio?",
+        options: [
+          "A) líder do reparo",
+          "B) encarregado do CAv",
+          "C) imediato",
+          "D) encarregado do reparo",
+          "E) Fiel de CAv"
+        ],
+        correct: 4,
+        subject: "Organização e Funções do CAv"
       },
       {
         id: 75,
-        text: "quem deverá conduzir as inspeções diárias pelo navio",
+        text: "Quem é responsável pela adoção de medidas preventivas em suas áreas de responsabilidade, tais como manutenção da estanqueidade à água e a gases, a prevenção de incêndios, a conservação do material e a manutenção dos equipamentos de emergência?",
         options: [
-          "A) líder do reparo",
-          "B) encarregado do cav",
-          "C) imediato",
-          "D) encarregado do reparo",
-          "E) Fiel de cav"
-        ],
-        correct: 4,
-        subject: "CAMAAL 1202 (CAV)"
-      },
-      {
-        id: 76,
-        text: "Quem é responsável pela adoção de medidas preventivas em suas áreas de responsabilidade tais como manutenção das tranquilidade a água e alvo de gases a prevenção de incêndios apelação do material e a manutenção dos equipamentos de emergências",
-        options: [
-          "A) encarregado do cav",
+          "A) encarregado do CAv",
           "B) encarregado do reparo",
           "C) encarregado de Divisão",
-          "D) Fiel de cav",
+          "D) Fiel de CAv",
           "E) imediato"
         ],
         correct: 2,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
       },
       {
-        id: 77,
-        text: "quem deverá realizar e conduzir inspeções periódicas do cumprimento das rotinas de manutenção e adestramento dos militares de sua divisão",
+        id: 76,
+        text: "Quem deverá realizar e conduzir inspeções periódicas do cumprimento das rotinas de manutenção e adestramento dos militares de sua divisão?",
         options: [
-          "A) Fiel de cav",
+          "A) Fiel de CAv",
           "B) líder do reparo",
           "C) encarregado de divisão",
           "D) imediato",
-          "E) encarregado do cav"
+          "E) encarregado do CAv"
         ],
         correct: 2,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
+      },
+      {
+        id: 77,
+        text: "Qual é o propósito do CAv em uma organização de combate?",
+        options: [
+          "A) Contornar, no menor tempo possível, a situação adversa, seja incêndio, seja alagamento.",
+          "B) Manter ao máximo o poder de fogo do navio",
+          "C) Manter ao máximo o poder combatente do navio",
+          "D) Estabelecer condições de ataque contínuo à avaria.",
+          "E) Navegar, combater e flutuar."
+        ],
+        correct: 2,
+        subject: "Organização e Funções do CAv"
       },
       {
         id: 78,
-        text: "De acordo com a imagem",
+        text: "A designação de cada militar para uma determinada função no CAv é responsabilidade do:",
         options: [
-          "A) C",
-          "B) D",
-          "C) E",
-          "D) A",
-          "E) B"
+          "A) Navio",
+          "B) Comandante",
+          "C) Imediato",
+          "D) Próprio militar",
+          "E) ComImSup"
+        ],
+        correct: 0,
+        subject: "Organização e Funções do CAv"
+      },
+      {
+        id: 79,
+        text: "Quem é o responsável, perante o Comandante, pelas atribuições de planejar, preparar e executar as fainas específicas do CAv antes e após a ocorrência do sinistro?",
+        options: [
+          "A) Fiel de CAv da divisão",
+          "B) Imediato",
+          "C) Encarregado do CAv",
+          "D) Fiel de CAv",
+          "E) CHEMAQ"
+        ],
+        correct: 2,
+        subject: "Organização e Funções do CAv"
+      },
+      {
+        id: 80,
+        text: "Medidas preliminares são adotadas no porto; antes de suspender; antes de navegar em área com mau tempo; e, principalmente, antes do combate. Assinale abaixo a opção que NÃO corresponde a uma dessas medidas:",
+        options: [
+          "A) Conservar e distribuir os equipamentos de emergência.",
+          "B) Manter a estabilidade e a reserva de flutuabilidade do navio.",
+          "C) Manter, nas melhores condições possíveis, os recursos do CAv.",
+          "D) Manter operando os equipamentos elétricos vitais, através do sistema de força em avaria.",
+          "E) Fiscalizar o cumprimento da condição de fechamento do material em todo navio, bem como zelar pela sua manutenção."
         ],
         correct: 3,
-        subject: "CAMAAL 1202 (CAV)"
+        subject: "Organização e Funções do CAv"
+      },
+      {
+        id: 81,
+        text: "O controle de avarias é, basicamente, subdividido em:",
+        options: [
+          "A) Estação central e estação de reparo",
+          "B) Estação de reparo e enfermaria de combate",
+          "C) Estação de manobra e estação central",
+          "D) Estação de manobra e estação de reparo",
+          "E) Estação de comando e central do CAv"
+        ],
+        correct: 0,
+        subject: "Organização e Funções do CAv"
+      },
+      {
+        id: 82,
+        text: "Em uma Fragata o CAv faz parte da composição, EXCETO:",
+        options: [
+          "A) Estação de controle",
+          "B) CICE",
+          "C) Enfermaria de combate",
+          "D) Estação central do CAv",
+          "E) Estações de reparo"
+        ],
+        correct: 0,
+        subject: "Organização e Funções do CAv"
+      },
+      {
+        id: 83,
+        text: "Assinale a opção abaixo que não consta entre as informações que o Encarregado do Controle de Avarias deve receber dos reparos e informar ao Comando:",
+        options: [
+          "A) Avarias estruturais, tipo, localização e o andamento da execução do escoramento.",
+          "B) Contra-alagamento.",
+          "C) Perda de energia principal e alternativa para os equipamentos, passagem e energização de cabos de força em avaria.",
+          "D) Acidentes com pessoal.",
+          "E) Incêndios, tipo, localização e sob ou fora de controle."
+        ],
+        correct: 1,
+        subject: "Reparos e Áreas de Responsabilidade"
+      },
+      {
+        id: 84,
+        text: "As opções abaixo representam os princípios básicos que se aplicam a todas as organizações de combate do CAv, EXCETO:",
+        options: [
+          "A) Assegurar que todo pessoal dentro da organização esteja altamente adestrado no CAv, incluindo os aspectos técnicos de sua especialidade para assessoria na limitação dos danos.",
+          "B) Ter uma estação central única, que recebe informações de todas as unidades de controle e avarias",
+          "C) A estação de comando deve avaliar e disseminar as ordens necessárias para ações corretivas. Ela também informa e recebe ordens da estação central do CAv.",
+          "D) As organizações descentralizadas devem ter capacidade de tomar ações positivas para controlar os vários tipos de danos.",
+          "E) Descentralizar a organização em unidades autossuficientes, com comunicação entre elas."
+        ],
+        correct: 2,
+        subject: "Reparos e Áreas de Responsabilidade"
+      },
+      {
+        id: 85,
+        text: "O Encarregado do Controle de Avarias coordena os militares da ECCAv para o cumprimento das seguintes atribuições, EXCETO:",
+        options: [
+          "A) Solicitar ao Comando autorização para executar lastro e deslastro.",
+          "B) Receber dos reparos avarias e informar ao Comando.",
+          "C) Sugerir o abandono e coordenar o Grupo de Salvamento e Destruição (GSD).",
+          "D) Manter atualizados na ECCAv os quadros de plotagem das ações adotadas no Controle de Avarias de sistemas elétricos.",
+          "E) Munir os reparos com pessoal necessário e dar autonomia para que eles avaliem a necessidade de militares de outros reparos, realizando uma coordenação independente."
+        ],
+        correct: 4,
+        subject: "Reparos e Áreas de Responsabilidade"
+      },
+      {
+        id: 86,
+        text: "Qual das opções abaixo representa uma ação que a Estação Central do CAv deve solicitar autorização ao comando para realizar?",
+        options: [
+          "A) Quadro para plotagem das ações adotadas no controle de avarias de sistemas elétricos.",
+          "B) Utilização dos diagramas de carga líquida e de efeitos de alagamento para serem usados como meios de preservar a estabilidade.",
+          "C) Andamento da execução do escoramento.",
+          "D) Utilização de agentes fixos de sistemas extintores",
+          "E) Planos e diagramas isométricos que apresentem a compartimentagem e os diversos sistemas do navio."
+        ],
+        correct: 3,
+        subject: "Organização e Funções do CAv"
+      },
+      {
+        id: 87,
+        text: "As áreas de responsabilidade dos Reparos são estabelecidas em função de sua localização e dos recursos disponíveis para o combate e são definidas pela:",
+        options: [
+          "A) Organização de Combate dos navios",
+          "B) Organização Administrativa dos navios",
+          "C) Regimento interno do navio",
+          "D) CAAML-1201",
+          "E) CAAML-1202"
+        ],
+        correct: 1,
+        subject: "Reparos e Áreas de Responsabilidade"
+      },
+      {
+        id: 88,
+        text: "Assinale V ou F nas afirmações abaixo e depois marque a alternativa correta:\n(_) As áreas de responsabilidade dos reparos são estabelecidas em função de sua localização e dos recursos disponíveis para o combate e são definidas pela Organização de Combate do Navio.\n(_) Os reparos permitem ao Controle de Avarias atender aos requisitos de descentralização, rapidez e continuidade no combate às avarias.\n(_) Deverá constar da OC uma Estação de Reparo como sendo a Estação de CAv secundária.",
+        options: [
+          "A) FVF",
+          "B) FVV",
+          "C) VVF",
+          "D) VFV",
+          "E) VVV"
+        ],
+        correct: 1,
+        subject: "Reparos e Áreas de Responsabilidade"
+      },
+      {
+        id: 89,
+        text: "O pessoal que guarnecerá as diversas estações do CAv deverá ser selecionado em função das atribuições de cada estação e dentro da disponibilidade de lotação e efetivo do navio. As limitações quantitativas e qualitativas de pessoal, apesar de indesejáveis, poderão ocorrer, devendo ser controladas, EXCETO:",
+        options: [
+          "A) Com inspeções periódicas dos sistemas de combate a incêndio.",
+          "B) Com o Adestramento.",
+          "C) Com motivação.",
+          "D) Com capacidade de improvisação.",
+          "E) Com o desenvolvimento de espírito de equipe."
+        ],
+        correct: 0,
+        subject: "Reparos e Áreas de Responsabilidade"
+      },
+      {
+        id: 90,
+        text: "Em relação aos requisitos de pessoal dos reparos, analise as proposições abaixo e depois marque a alternativa correta:\nI – É recomendável haver, em cada grupo de Reparo em cuja área exista paióis, ao menos um paioleiro familiarizado com o conteúdo destes paióis.\nII – Todos os reparos devem possuir um certo número de militares do departamento de máquinas, especialmente artífices.\nIII – É obrigatório que também existam eletricistas, que terão por encargo, por exemplo, alimentar ou desalimentar ventilações e extrações.\nIV – Deverá também haver em cada reparo um telefonista adestrado que anote e plote as mensagens recebidas e transmitidas.",
+        options: [
+          "A) Apenas I e II estão corretas",
+          "B) Apenas II e III estão corretas",
+          "C) Apenas I e III estão corretas",
+          "D) Apenas I e IV estão corretas",
+          "E) Apenas II, III e IV estão corretas"
+        ],
+        correct: 3,
+        subject: "Reparos e Áreas de Responsabilidade"
+      },
+      {
+        id: 91,
+        text: "As seguintes atribuições são comuns a todos os Reparos, EXCETO:",
+        options: [
+          "A) Avaliar e informar corretamente a extensão das avarias em sua área",
+          "B) Executar reparos elétricos e em circuitos de comunicações interiores",
+          "C) Prestar primeiros socorros e transportar o pessoal acidentado para as enfermarias de combate (sem redução sensível da sua capacidade de controlar avarias)",
+          "D) Controlar a extinguir todas as classes de incêndios",
+          "E) Alterar a condição de fechamento do material assim que julgar necessário para o combate às avarias"
+        ],
+        correct: 4,
+        subject: "Reparos e Áreas de Responsabilidade"
+      },
+      {
+        id: 92,
+        text: "Os reparos devem possuir capacidade para executar as seguintes tarefas, EXCETO:",
+        options: [
+          "A) Manutenção da propulsão do navio",
+          "B) Manutenção da manobrabilidade do navio",
+          "C) Manutenção da integridade estrutural",
+          "D) Manutenção do adestramento aos militares de bordo",
+          "E) Manutenção da flutuabilidade"
+        ],
+        correct: 3,
+        subject: "Reparos e Áreas de Responsabilidade"
+      },
+      {
+        id: 93,
+        text: "Para a avaliação precisa das avarias abaixo da linha d’água, devem ser mantidos dois quadros:",
+        options: [
+          "A) Quadro de flutuabilidade (ou diagrama de efeito de alagamento) e diagrama de carga líquida",
+          "B) Quadro de flutuabilidade e quadro de estabilidade",
+          "C) Quadro de alagamento e diagrama de carga líquida",
+          "D) Quadro de carga líquida e quadro de flutuabilidade (ou diagrama de efeito de alagamento)",
+          "E) Quadro de estabilidade (ou diagrama de efeito de alagamento) e diagrama de carga líquida"
+        ],
+        correct: 4,
+        subject: "Reparos e Áreas de Responsabilidade"
+      },
+      {
+        id: 94,
+        text: "Assinale a opção que representa uma ação para manutenção da integridade estrutural e da manobrabilidade do navio",
+        options: [
+          "A) Auxiliar na manutenção e reparo dos sistemas de controle de governo",
+          "B) Operar, isolar, reparar e alterar a segregação de sistemas vitais.",
+          "C) Recolher sobreviventes no mar e auxiliar outros navios",
+          "D) Auxiliar na manutenção e reparo de sistemas de comunicação",
+          "E) Reparar avarias de estruturas e acessório designados para manter a estanqueidade através de bujonamento, tamponamento, escoramento, solda, cimento em anteparas e conveses, reparos em válvulas e percentagem ou bujonamento em redes em todos os compartimentos estanques do navio na sua área de responsabilidade."
+        ],
+        correct: 2,
+        subject: "Reparos e Áreas de Responsabilidade"
+      },
+      {
+        id: 95,
+        text: "Para atender à função de manutenção da propulsão do navio, o reparo deverá ser capaz de, EXCETO:",
+        options: [
+          "A) Auxiliar na operação e no reparo dos sistemas de controle de governo",
+          "B) Reparar os sistemas primários e secundários de governo",
+          "C) Manter um quadro de plotagem de avarias de máquinas, mostrando a condição de prontidão das máquinas principais e auxiliares",
+          "D) Auxiliar na manutenção e reparo dos sistemas de comunicações",
+          "E) Operar, reparar, isolar e alterar a segregação de sistemas vitais"
+        ],
+        correct: 1,
+        subject: "Reparos e Áreas de Responsabilidade"
+      },
+      {
+        id: 96,
+        text: "Os navios com tripulação acima de _________ militares devem possuir um mínimo de 2 enfermarias de combate:",
+        options: [
+          "A) 200",
+          "B) 350",
+          "C) 300",
+          "D) 250",
+          "E) 400"
+        ],
+        correct: 2,
+        subject: "Reparos e Áreas de Responsabilidade"
+      },
+      {
+        id: 97,
+        text: "Além das enfermarias de combate, deverão existir caixas de primeiros socorros para o pessoal nas estações de combate, cabendo à(ao) __________ prover o material necessário a elas, assim como sua manutenção:",
+        options: [
+          "A) Encarregado da incumbência",
+          "B) Enfermeiro de bordo",
+          "C) Fiel de CAv da divisão",
+          "D) Divisão de Saúde",
+          "E) Socorrista do reparo"
+        ],
+        correct: 3,
+        subject: "Reparos e Áreas de Responsabilidade"
+      },
+      {
+        id: 98,
+        text: "Quem é o responsável por prover apoio logístico (pessoal e material) para a cena de ação, se necessário com a coordenação através da ECCAv?",
+        options: [
+          "A) Imediato do navio",
+          "B) Encarregado do Reparo",
+          "C) Fiel de CAv do navio",
+          "D) Líder do reparo",
+          "E) Encarregado de divisão"
+        ],
+        correct: 1,
+        subject: "Organização e Funções do CAv"
+      },
+      {
+        id: 99,
+        text: "Função exercida por um oficial, suboficial ou sargento, o qual supervisiona a atuação do reparo, sendo responsável por todo pessoal e material designado para área do reparo e armário de CAv?",
+        options: [
+          "A) Líder da turma de incêndio",
+          "B) Líder do reparo",
+          "C) Líder da cena de ação",
+          "D) Fiel de CAv",
+          "E) Encarregado do reparo"
+        ],
+        correct: 4,
+        subject: "Organização e Funções do CAv"
+      },
+      {
+        id: 100,
+        text: "Os mensageiros deverão estabelecer a troca de informações entre:",
+        options: [
+          "A) Encarregado do CAv e Encarregado do reparo",
+          "B) Líder do reparo e Estação Central do CAv",
+          "C) Líder da cena de ação e Fiel de CAv",
+          "D) Líder da turma de incêndio e Estação Central do CAv",
+          "E) Líder da cena de ação e Encarregado do reparo"
+        ],
+        correct: 4,
+        subject: "Turmas de Incêndio"
+      },
+      {
+        id: 101,
+        text: "Quem é o responsável, no local do incêndio, por determinar qual o agente extintor, recomendado, o método de extinção e a direção do ataque ao fogo?",
+        options: [
+          "A) Encarregado do CAv",
+          "B) Líder da turma de incêndio (suporte A)",
+          "C) Líder da cena de ação",
+          "D) Investigador",
+          "E) Encarregado do Reparo"
+        ],
+        correct: 2,
+        subject: "Turmas de Incêndio"
+      },
+      {
+        id: 102,
+        text: "Sua função é melhor entendida nos navios que possuem câmera de imagem térmica:",
+        options: [
+          "A) Líder da cena de ação",
+          "B) Líder da Turma de Incêndio",
+          "C) Investigador",
+          "D) Encarregado do CAv",
+          "E) Encarregado do Reparo"
+        ],
+        correct: 1,
+        subject: "Turmas de Incêndio"
+      },
+      {
+        id: 103,
+        text: "Nos navios que não possuem câmera de imagem térmica, o líder da cena de ação será:",
+        options: [
+          "A) O encarregado do CAv",
+          "B) O encarregado do reparo",
+          "C) O líder do reparo",
+          "D) O militar com mais experiência no controle de avarias ou o que melhor conhecer a área sinistrada, dentre os componentes da turma de incêndio.",
+          "E) O mais antigo da turma de incêndio"
+        ],
+        correct: 3,
+        subject: "Turmas de Incêndio"
+      },
+      {
+        id: 104,
+        text: "Em relação às atribuições da turma de ataque, assinale V ou F e depois marque a alternativa correta.\n(_) É composta pelo líder da cena de ação, 1 eletricista e mais duas praças.\n(_) O eletricista é o encarregado de parar os sistemas de ventilação da área em caso de incêndio.\n(_) Em condição normal de viagem ou no porto, deve chegar na área da avaria, em até 3 minutos, vestido com EPI básico (capuz e luva antiexposição).\n(_) Tem a responsabilidade de preparar a montagem das linhas de mangueiras, caso não seja possível extinguir o incêndio com extintores, se já não tiver sido feito pelos descobridores.",
+        options: [
+          "A) FVFV",
+          "B) VVFV",
+          "C) VVVV",
+          "D) FFFV",
+          "E) FVVF"
+        ],
+        correct: 1,
+        subject: "Turmas de Incêndio"
+      },
+      {
+        id: 105,
+        text: "Em relação às atribuições das turmas de suporte “A” e “B”, analise as afirmações abaixo e depois marque a alternativa correta:\nI – Nos navios, possuem roupas apropriadas para o combate ao incêndio do tipo Fearrnought (marinha norte-americana) ou Firefighting Coverall (Marinha Inglesa).\nII – A turma de suporte “A” é composta por, pelo menos, 3 militares vestidos apenas com macacão, capuz, luvas antiexposição e máscara de combate a incêndio, portando extintores de incêndio da classe adequada para combater o sinistro.\nIII – São as turmas que efetivamente dão combate ao incêndio.\nIV – A turma de suporte “B” é composta por, pelo menos, quatro militares com roupa de combate a incêndio, botas, capuz antiexposição, luvas de CBINC, capacete, lanterna de combate e máscara de combate a incêndio.",
+        options: [
+          "A) Apenas I e II são verdadeiras",
+          "B) Apenas I e IV são verdadeiras",
+          "C) Apenas II, III e IV são verdadeiras.",
+          "D) Apenas II e III são verdadeiras",
+          "E) Apenas I e III são verdadeiras"
+        ],
+        correct: 2,
+        subject: "Turmas de Incêndio"
+      },
+      {
+        id: 106,
+        text: "Na sequência normal das ações, evoluindo para Condição I ou IA, a Turma de Suporte “A” rende a Turma de Ataque no local do incêndio em até:",
+        options: [
+          "A) 2 minutos",
+          "B) 4 minutos",
+          "C) 8 minutos",
+          "D) No menor tempo possível",
+          "E) 3 minutos"
+        ],
+        correct: 4,
+        subject: "Turmas de Incêndio"
+      },
+      {
+        id: 107,
+        text: "A Turma de Suporte “B” deve se apresentar ao líder, logo que pronta, em um tempo máximo de:",
+        options: [
+          "A) 10 minutos",
+          "B) 3 minutos",
+          "C) 6 minutos",
+          "D) 5 minutos",
+          "E) 8 minutos"
+        ],
+        correct: 4,
+        subject: "Turmas de Incêndio"
+      },
+      {
+        id: 108,
+        text: "“A determinação do número de militares para compor as turmas de incêndio vai depender da quantidade de militares necessários para o guarnecimento dos esguichos e manuseio das linhas de mangueira.”\nCom base no trecho acima, cada seção de mangueira vai necessitar de:",
+        options: [
+          "A) Três militares, além do militar da tomada, se não estiver no visual do mesmo",
+          "B) Dois militares, além do militar do esguicho, se estiver no visual dos mesmos",
+          "C) Dois militares, além do militar do esguicho, independentemente de estar ou não no visual",
+          "D) Dois militares, além do militar da tomada, se estiver no visual dos mesmos.",
+          "E) Dois militares, já contando com o militar do esguicho"
+        ],
+        correct: 1,
+        subject: "Turmas de Incêndio"
+      },
+      {
+        id: 109,
+        text: "Assinale abaixo a opção que não corresponde a uma atribuição do investigador:",
+        options: [
+          "A) Supervisionar o cumprimento do fechamento do material; estabelecer um elo entre o EncRep e o Líder da Cena de Ação, se necessário, para melhor coordenação das fainas.",
+          "B) Remover/reposicionar inflamáveis como requerido.",
+          "C) Fazer relatos sobre o andamento das ações para o Encarregado do Reparo e Líder da Cena de Ação, de modo apropriado, usando os meios de comunicação disponíveis ou pessoalmente.",
+          "D) Realizar busca a feridos nos compartimentos adjacentes ao sinistro, especialmente se for numa área habitável.",
+          "E) Coordenar as atividades dos militares das contenções, controlando a situação dos compartimentos adjacentes ao avariado e estabelecendo os Limites de Incêndio conforme ordenado."
+        ],
+        correct: 1,
+        subject: "Turmas de Incêndio"
+      },
+      {
+        id: 110,
+        text: "A turma de máscaras é composta por, pelo menos, quantos militares?",
+        options: [
+          "A) 3, sendo 2 controladores e 1 assistente",
+          "B) 3, sendo 1 controlador e 2 assistentes.",
+          "C) 4, sendo 1 controlador e 3 assistentes.",
+          "D) 4, sendo 2 controladores e 2 assistentes",
+          "E) 2, sendo 1 controlador e 1 assistente."
+        ],
+        correct: 1,
+        subject: "Turmas de Incêndio"
+      },
+      {
+        id: 111,
+        text: "O controlador controla o tempo de uso das máscaras de seu reparo, com a limitação de controlar, no máximo:",
+        options: [
+          "A) 8 militares",
+          "B) 6 militares",
+          "C) 10 militares",
+          "D) 7 militares",
+          "E) 5 militares"
+        ],
+        correct: 0,
+        subject: "Turmas de Incêndio"
+      },
+      {
+        id: 112,
+        text: "Em relação aos procedimentos adotados pelo controlador de máscaras, assinale V ou F e depois marque a alternativa correta.\n(_) No caso do incêndio em Condição III, o controlador lança a hora do início da faina (hora do alarme de incêndio) como a hora de início da utilização das máscaras pelos militares da Turma de Suporte “B”.\n(_) Para as máscaras de ar comprimido, utilizadas pela Turma de Suporte A considera ainda a pressão de suas máscaras como 75% da normalmente utilizada, como precaução de segurança, independente da hora de início e da pressão real.\n(_) Para os demais militares lança a hora de início de uso da mesma, e a pressão de 90%.\n(_) No caso de necessidade de apoio de outro reparo, enviando militares com máscaras, os ajudantes do controlador acompanham esses militares, apresentam-se ao encarregado do reparo e, logo que determinado, envia-os ao líder na posição de controle da faina.",
+        options: [
+          "A) VFVF",
+          "B) VVVV",
+          "C) FFVF",
+          "D) VVFV",
+          "E) FFFF"
+        ],
+        correct: 4,
+        subject: "Turmas de Incêndio"
+      },
+      {
+        id: 113,
+        text: "As fainas de controle de fumaça, que incluem a limitação do espelhamento da fumaça e sua remoção, são de responsabilidade dos eletricistas, sob coordenação da(o):",
+        options: [
+          "A) Reparo.",
+          "B) Central de CAv EL.",
+          "C) Encarregado do Reparo.",
+          "D) Central de CAv ET.",
+          "E) Estação Central do CAv."
+        ],
+        correct: 1,
+        subject: "Turmas de Incêndio"
+      },
+      {
+        id: 114,
+        text: "As opções abaixo representam os procedimentos para o Controle de Fumaça, EXCETO:",
+        options: [
+          "A) Parada de motores de Sistemas de Ventilação ou de ares-condicionados.",
+          "B) Determinar os limites de fumaça e seu estabelecimento.",
+          "C) Fechamento das tampas de ventilação.",
+          "D) Reestabelecimento desses sistemas quando fora dos limites primários de fumaça.",
+          "E) Fechamento de flaps de extração."
+        ],
+        correct: 1,
+        subject: "Turmas de Incêndio"
+      },
+      {
+        id: 115,
+        text: "Entre as atribuições da Turma de Serviços Gerais podemos citar, EXCETO:",
+        options: [
+          "A) Realizar escoramentos.",
+          "B) Realizar bujonamentos.",
+          "C) Realizar reparos estruturais.",
+          "D) Realizar tamponamento.",
+          "E) Realizar percentagens."
+        ],
+        correct: 3,
+        subject: "Turmas de Incêndio"
+      },
+      {
+        id: 116,
+        text: "De acordo com a distribuição básica do pessoal por funções de um Reparo de CAv, assinale abaixo o total de militares para os NDCC:",
+        options: [
+          "A) 28",
+          "B) 22",
+          "C) 29",
+          "D) 25",
+          "E) 30"
+        ],
+        correct: 3,
+        subject: "Reparos e Áreas de Responsabilidade"
+      },
+      {
+        id: 117,
+        text: "Tem como propósito dar ao navio a capacidade de responder rapidamente a sinistros e determinar a extensão de danos:",
+        options: [
+          "A) Turma de Suporte “B”",
+          "B) Turma de Bombas",
+          "C) Turma de Ataque Rápido",
+          "D) Turma de Suporte “A”",
+          "E) Turma de Contenção"
+        ],
+        correct: 2,
+        subject: "TAR — Turma de Ataque Rápido"
+      },
+      {
+        id: 118,
+        text: "Quem é o responsável por determinar, nas suas classes de navio, a existência da TAR como organização permanente, detalhada em quartos de serviço ou como parte de um detalhe organizado para manobras especiais?",
+        options: [
+          "A) Comandante do Navio",
+          "B) Comandante do Distrito Naval da Área",
+          "C) Comandantes de Força/Esquadrão.",
+          "D) Comandante da Marinha",
+          "E) Comandante de Operações Navais"
+        ],
+        correct: 2,
+        subject: "TAR — Turma de Ataque Rápido"
+      },
+      {
+        id: 119,
+        text: "Quem é o responsável pela organização da TAR?",
+        options: [
+          "A) Comandante do navio",
+          "B) Comandante do Distrito Naval da Área",
+          "C) Comandantes de Força/Esquadrão",
+          "D) Encarregado do CAv",
+          "E) Imediato do Navio"
+        ],
+        correct: 3,
+        subject: "TAR — Turma de Ataque Rápido"
+      },
+      {
+        id: 120,
+        text: "Quem é o responsável pela qualificação e adestramento do pessoal que compõe a TAR?",
+        options: [
+          "A) Encarregado do CAv",
+          "B) Fiel de CAv do navio",
+          "C) Fiel de CAv de Divisão",
+          "D) Comandante do navio",
+          "E) Comandante de Força/Esquadrão"
+        ],
+        correct: 0,
+        subject: "TAR — Turma de Ataque Rápido"
+      },
+      {
+        id: 121,
+        text: "Considerando a organização administrativa, o Controle de Avarias possui como tarefas, EXCETO:",
+        options: [
+          "A) A instrução dos militares do navio",
+          "B) A manutenção do material",
+          "C) A execução de serviços de manutenção corretiva",
+          "D) O adestramento dos militares do navio",
+          "E) A proteção dos equipamentos elétricos e eletrônicos do navio"
+        ],
+        correct: 4,
+        subject: "Organização e Funções do CAv"
+      },
+      {
+        id: 122,
+        text: "O encarregado do CAv é administrativamente subordinado ao:",
+        options: [
+          "A) Imediato do Navio",
+          "B) Comandante",
+          "C) Comandante de Distrito Naval",
+          "D) Comandante de Força",
+          "E) Chefe do Departamento de Máquinas"
+        ],
+        correct: 4,
+        subject: "Organização e Funções do CAv"
       }
     ];
 
