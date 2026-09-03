@@ -120,7 +120,10 @@
 
   <main class="flex-1 max-w-5xl w-full mx-auto px-6 py-12">
     <h2 class="font-serif text-3xl font-semibold text-white mb-2">Simulados disponíveis</h2>
-    <p class="text-sm text-slate-400 mb-10 max-w-[60ch]">Escolha um manual abaixo para praticar. Seu progresso e histórico ficam salvos automaticamente na sua conta.</p>
+    <p class="text-sm text-slate-400 mb-4 max-w-[60ch]">Escolha um manual abaixo para praticar. Seu progresso e histórico ficam salvos automaticamente na sua conta.</p>
+    <div class="inline-flex items-center gap-2 bg-navy-800/60 border border-navy-700 rounded-full px-4 py-1.5 text-xs text-navy-100 mb-10">
+      <i class="fa-solid fa-layer-group text-navy-500"></i> 1.015 questões disponíveis em 11 matérias
+    </div>
 
     <!-- Grupo 1: Conhecimento Geral -->
     <div class="flex items-center gap-3 mb-4">
@@ -415,19 +418,7 @@
       document.querySelectorAll('[data-quiz-id]').forEach(card => {
         const quizId = card.getAttribute('data-quiz-id');
         if (!liberadas.has(quizId)) {
-          card.removeAttribute('href');
-          card.classList.add('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
-          const icon = card.querySelector('.lock-icon');
-          if (icon) {
-            icon.classList.remove('fa-arrow-right');
-            icon.classList.add('fa-lock');
-          }
-          if (!card.querySelector('.lock-note')) {
-            const note = document.createElement('p');
-            note.className = 'lock-note text-[11px] text-amber-300 mt-1';
-            note.textContent = 'Acesso não liberado ainda';
-            card.appendChild(note);
-          }
+          card.classList.add('hidden');
         }
       });
     }
