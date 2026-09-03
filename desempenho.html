@@ -123,12 +123,30 @@
       <div id="grupo-geral-cards" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
     </div>
 
-    <div id="grupo-naval-wrap" class="hidden">
+    <div id="grupo-naval-wrap" class="hidden mb-10">
       <div class="flex items-center gap-2 mb-4">
         <i class="fa-solid fa-anchor text-navy-500"></i>
         <h2 class="font-serif text-lg font-semibold text-white">Análise: Conhecimento Militar Naval</h2>
       </div>
       <div id="grupo-naval-cards" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+    </div>
+
+    <!-- Recomendação -->
+    <div id="recomendacao-wrap" class="hidden mb-10">
+      <div class="bg-navy-800/80 border border-amber-700/50 rounded-xl p-5 flex items-start gap-3">
+        <span class="text-xl">🎯</span>
+        <div>
+          <div class="text-xs uppercase tracking-wide text-amber-300 mb-1">O que estudar agora?</div>
+          <div id="recomendacao-text" class="text-sm text-slate-200"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desempenho por assunto -->
+    <div id="assunto-wrap" class="hidden">
+      <h2 class="font-serif text-lg font-semibold text-white mb-4">Desempenho por Assunto</h2>
+      <p class="text-xs text-slate-500 mb-4">Baseado nos simulados feitos a partir de agora — tentativas anteriores a essa atualização não têm esse detalhe.</p>
+      <div id="assunto-cards" class="space-y-5"></div>
     </div>
 
   </main>
@@ -349,6 +367,73 @@
 
       if (geralCards.children.length > 0) document.getElementById('grupo-geral-wrap').classList.remove('hidden');
       if (navalCards.children.length > 0) document.getElementById('grupo-naval-wrap').classList.remove('hidden');
+
+      await carregarDesempenhoPorAssunto();
+    }
+
+    async function carregarDesempenhoPorAssunto() {
+      const { data: detalhes, error } = await sb
+        .from('respostas_detalhadas')
+        .select('quiz_id, subject, acertou')
+        .eq('user_id', currentUser.id);
+
+      if (error || !detalhes || detalhes.length === 0) return;
+
+      // Agrupa por matéria -> assunto
+      const byQuiz = {};
+      detalhes.forEach(d => {
+        if (!byQuiz[d.quiz_id]) byQuiz[d.quiz_id] = {};
+        if (!byQuiz[d.quiz_id][d.subject]) byQuiz[d.quiz_id][d.subject] = { total: 0, acertos: 0 };
+        byQuiz[d.quiz_id][d.subject].total++;
+        if (d.acertou) byQuiz[d.quiz_id][d.subject].acertos++;
+      });
+
+      // ---- recomendação: assunto com pior aproveitamento (mín. 3 respostas) ----
+      let pior = null;
+      Object.entries(byQuiz).forEach(([quizId, subjects]) => {
+        Object.entries(subjects).forEach(([subject, s]) => {
+          if (s.total < 3) return;
+          const pct = 100 * s.acertos / s.total;
+          if (!pior || pct < pior.pct) pior = { quizId, subject, pct, ...s };
+        });
+      });
+      if (pior) {
+        document.getElementById('recomendacao-wrap').classList.remove('hidden');
+        document.getElementById('recomendacao-text').innerHTML =
+          `Seu próximo foco deveria ser <strong>${pior.subject}</strong> (${quizLabel(pior.quizId)}).<br>
+           Você respondeu ${pior.total} questões desse assunto e acertou ${pior.acertos} (${Math.round(pior.pct)}%).`;
+      }
+
+      // ---- tabelas por matéria ----
+      const wrap = document.getElementById('assunto-cards');
+      wrap.innerHTML = '';
+      Object.keys(byQuiz).sort((a, b) => quizLabel(a).localeCompare(quizLabel(b))).forEach(quizId => {
+        const subjects = byQuiz[quizId];
+        const rows = Object.entries(subjects)
+          .map(([subject, s]) => ({ subject, ...s, pct: 100 * s.acertos / s.total }))
+          .sort((a, b) => a.pct - b.pct);
+
+        const card = document.createElement('div');
+        card.className = 'bg-navy-800/80 border border-navy-700 rounded-xl p-5';
+        card.innerHTML = `
+          <h3 class="font-serif text-base font-semibold text-white mb-3">${quizLabel(quizId)}</h3>
+          <div class="space-y-1.5">
+            ${rows.map(r => `
+              <div class="flex items-center gap-3 text-xs py-1.5 border-b border-navy-700/60 last:border-0">
+                <span class="flex-1 text-slate-300 truncate">${r.subject}</span>
+                <span class="text-slate-500 w-20 text-right">${r.acertos}/${r.total}</span>
+                <div class="w-24 bg-navy-900 rounded-full h-1.5 overflow-hidden">
+                  <div class="${r.pct >= 70 ? 'bg-emerald-500' : r.pct >= 50 ? 'bg-amber-500' : 'bg-rose-500'} h-1.5 rounded-full" style="width:${Math.round(r.pct)}%"></div>
+                </div>
+                <span class="font-semibold w-10 text-right ${r.pct >= 70 ? 'text-emerald-400' : r.pct >= 50 ? 'text-amber-400' : 'text-rose-400'}">${Math.round(r.pct)}%</span>
+              </div>
+            `).join('')}
+          </div>
+        `;
+        wrap.appendChild(card);
+      });
+
+      document.getElementById('assunto-wrap').classList.remove('hidden');
     }
 
     async function onUserAuthenticated() {
