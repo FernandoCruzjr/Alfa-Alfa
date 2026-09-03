@@ -93,32 +93,44 @@
 
   <main class="flex-1 max-w-5xl w-full mx-auto px-6 py-10">
 
-    <!-- Resumo geral -->
-    <div id="summary-cards" class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
-      <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 text-center">
-        <div id="stat-total" class="font-serif text-2xl font-semibold text-white">0</div>
-        <div class="text-[11px] text-slate-400 mt-1">Simulados feitos</div>
-      </div>
-      <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 text-center">
-        <div id="stat-materias" class="font-serif text-2xl font-semibold text-white">0</div>
-        <div class="text-[11px] text-slate-400 mt-1">Matérias praticadas</div>
-      </div>
-      <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 text-center">
-        <div id="stat-media" class="font-serif text-2xl font-semibold text-emerald-400">0%</div>
-        <div class="text-[11px] text-slate-400 mt-1">Média geral (melhores)</div>
-      </div>
-      <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 text-center">
-        <div id="stat-melhor" class="font-serif text-2xl font-semibold text-white">—</div>
-        <div class="text-[11px] text-slate-400 mt-1">Melhor matéria</div>
-      </div>
+    <!-- Visão geral -->
+    <h2 class="font-serif text-lg font-semibold text-white mb-4">Visão Geral do Desempenho</h2>
+    <div id="gauges-row" class="bg-navy-800/80 border border-navy-700 rounded-xl p-6 mb-6 grid grid-cols-2 sm:grid-cols-4 gap-6 items-center justify-items-center"></div>
+
+    <div id="trend-wrap" class="hidden bg-navy-800/80 border border-navy-700 rounded-xl p-5 mb-10">
+      <h3 class="text-xs uppercase tracking-wide text-slate-400 mb-3">Evolução do aproveitamento (últimas tentativas)</h3>
+      <div id="trend-chart"></div>
     </div>
 
-    <div id="empty-state" class="hidden bg-navy-800/40 border border-dashed border-navy-700 rounded-xl p-10 text-center text-slate-400">
+    <div id="empty-state" class="hidden bg-navy-800/40 border border-dashed border-navy-700 rounded-xl p-10 text-center text-slate-400 mb-10">
       <i class="fa-solid fa-chart-simple text-3xl mb-3"></i>
       <p class="text-sm">Você ainda não finalizou nenhum simulado. Assim que terminar um, o resultado aparece aqui.</p>
     </div>
 
-    <div id="subjects-list" class="space-y-5"></div>
+    <!-- Ranking -->
+    <div id="ranking-wrap" class="hidden mb-10">
+      <h2 class="font-serif text-lg font-semibold text-white mb-4">Meu Desempenho — Ranking</h2>
+      <div id="ranking-row" class="grid sm:grid-cols-2 gap-3 mb-3"></div>
+      <div id="attention-card"></div>
+    </div>
+
+    <!-- Grupos de matérias -->
+    <div id="grupo-geral-wrap" class="hidden mb-10">
+      <div class="flex items-center gap-2 mb-4">
+        <i class="fa-solid fa-graduation-cap text-navy-500"></i>
+        <h2 class="font-serif text-lg font-semibold text-white">Análise: Conhecimento Geral</h2>
+      </div>
+      <div id="grupo-geral-cards" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+    </div>
+
+    <div id="grupo-naval-wrap" class="hidden">
+      <div class="flex items-center gap-2 mb-4">
+        <i class="fa-solid fa-anchor text-navy-500"></i>
+        <h2 class="font-serif text-lg font-semibold text-white">Análise: Conhecimento Militar Naval</h2>
+      </div>
+      <div id="grupo-naval-cards" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+    </div>
+
   </main>
 
   <footer class="max-w-5xl w-full mx-auto px-6 pb-8 text-center text-[11px] text-slate-500">
@@ -131,11 +143,22 @@
     const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     let currentUser = null;
 
-    const QUIZ_LABELS = {
-      'CAAML-703': 'Embarcações Miúdas & Segurança',
-      'CERIMONIAL': 'Cerimonial da Marinha',
-      'PORTUGUES': 'Língua Portuguesa'
+    // ---- catálogo de matérias (rótulo + grupo) ----
+    const QUIZ_INFO = {
+      'PORTUGUES':            { label: 'Língua Portuguesa',              group: 'geral' },
+      'HISTORIA_NAVAL':       { label: 'História Militar Naval',         group: 'geral' },
+      'GEOGRAFIA':            { label: 'Geografia',                      group: 'geral' },
+      'CAAML-703':            { label: 'Embarcações Miúdas & Segurança', group: 'naval' },
+      'CERIMONIAL':           { label: 'Cerimonial da Marinha',          group: 'naval' },
+      'ROSAS_VIRTUDES':       { label: 'Rosas das Virtudes',             group: 'naval' },
+      'LIDERANCA_ATRIBUTOS':  { label: 'Liderança — Atributos',          group: 'naval' },
+      'JUSTICA_DISCIPLINA':   { label: 'Justiça e Disciplina',           group: 'naval' },
+      'LIDERANCA':            { label: 'Liderança',                      group: 'naval' },
+      'OGSA':                 { label: 'OGSA',                           group: 'naval' },
+      'CAMAAL_CAV':           { label: 'CAMAAL 1202 (CAV)',              group: 'naval' },
     };
+    function quizLabel(id) { return (QUIZ_INFO[id] && QUIZ_INFO[id].label) || id; }
+    function quizGroup(id) { return (QUIZ_INFO[id] && QUIZ_INFO[id].group) || 'naval'; }
 
     function showGate(panel) {
       ['gate-checking', 'gate-logged-out', 'gate-pending'].forEach(id => {
@@ -159,10 +182,60 @@
              ' às ' + d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
     }
 
-    function barColor(pct) {
-      if (pct >= 70) return 'bg-emerald-500';
-      if (pct >= 50) return 'bg-amber-500';
-      return 'bg-rose-500';
+    // ---- classificação por faixa de aproveitamento ----
+    function classify(pct) {
+      if (pct >= 90) return { label: 'Excelente',        ring: '#34d399', text: 'text-emerald-400' };
+      if (pct >= 80) return { label: 'Muito bom',         ring: '#34d399', text: 'text-emerald-400' };
+      if (pct >= 70) return { label: 'Bom',                ring: '#a3e635', text: 'text-lime-400' };
+      if (pct >= 60) return { label: 'Regular',            ring: '#fbbf24', text: 'text-amber-400' };
+      return               { label: 'Precisa melhorar',   ring: '#fb7185', text: 'text-rose-400' };
+    }
+
+    // ---- gera um gauge circular (SVG) ----
+    function gaugeSVG(pct, opts) {
+      opts = opts || {};
+      const size = opts.size || 100;
+      const stroke = opts.stroke || 9;
+      const r = (size / 2) - stroke;
+      const c = 2 * Math.PI * r;
+      const clamped = Math.max(0, Math.min(100, pct));
+      const offset = c - (clamped / 100) * c;
+      const color = opts.color || classify(pct).ring;
+      const labelText = opts.labelText !== undefined ? opts.labelText : Math.round(pct) + '%';
+      return `
+        <svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" class="-rotate-90">
+          <circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="#0B192C" stroke-width="${stroke}" />
+          <circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="${color}" stroke-width="${stroke}"
+                  stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${offset}"
+                  style="transition: stroke-dashoffset .6s ease-out" />
+          <text x="${size/2}" y="${size/2}" transform="rotate(90 ${size/2} ${size/2})"
+                text-anchor="middle" dominant-baseline="central"
+                class="fill-white font-serif font-semibold" style="font-size:${size*0.2}px">${labelText}</text>
+        </svg>`;
+    }
+
+    function gaugeBlock(pct, label, opts) {
+      return `
+        <div class="flex flex-col items-center gap-2">
+          ${gaugeSVG(pct, opts)}
+          <div class="text-[11px] text-slate-400 text-center">${label}</div>
+        </div>`;
+    }
+
+    // ---- mini gráfico de evolução (SVG simples, sem lib externa) ----
+    function trendSVG(points) {
+      if (points.length < 2) return '';
+      const w = 640, h = 140, pad = 24;
+      const xs = points.map((_, i) => pad + (i * (w - pad * 2)) / (points.length - 1));
+      const ys = points.map(p => h - pad - (p / 100) * (h - pad * 2));
+      const path = xs.map((x, i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${ys[i].toFixed(1)}`).join(' ');
+      const dots = xs.map((x, i) => `<circle cx="${x.toFixed(1)}" cy="${ys[i].toFixed(1)}" r="3.5" fill="#2384d6" />`).join('');
+      return `
+        <svg viewBox="0 0 ${w} ${h}" class="w-full h-auto">
+          <line x1="${pad}" y1="${h-pad}" x2="${w-pad}" y2="${h-pad}" stroke="#1E3E62" stroke-width="1"/>
+          <path d="${path}" fill="none" stroke="#2384d6" stroke-width="2.5" />
+          ${dots}
+        </svg>`;
     }
 
     async function carregarDesempenho() {
@@ -183,56 +256,99 @@
         if (!bySubject[r.quiz_id]) bySubject[r.quiz_id] = [];
         bySubject[r.quiz_id].push(r);
       });
-
       const subjectIds = Object.keys(bySubject);
-      const bestBySubject = subjectIds.map(id => {
+
+      const perSubject = subjectIds.map(id => {
         const attempts = bySubject[id];
         const best = Math.max(...attempts.map(a => a.percentual));
-        return { id, best };
+        const totalAcertos = attempts.reduce((s, a) => s + a.acertos, 0);
+        const totalErros = attempts.reduce((s, a) => s + a.erros, 0);
+        return { id, attempts, best, totalAcertos, totalErros };
       });
 
-      const mediaGeral = bestBySubject.reduce((s, x) => s + x.best, 0) / bestBySubject.length;
-      const melhorMateria = bestBySubject.reduce((a, b) => (b.best > a.best ? b : a));
+      // ---- gauges gerais ----
+      const totalTentativas = resultados.length;
+      const totalAcertosGeral = resultados.reduce((s, r) => s + r.acertos, 0);
+      const totalErrosGeral = resultados.reduce((s, r) => s + r.erros, 0);
+      const taxaAcertosGeral = totalAcertosGeral + totalErrosGeral > 0
+        ? (100 * totalAcertosGeral / (totalAcertosGeral + totalErrosGeral)) : 0;
+      const mediaGeral = perSubject.reduce((s, x) => s + x.best, 0) / perSubject.length;
 
-      document.getElementById('stat-total').innerText = resultados.length;
-      document.getElementById('stat-materias').innerText = subjectIds.length;
-      document.getElementById('stat-media').innerText = Math.round(mediaGeral) + '%';
-      document.getElementById('stat-melhor').innerText = QUIZ_LABELS[melhorMateria.id] || melhorMateria.id;
+      document.getElementById('gauges-row').innerHTML = `
+        ${gaugeBlock(mediaGeral, 'Média geral (melhores tentativas)')}
+        ${gaugeBlock(taxaAcertosGeral, 'Taxa de acertos (todas as respostas)')}
+        <div class="flex flex-col items-center gap-2">
+          <div class="font-serif text-3xl font-semibold text-white">${totalTentativas}</div>
+          <div class="text-[11px] text-slate-400 text-center">Simulados feitos</div>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="font-serif text-3xl font-semibold text-white">${subjectIds.length}</div>
+          <div class="text-[11px] text-slate-400 text-center">Matérias praticadas</div>
+        </div>
+      `;
 
-      const container = document.getElementById('subjects-list');
-      container.innerHTML = '';
+      // ---- gráfico de evolução (cronológico, todas as tentativas) ----
+      if (resultados.length >= 2) {
+        const chronological = [...resultados].reverse().map(r => r.percentual);
+        document.getElementById('trend-chart').innerHTML = trendSVG(chronological);
+        document.getElementById('trend-wrap').classList.remove('hidden');
+      }
 
-      subjectIds.forEach(id => {
-        const attempts = bySubject[id];
-        const best = Math.max(...attempts.map(a => a.percentual));
-        const last = attempts[0];
-        const label = QUIZ_LABELS[id] || id;
-
-        const card = document.createElement('div');
-        card.className = 'bg-navy-800/80 border border-navy-700 rounded-xl p-5 shadow-lg';
-        card.innerHTML = `
-          <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
-            <div>
-              <h3 class="font-serif text-lg font-semibold text-white">${label}</h3>
-              <p class="text-[11px] text-slate-400">${attempts.length} tentativa${attempts.length > 1 ? 's' : ''} · última em ${fmtDate(last.criado_em)}</p>
+      // ---- ranking ----
+      const ranked = [...perSubject].sort((a, b) => b.best - a.best);
+      if (ranked.length >= 1) {
+        document.getElementById('ranking-wrap').classList.remove('hidden');
+        const medals = ['🥇', '🥈', '🥉'];
+        const rankingRow = document.getElementById('ranking-row');
+        rankingRow.innerHTML = ranked.slice(0, 3).map((s, i) => `
+          <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 flex items-center gap-3">
+            <span class="text-2xl">${medals[i]}</span>
+            <div class="flex-1">
+              <div class="text-sm font-semibold text-white">${quizLabel(s.id)}</div>
+              <div class="text-xs text-slate-400">${Math.round(s.best)}% de aproveitamento</div>
             </div>
-            <span class="text-xs px-3 py-1 rounded-full font-mono border border-navy-600 bg-navy-700/60 text-navy-100">Melhor: ${Math.round(best)}%</span>
           </div>
-          <div class="w-full bg-navy-900 rounded-full h-2.5 mb-4 overflow-hidden">
-            <div class="${barColor(best)} h-2.5 rounded-full transition-all" style="width:${Math.round(best)}%"></div>
-          </div>
-          <div class="space-y-1.5">
-            ${attempts.slice(0, 5).map(a => `
-              <div class="flex items-center justify-between text-xs text-slate-300 py-1 border-b border-navy-700/60 last:border-0">
-                <span>${fmtDate(a.criado_em)}</span>
-                <span class="text-slate-400">${a.acertos} acertos · ${a.erros} erros</span>
-                <span class="font-semibold ${a.percentual >= 70 ? 'text-emerald-400' : a.percentual >= 50 ? 'text-amber-400' : 'text-rose-400'}">${Math.round(a.percentual)}%</span>
+        `).join('');
+
+        if (ranked.length >= 2) {
+          const worst = ranked[ranked.length - 1];
+          document.getElementById('attention-card').innerHTML = `
+            <div class="bg-rose-950/40 border border-rose-800/60 rounded-xl p-4 flex items-center gap-3">
+              <span class="text-xl">⚠️</span>
+              <div class="flex-1">
+                <div class="text-sm font-semibold text-rose-200">Precisa de mais atenção: ${quizLabel(worst.id)}</div>
+                <div class="text-xs text-rose-300/80">${Math.round(worst.best)}% de aproveitamento na melhor tentativa</div>
               </div>
-            `).join('')}
+            </div>`;
+        }
+      }
+
+      // ---- cards por matéria, agrupados ----
+      const geralCards = document.getElementById('grupo-geral-cards');
+      const navalCards = document.getElementById('grupo-naval-cards');
+      geralCards.innerHTML = '';
+      navalCards.innerHTML = '';
+
+      perSubject.sort((a, b) => quizLabel(a.id).localeCompare(quizLabel(b.id))).forEach(s => {
+        const c = classify(s.best);
+        const last = s.attempts[0];
+        const card = document.createElement('div');
+        card.className = 'bg-navy-800/80 border border-navy-700 rounded-xl p-5 shadow-lg flex flex-col items-center text-center gap-3';
+        card.innerHTML = `
+          <h3 class="font-serif text-base font-semibold text-white">${quizLabel(s.id)}</h3>
+          ${gaugeSVG(s.best, { size: 88 })}
+          <div class="text-xs font-semibold ${c.text}">${c.label}</div>
+          <div class="text-[11px] text-slate-400">
+            ${s.attempts.length} tentativa${s.attempts.length > 1 ? 's' : ''} ·
+            ${s.totalAcertos} acertos · ${s.totalErros} erros
           </div>
+          <div class="text-[10px] text-slate-500">última em ${fmtDate(last.criado_em)}</div>
         `;
-        container.appendChild(card);
+        (quizGroup(s.id) === 'geral' ? geralCards : navalCards).appendChild(card);
       });
+
+      if (geralCards.children.length > 0) document.getElementById('grupo-geral-wrap').classList.remove('hidden');
+      if (navalCards.children.length > 0) document.getElementById('grupo-naval-wrap').classList.remove('hidden');
     }
 
     async function onUserAuthenticated() {
