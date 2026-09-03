@@ -1,0 +1,1912 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAMAAL 1202 (CAV) · Simulado — Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Simulado interativo de CAMAAL 1202 (CAV) para concursos, com modo estudo, modo prova, filtro por assunto e acompanhamento de desempenho.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Fraunces (títulos, caráter naval/editorial) + Inter (texto e interface) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: {
+              800: '#0B192C',
+              900: '#000F26',
+              700: '#1E3E62',
+              600: '#1E56A0',
+              500: '#0066CC',
+              100: '#E6F0FA'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes access-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shake {
+      10%, 90% { transform: translateX(-1px); }
+      20%, 80% { transform: translateX(2px); }
+      30%, 50%, 70% { transform: translateX(-4px); }
+      40%, 60% { transform: translateX(4px); }
+    }
+    .shake { animation: shake .5s; }
+    @keyframes question-in {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #question-card.question-in { animation: question-in .28s ease-out; }
+    @media (prefers-reduced-motion: reduce) {
+      #access-card, #question-card, .shake { animation: none !important; }
+    }
+    button:focus-visible, input:focus-visible, [role="button"]:focus-visible {
+      outline: 2px solid #2384d6;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso: apenas verifica se já há login feito na página inicial -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">⚓</div>
+      <div class="font-serif font-semibold text-[26px] text-white tracking-tight">CAMAAL 1202 (CAV)</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial para acessar este simulado.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-white text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+
+      <div id="gate-no-access" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-lock text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Você ainda não tem acesso liberado a esta matéria. Fale com o administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+
+      <div class="text-[11px] text-[#7895b5] mt-6 pt-4 border-t border-[#1c3a5c] w-full">CAMAAL 1202 (CAV) para Concursos</div>
+    </div>
+  </div>
+
+
+  <!-- Header -->
+  <header class="bg-navy-900 border-b border-navy-700 sticky top-0 z-30 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="bg-navy-600 text-white p-2.5 rounded-lg shadow">
+          <i class="fa-solid fa-anchor text-2xl"></i>
+        </div>
+        <div>
+          <h1 class="font-serif text-xl font-semibold text-white tracking-wide">CAMAAL 1202 (CAV)</h1>
+          <p class="text-xs text-slate-400">CAMAAL 1202 — Corpo Auxiliar de Praças</p>
+        </div>
+      </div>
+
+      <!-- Mode Switcher & Actions -->
+      <div class="flex items-center gap-3">
+        <div class="bg-navy-800 p-1 rounded-lg border border-navy-700 flex text-xs">
+          <button id="btn-mode-study" onclick="setMode('study')" class="px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-white shadow">
+            <i class="fa-solid fa-graduation-cap mr-1"></i> Modo Estudo
+          </button>
+          <button id="btn-mode-exam" onclick="setMode('exam')" class="px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-white">
+            <i class="fa-solid fa-clock mr-1"></i> Modo Prova
+          </button>
+        </div>
+
+        <div id="elapsed-timer" class="bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg flex items-center gap-1.5" title="Tempo decorrido">
+          <i class="fa-solid fa-stopwatch text-navy-500"></i><span>00:00:00</span>
+        </div>
+
+        <div id="user-bar" class="hidden bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2" title="Conectado">
+          <i class="fa-solid fa-user text-navy-500"></i>
+          <span id="user-email" class="max-w-[140px] truncate"></span>
+          <button onclick="handleLogout()" class="ml-1 text-rose-300 hover:text-rose-200 transition-colors" title="Sair da conta">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
+
+        <button onclick="resetQuiz()" class="bg-rose-900/40 hover:bg-rose-800 text-rose-200 border border-rose-700/50 text-xs px-3 py-2 rounded-lg transition-all flex items-center gap-1.5" title="Reiniciar Simulado">
+          <i class="fa-solid fa-rotate-right"></i> Reiniciar
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+    <!-- Left / Center: Question Panel -->
+    <section class="lg:col-span-3 flex flex-col gap-6">
+
+      <!-- Progress Bar & Stats -->
+      <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 shadow-sm flex flex-col gap-3">
+        <div class="flex justify-between items-center text-sm font-semibold">
+          <span id="question-tracker" class="text-navy-500 font-bold">Questão 1 de 78</span>
+          <span id="answered-tracker" class="text-slate-400 text-xs">0 de 78 respondidas</span>
+        </div>
+        <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+          <div id="progress-bar" class="bg-navy-500 h-full w-0 transition-all duration-300"></div>
+        </div>
+      </div>
+
+      <!-- Question Card -->
+      <div id="question-card" class="bg-navy-800/90 border border-navy-700 rounded-xl p-6 shadow-xl flex flex-col justify-between min-h-[420px] relative">
+        <div>
+          <!-- Question Header Badge -->
+          <div class="flex justify-between items-center mb-4 gap-2">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span id="question-badge" class="bg-navy-700/60 text-navy-100 text-xs px-3 py-1 rounded-full font-mono border border-navy-600">
+                Questão #599
+              </span>
+              <span id="question-subject-tag" class="bg-navy-900 text-slate-400 text-xs px-3 py-1 rounded-full border border-navy-700"></span>
+            </div>
+            <span id="question-status-tag" class="text-xs px-2.5 py-1 rounded font-medium hidden"></span>
+          </div>
+
+          <!-- Question Body -->
+          <div id="question-text" class="text-base md:text-lg font-medium text-slate-100 leading-relaxed whitespace-pre-line mb-6">
+            Carregando questão...
+          </div>
+
+          <!-- Options Container -->
+          <div id="options-container" class="space-y-3">
+            <!-- Options will be dynamically rendered -->
+          </div>
+        </div>
+
+        <!-- Explanation Block (Study Mode) -->
+        <div id="explanation-box" class="mt-6 p-4 rounded-lg bg-slate-900/90 border border-slate-700 hidden">
+          <div class="flex items-center gap-2 text-sm font-bold mb-1" id="explanation-title"></div>
+          <div class="text-xs md:text-sm text-slate-300" id="explanation-text"></div>
+        </div>
+
+        <!-- Question Navigation Buttons -->
+        <div class="mt-8 pt-4 border-t border-navy-700/60 flex justify-between items-center gap-3">
+          <button id="btn-prev" onclick="prevQuestion()" class="bg-navy-700 hover:bg-navy-600 text-white text-sm px-4 py-2.5 rounded-lg transition-all flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed">
+            <i class="fa-solid fa-arrow-left"></i> Anterior
+          </button>
+
+          <div class="flex gap-2">
+            <button id="btn-finish" onclick="finishQuiz()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-sm px-5 py-2.5 rounded-lg font-semibold transition-all flex items-center gap-2 shadow-lg shadow-emerald-900/30">
+              <i class="fa-solid fa-check-double"></i> Finalizar Simulado
+            </button>
+            <button id="btn-next" onclick="nextQuestion()" class="bg-navy-600 hover:bg-navy-500 text-white text-sm px-4 py-2.5 rounded-lg transition-all flex items-center gap-2">
+              Próxima <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right: Question Drawer / Grid Nav -->
+    <aside class="lg:col-span-1 bg-navy-800/80 border border-navy-700 rounded-xl p-4 flex flex-col gap-4 h-fit">
+      <div class="flex justify-between items-center border-b border-navy-700 pb-3">
+        <h2 class="text-sm font-bold text-slate-200 flex items-center gap-2">
+          <i class="fa-solid fa-list-ol text-navy-500"></i> Navegação (78)
+        </h2>
+        <span class="text-xs bg-slate-900 px-2 py-1 rounded text-slate-400 font-mono" id="score-counter">
+          0/78
+        </span>
+      </div>
+
+      <!-- Filters -->
+      <div class="grid grid-cols-3 gap-1 text-[11px] font-medium bg-navy-900 p-1 rounded-lg">
+        <button onclick="setFilter('all')" id="filter-all" class="py-1 rounded text-center bg-navy-700 text-white">Todas</button>
+        <button onclick="setFilter('unanswered')" id="filter-unanswered" class="py-1 rounded text-center text-slate-400 hover:text-white">Faltam</button>
+        <button onclick="setFilter('answered')" id="filter-answered" class="py-1 rounded text-center text-slate-400 hover:text-white">Feitas</button>
+      </div>
+
+      <!-- Filtro por assunto -->
+      <div>
+        <label for="subject-filter" class="text-[11px] font-medium text-slate-400 flex items-center gap-1.5 mb-1.5">
+          <i class="fa-solid fa-layer-group text-navy-500"></i> Assunto
+        </label>
+        <select id="subject-filter" onchange="setSubjectFilter(this.value)" class="w-full bg-navy-900 border border-navy-700 text-slate-200 text-xs rounded-lg px-2.5 py-2 outline-none focus:ring-2 focus:ring-navy-500">
+          <option value="all">Todos os assuntos</option>
+        </select>
+      </div>
+
+      <!-- Grid of Buttons -->
+      <div id="questions-grid" class="grid grid-cols-5 gap-1.5 max-h-[380px] overflow-y-auto p-1 custom-scrollbar">
+        <!-- Grid Items injected via JS -->
+      </div>
+
+      <!-- Legend -->
+      <div class="border-t border-navy-700 pt-3 text-[11px] space-y-1.5 text-slate-400">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-navy-600 border border-navy-500 inline-block"></span>
+          <span>Atual</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-slate-700 inline-block"></span>
+          <span>Respondida</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-emerald-700 inline-block"></span>
+          <span>Correta (Estudo)</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-rose-700 inline-block"></span>
+          <span>Incorreta (Estudo)</span>
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer class="max-w-7xl w-full mx-auto px-4 md:px-6 pb-6 pt-2 text-center text-[11px] text-slate-500">
+    Plataforma de Estudos · CA-AA/AFN — seu progresso neste simulado fica salvo automaticamente neste navegador.
+  </footer>
+
+  <!-- Modal Results -->
+  <div id="results-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-navy-800 border border-navy-700 rounded-2xl max-w-lg w-full p-6 text-center shadow-2xl relative animate-fade-in">
+      <div class="w-16 h-16 bg-navy-700 text-navy-500 rounded-full flex items-center justify-center mx-auto mb-4 border border-navy-600 text-2xl shadow-inner">
+        <i class="fa-solid fa-trophy"></i>
+      </div>
+      <h2 class="font-serif text-2xl font-semibold text-white mb-1">Resultado do Simulado</h2>
+      <p class="text-xs text-slate-400 mb-6">CAMAAL 1202 (CAV) para Concursos</p>
+
+      <div class="grid grid-cols-3 gap-3 mb-6">
+        <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
+          <div class="text-xs text-slate-400">Acertos</div>
+          <div id="modal-correct" class="text-2xl font-bold text-emerald-400">0</div>
+        </div>
+        <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
+          <div class="text-xs text-slate-400">Erros</div>
+          <div id="modal-wrong" class="text-2xl font-bold text-rose-400">0</div>
+        </div>
+        <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
+          <div class="text-xs text-slate-400">Aproveitamento</div>
+          <div id="modal-percent" class="text-2xl font-bold text-sky-400">0%</div>
+        </div>
+      </div>
+
+      <p id="modal-feedback" class="text-sm text-slate-300 mb-6 px-2">
+        Continue praticando para consolidar seus conhecimentos!
+      </p>
+
+      <div class="flex gap-3 justify-center">
+        <button onclick="closeModal()" class="bg-navy-700 hover:bg-navy-600 text-white px-5 py-2.5 rounded-lg text-sm transition-all font-medium">
+          Revisar Respostas
+        </button>
+        <button onclick="resetQuiz(); closeModal();" class="bg-navy-600 hover:bg-navy-500 text-white px-5 py-2.5 rounded-lg text-sm transition-all font-semibold shadow-lg">
+          Tentar Novamente
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Code -->
+  <script>
+    // Quiz Questions Dataset
+const questionsData = [
+      {
+        id: 1,
+        text: "De acordo com o CAML-1201, o militar responsávelpelas ações na área do sinistro, já em Postos de Combatee capacitado pelo C-EXP-CBINC, é chamado de:",
+        options: [
+          "A) militar de contenção.",
+          "B) investigador.",
+          "C) encarregado do reparo.",
+          "D) líder da turma do incêndio.",
+          "E) líder do reparo."
+        ],
+        correct: 4,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 2,
+        text: "35) extintor do tipo carreta de espuma mecânica tem as seguintes características(A) 9 litros de capacidade e alcance médio do jato de 5 metros.(B) 10 litros de capacidade e alcance médio metros.(C) 25 a 50 litros de capacidade e alcance médio do jato 3 metros(D) 50 a 75 litros de capacidade e alcance médio do jato de 13 metros.(E) 75 a 150 litros de capacidade e alcance médio do jato de 7,5 metros.",
+        options: [
+          "A) C",
+          "B) A",
+          "C) B",
+          "D) D",
+          "E) E"
+        ],
+        correct: 4,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 3,
+        text: "47)Os pós químicos secos são substâncias constituídas de bicarbonato de sódio, bicarbonato de potássio ou cloreto de potássio, que, pulverizadas, formam umanuvem de pó sobre o fogo, extinguindo-o por quebra da reação em cadeia e por abafamento. Estes pós deverão receber um tratamento:",
+        options: [
+          "A) antiparticularização.",
+          "B) antirresfriamento.",
+          "C) anti-higroscópico",
+          "D) antissedimentação",
+          "E) anti-hidroscópico"
+        ],
+        correct: 2,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 4,
+        text: "qual a capacidade do extintor de água pressurizada",
+        options: [
+          "A) 8 litros",
+          "B) 9 litros",
+          "C) 11 litros",
+          "D) 10 litros",
+          "E) 7 litros"
+        ],
+        correct: 3,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 5,
+        text: "Qual ao alcance mínimo do jato do extintor de água pressurizada?",
+        options: [
+          "A) 4 metros",
+          "B) 7 metros",
+          "C) 3  metros",
+          "D) 5 metros",
+          "E) 6 metros"
+        ],
+        correct: 0,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 6,
+        text: "Qual o tempo mínimo de descarga do extintor de água pressurizada",
+        options: [
+          "A) 40 segundos",
+          "B) 30 segundos",
+          "C) 60 segundos",
+          "D) 50 segundos",
+          "E) 20 segundos"
+        ],
+        correct: 3,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 7,
+        text: "Qual o tempo para manutenção deu um extintor de água pressurizada",
+        options: [
+          "A) máximo sete anos",
+          "B) máximo cinco anos",
+          "C) máximo seis anos",
+          "D) máximo três anos",
+          "E) máximo quatro anos"
+        ],
+        correct: 1,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 8,
+        text: "Qual a capacidade de um extintor CO2",
+        options: [
+          "A) 2 A 4 kg e 4 a 6 kg",
+          "B) 1 a 2 kg e 6 a 8 kg",
+          "C) 1 a 2 kg e 4 a 6 kg",
+          "D) 2 a 4 kg e 3 a 6 kg",
+          "E) 1 a 2 kg e 3 a 6 kg"
+        ],
+        correct: 2,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 9,
+        text: "Qual o tempo mínimo de descarga de um extintor de CO2",
+        options: [
+          "A) 9 segundos e 13 segundos",
+          "B) 8 segundos e 12 segundos",
+          "C) 10 segundos e 12 segundos",
+          "D) 6 segundos ou 12 segundos",
+          "E) 8 segundos e 13 segundos"
+        ],
+        correct: 4,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 10,
+        text: "Qual a capacidade de um extintor de pó químico pressurizado",
+        options: [
+          "A) 1 a 4 kg e 4 a 12 kg",
+          "B) 2 a 4 kg e 6 a 12 kg",
+          "C) 2 a 4 kg e 4 a 12 kg",
+          "D) 1 a 4 kg e 6 a 12 kg",
+          "E) 2 a 4 kg e 10 a 12 kg"
+        ],
+        correct: 0,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 11,
+        text: "qual o tempo mínimo de descarga de um extintor de pó químico pressurizado",
+        options: [
+          "A) seis segundos",
+          "B) oito segundos",
+          "C) sete segundos",
+          "D) dez segundos",
+          "E) nove segundos"
+        ],
+        correct: 1,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 12,
+        text: "qual a capacidade de um extintor classe k",
+        options: [
+          "A) oito litros",
+          "B) seis litros",
+          "C) quatro litros",
+          "D) sete litros",
+          "E) cinco litros"
+        ],
+        correct: 1,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 13,
+        text: "qual o tempo mínimo de descarga de um extintor classe K",
+        options: [
+          "A) 80 segundos",
+          "B) 50 segundos",
+          "C) 90 segundos",
+          "D) 60 segundos",
+          "E) 70 segundos"
+        ],
+        correct: 2,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 14,
+        text: "Qual é a capacidade de uma carreta de água ?",
+        options: [
+          "A) 75 a 150 L",
+          "B) 50 a 100 L",
+          "C) 70 a 100 L",
+          "D) 20 a 100 L",
+          "E) 25 a 50 L"
+        ],
+        correct: 0,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 15,
+        text: "Qual é o alcance médio do jato da carreta de água?",
+        options: [
+          "A) 15 metros",
+          "B) 12 metros",
+          "C) 10 metros",
+          "D) 8 metros",
+          "E) 13 metros"
+        ],
+        correct: 4,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 16,
+        text: "qual é o tempo mínimo de descarga carreta de água",
+        options: [
+          "A) 75 L é 90 segundos",
+          "B) 70 L é 180 segundos",
+          "C) 75 L é 180 segundos",
+          "D) 75 L é 75 segundos",
+          "E) 75 L é 360 segundos"
+        ],
+        correct: 2,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 17,
+        text: "Qual é a capacidade da carreta de espuma mecânica",
+        options: [
+          "A) 75 a 150 L",
+          "B) 25 a 50 L",
+          "C) 20 a 100 L",
+          "D) 50 a 100 L",
+          "E) 75 a 100 L"
+        ],
+        correct: 0,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 18,
+        text: "Qual é o alcance mede-o da carreta de espuma mecânica?",
+        options: [
+          "A) 7,5 metros",
+          "B) 6,5 metros",
+          "C) 5 metros",
+          "D) 8,5 metros",
+          "E) 7 metros"
+        ],
+        correct: 0,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 19,
+        text: "Qual o tempo mínimo de descarga da carreta de espuma mecânica",
+        options: [
+          "A) 75 litros é 180 Segundos",
+          "B) 50 litros 180 segundos",
+          "C) 60 litros 120 segundos",
+          "D) 50 litros 120 segundos",
+          "E) 70 litros é 100 segundos"
+        ],
+        correct: 0,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 20,
+        text: "Qual a capacidade da carreta de pó químico seco ?",
+        options: [
+          "A) 20 a 40 kg",
+          "B) 75 a 150 kg",
+          "C) 20 a 100 kg",
+          "D) 25 a 50 kg",
+          "E) 50 a 100 kg"
+        ],
+        correct: 2,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 21,
+        text: "Qual o tempo mínimo de descarga da carreta de pó por seco?",
+        options: [
+          "A) 20 kg é 40 segundos",
+          "B) 20 kg é 120 segundos",
+          "C) 20 kg é 100 segundos",
+          "D) 20 kg é 180 segundos",
+          "E) 20 kg é 60 segundos"
+        ],
+        correct: 1,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 22,
+        text: "Qual  a capacidade da carreta de gás carbônico?",
+        options: [
+          "A) 75 a 150 kg",
+          "B) 20 a 100 kg",
+          "C) 50 a 100 kg",
+          "D) 25 a 50 kg",
+          "E) 20 a 80 kg"
+        ],
+        correct: 3,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 23,
+        text: "Qual o alcance médio do jato da carreta de gás carbônico?",
+        options: [
+          "A) 4 metros",
+          "B) 13 metros",
+          "C) 1 metros",
+          "D) 7,5 metros",
+          "E) 3 metros"
+        ],
+        correct: 4,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 24,
+        text: "Qual o tempo mínimo de descarga da carreta de gás carbônico?",
+        options: [
+          "A) 30 kg é 180 segundos",
+          "B) 30 kg é 100 segundos",
+          "C) 30 kg é 90 segundos",
+          "D) 30 kg é 120 segundos",
+          "E) 30 kg é 60 segundos"
+        ],
+        correct: 4,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 25,
+        text: "Qual o período em que é verificado o Acesso, Visibilidade e  Sinalização dos extintores de incêndio?",
+        options: [
+          "A) quinquenal",
+          "B) semestral",
+          "C) mensal",
+          "D) anual",
+          "E) semanal"
+        ],
+        correct: 4,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 26,
+        text: "Qual é o período em que é verificado o bico ou Mangueira, pressão no manômetro, lacre, pino de segurança, existência de cartão de controle de pesagem e pesagem do extintor de incêndio?",
+        options: [
+          "A) semanal",
+          "B) mensal",
+          "C) semestral",
+          "D) anual",
+          "E) quinquenal"
+        ],
+        correct: 1,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 27,
+        text: "Qual é o período em que é verificado bico ou Mangueira pressão no manômetro, lacre, pino de segurança, existência de cartão de controle de pesagem e carregamento do extintor quando ouver perda superior a 10% do peso do extintor de incêndio?",
+        options: [
+          "A) semestral",
+          "B) quinquenal",
+          "C) semanal",
+          "D) anual",
+          "E) mensal"
+        ],
+        correct: 0,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 28,
+        text: "qual o período estipulado para manutenção de segunda o nível dos extintores de incêndio?",
+        options: [
+          "A) semestral",
+          "B) semanal",
+          "C) mensal",
+          "D) anual",
+          "E) quinquenal"
+        ],
+        correct: 3,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 29,
+        text: "Qual período que a executado o teste hidrostático os nos extintores de incêndio?",
+        options: [
+          "A) anual",
+          "B) semestral",
+          "C) quinquenal",
+          "D) mensal",
+          "E) semanal"
+        ],
+        correct: 2,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 30,
+        text: "e quais são as substâncias constituídas por bicarbonato de sódio bicarbonato de potássio ou cloreto de potássio que pulverizada e formam uma nuvem de voz sobre o fogo extinguindo-o?",
+        options: [
+          "A) compostos halocarbonatos",
+          "B) espuma mecânica",
+          "C) compostos halojanados",
+          "D) pó químico seco",
+          "E) gás carbônico"
+        ],
+        correct: 3,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 31,
+        text: "é um agente extintor a base de bicarbonato de potássio muito eficiente na extinção de incêndios em líquidos inflamados em forma pulverizada e em gases inflamáveis",
+        options: [
+          "A) Purple-k (pkp)",
+          "B) solução aquosa de pó químico (APC)",
+          "C) pó químico ABC (FORAY)",
+          "D) plus fifty ○(PQS)",
+          "E) pó químico seco Especial (MET-L-X)"
+        ],
+        correct: 0,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 32,
+        text: "é um agente extintor a base de bicarbonato de sódio contendo aditivos químicos secos que o mantém com uma vazão Livre e não igoroscópico codificada com a cor azul Clara?",
+        options: [
+          "A) pó químico ABC (FORAY)",
+          "B) pó químico especial- (MET-L-X)",
+          "C) purple - k(PKP)",
+          "D) solução aquosa  de pó químico (APC)",
+          "E) plus fifty r(PQS)"
+        ],
+        correct: 4,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 33,
+        text: "é um agente extintor a base de fosfato de monoamônia + sulfato de amônia ecodificado com a cor amarela",
+        options: [
+          "A) pó químico ABC (FORAY)",
+          "B) pó químico especial- (MET-L-X)",
+          "C) purple - k(PKP)",
+          "D) solução aquosa  de pó químico (APC)",
+          "E) plus fifty r(PQS)"
+        ],
+        correct: 0,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 34,
+        text: "o fosfato de monoamônia é ligeralmente ácido na presença de umidade o que resulta  em propriedades corrosivas moderadas, derretendo quando aquecido a uma temperatura de?",
+        options: [
+          "A) 300º F - 149⁰ C",
+          "B) 300⁰ F - 150⁰ C",
+          "C) 100 ⁰ F - 50⁰ C",
+          "D) 100 ⁰ C - 50⁰ F",
+          "E) 300 ⁰C - 149⁰ F"
+        ],
+        correct: 0,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 35,
+        text: "é um agente extintor é empregado exclusivamente no combate a incêndios em metais combustíveis classe \"D\"",
+        options: [
+          "A) purple - k(PKP)",
+          "B) plus fifty r(PQS)",
+          "C) pó químico especial- (MET-L-X)",
+          "D) solução aquosa  de pó químico (APC)",
+          "E) solução aquosa  de pó químico (APC)"
+        ],
+        correct: 2,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 36,
+        text: "é um agente extintor que contém uma solução aquosa de carbonato de potássio que em contato com a superfície Em Chamas, gera uma espuma parecida com a do sabão impedindo o contato do ar com a superfície Em Chamas, a espuma leve de sabão contém vapor e causa bolhas de CO2 e glicerina que flutu um na superfície",
+        options: [
+          "A) pó químico especial- (MET-L-X)",
+          "B) pó químico ABC (FORAY)",
+          "C) plus fifty r(PQS)",
+          "D) purple - k(PKP)",
+          "E) solução aquosa  de pó químico (APC)"
+        ],
+        correct: 4,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 37,
+        text: "ocorre em um período relativamente curto de tempo e pode ser considerada um evento do incêndio combustão subita generalizada trata-se do momento no Qual a temperatura da camada superior de fumaça atingem temperaturas em tornos de 600⁰ C",
+        options: [
+          "A) incêndio desenvolvido",
+          "B) fase normal",
+          "C) fase inicial",
+          "D) fase de desenvolvimento",
+          "E) queda de intensidade"
+        ],
+        correct: 3,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 38,
+        text: "a característica principal deixa a fase é o repentino de pagamento das chamas a todo o material combustível existente no compartimento este fenômeno conhecido pelo nome de flash over é um dos principais causadores de acidentes graves com o pessoal envolvido no combate incêndio",
+        options: [
+          "A) fase normal",
+          "B) fase de desenvolvimento",
+          "C) fase inicial",
+          "D) incêndio desenvolvido",
+          "E) fase de queda de intensidade"
+        ],
+        correct: 1,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 39,
+        text: "o aparecimento do Flashover marca qual entrada da fase de incêndio",
+        options: [
+          "A) fase de desenvolvimento",
+          "B) incêndio desenvolvido",
+          "C) fase desenvolvedora",
+          "D) fase inicial",
+          "E) fase de queda de intensidade"
+        ],
+        correct: 1,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 40,
+        text: "a manutenção da doutrina do Cave inclusive a detecção e correção de irregularidades observadas que venham apresentar riscos de incêndio a bordo é ter responsabilidade de todos a bordo cabendo a quem as suas supervisão",
+        options: [
+          "A) do pessoal e de serviço",
+          "B) encarregados das divisões",
+          "C) Fiel de cav e do navio",
+          "D) Fiel de Cav de divisões",
+          "E) encarregado do Cav"
+        ],
+        correct: 4,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 41,
+        text: "conduz eletricidade e pode causar acidentes se utilizada contra equipamentos elétricos energizados reduz a resistência de isolamento de equipamentos e circuitos elétricos e eletrônicos alguns tipos possuem propriedades corrosivas sobre diversos materiais produz irritação na pele e Principalmente nos olhos",
+        options: [
+          "A) espuma mecânica",
+          "B) compostos halojenados",
+          "C) água",
+          "D) halon",
+          "E) pó químico"
+        ],
+        correct: 0,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 42,
+        text: "o gás carbônico é um gás inerte que não alimenta a combustão agindo na redução do comburente a níveis abaixo de",
+        options: [
+          "A) 17%",
+          "B) 16%",
+          "C) 13%",
+          "D) 14%",
+          "E) 15%"
+        ],
+        correct: 1,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 43,
+        text: "O HALON 1301, numa concentração de 5% A 7% ?",
+        options: [
+          "A) até 5 min. não causa efeito danoso",
+          "B) até  5 min causa efeito danoso",
+          "C) até 5 min. perda da coordenação motora e redução da acuidade mental",
+          "D) até 5 min incapacidade",
+          "E) até  5 min. desmaio e possível morte"
+        ],
+        correct: 0,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 44,
+        text: "O HALON 1301, numa concentração de 7% A 10%?",
+        options: [
+          "A) em 1 min. desmaio e possível morte",
+          "B) em 1 min. não causa efeito danoso",
+          "C) em 1 min. não causa efeito danoso",
+          "D) em 1 min perda da coordenação motora e redução da acuidade mental",
+          "E) em 1 min. evitar qualquer contato"
+        ],
+        correct: 3,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 45,
+        text: "O HALON 1301, numa concentração acima de 10٪ ?",
+        options: [
+          "A) em 1 min perda da coordenação motora e redução da acuidade mental",
+          "B) em 1 min embriagues",
+          "C) em 1 min. não causa efeito danoso",
+          "D) em 1 min aceitável",
+          "E) em 1 min totalmente incapacitado, desmaio e possível morte"
+        ],
+        correct: 4,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 46,
+        text: "O HALON 1211, numa concentração de  até 4%",
+        options: [
+          "A) aceitável até 4 min",
+          "B) aceitável até 1 min",
+          "C) aceitável até 4 min",
+          "D) aceitável até 5 min",
+          "E) aceitável até 6 min"
+        ],
+        correct: 3,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 47,
+        text: "O HALON 1211, numa concentração de 4% A 5%",
+        options: [
+          "A) aceitável até 1 min",
+          "B) aceitável até 6 min",
+          "C) evitar qualquer contato",
+          "D) aceitável até 5 min",
+          "E) aceitável até 4 min"
+        ],
+        correct: 0,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 48,
+        text: "O HALON 1211, numa concentração acima de 5%",
+        options: [
+          "A) evitar qualquer contato",
+          "B) aceitável até 4 min",
+          "C) aceitável até 1 min",
+          "D) aceitável até 6 min",
+          "E) aceitável até 5 min"
+        ],
+        correct: 0,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 49,
+        text: "sabendo-se que o alon foi utilizado para extinguir incêndio em um compartimento para se efetuar arreia entrada será obrigatoriamente necessário ou uso de um equipamento autônomo de respiração observando-se um tempo mínimo de XX minutos após ter sido comprovada a extinção do incêndio pela redução da temperatura no compartimento",
+        options: [
+          "A) 16 minutos",
+          "B) 13 minutos",
+          "C) 10 minutos",
+          "D) 15 minutos",
+          "E) 14 minutos"
+        ],
+        correct: 3,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 50,
+        text: "Qual a temperatura que o Halon se decompõe formando diversos elementos tóxicos que podem causar a morte quase instantânea",
+        options: [
+          "A) 600⁰ C - 1200⁰ F",
+          "B) 400⁰ C - 900⁰ F",
+          "C) 500⁰ C - 900⁰ F",
+          "D) 200⁰ C - 500⁰F",
+          "E) 300⁰ C - 700⁰ F"
+        ],
+        correct: 2,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 51,
+        text: "quem é o responsável perante o Comandante pelas atribuições de planejar preparar e executar as falhas específicas do cav antes é após a ocorrência o sinistro",
+        options: [
+          "A) líder da turma de incêndio",
+          "B) líder do reparo",
+          "C) Fiel de cav",
+          "D) encarregado do cav",
+          "E) encarregado do reparo"
+        ],
+        correct: 3,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 52,
+        text: "qual militar é responsável por receber dos reparos as avarias é informar ao comando",
+        options: [
+          "A) Fiel de cav",
+          "B) líder do reparo",
+          "C) encarregado do cav",
+          "D) encarregado do reparo",
+          "E) líder da turma de incêndio"
+        ],
+        correct: 2,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 53,
+        text: "Qual o militar é responsável por solicitar ao comando autorização para alterar a condição de fechamento do material ?",
+        options: [
+          "A) encarregado do cav",
+          "B) encarregado do reparo",
+          "C) líder da turma de incêndio",
+          "D) líder do reparo",
+          "E) Fiel de cav"
+        ],
+        correct: 0,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 54,
+        text: "acima de quantos militares o navio deve possuir um mínimo de duas enfermarias de combate com capacidade de atender emergência acidente com o pessoal em combate",
+        options: [
+          "A) 300",
+          "B) 400",
+          "C) 500",
+          "D) 100",
+          "E) 200"
+        ],
+        correct: 0,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 55,
+        text: "é uma função exercida por um oficial suboficial ou Sargento o qual supervisora a atuação do reparo é responsável por todos pessoal e material designado para a área do reparo e armário do cav, e é tem o Curso de C-EXP-FICAV",
+        options: [
+          "A) Fiel de cav",
+          "B) líder da turma de incêndio",
+          "C) encarregado do cav",
+          "D) encarregado do reparo",
+          "E) líder do reparo"
+        ],
+        correct: 3,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 56,
+        text: "quem é responsável manter atualizadas as normas e os procedimentos para pois serviços relacionados ao controle de avarias",
+        options: [
+          "A) encarregado do cav",
+          "B) líder da turma de incêndio",
+          "C) líder do reparo",
+          "D) Fiel de cav",
+          "E) encarregado do reparo"
+        ],
+        correct: 0,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 57,
+        text: "Quem é responsável por elaborar ou manter atualizado um programa de adestramentos incluindo a avaliação para ser ministrado para toda tripulação assim como preparar instrutores para por em prática estes adestramentos",
+        options: [
+          "A) líder da turma de incêndio",
+          "B) encarregado do reparo",
+          "C) encarregado do cav",
+          "D) líder do reparo",
+          "E) Fiel de cav"
+        ],
+        correct: 2,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 58,
+        text: "Quem é responsável por conduzir inspeções periódicas no material de controle de avarias dos reparos do navio",
+        options: [
+          "A) encarregado do cav",
+          "B) Fiel de cav",
+          "C) líder da turma de incêndio",
+          "D) líder do reparo",
+          "E) encarregado do reparo"
+        ],
+        correct: 0,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 59,
+        text: "quem é responsável por manter atualizado o livro de controle de avarias conforme as alterações feitas no navio",
+        options: [
+          "A) encarregado do cav",
+          "B) encarregado do reparo",
+          "C) Fiel de cav",
+          "D) líder do reparo",
+          "E) líder da turma de incêndio"
+        ],
+        correct: 0,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 60,
+        text: "Quem é responsável por manter todas as listas de verificação atualizadas",
+        options: [
+          "A) encarregado do cav",
+          "B) encarregado do reparo",
+          "C) líder do reparo",
+          "D) líder da turma de incêndio",
+          "E) Fiel de cav"
+        ],
+        correct: 0,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 61,
+        text: "Quem é responsável por manter informado o chefe do departamento de máquinas de qualquer situação ou prática que diminua o grau de prontidão do controle de avarias do navio",
+        options: [
+          "A) líder do reparo",
+          "B) Fiel de cav",
+          "C) líder da turma de incêndio",
+          "D) encarregado do reparo",
+          "E) encarregado do cav"
+        ],
+        correct: 4,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 62,
+        text: "Quem é responsável por fiscalizar a adoção das medidas de segurança necessárias a entrada de pessoal em compartimentos fechados ou espaços vazios",
+        options: [
+          "A) encarregado do reparo",
+          "B) encarregado do cav",
+          "C) líder da turma de incêndio",
+          "D) líder do reparo",
+          "E) Fiel de cav"
+        ],
+        correct: 1,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 63,
+        text: "Quem é responsável por autorizar os trabalhos de corte e solda a borda e como responsável pelo testes de atmosfera pela liberação de compartimentos ou tanques com gases tóxicos ou explosivos após serem desgaseificados?",
+        options: [
+          "A) Fiel de cav",
+          "B) encarregado do reparo",
+          "C) líder do reparo",
+          "D) líder da turma de incêndio",
+          "E) encarregado do cav"
+        ],
+        correct: 4,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 64,
+        text: "Quem é responsável por manter o Comandante informado do Estado de prontidão do controle de avarias do navio tanto em termos de material quanto em termos de pessoal",
+        options: [
+          "A) encarregado do cav",
+          "B) encarregado do reparo",
+          "C) líder do reparo",
+          "D) imediato",
+          "E) Fiel de cav"
+        ],
+        correct: 3,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 65,
+        text: "Quem é responsável por fazer cumprir as decisões do Comandante no que diz respeito a instrução e ao adestramento de controle de avarias",
+        options: [
+          "A) encarregado do reparo",
+          "B) encarregado do cav",
+          "C) Fiel de cav",
+          "D) líder do reparo",
+          "E) imediato"
+        ],
+        correct: 4,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 66,
+        text: "quem deverá estar familiarizado com pois procedimentos do controle de avarias no porto e no mar",
+        options: [
+          "A) encarregado do reparo",
+          "B) encarregado do cav",
+          "C) líder do reparo",
+          "D) Fiel de cav",
+          "E) imediato"
+        ],
+        correct: 4,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 67,
+        text: "quem é responsável manter a supervisão geral de todas as ações relacionadas ao controle de avarias incluindo os exercícios sob um ponto de vista específico e discriminado",
+        options: [
+          "A) imediato",
+          "B) líder do reparo",
+          "C) Fiel de cav",
+          "D) encarregado do cav",
+          "E) encarregado do reparo"
+        ],
+        correct: 0,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 68,
+        text: "Quem é responsável por prover material e pessoal de outros controles para o auxílio do controle de avarias nos casos de grandes avarias obedecendo as prioridades do comando",
+        options: [
+          "A) líder da turma de incêndio",
+          "B) imediato",
+          "C) líder do reparo",
+          "D) Fiel de cav",
+          "E) encarregado do reparo"
+        ],
+        correct: 1,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 69,
+        text: "em casos graves e se a situação tática assim permitir se posicionar no ccm ou o mais próximo das avarias para assessorar o Comandante em tempo real",
+        options: [
+          "A) líder do reparo",
+          "B) imediato",
+          "C) Fiel de cav",
+          "D) encarregado do cav",
+          "E) encarregado do reparo"
+        ],
+        correct: 1,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 70,
+        text: "quem deverá se atentar para uma necessidade de prover suplementos alimentares e água para o pessoal é envolvido em ações de emergência",
+        options: [
+          "A) imediato",
+          "B) encarregado do cav",
+          "C) encarregado do reparo",
+          "D) Fiel de cav",
+          "E) líder do reparo"
+        ],
+        correct: 0,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 71,
+        text: "quem é responsável por prover apoio logístico (pessoal e material) para a cena de ação, se necessário com coordenação através estação central do cav",
+        options: [
+          "A) encarregado do cav",
+          "B) líder do reparo",
+          "C) encarregado do reparo",
+          "D) Fiel de cav",
+          "E) imediato"
+        ],
+        correct: 2,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 72,
+        text: "quem deverá ter um papel ativo no adestramento do pessoal bem como conhecer profundamente as deficiências logísticas (pessoal e material) na área de responsabilidade do seu reparo",
+        options: [
+          "A) líder do reparo",
+          "B) imediato",
+          "C) encarregado do reparo",
+          "D) Fiel de cav",
+          "E) encarregado do cav"
+        ],
+        correct: 2,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 73,
+        text: "quem deverá certificar que os isolamentos mecânicos e elétricos estão estabelecidos para a situação",
+        options: [
+          "A) imediato",
+          "B) líder do reparo",
+          "C) encarregado do reparo",
+          "D) encarregado do cav",
+          "E) Fiel de cav"
+        ],
+        correct: 2,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 74,
+        text: "quem deverá certificar se de que o pessoal da turma de incêndio e está com a roupa de proteção corretamente vestida",
+        options: [
+          "A) Fiel de cav",
+          "B) imediato",
+          "C) líder do reparo",
+          "D) encarregado do cav",
+          "E) encarregado do reparo"
+        ],
+        correct: 4,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 75,
+        text: "quem deverá conduzir as inspeções diárias pelo navio",
+        options: [
+          "A) líder do reparo",
+          "B) encarregado do cav",
+          "C) imediato",
+          "D) encarregado do reparo",
+          "E) Fiel de cav"
+        ],
+        correct: 4,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 76,
+        text: "Quem é responsável pela adoção de medidas preventivas em suas áreas de responsabilidade tais como manutenção das tranquilidade a água e alvo de gases a prevenção de incêndios apelação do material e a manutenção dos equipamentos de emergências",
+        options: [
+          "A) encarregado do cav",
+          "B) encarregado do reparo",
+          "C) encarregado de Divisão",
+          "D) Fiel de cav",
+          "E) imediato"
+        ],
+        correct: 2,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 77,
+        text: "quem deverá realizar e conduzir inspeções periódicas do cumprimento das rotinas de manutenção e adestramento dos militares de sua divisão",
+        options: [
+          "A) Fiel de cav",
+          "B) líder do reparo",
+          "C) encarregado de divisão",
+          "D) imediato",
+          "E) encarregado do cav"
+        ],
+        correct: 2,
+        subject: "CAMAAL 1202 (CAV)"
+      },
+      {
+        id: 78,
+        text: "De acordo com a imagem",
+        options: [
+          "A) C",
+          "B) D",
+          "C) E",
+          "D) A",
+          "E) B"
+        ],
+        correct: 3,
+        subject: "CAMAAL 1202 (CAV)"
+      }
+    ];
+
+    // App State
+    let currentIndex = 0;
+    let userAnswers = {}; // { questionIndex: selectedOptionIndex }
+    let mode = 'study'; // 'study' or 'exam'
+    let activeFilter = 'all'; // 'all', 'unanswered', 'answered'
+    let subjectFilter = 'all';
+    let discardedOptions = {}; // { questionIndex: { optionIndex: true } }
+    let timerInterval = null;
+
+    // Local Storage Keys (cache local / fallback offline)
+    const STORAGE_KEY_ANSWERS = 'camaal_cav_answers';
+    const STORAGE_KEY_MODE = 'camaal_cav_mode';
+    const STORAGE_KEY_DISCARDED = 'camaal_cav_discarded_options';
+    const STORAGE_KEY_START = 'camaal_cav_elapsed_start';
+
+    // --- Supabase: sessão vem da página inicial (index.html) ---
+    const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const QUIZ_ID = 'CAMAAL_CAV';
+    let currentUser = null;
+    let saveDebounceTimer = null;
+
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending', 'gate-no-access'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    async function handleLogout() {
+      if (timerInterval) clearInterval(timerInterval);
+      await sb.auth.signOut();
+    }
+
+    async function onUserAuthenticated() {
+      const { data: perfil } = await sb
+        .from('profiles')
+        .select('aprovado')
+        .eq('id', currentUser.id)
+        .maybeSingle();
+
+      const aprovado = perfil ? perfil.aprovado : false;
+
+      if (!aprovado) {
+        showGate('gate-pending');
+        return;
+      }
+
+      const { data: acesso } = await sb
+        .from('acessos')
+        .select('quiz_id')
+        .eq('user_id', currentUser.id)
+        .eq('quiz_id', QUIZ_ID)
+        .maybeSingle();
+
+      if (!acesso) {
+        showGate('gate-no-access');
+        return;
+      }
+
+      document.getElementById('access-screen').classList.add('hidden');
+      const bar = document.getElementById('user-bar');
+      bar.classList.remove('hidden');
+      bar.classList.add('flex');
+      document.getElementById('user-email').textContent = currentUser.email;
+
+      await loadSavedState();
+      currentIndex = 0;
+      renderQuestion();
+      renderGrid();
+      updateTrackers();
+
+      if (!localStorage.getItem(STORAGE_KEY_START)) {
+        localStorage.setItem(STORAGE_KEY_START, String(Date.now()));
+      }
+      startElapsedTimer();
+      updateElapsedTimer();
+    }
+
+    function showAccessScreen() {
+      document.getElementById('user-bar').classList.add('hidden');
+      document.getElementById('user-bar').classList.remove('flex');
+      if (timerInterval) clearInterval(timerInterval);
+      showGate('gate-logged-out');
+    }
+
+    // Init App
+    window.addEventListener('DOMContentLoaded', () => {
+      populateSubjectFilter();
+      sb.auth.onAuthStateChange((event, session) => {
+        if (session && session.user) {
+          currentUser = session.user;
+          onUserAuthenticated();
+        } else if (event === 'SIGNED_OUT' || event === 'INITIAL_SESSION') {
+          currentUser = null;
+          showAccessScreen();
+        }
+      });
+    });
+
+    // Atalhos de teclado: ← / → navegam entre questões, A–E marcam a alternativa
+    document.addEventListener('keydown', (e) => {
+      const locked = !document.getElementById('access-screen').classList.contains('hidden');
+      if (locked) return;
+      const typingInField = ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName);
+      if (typingInField) return;
+
+      if (e.key === 'ArrowRight') { nextQuestion(); }
+      else if (e.key === 'ArrowLeft') { prevQuestion(); }
+      else {
+        const letterIndex = 'abcdefgh'.indexOf(e.key.toLowerCase());
+        if (letterIndex > -1 && questionsData[currentIndex] && letterIndex < questionsData[currentIndex].options.length) {
+          selectOption(letterIndex);
+        }
+      }
+    });
+
+    function startElapsedTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(updateElapsedTimer, 1000);
+    }
+
+    function formatElapsed(ms) {
+      const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+      const h = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+      const m = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+      const sec = String(totalSeconds % 60).padStart(2, '0');
+      return `${h}:${m}:${sec}`;
+    }
+
+    function updateElapsedTimer() {
+      const el = document.getElementById('elapsed-timer');
+      if (!el) return;
+      const start = Number(localStorage.getItem(STORAGE_KEY_START));
+      el.querySelector('span').innerText = start ? formatElapsed(Date.now() - start) : '00:00:00';
+    }
+
+    async function loadSavedState() {
+      userAnswers = {};
+      discardedOptions = {};
+      let loadedFromCloud = false;
+
+      if (currentUser) {
+        try {
+          const { data, error } = await sb
+            .from('progresso')
+            .select('respostas, descartadas, modo')
+            .eq('user_id', currentUser.id)
+            .eq('quiz_id', QUIZ_ID)
+            .maybeSingle();
+          if (!error && data) {
+            userAnswers = data.respostas || {};
+            discardedOptions = data.descartadas || {};
+            if (data.modo) setMode(data.modo, false);
+            loadedFromCloud = true;
+          }
+        } catch (e) { /* segue para o cache local */ }
+      }
+
+      if (!loadedFromCloud) {
+        const savedAnswers = localStorage.getItem(STORAGE_KEY_ANSWERS);
+        if (savedAnswers) {
+          try { userAnswers = JSON.parse(savedAnswers); } catch(e) { userAnswers = {}; }
+        }
+        const savedMode = localStorage.getItem(STORAGE_KEY_MODE);
+        if (savedMode) setMode(savedMode, false);
+        const savedDiscarded = localStorage.getItem(STORAGE_KEY_DISCARDED);
+        if (savedDiscarded) {
+          try { discardedOptions = JSON.parse(savedDiscarded) || {}; } catch(e) { discardedOptions = {}; }
+        }
+      }
+    }
+
+    async function syncProgressToCloud() {
+      if (!currentUser) return;
+      await sb.from('progresso').upsert({
+        user_id: currentUser.id,
+        quiz_id: QUIZ_ID,
+        respostas: userAnswers,
+        descartadas: discardedOptions,
+        modo: mode,
+        atualizado_em: new Date().toISOString()
+      });
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY_ANSWERS, JSON.stringify(userAnswers));
+      localStorage.setItem(STORAGE_KEY_DISCARDED, JSON.stringify(discardedOptions));
+      if (currentUser) {
+        clearTimeout(saveDebounceTimer);
+        saveDebounceTimer = setTimeout(syncProgressToCloud, 600);
+      }
+    }
+
+    function isDiscarded(qIndex, optIndex) {
+      return !!(discardedOptions[qIndex] && discardedOptions[qIndex][optIndex]);
+    }
+
+    function toggleDiscard(optIndex) {
+      if (!discardedOptions[currentIndex]) discardedOptions[currentIndex] = {};
+      if (discardedOptions[currentIndex][optIndex]) {
+        delete discardedOptions[currentIndex][optIndex];
+      } else {
+        discardedOptions[currentIndex][optIndex] = true;
+        // If the user had selected this option, remove that answer so the discarded option cannot remain selected.
+        if (userAnswers[currentIndex] === optIndex) delete userAnswers[currentIndex];
+      }
+      if (Object.keys(discardedOptions[currentIndex]).length === 0) delete discardedOptions[currentIndex];
+      saveState();
+      renderQuestion();
+      renderGrid();
+    }
+
+    function setMode(newMode, render = true) {
+      mode = newMode;
+      localStorage.setItem(STORAGE_KEY_MODE, mode);
+      if (currentUser && render) {
+        clearTimeout(saveDebounceTimer);
+        saveDebounceTimer = setTimeout(syncProgressToCloud, 600);
+      }
+
+      const studyBtn = document.getElementById('btn-mode-study');
+      const examBtn = document.getElementById('btn-mode-exam');
+
+      if (mode === 'study') {
+        studyBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-white shadow';
+        examBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-white';
+      } else {
+        examBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-white shadow';
+        studyBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-white';
+      }
+
+      if (render) {
+        renderQuestion();
+        renderGrid();
+      }
+    }
+
+    function renderQuestion() {
+      const q = questionsData[currentIndex];
+      const selectedOption = userAnswers[currentIndex];
+
+      // Update question text and badge
+      document.getElementById('question-badge').innerText = `Questão #${q.id}`;
+      document.getElementById('question-subject-tag').innerText = q.subject;
+      document.getElementById('question-text').innerText = q.text;
+
+      // Status tag
+      const statusTag = document.getElementById('question-status-tag');
+      if (selectedOption !== undefined) {
+        statusTag.classList.remove('hidden');
+        if (mode === 'study') {
+          if (selectedOption === q.correct) {
+            statusTag.className = 'text-xs px-2.5 py-1 rounded font-medium bg-emerald-900/60 text-emerald-300 border border-emerald-700';
+            statusTag.innerText = 'Correta';
+          } else {
+            statusTag.className = 'text-xs px-2.5 py-1 rounded font-medium bg-rose-900/60 text-rose-300 border border-rose-700';
+            statusTag.innerText = 'Incorreta';
+          }
+        } else {
+          statusTag.className = 'text-xs px-2.5 py-1 rounded font-medium bg-slate-700 text-slate-300';
+          statusTag.innerText = 'Respondida';
+        }
+      } else {
+        statusTag.classList.add('hidden');
+      }
+
+      // Options
+      const container = document.getElementById('options-container');
+      container.innerHTML = '';
+
+      q.options.forEach((optText, optIdx) => {
+        const discarded = isDiscarded(currentIndex, optIdx);
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.onclick = () => { if (!isDiscarded(currentIndex, optIdx)) selectOption(optIdx); };
+
+        let baseClasses = 'w-full text-left p-4 pr-3 rounded-xl border text-sm md:text-base font-medium transition-all flex items-start gap-3 ';
+
+        if (discarded) {
+          baseClasses += 'bg-slate-800/30 border-slate-700/50 text-slate-500 opacity-50 line-through cursor-pointer';
+        } else if (selectedOption === undefined) {
+          // Unanswered
+          baseClasses += 'bg-navy-900/60 border-navy-700/80 text-slate-200 hover:bg-navy-700/50 hover:border-navy-500';
+        } else {
+          if (mode === 'study') {
+            // Study Mode: reveal correct & incorrect immediately
+            if (optIdx === q.correct) {
+              baseClasses += 'bg-emerald-950/70 border-emerald-600 text-emerald-200 shadow-sm';
+            } else if (optIdx === selectedOption && selectedOption !== q.correct) {
+              baseClasses += 'bg-rose-950/70 border-rose-600 text-rose-200 shadow-sm';
+            } else {
+              baseClasses += 'bg-navy-900/30 border-navy-800 text-slate-500 opacity-60';
+            }
+          } else {
+            // Exam Mode: show only user selection
+            if (optIdx === selectedOption) {
+              baseClasses += 'bg-navy-600/80 border-navy-400 text-white shadow-md';
+            } else {
+              baseClasses += 'bg-navy-900/60 border-navy-700/80 text-slate-300 hover:bg-navy-700/40';
+            }
+          }
+        }
+
+        btn.className = baseClasses;
+
+        // Custom indicator radio
+        let radioIcon = '';
+        if (selectedOption === undefined || discarded) {
+          radioIcon = `<span class="w-5 h-5 rounded-full border border-slate-500 flex items-center justify-center shrink-0 mt-0.5 ${discarded ? 'opacity-40' : ''}"></span>`;
+        } else if (mode === 'study') {
+          if (optIdx === q.correct) {
+            radioIcon = `<span class="w-5 h-5 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center shrink-0 mt-0.5 text-xs"><i class="fa-solid fa-check"></i></span>`;
+          } else if (optIdx === selectedOption && selectedOption !== q.correct) {
+            radioIcon = `<span class="w-5 h-5 rounded-full bg-rose-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs"><i class="fa-solid fa-xmark"></i></span>`;
+          } else {
+            radioIcon = `<span class="w-5 h-5 rounded-full border border-slate-700 flex items-center justify-center shrink-0 mt-0.5"></span>`;
+          }
+        } else { // Exam mode
+          if (optIdx === selectedOption) {
+            radioIcon = `<span class="w-5 h-5 rounded-full bg-white text-navy-900 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold"><i class="fa-solid fa-circle text-[8px]"></i></span>`;
+          } else {
+            radioIcon = `<span class="w-5 h-5 rounded-full border border-slate-500 flex items-center justify-center shrink-0 mt-0.5"></span>`;
+          }
+        }
+
+        const lockState = discarded ? 'fa-lock-open text-slate-300' : 'fa-lock text-slate-500';
+        btn.innerHTML = `${radioIcon}<span class="flex-1 ${discarded ? 'line-through' : ''}">${optText}</span><span role="button" tabindex="0" aria-label="${discarded ? 'Restaurar alternativa' : 'Descartar alternativa'}" title="${discarded ? 'Restaurar alternativa' : 'Cortar/descartar alternativa'}" class="ml-2 shrink-0 w-7 h-7 rounded-md flex items-center justify-center hover:bg-white/10 ${discarded ? 'bg-slate-700/50' : ''}" onclick="event.stopPropagation(); toggleDiscard(${optIdx})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();toggleDiscard(${optIdx})}"><i class="fa-solid ${lockState} text-xs"></i></span>`;
+        container.appendChild(btn);
+      });
+
+      // Explanation Box (Study Mode)
+      const expBox = document.getElementById('explanation-box');
+      if (mode === 'study' && selectedOption !== undefined) {
+        expBox.classList.remove('hidden');
+        const isRight = selectedOption === q.correct;
+        const expTitle = document.getElementById('explanation-title');
+        const expText = document.getElementById('explanation-text');
+
+        if (isRight) {
+          expTitle.className = 'flex items-center gap-2 text-sm font-bold text-emerald-400 mb-1';
+          expTitle.innerHTML = `<i class="fa-solid fa-circle-check"></i> Resposta Correta!`;
+          expText.innerText = `A alternativa gabarito é: ${q.options[q.correct]}`;
+        } else {
+          expTitle.className = 'flex items-center gap-2 text-sm font-bold text-rose-400 mb-1';
+          expTitle.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> Resposta Incorreta`;
+          expText.innerText = `Você selecionou a opção (${String.fromCharCode(65 + selectedOption)}), mas a correta é a alternativa: ${q.options[q.correct]}`;
+        }
+      } else {
+        expBox.classList.add('hidden');
+      }
+
+      // Nav buttons state
+      document.getElementById('btn-prev').disabled = currentIndex === 0;
+      document.getElementById('btn-next').disabled = currentIndex === questionsData.length - 1;
+
+      updateTrackers();
+
+      // Pequena transição ao trocar de questão
+      const card = document.getElementById('question-card');
+      card.classList.remove('question-in');
+      void card.offsetWidth;
+      card.classList.add('question-in');
+    }
+
+    function selectOption(optIndex) {
+      if (isDiscarded(currentIndex, optIndex)) return;
+      userAnswers[currentIndex] = optIndex;
+      saveState();
+      renderQuestion();
+      renderGrid();
+    }
+
+    function prevQuestion() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderQuestion();
+        renderGrid();
+      }
+    }
+
+    function nextQuestion() {
+      if (currentIndex < questionsData.length - 1) {
+        currentIndex++;
+        renderQuestion();
+        renderGrid();
+      }
+    }
+
+    function setFilter(filter) {
+      activeFilter = filter;
+      document.getElementById('filter-all').className = filter === 'all' ? 'py-1 rounded text-center bg-navy-700 text-white' : 'py-1 rounded text-center text-slate-400 hover:text-white';
+      document.getElementById('filter-unanswered').className = filter === 'unanswered' ? 'py-1 rounded text-center bg-navy-700 text-white' : 'py-1 rounded text-center text-slate-400 hover:text-white';
+      document.getElementById('filter-answered').className = filter === 'answered' ? 'py-1 rounded text-center bg-navy-700 text-white' : 'py-1 rounded text-center text-slate-400 hover:text-white';
+      renderGrid();
+    }
+
+    function setSubjectFilter(subject) {
+      subjectFilter = subject;
+      renderGrid();
+    }
+
+    function populateSubjectFilter() {
+      const select = document.getElementById('subject-filter');
+      if (!select) return;
+      const subjects = [...new Set(questionsData.map(q => q.subject))].sort();
+      subjects.forEach(subj => {
+        const opt = document.createElement('option');
+        opt.value = subj;
+        opt.textContent = subj;
+        select.appendChild(opt);
+      });
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('questions-grid');
+      grid.innerHTML = '';
+
+      questionsData.forEach((q, idx) => {
+        const isAnswered = userAnswers[idx] !== undefined;
+
+        // Apply filter
+        if (activeFilter === 'unanswered' && isAnswered) return;
+        if (activeFilter === 'answered' && !isAnswered) return;
+        if (subjectFilter !== 'all' && q.subject !== subjectFilter) return;
+
+        const btn = document.createElement('button');
+        btn.onclick = () => {
+          currentIndex = idx;
+          renderQuestion();
+          renderGrid();
+        };
+
+        let classes = 'h-9 w-full rounded text-xs font-mono font-bold flex items-center justify-center transition-all border ';
+
+        if (idx === currentIndex) {
+          classes += 'bg-navy-500 border-white text-white shadow-md ring-2 ring-navy-400/50 ';
+        } else if (isAnswered) {
+          if (mode === 'study') {
+            if (userAnswers[idx] === q.correct) {
+              classes += 'bg-emerald-900/80 border-emerald-600 text-emerald-200 ';
+            } else {
+              classes += 'bg-rose-900/80 border-rose-600 text-rose-200 ';
+            }
+          } else {
+            classes += 'bg-slate-700 border-slate-600 text-slate-200 ';
+          }
+        } else {
+          classes += 'bg-navy-900/80 border-navy-700 text-slate-400 hover:bg-navy-700/50 hover:text-white ';
+        }
+
+        btn.className = classes;
+        btn.innerText = idx + 1;
+        grid.appendChild(btn);
+      });
+    }
+
+    function updateTrackers() {
+      const total = questionsData.length;
+      const answeredCount = Object.keys(userAnswers).length;
+
+      document.getElementById('question-tracker').innerText = `Questão ${currentIndex + 1} de ${total}`;
+      document.getElementById('answered-tracker').innerText = `${answeredCount} de ${total} respondidas`;
+
+      const percentage = (answeredCount / total) * 100;
+      document.getElementById('progress-bar').style.width = `${percentage}%`;
+
+      // Score counter in drawer
+      let correctCount = 0;
+      Object.keys(userAnswers).forEach(idx => {
+        if (userAnswers[idx] === questionsData[idx].correct) {
+          correctCount++;
+        }
+      });
+      document.getElementById('score-counter').innerText = `${correctCount}/${total}`;
+    }
+
+    function resetQuiz() {
+      if (confirm('Tem certeza de que deseja reiniciar o simulado? Suas respostas salvas serão apagadas.')) {
+        userAnswers = {};
+        discardedOptions = {};
+        localStorage.removeItem(STORAGE_KEY_ANSWERS);
+        localStorage.removeItem(STORAGE_KEY_DISCARDED);
+        localStorage.setItem(STORAGE_KEY_START, String(Date.now()));
+        if (currentUser) {
+          sb.from('progresso').delete().eq('user_id', currentUser.id).eq('quiz_id', QUIZ_ID).then(() => {});
+        }
+        currentIndex = 0;
+        renderQuestion();
+        renderGrid();
+        updateElapsedTimer();
+      }
+    }
+
+    function finishQuiz() {
+      const total = questionsData.length;
+      let correct = 0;
+      let answered = 0;
+
+      questionsData.forEach((q, idx) => {
+        if (userAnswers[idx] !== undefined) {
+          answered++;
+          if (userAnswers[idx] === q.correct) {
+            correct++;
+          }
+        }
+      });
+
+      const wrong = answered - correct;
+      const percent = Math.round((correct / total) * 100);
+
+      document.getElementById('modal-correct').innerText = correct;
+      document.getElementById('modal-wrong').innerText = wrong;
+      document.getElementById('modal-percent').innerText = `${percent}%`;
+
+      const feedback = document.getElementById('modal-feedback');
+      if (percent >= 80) {
+        feedback.innerText = 'Excelente desempenho! Você demonstrou forte domínio de CAMAAL 1202 (CAV).';
+      } else if (percent >= 60) {
+        feedback.innerText = 'Bom resultado! Revise os tópicos incorretos para atingir uma nota ainda maior.';
+      } else {
+        feedback.innerText = 'Recomendamos uma revisão nos tópicos de CAMAAL 1202 (CAV) e tentar o simulado novamente.';
+      }
+
+      document.getElementById('results-modal').classList.remove('hidden');
+
+      if (currentUser) {
+        sb.from('resultados').insert({
+          user_id: currentUser.id,
+          quiz_id: QUIZ_ID,
+          acertos: correct,
+          erros: wrong,
+          percentual: percent,
+          respostas: userAnswers
+        }).then(() => {});
+      }
+    }
+
+    function closeModal() {
+      document.getElementById('results-modal').classList.add('hidden');
+    }
+  </script>
+
+  <!-- Estilo das alternativas descartadas -->
+  <style>
+    .option-discarded {
+      opacity: .48 !important;
+      filter: grayscale(.7);
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      text-decoration-color: rgba(148,163,184,.9);
+    }
+  </style>
+
+  <!-- Custom Scrollbar Styling -->
+  <style>
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #000F26;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #1E3E62;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #1E56A0;
+    }
+  </style>
+</body>
+</html>

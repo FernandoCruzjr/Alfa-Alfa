@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Justiça e Disciplina (Sindicância) · Simulado — Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Simulado interativo de Justiça e Disciplina (Sindicância) para concursos, com modo estudo, modo prova, filtro por assunto e acompanhamento de desempenho.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Fraunces (títulos, caráter naval/editorial) + Inter (texto e interface) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: {
+              800: '#0B192C',
+              900: '#000F26',
+              700: '#1E3E62',
+              600: '#1E56A0',
+              500: '#0066CC',
+              100: '#E6F0FA'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes access-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shake {
+      10%, 90% { transform: translateX(-1px); }
+      20%, 80% { transform: translateX(2px); }
+      30%, 50%, 70% { transform: translateX(-4px); }
+      40%, 60% { transform: translateX(4px); }
+    }
+    .shake { animation: shake .5s; }
+    @keyframes question-in {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #question-card.question-in { animation: question-in .28s ease-out; }
+    @media (prefers-reduced-motion: reduce) {
+      #access-card, #question-card, .shake { animation: none !important; }
+    }
+    button:focus-visible, input:focus-visible, [role="button"]:focus-visible {
+      outline: 2px solid #2384d6;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso: apenas verifica se já há login feito na página inicial -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">⚓</div>
+      <div class="font-serif font-semibold text-[26px] text-white tracking-tight">Justiça e Disciplina (Sindicância)</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial para acessar este simulado.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-white text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+
+      <div id="gate-no-access" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-lock text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Você ainda não tem acesso liberado a esta matéria. Fale com o administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+
+      <div class="text-[11px] text-[#7895b5] mt-6 pt-4 border-t border-[#1c3a5c] w-full">Justiça e Disciplina (Sindicância) para Concursos</div>
+    </div>
+  </div>
+
+
+  <!-- Header -->
+  <header class="bg-navy-900 border-b border-navy-700 sticky top-0 z-30 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="bg-navy-600 text-white p-2.5 rounded-lg shadow">
+          <i class="fa-solid fa-anchor text-2xl"></i>
+        </div>
+        <div>
+          <h1 class="font-serif text-xl font-semibold text-white tracking-wide">Justiça e Disciplina (Sindicância)</h1>
+          <p class="text-xs text-slate-400">Regulamento disciplinar e sindicâncias</p>
+        </div>
+      </div>
+
+      <!-- Mode Switcher & Actions -->
+      <div class="flex items-center gap-3">
+        <div class="bg-navy-800 p-1 rounded-lg border border-navy-700 flex text-xs">
+          <button id="btn-mode-study" onclick="setMode('study')" class="px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-white shadow">
+            <i class="fa-solid fa-graduation-cap mr-1"></i> Modo Estudo
+          </button>
+          <button id="btn-mode-exam" onclick="setMode('exam')" class="px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-white">
+            <i class="fa-solid fa-clock mr-1"></i> Modo Prova
+          </button>
+        </div>
+
+        <div id="elapsed-timer" class="bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg flex items-center gap-1.5" title="Tempo decorrido">
+          <i class="fa-solid fa-stopwatch text-navy-500"></i><span>00:00:00</span>
+        </div>
+
+        <div id="user-bar" class="hidden bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2" title="Conectado">
+          <i class="fa-solid fa-user text-navy-500"></i>
+          <span id="user-email" class="max-w-[140px] truncate"></span>
+          <button onclick="handleLogout()" class="ml-1 text-rose-300 hover:text-rose-200 transition-colors" title="Sair da conta">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
+
+        <button onclick="resetQuiz()" class="bg-rose-900/40 hover:bg-rose-800 text-rose-200 border border-rose-700/50 text-xs px-3 py-2 rounded-lg transition-all flex items-center gap-1.5" title="Reiniciar Simulado">
+          <i class="fa-solid fa-rotate-right"></i> Reiniciar
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+    <!-- Left / Center: Question Panel -->
+    <section class="lg:col-span-3 flex flex-col gap-6">
+
+      <!-- Progress Bar & Stats -->
+      <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 shadow-sm flex flex-col gap-3">
+        <div class="flex justify-between items-center text-sm font-semibold">
+          <span id="question-tracker" class="text-navy-500 font-bold">Questão 1 de 38</span>
+          <span id="answered-tracker" class="text-slate-400 text-xs">0 de 38 respondidas</span>
+        </div>
+        <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+          <div id="progress-bar" class="bg-navy-500 h-full w-0 transition-all duration-300"></div>
+        </div>
+      </div>
+
+      <!-- Question Card -->
+      <div id="question-card" class="bg-navy-800/90 border border-navy-700 rounded-xl p-6 shadow-xl flex flex-col justify-between min-h-[420px] relative">
+        <div>
+          <!-- Question Header Badge -->
+          <div class="flex justify-between items-center mb-4 gap-2">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span id="question-badge" class="bg-navy-700/60 text-navy-100 text-xs px-3 py-1 rounded-full font-mono border border-navy-600">
+                Questão #599
+              </span>
+              <span id="question-subject-tag" class="bg-navy-900 text-slate-400 text-xs px-3 py-1 rounded-full border border-navy-700"></span>
+            </div>
+            <span id="question-status-tag" class="text-xs px-2.5 py-1 rounded font-medium hidden"></span>
+          </div>
+
+          <!-- Question Body -->
+          <div id="question-text" class="text-base md:text-lg font-medium text-slate-100 leading-relaxed whitespace-pre-line mb-6">
+            Carregando questão...
+          </div>
+
+          <!-- Options Container -->
+          <div id="options-container" class="space-y-3">
+            <!-- Options will be dynamically rendered -->
+          </div>
+        </div>
+
+        <!-- Explanation Block (Study Mode) -->
+        <div id="explanation-box" class="mt-6 p-4 rounded-lg bg-slate-900/90 border border-slate-700 hidden">
+          <div class="flex items-center gap-2 text-sm font-bold mb-1" id="explanation-title"></div>
+          <div class="text-xs md:text-sm text-slate-300" id="explanation-text"></div>
+        </div>
+
+        <!-- Question Navigation Buttons -->
+        <div class="mt-8 pt-4 border-t border-navy-700/60 flex justify-between items-center gap-3">
+          <button id="btn-prev" onclick="prevQuestion()" class="bg-navy-700 hover:bg-navy-600 text-white text-sm px-4 py-2.5 rounded-lg transition-all flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed">
+            <i class="fa-solid fa-arrow-left"></i> Anterior
+          </button>
+
+          <div class="flex gap-2">
+            <button id="btn-finish" onclick="finishQuiz()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-sm px-5 py-2.5 rounded-lg font-semibold transition-all flex items-center gap-2 shadow-lg shadow-emerald-900/30">
+              <i class="fa-solid fa-check-double"></i> Finalizar Simulado
+            </button>
+            <button id="btn-next" onclick="nextQuestion()" class="bg-navy-600 hover:bg-navy-500 text-white text-sm px-4 py-2.5 rounded-lg transition-all flex items-center gap-2">
+              Próxima <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right: Question Drawer / Grid Nav -->
+    <aside class="lg:col-span-1 bg-navy-800/80 border border-navy-700 rounded-xl p-4 flex flex-col gap-4 h-fit">
+      <div class="flex justify-between items-center border-b border-navy-700 pb-3">
+        <h2 class="text-sm font-bold text-slate-200 flex items-center gap-2">
+          <i class="fa-solid fa-list-ol text-navy-500"></i> Navegação (38)
+        </h2>
+        <span class="text-xs bg-slate-900 px-2 py-1 rounded text-slate-400 font-mono" id="score-counter">
+          0/38
+        </span>
+      </div>
+
+      <!-- Filters -->
+      <div class="grid grid-cols-3 gap-1 text-[11px] font-medium bg-navy-900 p-1 rounded-lg">
+        <button onclick="setFilter('all')" id="filter-all" class="py-1 rounded text-center bg-navy-700 text-white">Todas</button>
+        <button onclick="setFilter('unanswered')" id="filter-unanswered" class="py-1 rounded text-center text-slate-400 hover:text-white">Faltam</button>
+        <button onclick="setFilter('answered')" id="filter-answered" class="py-1 rounded text-center text-slate-400 hover:text-white">Feitas</button>
+      </div>
+
+      <!-- Filtro por assunto -->
+      <div>
+        <label for="subject-filter" class="text-[11px] font-medium text-slate-400 flex items-center gap-1.5 mb-1.5">
+          <i class="fa-solid fa-layer-group text-navy-500"></i> Assunto
+        </label>
+        <select id="subject-filter" onchange="setSubjectFilter(this.value)" class="w-full bg-navy-900 border border-navy-700 text-slate-200 text-xs rounded-lg px-2.5 py-2 outline-none focus:ring-2 focus:ring-navy-500">
+          <option value="all">Todos os assuntos</option>
+        </select>
+      </div>
+
+      <!-- Grid of Buttons -->
+      <div id="questions-grid" class="grid grid-cols-5 gap-1.5 max-h-[380px] overflow-y-auto p-1 custom-scrollbar">
+        <!-- Grid Items injected via JS -->
+      </div>
+
+      <!-- Legend -->
+      <div class="border-t border-navy-700 pt-3 text-[11px] space-y-1.5 text-slate-400">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-navy-600 border border-navy-500 inline-block"></span>
+          <span>Atual</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-slate-700 inline-block"></span>
+          <span>Respondida</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-emerald-700 inline-block"></span>
+          <span>Correta (Estudo)</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-rose-700 inline-block"></span>
+          <span>Incorreta (Estudo)</span>
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer class="max-w-7xl w-full mx-auto px-4 md:px-6 pb-6 pt-2 text-center text-[11px] text-slate-500">
+    Plataforma de Estudos · CA-AA/AFN — seu progresso neste simulado fica salvo automaticamente neste navegador.
+  </footer>
+
+  <!-- Modal Results -->
+  <div id="results-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-navy-800 border border-navy-700 rounded-2xl max-w-lg w-full p-6 text-center shadow-2xl relative animate-fade-in">
+      <div class="w-16 h-16 bg-navy-700 text-navy-500 rounded-full flex items-center justify-center mx-auto mb-4 border border-navy-600 text-2xl shadow-inner">
+        <i class="fa-solid fa-trophy"></i>
+      </div>
+      <h2 class="font-serif text-2xl font-semibold text-white mb-1">Resultado do Simulado</h2>
+      <p class="text-xs text-slate-400 mb-6">Justiça e Disciplina (Sindicância) para Concursos</p>
+
+      <div class="grid grid-cols-3 gap-3 mb-6">
+        <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
+          <div class="text-xs text-slate-400">Acertos</div>
+          <div id="modal-correct" class="text-2xl font-bold text-emerald-400">0</div>
+        </div>
+        <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
+          <div class="text-xs text-slate-400">Erros</div>
+          <div id="modal-wrong" class="text-2xl font-bold text-rose-400">0</div>
+        </div>
+        <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
+          <div class="text-xs text-slate-400">Aproveitamento</div>
+          <div id="modal-percent" class="text-2xl font-bold text-sky-400">0%</div>
+        </div>
+      </div>
+
+      <p id="modal-feedback" class="text-sm text-slate-300 mb-6 px-2">
+        Continue praticando para consolidar seus conhecimentos!
+      </p>
+
+      <div class="flex gap-3 justify-center">
+        <button onclick="closeModal()" class="bg-navy-700 hover:bg-navy-600 text-white px-5 py-2.5 rounded-lg text-sm transition-all font-medium">
+          Revisar Respostas
+        </button>
+        <button onclick="resetQuiz(); closeModal();" class="bg-navy-600 hover:bg-navy-500 text-white px-5 py-2.5 rounded-lg text-sm transition-all font-semibold shadow-lg">
+          Tentar Novamente
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Code -->
+  <script>
+    // Quiz Questions Dataset
+const questionsData = [
+      {
+        id: 1,
+        text: "procedimento administrativo que a pura fatos ou ocorrências anônimas no serviço",
+        options: [
+          "A) IPM",
+          "B) crime",
+          "C) sindicância",
+          "D) contravenção disciplinar"
+        ],
+        correct: 2,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 2,
+        text: "é uma atribuição que pode ser delegada a oficiais da ativa para fins específicos e por tempo limitado e geralmente destinadas aos comandantes de om",
+        options: [
+          "A) indiciado",
+          "B) encarregado",
+          "C) autoridade nomeante",
+          "D) testemunha",
+          "E) escrivão"
+        ],
+        correct: 2,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 3,
+        text: "qual o prazo máximo em que a autoridade nomeante assina a portaria de instauração",
+        options: [
+          "A) 24 horas",
+          "B) 48 horas após o conhecimento",
+          "C) 24 horas após o conhecimento",
+          "D) 72 horas",
+          "E) 48 horas"
+        ],
+        correct: 1,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 4,
+        text: "é o documento que designará o encarregado da sindicância o escrivão e determinará o grau de sigilo",
+        options: [
+          "A) portaria de autuação",
+          "B) portaria de instauração",
+          "C) ofício",
+          "D) portaria de atuação",
+          "E) mensagem"
+        ],
+        correct: 1,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 5,
+        text: "Qual documento deverá informar a substituição do encarregado da sindicância",
+        options: [
+          "A) portaria",
+          "B) ofício",
+          "C) mensagem",
+          "D) certidão",
+          "E) despachos"
+        ],
+        correct: 2,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 6,
+        text: "através de Que documento deverá ser feita a substituição do encarregado da sin",
+        options: [
+          "A) c i",
+          "B) despachos",
+          "C) ofício",
+          "D) mensagem",
+          "E) portaria"
+        ],
+        correct: 4,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 7,
+        text: "Qual documento vou encarregado da sindicância assume a função",
+        options: [
+          "A) ofício",
+          "B) portaria de autuação",
+          "C) mensagem",
+          "D) portaria de instauração",
+          "E) termo de compromisso"
+        ],
+        correct: 1,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 8,
+        text: "através de Qual documento o encarregado da sindicância determina o escrivão as providências a serem tomadas",
+        options: [
+          "A) ofício",
+          "B) mensagem",
+          "C) portaria",
+          "D) termo",
+          "E) Despacho"
+        ],
+        correct: 4,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 9,
+        text: "seu encarregado dá sindicância verificar indícios de contravenção ou crime contra oficial mais antigo ele emitirá um",
+        options: [
+          "A) relatório parcial",
+          "B) ofício",
+          "C) mensagem",
+          "D) termo de compromisso",
+          "E) Despacho"
+        ],
+        correct: 0,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 10,
+        text: "a autoridade nomeante caso entenda proceder o relatório parcial feito pelo encarregado da sindicância e procedendo o alegado indício ele restituirá os autos por meio de",
+        options: [
+          "A) termo",
+          "B) certidão",
+          "C) Despacho",
+          "D) mensagem",
+          "E) ofício"
+        ],
+        correct: 2,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 11,
+        text: "aí solicitações externas determinadas pelo encarregado serão feitas por meio de --------------por ele assinado",
+        options: [
+          "A) ofício",
+          "B) mensagem",
+          "C) certidão",
+          "D) portaria",
+          "E) Despacho"
+        ],
+        correct: 0,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 12,
+        text: "o escrivão é designado por meio de--------- pelo encarregado da sindicância, caso não tenha sido efetuada pela autoridade nomeante na--------------",
+        options: [
+          "A) mensagem /portaria",
+          "B) portaria de instauração /mensagem",
+          "C) mensagem /portaria de instauração",
+          "D) ofício /mensagem",
+          "E) portaria /portaria de em instauração"
+        ],
+        correct: 4,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 13,
+        text: "a função de escrivão é exercida qual patente quando a apuração de investigar oficial",
+        options: [
+          "A) oficial intermediário",
+          "B) oficial General",
+          "C) oficial Subalterno",
+          "D) oficial superior",
+          "E) qualquer oficial"
+        ],
+        correct: 2,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 14,
+        text: "nos casos em que a sindicancia não envolver oficial quem assumirá como escrivão",
+        options: [
+          "A) suboficial ou Sargento",
+          "B) suboficial",
+          "C) Sargento",
+          "D) oficial intermediário",
+          "E) oficial"
+        ],
+        correct: 0,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 15,
+        text: "Qual o termo em que o escrivão prestará o compromisso legal de manter os autos em sigilo e de cumprir fielmente o contido",
+        options: [
+          "A) certidão",
+          "B) termo de conclusão",
+          "C) termo de recebimento",
+          "D) mensagem",
+          "E) termo de compromisso"
+        ],
+        correct: 4,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 16,
+        text: "A sindicância tem caráter‐------------ classificação dependerá da matéria tratada e caso envolve-se alto será classificada no grau de---------",
+        options: [
+          "A) reservado e ostensivo",
+          "B) sigiloso e reservado",
+          "C) sigiloso e ostensivo",
+          "D) secreto e reservado",
+          "E) reservado e sigiloso"
+        ],
+        correct: 1,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 17,
+        text: "a autoridade nomeante atribuirá o grau desse gelo dois autos na ?",
+        options: [
+          "A) portaria",
+          "B) portaria de instauração",
+          "C) termo de responsabilidade",
+          "D) ofício",
+          "E) portaria de autuação"
+        ],
+        correct: 1,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 18,
+        text: "determinada a instauração por autoridade superior ao titular do am onde se processará sindicância deverá o início e o fim desta ser-lhe comunicado por meio de",
+        options: [
+          "A) ofício",
+          "B) comunicação padronizada",
+          "C) portaria",
+          "D) mensagem",
+          "E) comunicação interna"
+        ],
+        correct: 3,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 19,
+        text: "a convocação de depoentes não enquadrados no início anterior será realizada por meio de",
+        options: [
+          "A) portaria assinada pela autoridade nomeante",
+          "B) ofício assinado pelo escrivão",
+          "C) ofício assinado pelo encarregado",
+          "D) mensagem assinada pelo escrivão",
+          "E) mensagem assinada pelo encarregado"
+        ],
+        correct: 2,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 20,
+        text: "sempre que for requisitado militar ou servidor público da MB lotado em outra om ou na e na atividade seu comparecimento será solicitado por meio de",
+        options: [
+          "A) mensagem",
+          "B) ofício",
+          "C) comunicação interna",
+          "D) portaria",
+          "E) Despacho"
+        ],
+        correct: 1,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 21,
+        text: "a solicitação interna na sindicância serão feitas por meios de Que documento",
+        options: [
+          "A) comunicação interna do encarregado a autoridade aqui estiver subordinado o requisitador",
+          "B) mensagem do encarregado a autoridade aqui estiver subordinado o requisitado",
+          "C) mensagem da a autoridade nomeant a autoridade aqui estivesse mordinado o requisitado",
+          "D) comunicação interna do escrivão para autoridade aqui estiver subordinado o requisitado",
+          "E) mensagem do escrivão a autoridade aqui estiver subordinado o requisitado"
+        ],
+        correct: 0,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 22,
+        text: "toda a intimação notificação e convocação deverá ser comunicada aos interessados com antecedência",
+        options: [
+          "A) três dias úteis",
+          "B) três dias",
+          "C) cinco dias",
+          "D) quatro dias",
+          "E) cinco dias úteis"
+        ],
+        correct: 0,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 23,
+        text: "Qual o documento mediante o Qual o escrivão submete sindicância ao exame e Despacho do encarregado",
+        options: [
+          "A) portaria de recebimento",
+          "B) portaria de conclusão",
+          "C) termo de conclusão",
+          "D) termo de recebimento",
+          "E) mensagem"
+        ],
+        correct: 2,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 24,
+        text: "é o documento que o escrivão lavrará após receber os autos do encarregado",
+        options: [
+          "A) termo de recebimento",
+          "B) mensagem",
+          "C) certidão",
+          "D) termo de conclusão",
+          "E) Despacho"
+        ],
+        correct: 0,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 25,
+        text: "o escrivão dará cumprimento ao Despacho e logo lavrará Qual o documento que definirá perfeitamente a maneira Como foram cumpridas a determinações do encarregado ou justificará aí razões que o impediram de cumpri-la",
+        options: [
+          "A) ofício",
+          "B) termo de conclusão",
+          "C) mensagem",
+          "D) certidão",
+          "E) termo de recebimento"
+        ],
+        correct: 3,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 26,
+        text: "é o termo inicial sindicância subscrito pelo escrivão posicionando-se após a capa mencionando todos os documentos e iniciais que foram entregues ao escrivão pelo encarregado incluindo-se necessariamente a portaria de instauração seus anexos e o termo de compromisso",
+        options: [
+          "A) autuação",
+          "B) compromisso",
+          "C) precatória",
+          "D) oitiva",
+          "E) juntada"
+        ],
+        correct: 0,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 27,
+        text: "é o documento que registra anexação sindicância mediante breve despacho do encarregado de qualquer documento ou papel que interessa a prova",
+        options: [
+          "A) oitiva",
+          "B) juntada",
+          "C) autuação",
+          "D) compromisso",
+          "E) precatória"
+        ],
+        correct: 1,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 28,
+        text: "o encarregado deverá preferencialmente ouvir em qual ordem os requisitados",
+        options: [
+          "A) sindicado em seguida testemunha e por último ofendido",
+          "B) ofendido em seguida testemunha e por último sindicado",
+          "C) sindicado em seguida ofendido e por último testemunha",
+          "D) ofendido em seguida sindicado e por último testemunha",
+          "E) testemunha em seguida sindicado e por último ofendido"
+        ],
+        correct: 1,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 29,
+        text: "sindicância o ofendido será ouvido por",
+        options: [
+          "A) termo de conclusão",
+          "B) termo de inquisição",
+          "C) termo de recebimento",
+          "D) termo de depoimento",
+          "E) termo de declaração"
+        ],
+        correct: 4,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 30,
+        text: "na sindicância sindicado será ouvido por meio de",
+        options: [
+          "A) termo de recebimento",
+          "B) termo de conclusão",
+          "C) termo de depoimento",
+          "D) termo de declaração",
+          "E) termo de inquirição"
+        ],
+        correct: 4,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 31,
+        text: "na sindicância as testemunhas serão ouvidas por meio de",
+        options: [
+          "A) em termo de recebimento",
+          "B) termo de declaração",
+          "C) termo de depoimento",
+          "D) termo de conclusão",
+          "E) termo inquirição"
+        ],
+        correct: 2,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 32,
+        text: "as testemunhas hoje sindicados ou ofendidos que se encontrarem em cidades diferentes do qual for instaurada a sindicância poderão ser ouvidos por meio de",
+        options: [
+          "A) mensagem",
+          "B) portaria",
+          "C) ofício",
+          "D) carta",
+          "E) carta precatória"
+        ],
+        correct: 4,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 33,
+        text: "qual o período que a oitiva das testemunhas e do sindicato exceto em caso de urgência inadiável deverá ser realizada",
+        options: [
+          "A) entre 6 e 20 horas",
+          "B) entre 7 e 18 horas",
+          "C) entre 6 e 10 horas",
+          "D) entre 7 e 10 horas",
+          "E) entre 7 e 20 horas"
+        ],
+        correct: 1,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 34,
+        text: "as oitivas não deverão ser normalmente realizadas por mais de",
+        options: [
+          "A) 3 horas consecutivas",
+          "B) quatro horas consecutivas",
+          "C) quatro horas",
+          "D) 6 horas consecutivas",
+          "E) 3 horas"
+        ],
+        correct: 1,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 35,
+        text: "é Prudente que a inquirição do sindicado seja acompanhada por duas testemunhas nomeadas pelo encarregado as quais assinaram o termo de",
+        options: [
+          "A) declaração",
+          "B) autuação",
+          "C) conclusão",
+          "D) inquirição",
+          "E) depoimento"
+        ],
+        correct: 3,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 36,
+        text: "Caso depoente seja analfabeto ou cego deverão ser convocado duas testemunhas que acompanharam e assinarão por eles o depoimento firmado a fim de comprovarem se o texto é idêntico ao declarado pelo depoente o depoente neste caso firmará o documento De que forma",
+        options: [
+          "A) pela impressão digital do polegar direito e na ausência o esquerdo",
+          "B) pela impressão digital do anelar esquerdo e na ausência o direito",
+          "C) pela impressão digital do anelar direito e na ausência o esquerdo",
+          "D) pela impressão digital do Mindinho direito e na ausência o esquerdo",
+          "E) pela impressão digital do polegar esquerdo e na ausência o direito"
+        ],
+        correct: 0,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 37,
+        text: "se o depoente sindicado ou ofendidos e recusar a assinar qualquer um dois termos respectivamente este deverá ser firmado por duas testemunhas para este fim convocadas por quem",
+        options: [
+          "A) escrivão",
+          "B) pelo juiz",
+          "C) pelo Ministério Público",
+          "D) autoridade nomeante",
+          "E) encarregado da sindicância"
+        ],
+        correct: 4,
+        subject: "Justiça e Disciplina (Sindicância)"
+      },
+      {
+        id: 38,
+        text: "sempre que houver divergência em declarações sobre fatos ou circunstâncias relevantes entre sindicatos testemunhas e ofendido será cabível lavrar o termo",
+        options: [
+          "A) termo de acariação",
+          "B) termo de conclusão",
+          "C) termo de depoimento",
+          "D) termo de inquisição",
+          "E) termo de compromisso"
+        ],
+        correct: 0,
+        subject: "Justiça e Disciplina (Sindicância)"
+      }
+    ];
+
+    // App State
+    let currentIndex = 0;
+    let userAnswers = {}; // { questionIndex: selectedOptionIndex }
+    let mode = 'study'; // 'study' or 'exam'
+    let activeFilter = 'all'; // 'all', 'unanswered', 'answered'
+    let subjectFilter = 'all';
+    let discardedOptions = {}; // { questionIndex: { optionIndex: true } }
+    let timerInterval = null;
+
+    // Local Storage Keys (cache local / fallback offline)
+    const STORAGE_KEY_ANSWERS = 'justica_disciplina_answers';
+    const STORAGE_KEY_MODE = 'justica_disciplina_mode';
+    const STORAGE_KEY_DISCARDED = 'justica_disciplina_discarded_options';
+    const STORAGE_KEY_START = 'justica_disciplina_elapsed_start';
+
+    // --- Supabase: sessão vem da página inicial (index.html) ---
+    const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const QUIZ_ID = 'JUSTICA_DISCIPLINA';
+    let currentUser = null;
+    let saveDebounceTimer = null;
+
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending', 'gate-no-access'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    async function handleLogout() {
+      if (timerInterval) clearInterval(timerInterval);
+      await sb.auth.signOut();
+    }
+
+    async function onUserAuthenticated() {
+      const { data: perfil } = await sb
+        .from('profiles')
+        .select('aprovado')
+        .eq('id', currentUser.id)
+        .maybeSingle();
+
+      const aprovado = perfil ? perfil.aprovado : false;
+
+      if (!aprovado) {
+        showGate('gate-pending');
+        return;
+      }
+
+      const { data: acesso } = await sb
+        .from('acessos')
+        .select('quiz_id')
+        .eq('user_id', currentUser.id)
+        .eq('quiz_id', QUIZ_ID)
+        .maybeSingle();
+
+      if (!acesso) {
+        showGate('gate-no-access');
+        return;
+      }
+
+      document.getElementById('access-screen').classList.add('hidden');
+      const bar = document.getElementById('user-bar');
+      bar.classList.remove('hidden');
+      bar.classList.add('flex');
+      document.getElementById('user-email').textContent = currentUser.email;
+
+      await loadSavedState();
+      currentIndex = 0;
+      renderQuestion();
+      renderGrid();
+      updateTrackers();
+
+      if (!localStorage.getItem(STORAGE_KEY_START)) {
+        localStorage.setItem(STORAGE_KEY_START, String(Date.now()));
+      }
+      startElapsedTimer();
+      updateElapsedTimer();
+    }
+
+    function showAccessScreen() {
+      document.getElementById('user-bar').classList.add('hidden');
+      document.getElementById('user-bar').classList.remove('flex');
+      if (timerInterval) clearInterval(timerInterval);
+      showGate('gate-logged-out');
+    }
+
+    // Init App
+    window.addEventListener('DOMContentLoaded', () => {
+      populateSubjectFilter();
+      sb.auth.onAuthStateChange((event, session) => {
+        if (session && session.user) {
+          currentUser = session.user;
+          onUserAuthenticated();
+        } else if (event === 'SIGNED_OUT' || event === 'INITIAL_SESSION') {
+          currentUser = null;
+          showAccessScreen();
+        }
+      });
+    });
+
+    // Atalhos de teclado: ← / → navegam entre questões, A–E marcam a alternativa
+    document.addEventListener('keydown', (e) => {
+      const locked = !document.getElementById('access-screen').classList.contains('hidden');
+      if (locked) return;
+      const typingInField = ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName);
+      if (typingInField) return;
+
+      if (e.key === 'ArrowRight') { nextQuestion(); }
+      else if (e.key === 'ArrowLeft') { prevQuestion(); }
+      else {
+        const letterIndex = 'abcdefgh'.indexOf(e.key.toLowerCase());
+        if (letterIndex > -1 && questionsData[currentIndex] && letterIndex < questionsData[currentIndex].options.length) {
+          selectOption(letterIndex);
+        }
+      }
+    });
+
+    function startElapsedTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(updateElapsedTimer, 1000);
+    }
+
+    function formatElapsed(ms) {
+      const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+      const h = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+      const m = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+      const sec = String(totalSeconds % 60).padStart(2, '0');
+      return `${h}:${m}:${sec}`;
+    }
+
+    function updateElapsedTimer() {
+      const el = document.getElementById('elapsed-timer');
+      if (!el) return;
+      const start = Number(localStorage.getItem(STORAGE_KEY_START));
+      el.querySelector('span').innerText = start ? formatElapsed(Date.now() - start) : '00:00:00';
+    }
+
+    async function loadSavedState() {
+      userAnswers = {};
+      discardedOptions = {};
+      let loadedFromCloud = false;
+
+      if (currentUser) {
+        try {
+          const { data, error } = await sb
+            .from('progresso')
+            .select('respostas, descartadas, modo')
+            .eq('user_id', currentUser.id)
+            .eq('quiz_id', QUIZ_ID)
+            .maybeSingle();
+          if (!error && data) {
+            userAnswers = data.respostas || {};
+            discardedOptions = data.descartadas || {};
+            if (data.modo) setMode(data.modo, false);
+            loadedFromCloud = true;
+          }
+        } catch (e) { /* segue para o cache local */ }
+      }
+
+      if (!loadedFromCloud) {
+        const savedAnswers = localStorage.getItem(STORAGE_KEY_ANSWERS);
+        if (savedAnswers) {
+          try { userAnswers = JSON.parse(savedAnswers); } catch(e) { userAnswers = {}; }
+        }
+        const savedMode = localStorage.getItem(STORAGE_KEY_MODE);
+        if (savedMode) setMode(savedMode, false);
+        const savedDiscarded = localStorage.getItem(STORAGE_KEY_DISCARDED);
+        if (savedDiscarded) {
+          try { discardedOptions = JSON.parse(savedDiscarded) || {}; } catch(e) { discardedOptions = {}; }
+        }
+      }
+    }
+
+    async function syncProgressToCloud() {
+      if (!currentUser) return;
+      await sb.from('progresso').upsert({
+        user_id: currentUser.id,
+        quiz_id: QUIZ_ID,
+        respostas: userAnswers,
+        descartadas: discardedOptions,
+        modo: mode,
+        atualizado_em: new Date().toISOString()
+      });
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY_ANSWERS, JSON.stringify(userAnswers));
+      localStorage.setItem(STORAGE_KEY_DISCARDED, JSON.stringify(discardedOptions));
+      if (currentUser) {
+        clearTimeout(saveDebounceTimer);
+        saveDebounceTimer = setTimeout(syncProgressToCloud, 600);
+      }
+    }
+
+    function isDiscarded(qIndex, optIndex) {
+      return !!(discardedOptions[qIndex] && discardedOptions[qIndex][optIndex]);
+    }
+
+    function toggleDiscard(optIndex) {
+      if (!discardedOptions[currentIndex]) discardedOptions[currentIndex] = {};
+      if (discardedOptions[currentIndex][optIndex]) {
+        delete discardedOptions[currentIndex][optIndex];
+      } else {
+        discardedOptions[currentIndex][optIndex] = true;
+        // If the user had selected this option, remove that answer so the discarded option cannot remain selected.
+        if (userAnswers[currentIndex] === optIndex) delete userAnswers[currentIndex];
+      }
+      if (Object.keys(discardedOptions[currentIndex]).length === 0) delete discardedOptions[currentIndex];
+      saveState();
+      renderQuestion();
+      renderGrid();
+    }
+
+    function setMode(newMode, render = true) {
+      mode = newMode;
+      localStorage.setItem(STORAGE_KEY_MODE, mode);
+      if (currentUser && render) {
+        clearTimeout(saveDebounceTimer);
+        saveDebounceTimer = setTimeout(syncProgressToCloud, 600);
+      }
+
+      const studyBtn = document.getElementById('btn-mode-study');
+      const examBtn = document.getElementById('btn-mode-exam');
+
+      if (mode === 'study') {
+        studyBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-white shadow';
+        examBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-white';
+      } else {
+        examBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-white shadow';
+        studyBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-white';
+      }
+
+      if (render) {
+        renderQuestion();
+        renderGrid();
+      }
+    }
+
+    function renderQuestion() {
+      const q = questionsData[currentIndex];
+      const selectedOption = userAnswers[currentIndex];
+
+      // Update question text and badge
+      document.getElementById('question-badge').innerText = `Questão #${q.id}`;
+      document.getElementById('question-subject-tag').innerText = q.subject;
+      document.getElementById('question-text').innerText = q.text;
+
+      // Status tag
+      const statusTag = document.getElementById('question-status-tag');
+      if (selectedOption !== undefined) {
+        statusTag.classList.remove('hidden');
+        if (mode === 'study') {
+          if (selectedOption === q.correct) {
+            statusTag.className = 'text-xs px-2.5 py-1 rounded font-medium bg-emerald-900/60 text-emerald-300 border border-emerald-700';
+            statusTag.innerText = 'Correta';
+          } else {
+            statusTag.className = 'text-xs px-2.5 py-1 rounded font-medium bg-rose-900/60 text-rose-300 border border-rose-700';
+            statusTag.innerText = 'Incorreta';
+          }
+        } else {
+          statusTag.className = 'text-xs px-2.5 py-1 rounded font-medium bg-slate-700 text-slate-300';
+          statusTag.innerText = 'Respondida';
+        }
+      } else {
+        statusTag.classList.add('hidden');
+      }
+
+      // Options
+      const container = document.getElementById('options-container');
+      container.innerHTML = '';
+
+      q.options.forEach((optText, optIdx) => {
+        const discarded = isDiscarded(currentIndex, optIdx);
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.onclick = () => { if (!isDiscarded(currentIndex, optIdx)) selectOption(optIdx); };
+
+        let baseClasses = 'w-full text-left p-4 pr-3 rounded-xl border text-sm md:text-base font-medium transition-all flex items-start gap-3 ';
+
+        if (discarded) {
+          baseClasses += 'bg-slate-800/30 border-slate-700/50 text-slate-500 opacity-50 line-through cursor-pointer';
+        } else if (selectedOption === undefined) {
+          // Unanswered
+          baseClasses += 'bg-navy-900/60 border-navy-700/80 text-slate-200 hover:bg-navy-700/50 hover:border-navy-500';
+        } else {
+          if (mode === 'study') {
+            // Study Mode: reveal correct & incorrect immediately
+            if (optIdx === q.correct) {
+              baseClasses += 'bg-emerald-950/70 border-emerald-600 text-emerald-200 shadow-sm';
+            } else if (optIdx === selectedOption && selectedOption !== q.correct) {
+              baseClasses += 'bg-rose-950/70 border-rose-600 text-rose-200 shadow-sm';
+            } else {
+              baseClasses += 'bg-navy-900/30 border-navy-800 text-slate-500 opacity-60';
+            }
+          } else {
+            // Exam Mode: show only user selection
+            if (optIdx === selectedOption) {
+              baseClasses += 'bg-navy-600/80 border-navy-400 text-white shadow-md';
+            } else {
+              baseClasses += 'bg-navy-900/60 border-navy-700/80 text-slate-300 hover:bg-navy-700/40';
+            }
+          }
+        }
+
+        btn.className = baseClasses;
+
+        // Custom indicator radio
+        let radioIcon = '';
+        if (selectedOption === undefined || discarded) {
+          radioIcon = `<span class="w-5 h-5 rounded-full border border-slate-500 flex items-center justify-center shrink-0 mt-0.5 ${discarded ? 'opacity-40' : ''}"></span>`;
+        } else if (mode === 'study') {
+          if (optIdx === q.correct) {
+            radioIcon = `<span class="w-5 h-5 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center shrink-0 mt-0.5 text-xs"><i class="fa-solid fa-check"></i></span>`;
+          } else if (optIdx === selectedOption && selectedOption !== q.correct) {
+            radioIcon = `<span class="w-5 h-5 rounded-full bg-rose-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs"><i class="fa-solid fa-xmark"></i></span>`;
+          } else {
+            radioIcon = `<span class="w-5 h-5 rounded-full border border-slate-700 flex items-center justify-center shrink-0 mt-0.5"></span>`;
+          }
+        } else { // Exam mode
+          if (optIdx === selectedOption) {
+            radioIcon = `<span class="w-5 h-5 rounded-full bg-white text-navy-900 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold"><i class="fa-solid fa-circle text-[8px]"></i></span>`;
+          } else {
+            radioIcon = `<span class="w-5 h-5 rounded-full border border-slate-500 flex items-center justify-center shrink-0 mt-0.5"></span>`;
+          }
+        }
+
+        const lockState = discarded ? 'fa-lock-open text-slate-300' : 'fa-lock text-slate-500';
+        btn.innerHTML = `${radioIcon}<span class="flex-1 ${discarded ? 'line-through' : ''}">${optText}</span><span role="button" tabindex="0" aria-label="${discarded ? 'Restaurar alternativa' : 'Descartar alternativa'}" title="${discarded ? 'Restaurar alternativa' : 'Cortar/descartar alternativa'}" class="ml-2 shrink-0 w-7 h-7 rounded-md flex items-center justify-center hover:bg-white/10 ${discarded ? 'bg-slate-700/50' : ''}" onclick="event.stopPropagation(); toggleDiscard(${optIdx})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();toggleDiscard(${optIdx})}"><i class="fa-solid ${lockState} text-xs"></i></span>`;
+        container.appendChild(btn);
+      });
+
+      // Explanation Box (Study Mode)
+      const expBox = document.getElementById('explanation-box');
+      if (mode === 'study' && selectedOption !== undefined) {
+        expBox.classList.remove('hidden');
+        const isRight = selectedOption === q.correct;
+        const expTitle = document.getElementById('explanation-title');
+        const expText = document.getElementById('explanation-text');
+
+        if (isRight) {
+          expTitle.className = 'flex items-center gap-2 text-sm font-bold text-emerald-400 mb-1';
+          expTitle.innerHTML = `<i class="fa-solid fa-circle-check"></i> Resposta Correta!`;
+          expText.innerText = `A alternativa gabarito é: ${q.options[q.correct]}`;
+        } else {
+          expTitle.className = 'flex items-center gap-2 text-sm font-bold text-rose-400 mb-1';
+          expTitle.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> Resposta Incorreta`;
+          expText.innerText = `Você selecionou a opção (${String.fromCharCode(65 + selectedOption)}), mas a correta é a alternativa: ${q.options[q.correct]}`;
+        }
+      } else {
+        expBox.classList.add('hidden');
+      }
+
+      // Nav buttons state
+      document.getElementById('btn-prev').disabled = currentIndex === 0;
+      document.getElementById('btn-next').disabled = currentIndex === questionsData.length - 1;
+
+      updateTrackers();
+
+      // Pequena transição ao trocar de questão
+      const card = document.getElementById('question-card');
+      card.classList.remove('question-in');
+      void card.offsetWidth;
+      card.classList.add('question-in');
+    }
+
+    function selectOption(optIndex) {
+      if (isDiscarded(currentIndex, optIndex)) return;
+      userAnswers[currentIndex] = optIndex;
+      saveState();
+      renderQuestion();
+      renderGrid();
+    }
+
+    function prevQuestion() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderQuestion();
+        renderGrid();
+      }
+    }
+
+    function nextQuestion() {
+      if (currentIndex < questionsData.length - 1) {
+        currentIndex++;
+        renderQuestion();
+        renderGrid();
+      }
+    }
+
+    function setFilter(filter) {
+      activeFilter = filter;
+      document.getElementById('filter-all').className = filter === 'all' ? 'py-1 rounded text-center bg-navy-700 text-white' : 'py-1 rounded text-center text-slate-400 hover:text-white';
+      document.getElementById('filter-unanswered').className = filter === 'unanswered' ? 'py-1 rounded text-center bg-navy-700 text-white' : 'py-1 rounded text-center text-slate-400 hover:text-white';
+      document.getElementById('filter-answered').className = filter === 'answered' ? 'py-1 rounded text-center bg-navy-700 text-white' : 'py-1 rounded text-center text-slate-400 hover:text-white';
+      renderGrid();
+    }
+
+    function setSubjectFilter(subject) {
+      subjectFilter = subject;
+      renderGrid();
+    }
+
+    function populateSubjectFilter() {
+      const select = document.getElementById('subject-filter');
+      if (!select) return;
+      const subjects = [...new Set(questionsData.map(q => q.subject))].sort();
+      subjects.forEach(subj => {
+        const opt = document.createElement('option');
+        opt.value = subj;
+        opt.textContent = subj;
+        select.appendChild(opt);
+      });
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('questions-grid');
+      grid.innerHTML = '';
+
+      questionsData.forEach((q, idx) => {
+        const isAnswered = userAnswers[idx] !== undefined;
+
+        // Apply filter
+        if (activeFilter === 'unanswered' && isAnswered) return;
+        if (activeFilter === 'answered' && !isAnswered) return;
+        if (subjectFilter !== 'all' && q.subject !== subjectFilter) return;
+
+        const btn = document.createElement('button');
+        btn.onclick = () => {
+          currentIndex = idx;
+          renderQuestion();
+          renderGrid();
+        };
+
+        let classes = 'h-9 w-full rounded text-xs font-mono font-bold flex items-center justify-center transition-all border ';
+
+        if (idx === currentIndex) {
+          classes += 'bg-navy-500 border-white text-white shadow-md ring-2 ring-navy-400/50 ';
+        } else if (isAnswered) {
+          if (mode === 'study') {
+            if (userAnswers[idx] === q.correct) {
+              classes += 'bg-emerald-900/80 border-emerald-600 text-emerald-200 ';
+            } else {
+              classes += 'bg-rose-900/80 border-rose-600 text-rose-200 ';
+            }
+          } else {
+            classes += 'bg-slate-700 border-slate-600 text-slate-200 ';
+          }
+        } else {
+          classes += 'bg-navy-900/80 border-navy-700 text-slate-400 hover:bg-navy-700/50 hover:text-white ';
+        }
+
+        btn.className = classes;
+        btn.innerText = idx + 1;
+        grid.appendChild(btn);
+      });
+    }
+
+    function updateTrackers() {
+      const total = questionsData.length;
+      const answeredCount = Object.keys(userAnswers).length;
+
+      document.getElementById('question-tracker').innerText = `Questão ${currentIndex + 1} de ${total}`;
+      document.getElementById('answered-tracker').innerText = `${answeredCount} de ${total} respondidas`;
+
+      const percentage = (answeredCount / total) * 100;
+      document.getElementById('progress-bar').style.width = `${percentage}%`;
+
+      // Score counter in drawer
+      let correctCount = 0;
+      Object.keys(userAnswers).forEach(idx => {
+        if (userAnswers[idx] === questionsData[idx].correct) {
+          correctCount++;
+        }
+      });
+      document.getElementById('score-counter').innerText = `${correctCount}/${total}`;
+    }
+
+    function resetQuiz() {
+      if (confirm('Tem certeza de que deseja reiniciar o simulado? Suas respostas salvas serão apagadas.')) {
+        userAnswers = {};
+        discardedOptions = {};
+        localStorage.removeItem(STORAGE_KEY_ANSWERS);
+        localStorage.removeItem(STORAGE_KEY_DISCARDED);
+        localStorage.setItem(STORAGE_KEY_START, String(Date.now()));
+        if (currentUser) {
+          sb.from('progresso').delete().eq('user_id', currentUser.id).eq('quiz_id', QUIZ_ID).then(() => {});
+        }
+        currentIndex = 0;
+        renderQuestion();
+        renderGrid();
+        updateElapsedTimer();
+      }
+    }
+
+    function finishQuiz() {
+      const total = questionsData.length;
+      let correct = 0;
+      let answered = 0;
+
+      questionsData.forEach((q, idx) => {
+        if (userAnswers[idx] !== undefined) {
+          answered++;
+          if (userAnswers[idx] === q.correct) {
+            correct++;
+          }
+        }
+      });
+
+      const wrong = answered - correct;
+      const percent = Math.round((correct / total) * 100);
+
+      document.getElementById('modal-correct').innerText = correct;
+      document.getElementById('modal-wrong').innerText = wrong;
+      document.getElementById('modal-percent').innerText = `${percent}%`;
+
+      const feedback = document.getElementById('modal-feedback');
+      if (percent >= 80) {
+        feedback.innerText = 'Excelente desempenho! Você demonstrou forte domínio de Justiça e Disciplina (Sindicância).';
+      } else if (percent >= 60) {
+        feedback.innerText = 'Bom resultado! Revise os tópicos incorretos para atingir uma nota ainda maior.';
+      } else {
+        feedback.innerText = 'Recomendamos uma revisão nos tópicos de Justiça e Disciplina (Sindicância) e tentar o simulado novamente.';
+      }
+
+      document.getElementById('results-modal').classList.remove('hidden');
+
+      if (currentUser) {
+        sb.from('resultados').insert({
+          user_id: currentUser.id,
+          quiz_id: QUIZ_ID,
+          acertos: correct,
+          erros: wrong,
+          percentual: percent,
+          respostas: userAnswers
+        }).then(() => {});
+      }
+    }
+
+    function closeModal() {
+      document.getElementById('results-modal').classList.add('hidden');
+    }
+  </script>
+
+  <!-- Estilo das alternativas descartadas -->
+  <style>
+    .option-discarded {
+      opacity: .48 !important;
+      filter: grayscale(.7);
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      text-decoration-color: rgba(148,163,184,.9);
+    }
+  </style>
+
+  <!-- Custom Scrollbar Styling -->
+  <style>
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #000F26;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #1E3E62;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #1E56A0;
+    }
+  </style>
+</body>
+</html>

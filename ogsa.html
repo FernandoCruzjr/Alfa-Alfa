@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OGSA · Simulado — Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Simulado interativo de OGSA para concursos, com modo estudo, modo prova, filtro por assunto e acompanhamento de desempenho.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Fraunces (títulos, caráter naval/editorial) + Inter (texto e interface) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: {
+              800: '#0B192C',
+              900: '#000F26',
+              700: '#1E3E62',
+              600: '#1E56A0',
+              500: '#0066CC',
+              100: '#E6F0FA'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes access-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shake {
+      10%, 90% { transform: translateX(-1px); }
+      20%, 80% { transform: translateX(2px); }
+      30%, 50%, 70% { transform: translateX(-4px); }
+      40%, 60% { transform: translateX(4px); }
+    }
+    .shake { animation: shake .5s; }
+    @keyframes question-in {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #question-card.question-in { animation: question-in .28s ease-out; }
+    @media (prefers-reduced-motion: reduce) {
+      #access-card, #question-card, .shake { animation: none !important; }
+    }
+    button:focus-visible, input:focus-visible, [role="button"]:focus-visible {
+      outline: 2px solid #2384d6;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso: apenas verifica se já há login feito na página inicial -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">⚓</div>
+      <div class="font-serif font-semibold text-[26px] text-white tracking-tight">OGSA</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial para acessar este simulado.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-white text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+
+      <div id="gate-no-access" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-lock text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Você ainda não tem acesso liberado a esta matéria. Fale com o administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+
+      <div class="text-[11px] text-[#7895b5] mt-6 pt-4 border-t border-[#1c3a5c] w-full">OGSA para Concursos</div>
+    </div>
+  </div>
+
+
+  <!-- Header -->
+  <header class="bg-navy-900 border-b border-navy-700 sticky top-0 z-30 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="bg-navy-600 text-white p-2.5 rounded-lg shadow">
+          <i class="fa-solid fa-anchor text-2xl"></i>
+        </div>
+        <div>
+          <h1 class="font-serif text-xl font-semibold text-white tracking-wide">OGSA</h1>
+          <p class="text-xs text-slate-400">Organização Geral do Serviço na Marinha</p>
+        </div>
+      </div>
+
+      <!-- Mode Switcher & Actions -->
+      <div class="flex items-center gap-3">
+        <div class="bg-navy-800 p-1 rounded-lg border border-navy-700 flex text-xs">
+          <button id="btn-mode-study" onclick="setMode('study')" class="px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-white shadow">
+            <i class="fa-solid fa-graduation-cap mr-1"></i> Modo Estudo
+          </button>
+          <button id="btn-mode-exam" onclick="setMode('exam')" class="px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-white">
+            <i class="fa-solid fa-clock mr-1"></i> Modo Prova
+          </button>
+        </div>
+
+        <div id="elapsed-timer" class="bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg flex items-center gap-1.5" title="Tempo decorrido">
+          <i class="fa-solid fa-stopwatch text-navy-500"></i><span>00:00:00</span>
+        </div>
+
+        <div id="user-bar" class="hidden bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2" title="Conectado">
+          <i class="fa-solid fa-user text-navy-500"></i>
+          <span id="user-email" class="max-w-[140px] truncate"></span>
+          <button onclick="handleLogout()" class="ml-1 text-rose-300 hover:text-rose-200 transition-colors" title="Sair da conta">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
+
+        <button onclick="resetQuiz()" class="bg-rose-900/40 hover:bg-rose-800 text-rose-200 border border-rose-700/50 text-xs px-3 py-2 rounded-lg transition-all flex items-center gap-1.5" title="Reiniciar Simulado">
+          <i class="fa-solid fa-rotate-right"></i> Reiniciar
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+    <!-- Left / Center: Question Panel -->
+    <section class="lg:col-span-3 flex flex-col gap-6">
+
+      <!-- Progress Bar & Stats -->
+      <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 shadow-sm flex flex-col gap-3">
+        <div class="flex justify-between items-center text-sm font-semibold">
+          <span id="question-tracker" class="text-navy-500 font-bold">Questão 1 de 44</span>
+          <span id="answered-tracker" class="text-slate-400 text-xs">0 de 44 respondidas</span>
+        </div>
+        <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+          <div id="progress-bar" class="bg-navy-500 h-full w-0 transition-all duration-300"></div>
+        </div>
+      </div>
+
+      <!-- Question Card -->
+      <div id="question-card" class="bg-navy-800/90 border border-navy-700 rounded-xl p-6 shadow-xl flex flex-col justify-between min-h-[420px] relative">
+        <div>
+          <!-- Question Header Badge -->
+          <div class="flex justify-between items-center mb-4 gap-2">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span id="question-badge" class="bg-navy-700/60 text-navy-100 text-xs px-3 py-1 rounded-full font-mono border border-navy-600">
+                Questão #599
+              </span>
+              <span id="question-subject-tag" class="bg-navy-900 text-slate-400 text-xs px-3 py-1 rounded-full border border-navy-700"></span>
+            </div>
+            <span id="question-status-tag" class="text-xs px-2.5 py-1 rounded font-medium hidden"></span>
+          </div>
+
+          <!-- Question Body -->
+          <div id="question-text" class="text-base md:text-lg font-medium text-slate-100 leading-relaxed whitespace-pre-line mb-6">
+            Carregando questão...
+          </div>
+
+          <!-- Options Container -->
+          <div id="options-container" class="space-y-3">
+            <!-- Options will be dynamically rendered -->
+          </div>
+        </div>
+
+        <!-- Explanation Block (Study Mode) -->
+        <div id="explanation-box" class="mt-6 p-4 rounded-lg bg-slate-900/90 border border-slate-700 hidden">
+          <div class="flex items-center gap-2 text-sm font-bold mb-1" id="explanation-title"></div>
+          <div class="text-xs md:text-sm text-slate-300" id="explanation-text"></div>
+        </div>
+
+        <!-- Question Navigation Buttons -->
+        <div class="mt-8 pt-4 border-t border-navy-700/60 flex justify-between items-center gap-3">
+          <button id="btn-prev" onclick="prevQuestion()" class="bg-navy-700 hover:bg-navy-600 text-white text-sm px-4 py-2.5 rounded-lg transition-all flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed">
+            <i class="fa-solid fa-arrow-left"></i> Anterior
+          </button>
+
+          <div class="flex gap-2">
+            <button id="btn-finish" onclick="finishQuiz()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-sm px-5 py-2.5 rounded-lg font-semibold transition-all flex items-center gap-2 shadow-lg shadow-emerald-900/30">
+              <i class="fa-solid fa-check-double"></i> Finalizar Simulado
+            </button>
+            <button id="btn-next" onclick="nextQuestion()" class="bg-navy-600 hover:bg-navy-500 text-white text-sm px-4 py-2.5 rounded-lg transition-all flex items-center gap-2">
+              Próxima <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right: Question Drawer / Grid Nav -->
+    <aside class="lg:col-span-1 bg-navy-800/80 border border-navy-700 rounded-xl p-4 flex flex-col gap-4 h-fit">
+      <div class="flex justify-between items-center border-b border-navy-700 pb-3">
+        <h2 class="text-sm font-bold text-slate-200 flex items-center gap-2">
+          <i class="fa-solid fa-list-ol text-navy-500"></i> Navegação (44)
+        </h2>
+        <span class="text-xs bg-slate-900 px-2 py-1 rounded text-slate-400 font-mono" id="score-counter">
+          0/44
+        </span>
+      </div>
+
+      <!-- Filters -->
+      <div class="grid grid-cols-3 gap-1 text-[11px] font-medium bg-navy-900 p-1 rounded-lg">
+        <button onclick="setFilter('all')" id="filter-all" class="py-1 rounded text-center bg-navy-700 text-white">Todas</button>
+        <button onclick="setFilter('unanswered')" id="filter-unanswered" class="py-1 rounded text-center text-slate-400 hover:text-white">Faltam</button>
+        <button onclick="setFilter('answered')" id="filter-answered" class="py-1 rounded text-center text-slate-400 hover:text-white">Feitas</button>
+      </div>
+
+      <!-- Filtro por assunto -->
+      <div>
+        <label for="subject-filter" class="text-[11px] font-medium text-slate-400 flex items-center gap-1.5 mb-1.5">
+          <i class="fa-solid fa-layer-group text-navy-500"></i> Assunto
+        </label>
+        <select id="subject-filter" onchange="setSubjectFilter(this.value)" class="w-full bg-navy-900 border border-navy-700 text-slate-200 text-xs rounded-lg px-2.5 py-2 outline-none focus:ring-2 focus:ring-navy-500">
+          <option value="all">Todos os assuntos</option>
+        </select>
+      </div>
+
+      <!-- Grid of Buttons -->
+      <div id="questions-grid" class="grid grid-cols-5 gap-1.5 max-h-[380px] overflow-y-auto p-1 custom-scrollbar">
+        <!-- Grid Items injected via JS -->
+      </div>
+
+      <!-- Legend -->
+      <div class="border-t border-navy-700 pt-3 text-[11px] space-y-1.5 text-slate-400">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-navy-600 border border-navy-500 inline-block"></span>
+          <span>Atual</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-slate-700 inline-block"></span>
+          <span>Respondida</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-emerald-700 inline-block"></span>
+          <span>Correta (Estudo)</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-rose-700 inline-block"></span>
+          <span>Incorreta (Estudo)</span>
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer class="max-w-7xl w-full mx-auto px-4 md:px-6 pb-6 pt-2 text-center text-[11px] text-slate-500">
+    Plataforma de Estudos · CA-AA/AFN — seu progresso neste simulado fica salvo automaticamente neste navegador.
+  </footer>
+
+  <!-- Modal Results -->
+  <div id="results-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-navy-800 border border-navy-700 rounded-2xl max-w-lg w-full p-6 text-center shadow-2xl relative animate-fade-in">
+      <div class="w-16 h-16 bg-navy-700 text-navy-500 rounded-full flex items-center justify-center mx-auto mb-4 border border-navy-600 text-2xl shadow-inner">
+        <i class="fa-solid fa-trophy"></i>
+      </div>
+      <h2 class="font-serif text-2xl font-semibold text-white mb-1">Resultado do Simulado</h2>
+      <p class="text-xs text-slate-400 mb-6">OGSA para Concursos</p>
+
+      <div class="grid grid-cols-3 gap-3 mb-6">
+        <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
+          <div class="text-xs text-slate-400">Acertos</div>
+          <div id="modal-correct" class="text-2xl font-bold text-emerald-400">0</div>
+        </div>
+        <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
+          <div class="text-xs text-slate-400">Erros</div>
+          <div id="modal-wrong" class="text-2xl font-bold text-rose-400">0</div>
+        </div>
+        <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
+          <div class="text-xs text-slate-400">Aproveitamento</div>
+          <div id="modal-percent" class="text-2xl font-bold text-sky-400">0%</div>
+        </div>
+      </div>
+
+      <p id="modal-feedback" class="text-sm text-slate-300 mb-6 px-2">
+        Continue praticando para consolidar seus conhecimentos!
+      </p>
+
+      <div class="flex gap-3 justify-center">
+        <button onclick="closeModal()" class="bg-navy-700 hover:bg-navy-600 text-white px-5 py-2.5 rounded-lg text-sm transition-all font-medium">
+          Revisar Respostas
+        </button>
+        <button onclick="resetQuiz(); closeModal();" class="bg-navy-600 hover:bg-navy-500 text-white px-5 py-2.5 rounded-lg text-sm transition-all font-semibold shadow-lg">
+          Tentar Novamente
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Code -->
+  <script>
+    // Quiz Questions Dataset
+const questionsData = [
+      {
+        id: 1,
+        text: "assinale a opção que apresenta o ato administrativo que complementa o regulamento ordenando seu detalhamento e permitindo que em âmbito interno sejam disciplinadas todas as atividades rotineiras da organização militar",
+        options: [
+          "A) regimento interno",
+          "B) regulamento",
+          "C) organização administrativa",
+          "D) organização de combate",
+          "E) ato de criação"
+        ],
+        correct: 0,
+        subject: "OGSA"
+      },
+      {
+        id: 2,
+        text: "Assinale a opção que apresenta o ato administrativo que complementa o ato de criação ordenando seu detalhamento e permitindo que em âmbito geral revela a missão organização estrutura e outros?",
+        options: [
+          "A) regulamento",
+          "B) organização administrativa",
+          "C) ato de criação",
+          "D) regimento interno",
+          "E) organização de combate"
+        ],
+        correct: 0,
+        subject: "OGSA"
+      },
+      {
+        id: 3,
+        text: "é o documento que especifica propósito a subordinação a sede o oposto do comandante e a Constituição de um núcleo de implantação quando necessário",
+        options: [
+          "A) ato de criação",
+          "B) organização administrativa",
+          "C) regulamento",
+          "D) organização de combate",
+          "E) regimento interno"
+        ],
+        correct: 0,
+        subject: "OGSA"
+      },
+      {
+        id: 4,
+        text: "a quem compete a aprovação dos regulamentos e regimentos internos das OMS",
+        options: [
+          "A) estado maior da armada",
+          "B) Presidente da República",
+          "C) comandante da Marinha ou autoridades que tenham recebido expressa delegação",
+          "D) imediato",
+          "E) ministro da defesa"
+        ],
+        correct: 2,
+        subject: "OGSA"
+      },
+      {
+        id: 5,
+        text: "a quem compete a aprovação do ato de criação",
+        options: [
+          "A) estado maior da armada",
+          "B) Comandante da Om",
+          "C) comandante da Marinha ou presidente da República",
+          "D) imediato",
+          "E) ministro da defesa"
+        ],
+        correct: 2,
+        subject: "OGSA"
+      },
+      {
+        id: 6,
+        text: "quanto à organização do estado maior de força indique a resposta INCORRETA",
+        options: [
+          "A) no caso de exoneração ou morte do comandante da força Os oficiais do estado maior continuarão em suas funções até a Assunção do novo comandante da força",
+          "B) ao assistente e ajudante de ordens poderão ser atribuídas em caráter cumulativo funções no estado maior conforme suas qualificações",
+          "C) Os oficiais do estado maior poderão intervir nas atividades inerentes ao navio em que estiverem embarcados inclusive naquelas relativas ao cerimonial",
+          "D) Os oficiais que deverão compor o estado maior de uma força serão propostos pelo respectivo Comandante e nomeados de acordo com as normas em vigor",
+          "E) o estado maior de uma força de disporá de Praças em quantidade e especialidade fixadas em tabela de lotação"
+        ],
+        correct: 2,
+        subject: "OGSA"
+      },
+      {
+        id: 7,
+        text: "O militar que presenciar qualquer irregularidade em que se envolva pessoal da Marinha ou verificar desvio de objetos pertencentes A Fazenda Nacional e atos comprometedores da segurança das organizações militares da Marinha deve conforme as circunstâncias reprimir de pronto esses atos ou dar parte deles com a maior brevidade a quem?",
+        options: [
+          "A) a seu Comandante ou autoridade competente",
+          "B) é o seu imediato",
+          "C) ao seu encarregado",
+          "D) ao oficial de serviço",
+          "E) ao seu superior hierárquico"
+        ],
+        correct: 0,
+        subject: "OGSA"
+      },
+      {
+        id: 8,
+        text: "A ordem de quem qualquer oficial ou praça sempre que for conveniente a ordem a disciplina ou a normalidade do serviço prender quem tiver antiguidade inferior a sua?",
+        options: [
+          "A) do seu Comandante",
+          "B) do oficial de serviço",
+          "C) a sua ordem ou a de autoridade competente",
+          "D) do comandante do distrito naval naval",
+          "E) do Seu imediato"
+        ],
+        correct: 2,
+        subject: "OGSA"
+      },
+      {
+        id: 9,
+        text: "Todo militar que tiver conhecimento de notícia ainda que vaga de algum fato que direta ou indiretamente possa comprometer as tarefas da sua ou de outras organizações militares Ou que tenha relação com os interesses nacionais têm rigorosa obrigação de ou participar de pronto VERBALMENTE  ou por ESCRITO com conveniente reserva a quem?",
+        options: [
+          "A) imediato",
+          "B) ao seu Comandante pelos canais competentes ou em caso de urgência diretamente",
+          "C) ao seu superior hierárquico",
+          "D) ao seu encarregado",
+          "E) ao oficial de serviço"
+        ],
+        correct: 1,
+        subject: "OGSA"
+      },
+      {
+        id: 10,
+        text: "A ordem de quem oficial ou praça pode prender qualquer militar de antiguidade superior a sua por crime em flagrante e inafiançável?",
+        options: [
+          "A) a ordem do imediato",
+          "B) a ordem do oficial de serviço",
+          "C) a sua ordem",
+          "D) a ordem de autoridade superior",
+          "E) a ordem do comandante do acusado"
+        ],
+        correct: 3,
+        subject: "OGSA"
+      },
+      {
+        id: 11,
+        text: "Em caso de prisão de militar superior quem efetuar a prisão dará logo parte circunstanciada por ESCRITO e por intermédio de quem?",
+        options: [
+          "A) do oficial de serviço a quem o preso estiver diretamente subordinado",
+          "B) do seu próprio imediato a autoridade a que o preso estiver diretamente subordinado",
+          "C) da autoridade a quem o preso estiver diretamente subordinado",
+          "D) do seu próprio Comandante a autoridade a que o preso estiver diretamente subordinado",
+          "E) do seu oficial de serviço a autoridade a que o preso estiver diretamente subordinado"
+        ],
+        correct: 3,
+        subject: "OGSA"
+      },
+      {
+        id: 12,
+        text: "De acordo com as disposições Gerais do ogsa indique a resposta INCORRETA",
+        options: [
+          "A) o uso de bigode é permitido aos oficiais subciais Sargentos e praças especiais",
+          "B) só o comandante ou subordinado por ele autorizado poderá fazer comunicação verbal ou escrita para fora de sua unidade sobre assuntos operativos ou administrativos",
+          "C) os militares presos só poderão ser postos em liberdade por determinação da autoridade a cuja ordem tiver sido efetuada a prisão ou de autoridade superior",
+          "D) todas as representações partes ou requerimentos que militares da Marinha dirigirem a autoridades superiores devem ser encaminhados por intermédio do seu respectivo Comandante o qual hoje transmitirá a quem de direito dando sua própria informação a respeito antes de decorrido prazo de 8  dias desde o seu recebimento",
+          "E) se pessoa estranha a marinha cometer crime a Bordo será presa e autuada em flagrante delito em seguida será apresentada a autoridade competente"
+        ],
+        correct: 0,
+        subject: "OGSA"
+      },
+      {
+        id: 13,
+        text: "Nas organizações militares comandadas por Almirante a delegação de competência para imposição de penas disciplinares deverá ser explicitada em qual documento",
+        options: [
+          "A) regimento interno ou organização administrativa",
+          "B) organização de combate",
+          "C) ato de criação",
+          "D) regulamento",
+          "E) ordem do dia"
+        ],
+        correct: 0,
+        subject: "OGSA"
+      },
+      {
+        id: 14,
+        text: "é dever específico de todo oficial da",
+        options: [
+          "A) manter-se atualizado quanto aos conhecimentos operativos técnicos e administrativos",
+          "B) priorizar interesses pessoais quando necessário",
+          "C) é dever específico de todo oficial da Marinha apenas cumprir ordens superiores sem questionamentos",
+          "D) executar apenas tarefas administrativas",
+          "E) delegar todas as fanhas ao subordinados"
+        ],
+        correct: 0,
+        subject: "OGSA"
+      },
+      {
+        id: 15,
+        text: "oficial deve ao entrar e sair de bordo",
+        options: [
+          "A) informar apenas ao imediato",
+          "B) não há obrigação formal",
+          "C) comunicar-se apenas com o comandante",
+          "D) registrarem em livro de ocorrência",
+          "E) apresentar-se ao oficial de serviço e ao imediato"
+        ],
+        correct: 4,
+        subject: "OGSA"
+      },
+      {
+        id: 16,
+        text: "quanto à conservação do material é dever do oficial",
+        options: [
+          "A) zelar pela boa conservação do material",
+          "B) cuidar apenas do material sob sua posse direta",
+          "C) delegar exclusivamente aos suborciais",
+          "D) fiscalizar somente equipamentos administrativos",
+          "E) não possui responsabilidade direta"
+        ],
+        correct: 0,
+        subject: "OGSA"
+      },
+      {
+        id: 17,
+        text: "no Exercício de comando é responsabilidade dos oficiais",
+        options: [
+          "A) delegar sempre a aplicação de penas",
+          "B) aplicar punições somente com autorização superior",
+          "C) apenas registrar ocorrência",
+          "D) encaminhar todos os casos a justiça militar",
+          "E) impor penas disciplinares"
+        ],
+        correct: 4,
+        subject: "OGSA"
+      },
+      {
+        id: 18,
+        text: "na ausência acidental do comandante da força quem o representa nos casos urgentes",
+        options: [
+          "A) imediato",
+          "B) oficial de serviço",
+          "C) Comandante de OM subordinada",
+          "D) Comandante",
+          "E) chefe do estado maior"
+        ],
+        correct: 4,
+        subject: "OGSA"
+      },
+      {
+        id: 19,
+        text: "onde o chefe do estado maior escreverá ou fará escrever sobre sua inspeção e responsabilidade o histórico dos movimentos e operações da força e de outras ocorrências importantes que interessem a força Este Diário receberá o visto do comandante da força e ficará sujeito às alterações que este entender introduzir",
+        options: [
+          "A) diário histórico da força",
+          "B) Diário de quarto",
+          "C) livro de histórico da força",
+          "D) livro da força",
+          "E) diário de bordo"
+        ],
+        correct: 0,
+        subject: "OGSA"
+      },
+      {
+        id: 20,
+        text: "Quem é responsável por registrar o que ocorrer durante a reunião do comandante da força e os comandantes das unidades subordinadas seu estado maior e outros oficiais não especificados para tratar de assuntos sigilosos",
+        options: [
+          "A) chefe do estado maior",
+          "B) Comandante de força",
+          "C) oficial mais moderno",
+          "D) ajudante de ordens",
+          "E) secretário"
+        ],
+        correct: 0,
+        subject: "OGSA"
+      },
+      {
+        id: 21,
+        text: "em seu impedimento quem substituirá o chefe do estado maior",
+        options: [
+          "A) secretário",
+          "B) o comandante de força",
+          "C) comandante mais antigo de om subordinada",
+          "D) oficial mais antigo pertencente ao estado maior",
+          "E) o ajudante de ordens"
+        ],
+        correct: 3,
+        subject: "OGSA"
+      },
+      {
+        id: 22,
+        text: "é atribuição de quem acompanhar o comandante da força em suas inspeções?",
+        options: [
+          "A) comandante da om",
+          "B) oficiais do estado maior",
+          "C) encarregado de divisão",
+          "D) chefe de departamento",
+          "E) chefe do estado maior"
+        ],
+        correct: 1,
+        subject: "OGSA"
+      },
+      {
+        id: 23,
+        text: "na ausência ou impedimento do chefe de gabinete quem irá substituí-lo",
+        options: [
+          "A) Comandante de força",
+          "B) chefe do estado maior",
+          "C) oficial mais antigo pertencente ao gabinete",
+          "D) assistente ou ajudante de ordens",
+          "E) oficial mais antigo"
+        ],
+        correct: 2,
+        subject: "OGSA"
+      },
+      {
+        id: 24,
+        text: "o assistente deverá ser preferencialmente do mesmo corpo ou quadro a que pertencer o Almirante ou Comandante de força no gabinete no qual for servir devendo ser de que posto?",
+        options: [
+          "A) primeiro Tenente",
+          "B) Capitão Tenente",
+          "C) Capitão de mar e guerra",
+          "D) Capitão de corveta",
+          "E) Capitão de Fragata"
+        ],
+        correct: 3,
+        subject: "OGSA"
+      },
+      {
+        id: 25,
+        text: "responder perante o chefe do estado maior e gabinete pela escrituração dos livros da om são atribuições de quem",
+        options: [
+          "A) chefe do estado maior",
+          "B) assistente",
+          "C) chefe de gabinete",
+          "D) Comandante de força",
+          "E) ajudante de ordens"
+        ],
+        correct: 1,
+        subject: "OGSA"
+      },
+      {
+        id: 26,
+        text: "representar o Almirante o comandante de força em solenidades e Outros Atos quando ordenado é atribuição de quem?",
+        options: [
+          "A) assistente e ajudante de ordens",
+          "B) oficiais do gabinete",
+          "C) oficiais do estado maior",
+          "D) Comandante de força",
+          "E) chefe do estado maior"
+        ],
+        correct: 0,
+        subject: "OGSA"
+      },
+      {
+        id: 27,
+        text: "administraram o rancho do Almirante ou Comandante de força é atribuição de quem",
+        options: [
+          "A) assistente",
+          "B) chefe do estado maior",
+          "C) chefe de gabinete",
+          "D) ajudantes de ordens",
+          "E) oficial mais antigo do estado maior"
+        ],
+        correct: 3,
+        subject: "OGSA"
+      },
+      {
+        id: 28,
+        text: "o ajudante de ordens deverá ser preferencialmente do mesmo corpo ou quadro a que pertencer o Almirante no gabinete do qual for servir e possuir os cursos inerentes à sua antiguidade e deverá ser de qual posto",
+        options: [
+          "A) segundo tenente",
+          "B) Capitão Tenente",
+          "C) Capitão de corveta",
+          "D) Capitão de mar e guerra",
+          "E) Capitão de Fragata"
+        ],
+        correct: 1,
+        subject: "OGSA"
+      },
+      {
+        id: 29,
+        text: "organizar agenda do Almirante ou Comandante de força é atribuição de quem",
+        options: [
+          "A) chefe do estado maior",
+          "B) ajudantes de ordem",
+          "C) assistente",
+          "D) chefe de gabinete",
+          "E) imediato"
+        ],
+        correct: 1,
+        subject: "OGSA"
+      },
+      {
+        id: 30,
+        text: "propor quando for o caso a atualização a alteração substituição ou a revogação dos documentos normativos pertinentes referentes as suas atribuições é função de quem",
+        options: [
+          "A) assistente",
+          "B) ajudante de ordens",
+          "C) demais oficiais do gabinete",
+          "D) de mais oficiais do estado maior",
+          "E) chefe de gabinete"
+        ],
+        correct: 2,
+        subject: "OGSA"
+      },
+      {
+        id: 31,
+        text: "é atribuição de quem assessorar o Almirante nas suas funções auxiliando a transmissão de ordens na execução de providências e nos entendimentos com as autoridades",
+        options: [
+          "A) chefe de gabinete",
+          "B) demais oficiais do estado maior",
+          "C) chefe do estado maior",
+          "D) ajudante de ordem",
+          "E) assistente"
+        ],
+        correct: 0,
+        subject: "OGSA"
+      },
+      {
+        id: 32,
+        text: "é atribuição de quem assistir o Almirante na sua representação funcional e social",
+        options: [
+          "A) demais oficiais do estado maior",
+          "B) ajudante de ordem",
+          "C) assistente",
+          "D) chefe de gabinete",
+          "E) chefe do estado maior"
+        ],
+        correct: 3,
+        subject: "OGSA"
+      },
+      {
+        id: 33,
+        text: "é atribuição de quem preparar ou fazer preparar bem como distribuir ordens do dia ordem de serviço portarias e demais documentos",
+        options: [
+          "A) chefe de gabinete",
+          "B) assistente",
+          "C) demais oficiais do estado maior",
+          "D) ajudante de ordem",
+          "E) chefe do estado maior"
+        ],
+        correct: 0,
+        subject: "OGSA"
+      },
+      {
+        id: 34,
+        text: "é atribuição de quem preparar e processar a correspondência funcional e pessoal do Almirante",
+        options: [
+          "A) assistente",
+          "B) demais oficiais do estado maior",
+          "C) ajudante de ordem",
+          "D) chefe de gabinete",
+          "E) chefe do estado maior"
+        ],
+        correct: 3,
+        subject: "OGSA"
+      },
+      {
+        id: 35,
+        text: "é atribuição de quem programar e dirigir o cerimonial e as solenidades oficiais",
+        options: [
+          "A) chefe de gabinete",
+          "B) assistente",
+          "C) demais oficiais do estado maior",
+          "D) ajudante de ordem",
+          "E) chefe do estado maior"
+        ],
+        correct: 0,
+        subject: "OGSA"
+      },
+      {
+        id: 36,
+        text: "é atribuição de quem organizar a documentação histórica da om",
+        options: [
+          "A) assistente",
+          "B) ajudante de ordem",
+          "C) chefe do estado maior",
+          "D) demais oficiais do estado maior",
+          "E) chefe de gabinete"
+        ],
+        correct: 4,
+        subject: "OGSA"
+      },
+      {
+        id: 37,
+        text: "é atribuição de quem fazer o detalhe de serviço das praças do estado maior e gabinete",
+        options: [
+          "A) demais oficiais do estado maior",
+          "B) chefe de gabinete",
+          "C) chefe do estado maior",
+          "D) assistente",
+          "E) ajudante de ordem"
+        ],
+        correct: 3,
+        subject: "OGSA"
+      },
+      {
+        id: 38,
+        text: "é atribuição de quem responder perante ao chefe do estado maior e gabinete pela escrituração dos livros da om",
+        options: [
+          "A) ajudante de ordem",
+          "B) assistente",
+          "C) chefe de gabinete",
+          "D) chefe do estado maior",
+          "E) demais oficiais do estado maior"
+        ],
+        correct: 1,
+        subject: "OGSA"
+      },
+      {
+        id: 39,
+        text: "é atribuição de quem coordenar e uniformizar os métodos as normas e as práticas relativas ao preparo a expedição ao recebimento a distribuição e ao arquivamento da correspondência de acordo com as instruções em vigor",
+        options: [
+          "A) assistente",
+          "B) chefe de gabinete",
+          "C) ajudante de ordem",
+          "D) chefe do estado maior",
+          "E) demais oficiais do estado maior"
+        ],
+        correct: 0,
+        subject: "OGSA"
+      },
+      {
+        id: 40,
+        text: "é atribuição de quem ter a seu cargo a secretaria do comando e gabinete",
+        options: [
+          "A) demais oficiais do estado maior",
+          "B) ajudante de ordem",
+          "C) chefe de gabinete",
+          "D) chefe do estado maior",
+          "E) assistente"
+        ],
+        correct: 4,
+        subject: "OGSA"
+      },
+      {
+        id: 41,
+        text: "é atribuição de quem administrar o rancho do Almirante ou Comandante de força",
+        options: [
+          "A) chefe de gabinete",
+          "B) ajudante de ordem",
+          "C) chefe do estado maior",
+          "D) demais oficiais do estado maior",
+          "E) assistente"
+        ],
+        correct: 1,
+        subject: "OGSA"
+      },
+      {
+        id: 42,
+        text: "é atribuição de quem assistir a recepção e a despedida de todos os comandantes de forças navios e outras pessoas em visita ao Almirante ou Comandante de força",
+        options: [
+          "A) ajudante de ordem",
+          "B) chefe do estado maior",
+          "C) demais oficiais do estado maior",
+          "D) chefe de gabinete",
+          "E) assistente"
+        ],
+        correct: 0,
+        subject: "OGSA"
+      },
+      {
+        id: 43,
+        text: "é atribuição de quem organizar a agenda do Almirante ou Comandante de força",
+        options: [
+          "A) chefe de gabinete",
+          "B) ajudante de ordem",
+          "C) demais oficiais do estado maior",
+          "D) chefe do estado maior",
+          "E) assistente"
+        ],
+        correct: 1,
+        subject: "OGSA"
+      },
+      {
+        id: 44,
+        text: "é atribuição de quem auxiliar Os oficiais do estado maior e do gabinete",
+        options: [
+          "A) demais oficiais do gabinete",
+          "B) chefe do estado maior",
+          "C) demais oficiais do estado maior",
+          "D) assistente e ajudante de ordem",
+          "E) chefe de gabinete"
+        ],
+        correct: 3,
+        subject: "OGSA"
+      }
+    ];
+
+    // App State
+    let currentIndex = 0;
+    let userAnswers = {}; // { questionIndex: selectedOptionIndex }
+    let mode = 'study'; // 'study' or 'exam'
+    let activeFilter = 'all'; // 'all', 'unanswered', 'answered'
+    let subjectFilter = 'all';
+    let discardedOptions = {}; // { questionIndex: { optionIndex: true } }
+    let timerInterval = null;
+
+    // Local Storage Keys (cache local / fallback offline)
+    const STORAGE_KEY_ANSWERS = 'ogsa_answers';
+    const STORAGE_KEY_MODE = 'ogsa_mode';
+    const STORAGE_KEY_DISCARDED = 'ogsa_discarded_options';
+    const STORAGE_KEY_START = 'ogsa_elapsed_start';
+
+    // --- Supabase: sessão vem da página inicial (index.html) ---
+    const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const QUIZ_ID = 'OGSA';
+    let currentUser = null;
+    let saveDebounceTimer = null;
+
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending', 'gate-no-access'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    async function handleLogout() {
+      if (timerInterval) clearInterval(timerInterval);
+      await sb.auth.signOut();
+    }
+
+    async function onUserAuthenticated() {
+      const { data: perfil } = await sb
+        .from('profiles')
+        .select('aprovado')
+        .eq('id', currentUser.id)
+        .maybeSingle();
+
+      const aprovado = perfil ? perfil.aprovado : false;
+
+      if (!aprovado) {
+        showGate('gate-pending');
+        return;
+      }
+
+      const { data: acesso } = await sb
+        .from('acessos')
+        .select('quiz_id')
+        .eq('user_id', currentUser.id)
+        .eq('quiz_id', QUIZ_ID)
+        .maybeSingle();
+
+      if (!acesso) {
+        showGate('gate-no-access');
+        return;
+      }
+
+      document.getElementById('access-screen').classList.add('hidden');
+      const bar = document.getElementById('user-bar');
+      bar.classList.remove('hidden');
+      bar.classList.add('flex');
+      document.getElementById('user-email').textContent = currentUser.email;
+
+      await loadSavedState();
+      currentIndex = 0;
+      renderQuestion();
+      renderGrid();
+      updateTrackers();
+
+      if (!localStorage.getItem(STORAGE_KEY_START)) {
+        localStorage.setItem(STORAGE_KEY_START, String(Date.now()));
+      }
+      startElapsedTimer();
+      updateElapsedTimer();
+    }
+
+    function showAccessScreen() {
+      document.getElementById('user-bar').classList.add('hidden');
+      document.getElementById('user-bar').classList.remove('flex');
+      if (timerInterval) clearInterval(timerInterval);
+      showGate('gate-logged-out');
+    }
+
+    // Init App
+    window.addEventListener('DOMContentLoaded', () => {
+      populateSubjectFilter();
+      sb.auth.onAuthStateChange((event, session) => {
+        if (session && session.user) {
+          currentUser = session.user;
+          onUserAuthenticated();
+        } else if (event === 'SIGNED_OUT' || event === 'INITIAL_SESSION') {
+          currentUser = null;
+          showAccessScreen();
+        }
+      });
+    });
+
+    // Atalhos de teclado: ← / → navegam entre questões, A–E marcam a alternativa
+    document.addEventListener('keydown', (e) => {
+      const locked = !document.getElementById('access-screen').classList.contains('hidden');
+      if (locked) return;
+      const typingInField = ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName);
+      if (typingInField) return;
+
+      if (e.key === 'ArrowRight') { nextQuestion(); }
+      else if (e.key === 'ArrowLeft') { prevQuestion(); }
+      else {
+        const letterIndex = 'abcdefgh'.indexOf(e.key.toLowerCase());
+        if (letterIndex > -1 && questionsData[currentIndex] && letterIndex < questionsData[currentIndex].options.length) {
+          selectOption(letterIndex);
+        }
+      }
+    });
+
+    function startElapsedTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(updateElapsedTimer, 1000);
+    }
+
+    function formatElapsed(ms) {
+      const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+      const h = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+      const m = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+      const sec = String(totalSeconds % 60).padStart(2, '0');
+      return `${h}:${m}:${sec}`;
+    }
+
+    function updateElapsedTimer() {
+      const el = document.getElementById('elapsed-timer');
+      if (!el) return;
+      const start = Number(localStorage.getItem(STORAGE_KEY_START));
+      el.querySelector('span').innerText = start ? formatElapsed(Date.now() - start) : '00:00:00';
+    }
+
+    async function loadSavedState() {
+      userAnswers = {};
+      discardedOptions = {};
+      let loadedFromCloud = false;
+
+      if (currentUser) {
+        try {
+          const { data, error } = await sb
+            .from('progresso')
+            .select('respostas, descartadas, modo')
+            .eq('user_id', currentUser.id)
+            .eq('quiz_id', QUIZ_ID)
+            .maybeSingle();
+          if (!error && data) {
+            userAnswers = data.respostas || {};
+            discardedOptions = data.descartadas || {};
+            if (data.modo) setMode(data.modo, false);
+            loadedFromCloud = true;
+          }
+        } catch (e) { /* segue para o cache local */ }
+      }
+
+      if (!loadedFromCloud) {
+        const savedAnswers = localStorage.getItem(STORAGE_KEY_ANSWERS);
+        if (savedAnswers) {
+          try { userAnswers = JSON.parse(savedAnswers); } catch(e) { userAnswers = {}; }
+        }
+        const savedMode = localStorage.getItem(STORAGE_KEY_MODE);
+        if (savedMode) setMode(savedMode, false);
+        const savedDiscarded = localStorage.getItem(STORAGE_KEY_DISCARDED);
+        if (savedDiscarded) {
+          try { discardedOptions = JSON.parse(savedDiscarded) || {}; } catch(e) { discardedOptions = {}; }
+        }
+      }
+    }
+
+    async function syncProgressToCloud() {
+      if (!currentUser) return;
+      await sb.from('progresso').upsert({
+        user_id: currentUser.id,
+        quiz_id: QUIZ_ID,
+        respostas: userAnswers,
+        descartadas: discardedOptions,
+        modo: mode,
+        atualizado_em: new Date().toISOString()
+      });
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY_ANSWERS, JSON.stringify(userAnswers));
+      localStorage.setItem(STORAGE_KEY_DISCARDED, JSON.stringify(discardedOptions));
+      if (currentUser) {
+        clearTimeout(saveDebounceTimer);
+        saveDebounceTimer = setTimeout(syncProgressToCloud, 600);
+      }
+    }
+
+    function isDiscarded(qIndex, optIndex) {
+      return !!(discardedOptions[qIndex] && discardedOptions[qIndex][optIndex]);
+    }
+
+    function toggleDiscard(optIndex) {
+      if (!discardedOptions[currentIndex]) discardedOptions[currentIndex] = {};
+      if (discardedOptions[currentIndex][optIndex]) {
+        delete discardedOptions[currentIndex][optIndex];
+      } else {
+        discardedOptions[currentIndex][optIndex] = true;
+        // If the user had selected this option, remove that answer so the discarded option cannot remain selected.
+        if (userAnswers[currentIndex] === optIndex) delete userAnswers[currentIndex];
+      }
+      if (Object.keys(discardedOptions[currentIndex]).length === 0) delete discardedOptions[currentIndex];
+      saveState();
+      renderQuestion();
+      renderGrid();
+    }
+
+    function setMode(newMode, render = true) {
+      mode = newMode;
+      localStorage.setItem(STORAGE_KEY_MODE, mode);
+      if (currentUser && render) {
+        clearTimeout(saveDebounceTimer);
+        saveDebounceTimer = setTimeout(syncProgressToCloud, 600);
+      }
+
+      const studyBtn = document.getElementById('btn-mode-study');
+      const examBtn = document.getElementById('btn-mode-exam');
+
+      if (mode === 'study') {
+        studyBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-white shadow';
+        examBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-white';
+      } else {
+        examBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-white shadow';
+        studyBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-white';
+      }
+
+      if (render) {
+        renderQuestion();
+        renderGrid();
+      }
+    }
+
+    function renderQuestion() {
+      const q = questionsData[currentIndex];
+      const selectedOption = userAnswers[currentIndex];
+
+      // Update question text and badge
+      document.getElementById('question-badge').innerText = `Questão #${q.id}`;
+      document.getElementById('question-subject-tag').innerText = q.subject;
+      document.getElementById('question-text').innerText = q.text;
+
+      // Status tag
+      const statusTag = document.getElementById('question-status-tag');
+      if (selectedOption !== undefined) {
+        statusTag.classList.remove('hidden');
+        if (mode === 'study') {
+          if (selectedOption === q.correct) {
+            statusTag.className = 'text-xs px-2.5 py-1 rounded font-medium bg-emerald-900/60 text-emerald-300 border border-emerald-700';
+            statusTag.innerText = 'Correta';
+          } else {
+            statusTag.className = 'text-xs px-2.5 py-1 rounded font-medium bg-rose-900/60 text-rose-300 border border-rose-700';
+            statusTag.innerText = 'Incorreta';
+          }
+        } else {
+          statusTag.className = 'text-xs px-2.5 py-1 rounded font-medium bg-slate-700 text-slate-300';
+          statusTag.innerText = 'Respondida';
+        }
+      } else {
+        statusTag.classList.add('hidden');
+      }
+
+      // Options
+      const container = document.getElementById('options-container');
+      container.innerHTML = '';
+
+      q.options.forEach((optText, optIdx) => {
+        const discarded = isDiscarded(currentIndex, optIdx);
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.onclick = () => { if (!isDiscarded(currentIndex, optIdx)) selectOption(optIdx); };
+
+        let baseClasses = 'w-full text-left p-4 pr-3 rounded-xl border text-sm md:text-base font-medium transition-all flex items-start gap-3 ';
+
+        if (discarded) {
+          baseClasses += 'bg-slate-800/30 border-slate-700/50 text-slate-500 opacity-50 line-through cursor-pointer';
+        } else if (selectedOption === undefined) {
+          // Unanswered
+          baseClasses += 'bg-navy-900/60 border-navy-700/80 text-slate-200 hover:bg-navy-700/50 hover:border-navy-500';
+        } else {
+          if (mode === 'study') {
+            // Study Mode: reveal correct & incorrect immediately
+            if (optIdx === q.correct) {
+              baseClasses += 'bg-emerald-950/70 border-emerald-600 text-emerald-200 shadow-sm';
+            } else if (optIdx === selectedOption && selectedOption !== q.correct) {
+              baseClasses += 'bg-rose-950/70 border-rose-600 text-rose-200 shadow-sm';
+            } else {
+              baseClasses += 'bg-navy-900/30 border-navy-800 text-slate-500 opacity-60';
+            }
+          } else {
+            // Exam Mode: show only user selection
+            if (optIdx === selectedOption) {
+              baseClasses += 'bg-navy-600/80 border-navy-400 text-white shadow-md';
+            } else {
+              baseClasses += 'bg-navy-900/60 border-navy-700/80 text-slate-300 hover:bg-navy-700/40';
+            }
+          }
+        }
+
+        btn.className = baseClasses;
+
+        // Custom indicator radio
+        let radioIcon = '';
+        if (selectedOption === undefined || discarded) {
+          radioIcon = `<span class="w-5 h-5 rounded-full border border-slate-500 flex items-center justify-center shrink-0 mt-0.5 ${discarded ? 'opacity-40' : ''}"></span>`;
+        } else if (mode === 'study') {
+          if (optIdx === q.correct) {
+            radioIcon = `<span class="w-5 h-5 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center shrink-0 mt-0.5 text-xs"><i class="fa-solid fa-check"></i></span>`;
+          } else if (optIdx === selectedOption && selectedOption !== q.correct) {
+            radioIcon = `<span class="w-5 h-5 rounded-full bg-rose-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs"><i class="fa-solid fa-xmark"></i></span>`;
+          } else {
+            radioIcon = `<span class="w-5 h-5 rounded-full border border-slate-700 flex items-center justify-center shrink-0 mt-0.5"></span>`;
+          }
+        } else { // Exam mode
+          if (optIdx === selectedOption) {
+            radioIcon = `<span class="w-5 h-5 rounded-full bg-white text-navy-900 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold"><i class="fa-solid fa-circle text-[8px]"></i></span>`;
+          } else {
+            radioIcon = `<span class="w-5 h-5 rounded-full border border-slate-500 flex items-center justify-center shrink-0 mt-0.5"></span>`;
+          }
+        }
+
+        const lockState = discarded ? 'fa-lock-open text-slate-300' : 'fa-lock text-slate-500';
+        btn.innerHTML = `${radioIcon}<span class="flex-1 ${discarded ? 'line-through' : ''}">${optText}</span><span role="button" tabindex="0" aria-label="${discarded ? 'Restaurar alternativa' : 'Descartar alternativa'}" title="${discarded ? 'Restaurar alternativa' : 'Cortar/descartar alternativa'}" class="ml-2 shrink-0 w-7 h-7 rounded-md flex items-center justify-center hover:bg-white/10 ${discarded ? 'bg-slate-700/50' : ''}" onclick="event.stopPropagation(); toggleDiscard(${optIdx})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();toggleDiscard(${optIdx})}"><i class="fa-solid ${lockState} text-xs"></i></span>`;
+        container.appendChild(btn);
+      });
+
+      // Explanation Box (Study Mode)
+      const expBox = document.getElementById('explanation-box');
+      if (mode === 'study' && selectedOption !== undefined) {
+        expBox.classList.remove('hidden');
+        const isRight = selectedOption === q.correct;
+        const expTitle = document.getElementById('explanation-title');
+        const expText = document.getElementById('explanation-text');
+
+        if (isRight) {
+          expTitle.className = 'flex items-center gap-2 text-sm font-bold text-emerald-400 mb-1';
+          expTitle.innerHTML = `<i class="fa-solid fa-circle-check"></i> Resposta Correta!`;
+          expText.innerText = `A alternativa gabarito é: ${q.options[q.correct]}`;
+        } else {
+          expTitle.className = 'flex items-center gap-2 text-sm font-bold text-rose-400 mb-1';
+          expTitle.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> Resposta Incorreta`;
+          expText.innerText = `Você selecionou a opção (${String.fromCharCode(65 + selectedOption)}), mas a correta é a alternativa: ${q.options[q.correct]}`;
+        }
+      } else {
+        expBox.classList.add('hidden');
+      }
+
+      // Nav buttons state
+      document.getElementById('btn-prev').disabled = currentIndex === 0;
+      document.getElementById('btn-next').disabled = currentIndex === questionsData.length - 1;
+
+      updateTrackers();
+
+      // Pequena transição ao trocar de questão
+      const card = document.getElementById('question-card');
+      card.classList.remove('question-in');
+      void card.offsetWidth;
+      card.classList.add('question-in');
+    }
+
+    function selectOption(optIndex) {
+      if (isDiscarded(currentIndex, optIndex)) return;
+      userAnswers[currentIndex] = optIndex;
+      saveState();
+      renderQuestion();
+      renderGrid();
+    }
+
+    function prevQuestion() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderQuestion();
+        renderGrid();
+      }
+    }
+
+    function nextQuestion() {
+      if (currentIndex < questionsData.length - 1) {
+        currentIndex++;
+        renderQuestion();
+        renderGrid();
+      }
+    }
+
+    function setFilter(filter) {
+      activeFilter = filter;
+      document.getElementById('filter-all').className = filter === 'all' ? 'py-1 rounded text-center bg-navy-700 text-white' : 'py-1 rounded text-center text-slate-400 hover:text-white';
+      document.getElementById('filter-unanswered').className = filter === 'unanswered' ? 'py-1 rounded text-center bg-navy-700 text-white' : 'py-1 rounded text-center text-slate-400 hover:text-white';
+      document.getElementById('filter-answered').className = filter === 'answered' ? 'py-1 rounded text-center bg-navy-700 text-white' : 'py-1 rounded text-center text-slate-400 hover:text-white';
+      renderGrid();
+    }
+
+    function setSubjectFilter(subject) {
+      subjectFilter = subject;
+      renderGrid();
+    }
+
+    function populateSubjectFilter() {
+      const select = document.getElementById('subject-filter');
+      if (!select) return;
+      const subjects = [...new Set(questionsData.map(q => q.subject))].sort();
+      subjects.forEach(subj => {
+        const opt = document.createElement('option');
+        opt.value = subj;
+        opt.textContent = subj;
+        select.appendChild(opt);
+      });
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('questions-grid');
+      grid.innerHTML = '';
+
+      questionsData.forEach((q, idx) => {
+        const isAnswered = userAnswers[idx] !== undefined;
+
+        // Apply filter
+        if (activeFilter === 'unanswered' && isAnswered) return;
+        if (activeFilter === 'answered' && !isAnswered) return;
+        if (subjectFilter !== 'all' && q.subject !== subjectFilter) return;
+
+        const btn = document.createElement('button');
+        btn.onclick = () => {
+          currentIndex = idx;
+          renderQuestion();
+          renderGrid();
+        };
+
+        let classes = 'h-9 w-full rounded text-xs font-mono font-bold flex items-center justify-center transition-all border ';
+
+        if (idx === currentIndex) {
+          classes += 'bg-navy-500 border-white text-white shadow-md ring-2 ring-navy-400/50 ';
+        } else if (isAnswered) {
+          if (mode === 'study') {
+            if (userAnswers[idx] === q.correct) {
+              classes += 'bg-emerald-900/80 border-emerald-600 text-emerald-200 ';
+            } else {
+              classes += 'bg-rose-900/80 border-rose-600 text-rose-200 ';
+            }
+          } else {
+            classes += 'bg-slate-700 border-slate-600 text-slate-200 ';
+          }
+        } else {
+          classes += 'bg-navy-900/80 border-navy-700 text-slate-400 hover:bg-navy-700/50 hover:text-white ';
+        }
+
+        btn.className = classes;
+        btn.innerText = idx + 1;
+        grid.appendChild(btn);
+      });
+    }
+
+    function updateTrackers() {
+      const total = questionsData.length;
+      const answeredCount = Object.keys(userAnswers).length;
+
+      document.getElementById('question-tracker').innerText = `Questão ${currentIndex + 1} de ${total}`;
+      document.getElementById('answered-tracker').innerText = `${answeredCount} de ${total} respondidas`;
+
+      const percentage = (answeredCount / total) * 100;
+      document.getElementById('progress-bar').style.width = `${percentage}%`;
+
+      // Score counter in drawer
+      let correctCount = 0;
+      Object.keys(userAnswers).forEach(idx => {
+        if (userAnswers[idx] === questionsData[idx].correct) {
+          correctCount++;
+        }
+      });
+      document.getElementById('score-counter').innerText = `${correctCount}/${total}`;
+    }
+
+    function resetQuiz() {
+      if (confirm('Tem certeza de que deseja reiniciar o simulado? Suas respostas salvas serão apagadas.')) {
+        userAnswers = {};
+        discardedOptions = {};
+        localStorage.removeItem(STORAGE_KEY_ANSWERS);
+        localStorage.removeItem(STORAGE_KEY_DISCARDED);
+        localStorage.setItem(STORAGE_KEY_START, String(Date.now()));
+        if (currentUser) {
+          sb.from('progresso').delete().eq('user_id', currentUser.id).eq('quiz_id', QUIZ_ID).then(() => {});
+        }
+        currentIndex = 0;
+        renderQuestion();
+        renderGrid();
+        updateElapsedTimer();
+      }
+    }
+
+    function finishQuiz() {
+      const total = questionsData.length;
+      let correct = 0;
+      let answered = 0;
+
+      questionsData.forEach((q, idx) => {
+        if (userAnswers[idx] !== undefined) {
+          answered++;
+          if (userAnswers[idx] === q.correct) {
+            correct++;
+          }
+        }
+      });
+
+      const wrong = answered - correct;
+      const percent = Math.round((correct / total) * 100);
+
+      document.getElementById('modal-correct').innerText = correct;
+      document.getElementById('modal-wrong').innerText = wrong;
+      document.getElementById('modal-percent').innerText = `${percent}%`;
+
+      const feedback = document.getElementById('modal-feedback');
+      if (percent >= 80) {
+        feedback.innerText = 'Excelente desempenho! Você demonstrou forte domínio de OGSA.';
+      } else if (percent >= 60) {
+        feedback.innerText = 'Bom resultado! Revise os tópicos incorretos para atingir uma nota ainda maior.';
+      } else {
+        feedback.innerText = 'Recomendamos uma revisão nos tópicos de OGSA e tentar o simulado novamente.';
+      }
+
+      document.getElementById('results-modal').classList.remove('hidden');
+
+      if (currentUser) {
+        sb.from('resultados').insert({
+          user_id: currentUser.id,
+          quiz_id: QUIZ_ID,
+          acertos: correct,
+          erros: wrong,
+          percentual: percent,
+          respostas: userAnswers
+        }).then(() => {});
+      }
+    }
+
+    function closeModal() {
+      document.getElementById('results-modal').classList.add('hidden');
+    }
+  </script>
+
+  <!-- Estilo das alternativas descartadas -->
+  <style>
+    .option-discarded {
+      opacity: .48 !important;
+      filter: grayscale(.7);
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      text-decoration-color: rgba(148,163,184,.9);
+    }
+  </style>
+
+  <!-- Custom Scrollbar Styling -->
+  <style>
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #000F26;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #1E3E62;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #1E56A0;
+    }
+  </style>
+</body>
+</html>

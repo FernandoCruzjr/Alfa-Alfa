@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rosas das Virtudes · Simulado — Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Simulado interativo de Rosas das Virtudes para concursos, com modo estudo, modo prova, filtro por assunto e acompanhamento de desempenho.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Fraunces (títulos, caráter naval/editorial) + Inter (texto e interface) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: {
+              800: '#0B192C',
+              900: '#000F26',
+              700: '#1E3E62',
+              600: '#1E56A0',
+              500: '#0066CC',
+              100: '#E6F0FA'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes access-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shake {
+      10%, 90% { transform: translateX(-1px); }
+      20%, 80% { transform: translateX(2px); }
+      30%, 50%, 70% { transform: translateX(-4px); }
+      40%, 60% { transform: translateX(4px); }
+    }
+    .shake { animation: shake .5s; }
+    @keyframes question-in {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #question-card.question-in { animation: question-in .28s ease-out; }
+    @media (prefers-reduced-motion: reduce) {
+      #access-card, #question-card, .shake { animation: none !important; }
+    }
+    button:focus-visible, input:focus-visible, [role="button"]:focus-visible {
+      outline: 2px solid #2384d6;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso: apenas verifica se já há login feito na página inicial -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">⚓</div>
+      <div class="font-serif font-semibold text-[26px] text-white tracking-tight">Rosas das Virtudes</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial para acessar este simulado.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-white text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+
+      <div id="gate-no-access" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-lock text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Você ainda não tem acesso liberado a esta matéria. Fale com o administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+
+      <div class="text-[11px] text-[#7895b5] mt-6 pt-4 border-t border-[#1c3a5c] w-full">Rosas das Virtudes para Concursos</div>
+    </div>
+  </div>
+
+
+  <!-- Header -->
+  <header class="bg-navy-900 border-b border-navy-700 sticky top-0 z-30 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="bg-navy-600 text-white p-2.5 rounded-lg shadow">
+          <i class="fa-solid fa-anchor text-2xl"></i>
+        </div>
+        <div>
+          <h1 class="font-serif text-xl font-semibold text-white tracking-wide">Rosas das Virtudes</h1>
+          <p class="text-xs text-slate-400">Valores e virtudes militares</p>
+        </div>
+      </div>
+
+      <!-- Mode Switcher & Actions -->
+      <div class="flex items-center gap-3">
+        <div class="bg-navy-800 p-1 rounded-lg border border-navy-700 flex text-xs">
+          <button id="btn-mode-study" onclick="setMode('study')" class="px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-white shadow">
+            <i class="fa-solid fa-graduation-cap mr-1"></i> Modo Estudo
+          </button>
+          <button id="btn-mode-exam" onclick="setMode('exam')" class="px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-white">
+            <i class="fa-solid fa-clock mr-1"></i> Modo Prova
+          </button>
+        </div>
+
+        <div id="elapsed-timer" class="bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg flex items-center gap-1.5" title="Tempo decorrido">
+          <i class="fa-solid fa-stopwatch text-navy-500"></i><span>00:00:00</span>
+        </div>
+
+        <div id="user-bar" class="hidden bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2" title="Conectado">
+          <i class="fa-solid fa-user text-navy-500"></i>
+          <span id="user-email" class="max-w-[140px] truncate"></span>
+          <button onclick="handleLogout()" class="ml-1 text-rose-300 hover:text-rose-200 transition-colors" title="Sair da conta">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
+
+        <button onclick="resetQuiz()" class="bg-rose-900/40 hover:bg-rose-800 text-rose-200 border border-rose-700/50 text-xs px-3 py-2 rounded-lg transition-all flex items-center gap-1.5" title="Reiniciar Simulado">
+          <i class="fa-solid fa-rotate-right"></i> Reiniciar
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+    <!-- Left / Center: Question Panel -->
+    <section class="lg:col-span-3 flex flex-col gap-6">
+
+      <!-- Progress Bar & Stats -->
+      <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 shadow-sm flex flex-col gap-3">
+        <div class="flex justify-between items-center text-sm font-semibold">
+          <span id="question-tracker" class="text-navy-500 font-bold">Questão 1 de 30</span>
+          <span id="answered-tracker" class="text-slate-400 text-xs">0 de 30 respondidas</span>
+        </div>
+        <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+          <div id="progress-bar" class="bg-navy-500 h-full w-0 transition-all duration-300"></div>
+        </div>
+      </div>
+
+      <!-- Question Card -->
+      <div id="question-card" class="bg-navy-800/90 border border-navy-700 rounded-xl p-6 shadow-xl flex flex-col justify-between min-h-[420px] relative">
+        <div>
+          <!-- Question Header Badge -->
+          <div class="flex justify-between items-center mb-4 gap-2">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span id="question-badge" class="bg-navy-700/60 text-navy-100 text-xs px-3 py-1 rounded-full font-mono border border-navy-600">
+                Questão #599
+              </span>
+              <span id="question-subject-tag" class="bg-navy-900 text-slate-400 text-xs px-3 py-1 rounded-full border border-navy-700"></span>
+            </div>
+            <span id="question-status-tag" class="text-xs px-2.5 py-1 rounded font-medium hidden"></span>
+          </div>
+
+          <!-- Question Body -->
+          <div id="question-text" class="text-base md:text-lg font-medium text-slate-100 leading-relaxed whitespace-pre-line mb-6">
+            Carregando questão...
+          </div>
+
+          <!-- Options Container -->
+          <div id="options-container" class="space-y-3">
+            <!-- Options will be dynamically rendered -->
+          </div>
+        </div>
+
+        <!-- Explanation Block (Study Mode) -->
+        <div id="explanation-box" class="mt-6 p-4 rounded-lg bg-slate-900/90 border border-slate-700 hidden">
+          <div class="flex items-center gap-2 text-sm font-bold mb-1" id="explanation-title"></div>
+          <div class="text-xs md:text-sm text-slate-300" id="explanation-text"></div>
+        </div>
+
+        <!-- Question Navigation Buttons -->
+        <div class="mt-8 pt-4 border-t border-navy-700/60 flex justify-between items-center gap-3">
+          <button id="btn-prev" onclick="prevQuestion()" class="bg-navy-700 hover:bg-navy-600 text-white text-sm px-4 py-2.5 rounded-lg transition-all flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed">
+            <i class="fa-solid fa-arrow-left"></i> Anterior
+          </button>
+
+          <div class="flex gap-2">
+            <button id="btn-finish" onclick="finishQuiz()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-sm px-5 py-2.5 rounded-lg font-semibold transition-all flex items-center gap-2 shadow-lg shadow-emerald-900/30">
+              <i class="fa-solid fa-check-double"></i> Finalizar Simulado
+            </button>
+            <button id="btn-next" onclick="nextQuestion()" class="bg-navy-600 hover:bg-navy-500 text-white text-sm px-4 py-2.5 rounded-lg transition-all flex items-center gap-2">
+              Próxima <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right: Question Drawer / Grid Nav -->
+    <aside class="lg:col-span-1 bg-navy-800/80 border border-navy-700 rounded-xl p-4 flex flex-col gap-4 h-fit">
+      <div class="flex justify-between items-center border-b border-navy-700 pb-3">
+        <h2 class="text-sm font-bold text-slate-200 flex items-center gap-2">
+          <i class="fa-solid fa-list-ol text-navy-500"></i> Navegação (30)
+        </h2>
+        <span class="text-xs bg-slate-900 px-2 py-1 rounded text-slate-400 font-mono" id="score-counter">
+          0/30
+        </span>
+      </div>
+
+      <!-- Filters -->
+      <div class="grid grid-cols-3 gap-1 text-[11px] font-medium bg-navy-900 p-1 rounded-lg">
+        <button onclick="setFilter('all')" id="filter-all" class="py-1 rounded text-center bg-navy-700 text-white">Todas</button>
+        <button onclick="setFilter('unanswered')" id="filter-unanswered" class="py-1 rounded text-center text-slate-400 hover:text-white">Faltam</button>
+        <button onclick="setFilter('answered')" id="filter-answered" class="py-1 rounded text-center text-slate-400 hover:text-white">Feitas</button>
+      </div>
+
+      <!-- Filtro por assunto -->
+      <div>
+        <label for="subject-filter" class="text-[11px] font-medium text-slate-400 flex items-center gap-1.5 mb-1.5">
+          <i class="fa-solid fa-layer-group text-navy-500"></i> Assunto
+        </label>
+        <select id="subject-filter" onchange="setSubjectFilter(this.value)" class="w-full bg-navy-900 border border-navy-700 text-slate-200 text-xs rounded-lg px-2.5 py-2 outline-none focus:ring-2 focus:ring-navy-500">
+          <option value="all">Todos os assuntos</option>
+        </select>
+      </div>
+
+      <!-- Grid of Buttons -->
+      <div id="questions-grid" class="grid grid-cols-5 gap-1.5 max-h-[380px] overflow-y-auto p-1 custom-scrollbar">
+        <!-- Grid Items injected via JS -->
+      </div>
+
+      <!-- Legend -->
+      <div class="border-t border-navy-700 pt-3 text-[11px] space-y-1.5 text-slate-400">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-navy-600 border border-navy-500 inline-block"></span>
+          <span>Atual</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-slate-700 inline-block"></span>
+          <span>Respondida</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-emerald-700 inline-block"></span>
+          <span>Correta (Estudo)</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-rose-700 inline-block"></span>
+          <span>Incorreta (Estudo)</span>
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer class="max-w-7xl w-full mx-auto px-4 md:px-6 pb-6 pt-2 text-center text-[11px] text-slate-500">
+    Plataforma de Estudos · CA-AA/AFN — seu progresso neste simulado fica salvo automaticamente neste navegador.
+  </footer>
+
+  <!-- Modal Results -->
+  <div id="results-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-navy-800 border border-navy-700 rounded-2xl max-w-lg w-full p-6 text-center shadow-2xl relative animate-fade-in">
+      <div class="w-16 h-16 bg-navy-700 text-navy-500 rounded-full flex items-center justify-center mx-auto mb-4 border border-navy-600 text-2xl shadow-inner">
+        <i class="fa-solid fa-trophy"></i>
+      </div>
+      <h2 class="font-serif text-2xl font-semibold text-white mb-1">Resultado do Simulado</h2>
+      <p class="text-xs text-slate-400 mb-6">Rosas das Virtudes para Concursos</p>
+
+      <div class="grid grid-cols-3 gap-3 mb-6">
+        <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
+          <div class="text-xs text-slate-400">Acertos</div>
+          <div id="modal-correct" class="text-2xl font-bold text-emerald-400">0</div>
+        </div>
+        <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
+          <div class="text-xs text-slate-400">Erros</div>
+          <div id="modal-wrong" class="text-2xl font-bold text-rose-400">0</div>
+        </div>
+        <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
+          <div class="text-xs text-slate-400">Aproveitamento</div>
+          <div id="modal-percent" class="text-2xl font-bold text-sky-400">0%</div>
+        </div>
+      </div>
+
+      <p id="modal-feedback" class="text-sm text-slate-300 mb-6 px-2">
+        Continue praticando para consolidar seus conhecimentos!
+      </p>
+
+      <div class="flex gap-3 justify-center">
+        <button onclick="closeModal()" class="bg-navy-700 hover:bg-navy-600 text-white px-5 py-2.5 rounded-lg text-sm transition-all font-medium">
+          Revisar Respostas
+        </button>
+        <button onclick="resetQuiz(); closeModal();" class="bg-navy-600 hover:bg-navy-500 text-white px-5 py-2.5 rounded-lg text-sm transition-all font-semibold shadow-lg">
+          Tentar Novamente
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Code -->
+  <script>
+    // Quiz Questions Dataset
+const questionsData = [
+      {
+        id: 1,
+        text: "é o sentimento quem induz o indivíduo a prática do bem da justiça e da moral é a força que o impele a prestigiar sua própria personalidade como um sentimento de seu patrimônio moral um misto debril e valor",
+        options: [
+          "A) ordem",
+          "B) zelo",
+          "C) honra",
+          "D) lealdade",
+          "E) iniciativa"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 2,
+        text: "ela exige a posse do perfeito sentimento do que é justo e respeitável para a elevação da dignidade e da bravura desse indivíduo e assim a afrontar perigos de toda a ordem na sustentação dos titanos da Verdade e do direito é a virtude por excelência porque em si contém todas as demais",
+        options: [
+          "A) coragem",
+          "B) decisão",
+          "C) espírito de sacrifício",
+          "D) honra",
+          "E) cooperação"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 3,
+        text: "está acima da vida e de tudo que existe no mundo os avires e demais de bens que o indivíduo possui são transitórios enquanto a tudo sobrevive transmitir seus filhos aos netos ao lar a profissão escolhida e a terra em que se nasce é o patrimônio da alma na profissão ela consiste principalmente na dedicação ao serviço do cumprimento do dever na intrepidez e na disciplina tudo inspirado pelo patriotismo",
+        options: [
+          "A) coragem",
+          "B) espírito de sacrifício",
+          "C) fogo sagrado",
+          "D) honra",
+          "E) patriotismo"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 4,
+        text: "é o verdadeiro espontâneo e incansável devotamento a uma causa assim será obediência a autoridade do superiores e o respeito aos sentimentos de dignidade alheia o subordinado cumpre as ordens que recebe sempre com o mesmo ardor quer esteja perto ou longe de quem as deu ainda que por vezes intimamente não as compreenda",
+        options: [
+          "A) disciplina",
+          "B) tenacidade",
+          "C) lealdade",
+          "D) cooperação",
+          "E) fidelidade"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 5,
+        text: "é mais do que a obediência porque esta se refere a vontade de expressa pelo superior e aquela ao Firmo propósito de honestamente interpretá-la e fielmente cumprê-la",
+        options: [
+          "A) fidelidade",
+          "B) disciplina",
+          "C) cooperação",
+          "D) lealdade",
+          "E) espírito de sacrifício"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 6,
+        text: "é o sentimento que leva pois o subordinado a fazer tudo quanto for humanamente possível para bem cumprir uma ordem ou desempenhar uma dada missão exige que se manifeste ao superior disciplinadamente e no interesse dos serviços toda eventual incompreensão em relação a determinação orientação recebida",
+        options: [
+          "A) fidelidade",
+          "B) espírito de sacrifício",
+          "C) disciplina",
+          "D) em cooperação",
+          "E) lealdade"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 7,
+        text: "é o ânimo pronto para conceber e executar é uma manifestação de inteligência imaginação atividade saber e dedicação ao serviço um militar cumprir de forma conscienciosa as obrigações as rotinas de seu cargo faz o treinamento regular de seus homens e etc um outro faz tudo isso e ver onde um aperfeiçoamento pode ser introduzido não só o consegue como se interessa por sua adoção",
+        options: [
+          "A) iniciativa",
+          "B) ordem",
+          "C) cooperação",
+          "D) coragem",
+          "E) disciplina"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 8,
+        text: "em um plano mas elevado é a faculdade de deliberar acertadamente em circunstâncias imprevistas ou na ausência do superiores agindo sobre responsabilidade própria mas dentro da doutrina a bem do serviço para assim fazer é preciso ter capacidade de profissional confiança em si e está bem orientado",
+        options: [
+          "A) iniciativa",
+          "B) decisão",
+          "C) ordem",
+          "D) disciplina",
+          "E) coragem"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 9,
+        text: "é auxiliar eficiente e desinteressadamente é esforçar-se em benefício de uma causa comum",
+        options: [
+          "A) cooperação",
+          "B) abnegação",
+          "C) lealdade",
+          "D) fidelidade",
+          "E) espírito militar"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 10,
+        text: "faz a eficiência da Marinha!  em todas as atividades o trabalho deve obedecer a esse espírito de comunhão de esforços a fim de que a potencialidade do conjunto como um todo seja as mais elevada possível assim superiores e subordinados não devem limitar-se apenas ao cumprimento das tarefas que estiverem sido cometidas mas sim procurar ajudar-se mutuamente na execução das mesmas buscando compreender as necessidades e prioridades da instituição como um todo",
+        options: [
+          "A) espírito militar",
+          "B) espírito de sacrifício",
+          "C) abnegação",
+          "D) lealdade",
+          "E) cooperação"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 11,
+        text: "é uma exigência imperiosa para a eficiência da instituição mas só possui esta qualidade quem não dá guarida as influências perniciosas do egoísmo da entrega ou da indiferença em prol de um sincero e profissional desprendimento",
+        options: [
+          "A) espírito de sacrifício",
+          "B) patriotismo",
+          "C) coragem",
+          "D) cooperação",
+          "E) abnegação"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 12,
+        text: "é a disposição sincera de realmente oferecer espontaneamente interesses comodidades vida tudo em prol do cumprimento do dever",
+        options: [
+          "A) fogo sagrado",
+          "B) abnegação",
+          "C) espírito de sacrifício",
+          "D) cooperação",
+          "E) fidelidade"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 13,
+        text: "é praticado vencendo Os Pequenos incômodos pessoais os menores percalços do dia a dia quem não é fiel no pouco certamente não será fiando muito somente percebendo o valor das coisas é que se desenvolve essa virtude e se torna capaz de dar um passo a mais na formação do caráter marinheiro",
+        options: [
+          "A) lealdade",
+          "B) cooperação",
+          "C) disciplina",
+          "D) abnegação",
+          "E) espírito de sacrifício"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 14,
+        text: "é um atributo que não depende em Alto grau de preparo profissional de predicados especiais de inteligência e de saber é por isso mesmo virtude que deve ser comum a todos os que servem a marinha essa qualidade é consequência direta do amor próprio do Amor a Marinha e a nação é o sentimento que leva a não poupar esforços para o bom desempenho das funções que lição atribuídas é o sentimento que conduz a dedicação ao serviço com autêntica expressão do dever",
+        options: [
+          "A) espírito de sacrifício",
+          "B) abnegação",
+          "C) disciplina",
+          "D) zelo",
+          "E) cooperação"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 15,
+        text: "está intimamente ligado a probabilidade Vista como a capacidade de bem administrar os bens Fundos e recursos que nos foram confiados faz-se presente assim no exato cumprimento de orçamento e planos financeiros e não atento cuidado com o patrimônio da Marinha",
+        options: [
+          "A) disciplina",
+          "B) honra",
+          "C) zelo",
+          "D) cooperação",
+          "E) patriotismo"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 16,
+        text: "é a disposição natural que nos permite dominar o medo e enfrentar qualquer perigo é a força capaz de fazer com que aquele que ama a vida e que nela é feliz saiba arrisca-la e se dispõe a morrer por uma causa Nobre",
+        options: [
+          "A) honra",
+          "B) espírito de sacrifício",
+          "C) coragem",
+          "D) patriotismo",
+          "E) fogo sagrado"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 17,
+        text: "com força psíquica que ampara os homens nas crises do pensamento e do caráter é a sustentação das próprias ordens atitudes e convicções o saber assumir a responsabilidade dos três atos o afrontamento a perfídia a inveja e a incompreensão a manutenção intransigente do rumo moral curte o que custar deve andar de mãos de dadas com a sabedoria a prudência o bom senso e acalma",
+        options: [
+          "A) fogo sagrado",
+          "B) espírito de sacrifício",
+          "C) coragem moral",
+          "D) coragem",
+          "E) patriotismo"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 18,
+        text: "é diligência porque economiza o tempo e é Previdência porque o conserva com o exemplo de disciplina é método orienta o espírito e promove segurança porque resguarda e a linha em lugar próprio aquilo que será utilizado no futuro a sua falta traz desperdício e a perda do tempo bem precioso é que uma vez perdido não há como reaver",
+        options: [
+          "A) ordem",
+          "B) fidelidade",
+          "C) zelo",
+          "D) disciplina",
+          "E) decisão"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 19,
+        text: "ser fiel é ser honesto ter tempera forte para opinar e agir sempre pelo bem mesmo e Principalmente quando não favorecer Ou até Contrariar as conveniências pessoais",
+        options: [
+          "A) lealdade",
+          "B) abnegação",
+          "C) e disciplina",
+          "D) fidelidade",
+          "E) patriotismo"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 20,
+        text: "é a paixão a fé ou entusiasmo com o que o militar se dedica a sua carreira é o seu intenso Amor à marinha o seu devotamento pela grandeza da sua profissão é a larga medida de uma verdadeira vocação e de seu sadio patriotismo é o Supremo amor pelo serviço e essa criança que anima a ponto de naturalmente julgar que os deveres que a lei e marca são o mínimo e que para bem servir cumpre Ir Além do próprio dever fazer tudo quanto é humanamente possível a custa embora de enchente e Labor",
+        options: [
+          "A) ordem",
+          "B) espírito militar",
+          "C) parte de autismo",
+          "D) espírito de sacrifício",
+          "E) fogo sagrado"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 21,
+        text: "força misteriosa que dominando a alma do verdadeiro Marinheiro o conduz sempre ao sacrifício com incendível vibração e estoica resignação essa virtude transmite-se mas para tanto é preciso possuí-lo em grande intensidade e demonstrá-lo mais por atitudes de ações do que por ordens e palavras é a alma da Marinha",
+        options: [
+          "A) patriotismo",
+          "B) espírito militar",
+          "C) espírito de",
+          "D) abnegação",
+          "E) fogo sagrado"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 22,
+        text: "é o esquecimento voluntário do que a diagoístico nos desejos e tendências naturais em proveito de uma pessoa causa ou ideia é a renegação desse mesmo e a disposição de se colocar a serviço dos outros com o sacrifício dos próprios interesses",
+        options: [
+          "A) espírito de sacrifício",
+          "B) fogo sagrado",
+          "C) abnegação",
+          "D) patriotismo",
+          "E) fidelidade"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 23,
+        text: "é a disposição de se colocar a serviço dos outros com o sacrifício dos próprios interesses tem a consciência de servir incluir a base de todas as virtudes a humanidade e possui a simplicidade em todas as suas ações e palavras portanto fortalece o desenvolvimento de todas as atividades de serviço à marinha criando a unidade de ação pois ela é passar por cima de qualquer interesse individual",
+        options: [
+          "A) patriotismo",
+          "B) abnegação",
+          "C) cooperação",
+          "D) fogo sagrado",
+          "E) espírito de sacrifício"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 24,
+        text: "é a qualidade que impede o Militar de cumprir com natural interesse dentro da ética os deveres e obrigações do serviço com disciplina ele é o dádio sempre animado pelo desejo de ver brilhar o seu navio a sua classe e aumentar a eficiência e o prestígio da Marinha",
+        options: [
+          "A) espírito de sacrifício",
+          "B) lealdade",
+          "C) abnegação",
+          "D) zelo",
+          "E) espírito militar"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 25,
+        text: "o militar demonstra essa virtude em suas maneiras de agir e de se expressar no apoio dos seus uniformes na saudação a seus superiores na descrição com que se manifesta na seriedade que imprime ao seu serviço como expressão da dignidade da sua função e da eficiência dos seus encargos",
+        options: [
+          "A) espírito de sacrifício",
+          "B) fidelidade",
+          "C) zelo",
+          "D) ordem",
+          "E) espírito militar"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 26,
+        text: "o militar cria em torno desse um ambiente de compostura seriedade e confiança qualidades essenciais a quem comanda e tenha sobre sua direta responsabilidade aguarda e a defesa de preciosos valores morais e materiais da nação",
+        options: [
+          "A) espírito militar",
+          "B) ordem",
+          "C) patriotismo",
+          "D) espírito do sacrifício",
+          "E) disciplina"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 27,
+        text: "é a força de coesão de qualquer coletividade humana é indispensável não só um organismo militar mas a qualquer outro que pretenda reunir indivíduos em uma unidade sólida e eficaz tem um único inimigo verdadeiro que é o egoísmo então mais obstinado quanto mais inconsciente de si mesmo o amor próprio e limitado separa o homem de seus mais nobres pensamentos tornando um seres isolado que não que nada aceita fora do seu eu despido de todo o sentimento de solidariedade não pode conceder a não ser como forma de escravidão",
+        options: [
+          "A) tenacidade",
+          "B) ordem",
+          "C) disciplina",
+          "D) patriotismo",
+          "E) zelo"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 28,
+        text: "esta virtude não Visa tolera a personalidade mas sim a regular e coordenadas forças ela somente torna-se fecunda quando há condições de ser alegre e ativa um simples conformismo ou receio das censuras ou sanções não trazem ela o que a faz presente e aceita é um forte sentimento de interesse comum e principalmente a correta percepção de um dever comum assim entendida não haverá o risco de ela proibiram a enfraquecer as iniciativas pois não será impostas mas sim adquirida",
+        options: [
+          "A) lealdade",
+          "B) patriotismo",
+          "C) zelo",
+          "D) disciplina",
+          "E) fidelidade"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 29,
+        text: "manifesta-se basicamente pelo obediência pronta as ordens do Superior pela utilização Total das energias em prol do serviço e pela correção de atitudes e cooperação espontânea em benefício da disciplina coletiva e da eficiência da instituição na Marinha esta virtude é inseparável da hierarquia e traduz-se no perfeito cumprimento do dever por cada um dos seus componentes",
+        options: [
+          "A) disciplina",
+          "B) lealdade",
+          "C) cooperação",
+          "D) patriotismo",
+          "E) fidelidade"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes"
+      },
+      {
+        id: 30,
+        text: "é o sentimento onde resistível que prende os indivíduos a terra em que nasceram é drama de afetos que através da gerações vai sendo tecido em suas almas ao redor do solo querido externamente é a emoção que os indivíduos sem real ver os acordes do hino nacional e ao ver desfraldado a bandeira de sua Pátria em essência é a criança na defesa dos ideais de nacionalidade expressão de carinho que hoje liga a terra que serviu de berço é a força de coesão poderosa que os torna na solidários em um interesse comum ensinando os a bem querer servir honrar defender a pátria",
+        options: [
+          "A) espírito de sacrifício",
+          "B) patriotismo",
+          "C) coragem",
+          "D) cooperação",
+          "E) espírito militar"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes"
+      }
+    ];
+
+    // App State
+    let currentIndex = 0;
+    let userAnswers = {}; // { questionIndex: selectedOptionIndex }
+    let mode = 'study'; // 'study' or 'exam'
+    let activeFilter = 'all'; // 'all', 'unanswered', 'answered'
+    let subjectFilter = 'all';
+    let discardedOptions = {}; // { questionIndex: { optionIndex: true } }
+    let timerInterval = null;
+
+    // Local Storage Keys (cache local / fallback offline)
+    const STORAGE_KEY_ANSWERS = 'rosas_virtudes_answers';
+    const STORAGE_KEY_MODE = 'rosas_virtudes_mode';
+    const STORAGE_KEY_DISCARDED = 'rosas_virtudes_discarded_options';
+    const STORAGE_KEY_START = 'rosas_virtudes_elapsed_start';
+
+    // --- Supabase: sessão vem da página inicial (index.html) ---
+    const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const QUIZ_ID = 'ROSAS_VIRTUDES';
+    let currentUser = null;
+    let saveDebounceTimer = null;
+
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending', 'gate-no-access'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    async function handleLogout() {
+      if (timerInterval) clearInterval(timerInterval);
+      await sb.auth.signOut();
+    }
+
+    async function onUserAuthenticated() {
+      const { data: perfil } = await sb
+        .from('profiles')
+        .select('aprovado')
+        .eq('id', currentUser.id)
+        .maybeSingle();
+
+      const aprovado = perfil ? perfil.aprovado : false;
+
+      if (!aprovado) {
+        showGate('gate-pending');
+        return;
+      }
+
+      const { data: acesso } = await sb
+        .from('acessos')
+        .select('quiz_id')
+        .eq('user_id', currentUser.id)
+        .eq('quiz_id', QUIZ_ID)
+        .maybeSingle();
+
+      if (!acesso) {
+        showGate('gate-no-access');
+        return;
+      }
+
+      document.getElementById('access-screen').classList.add('hidden');
+      const bar = document.getElementById('user-bar');
+      bar.classList.remove('hidden');
+      bar.classList.add('flex');
+      document.getElementById('user-email').textContent = currentUser.email;
+
+      await loadSavedState();
+      currentIndex = 0;
+      renderQuestion();
+      renderGrid();
+      updateTrackers();
+
+      if (!localStorage.getItem(STORAGE_KEY_START)) {
+        localStorage.setItem(STORAGE_KEY_START, String(Date.now()));
+      }
+      startElapsedTimer();
+      updateElapsedTimer();
+    }
+
+    function showAccessScreen() {
+      document.getElementById('user-bar').classList.add('hidden');
+      document.getElementById('user-bar').classList.remove('flex');
+      if (timerInterval) clearInterval(timerInterval);
+      showGate('gate-logged-out');
+    }
+
+    // Init App
+    window.addEventListener('DOMContentLoaded', () => {
+      populateSubjectFilter();
+      sb.auth.onAuthStateChange((event, session) => {
+        if (session && session.user) {
+          currentUser = session.user;
+          onUserAuthenticated();
+        } else if (event === 'SIGNED_OUT' || event === 'INITIAL_SESSION') {
+          currentUser = null;
+          showAccessScreen();
+        }
+      });
+    });
+
+    // Atalhos de teclado: ← / → navegam entre questões, A–E marcam a alternativa
+    document.addEventListener('keydown', (e) => {
+      const locked = !document.getElementById('access-screen').classList.contains('hidden');
+      if (locked) return;
+      const typingInField = ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName);
+      if (typingInField) return;
+
+      if (e.key === 'ArrowRight') { nextQuestion(); }
+      else if (e.key === 'ArrowLeft') { prevQuestion(); }
+      else {
+        const letterIndex = 'abcdefgh'.indexOf(e.key.toLowerCase());
+        if (letterIndex > -1 && questionsData[currentIndex] && letterIndex < questionsData[currentIndex].options.length) {
+          selectOption(letterIndex);
+        }
+      }
+    });
+
+    function startElapsedTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(updateElapsedTimer, 1000);
+    }
+
+    function formatElapsed(ms) {
+      const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+      const h = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+      const m = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+      const sec = String(totalSeconds % 60).padStart(2, '0');
+      return `${h}:${m}:${sec}`;
+    }
+
+    function updateElapsedTimer() {
+      const el = document.getElementById('elapsed-timer');
+      if (!el) return;
+      const start = Number(localStorage.getItem(STORAGE_KEY_START));
+      el.querySelector('span').innerText = start ? formatElapsed(Date.now() - start) : '00:00:00';
+    }
+
+    async function loadSavedState() {
+      userAnswers = {};
+      discardedOptions = {};
+      let loadedFromCloud = false;
+
+      if (currentUser) {
+        try {
+          const { data, error } = await sb
+            .from('progresso')
+            .select('respostas, descartadas, modo')
+            .eq('user_id', currentUser.id)
+            .eq('quiz_id', QUIZ_ID)
+            .maybeSingle();
+          if (!error && data) {
+            userAnswers = data.respostas || {};
+            discardedOptions = data.descartadas || {};
+            if (data.modo) setMode(data.modo, false);
+            loadedFromCloud = true;
+          }
+        } catch (e) { /* segue para o cache local */ }
+      }
+
+      if (!loadedFromCloud) {
+        const savedAnswers = localStorage.getItem(STORAGE_KEY_ANSWERS);
+        if (savedAnswers) {
+          try { userAnswers = JSON.parse(savedAnswers); } catch(e) { userAnswers = {}; }
+        }
+        const savedMode = localStorage.getItem(STORAGE_KEY_MODE);
+        if (savedMode) setMode(savedMode, false);
+        const savedDiscarded = localStorage.getItem(STORAGE_KEY_DISCARDED);
+        if (savedDiscarded) {
+          try { discardedOptions = JSON.parse(savedDiscarded) || {}; } catch(e) { discardedOptions = {}; }
+        }
+      }
+    }
+
+    async function syncProgressToCloud() {
+      if (!currentUser) return;
+      await sb.from('progresso').upsert({
+        user_id: currentUser.id,
+        quiz_id: QUIZ_ID,
+        respostas: userAnswers,
+        descartadas: discardedOptions,
+        modo: mode,
+        atualizado_em: new Date().toISOString()
+      });
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY_ANSWERS, JSON.stringify(userAnswers));
+      localStorage.setItem(STORAGE_KEY_DISCARDED, JSON.stringify(discardedOptions));
+      if (currentUser) {
+        clearTimeout(saveDebounceTimer);
+        saveDebounceTimer = setTimeout(syncProgressToCloud, 600);
+      }
+    }
+
+    function isDiscarded(qIndex, optIndex) {
+      return !!(discardedOptions[qIndex] && discardedOptions[qIndex][optIndex]);
+    }
+
+    function toggleDiscard(optIndex) {
+      if (!discardedOptions[currentIndex]) discardedOptions[currentIndex] = {};
+      if (discardedOptions[currentIndex][optIndex]) {
+        delete discardedOptions[currentIndex][optIndex];
+      } else {
+        discardedOptions[currentIndex][optIndex] = true;
+        // If the user had selected this option, remove that answer so the discarded option cannot remain selected.
+        if (userAnswers[currentIndex] === optIndex) delete userAnswers[currentIndex];
+      }
+      if (Object.keys(discardedOptions[currentIndex]).length === 0) delete discardedOptions[currentIndex];
+      saveState();
+      renderQuestion();
+      renderGrid();
+    }
+
+    function setMode(newMode, render = true) {
+      mode = newMode;
+      localStorage.setItem(STORAGE_KEY_MODE, mode);
+      if (currentUser && render) {
+        clearTimeout(saveDebounceTimer);
+        saveDebounceTimer = setTimeout(syncProgressToCloud, 600);
+      }
+
+      const studyBtn = document.getElementById('btn-mode-study');
+      const examBtn = document.getElementById('btn-mode-exam');
+
+      if (mode === 'study') {
+        studyBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-white shadow';
+        examBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-white';
+      } else {
+        examBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-white shadow';
+        studyBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-white';
+      }
+
+      if (render) {
+        renderQuestion();
+        renderGrid();
+      }
+    }
+
+    function renderQuestion() {
+      const q = questionsData[currentIndex];
+      const selectedOption = userAnswers[currentIndex];
+
+      // Update question text and badge
+      document.getElementById('question-badge').innerText = `Questão #${q.id}`;
+      document.getElementById('question-subject-tag').innerText = q.subject;
+      document.getElementById('question-text').innerText = q.text;
+
+      // Status tag
+      const statusTag = document.getElementById('question-status-tag');
+      if (selectedOption !== undefined) {
+        statusTag.classList.remove('hidden');
+        if (mode === 'study') {
+          if (selectedOption === q.correct) {
+            statusTag.className = 'text-xs px-2.5 py-1 rounded font-medium bg-emerald-900/60 text-emerald-300 border border-emerald-700';
+            statusTag.innerText = 'Correta';
+          } else {
+            statusTag.className = 'text-xs px-2.5 py-1 rounded font-medium bg-rose-900/60 text-rose-300 border border-rose-700';
+            statusTag.innerText = 'Incorreta';
+          }
+        } else {
+          statusTag.className = 'text-xs px-2.5 py-1 rounded font-medium bg-slate-700 text-slate-300';
+          statusTag.innerText = 'Respondida';
+        }
+      } else {
+        statusTag.classList.add('hidden');
+      }
+
+      // Options
+      const container = document.getElementById('options-container');
+      container.innerHTML = '';
+
+      q.options.forEach((optText, optIdx) => {
+        const discarded = isDiscarded(currentIndex, optIdx);
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.onclick = () => { if (!isDiscarded(currentIndex, optIdx)) selectOption(optIdx); };
+
+        let baseClasses = 'w-full text-left p-4 pr-3 rounded-xl border text-sm md:text-base font-medium transition-all flex items-start gap-3 ';
+
+        if (discarded) {
+          baseClasses += 'bg-slate-800/30 border-slate-700/50 text-slate-500 opacity-50 line-through cursor-pointer';
+        } else if (selectedOption === undefined) {
+          // Unanswered
+          baseClasses += 'bg-navy-900/60 border-navy-700/80 text-slate-200 hover:bg-navy-700/50 hover:border-navy-500';
+        } else {
+          if (mode === 'study') {
+            // Study Mode: reveal correct & incorrect immediately
+            if (optIdx === q.correct) {
+              baseClasses += 'bg-emerald-950/70 border-emerald-600 text-emerald-200 shadow-sm';
+            } else if (optIdx === selectedOption && selectedOption !== q.correct) {
+              baseClasses += 'bg-rose-950/70 border-rose-600 text-rose-200 shadow-sm';
+            } else {
+              baseClasses += 'bg-navy-900/30 border-navy-800 text-slate-500 opacity-60';
+            }
+          } else {
+            // Exam Mode: show only user selection
+            if (optIdx === selectedOption) {
+              baseClasses += 'bg-navy-600/80 border-navy-400 text-white shadow-md';
+            } else {
+              baseClasses += 'bg-navy-900/60 border-navy-700/80 text-slate-300 hover:bg-navy-700/40';
+            }
+          }
+        }
+
+        btn.className = baseClasses;
+
+        // Custom indicator radio
+        let radioIcon = '';
+        if (selectedOption === undefined || discarded) {
+          radioIcon = `<span class="w-5 h-5 rounded-full border border-slate-500 flex items-center justify-center shrink-0 mt-0.5 ${discarded ? 'opacity-40' : ''}"></span>`;
+        } else if (mode === 'study') {
+          if (optIdx === q.correct) {
+            radioIcon = `<span class="w-5 h-5 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center shrink-0 mt-0.5 text-xs"><i class="fa-solid fa-check"></i></span>`;
+          } else if (optIdx === selectedOption && selectedOption !== q.correct) {
+            radioIcon = `<span class="w-5 h-5 rounded-full bg-rose-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs"><i class="fa-solid fa-xmark"></i></span>`;
+          } else {
+            radioIcon = `<span class="w-5 h-5 rounded-full border border-slate-700 flex items-center justify-center shrink-0 mt-0.5"></span>`;
+          }
+        } else { // Exam mode
+          if (optIdx === selectedOption) {
+            radioIcon = `<span class="w-5 h-5 rounded-full bg-white text-navy-900 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold"><i class="fa-solid fa-circle text-[8px]"></i></span>`;
+          } else {
+            radioIcon = `<span class="w-5 h-5 rounded-full border border-slate-500 flex items-center justify-center shrink-0 mt-0.5"></span>`;
+          }
+        }
+
+        const lockState = discarded ? 'fa-lock-open text-slate-300' : 'fa-lock text-slate-500';
+        btn.innerHTML = `${radioIcon}<span class="flex-1 ${discarded ? 'line-through' : ''}">${optText}</span><span role="button" tabindex="0" aria-label="${discarded ? 'Restaurar alternativa' : 'Descartar alternativa'}" title="${discarded ? 'Restaurar alternativa' : 'Cortar/descartar alternativa'}" class="ml-2 shrink-0 w-7 h-7 rounded-md flex items-center justify-center hover:bg-white/10 ${discarded ? 'bg-slate-700/50' : ''}" onclick="event.stopPropagation(); toggleDiscard(${optIdx})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();toggleDiscard(${optIdx})}"><i class="fa-solid ${lockState} text-xs"></i></span>`;
+        container.appendChild(btn);
+      });
+
+      // Explanation Box (Study Mode)
+      const expBox = document.getElementById('explanation-box');
+      if (mode === 'study' && selectedOption !== undefined) {
+        expBox.classList.remove('hidden');
+        const isRight = selectedOption === q.correct;
+        const expTitle = document.getElementById('explanation-title');
+        const expText = document.getElementById('explanation-text');
+
+        if (isRight) {
+          expTitle.className = 'flex items-center gap-2 text-sm font-bold text-emerald-400 mb-1';
+          expTitle.innerHTML = `<i class="fa-solid fa-circle-check"></i> Resposta Correta!`;
+          expText.innerText = `A alternativa gabarito é: ${q.options[q.correct]}`;
+        } else {
+          expTitle.className = 'flex items-center gap-2 text-sm font-bold text-rose-400 mb-1';
+          expTitle.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> Resposta Incorreta`;
+          expText.innerText = `Você selecionou a opção (${String.fromCharCode(65 + selectedOption)}), mas a correta é a alternativa: ${q.options[q.correct]}`;
+        }
+      } else {
+        expBox.classList.add('hidden');
+      }
+
+      // Nav buttons state
+      document.getElementById('btn-prev').disabled = currentIndex === 0;
+      document.getElementById('btn-next').disabled = currentIndex === questionsData.length - 1;
+
+      updateTrackers();
+
+      // Pequena transição ao trocar de questão
+      const card = document.getElementById('question-card');
+      card.classList.remove('question-in');
+      void card.offsetWidth;
+      card.classList.add('question-in');
+    }
+
+    function selectOption(optIndex) {
+      if (isDiscarded(currentIndex, optIndex)) return;
+      userAnswers[currentIndex] = optIndex;
+      saveState();
+      renderQuestion();
+      renderGrid();
+    }
+
+    function prevQuestion() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderQuestion();
+        renderGrid();
+      }
+    }
+
+    function nextQuestion() {
+      if (currentIndex < questionsData.length - 1) {
+        currentIndex++;
+        renderQuestion();
+        renderGrid();
+      }
+    }
+
+    function setFilter(filter) {
+      activeFilter = filter;
+      document.getElementById('filter-all').className = filter === 'all' ? 'py-1 rounded text-center bg-navy-700 text-white' : 'py-1 rounded text-center text-slate-400 hover:text-white';
+      document.getElementById('filter-unanswered').className = filter === 'unanswered' ? 'py-1 rounded text-center bg-navy-700 text-white' : 'py-1 rounded text-center text-slate-400 hover:text-white';
+      document.getElementById('filter-answered').className = filter === 'answered' ? 'py-1 rounded text-center bg-navy-700 text-white' : 'py-1 rounded text-center text-slate-400 hover:text-white';
+      renderGrid();
+    }
+
+    function setSubjectFilter(subject) {
+      subjectFilter = subject;
+      renderGrid();
+    }
+
+    function populateSubjectFilter() {
+      const select = document.getElementById('subject-filter');
+      if (!select) return;
+      const subjects = [...new Set(questionsData.map(q => q.subject))].sort();
+      subjects.forEach(subj => {
+        const opt = document.createElement('option');
+        opt.value = subj;
+        opt.textContent = subj;
+        select.appendChild(opt);
+      });
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('questions-grid');
+      grid.innerHTML = '';
+
+      questionsData.forEach((q, idx) => {
+        const isAnswered = userAnswers[idx] !== undefined;
+
+        // Apply filter
+        if (activeFilter === 'unanswered' && isAnswered) return;
+        if (activeFilter === 'answered' && !isAnswered) return;
+        if (subjectFilter !== 'all' && q.subject !== subjectFilter) return;
+
+        const btn = document.createElement('button');
+        btn.onclick = () => {
+          currentIndex = idx;
+          renderQuestion();
+          renderGrid();
+        };
+
+        let classes = 'h-9 w-full rounded text-xs font-mono font-bold flex items-center justify-center transition-all border ';
+
+        if (idx === currentIndex) {
+          classes += 'bg-navy-500 border-white text-white shadow-md ring-2 ring-navy-400/50 ';
+        } else if (isAnswered) {
+          if (mode === 'study') {
+            if (userAnswers[idx] === q.correct) {
+              classes += 'bg-emerald-900/80 border-emerald-600 text-emerald-200 ';
+            } else {
+              classes += 'bg-rose-900/80 border-rose-600 text-rose-200 ';
+            }
+          } else {
+            classes += 'bg-slate-700 border-slate-600 text-slate-200 ';
+          }
+        } else {
+          classes += 'bg-navy-900/80 border-navy-700 text-slate-400 hover:bg-navy-700/50 hover:text-white ';
+        }
+
+        btn.className = classes;
+        btn.innerText = idx + 1;
+        grid.appendChild(btn);
+      });
+    }
+
+    function updateTrackers() {
+      const total = questionsData.length;
+      const answeredCount = Object.keys(userAnswers).length;
+
+      document.getElementById('question-tracker').innerText = `Questão ${currentIndex + 1} de ${total}`;
+      document.getElementById('answered-tracker').innerText = `${answeredCount} de ${total} respondidas`;
+
+      const percentage = (answeredCount / total) * 100;
+      document.getElementById('progress-bar').style.width = `${percentage}%`;
+
+      // Score counter in drawer
+      let correctCount = 0;
+      Object.keys(userAnswers).forEach(idx => {
+        if (userAnswers[idx] === questionsData[idx].correct) {
+          correctCount++;
+        }
+      });
+      document.getElementById('score-counter').innerText = `${correctCount}/${total}`;
+    }
+
+    function resetQuiz() {
+      if (confirm('Tem certeza de que deseja reiniciar o simulado? Suas respostas salvas serão apagadas.')) {
+        userAnswers = {};
+        discardedOptions = {};
+        localStorage.removeItem(STORAGE_KEY_ANSWERS);
+        localStorage.removeItem(STORAGE_KEY_DISCARDED);
+        localStorage.setItem(STORAGE_KEY_START, String(Date.now()));
+        if (currentUser) {
+          sb.from('progresso').delete().eq('user_id', currentUser.id).eq('quiz_id', QUIZ_ID).then(() => {});
+        }
+        currentIndex = 0;
+        renderQuestion();
+        renderGrid();
+        updateElapsedTimer();
+      }
+    }
+
+    function finishQuiz() {
+      const total = questionsData.length;
+      let correct = 0;
+      let answered = 0;
+
+      questionsData.forEach((q, idx) => {
+        if (userAnswers[idx] !== undefined) {
+          answered++;
+          if (userAnswers[idx] === q.correct) {
+            correct++;
+          }
+        }
+      });
+
+      const wrong = answered - correct;
+      const percent = Math.round((correct / total) * 100);
+
+      document.getElementById('modal-correct').innerText = correct;
+      document.getElementById('modal-wrong').innerText = wrong;
+      document.getElementById('modal-percent').innerText = `${percent}%`;
+
+      const feedback = document.getElementById('modal-feedback');
+      if (percent >= 80) {
+        feedback.innerText = 'Excelente desempenho! Você demonstrou forte domínio de Rosas das Virtudes.';
+      } else if (percent >= 60) {
+        feedback.innerText = 'Bom resultado! Revise os tópicos incorretos para atingir uma nota ainda maior.';
+      } else {
+        feedback.innerText = 'Recomendamos uma revisão nos tópicos de Rosas das Virtudes e tentar o simulado novamente.';
+      }
+
+      document.getElementById('results-modal').classList.remove('hidden');
+
+      if (currentUser) {
+        sb.from('resultados').insert({
+          user_id: currentUser.id,
+          quiz_id: QUIZ_ID,
+          acertos: correct,
+          erros: wrong,
+          percentual: percent,
+          respostas: userAnswers
+        }).then(() => {});
+      }
+    }
+
+    function closeModal() {
+      document.getElementById('results-modal').classList.add('hidden');
+    }
+  </script>
+
+  <!-- Estilo das alternativas descartadas -->
+  <style>
+    .option-discarded {
+      opacity: .48 !important;
+      filter: grayscale(.7);
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      text-decoration-color: rgba(148,163,184,.9);
+    }
+  </style>
+
+  <!-- Custom Scrollbar Styling -->
+  <style>
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #000F26;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #1E3E62;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #1E56A0;
+    }
+  </style>
+</body>
+</html>
