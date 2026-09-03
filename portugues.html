@@ -131,10 +131,64 @@
           <i class="fa-solid fa-stopwatch text-navy-500"></i><span>00:00:00</span>
         </div>
 
+        <div class="relative">
+          <button id="switch-quiz-btn" onclick="toggleSwitchMenu()" class="bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 hover:border-navy-500 transition-colors" title="Trocar de simulado">
+            <i class="fa-solid fa-layer-group text-navy-500"></i> <span class="hidden sm:inline">Outros Simulados</span> <i class="fa-solid fa-chevron-down text-[9px]"></i>
+          </button>
+          <div id="switch-quiz-menu" class="hidden absolute right-0 mt-2 w-72 max-h-[75vh] overflow-y-auto bg-navy-800 border border-navy-700 rounded-xl shadow-2xl z-40">
+            <a href="index.html" class="flex items-center gap-2 px-4 py-3 text-xs text-navy-200 border-b border-navy-700 hover:bg-navy-700/40 transition-colors">
+              <i class="fa-solid fa-house"></i> Painel geral
+            </a>
+            <div class="px-4 pt-3 pb-1 text-[10px] uppercase tracking-wide text-slate-500">Conhecimento Geral</div>
+        <div class="flex items-center justify-between px-4 py-2.5 text-xs text-white bg-navy-700/50">
+          <span class="font-semibold">Língua Portuguesa</span>
+          <i class="fa-solid fa-check text-emerald-400 text-[10px]"></i>
+        </div>
+        <a href="historia-naval.html" data-switch-quiz-id="HISTORIA_NAVAL" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>História Militar Naval</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="geografia.html" data-switch-quiz-id="GEOGRAFIA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Geografia</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+            <div class="px-4 pt-3 pb-1 text-[10px] uppercase tracking-wide text-slate-500 border-t border-navy-700 mt-1">Conhecimento Militar Naval</div>
+        <a href="caaml-703.html" data-switch-quiz-id="CAAML-703" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Embarcações Miúdas & Segurança</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="cerimonial.html" data-switch-quiz-id="CERIMONIAL" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Cerimonial da Marinha</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="rosas-virtudes.html" data-switch-quiz-id="ROSAS_VIRTUDES" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Rosas das Virtudes</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="lideranca-atributos.html" data-switch-quiz-id="LIDERANCA_ATRIBUTOS" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Liderança — Atributos</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="justica-disciplina.html" data-switch-quiz-id="JUSTICA_DISCIPLINA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Justiça e Disciplina</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="lideranca.html" data-switch-quiz-id="LIDERANCA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Liderança</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="ogsa.html" data-switch-quiz-id="OGSA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>OGSA</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="camaal-cav.html" data-switch-quiz-id="CAMAAL_CAV" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>CAMAAL 1202 (CAV)</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+          </div>
+        </div>
+
         <div id="user-bar" class="hidden bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2" title="Conectado">
-          <a href="desempenho.html" class="text-navy-400 hover:text-white transition-colors" title="Meu Desempenho">
-            <i class="fa-solid fa-chart-simple"></i>
-          </a>
           <i class="fa-solid fa-user text-navy-500"></i>
           <span id="user-email" class="max-w-[140px] truncate"></span>
           <button onclick="handleLogout()" class="ml-1 text-rose-300 hover:text-rose-200 transition-colors" title="Sair da conta">
@@ -5106,6 +5160,30 @@ const questionsData = [
     const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
     const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     const QUIZ_ID = 'PORTUGUES';
+
+    function toggleSwitchMenu() {
+      const menu = document.getElementById('switch-quiz-menu');
+      if (menu) menu.classList.toggle('hidden');
+    }
+    document.addEventListener('click', (e) => {
+      const menu = document.getElementById('switch-quiz-menu');
+      const btn = document.getElementById('switch-quiz-btn');
+      if (!menu || menu.classList.contains('hidden')) return;
+      if (!menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.classList.add('hidden');
+      }
+    });
+    async function applySwitchMenuLocks() {
+      const { data: acessos } = await sb.from('acessos').select('quiz_id').eq('user_id', currentUser.id);
+      const liberadas = new Set((acessos || []).map(a => a.quiz_id));
+      document.querySelectorAll('[data-switch-quiz-id]').forEach(item => {
+        const quizId = item.getAttribute('data-switch-quiz-id');
+        if (!liberadas.has(quizId)) {
+          item.classList.add('hidden');
+        }
+      });
+    }
+
     let currentUser = null;
     let saveDebounceTimer = null;
 
@@ -5157,6 +5235,7 @@ const questionsData = [
       bar.classList.remove('hidden');
       bar.classList.add('flex');
       document.getElementById('user-email').textContent = currentUser.email;
+      await applySwitchMenuLocks();
 
       await loadSavedState();
       currentIndex = 0;

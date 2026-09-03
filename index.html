@@ -138,7 +138,7 @@
         </span>
         <i class="fa-solid fa-chevron-down text-slate-400 topic-chevron transition-transform"></i>
       </button>
-      <div id="grupo-geral" class="border-t border-navy-700">
+      <div id="grupo-geral" class="border-t border-navy-700 hidden">
         <a href="portugues.html" data-quiz-id="PORTUGUES" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
           <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
           <span class="flex-1 min-w-0">
@@ -192,7 +192,7 @@
         </span>
         <i class="fa-solid fa-chevron-down text-slate-400 topic-chevron transition-transform"></i>
       </button>
-      <div id="grupo-naval" class="border-t border-navy-700">
+      <div id="grupo-naval" class="border-t border-navy-700 hidden">
         <a href="caaml-703.html" data-quiz-id="CAAML-703" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
           <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
           <span class="flex-1 min-w-0">
@@ -458,8 +458,19 @@
         btn.addEventListener('click', () => {
           const target = document.getElementById(btn.getAttribute('data-target'));
           const chevron = btn.querySelector('.topic-chevron');
-          if (target) target.classList.toggle('hidden');
-          if (chevron) chevron.classList.toggle('rotate-180');
+          const isOpening = target.classList.contains('hidden');
+
+          document.querySelectorAll('.topic-toggle').forEach(otherBtn => {
+            const otherTarget = document.getElementById(otherBtn.getAttribute('data-target'));
+            const otherChevron = otherBtn.querySelector('.topic-chevron');
+            if (otherTarget && otherTarget !== target) {
+              otherTarget.classList.add('hidden');
+              if (otherChevron) otherChevron.classList.remove('rotate-180');
+            }
+          });
+
+          if (target) target.classList.toggle('hidden', !isOpening);
+          if (chevron) chevron.classList.toggle('rotate-180', isOpening);
         });
       });
 
