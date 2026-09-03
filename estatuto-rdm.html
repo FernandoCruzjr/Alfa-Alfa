@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OGSA · Simulado — Plataforma de Estudos CA-AA/AFN</title>
-  <meta name="description" content="Simulado interativo de OGSA para concursos, com modo estudo, modo prova, filtro por assunto e acompanhamento de desempenho.">
+  <title>Estatuto dos Militares &amp; RDM · Simulado — Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Simulado interativo de Estatuto dos Militares e RDM para concursos, com modo estudo, modo prova, filtro por assunto e acompanhamento de desempenho.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -70,7 +70,7 @@
   <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
     <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
       <div class="text-[46px] leading-none mb-2" aria-hidden="true">⚓</div>
-      <div class="font-serif font-semibold text-[26px] text-white tracking-tight">OGSA</div>
+      <div class="font-serif font-semibold text-[26px] text-white tracking-tight">Estatuto dos Militares &amp; RDM</div>
       <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
 
       <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
@@ -98,7 +98,7 @@
         <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
       </div>
 
-      <div class="text-[11px] text-[#7895b5] mt-6 pt-4 border-t border-[#1c3a5c] w-full">OGSA para Concursos</div>
+      <div class="text-[11px] text-[#7895b5] mt-6 pt-4 border-t border-[#1c3a5c] w-full">Estatuto dos Militares &amp; RDM para Concursos</div>
     </div>
   </div>
 
@@ -111,8 +111,8 @@
           <i class="fa-solid fa-anchor text-2xl"></i>
         </div>
         <div>
-          <h1 class="font-serif text-xl font-semibold text-white tracking-wide">OGSA</h1>
-          <p class="text-xs text-slate-400">Organização Geral do Serviço na Marinha</p>
+          <h1 class="font-serif text-xl font-semibold text-white tracking-wide">Estatuto dos Militares &amp; RDM</h1>
+          <p class="text-xs text-slate-400">Estatuto dos Militares e Regulamento Disciplinar da Marinha</p>
         </div>
       </div>
 
@@ -177,18 +177,18 @@
           <span>Liderança</span>
           <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
         </a>
-        <div class="flex items-center justify-between px-4 py-2.5 text-xs text-white bg-navy-700/50">
-          <span class="font-semibold">OGSA</span>
-          <i class="fa-solid fa-check text-emerald-400 text-[10px]"></i>
-        </div>
+        <a href="ogsa.html" data-switch-quiz-id="OGSA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>OGSA</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
         <a href="camaal-cav.html" data-switch-quiz-id="CAMAAL_CAV" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
           <span>CAMAAL 1202 (CAV)</span>
           <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
         </a>
-        <a href="estatuto-rdm.html" data-switch-quiz-id="ESTATUTO_RDM" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
-          <span>Estatuto dos Militares & RDM</span>
-          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
-        </a>
+        <div class="flex items-center justify-between px-4 py-2.5 text-xs text-white bg-navy-700/50">
+          <span class="font-semibold">Estatuto dos Militares & RDM</span>
+          <i class="fa-solid fa-check text-emerald-400 text-[10px]"></i>
+        </div>
         <a href="pem2040.html" data-switch-quiz-id="PEM2040" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
           <span>PEM-2040</span>
           <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
@@ -220,8 +220,8 @@
       <!-- Progress Bar & Stats -->
       <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 shadow-sm flex flex-col gap-3">
         <div class="flex justify-between items-center text-sm font-semibold">
-          <span id="question-tracker" class="text-navy-500 font-bold">Questão 1 de 44</span>
-          <span id="answered-tracker" class="text-slate-400 text-xs">0 de 44 respondidas</span>
+          <span id="question-tracker" class="text-navy-500 font-bold">Questão 1 de 25</span>
+          <span id="answered-tracker" class="text-slate-400 text-xs">0 de 25 respondidas</span>
         </div>
         <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
           <div id="progress-bar" class="bg-navy-500 h-full w-0 transition-all duration-300"></div>
@@ -281,10 +281,10 @@
     <aside class="lg:col-span-1 bg-navy-800/80 border border-navy-700 rounded-xl p-4 flex flex-col gap-4 h-fit">
       <div class="flex justify-between items-center border-b border-navy-700 pb-3">
         <h2 class="text-sm font-bold text-slate-200 flex items-center gap-2">
-          <i class="fa-solid fa-list-ol text-navy-500"></i> Navegação (44)
+          <i class="fa-solid fa-list-ol text-navy-500"></i> Navegação (25)
         </h2>
         <span class="text-xs bg-slate-900 px-2 py-1 rounded text-slate-400 font-mono" id="score-counter">
-          0/44
+          0/25
         </span>
       </div>
 
@@ -344,7 +344,7 @@
         <i class="fa-solid fa-trophy"></i>
       </div>
       <h2 class="font-serif text-2xl font-semibold text-white mb-1">Resultado do Simulado</h2>
-      <p class="text-xs text-slate-400 mb-6">OGSA para Concursos</p>
+      <p class="text-xs text-slate-400 mb-6">Estatuto dos Militares &amp; RDM para Concursos</p>
 
       <div class="grid grid-cols-3 gap-3 mb-6">
         <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
@@ -382,575 +382,328 @@
 const questionsData = [
       {
         id: 1,
-        text: "assinale a opção que apresenta o ato administrativo que complementa o regulamento ordenando seu detalhamento e permitindo que em âmbito interno sejam disciplinadas todas as atividades rotineiras da organização militar",
+        text: "As opções abaixo listadas representam os preceitos da ÉTICA MILITAR, EXCETO:",
         options: [
-          "A) regimento interno",
-          "B) regulamento",
-          "C) organização administrativa",
-          "D) organização de combate",
-          "E) ato de criação"
+          "A) Empregar todas as suas energias em benefício do serviço.",
+          "B) Respeitar a dignidade da pessoa humana.",
+          "C) Amar a profissão das armas e o entusiasmo com que é exercida.",
+          "D) Observar as normas da boa educação.",
+          "E) Acatar as autoridades civis."
         ],
-        correct: 0,
-        subject: "OGSA"
+        correct: 2,
+        subject: "Estatuto dos Militares"
       },
       {
         id: 2,
-        text: "Assinale a opção que apresenta o ato administrativo que complementa o ato de criação ordenando seu detalhamento e permitindo que em âmbito geral revela a missão organização estrutura e outros?",
+        text: "Emanam de um conjunto de vínculos racionais e morais que ligam o militar à Pátria e ao seu serviço:",
         options: [
-          "A) regulamento",
-          "B) organização administrativa",
-          "C) ato de criação",
-          "D) regimento interno",
-          "E) organização de combate"
+          "A) Culto militar",
+          "B) Valor militar",
+          "C) Espírito militar",
+          "D) Dever militar",
+          "E) Ética militar"
         ],
-        correct: 0,
-        subject: "OGSA"
+        correct: 3,
+        subject: "Estatuto dos Militares"
       },
       {
         id: 3,
-        text: "é o documento que especifica propósito a subordinação a sede o oposto do comandante e a Constituição de um núcleo de implantação quando necessário",
+        text: "É o sentimento do dever, do pundonor militar e o decoro de classe que impõe, a cada um dos integrantes das Forças Armadas, conduta moral e profissional irrepreensível.",
         options: [
-          "A) ato de criação",
-          "B) organização administrativa",
-          "C) regulamento",
-          "D) organização de combate",
-          "E) regimento interno"
+          "A) Dever militar",
+          "B) Ética militar",
+          "C) Culto militar",
+          "D) Espírito militar",
+          "E) Valor militar"
         ],
-        correct: 0,
-        subject: "OGSA"
+        correct: 4,
+        subject: "Estatuto dos Militares"
       },
       {
         id: 4,
-        text: "a quem compete a aprovação dos regulamentos e regimentos internos das OMS",
+        text: "Analise as afirmações abaixo em relação ao prescrito no Estatuto dos Militares e depois marque a alternativa correta:\n\nI - O militar em situação de atividade ou reserva remunerada, é vedado comerciar ou tomar parte na administração ou gerência de sociedade ou dela ser sócio ou participar, exceto como acionista ou quotista, em sociedade anônima ou por quotas de responsabilidade limitada.\nII - É permitido aos oficiais titulados dos Quadros ou serviços de saúde, de veterinária e magistério o exercício de atividade técnico-profissional no meio civil, desde que tal prática não prejudique o serviço e não infrinja o disposto neste artigo.\nIII - Os integrantes da reserva, quando convocados, ficam proibidos de tratar, nas organizações militares e nas repartições civis, de interesse de organizações ou empresas privadas de qualquer natureza.",
         options: [
-          "A) estado maior da armada",
-          "B) Presidente da República",
-          "C) comandante da Marinha ou autoridades que tenham recebido expressa delegação",
-          "D) imediato",
-          "E) ministro da defesa"
+          "A) Apenas a I está correta.",
+          "B) I, II e III estão incorretas.",
+          "C) Apenas a II está correta",
+          "D) Apenas a III está correta.",
+          "E) Apenas I e III estão corretas"
         ],
-        correct: 2,
-        subject: "OGSA"
+        correct: 3,
+        subject: "Estatuto dos Militares"
       },
       {
         id: 5,
-        text: "a quem compete a aprovação do ato de criação",
+        text: "Correlacione corretamente e depois marque a alternativa adequada.\n\n(1) Cargo militar\n(2) Função militar\n(3) Comando\n\n(_) Soma de autoridade, deveres e responsabilidades de que o militar é investido legalmente quando conduz homens ou dirige uma organização militar.\n(_) Conjunto de atribuições, deveres e responsabilidades cometidos a um militar em serviço ativo.\n(_) É o exercício das obrigações inerentes ao cargo militar.",
         options: [
-          "A) estado maior da armada",
-          "B) Comandante da Om",
-          "C) comandante da Marinha ou presidente da República",
-          "D) imediato",
-          "E) ministro da defesa"
+          "A) 1 - 3 - 2",
+          "B) 1 - 3 - 2",
+          "C) 3 - 1 - 2",
+          "D) 1 - 2 - 3",
+          "E) 2 - 1 - 3"
         ],
         correct: 2,
-        subject: "OGSA"
+        subject: "Estatuto dos Militares"
       },
       {
         id: 6,
-        text: "quanto à organização do estado maior de força indique a resposta INCORRETA",
+        text: "Competência ao Superior Tribunal Militar, em tempo de paz e ao Tribunal Especial, em tempo de guerra, julgar, em instância única, os processos oriundos dos Conselhos de Disciplina.\n\nV ou F?",
         options: [
-          "A) no caso de exoneração ou morte do comandante da força Os oficiais do estado maior continuarão em suas funções até a Assunção do novo comandante da força",
-          "B) ao assistente e ajudante de ordens poderão ser atribuídas em caráter cumulativo funções no estado maior conforme suas qualificações",
-          "C) Os oficiais do estado maior poderão intervir nas atividades inerentes ao navio em que estiverem embarcados inclusive naquelas relativas ao cerimonial",
-          "D) Os oficiais que deverão compor o estado maior de uma força serão propostos pelo respectivo Comandante e nomeados de acordo com as normas em vigor",
-          "E) o estado maior de uma força de disporá de Praças em quantidade e especialidade fixadas em tabela de lotação"
+          "A) Falso (F)",
+          "B) Anulada",
+          "C) Não consta",
+          "D) Verdadeiro (V)",
+          "E) N.D.A."
         ],
-        correct: 2,
-        subject: "OGSA"
+        correct: 0,
+        subject: "Estatuto dos Militares"
       },
       {
         id: 7,
-        text: "O militar que presenciar qualquer irregularidade em que se envolva pessoal da Marinha ou verificar desvio de objetos pertencentes A Fazenda Nacional e atos comprometedores da segurança das organizações militares da Marinha deve conforme as circunstâncias reprimir de pronto esses atos ou dar parte deles com a maior brevidade a quem?",
+        text: "O acesso da hierarquia militar é fundamentado, principalmente no(a):",
         options: [
-          "A) a seu Comandante ou autoridade competente",
-          "B) é o seu imediato",
-          "C) ao seu encarregado",
-          "D) ao oficial de serviço",
-          "E) ao seu superior hierárquico"
+          "A) Valor moral e profissional.",
+          "B) Valor militar e profissional.",
+          "C) Valor militar e ética em serviço.",
+          "D) Valor moral e pessoal.",
+          "E) Valor pessoal e militar."
         ],
         correct: 0,
-        subject: "OGSA"
+        subject: "Estatuto dos Militares"
       },
       {
         id: 8,
-        text: "A ordem de quem qualquer oficial ou praça sempre que for conveniente a ordem a disciplina ou a normalidade do serviço prender quem tiver antiguidade inferior a sua?",
+        text: "São afastamentos totais do serviço, anual e obrigatoriamente concedidos aos militares para descanso.",
         options: [
-          "A) do seu Comandante",
-          "B) do oficial de serviço",
-          "C) a sua ordem ou a de autoridade competente",
-          "D) do comandante do distrito naval naval",
-          "E) do Seu imediato"
+          "A) Licença para acompanhar cônjuge.",
+          "B) Férias",
+          "C) Licença para tratar de interesse particular",
+          "D) Licença para tratamento de saúde da pessoa da família",
+          "E) Licença para tratamento de saúde própria"
         ],
-        correct: 2,
-        subject: "OGSA"
+        correct: 1,
+        subject: "Estatuto dos Militares"
       },
       {
         id: 9,
-        text: "Todo militar que tiver conhecimento de notícia ainda que vaga de algum fato que direta ou indiretamente possa comprometer as tarefas da sua ou de outras organizações militares Ou que tenha relação com os interesses nacionais têm rigorosa obrigação de ou participar de pronto VERBALMENTE  ou por ESCRITO com conveniente reserva a quem?",
+        text: "Quem é o responsável por fixar a duração das férias, inclusive para militares servindo em localidades especiais?",
         options: [
-          "A) imediato",
-          "B) ao seu Comandante pelos canais competentes ou em caso de urgência diretamente",
-          "C) ao seu superior hierárquico",
-          "D) ao seu encarregado",
-          "E) ao oficial de serviço"
+          "A) O Comimsup",
+          "B) O comandante da OM",
+          "C) O ComDN da área",
+          "D) O Comandante militar",
+          "E) O poder executivo"
         ],
-        correct: 1,
-        subject: "OGSA"
+        correct: 4,
+        subject: "Estatuto dos Militares"
       },
       {
         id: 10,
-        text: "A ordem de quem oficial ou praça pode prender qualquer militar de antiguidade superior a sua por crime em flagrante e inafiançável?",
+        text: "A quem compete regulamentar a concessão de férias?",
         options: [
-          "A) a ordem do imediato",
-          "B) a ordem do oficial de serviço",
-          "C) a sua ordem",
-          "D) a ordem de autoridade superior",
-          "E) a ordem do comandante do acusado"
+          "A) Ao ComDN da área",
+          "B) Ao Comandante da OM",
+          "C) Aos comandantes militares",
+          "D) Ao poder executivo",
+          "E) Ao Comimsup"
         ],
-        correct: 3,
-        subject: "OGSA"
+        correct: 2,
+        subject: "Estatuto dos Militares"
       },
       {
         id: 11,
-        text: "Em caso de prisão de militar superior quem efetuar a prisão dará logo parte circunstanciada por ESCRITO e por intermédio de quem?",
+        text: "Somente nos seguintes casos os militares terão férias interrompidas, EXCETO:",
         options: [
-          "A) do oficial de serviço a quem o preso estiver diretamente subordinado",
-          "B) do seu próprio imediato a autoridade a que o preso estiver diretamente subordinado",
-          "C) da autoridade a quem o preso estiver diretamente subordinado",
-          "D) do seu próprio Comandante a autoridade a que o preso estiver diretamente subordinado",
-          "E) do seu oficial de serviço a autoridade a que o preso estiver diretamente subordinado"
+          "A) Em caso de baixa a hospital",
+          "B) Interesse de Segurança Nacional",
+          "C) Para cumprimento de punição decorrente de contravenção ou de transgressão disciplinar de natureza média ou grave.",
+          "D) Manutenção da Ordem Pública",
+          "E) Extrema Necessidade do Serviço"
         ],
-        correct: 3,
-        subject: "OGSA"
+        correct: 2,
+        subject: "Estatuto dos Militares"
       },
       {
         id: 12,
-        text: "De acordo com as disposições Gerais do ogsa indique a resposta INCORRETA",
+        text: "Os militares têm ainda direito aos seguintes períodos de afastamento total do serviço, obedecidas as disposições legais e regulamentares, EXCETO por motivo de:",
         options: [
-          "A) o uso de bigode é permitido aos oficiais subciais Sargentos e praças especiais",
-          "B) só o comandante ou subordinado por ele autorizado poderá fazer comunicação verbal ou escrita para fora de sua unidade sobre assuntos operativos ou administrativos",
-          "C) os militares presos só poderão ser postos em liberdade por determinação da autoridade a cuja ordem tiver sido efetuada a prisão ou de autoridade superior",
-          "D) todas as representações partes ou requerimentos que militares da Marinha dirigirem a autoridades superiores devem ser encaminhados por intermédio do seu respectivo Comandante o qual hoje transmitirá a quem de direito dando sua própria informação a respeito antes de decorrido prazo de 8  dias desde o seu recebimento",
-          "E) se pessoa estranha a marinha cometer crime a Bordo será presa e autuada em flagrante delito em seguida será apresentada a autoridade competente"
+          "A) Luto até 8 dias",
+          "B) Luto 8 dias",
+          "C) Núpcias 8 dias",
+          "D) Trânsito até 30 dias.",
+          "E) Instalação até 10 dias"
         ],
         correct: 0,
-        subject: "OGSA"
+        subject: "Estatuto dos Militares"
       },
       {
         id: 13,
-        text: "Nas organizações militares comandadas por Almirante a delegação de competência para imposição de penas disciplinares deverá ser explicitada em qual documento",
+        text: "A licença é a autorização para afastamento total do serviço, em caráter temporário, concedida ao militar, obedecidas às disposições legais e regulamentares.\nSão tipos de licença, EXCETO:",
         options: [
-          "A) regimento interno ou organização administrativa",
-          "B) organização de combate",
-          "C) ato de criação",
-          "D) regulamento",
-          "E) ordem do dia"
+          "A) Licença para tratamento de saúde própria",
+          "B) Licença adoção",
+          "C) Licença para tratamento de saúde de pessoa da família",
+          "D) Licença para acompanhar cônjuge",
+          "E) Licença para candidatar-se a cargo político"
         ],
-        correct: 0,
-        subject: "OGSA"
+        correct: 4,
+        subject: "Estatuto dos Militares"
       },
       {
         id: 14,
-        text: "é dever específico de todo oficial da",
+        text: "A concessão de licença é regulada pelo:",
         options: [
-          "A) manter-se atualizado quanto aos conhecimentos operativos técnicos e administrativos",
-          "B) priorizar interesses pessoais quando necessário",
-          "C) é dever específico de todo oficial da Marinha apenas cumprir ordens superiores sem questionamentos",
-          "D) executar apenas tarefas administrativas",
-          "E) delegar todas as fanhas ao subordinados"
+          "A) Comandante da Força",
+          "B) ComDN da Área",
+          "C) Comimsup",
+          "D) Comandante da OM",
+          "E) Comandante de Esquadrão"
         ],
         correct: 0,
-        subject: "OGSA"
+        subject: "Estatuto dos Militares"
       },
       {
         id: 15,
-        text: "oficial deve ao entrar e sair de bordo",
+        text: "O prazo limite para licença para acompanhar cônjuge será de:",
         options: [
-          "A) informar apenas ao imediato",
-          "B) não há obrigação formal",
-          "C) comunicar-se apenas com o comandante",
-          "D) registrarem em livro de ocorrência",
-          "E) apresentar-se ao oficial de serviço e ao imediato"
+          "A) 48 meses",
+          "B) 12 meses",
+          "C) 36 meses",
+          "D) 60 meses",
+          "E) 24 meses"
         ],
-        correct: 4,
-        subject: "OGSA"
+        correct: 2,
+        subject: "Estatuto dos Militares"
       },
       {
         id: 16,
-        text: "quanto à conservação do material é dever do oficial",
+        text: "A interrupção da licença para tratar de interesse particular e da licença para acompanhar cônjuge poderá ocorrer nos casos abaixo, EXCETO:",
         options: [
-          "A) zelar pela boa conservação do material",
-          "B) cuidar apenas do material sob sua posse direta",
-          "C) delegar exclusivamente aos suborciais",
-          "D) fiscalizar somente equipamentos administrativos",
-          "E) não possui responsabilidade direta"
+          "A) Em caso de mobilização e estado de guerra",
+          "B) Para cumprimento de sentença que importe em restrição da liberdade individual",
+          "C) Em caso de decretação de estado de emergência ou de estado de sítio",
+          "D) Em caso de denúncia ou de pronúncia em processo criminal ou indiciação em inquérito militar, a juízo da autoridade que efetivou a denúncia, a pronúncia ou a indiciação.",
+          "E) Para cumprimento de punição disciplinar de natureza grave"
         ],
-        correct: 0,
-        subject: "OGSA"
+        correct: 4,
+        subject: "Estatuto dos Militares"
       },
       {
         id: 17,
-        text: "no Exercício de comando é responsabilidade dos oficiais",
+        text: "É toda ação ou omissão contrária às obrigações ou aos deveres militares estatuídos nas leis, nos regulamentos, nas normas e nas disposições em vigor que fundamentam a Organização Militar, desde que não incidindo no que é capitulado pelo Código Penal Militar como crime:",
         options: [
-          "A) delegar sempre a aplicação de penas",
-          "B) aplicar punições somente com autorização superior",
-          "C) apenas registrar ocorrência",
-          "D) encaminhar todos os casos a justiça militar",
-          "E) impor penas disciplinares"
+          "A) Crime",
+          "B) Crime militar",
+          "C) Contravenção militar",
+          "D) Alteração disciplinar",
+          "E) Contravenção disciplinar"
         ],
         correct: 4,
-        subject: "OGSA"
+        subject: "RDM — Regulamento Disciplinar"
       },
       {
         id: 18,
-        text: "na ausência acidental do comandante da força quem o representa nos casos urgentes",
+        text: "As contravenções disciplinares são consideradas:",
         options: [
-          "A) imediato",
-          "B) oficial de serviço",
-          "C) Comandante de OM subordinada",
-          "D) Comandante",
-          "E) chefe do estado maior"
+          "A) Graves e leves",
+          "B) Graves e médias",
+          "C) Gravíssimas, Graves, médias e leves",
+          "D) Graves, médias e leves",
+          "E) Gravíssimas e leves"
         ],
-        correct: 4,
-        subject: "OGSA"
+        correct: 0,
+        subject: "RDM — Regulamento Disciplinar"
       },
       {
         id: 19,
-        text: "onde o chefe do estado maior escreverá ou fará escrever sobre sua inspeção e responsabilidade o histórico dos movimentos e operações da força e de outras ocorrências importantes que interessem a força Este Diário receberá o visto do comandante da força e ficará sujeito às alterações que este entender introduzir",
+        text: "As situações abaixo são consideradas agravantes da contravenção disciplinar, EXCETO:",
         options: [
-          "A) diário histórico da força",
-          "B) Diário de quarto",
-          "C) livro de histórico da força",
-          "D) livro da força",
-          "E) diário de bordo"
+          "A) Ter sido cometida estando em risco a segurança da OM.",
+          "B) Tratamento em serviço ordinário com rigor não autorizado pelos regulamentos militares.",
+          "C) Conluio de duas ou mais pessoas.",
+          "D) Ter cometido a falta em presença de subordinado.",
+          "E) Ter o contraventor abusado da sua autoridade ou funcional."
         ],
-        correct: 0,
-        subject: "OGSA"
+        correct: 1,
+        subject: "RDM — Regulamento Disciplinar"
       },
       {
         id: 20,
-        text: "Quem é responsável por registrar o que ocorrer durante a reunião do comandante da força e os comandantes das unidades subordinadas seu estado maior e outros oficiais não especificados para tratar de assuntos sigilosos",
+        text: "As situações abaixo são consideradas atenuantes da contravenção disciplinar, EXCETO:",
         options: [
-          "A) chefe do estado maior",
-          "B) Comandante de força",
-          "C) oficial mais moderno",
-          "D) ajudante de ordens",
-          "E) secretário"
+          "A) Bons antecedentes militares",
+          "B) Ignorância plenamente comprovada da ordem transgredida.",
+          "C) Tempo de serviço militar inferior a seis meses",
+          "D) Idade menor de 18 anos",
+          "E) Provocação"
         ],
-        correct: 0,
-        subject: "OGSA"
+        correct: 1,
+        subject: "RDM — Regulamento Disciplinar"
       },
       {
         id: 21,
-        text: "em seu impedimento quem substituirá o chefe do estado maior",
+        text: "As situações abaixo são consideradas justificativas ou dirimentes da contravenção disciplinar, EXCETO:",
         options: [
-          "A) secretário",
-          "B) o comandante de força",
-          "C) comandante mais antigo de om subordinada",
-          "D) oficial mais antigo pertencente ao estado maior",
-          "E) o ajudante de ordens"
+          "A) Evitar mal maior ou dano ao serviço ou a ordem pública.",
+          "B) Ordem de superior hierárquico.",
+          "C) Legítima defesa, própria ou de outrem.",
+          "D) Força maior ou caso fortuito plenamente comprovado.",
+          "E) Prestação anterior de serviços relevantes já conhecidos."
         ],
-        correct: 3,
-        subject: "OGSA"
+        correct: 4,
+        subject: "RDM — Regulamento Disciplinar"
       },
       {
         id: 22,
-        text: "é atribuição de quem acompanhar o comandante da força em suas inspeções?",
+        text: "A pena de Serviço Extraordinário poderá ser imposta aos:",
         options: [
-          "A) comandante da om",
-          "B) oficiais do estado maior",
-          "C) encarregado de divisão",
-          "D) chefe de departamento",
-          "E) chefe do estado maior"
+          "A) Oficiais da reserva em função de atividade",
+          "B) Sargentos",
+          "C) Oficiais",
+          "D) Suboficiais",
+          "E) Cabos"
         ],
-        correct: 1,
-        subject: "OGSA"
+        correct: 4,
+        subject: "RDM — Regulamento Disciplinar"
       },
       {
         id: 23,
-        text: "na ausência ou impedimento do chefe de gabinete quem irá substituí-lo",
+        text: "Tem competência para impor penas disciplinares aos seus comandados ou aos que servem sobre sua direção ou ordem, EXCETO:",
         options: [
-          "A) Comandante de força",
-          "B) chefe do estado maior",
-          "C) oficial mais antigo pertencente ao gabinete",
-          "D) assistente ou ajudante de ordens",
-          "E) oficial mais antigo"
+          "A) Os diretores de estabelecimento de Apoio ou Ensino.",
+          "B) Os Capitães dos Portos, seus Delegados e Agentes.",
+          "C) O chefe, o vice-chefe e Subchefe do EMA.",
+          "D) Os chefes de gabinete.",
+          "E) Os presidentes e encarregados de OM"
         ],
-        correct: 2,
-        subject: "OGSA"
+        correct: 1,
+        subject: "RDM — Regulamento Disciplinar"
       },
       {
         id: 24,
-        text: "o assistente deverá ser preferencialmente do mesmo corpo ou quadro a que pertencer o Almirante ou Comandante de força no gabinete no qual for servir devendo ser de que posto?",
+        text: "A repreensão consistirá na declaração formal de que o contraventor é assim punido por haver cometido determinada contravenção, podendo ser aplicada em particular ou não.\nQuando pública será aplicada:",
         options: [
-          "A) primeiro Tenente",
-          "B) Capitão Tenente",
-          "C) Capitão de mar e guerra",
-          "D) Capitão de corveta",
-          "E) Capitão de Fragata"
+          "A) Pelo superior ou por sua delegação ao Oficial na presença de oficiais do mesmo círculo ou superiores.",
+          "B) Pelo Superior ao Suboficial nos círculos de Oficiais e Suboficiais.",
+          "C) Pelo superior ao Oficial na presença de Oficiais do mesmo posto ou superiores.",
+          "D) Pelo superior ou por sua delegação ao Sargento nos círculos de Oficiais, Suboficiais e Sargentos.",
+          "E) Pelo superior ou por sua delegação às praças de graduação inferior a Sargento formatura da tripulação, ou parte dela, a que pertencer o contraventor."
         ],
         correct: 3,
-        subject: "OGSA"
+        subject: "RDM — Regulamento Disciplinar"
       },
       {
         id: 25,
-        text: "responder perante o chefe do estado maior e gabinete pela escrituração dos livros da om são atribuições de quem",
+        text: "Em relação às normas para imposição de penas disciplinares, assinale V ou F:\n\n(_) Normalmente, a pena deverá ser imposta dentro do prazo de 48, contadas do momento em que a contravenção foi cometida.\n(_) Os militares detidos para averiguação de contravenções disciplinares não devem comparecer à exercícios e fainas, nem executar serviço algum.\n(_) Quando houver necessidade de maiores esclarecimentos sobre a contravenção, a autoridade mandará proceder à sindicância ou, se houver indícios de crime, a inquérito. Durante o período da sindicância o contraventor não poderá ficar detido, sendo essa possibilidade exequível apenas nos casos em que estiver em aberto o inquérito policial militar.",
         options: [
-          "A) chefe do estado maior",
-          "B) assistente",
-          "C) chefe de gabinete",
-          "D) Comandante de força",
-          "E) ajudante de ordens"
-        ],
-        correct: 1,
-        subject: "OGSA"
-      },
-      {
-        id: 26,
-        text: "representar o Almirante o comandante de força em solenidades e Outros Atos quando ordenado é atribuição de quem?",
-        options: [
-          "A) assistente e ajudante de ordens",
-          "B) oficiais do gabinete",
-          "C) oficiais do estado maior",
-          "D) Comandante de força",
-          "E) chefe do estado maior"
+          "A) FVF",
+          "B) VFF",
+          "C) FVV",
+          "D) VFV",
+          "E) VVV"
         ],
         correct: 0,
-        subject: "OGSA"
-      },
-      {
-        id: 27,
-        text: "administraram o rancho do Almirante ou Comandante de força é atribuição de quem",
-        options: [
-          "A) assistente",
-          "B) chefe do estado maior",
-          "C) chefe de gabinete",
-          "D) ajudantes de ordens",
-          "E) oficial mais antigo do estado maior"
-        ],
-        correct: 3,
-        subject: "OGSA"
-      },
-      {
-        id: 28,
-        text: "o ajudante de ordens deverá ser preferencialmente do mesmo corpo ou quadro a que pertencer o Almirante no gabinete do qual for servir e possuir os cursos inerentes à sua antiguidade e deverá ser de qual posto",
-        options: [
-          "A) segundo tenente",
-          "B) Capitão Tenente",
-          "C) Capitão de corveta",
-          "D) Capitão de mar e guerra",
-          "E) Capitão de Fragata"
-        ],
-        correct: 1,
-        subject: "OGSA"
-      },
-      {
-        id: 29,
-        text: "organizar agenda do Almirante ou Comandante de força é atribuição de quem",
-        options: [
-          "A) chefe do estado maior",
-          "B) ajudantes de ordem",
-          "C) assistente",
-          "D) chefe de gabinete",
-          "E) imediato"
-        ],
-        correct: 1,
-        subject: "OGSA"
-      },
-      {
-        id: 30,
-        text: "propor quando for o caso a atualização a alteração substituição ou a revogação dos documentos normativos pertinentes referentes as suas atribuições é função de quem",
-        options: [
-          "A) assistente",
-          "B) ajudante de ordens",
-          "C) demais oficiais do gabinete",
-          "D) de mais oficiais do estado maior",
-          "E) chefe de gabinete"
-        ],
-        correct: 2,
-        subject: "OGSA"
-      },
-      {
-        id: 31,
-        text: "é atribuição de quem assessorar o Almirante nas suas funções auxiliando a transmissão de ordens na execução de providências e nos entendimentos com as autoridades",
-        options: [
-          "A) chefe de gabinete",
-          "B) demais oficiais do estado maior",
-          "C) chefe do estado maior",
-          "D) ajudante de ordem",
-          "E) assistente"
-        ],
-        correct: 0,
-        subject: "OGSA"
-      },
-      {
-        id: 32,
-        text: "é atribuição de quem assistir o Almirante na sua representação funcional e social",
-        options: [
-          "A) demais oficiais do estado maior",
-          "B) ajudante de ordem",
-          "C) assistente",
-          "D) chefe de gabinete",
-          "E) chefe do estado maior"
-        ],
-        correct: 3,
-        subject: "OGSA"
-      },
-      {
-        id: 33,
-        text: "é atribuição de quem preparar ou fazer preparar bem como distribuir ordens do dia ordem de serviço portarias e demais documentos",
-        options: [
-          "A) chefe de gabinete",
-          "B) assistente",
-          "C) demais oficiais do estado maior",
-          "D) ajudante de ordem",
-          "E) chefe do estado maior"
-        ],
-        correct: 0,
-        subject: "OGSA"
-      },
-      {
-        id: 34,
-        text: "é atribuição de quem preparar e processar a correspondência funcional e pessoal do Almirante",
-        options: [
-          "A) assistente",
-          "B) demais oficiais do estado maior",
-          "C) ajudante de ordem",
-          "D) chefe de gabinete",
-          "E) chefe do estado maior"
-        ],
-        correct: 3,
-        subject: "OGSA"
-      },
-      {
-        id: 35,
-        text: "é atribuição de quem programar e dirigir o cerimonial e as solenidades oficiais",
-        options: [
-          "A) chefe de gabinete",
-          "B) assistente",
-          "C) demais oficiais do estado maior",
-          "D) ajudante de ordem",
-          "E) chefe do estado maior"
-        ],
-        correct: 0,
-        subject: "OGSA"
-      },
-      {
-        id: 36,
-        text: "é atribuição de quem organizar a documentação histórica da om",
-        options: [
-          "A) assistente",
-          "B) ajudante de ordem",
-          "C) chefe do estado maior",
-          "D) demais oficiais do estado maior",
-          "E) chefe de gabinete"
-        ],
-        correct: 4,
-        subject: "OGSA"
-      },
-      {
-        id: 37,
-        text: "é atribuição de quem fazer o detalhe de serviço das praças do estado maior e gabinete",
-        options: [
-          "A) demais oficiais do estado maior",
-          "B) chefe de gabinete",
-          "C) chefe do estado maior",
-          "D) assistente",
-          "E) ajudante de ordem"
-        ],
-        correct: 3,
-        subject: "OGSA"
-      },
-      {
-        id: 38,
-        text: "é atribuição de quem responder perante ao chefe do estado maior e gabinete pela escrituração dos livros da om",
-        options: [
-          "A) ajudante de ordem",
-          "B) assistente",
-          "C) chefe de gabinete",
-          "D) chefe do estado maior",
-          "E) demais oficiais do estado maior"
-        ],
-        correct: 1,
-        subject: "OGSA"
-      },
-      {
-        id: 39,
-        text: "é atribuição de quem coordenar e uniformizar os métodos as normas e as práticas relativas ao preparo a expedição ao recebimento a distribuição e ao arquivamento da correspondência de acordo com as instruções em vigor",
-        options: [
-          "A) assistente",
-          "B) chefe de gabinete",
-          "C) ajudante de ordem",
-          "D) chefe do estado maior",
-          "E) demais oficiais do estado maior"
-        ],
-        correct: 0,
-        subject: "OGSA"
-      },
-      {
-        id: 40,
-        text: "é atribuição de quem ter a seu cargo a secretaria do comando e gabinete",
-        options: [
-          "A) demais oficiais do estado maior",
-          "B) ajudante de ordem",
-          "C) chefe de gabinete",
-          "D) chefe do estado maior",
-          "E) assistente"
-        ],
-        correct: 4,
-        subject: "OGSA"
-      },
-      {
-        id: 41,
-        text: "é atribuição de quem administrar o rancho do Almirante ou Comandante de força",
-        options: [
-          "A) chefe de gabinete",
-          "B) ajudante de ordem",
-          "C) chefe do estado maior",
-          "D) demais oficiais do estado maior",
-          "E) assistente"
-        ],
-        correct: 1,
-        subject: "OGSA"
-      },
-      {
-        id: 42,
-        text: "é atribuição de quem assistir a recepção e a despedida de todos os comandantes de forças navios e outras pessoas em visita ao Almirante ou Comandante de força",
-        options: [
-          "A) ajudante de ordem",
-          "B) chefe do estado maior",
-          "C) demais oficiais do estado maior",
-          "D) chefe de gabinete",
-          "E) assistente"
-        ],
-        correct: 0,
-        subject: "OGSA"
-      },
-      {
-        id: 43,
-        text: "é atribuição de quem organizar a agenda do Almirante ou Comandante de força",
-        options: [
-          "A) chefe de gabinete",
-          "B) ajudante de ordem",
-          "C) demais oficiais do estado maior",
-          "D) chefe do estado maior",
-          "E) assistente"
-        ],
-        correct: 1,
-        subject: "OGSA"
-      },
-      {
-        id: 44,
-        text: "é atribuição de quem auxiliar Os oficiais do estado maior e do gabinete",
-        options: [
-          "A) demais oficiais do gabinete",
-          "B) chefe do estado maior",
-          "C) demais oficiais do estado maior",
-          "D) assistente e ajudante de ordem",
-          "E) chefe de gabinete"
-        ],
-        correct: 3,
-        subject: "OGSA"
+        subject: "RDM — Regulamento Disciplinar"
       }
     ];
 
@@ -964,16 +717,16 @@ const questionsData = [
     let timerInterval = null;
 
     // Local Storage Keys (cache local / fallback offline)
-    const STORAGE_KEY_ANSWERS = 'ogsa_answers';
-    const STORAGE_KEY_MODE = 'ogsa_mode';
-    const STORAGE_KEY_DISCARDED = 'ogsa_discarded_options';
-    const STORAGE_KEY_START = 'ogsa_elapsed_start';
+    const STORAGE_KEY_ANSWERS = 'estatuto_rdm_answers';
+    const STORAGE_KEY_MODE = 'estatuto_rdm_mode';
+    const STORAGE_KEY_DISCARDED = 'estatuto_rdm_discarded_options';
+    const STORAGE_KEY_START = 'estatuto_rdm_elapsed_start';
 
     // --- Supabase: sessão vem da página inicial (index.html) ---
     const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
     const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
     const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-    const QUIZ_ID = 'OGSA';
+    const QUIZ_ID = 'ESTATUTO_RDM';
 
     function toggleSwitchMenu() {
       const menu = document.getElementById('switch-quiz-menu');
@@ -1502,11 +1255,11 @@ const questionsData = [
 
       const feedback = document.getElementById('modal-feedback');
       if (percent >= 80) {
-        feedback.innerText = 'Excelente desempenho! Você demonstrou forte domínio de OGSA.';
+        feedback.innerText = 'Excelente desempenho! Você demonstrou forte domínio do Estatuto dos Militares e do RDM.';
       } else if (percent >= 60) {
         feedback.innerText = 'Bom resultado! Revise os tópicos incorretos para atingir uma nota ainda maior.';
       } else {
-        feedback.innerText = 'Recomendamos uma revisão nos tópicos de OGSA e tentar o simulado novamente.';
+        feedback.innerText = 'Recomendamos uma revisão nos tópicos do Estatuto dos Militares/RDM e tentar o simulado novamente.';
       }
 
       document.getElementById('results-modal').classList.remove('hidden');

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OGSA · Simulado — Plataforma de Estudos CA-AA/AFN</title>
-  <meta name="description" content="Simulado interativo de OGSA para concursos, com modo estudo, modo prova, filtro por assunto e acompanhamento de desempenho.">
+  <title>PEM-2040 · Simulado — Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Simulado interativo do Plano Estratégico da Marinha (PEM-2040) para concursos, com modo estudo, modo prova, filtro por assunto e acompanhamento de desempenho.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -70,7 +70,7 @@
   <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
     <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
       <div class="text-[46px] leading-none mb-2" aria-hidden="true">⚓</div>
-      <div class="font-serif font-semibold text-[26px] text-white tracking-tight">OGSA</div>
+      <div class="font-serif font-semibold text-[26px] text-white tracking-tight">PEM-2040</div>
       <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
 
       <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
@@ -98,7 +98,7 @@
         <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
       </div>
 
-      <div class="text-[11px] text-[#7895b5] mt-6 pt-4 border-t border-[#1c3a5c] w-full">OGSA para Concursos</div>
+      <div class="text-[11px] text-[#7895b5] mt-6 pt-4 border-t border-[#1c3a5c] w-full">PEM-2040 para Concursos</div>
     </div>
   </div>
 
@@ -111,8 +111,8 @@
           <i class="fa-solid fa-anchor text-2xl"></i>
         </div>
         <div>
-          <h1 class="font-serif text-xl font-semibold text-white tracking-wide">OGSA</h1>
-          <p class="text-xs text-slate-400">Organização Geral do Serviço na Marinha</p>
+          <h1 class="font-serif text-xl font-semibold text-white tracking-wide">PEM-2040</h1>
+          <p class="text-xs text-slate-400">Plano Estratégico da Marinha 2040</p>
         </div>
       </div>
 
@@ -177,10 +177,10 @@
           <span>Liderança</span>
           <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
         </a>
-        <div class="flex items-center justify-between px-4 py-2.5 text-xs text-white bg-navy-700/50">
-          <span class="font-semibold">OGSA</span>
-          <i class="fa-solid fa-check text-emerald-400 text-[10px]"></i>
-        </div>
+        <a href="ogsa.html" data-switch-quiz-id="OGSA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>OGSA</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
         <a href="camaal-cav.html" data-switch-quiz-id="CAMAAL_CAV" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
           <span>CAMAAL 1202 (CAV)</span>
           <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
@@ -189,10 +189,10 @@
           <span>Estatuto dos Militares & RDM</span>
           <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
         </a>
-        <a href="pem2040.html" data-switch-quiz-id="PEM2040" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
-          <span>PEM-2040</span>
-          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
-        </a>
+        <div class="flex items-center justify-between px-4 py-2.5 text-xs text-white bg-navy-700/50">
+          <span class="font-semibold">PEM-2040</span>
+          <i class="fa-solid fa-check text-emerald-400 text-[10px]"></i>
+        </div>
           </div>
         </div>
 
@@ -220,8 +220,8 @@
       <!-- Progress Bar & Stats -->
       <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 shadow-sm flex flex-col gap-3">
         <div class="flex justify-between items-center text-sm font-semibold">
-          <span id="question-tracker" class="text-navy-500 font-bold">Questão 1 de 44</span>
-          <span id="answered-tracker" class="text-slate-400 text-xs">0 de 44 respondidas</span>
+          <span id="question-tracker" class="text-navy-500 font-bold">Questão 1 de 55</span>
+          <span id="answered-tracker" class="text-slate-400 text-xs">0 de 55 respondidas</span>
         </div>
         <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
           <div id="progress-bar" class="bg-navy-500 h-full w-0 transition-all duration-300"></div>
@@ -281,10 +281,10 @@
     <aside class="lg:col-span-1 bg-navy-800/80 border border-navy-700 rounded-xl p-4 flex flex-col gap-4 h-fit">
       <div class="flex justify-between items-center border-b border-navy-700 pb-3">
         <h2 class="text-sm font-bold text-slate-200 flex items-center gap-2">
-          <i class="fa-solid fa-list-ol text-navy-500"></i> Navegação (44)
+          <i class="fa-solid fa-list-ol text-navy-500"></i> Navegação (55)
         </h2>
         <span class="text-xs bg-slate-900 px-2 py-1 rounded text-slate-400 font-mono" id="score-counter">
-          0/44
+          0/55
         </span>
       </div>
 
@@ -344,7 +344,7 @@
         <i class="fa-solid fa-trophy"></i>
       </div>
       <h2 class="font-serif text-2xl font-semibold text-white mb-1">Resultado do Simulado</h2>
-      <p class="text-xs text-slate-400 mb-6">OGSA para Concursos</p>
+      <p class="text-xs text-slate-400 mb-6">PEM-2040 para Concursos</p>
 
       <div class="grid grid-cols-3 gap-3 mb-6">
         <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
@@ -382,575 +382,718 @@
 const questionsData = [
       {
         id: 1,
-        text: "assinale a opção que apresenta o ato administrativo que complementa o regulamento ordenando seu detalhamento e permitindo que em âmbito interno sejam disciplinadas todas as atividades rotineiras da organização militar",
+        text: "Analise o trecho abaixo conforme contido no Plano Estratégico da Marinha (PEM-2040). “Preparar e empregar o Poder Naval, a fim de contribuir para a Defesa da Pátria; para a garantia dos poderes constitucionais e, por iniciativa de qualquer destes, da lei e da ordem; para o cumprimento das atribuições subsidiárias previstas em Lei; e para o apoio à Política Externa.” O trecho acima se refere à(o):",
         options: [
-          "A) regimento interno",
-          "B) regulamento",
-          "C) organização administrativa",
-          "D) organização de combate",
-          "E) ato de criação"
+          "A) Planejamento da Marinha",
+          "B) Espírito da Marinha",
+          "C) Valor da Marinha",
+          "D) Missão da Marinha",
+          "E) Estratégia da Marinha"
         ],
-        correct: 0,
-        subject: "OGSA"
+        correct: 3,
+        subject: "Missão, Visão e Valores da Marinha"
       },
       {
         id: 2,
-        text: "Assinale a opção que apresenta o ato administrativo que complementa o ato de criação ordenando seu detalhamento e permitindo que em âmbito geral revela a missão organização estrutura e outros?",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040),”A ideia de um pacifismo unilateral dificulta a identificação de ameaças ao Brasil, como também é insustentável, quando constatamos as diversas formas de disputa que ocorreram – e ainda ocorrem – na história da civilização. Na dinâmica e amplitude atuais de emprego do Poder Naval, constatamos a distância existente entre o ‘pacifismo unilateral’ e a realidade daquelas ameaças que, direta ou indiretamente, exigem crescentes níveis de prontidão.” Sendo assim:",
         options: [
-          "A) regulamento",
-          "B) organização administrativa",
-          "C) ato de criação",
-          "D) regimento interno",
-          "E) organização de combate"
+          "A) É primordial investir em educação e na formação dos miliares, seja física, ou tecnológica,\nmalgrado os investimentos no pessoal tenham aumentado os últimos aos, o PEM2040 prevê a\nnecessidade de um maior número de divisas para implementação de uma melhoria\nprofissional.",
+          "B) É importante identificar os inimigos da nação e estimular a indústria bélica do país, além de\numa mentalidade marítima efetiva na população, de modo a destacar a importância da defesa\nda Amazônia Azul e fomentar o patriotismo.",
+          "C) É importante identificar as ameaças existentes ou potenciais ao Brasil e estimular o\ndesenvolvimento de uma mentalidade de defesa na sociedade brasileira, de modo a destacar a\nimportância das questões que envolvam antagonismos aos interesses nacionais, em todas as\nsuas vertentes.",
+          "D) É necessário uma mudança de pensamento na população pois, por se tratar de um país\ncontinental por natureza, grande parte dos brasileiros não vê no mar as oportunidades e\ntambém as ameaças existentes.",
+          "E) É primordial direcionar maiores recursos ao comando da Marinha, de modo que os\ninvestimentos em tecnologias de ponta correspondam ao tamanho das necessidades de\nproteção das fronteiras marítimas nacionais, envidando esforços na proteção do mar, dos rios\ne lagos."
         ],
-        correct: 0,
-        subject: "OGSA"
+        correct: 2,
+        subject: "Poder Marítimo e Fatores Condicionantes"
       },
       {
         id: 3,
-        text: "é o documento que especifica propósito a subordinação a sede o oposto do comandante e a Constituição de um núcleo de implantação quando necessário",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), a _____________ é uma proeminente feição morfológica do Atlântico Sul, com elevado potencial econômico, mineral e energético, o que lhe confere relevância estratégica.",
         options: [
-          "A) ato de criação",
-          "B) organização administrativa",
-          "C) regulamento",
-          "D) organização de combate",
-          "E) regimento interno"
+          "A) Ilha da Trindade",
+          "B) Bacia de Santos",
+          "C) Margem Equatorial",
+          "D) Bacia de Campos",
+          "E) Elevação do Rio Grande"
         ],
-        correct: 0,
-        subject: "OGSA"
+        correct: 4,
+        subject: "Poder Marítimo e Fatores Condicionantes"
       },
       {
         id: 4,
-        text: "a quem compete a aprovação dos regulamentos e regimentos internos das OMS",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), ______________ é a projeção do Poder Nacional, resultante da integração dos recursos de que dispõe a Nação para a utilização do mar e das águas interiores, quer como instrumento de ação política e militar, quer como fator de desenvolvimento econômico e social, visando conquistar e manter os objetivos nacionais.",
         options: [
-          "A) estado maior da armada",
-          "B) Presidente da República",
-          "C) comandante da Marinha ou autoridades que tenham recebido expressa delegação",
-          "D) imediato",
-          "E) ministro da defesa"
+          "A) Projeção Marítima",
+          "B) Poder Marítimo",
+          "C) Projeção Naval",
+          "D) Autoridade Marítima Nacional",
+          "E) Poder Naval"
         ],
-        correct: 2,
-        subject: "OGSA"
+        correct: 3,
+        subject: "Poder Marítimo e Fatores Condicionantes"
       },
       {
         id: 5,
-        text: "a quem compete a aprovação do ato de criação",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), a Autoridade Marítima, exercida pelo Comandante da Marinha, tem como uma de suas principais atribuições:",
         options: [
-          "A) estado maior da armada",
-          "B) Comandante da Om",
-          "C) comandante da Marinha ou presidente da República",
-          "D) imediato",
-          "E) ministro da defesa"
+          "A) Gerenciar a construção de infraestruturas urbanas em cidades portuárias, incluindo\nestradas e sistemas de transporte público, para melhorar a mobilidade urbana.",
+          "B) Garantir a operacionalidade dos portos marítimos nacionais e fiscalizar a entrada e saída de\nmaterial controlado pelos portos brasileiros.",
+          "C) Garantir a operação dos estaleiros nacionais em plena capacidade de funcionamento.",
+          "D) Gerenciar a distribuição de alimentos e insumos médicos para as populações ribeirinhas.",
+          "E) Contribuir para a formulação de políticas nacionais que digam respeito ao mar, em especial\na Política Marítima Nacional (PMN)."
         ],
-        correct: 2,
-        subject: "OGSA"
+        correct: 4,
+        subject: "Poder Marítimo e Fatores Condicionantes"
       },
       {
         id: 6,
-        text: "quanto à organização do estado maior de força indique a resposta INCORRETA",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), correlacione as colunas de acordo com as funções do poder marítimo e depois marque a alternativa correta: (1) Intercomunicação (2) Defesa marítima e ribeirinha (3) Pesquisa (4) Explotação (_) Em uma visão prospectiva de poder, é importante pensar, além dos recursos, também nos interesses que a Nação detém para a efetivação do Poder Marítimo. (_) Contempla elementos e tecnologias contemporâneas que utilizam o mar e as hidrovias como meio de comunicação digital. (_) Tal função desponta no presente século e corresponde à extração de recursos marinhos e fluviais, vivos e não-vivos, para aproveitamento econômico. (_) As linhas de comunicação marítimas e fluviais sempre demandaram proteção, o que corresponde aos meios do Poder Naval, operacionalizado pela MB, e à indústria de defesa para o aprestamento desse poder.",
         options: [
-          "A) no caso de exoneração ou morte do comandante da força Os oficiais do estado maior continuarão em suas funções até a Assunção do novo comandante da força",
-          "B) ao assistente e ajudante de ordens poderão ser atribuídas em caráter cumulativo funções no estado maior conforme suas qualificações",
-          "C) Os oficiais do estado maior poderão intervir nas atividades inerentes ao navio em que estiverem embarcados inclusive naquelas relativas ao cerimonial",
-          "D) Os oficiais que deverão compor o estado maior de uma força serão propostos pelo respectivo Comandante e nomeados de acordo com as normas em vigor",
-          "E) o estado maior de uma força de disporá de Praças em quantidade e especialidade fixadas em tabela de lotação"
+          "A) 2 – 1 – 3 – 4",
+          "B) 3 – 1 – 2 - 4",
+          "C) 2 – 3 – 4 – 1",
+          "D) 3 – 1 – 4 – 2",
+          "E) 1 – 2 – 3 - 4"
         ],
-        correct: 2,
-        subject: "OGSA"
+        correct: 3,
+        subject: "Poder Marítimo e Fatores Condicionantes"
       },
       {
         id: 7,
-        text: "O militar que presenciar qualquer irregularidade em que se envolva pessoal da Marinha ou verificar desvio de objetos pertencentes A Fazenda Nacional e atos comprometedores da segurança das organizações militares da Marinha deve conforme as circunstâncias reprimir de pronto esses atos ou dar parte deles com a maior brevidade a quem?",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), os fatores condicionantes são variáveis com grande capacidade de influenciar o Poder Marítimo, sendo elas, EXCETO:",
         options: [
-          "A) a seu Comandante ou autoridade competente",
-          "B) é o seu imediato",
-          "C) ao seu encarregado",
-          "D) ao oficial de serviço",
-          "E) ao seu superior hierárquico"
+          "A) Capacidade Bélica",
+          "B) Capacidade de Financiamento",
+          "C) Mentalidade Marítima",
+          "D) Necessidade de Desenvolvimento sustentável",
+          "E) Capacidade de Mobilização"
         ],
         correct: 0,
-        subject: "OGSA"
+        subject: "Poder Marítimo e Fatores Condicionantes"
       },
       {
         id: 8,
-        text: "A ordem de quem qualquer oficial ou praça sempre que for conveniente a ordem a disciplina ou a normalidade do serviço prender quem tiver antiguidade inferior a sua?",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), tal concepção está relacionada à mentalidade do principal elemento constituinte do Poder Marítimo, o homem do mar e, em um nível mais amplo, da sociedade em geral, com destaque para a classe dirigente do Estado. A citação anterior está relacionada à(o):",
         options: [
-          "A) do seu Comandante",
-          "B) do oficial de serviço",
-          "C) a sua ordem ou a de autoridade competente",
-          "D) do comandante do distrito naval naval",
-          "E) do Seu imediato"
+          "A) Necessidade de Desenvolvimento Sustentável",
+          "B) Mentalidade Marítima",
+          "C) Capacidade de Mobilização",
+          "D) Poder Naval",
+          "E) Intercomunicação"
         ],
-        correct: 2,
-        subject: "OGSA"
+        correct: 1,
+        subject: "Poder Marítimo e Fatores Condicionantes"
       },
       {
         id: 9,
-        text: "Todo militar que tiver conhecimento de notícia ainda que vaga de algum fato que direta ou indiretamente possa comprometer as tarefas da sua ou de outras organizações militares Ou que tenha relação com os interesses nacionais têm rigorosa obrigação de ou participar de pronto VERBALMENTE  ou por ESCRITO com conveniente reserva a quem?",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), corresponde ao elemento intangível que deve ser fomentado na sociedade brasileira e fortalecido nos atores marítimos:",
         options: [
-          "A) imediato",
-          "B) ao seu Comandante pelos canais competentes ou em caso de urgência diretamente",
-          "C) ao seu superior hierárquico",
-          "D) ao seu encarregado",
-          "E) ao oficial de serviço"
+          "A) Tradição Naval",
+          "B) Mentalidade Naval",
+          "C) Mentalidade Marítima",
+          "D) Poder Marítimo",
+          "E) Tradição Marinheira"
         ],
-        correct: 1,
-        subject: "OGSA"
+        correct: 2,
+        subject: "Poder Marítimo e Fatores Condicionantes"
       },
       {
         id: 10,
-        text: "A ordem de quem oficial ou praça pode prender qualquer militar de antiguidade superior a sua por crime em flagrante e inafiançável?",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), consiste no grau de conscientização da sociedade e dos decisores governamentais sobre a importância do Poder Marítimo e de seus elementos constituintes para a vida da Nação, bem como o sentimento de pertencimento dos homens e mulheres à comunidade marítima brasileira, cuja interação sinérgica favorece a ampliação desse Poder em prol dos interesses nacionais:",
         options: [
-          "A) a ordem do imediato",
-          "B) a ordem do oficial de serviço",
-          "C) a sua ordem",
-          "D) a ordem de autoridade superior",
-          "E) a ordem do comandante do acusado"
+          "A) Poder Marítimo",
+          "B) Poder Naval",
+          "C) Mentalidade Naval",
+          "D) Mentalidade Marítima",
+          "E) Pesquisa Naval"
         ],
         correct: 3,
-        subject: "OGSA"
+        subject: "Poder Marítimo e Fatores Condicionantes"
       },
       {
         id: 11,
-        text: "Em caso de prisão de militar superior quem efetuar a prisão dará logo parte circunstanciada por ESCRITO e por intermédio de quem?",
+        text: "Analise as proposições conforme contido no Plano Estratégico da Marinha (PEM-2040) e depois marque a opção correta: I – Em relação à capacidade de financiamento, temos ainda a estreita dependência entre a disponibilidade de capital e a intensidade dos empreendimentos marítimos, ressaltando que Estados Continentais sem mentalidade Marítima dependem, em grande medida, de apoio privado até que as atividades marítimas assumam uma dinâmica e intensidade que estimulem a iniciativa pública a direcionar mais recursos. F II – No que tange à necessidade de desenvolvimento sustentável, o escasseamento de recursos vivos nos espaços marítimos deve ser considerado, mas, por outro lado, o excesso de medidas restritivas à atividade econômica no mar pode inviabilizar o desenvolvimento de um Poder Marítimo consolidado e forte, o que pressupõe um grau satisfatório de desenvolvimento. V III – A Capacidade de Mobilização é aferida pelo grau de aptidão que tem uma nação para, em tempo adequado, passar de uma situação de paz para a de conflito, com máximo de eficácia e o mínimo de transtornos para a vida nacional. V IV – Ao abordar a Capacidade Tecnológica e Industrial, a intervenção dos governos no seu desenvolvimento vem diminuindo cada vez mais na maioria dos países, a fim de descentralizar ainda mais a antiga tríplice hélice, a qual era composta por governo, academia e empresas. F",
         options: [
-          "A) do oficial de serviço a quem o preso estiver diretamente subordinado",
-          "B) do seu próprio imediato a autoridade a que o preso estiver diretamente subordinado",
-          "C) da autoridade a quem o preso estiver diretamente subordinado",
-          "D) do seu próprio Comandante a autoridade a que o preso estiver diretamente subordinado",
-          "E) do seu oficial de serviço a autoridade a que o preso estiver diretamente subordinado"
+          "A) Apenas I e IV são verdadeiras",
+          "B) Apenas II e III são verdadeiras",
+          "C) Apenas I, II e III são verdadeiras",
+          "D) I,II, III e IV são verdadeiras.",
+          "E) Apenas III e IV são verdadeiras"
         ],
-        correct: 3,
-        subject: "OGSA"
+        correct: 1,
+        subject: "Poder Marítimo e Fatores Condicionantes"
       },
       {
         id: 12,
-        text: "De acordo com as disposições Gerais do ogsa indique a resposta INCORRETA",
+        text: "“Diante do entorno estratégico definido na PND, cumpre destacar que a Política Naval atribui prioridade ao Atlântico Sul, compreendido pelos seguintes limites geoestratégicos: ao Norte, o paralelo 16º N; ao Sul, o Continente Antártico; a Leste, pelo litoral da África Ocidental; e ao Oeste, pela América do Sul. O limite de 16º N tem o propósito de englobar três importantes áreas: a que abrange o espaço entre os salientes nordestino e o ocidental africano, o Mar do Caribe e o litoral brasileiro do hemisfério Norte. Complementarmente, a END estabelece Estratégias de Defesa e Ações Estratégicas de Defesa, destacando duas áreas marítimas que merecem atenção especial, sob o ponto de vista da necessidade de controlar o acesso marítimo ao Brasil.” (Plano Estratégico da Marinha 2040. P..18) De acordo com a leitura do texto, assinale abaixo as duas áreas que merecem atenção especial:",
         options: [
-          "A) o uso de bigode é permitido aos oficiais subciais Sargentos e praças especiais",
-          "B) só o comandante ou subordinado por ele autorizado poderá fazer comunicação verbal ou escrita para fora de sua unidade sobre assuntos operativos ou administrativos",
-          "C) os militares presos só poderão ser postos em liberdade por determinação da autoridade a cuja ordem tiver sido efetuada a prisão ou de autoridade superior",
-          "D) todas as representações partes ou requerimentos que militares da Marinha dirigirem a autoridades superiores devem ser encaminhados por intermédio do seu respectivo Comandante o qual hoje transmitirá a quem de direito dando sua própria informação a respeito antes de decorrido prazo de 8  dias desde o seu recebimento",
-          "E) se pessoa estranha a marinha cometer crime a Bordo será presa e autuada em flagrante delito em seguida será apresentada a autoridade competente"
+          "A) A Faixa que compreende todo o litoral dos estados do Rio de Janeiro e São Paulo e também\no Litoral do Nordeste entre os estados da Bahia e do Ceará.",
+          "B) A área mais próxima ao mar do Caribe, por conta das disputas recentes; e a faixa do\nAtlântico Sul que vai do Espírito Santo até o Rio Grande do Sul.",
+          "C) O Litoral do Nordeste, por ser o ponto mais próximo do continente africano e a região da\nElevação do Rio Grande.",
+          "D) A Área da Elevação do Rio Grande e também a faixa litorânea que vai de Paranaguá até\nVitória.",
+          "E) A faixa entre Santos e Vitória e a área marítima em torno da Foz do Rio Amazonas."
         ],
-        correct: 0,
-        subject: "OGSA"
+        correct: 4,
+        subject: "Poder Marítimo e Fatores Condicionantes"
       },
       {
         id: 13,
-        text: "Nas organizações militares comandadas por Almirante a delegação de competência para imposição de penas disciplinares deverá ser explicitada em qual documento",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), A Amazônia Azul é um conceito político-estratégico que vem sendo divulgado pela MB, com o objetivo de alertar a sociedade e demais instituições nacionais sobre a importância desse espaço marítimo e fluvial sob jurisdição nacional, à luz dos direitos e deveres estabelecidos na Terceira Convenção das Nações Unidas sobre o Direito no Mar (CNUDM III). Sua abordagem apresenta quatro vertentes, a saber, EXCETO:",
         options: [
-          "A) regimento interno ou organização administrativa",
-          "B) organização de combate",
-          "C) ato de criação",
-          "D) regulamento",
-          "E) ordem do dia"
+          "A) Mobilidade",
+          "B) Científica",
+          "C) Soberania",
+          "D) Econômica",
+          "E) Ambiental"
         ],
         correct: 0,
-        subject: "OGSA"
+        subject: "Poder Marítimo e Fatores Condicionantes"
       },
       {
         id: 14,
-        text: "é dever específico de todo oficial da",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), correlacione as colunas de acordo com o que se pede e depois marque a alternativa correta. (1) Poder Marítimo (2) Poder Naval (_) O ____________ dual resulta da integração dos recursos de que dispõe a Nação para a utilização do mar e hidrovias como instrumento de ação político-militar e como fator de desenvolvimento socioeconômico. (_) A principal área de atuação do nosso _____________ é a Amazônia Azul, situada no Atlântico Sul, conceito “oceanopolítico” que congrega as AJB, sem descurar de nossas hidrovias, à luz dos direitos e deveres estabelecidos na CNUDM III. (_) O _______________ deve prover uma defesa de amplo espectro para os interesses marítimos nacionais. (_) O _____________ está relacionado à intercomunicação e à defesa, e também à pesquisa e explotação – com destaque, no Brasil atual, para o setor petrolífero offshore no Pré-sal.",
         options: [
-          "A) manter-se atualizado quanto aos conhecimentos operativos técnicos e administrativos",
-          "B) priorizar interesses pessoais quando necessário",
-          "C) é dever específico de todo oficial da Marinha apenas cumprir ordens superiores sem questionamentos",
-          "D) executar apenas tarefas administrativas",
-          "E) delegar todas as fanhas ao subordinados"
+          "A) 1 – 1 – 2 – 1",
+          "B) 2 – 1 – 1 – 1",
+          "C) 2 – 1 – 2 – 1",
+          "D) 1 – 1 – 1 – 1",
+          "E) 1 – 2 – 2 – 1"
         ],
-        correct: 0,
-        subject: "OGSA"
+        correct: 3,
+        subject: "Poder Marítimo e Fatores Condicionantes"
       },
       {
         id: 15,
-        text: "oficial deve ao entrar e sair de bordo",
+        text: "“No ‘xadrez oceanopolítico’ internacional, a gama de atores e interesses envolvidos exigem criteriosa e contínua análise, de modo a estarmos sintonizados adequadamente às capacidades necessárias para a correta contribuição ao planejamento estratégico nacional. Nesse conflitivo contexto, algumas áreas marítimas estão sendo envolvidas em fenômenos ‘oceanopolíticos’ denominados de _________________.”",
         options: [
-          "A) informar apenas ao imediato",
-          "B) não há obrigação formal",
-          "C) comunicar-se apenas com o comandante",
-          "D) registrarem em livro de ocorrência",
-          "E) apresentar-se ao oficial de serviço e ao imediato"
+          "A) Busca pelo domínio do mar",
+          "B) Nova Expansão Marítima",
+          "C) Neocolonialismo",
+          "D) Territorialização",
+          "E) Expansão Marítima Contemporânea"
         ],
-        correct: 4,
-        subject: "OGSA"
+        correct: 3,
+        subject: "Ameaças ao Poder Marítimo"
       },
       {
         id: 16,
-        text: "quanto à conservação do material é dever do oficial",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040),como é chamado o fenômeno que representa a busca de poder pelos Estados sobre os ambientes marítimos?",
         options: [
-          "A) zelar pela boa conservação do material",
-          "B) cuidar apenas do material sob sua posse direta",
-          "C) delegar exclusivamente aos suborciais",
-          "D) fiscalizar somente equipamentos administrativos",
-          "E) não possui responsabilidade direta"
+          "A) Domínio do Mar Contemporâneo",
+          "B) Nova expansão marítima",
+          "C) Zona Econômica Exclusiva",
+          "D) Extensão da plataforma continental",
+          "E) Territorialização"
         ],
-        correct: 0,
-        subject: "OGSA"
+        correct: 4,
+        subject: "Ameaças ao Poder Marítimo"
       },
       {
         id: 17,
-        text: "no Exercício de comando é responsabilidade dos oficiais",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040),complete corretamente as lacunas com uma das opções abaixo: “ A(o) _____________ que nem sempre decorre de políticas como a(o) ______________, pode causar graves danos econômicos e ambientais, sendo uma ameaça que não pode ser descartada, inclusive em combinação com as demais.”",
         options: [
-          "A) delegar sempre a aplicação de penas",
-          "B) aplicar punições somente com autorização superior",
-          "C) apenas registrar ocorrência",
-          "D) encaminhar todos os casos a justiça militar",
-          "E) impor penas disciplinares"
+          "A) Vandalismo - Sabotagem",
+          "B) Sabotagem - Terrorismo",
+          "C) Terrorismo - Vandalismo",
+          "D) Sabotagem - Vandalismo",
+          "E) Vandalismo - Terrorismo"
         ],
-        correct: 4,
-        subject: "OGSA"
+        correct: 1,
+        subject: "Ameaças ao Poder Marítimo"
       },
       {
         id: 18,
-        text: "na ausência acidental do comandante da força quem o representa nos casos urgentes",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), assinale abaixo a opção que define corretamente a Zona de Paz e Cooperação (ZOPACAS):",
         options: [
-          "A) imediato",
-          "B) oficial de serviço",
-          "C) Comandante de OM subordinada",
-          "D) Comandante",
-          "E) chefe do estado maior"
+          "A) A ZOPACAS integra todos os países da América Latina, abaixo do paralelo 16ºN, voltados\npara o Atlântico e funciona como um grupo de cooperação econômica e um fórum de debate\nsobre defesa.",
+          "B) A ZOPACAS surgiu, inicialmente, como um fórum de debates sobre a preservação do\nambiente marinho no Atlântico Sul e, com o passar dos anos, as pautas de interesse do fórum\nforam aumentando e hoje, além de seu crescimento exponencial (foi aderido por todos os\npaíses que possuem sua costa para o Atlântico Sul), ganha importância pela quantidade de\ndebates em torno de ações de paz.",
+          "C) A ZOPACAS integra 24 países lindeiros ao Atlântico Sul, sendo um fórum de concertação que\nbusca criar condições para que as rivalidades extra-regionais não venham afetar as relações\neconômicas e políticas nesse espaço geopolítico",
+          "D) A ZOPACAS integra Brasil, Uruguai e Argentina e funciona como um fórum de cooperação\nambiental para preservação do Atlântico Sul e defesa dos interesses econômicos desses países.",
+          "E) A ZOPACAS foi uma iniciativa do governo brasileiro durante o Governo da Presidente Dilma\nRouseff. A Zona deve servir como base para estudos e também para manutenção da paz no\nAtlântico Sul."
         ],
-        correct: 4,
-        subject: "OGSA"
+        correct: 2,
+        subject: "Ameaças ao Poder Marítimo"
       },
       {
         id: 19,
-        text: "onde o chefe do estado maior escreverá ou fará escrever sobre sua inspeção e responsabilidade o histórico dos movimentos e operações da força e de outras ocorrências importantes que interessem a força Este Diário receberá o visto do comandante da força e ficará sujeito às alterações que este entender introduzir",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), assinale V ou F nas proposições abaixo: (_) Os espaços marítimos, independentemente das riquezas que possuem, tornaram-se objeto de intensa disputa na conjuntura contemporânea. (_) A presença de uma potência naval superior no Atlântico Sul, com capacidade de paralisar o tráfego marítimo, o abastecimento e o comércio brasileiro não representa forte ameaça à soberania nacional, em virtude dos grandes esforços realizados para manter a Marinha do Brasil como a maior força naval do hemisfério Sul. (_) No Atlântico Sul, as ações de pirataria que antes concentravam-se na margem africana, em regiões como o Golfo da Guiné, têm se expandido cada vez mais em direção ao Atlântico Ocidental, tornando-se uma ameaça cada vez mais real ao espaço marítimo brasileiro. (_) Atualmente, ocorre um esforço global para a criação de uma rede de combate à pesca ilegal. (_) O espaço cibernético não possui fronteiras físicas, permeia todos o setores (marítimo, terrestre, aéreo e espacial) e é considerado um teatro de operações civis.",
         options: [
-          "A) diário histórico da força",
-          "B) Diário de quarto",
-          "C) livro de histórico da força",
-          "D) livro da força",
-          "E) diário de bordo"
+          "A) V – F – F – F – V",
+          "B) F – F – F – F – F",
+          "C) V – V –V – V – V",
+          "D) F – F – F – V – F",
+          "E) V – V – V – F – V"
         ],
-        correct: 0,
-        subject: "OGSA"
+        correct: 3,
+        subject: "Ameaças ao Poder Marítimo"
       },
       {
         id: 20,
-        text: "Quem é responsável por registrar o que ocorrer durante a reunião do comandante da força e os comandantes das unidades subordinadas seu estado maior e outros oficiais não especificados para tratar de assuntos sigilosos",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), assinale abaixo a opção a qual representa o conceito estratégico maritimo-naval que deve privilegiar tanto a interoperabilidade - capacidade de forças militares nacionais operarem, efetivamente, de acordo com a estrutura de comando estabelecida - quanto a capacidade de conduzir operações interagências que integram as Forças Armadas e outros órgãos com a finalidade de conciliar interesses e coordenar esforços, o que se revela crucial nas vastas proporções marítimas e fluviais brasileiras:",
         options: [
-          "A) chefe do estado maior",
-          "B) Comandante de força",
-          "C) oficial mais moderno",
-          "D) ajudante de ordens",
-          "E) secretário"
+          "A) Combate Autônomo Naval",
+          "B) Combate naval moderno",
+          "C) Combate no mar",
+          "D) Combate pelo mar",
+          "E) Combate naval contemporâneo"
         ],
-        correct: 0,
-        subject: "OGSA"
+        correct: 3,
+        subject: "Princípios de Guerra e Características da Força Naval"
       },
       {
         id: 21,
-        text: "em seu impedimento quem substituirá o chefe do estado maior",
+        text: "\"O paradigma clássico associado ao Combate no Mar se mantém até os dias atuais na DMN, representado pelas tarefas básicas do Poder Naval conhecidas como 'Negação do Uso do Mar', 'Controle de Áreas Marítimas' e 'Projeção de Poder sobre Terra', das quais decorrem as operações e ações de Guerra Naval, devendo ser realizadas por uma Força balanceada entre os componentes de superfície, submarino, anfíbio e aéreo. (Plano Estratégico da Marinha - PEM2040. p.. 35). Com base no texto acima, correlacione as colunas e depois marque a opção correta. (1) Negação do uso do mar (2) Controle das águas marítimas (3) Projeção de poder sobre terra (_) Consiste em um certo grau de garantia de utilização, ainda que temporária, de áreas marítimas limitadas, estacionárias ou móveis, exercido na intensidade adequada à execução de atividades específicas. (_) É a transposição da influência do Poder Naval sobre áreas de interesse, sejam elas terrestres ou marítimas, abrangendo um amplo espectro de atividades, que incluem, desde a presença de forças até a realização de operações navais. (_) Essa tarefa consiste em dificultar o estabelecimento do controle de área marítima pelo inimigo ou a exploração de tão controle.",
         options: [
-          "A) secretário",
-          "B) o comandante de força",
-          "C) comandante mais antigo de om subordinada",
-          "D) oficial mais antigo pertencente ao estado maior",
-          "E) o ajudante de ordens"
+          "A) 1 - 2 - 3",
+          "B) 3 - 2 - 1",
+          "C) 1 - 3 - 2",
+          "D) 2 - 3 - 1",
+          "E) 3 - 1 - 2"
         ],
         correct: 3,
-        subject: "OGSA"
+        subject: "Princípios de Guerra e Características da Força Naval"
       },
       {
         id: 22,
-        text: "é atribuição de quem acompanhar o comandante da força em suas inspeções?",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), as relações internacionais são sustentadas, no que concerne aos oceanos, desde o final do século passado, no regime jurídico internacional da CNUDM III, no quão convivem dois princípios básicos, sendo eles:",
         options: [
-          "A) comandante da om",
-          "B) oficiais do estado maior",
-          "C) encarregado de divisão",
-          "D) chefe de departamento",
-          "E) chefe do estado maior"
+          "A) Domínio da região costeira e explotação de matéria-prima energética",
+          "B) Soberania sobre os recursos naturais e liberdade de navegação.",
+          "C) A livre navegação dos povos e o princípio da cordialidade naval",
+          "D) A não intervenção ao território vizinho através do mar e delimitação de fronteiras\npermanentemente protegidas.",
+          "E) a regulação do trânsito de pessoas e materiais, além de um sistema de informação\ninterligando os principais portos mundiais."
         ],
         correct: 1,
-        subject: "OGSA"
+        subject: "Poder Marítimo e Fatores Condicionantes"
       },
       {
         id: 23,
-        text: "na ausência ou impedimento do chefe de gabinete quem irá substituí-lo",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), o trecho abaixo faz referência a qual princípio de guerra: \"A distribuição e emprego judiciário dos meios disponíveis para a obtenção do esforço máximo nos locais e ocasiões decisivos.\"",
         options: [
-          "A) Comandante de força",
-          "B) chefe do estado maior",
-          "C) oficial mais antigo pertencente ao gabinete",
-          "D) assistente ou ajudante de ordens",
-          "E) oficial mais antigo"
+          "A) Economia de Forças",
+          "B) Objetivo",
+          "C) Manobra",
+          "D) Surpresa",
+          "E) Prontidão"
         ],
-        correct: 2,
-        subject: "OGSA"
+        correct: 0,
+        subject: "Princípios de Guerra e Características da Força Naval"
       },
       {
         id: 24,
-        text: "o assistente deverá ser preferencialmente do mesmo corpo ou quadro a que pertencer o Almirante ou Comandante de força no gabinete no qual for servir devendo ser de que posto?",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), o trecho abaixo faz referência a qual princípio de guerra: \"Caracterizado pela intensificação das ações ofensivas, adotando a iniciativa das ações, para ampliar o êxito inicial, sempre que for obtido um sucesso estratégico ou tático, ou houver evolução favorável na situação.\"",
         options: [
-          "A) primeiro Tenente",
-          "B) Capitão Tenente",
-          "C) Capitão de mar e guerra",
-          "D) Capitão de corveta",
-          "E) Capitão de Fragata"
+          "A) Exploração",
+          "B) Economia de Forças",
+          "C) Surpresa",
+          "D) Ofensiva",
+          "E) Manobra"
         ],
-        correct: 3,
-        subject: "OGSA"
+        correct: 0,
+        subject: "Princípios de Guerra e Características da Força Naval"
       },
       {
         id: 25,
-        text: "responder perante o chefe do estado maior e gabinete pela escrituração dos livros da om são atribuições de quem",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), o princípio de guerra que contribui para obter superioridade, aproveitar o êxito alcançado e preservar a liberdade de ação, bem como para reduzir as suas próprias vulnerabilidades é:",
         options: [
-          "A) chefe do estado maior",
-          "B) assistente",
-          "C) chefe de gabinete",
-          "D) Comandante de força",
-          "E) ajudante de ordens"
+          "A) Ofensiva",
+          "B) Prontidão",
+          "C) Objetivo",
+          "D) Exploração",
+          "E) Manobra"
         ],
-        correct: 1,
-        subject: "OGSA"
+        correct: 4,
+        subject: "Princípios de Guerra e Características da Força Naval"
       },
       {
         id: 26,
-        text: "representar o Almirante o comandante de força em solenidades e Outros Atos quando ordenado é atribuição de quem?",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), o trecho abaixo faz referência a qual princípio de guerra: \"Compreende a aplicação de forças superiores às do inimigo, em termos de quantidade, qualidade e eficiência, em um ponto decisivo, no tempo devido, com capacidade para sustentar esse esforço, enquanto necessário.\"",
         options: [
-          "A) assistente e ajudante de ordens",
-          "B) oficiais do gabinete",
-          "C) oficiais do estado maior",
-          "D) Comandante de força",
-          "E) chefe do estado maior"
+          "A) Objetivo",
+          "B) Moral",
+          "C) Massa",
+          "D) Manobra",
+          "E) Ofensiva"
         ],
-        correct: 0,
-        subject: "OGSA"
+        correct: 2,
+        subject: "Princípios de Guerra e Características da Força Naval"
       },
       {
         id: 27,
-        text: "administraram o rancho do Almirante ou Comandante de força é atribuição de quem",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), qual princípio de guerra define o estado de ânimo ou atitude mental de um indivíduo, ou de um grupo de indivíduos, que se reflete na conduta da tropa?",
         options: [
-          "A) assistente",
-          "B) chefe do estado maior",
-          "C) chefe de gabinete",
-          "D) ajudantes de ordens",
-          "E) oficial mais antigo do estado maior"
+          "A) Segurança",
+          "B) Unidade de Comando",
+          "C) Ofensiva",
+          "D) Moral",
+          "E) Surpresa"
         ],
         correct: 3,
-        subject: "OGSA"
+        subject: "Princípios de Guerra e Características da Força Naval"
       },
       {
         id: 28,
-        text: "o ajudante de ordens deverá ser preferencialmente do mesmo corpo ou quadro a que pertencer o Almirante no gabinete do qual for servir e possuir os cursos inerentes à sua antiguidade e deverá ser de qual posto",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), o trecho abaixo faz referência a qual princípio de guerra: \"Caracterizado por levar a ação bélica ao inimigo, de forma a se obter e manter a iniciativa das ações estabelecer o ritmo das operações, determinar o curso do combate e, assim, impor sua vontade.\"",
         options: [
-          "A) segundo tenente",
-          "B) Capitão Tenente",
-          "C) Capitão de corveta",
-          "D) Capitão de mar e guerra",
-          "E) Capitão de Fragata"
+          "A) Surpresa",
+          "B) Manobra",
+          "C) Segurança",
+          "D) Ofensiva",
+          "E) Objetivo"
         ],
-        correct: 1,
-        subject: "OGSA"
+        correct: 3,
+        subject: "Princípios de Guerra e Características da Força Naval"
       },
       {
         id: 29,
-        text: "organizar agenda do Almirante ou Comandante de força é atribuição de quem",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), a capacidade de pronto atendimento da FA para fazer face às situações que podem ocorrer em ambiente de combate está ligada a qual princípio da guerra?",
         options: [
-          "A) chefe do estado maior",
-          "B) ajudantes de ordem",
-          "C) assistente",
-          "D) chefe de gabinete",
-          "E) imediato"
+          "A) Moral",
+          "B) Unidade de Comando",
+          "C) Prontidão",
+          "D) Segurança",
+          "E) Manobra"
         ],
-        correct: 1,
-        subject: "OGSA"
+        correct: 2,
+        subject: "Princípios de Guerra e Características da Força Naval"
       },
       {
         id: 30,
-        text: "propor quando for o caso a atualização a alteração substituição ou a revogação dos documentos normativos pertinentes referentes as suas atribuições é função de quem",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), o trecho abaixo faz referência a qual princípio de guerra: \"Consiste nas medidas essenciais à liberdade de ação e à preservação do poder de combate necessário ao emprego eficiente das FA, mitigado os riscos envolvidos nas operações. \"",
         options: [
-          "A) assistente",
-          "B) ajudante de ordens",
-          "C) demais oficiais do gabinete",
-          "D) de mais oficiais do estado maior",
-          "E) chefe de gabinete"
+          "A) Segurança",
+          "B) Ofensiva",
+          "C) Simplicidade",
+          "D) Objetivo",
+          "E) Manobra"
         ],
-        correct: 2,
-        subject: "OGSA"
+        correct: 0,
+        subject: "Princípios de Guerra e Características da Força Naval"
       },
       {
         id: 31,
-        text: "é atribuição de quem assessorar o Almirante nas suas funções auxiliando a transmissão de ordens na execução de providências e nos entendimentos com as autoridades",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), qual dos princípios de guerra que preconiza a preparação e a execução de ordens e planos com concepções claras e facilmente inteligíveis?",
         options: [
-          "A) chefe de gabinete",
-          "B) demais oficiais do estado maior",
-          "C) chefe do estado maior",
-          "D) ajudante de ordem",
-          "E) assistente"
+          "A) Moral",
+          "B) Unidade de Comando",
+          "C) Surpresa",
+          "D) Simplicidade",
+          "E) Segurança"
         ],
-        correct: 0,
-        subject: "OGSA"
+        correct: 3,
+        subject: "Princípios de Guerra e Características da Força Naval"
       },
       {
         id: 32,
-        text: "é atribuição de quem assistir o Almirante na sua representação funcional e social",
+        text: "De acordo com o PEM-2040, qual princípio de guerra \"consiste em golpear o inimigo onde, quando ou de forma tal que ele não esteja separado.\"",
         options: [
-          "A) demais oficiais do estado maior",
-          "B) ajudante de ordem",
-          "C) assistente",
-          "D) chefe de gabinete",
-          "E) chefe do estado maior"
+          "A) Economia de Forças",
+          "B) Manobra",
+          "C) Simplicidade",
+          "D) Exploração",
+          "E) Surpresa"
         ],
-        correct: 3,
-        subject: "OGSA"
+        correct: 4,
+        subject: "Princípios de Guerra e Características da Força Naval"
       },
       {
         id: 33,
-        text: "é atribuição de quem preparar ou fazer preparar bem como distribuir ordens do dia ordem de serviço portarias e demais documentos",
+        text: "De acordo com o PEM-2040, existem três porções marítimas diferenciadas de interesse para o Brasil, as quais são denominadas:",
         options: [
-          "A) chefe de gabinete",
-          "B) assistente",
-          "C) demais oficiais do estado maior",
-          "D) ajudante de ordem",
-          "E) chefe do estado maior"
+          "A) Oceânica, Costeira e interiores.",
+          "B) Águas oceânicas, litorâneas e fluviais.",
+          "C) Plataforma continental, Zona econômica exclusiva e mar territorial.",
+          "D) Águas territoriais, patrimoniais e de interesse marítimo.",
+          "E) Águas limítrofes, águas interiores e águas territoriais."
         ],
-        correct: 0,
-        subject: "OGSA"
+        correct: 3,
+        subject: "Poder Marítimo e Fatores Condicionantes"
       },
       {
         id: 34,
-        text: "é atribuição de quem preparar e processar a correspondência funcional e pessoal do Almirante",
+        text: "De acordo com o PEM-2040, as características de uma Força Naval são, EXCETO:",
         options: [
-          "A) assistente",
-          "B) demais oficiais do estado maior",
-          "C) ajudante de ordem",
-          "D) chefe de gabinete",
-          "E) chefe do estado maior"
+          "A) Mobilidade",
+          "B) Permanência",
+          "C) Flexibilidade",
+          "D) Manobra",
+          "E) Versatilidade"
         ],
         correct: 3,
-        subject: "OGSA"
+        subject: "Princípios de Guerra e Características da Força Naval"
       },
       {
         id: 35,
-        text: "é atribuição de quem programar e dirigir o cerimonial e as solenidades oficiais",
+        text: "De acordo com o PEM-2040, qual característica de uma Força Naval é representada pela definição abaixo: \"Representa a capacidade de deslocar-se prontamente e a grandes distâncias, mantendo elevado nível de prontidão.\"",
         options: [
-          "A) chefe de gabinete",
-          "B) assistente",
-          "C) demais oficiais do estado maior",
-          "D) ajudante de ordem",
-          "E) chefe do estado maior"
+          "A) Manobra",
+          "B) Permanência",
+          "C) Mobilidade",
+          "D) Versatilidade",
+          "E) Flexibilidade"
         ],
-        correct: 0,
-        subject: "OGSA"
+        correct: 2,
+        subject: "Princípios de Guerra e Características da Força Naval"
       },
       {
         id: 36,
-        text: "é atribuição de quem organizar a documentação histórica da om",
+        text: "De acordo com o PEM-2040, qual característica de uma Força Naval é representada pela definição abaixo: \"Significa a capacidade de organizar grupamentos operativos de diferentes valores, em função da missão, possibilitando seu emprego gradativo.\"",
         options: [
-          "A) assistente",
-          "B) ajudante de ordem",
-          "C) chefe do estado maior",
-          "D) demais oficiais do estado maior",
-          "E) chefe de gabinete"
+          "A) Flexibilidade",
+          "B) Permanência",
+          "C) Versatilidade",
+          "D) Mobilidade",
+          "E) Manobra"
         ],
-        correct: 4,
-        subject: "OGSA"
+        correct: 0,
+        subject: "Princípios de Guerra e Características da Força Naval"
       },
       {
         id: 37,
-        text: "é atribuição de quem fazer o detalhe de serviço das praças do estado maior e gabinete",
+        text: "De acordo com o PEM-2040, qual característica de uma Força Naval é representada pela definição abaixo: \"Representa a aptidão para executar uma ampla gama de tarefas e diferentes níveis de prontidão.\"",
         options: [
-          "A) demais oficiais do estado maior",
-          "B) chefe de gabinete",
-          "C) chefe do estado maior",
-          "D) assistente",
-          "E) ajudante de ordem"
+          "A) Flexibilidade",
+          "B) Mobilidade",
+          "C) Permanência",
+          "D) Versatilidade",
+          "E) Manobra"
         ],
         correct: 3,
-        subject: "OGSA"
+        subject: "Princípios de Guerra e Características da Força Naval"
       },
       {
         id: 38,
-        text: "é atribuição de quem responder perante ao chefe do estado maior e gabinete pela escrituração dos livros da om",
+        text: "De acordo com o PEM-2040, qual característica de uma Força Naval é representada pela definição abaixo: \"Indica a capacidade de operar, continuamente, com independência e por longos períodos, em áreas distantes e de grandes dimensões. \"",
         options: [
-          "A) ajudante de ordem",
-          "B) assistente",
-          "C) chefe de gabinete",
-          "D) chefe do estado maior",
-          "E) demais oficiais do estado maior"
+          "A) Manobra",
+          "B) Mobilidade",
+          "C) Permanência",
+          "D) Flexibilidade",
+          "E) Versatilidade"
         ],
-        correct: 1,
-        subject: "OGSA"
+        correct: 2,
+        subject: "Princípios de Guerra e Características da Força Naval"
       },
       {
         id: 39,
-        text: "é atribuição de quem coordenar e uniformizar os métodos as normas e as práticas relativas ao preparo a expedição ao recebimento a distribuição e ao arquivamento da correspondência de acordo com as instruções em vigor",
+        text: "De acordo com o PEM-2040, a Área Marítima do Atlântico Sul (AMAS) é composta dos seguintes países, EXCETO",
         options: [
-          "A) assistente",
-          "B) chefe de gabinete",
-          "C) ajudante de ordem",
-          "D) chefe do estado maior",
-          "E) demais oficiais do estado maior"
+          "A) Paraguai",
+          "B) Argentina",
+          "C) Uruguai",
+          "D) Chile",
+          "E) Brasil"
         ],
-        correct: 0,
-        subject: "OGSA"
+        correct: 3,
+        subject: "Poder Marítimo e Fatores Condicionantes"
       },
       {
         id: 40,
-        text: "é atribuição de quem ter a seu cargo a secretaria do comando e gabinete",
+        text: "De acordo com o PEM-2040, o ciclo OODA para tomada de decisões é constituído em 4 fases, EXCETO:",
         options: [
-          "A) demais oficiais do estado maior",
-          "B) ajudante de ordem",
-          "C) chefe de gabinete",
-          "D) chefe do estado maior",
-          "E) assistente"
+          "A) Observar",
+          "B) Decidir",
+          "C) Orientar",
+          "D) Organizar",
+          "E) Agir"
         ],
-        correct: 4,
-        subject: "OGSA"
+        correct: 3,
+        subject: "Princípios de Guerra e Características da Força Naval"
       },
       {
         id: 41,
-        text: "é atribuição de quem administrar o rancho do Almirante ou Comandante de força",
+        text: "“O conceito de estratégia, estabelecido no início do século XIX, inicialmente compreendia a dimensão militar, de emprego ou ameaça do uso da força para fins políticos. Porém, no século passado, o conceito de “estratégia” ultrapassou a esfera militar, passando a abranger outras expressões do Poder Nacional, compreendidas como instrumentos para a consecução dos objetivos de um Estado. A última extensão contemporânea foi além dos meios para alcançar fins políticos, pois a expressão passou a representar não só como atingi-los, mas também outras finalidades decorrentes de qualquer atividade humana. Sendo assim, a estratégia passou a refletir manobras e operações para atingir um propósito em geral, expressando como uma organização utiliza seus pontos fortes e corrige os fracos – existentes ou potenciais – para atingir seus objetivos, levando em consideração as oportunidades e ameaças do ambiente. (Plano Estratégico da Marinha 2040. P..48) No moderno sentido de planejamento, a estratégia pode ser definida como:",
         options: [
-          "A) chefe de gabinete",
-          "B) ajudante de ordem",
-          "C) chefe do estado maior",
-          "D) demais oficiais do estado maior",
-          "E) assistente"
+          "A) Um preceito teórico decorrente do estudo de campanhas militares ao longo da história, o\nqual apresenta variações no espaço e no tempo.",
+          "B) A navegação adequada para alcançar determinado objetivo ou superar certo desafio,\nsempre com o foco no futuro desejado.",
+          "C) A ciência contemporânea que envolve o Estado como elemento central para adoção de\ndecisões soberanas.",
+          "D) A consideração na prioridade de objetivos e na concepção de sistemas defensivos.",
+          "E) A provisão de defesa de um amplo aspecto para os interesses nacionais, pautados a partir\nde estudos profundos e planejamento prévio."
         ],
         correct: 1,
-        subject: "OGSA"
+        subject: "Planejamento Estratégico (PEM/SPAN)"
       },
       {
         id: 42,
-        text: "é atribuição de quem assistir a recepção e a despedida de todos os comandantes de forças navios e outras pessoas em visita ao Almirante ou Comandante de força",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), qual das opções abaixo é descrita como uma ferramenta essencial para a obtenção de uma estratégia efetiva:",
         options: [
-          "A) ajudante de ordem",
-          "B) chefe do estado maior",
-          "C) demais oficiais do estado maior",
-          "D) chefe de gabinete",
-          "E) assistente"
+          "A) Planejamento",
+          "B) Organização",
+          "C) Planejamento estratégico",
+          "D) Cenarização",
+          "E) Logística"
         ],
-        correct: 0,
-        subject: "OGSA"
+        correct: 3,
+        subject: "Planejamento Estratégico (PEM/SPAN)"
       },
       {
         id: 43,
-        text: "é atribuição de quem organizar a agenda do Almirante ou Comandante de força",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), é um documento que indica os caminhos a seguir e, por ser dinâmico, pode e deve ser atualizado, tendo por base a gestão estratégica; serve para a divulgação da estratégia a ser adotada; um norte para a Instituição, em que pese seu caráter dinâmico. O decisor estratégico define as prioridades da sua administração.",
         options: [
-          "A) chefe de gabinete",
-          "B) ajudante de ordem",
-          "C) demais oficiais do estado maior",
-          "D) chefe do estado maior",
-          "E) assistente"
+          "A) Calendário Organizacional",
+          "B) Linha de Ação",
+          "C) Planejamento Positivo",
+          "D) Plano Estratégico",
+          "E) Mapa Decisório"
         ],
-        correct: 1,
-        subject: "OGSA"
+        correct: 3,
+        subject: "Planejamento Estratégico (PEM/SPAN)"
       },
       {
         id: 44,
-        text: "é atribuição de quem auxiliar Os oficiais do estado maior e do gabinete",
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), o planejamento estratégico militar compreende três níveis. Qual das opções abaixo representa os níveis citados:",
         options: [
-          "A) demais oficiais do gabinete",
-          "B) chefe do estado maior",
-          "C) demais oficiais do estado maior",
-          "D) assistente e ajudante de ordem",
-          "E) chefe de gabinete"
+          "A) Nacional, formado pelo Presidente da República, pelo Ministro da Defesa e pelo Ministro da\nJustiça e Segurança pública; Setorial, formado pelos comandantes das Forças Armadas;\nSubsetorial, formado pelos Governadores de Estado e Pelos Comandantes Gerais das Forças\nAuxiliares.",
+          "B) Nacional, formado pelas mais altas autoridades do país; Setorial, constituído pelo Ministério\nda Defesa e demais órgãos com responsabilidades diretas; Subsetorial, composto pelas Forças\nArmadas.",
+          "C) Nacional, formado pelo Presidente da República e pelos Governadores de Estado; Setorial,\nformado pelo Ministro da Defesa e os comandantes das Forças Armadas; Subsetorial, formado\npelos Distritos Navais, Comandos Militares e Comandos Aéreos Regionais.",
+          "D) Nacional, formado pelo Presidente da República; Setorial, formado pelo Ministro da Defesa\ne pelos Comandantes das Forças Armadas; Subsetorial, formado pelos comandantes gerais das\nforças auxiliares.",
+          "E) Nacional, formado pelo Presidente da República e pelo Ministro da Defesa; Setorial,\nformado pelas Forças Armadas; Subsetorial, formado pelas Forças Auxiliares."
+        ],
+        correct: 1,
+        subject: "Planejamento Estratégico (PEM/SPAN)"
+      },
+      {
+        id: 45,
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), complete as lacunas de acordo com a opção correta: “O PEM é elaborado pelo(a) ________________ e aprovado pelo ___________________, com horizonte temporal de ________________, devendo ser sistematicamente revisto e atualizado a cada ________________.",
+        options: [
+          "A) Comando de Operações Navais – Comandante da Marinha – 25 anos – 5 anos.",
+          "B) Secretaria Geral da Marinha – Estado-Maior da Armada – 20 anos – 4 anos.",
+          "C) Estado-Maior da Armada – Comandante da Marinha – 20 anos – 4 anos.",
+          "D) Comando de Operações Navais – Comandante da Marinha – 20 anos – 5 anos.",
+          "E) Estado-Maior da Armada – Secretaria Geral da Marinha – 25 anos – 5 anos."
+        ],
+        correct: 2,
+        subject: "Planejamento Estratégico (PEM/SPAN)"
+      },
+      {
+        id: 46,
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), é a componente preponderante e essencial da destinação constitucional das FA e deve ser o propósito principal da MB:",
+        options: [
+          "A) Garantia da Lei e da Ordem",
+          "B) Salvaguarda da Vida Humana",
+          "C) Defesa da Pátria",
+          "D) Culto ao símbolos nacionais",
+          "E) Garantia dos Poderes Constitucionais"
+        ],
+        correct: 2,
+        subject: "Missão, Visão e Valores da Marinha"
+      },
+      {
+        id: 47,
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), é a virtude que deve ser comum a todos que servem à Marinha:",
+        options: [
+          "A) Zelo",
+          "B) Honra",
+          "C) Espírito de Sacrifício",
+          "D) Patriotismo",
+          "E) Fogo Sagrado"
+        ],
+        correct: 0,
+        subject: "Missão, Visão e Valores da Marinha"
+      },
+      {
+        id: 48,
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), virtude que é consequência do amor à Marinha e à Nação:",
+        options: [
+          "A) Espírito militar",
+          "B) Zelo",
+          "C) Patriotismo",
+          "D) Fidelidade",
+          "E) Fogo Sagrado"
+        ],
+        correct: 1,
+        subject: "Missão, Visão e Valores da Marinha"
+      },
+      {
+        id: 49,
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), entre os objetivos navais abaixo, assinale aquele que NÃO está relacionado aos processos:",
+        options: [
+          "A) Ampliar as inteligências estratégica e operacional",
+          "B) Modernizar a Força Naval",
+          "C) Prover a Segurança Marítima",
+          "D) Desenvolver a capacidade cibernética",
+          "E) Obter a capacidade operacional plena"
+        ],
+        correct: 2,
+        subject: "Planejamento Estratégico (PEM/SPAN)"
+      },
+      {
+        id: 50,
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), o Planejamento de Alto Nível da Marinha é orientado pelo(a):",
+        options: [
+          "A) Planejamento Estratégico",
+          "B) Sistemática de Planejamento de Alto Nível.",
+          "C) Objetivo Naval",
+          "D) Planejamento Estratégico Militar",
+          "E) Visão de Futuro da Marinha"
+        ],
+        correct: 1,
+        subject: "Planejamento Estratégico (PEM/SPAN)"
+      },
+      {
+        id: 51,
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), em atendimento à Política Naval, o Plano Estratégico é o documento decorrente de alto nível, que visa ao planejamento de médio e longo prazo da Marinha, observadas as diretrizes dos documentos abaixo, EXCETO:",
+        options: [
+          "A) LBDN",
+          "B) PMN",
+          "C) END",
+          "D) SPAN",
+          "E) PND"
         ],
         correct: 3,
-        subject: "OGSA"
+        subject: "Planejamento Estratégico (PEM/SPAN)"
+      },
+      {
+        id: 52,
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), ______________ representa(m) “o que” deve ser feito para alcançar a Visão de Futuro da Marinha do Brasil.",
+        options: [
+          "A) Objetivos Navais",
+          "B) Estratégias Navais",
+          "C) Planejamento Militar Naval",
+          "D) Sistemática Naval",
+          "E) Sistemática de Planejamento de Alto Nível"
+        ],
+        correct: 0,
+        subject: "Planejamento Estratégico (PEM/SPAN)"
+      },
+      {
+        id: 53,
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040),estabelece(m) “como” devem ser executados os OBNAV:",
+        options: [
+          "A) Planejamento Naval",
+          "B) Calendário Combinado Naval",
+          "C) Mapa de Recursos Navais",
+          "D) Mapa Naval estratégico",
+          "E) Estratégias Navais"
+        ],
+        correct: 4,
+        subject: "Planejamento Estratégico (PEM/SPAN)"
+      },
+      {
+        id: 54,
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), as Ações Estratégicas Navais (AEN) são as ações concretas e adequadas à realidade do País em diversos aspectos, com destaque para todas as opções abaixo, EXCETO:",
+        options: [
+          "A) Disponibilidade de Matéria-prima",
+          "B) Orçamentário",
+          "C) Tecnológico",
+          "D) Estrutura dissuasória",
+          "E) Capacitação"
+        ],
+        correct: 3,
+        subject: "Planejamento Estratégico (PEM/SPAN)"
+      },
+      {
+        id: 55,
+        text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), a Gestão estratégica da Marinha é realizada pelo(a) ______________________ e coordenada pelo(a) ___________________.",
+        options: [
+          "A) Estado-Maior da Armada – Gabinete do Comandante da Marinha",
+          "B) Conselho de Gestão Estratégica da Marinha – Secretaria Geral da Marinha",
+          "C) Secretaria Geral da Marinha – Gabinete do Comandante da Marinha",
+          "D) Secretaria Geral da Marinha – Estado-Maior da Armada",
+          "E) Comitê de Gestão Estratégica da Marinha – Estado-Maior da Armada"
+        ],
+        correct: 4,
+        subject: "Planejamento Estratégico (PEM/SPAN)"
       }
     ];
 
@@ -964,16 +1107,16 @@ const questionsData = [
     let timerInterval = null;
 
     // Local Storage Keys (cache local / fallback offline)
-    const STORAGE_KEY_ANSWERS = 'ogsa_answers';
-    const STORAGE_KEY_MODE = 'ogsa_mode';
-    const STORAGE_KEY_DISCARDED = 'ogsa_discarded_options';
-    const STORAGE_KEY_START = 'ogsa_elapsed_start';
+    const STORAGE_KEY_ANSWERS = 'pem2040_answers';
+    const STORAGE_KEY_MODE = 'pem2040_mode';
+    const STORAGE_KEY_DISCARDED = 'pem2040_discarded_options';
+    const STORAGE_KEY_START = 'pem2040_elapsed_start';
 
     // --- Supabase: sessão vem da página inicial (index.html) ---
     const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
     const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
     const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-    const QUIZ_ID = 'OGSA';
+    const QUIZ_ID = 'PEM2040';
 
     function toggleSwitchMenu() {
       const menu = document.getElementById('switch-quiz-menu');
@@ -1502,11 +1645,11 @@ const questionsData = [
 
       const feedback = document.getElementById('modal-feedback');
       if (percent >= 80) {
-        feedback.innerText = 'Excelente desempenho! Você demonstrou forte domínio de OGSA.';
+        feedback.innerText = 'Excelente desempenho! Você demonstrou forte domínio do PEM-2040.';
       } else if (percent >= 60) {
         feedback.innerText = 'Bom resultado! Revise os tópicos incorretos para atingir uma nota ainda maior.';
       } else {
-        feedback.innerText = 'Recomendamos uma revisão nos tópicos de OGSA e tentar o simulado novamente.';
+        feedback.innerText = 'Recomendamos uma revisão nos tópicos do PEM-2040 e tentar o simulado novamente.';
       }
 
       document.getElementById('results-modal').classList.remove('hidden');
