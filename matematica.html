@@ -1,0 +1,2127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matemática · Simulado — Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Simulado interativo de Matemática para o CA-AA/AFN, com questões reais de provas anteriores (2017-2025) com gabarito explicado, além de exercícios de PA, PG e Análise Combinatória.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Fraunces (títulos, caráter naval/editorial) + Inter (texto e interface) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: {
+              800: '#0B192C',
+              900: '#000F26',
+              700: '#1E3E62',
+              600: '#1E56A0',
+              500: '#0066CC',
+              100: '#E6F0FA'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes access-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shake {
+      10%, 90% { transform: translateX(-1px); }
+      20%, 80% { transform: translateX(2px); }
+      30%, 50%, 70% { transform: translateX(-4px); }
+      40%, 60% { transform: translateX(4px); }
+    }
+    .shake { animation: shake .5s; }
+    @keyframes question-in {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #question-card.question-in { animation: question-in .28s ease-out; }
+    @media (prefers-reduced-motion: reduce) {
+      #access-card, #question-card, .shake { animation: none !important; }
+    }
+    button:focus-visible, input:focus-visible, [role="button"]:focus-visible {
+      outline: 2px solid #2384d6;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso: apenas verifica se já há login feito na página inicial -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">⚓</div>
+      <div class="font-serif font-semibold text-[26px] text-white tracking-tight">Matemática</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial para acessar este simulado.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-white text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+
+      <div id="gate-no-access" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-lock text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Você ainda não tem acesso liberado a esta matéria. Fale com o administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+
+      <div class="text-[11px] text-[#7895b5] mt-6 pt-4 border-t border-[#1c3a5c] w-full">Matemática para Concursos</div>
+    </div>
+  </div>
+
+
+  <!-- Header -->
+  <header class="bg-navy-900 border-b border-navy-700 sticky top-0 z-30 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="bg-navy-600 text-white p-2.5 rounded-lg shadow">
+          <i class="fa-solid fa-anchor text-2xl"></i>
+        </div>
+        <div>
+          <h1 class="font-serif text-xl font-semibold text-white tracking-wide">Matemática</h1>
+          <p class="text-xs text-slate-400">Provas anteriores (2017-2025) com gabarito explicado + PA, PG e Combinatória</p>
+        </div>
+      </div>
+
+      <!-- Mode Switcher & Actions -->
+      <div class="flex items-center gap-3">
+        <div class="bg-navy-800 p-1 rounded-lg border border-navy-700 flex text-xs">
+          <button id="btn-mode-study" onclick="setMode('study')" class="px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-white shadow">
+            <i class="fa-solid fa-graduation-cap mr-1"></i> Modo Estudo
+          </button>
+          <button id="btn-mode-exam" onclick="setMode('exam')" class="px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-white">
+            <i class="fa-solid fa-clock mr-1"></i> Modo Prova
+          </button>
+        </div>
+
+        <div id="elapsed-timer" class="bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg flex items-center gap-1.5" title="Tempo decorrido">
+          <i class="fa-solid fa-stopwatch text-navy-500"></i><span>00:00:00</span>
+        </div>
+
+        <div class="relative">
+          <button id="switch-quiz-btn" onclick="toggleSwitchMenu()" class="bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 hover:border-navy-500 transition-colors" title="Trocar de simulado">
+            <i class="fa-solid fa-layer-group text-navy-500"></i> <span class="hidden sm:inline">Outros Simulados</span> <i class="fa-solid fa-chevron-down text-[9px]"></i>
+          </button>
+          <div id="switch-quiz-menu" class="hidden absolute right-0 mt-2 w-72 max-h-[75vh] overflow-y-auto bg-navy-800 border border-navy-700 rounded-xl shadow-2xl z-40">
+            <a href="index.html" class="flex items-center gap-2 px-4 py-3 text-xs text-navy-200 border-b border-navy-700 hover:bg-navy-700/40 transition-colors">
+              <i class="fa-solid fa-house"></i> Painel geral
+            </a>
+            <div class="px-4 pt-3 pb-1 text-[10px] uppercase tracking-wide text-slate-500">Conhecimento Geral</div>
+        <a href="portugues.html" data-switch-quiz-id="PORTUGUES" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Língua Portuguesa</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="historia-naval.html" data-switch-quiz-id="HISTORIA_NAVAL" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>História Militar Naval</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="geografia.html" data-switch-quiz-id="GEOGRAFIA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Geografia</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <div class="flex items-center justify-between px-4 py-2.5 text-xs text-white bg-navy-700/50">
+          <span class="font-semibold">Matemática</span>
+          <i class="fa-solid fa-check text-emerald-400 text-[10px]"></i>
+        </div>
+            <div class="px-4 pt-3 pb-1 text-[10px] uppercase tracking-wide text-slate-500 border-t border-navy-700 mt-1">Conhecimento Militar Naval</div>
+        <a href="caaml-703.html" data-switch-quiz-id="CAAML-703" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Embarcações Miúdas & Segurança</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="cerimonial.html" data-switch-quiz-id="CERIMONIAL" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Cerimonial da Marinha</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="rosas-virtudes.html" data-switch-quiz-id="ROSAS_VIRTUDES" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Rosas das Virtudes</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="lideranca-atributos.html" data-switch-quiz-id="LIDERANCA_ATRIBUTOS" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Liderança — Atributos</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="justica-disciplina.html" data-switch-quiz-id="JUSTICA_DISCIPLINA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Justiça e Disciplina</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="lideranca.html" data-switch-quiz-id="LIDERANCA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Liderança</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="ogsa.html" data-switch-quiz-id="OGSA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>OGSA</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="camaal-cav.html" data-switch-quiz-id="CAMAAL_CAV" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>CAMAAL 1202 (CAV)</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="estatuto-rdm.html" data-switch-quiz-id="ESTATUTO_RDM" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Estatuto dos Militares & RDM</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="pem2040.html" data-switch-quiz-id="PEM2040" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>PEM-2040</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+          </div>
+        </div>
+
+        <div id="user-bar" class="hidden bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2" title="Conectado">
+          <i class="fa-solid fa-user text-navy-500"></i>
+          <span id="user-email" class="max-w-[140px] truncate"></span>
+          <button onclick="handleLogout()" class="ml-1 text-rose-300 hover:text-rose-200 transition-colors" title="Sair da conta">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
+
+        <button onclick="resetQuiz()" class="bg-rose-900/40 hover:bg-rose-800 text-rose-200 border border-rose-700/50 text-xs px-3 py-2 rounded-lg transition-all flex items-center gap-1.5" title="Reiniciar Simulado">
+          <i class="fa-solid fa-rotate-right"></i> Reiniciar
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+    <!-- Left / Center: Question Panel -->
+    <section class="lg:col-span-3 flex flex-col gap-6">
+
+      <!-- Progress Bar & Stats -->
+      <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 shadow-sm flex flex-col gap-3">
+        <div class="flex justify-between items-center text-sm font-semibold">
+          <span id="question-tracker" class="text-navy-500 font-bold">Questão 1 de 79</span>
+          <span id="answered-tracker" class="text-slate-400 text-xs">0 de 79 respondidas</span>
+        </div>
+        <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+          <div id="progress-bar" class="bg-navy-500 h-full w-0 transition-all duration-300"></div>
+        </div>
+      </div>
+
+      <!-- Question Card -->
+      <div id="question-card" class="bg-navy-800/90 border border-navy-700 rounded-xl p-6 shadow-xl flex flex-col justify-between min-h-[420px] relative">
+        <div>
+          <!-- Question Header Badge -->
+          <div class="flex justify-between items-center mb-4 gap-2">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span id="question-badge" class="bg-navy-700/60 text-navy-100 text-xs px-3 py-1 rounded-full font-mono border border-navy-600">
+                Questão #599
+              </span>
+              <span id="question-subject-tag" class="bg-navy-900 text-slate-400 text-xs px-3 py-1 rounded-full border border-navy-700"></span>
+            </div>
+            <span id="question-status-tag" class="text-xs px-2.5 py-1 rounded font-medium hidden"></span>
+          </div>
+
+          <!-- Question Body -->
+          <div id="question-text" class="text-base md:text-lg font-medium text-slate-100 leading-relaxed whitespace-pre-line mb-6">
+            Carregando questão...
+          </div>
+
+          <!-- Options Container -->
+          <div id="options-container" class="space-y-3">
+            <!-- Options will be dynamically rendered -->
+          </div>
+        </div>
+
+        <!-- Explanation Block (Study Mode) -->
+        <div id="explanation-box" class="mt-6 p-4 rounded-lg bg-slate-900/90 border border-slate-700 hidden">
+          <div class="flex items-center gap-2 text-sm font-bold mb-1" id="explanation-title"></div>
+          <div class="text-xs md:text-sm text-slate-300" id="explanation-text"></div>
+          <div class="text-xs md:text-sm text-slate-300 mt-3 pt-3 border-t border-slate-700/60 hidden" id="explanation-detail">
+            <span class="text-navy-400 font-semibold">Como resolver: </span><span id="explanation-detail-text"></span>
+          </div>
+        </div>
+
+        <!-- Question Navigation Buttons -->
+        <div class="mt-8 pt-4 border-t border-navy-700/60 flex justify-between items-center gap-3">
+          <button id="btn-prev" onclick="prevQuestion()" class="bg-navy-700 hover:bg-navy-600 text-white text-sm px-4 py-2.5 rounded-lg transition-all flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed">
+            <i class="fa-solid fa-arrow-left"></i> Anterior
+          </button>
+
+          <div class="flex gap-2">
+            <button id="btn-finish" onclick="finishQuiz()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-sm px-5 py-2.5 rounded-lg font-semibold transition-all flex items-center gap-2 shadow-lg shadow-emerald-900/30">
+              <i class="fa-solid fa-check-double"></i> Finalizar Simulado
+            </button>
+            <button id="btn-next" onclick="nextQuestion()" class="bg-navy-600 hover:bg-navy-500 text-white text-sm px-4 py-2.5 rounded-lg transition-all flex items-center gap-2">
+              Próxima <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right: Question Drawer / Grid Nav -->
+    <aside class="lg:col-span-1 bg-navy-800/80 border border-navy-700 rounded-xl p-4 flex flex-col gap-4 h-fit">
+      <div class="flex justify-between items-center border-b border-navy-700 pb-3">
+        <h2 class="text-sm font-bold text-slate-200 flex items-center gap-2">
+          <i class="fa-solid fa-list-ol text-navy-500"></i> Navegação (79)
+        </h2>
+        <span class="text-xs bg-slate-900 px-2 py-1 rounded text-slate-400 font-mono" id="score-counter">
+          0/79
+        </span>
+      </div>
+
+      <!-- Filters -->
+      <div class="grid grid-cols-3 gap-1 text-[11px] font-medium bg-navy-900 p-1 rounded-lg">
+        <button onclick="setFilter('all')" id="filter-all" class="py-1 rounded text-center bg-navy-700 text-white">Todas</button>
+        <button onclick="setFilter('unanswered')" id="filter-unanswered" class="py-1 rounded text-center text-slate-400 hover:text-white">Faltam</button>
+        <button onclick="setFilter('answered')" id="filter-answered" class="py-1 rounded text-center text-slate-400 hover:text-white">Feitas</button>
+      </div>
+
+      <!-- Filtro por assunto -->
+      <div>
+        <label for="subject-filter" class="text-[11px] font-medium text-slate-400 flex items-center gap-1.5 mb-1.5">
+          <i class="fa-solid fa-layer-group text-navy-500"></i> Assunto
+        </label>
+        <select id="subject-filter" onchange="setSubjectFilter(this.value)" class="w-full bg-navy-900 border border-navy-700 text-slate-200 text-xs rounded-lg px-2.5 py-2 outline-none focus:ring-2 focus:ring-navy-500">
+          <option value="all">Todos os assuntos</option>
+        </select>
+      </div>
+
+      <!-- Grid of Buttons -->
+      <div id="questions-grid" class="grid grid-cols-5 gap-1.5 max-h-[380px] overflow-y-auto p-1 custom-scrollbar">
+        <!-- Grid Items injected via JS -->
+      </div>
+
+      <!-- Legend -->
+      <div class="border-t border-navy-700 pt-3 text-[11px] space-y-1.5 text-slate-400">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-navy-600 border border-navy-500 inline-block"></span>
+          <span>Atual</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-slate-700 inline-block"></span>
+          <span>Respondida</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-emerald-700 inline-block"></span>
+          <span>Correta (Estudo)</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-rose-700 inline-block"></span>
+          <span>Incorreta (Estudo)</span>
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer class="max-w-7xl w-full mx-auto px-4 md:px-6 pb-6 pt-2 text-center text-[11px] text-slate-500">
+    Plataforma de Estudos · CA-AA/AFN — seu progresso neste simulado fica salvo automaticamente neste navegador.
+  </footer>
+
+  <!-- Modal Results -->
+  <div id="results-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-navy-800 border border-navy-700 rounded-2xl max-w-lg w-full p-6 text-center shadow-2xl relative animate-fade-in">
+      <div class="w-16 h-16 bg-navy-700 text-navy-500 rounded-full flex items-center justify-center mx-auto mb-4 border border-navy-600 text-2xl shadow-inner">
+        <i class="fa-solid fa-trophy"></i>
+      </div>
+      <h2 class="font-serif text-2xl font-semibold text-white mb-1">Resultado do Simulado</h2>
+      <p class="text-xs text-slate-400 mb-6">Matemática para Concursos</p>
+
+      <div class="grid grid-cols-3 gap-3 mb-6">
+        <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
+          <div class="text-xs text-slate-400">Acertos</div>
+          <div id="modal-correct" class="text-2xl font-bold text-emerald-400">0</div>
+        </div>
+        <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
+          <div class="text-xs text-slate-400">Erros</div>
+          <div id="modal-wrong" class="text-2xl font-bold text-rose-400">0</div>
+        </div>
+        <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
+          <div class="text-xs text-slate-400">Aproveitamento</div>
+          <div id="modal-percent" class="text-2xl font-bold text-sky-400">0%</div>
+        </div>
+      </div>
+
+      <p id="modal-feedback" class="text-sm text-slate-300 mb-6 px-2">
+        Continue praticando para consolidar seus conhecimentos!
+      </p>
+
+      <div class="flex gap-3 justify-center">
+        <button onclick="closeModal()" class="bg-navy-700 hover:bg-navy-600 text-white px-5 py-2.5 rounded-lg text-sm transition-all font-medium">
+          Revisar Respostas
+        </button>
+        <button onclick="resetQuiz(); closeModal();" class="bg-navy-600 hover:bg-navy-500 text-white px-5 py-2.5 rounded-lg text-sm transition-all font-semibold shadow-lg">
+          Tentar Novamente
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Code -->
+  <script>
+    // Quiz Questions Dataset
+const questionsData = [
+      {
+        id: 1,
+        text: "Ao simplificar a expressão (π^(x+1) - π^x)/π^(x-4) + (π^(x+5) - π^(x+4))/π^(x+1), encontra-se:",
+        options: [
+          "A) π(π+1)(π²-π+1)",
+          "B) 2π⁴(π-1)",
+          "C) 3π(π-1)(π⁴+1)",
+          "D) π⁴(π+1)",
+          "E) π³(π+1)(π-1)"
+        ],
+        correct: 4,
+        subject: "Provas Anteriores: Álgebra e Equações",
+        explanation: "Coloque π^x em evidência em cada fracao. No primeiro termo: π^x(π-1)/π^(x-4) = π^x . π^(4-x) . (π-1) = π^4(π-1). No segundo: π^(x+4)(π-1)/π^(x+1) = π^3(π-1). Somando: π^4(π-1)+π^3(π-1) = π^3(π-1)(π+1). (CA-AA-AFN/2017, Q9)"
+      },
+      {
+        id: 2,
+        text: "Assinale a opcao que apresenta a equacao da reta r, que passa pelo ponto P(2,-3) e e perpendicular a reta s, cuja equacao e 3x-4y+7=0.",
+        options: [
+          "A) x+7y+19=0",
+          "B) 4x+3y+1=0",
+          "C) 2x-y-7=0",
+          "D) 3x+y-3=0",
+          "E) 4x+y-5=0"
+        ],
+        correct: 1,
+        subject: "Provas Anteriores: Geometria Analítica e Vetores",
+        explanation: "A reta s tem coeficiente angular 3/4 (isolando y). Uma reta perpendicular tem coeficiente angular igual ao inverso com sinal trocado: -4/3. Usando y-(-3) = -4/3(x-2) e simplificando, chega-se a 4x+3y+1=0. Repare que todas as opcoes passam pelo ponto P - o que decide e conferir a inclinacao de cada uma. (CA-AA-AFN/2017, Q10)"
+      },
+      {
+        id: 3,
+        text: "Considere o conjunto dos numeros naturais N={0,1,2,3,4,...}. Considere, ainda, que A={x em N* | 36/x=p, (p em N)} e que B={x em N | x²≤25}. Sendo # a quantidade de elementos de um conjunto, e correto afirmar que:",
+        options: [
+          "A) #(AUB)=11",
+          "B) #(A∩B)=5",
+          "C) #(AUB)=15",
+          "D) #(A∩B)=10",
+          "E) #(AUB)=9"
+        ],
+        correct: 0,
+        subject: "Provas Anteriores: Análise Combinatória e Probabilidade",
+        explanation: "A e o conjunto dos divisores positivos de 36: {1,2,3,4,6,9,12,18,36} -> 9 elementos. B sao os naturais (incluindo o 0) cujo quadrado e no maximo 25: {0,1,2,3,4,5} -> 6 elementos. A∩B = {1,2,3,4} -> 4 elementos. Pela formula #(A∪B)=#A+#B-#(A∩B) = 9+6-4=11. (CA-AA-AFN/2017, Q12)"
+      },
+      {
+        id: 4,
+        text: "Um poliedro convexo possui apenas faces hexagonais e pentagonais, 60 arestas e 40 vertices. Quantas faces pentagonais possui esse poliedro?",
+        options: [
+          "A) 16",
+          "B) 15",
+          "C) 14",
+          "D) 13",
+          "E) 12"
+        ],
+        correct: 4,
+        subject: "Provas Anteriores: Geometria Espacial",
+        explanation: "Pela Relacao de Euler, V-A+F=2: 40-60+F=2, entao F=22 faces no total (hexagonos h + pentagonos p, h+p=22). Cada aresta e compartilhada por 2 faces, entao (6h+5p)/2=60, ou seja, 6h+5p=120. Substituindo h=22-p: 6(22-p)+5p=120 -> 132-p=120 -> p=12. (CA-AA-AFN/2017, Q13)"
+      },
+      {
+        id: 5,
+        text: "Uma senhora teve que trocar sua senha a pedido do programa de seguranca do seu banco. Ao tentar usar a nova senha, constata que nao se recorda da ordem exata dos algarismos que a compoem. Ela sabe que a nova senha e composta por seis algarismos e que a centena 355 e a dezena 17 ocupam alguma posicao na senha. Lembra tambem que, alem desses cinco algarismos, a senha tem um outro que e par. Ela dispoe de tres tentativas diarias para digitar a senha no caixa eletronico, sendo que, se errar a terceira, bloqueia o cartao. A senhora lista as senhas possiveis e, diariamente, fara todas as tentativas que puder, sem bloquear o cartao, ate descobrir a senha. Em quantos dias, no maximo, ela descobrira a senha?",
+        options: [
+          "A) 10",
+          "B) 15",
+          "C) 21",
+          "D) 27",
+          "E) 30"
+        ],
+        correct: 0,
+        subject: "Provas Anteriores: Análise Combinatória e Probabilidade",
+        explanation: "A senha e formada por 3 \"blocos\": o bloco \"355\" (fixo), o bloco \"17\" (fixo) e um algarismo par avulso (0,2,4,6 ou 8 - 5 opcoes). Esses 3 blocos podem ser arranjados em qualquer ordem: 3!=6 formas. Total de senhas possiveis: 6x5=30. Com 3 tentativas por dia, no pior caso ela precisa de 30/3=10 dias para esgotar todas as possibilidades. (CA-AA-AFN/2017, Q14)"
+      },
+      {
+        id: 6,
+        text: "A figura representa um cubo de aresta 1 m, com vertices A, B, C, D na base e E, F, G, H no topo (E sobre A, F sobre B, G sobre C, H sobre D). O ponto I e medio do segmento HB (a diagonal do cubo que liga o vertice de cima H ao vertice de baixo B). Sendo assim, e correto afirmar que o valor do seno do angulo AIB e:",
+        options: [
+          "A) (3/4)√(2)",
+          "B) √(3)/3",
+          "C) (2√(2))/3",
+          "D) 1/3",
+          "E) √(2)/5"
+        ],
+        correct: 2,
+        subject: "Provas Anteriores: Geometria Espacial",
+        explanation: "Colocando o cubo em coordenadas A=(0,0,0), B=(1,0,0), H=(0,1,1), o ponto I (medio de HB) fica exatamente no centro do cubo: I=(0.5, 0.5, 0.5). Calculando os vetores IA e IB e usando o produto escalar, o cosseno do angulo AIB da 1/3. Como sen^2+cos^2=1, sen(AIB) = √(1-1/9) = √(8/9) = 2√(2)/3. (CA-AA-AFN/2017, Q15)"
+      },
+      {
+        id: 7,
+        text: "Considerando satisfeitas as condicoes de existencia das fracoes e simplificando as expressoes M = [((y-x)/(1+xy) + x) / (1 - (xy-x²)/(1+xy))]² + [(1 - (xy-x²)/(1+xy)) / (x + (y-x)/(1+xy))]^-2 e N = 2y²+4, e correto afirmar que M/N vale:",
+        options: [
+          "A) y²/(y²+2)",
+          "B) y⁴/(y+1)",
+          "C) xy/(y+2)",
+          "D) x²/(x+2)",
+          "E) x⁴/y²"
+        ],
+        correct: 0,
+        subject: "Provas Anteriores: Álgebra e Equações",
+        explanation: "Repare que os dois termos de M sao, na verdade, a mesma fracao elevada ao quadrado (o segundo termo e o primeiro so que de cabeca para baixo elevado a -2, o que da o mesmo valor elevado a +2). Fazendo as contas com cuidado, M simplifica para exatamente 2y². Dividindo por N=2y²+4: M/N = 2y²/(2y²+4) = y²/(y²+2). (CA-AA-AFN/2018, Q9)"
+      },
+      {
+        id: 8,
+        text: "Um programa de computador, a partir de escolhas do usuario, exibe poliedros regulares (com todas as faces iguais e regulares). Escolhendo-se 30 pentagonos regulares, 7 triangulos equilateros e 15 quadrados, todos de mesma medida de lado, e comandando que o programa exiba a maior quantidade possivel de poliedros regulares a partir das escolhas feitas, e correto afirmar que o programa exibira um total de poliedros igual a:",
+        options: [
+          "A) 9",
+          "B) 8",
+          "C) 7",
+          "D) 6",
+          "E) 5"
+        ],
+        correct: 4,
+        subject: "Provas Anteriores: Geometria Espacial",
+        explanation: "Cada tipo de poliedro regular usa um numero fixo de faces: dodecaedro precisa de 12 pentagonos, cubo precisa de 6 quadrados, e entre os poliedros de triangulo (tetraedro=4, octaedro=8, icosaedro=20), o tetraedro e o que usa menos pecas, entao e o que rende mais unidades. Pentagonos: 30/12=2 dodecaedros. Quadrados: 15/6=2 cubos. Triangulos: 7/4=1 tetraedro (nao da pra fazer 2, precisaria de 8). Total: 2+2+1=5 poliedros. (CA-AA-AFN/2018, Q10)"
+      },
+      {
+        id: 9,
+        text: "Observe o mapa do Brasil dividido em suas cinco regioes terrestres: Norte, Nordeste, Centro-Oeste, Sudeste e Sul. O objetivo e colorir esse mapa de modo que as regioes de mesma fronteira tenham cores diferentes. Quantas cores sao necessarias, no minimo, para cumprir esse objetivo?",
+        options: [
+          "A) 6",
+          "B) 5",
+          "C) 4",
+          "D) 3",
+          "E) 2"
+        ],
+        correct: 3,
+        subject: "Provas Anteriores: Análise Combinatória e Probabilidade",
+        explanation: "O Centro-Oeste faz fronteira com as outras 4 regioes, entao precisa de uma cor so sua. Sobram Norte, Nordeste, Sudeste e Sul: essas quatro fazem fronteira \"em fila\" (Norte-Nordeste-Sudeste-Sul), sem que Norte toque Sudeste ou Sul, nem Nordeste toque Sul. Uma fila assim pode ser pintada alternando so 2 cores. Total: 1 (Centro-Oeste) + 2 (as demais) = 3 cores. (CA-AA-AFN/2018, Q12)"
+      },
+      {
+        id: 10,
+        text: "Considere que x-esima linha e y-esima coluna de uma tabela distribuem os numeros naturais assim: linha 1 tem 0,4,8,12,...; linha 2 tem 1,5,9,13,...; linha 3 tem 2,6,10,14,...; linha 4 tem 3,7,11,15,... (o padrao de 4 linhas se repete indefinidamente pelas colunas). O numero 2018 esta localizado na x-esima linha e na y-esima coluna. Sendo assim, e correto afirmar que o produto xy e igual a:",
+        options: [
+          "A) 1015",
+          "B) 1515",
+          "C) 2054",
+          "D) 3024",
+          "E) 3514"
+        ],
+        correct: 1,
+        subject: "Provas Anteriores: Análise Combinatória e Probabilidade",
+        explanation: "O valor em cada celula segue a formula: numero = 4x(coluna-1) + (linha-1). Como 2018 dividido por 4 da resto 2 (2018 = 504x4+2), a linha e a linha 3 (resto 2 corresponde a linha 3, que comeca com 2). Isolando a coluna: 2018 = 4x(coluna-1)+2 -> coluna-1 = 504 -> coluna=505. Produto: 3x505=1515. (CA-AA-AFN/2018, Q13)"
+      },
+      {
+        id: 11,
+        text: "Seja S = 1 - 1/2 - 1/4 + 1/8 - 1/16 - 1/32 + 1/64 - 1/128 - 1/256 + ... Continuando com o padrao desses termos, e correto afirmar que S e igual a:",
+        options: [
+          "A) 0",
+          "B) 2/7",
+          "C) 6/7",
+          "D) 9/32",
+          "E) 27/32"
+        ],
+        correct: 1,
+        subject: "Provas Anteriores: Progressões (PA e PG)",
+        explanation: "Os termos se repetem em grupos de 3 com sinais (+,-,-). Agrupando: (1-1/2-1/4) + (1/8-1/16-1/32) + ... = 1/4 + 1/32 + ... Isso e uma PG infinita de primeiro termo 1/4 e razao 1/8. Soma = (1/4)/(1-1/8) = (1/4)/(7/8) = 2/7. (CA-AA-AFN/2018, Q14)"
+      },
+      {
+        id: 12,
+        text: "Considere no plano cartesiano os pontos A(1,2) e B(3,4). Dentre os pontos que equidistam de A e B, um deles e o ponto C de abscissa 5. E correto afirmar que a ordenada de C e igual a:",
+        options: [
+          "A) 8",
+          "B) 6",
+          "C) 4",
+          "D) 2",
+          "E) 0"
+        ],
+        correct: 4,
+        subject: "Provas Anteriores: Geometria Analítica e Vetores",
+        explanation: "Um ponto que fica a mesma distancia de A e de B esta sobre a mediatriz do segmento AB. O ponto medio de AB e (2,3) e o coeficiente angular de AB e 1, entao a mediatriz tem coeficiente angular -1 e passa por (2,3): y = -x+5. Substituindo x=5: y=0. (CA-AA-AFN/2018, Q15)"
+      },
+      {
+        id: 13,
+        text: "No paralelepipedo reto retangulo cujas arestas medem x, y e z, tem-se que x+y+z e 10. Alem disso, a soma dos quadrados de x, y e z e 25√(3). Nessas condicoes, a area total desse prisma e (dado √(3) aprox 1,7):",
+        options: [
+          "A) 29,5",
+          "B) 49,5",
+          "C) 50,5",
+          "D) 57,5",
+          "E) 59,5"
+        ],
+        correct: 3,
+        subject: "Provas Anteriores: Geometria Espacial",
+        explanation: "A area total de um paralelepipedo e 2(xy+yz+zx). Usando a identidade (x+y+z)² = x²+y²+z² + 2(xy+yz+zx): 10² = 25√(3) + area total. Com √(3) aprox 1,7: 25x1,7=42,5. Logo, area total = 100-42,5=57,5. (CA-AA-AFN/2019, Q9)"
+      },
+      {
+        id: 14,
+        text: "As retas r e s representam as trajetorias de duas Fragatas, F1 e F2. A reta r passa pelos pontos (-2,0) e (0,1). A reta s passa pelo ponto (3,0) fazendo um angulo de 45° com o eixo x. As Fragatas F1 e F2, que estao no ponto I (intersecao de r e s), recebem uma mensagem de socorro de um navio N1 localizado nas coordenadas (26,29) (em milhas nauticas). A quantas milhas nauticas N1 dista de I?",
+        options: [
+          "A) 28",
+          "B) 30",
+          "C) 34",
+          "D) 36",
+          "E) 40"
+        ],
+        correct: 1,
+        subject: "Provas Anteriores: Geometria Analítica e Vetores",
+        explanation: "A reta r tem equacao y=x/2+1 (passa por (-2,0) e (0,1)). A reta s tem inclinacao tan(45°)=1 e passa por (3,0): y=x-3. Igualando: x/2+1=x-3 -> x=8, y=5. Logo I=(8,5). A distancia ate N1(26,29) e raiz[(26-8)²+(29-5)²] = √(324+576) = √(900) = 30. (CA-AA-AFN/2019, Q10)"
+      },
+      {
+        id: 15,
+        text: "Considere o triangulo ABC, em que M e o ponto medio de BA. Sabendo que BA e igual a 20 cm, AC e igual a 25 cm e o angulo A e 60°, assinale a opcao que apresenta o valor que mais se aproxima de CM.",
+        options: [
+          "A) 21,7 cm",
+          "B) 23,4 cm",
+          "C) 24,9 cm",
+          "D) 24,3 cm",
+          "E) 25,2 cm"
+        ],
+        correct: 0,
+        subject: "Provas Anteriores: Geometria Plana e Trigonometria",
+        explanation: "Como M e o ponto medio de BA=20cm, temos AM=10cm. No triangulo AMC, conhecemos AM=10, AC=25 e o angulo entre eles (angulo A=60°, o mesmo angulo do triangulo original). Pela Lei dos Cossenos: CM² = 10²+25²-2x10x25xcos(60°) = 100+625-250 = 475. CM=√(475) aprox 21,79 cm. (CA-AA-AFN/2019, Q11)"
+      },
+      {
+        id: 16,
+        text: "Simplifique a expressao abaixo, considerando as condicoes de existencia, e assinale a opcao correta: sen²(2x).(cos²x-sen²x)³ / [cos²(2x).(4sen²x)]",
+        options: [
+          "A) cos(2x).cos²(x)",
+          "B) cos(2x).cos(x)",
+          "C) sen(2x).cos(2x)",
+          "D) cos(2x).cos³(x)",
+          "E) sen(2x).cos²(2x)"
+        ],
+        correct: 0,
+        subject: "Provas Anteriores: Geometria Plana e Trigonometria",
+        explanation: "Use as identidades sen(2x)=2.sen(x).cos(x) e cos²x-sen²x=cos(2x). Substituindo e simplificando os termos (o sen(2x)² no numerador cancela com o sen²x vezes 4 no denominador, sobrando um cos²(x)), a expressao se reduz a cos(2x).cos²(x). (CA-AA-AFN/2019, Q12)"
+      },
+      {
+        id: 17,
+        text: "Seja A = 2 + (1/3+1/9+1/27+1/81+...). Calcule (A)² e assinale a opcao correta.",
+        options: [
+          "A) 25/4",
+          "B) 25√(5)/2",
+          "C) 25√(5)/4",
+          "D) 25√(10)",
+          "E) 25√(10)/8"
+        ],
+        correct: 0,
+        subject: "Provas Anteriores: Progressões (PA e PG)",
+        explanation: "A parte entre parenteses e uma PG infinita de primeiro termo 1/3 e razao 1/3: soma = (1/3)/(1-1/3) = 1/2. Logo A = 2+1/2 = 5/2. Entao A² = (5/2)² = 25/4. (CA-AA-AFN/2019, Q13)"
+      },
+      {
+        id: 18,
+        text: "Um Capitao de Fragata Medico, que serve na Escola Naval, recomendou que o aspirante sob seus cuidados reiniciasse suas atividades fisicas por caminhadas todos os dias. O aspirante iniciou caminhando 1 km no primeiro dia. A cada dia, a partir do segundo, caminha a distancia percorrida no dia anterior mais uma distancia fixa. Dessa forma, no 13° dia, o aspirante caminhou 19 km. Sendo assim, pode-se afirmar que a sequencia de distancias percorridas a cada dia, em quilometros, e uma progressao:",
+        options: [
+          "A) Geometrica, sendo o segundo termo equivalente ao dobro do primeiro.",
+          "B) Geometrica, em que a9= 14,5.",
+          "C) Geometrica, uma vez que a soma dos 13 termos e igual a 20.",
+          "D) Aritmetica, em que a15=20.",
+          "E) Aritmetica, em que a razao e igual a 1,5."
+        ],
+        correct: 4,
+        subject: "Provas Anteriores: Progressões (PA e PG)",
+        explanation: "Como cada dia soma sempre a MESMA distancia fixa ao dia anterior (e nao multiplica), e uma Progressao Aritmetica (PA), nao geometrica. Usando a1=1 e a13=19: a13=a1+12r -> 19=1+12r -> r=1,5. Conferindo a opcao D: a15 = a1+14r = 1+14x1,5=22 (nao 20, entao D esta errada). A razao realmente vale 1,5. (CA-AA-AFN/2019, Q14)"
+      },
+      {
+        id: 19,
+        text: "As placas de automoveis no padrao Mercosul tem a sequencia LLLNLNN (L=letra, N=numero), com 4 letras e 3 numeros. Ja as placas antigas, do tipo LLLNNNN, ainda circulam em alguns Estados, com 3 letras e 4 numeros. Considerando as do modelo Mercosul, em relacao as que ainda circulam no modelo antigo, quantas placas a mais serao confeccionadas, baseadas em nosso sistema de numeracao de 0 a 9 e com o alfabeto de 26 letras?",
+        options: [
+          "A) 10.26³.16",
+          "B) 10³.26³.16",
+          "C) 10³.26³.16³",
+          "D) 26³.10.16",
+          "E) 26⁴.10³.16"
+        ],
+        correct: 1,
+        subject: "Provas Anteriores: Análise Combinatória e Probabilidade",
+        explanation: "Total de placas Mercosul (4 letras, 3 numeros): 26⁴x10³. Total de placas antigas (3 letras, 4 numeros): 26³x10⁴. A diferenca e 26⁴x10³ - 26³x10⁴ = 26³x10³x(26-10) = 26³x10³x16, que e exatamente o formato da opcao B. (CA-AA-AFN/2019, Q15)"
+      },
+      {
+        id: 20,
+        text: "Dada a expressao m² = 1 + [(n⁴-1)/(2n²)]², onde m e n sao numeros reais e n ≠ 0. Nessas condicoes, o valor positivo de m e:",
+        options: [
+          "A) (n⁴+1)/2",
+          "B) (n⁴+1)/n²",
+          "C) (n²+1)/(2n²)",
+          "D) (n⁴+1)/(2n²)",
+          "E) (n⁴+1)/(2n)"
+        ],
+        correct: 3,
+        subject: "Provas Anteriores: Álgebra e Equações",
+        explanation: "Colocando tudo com o mesmo denominador (2n²)², o lado direito vira [(2n²)²+(n⁴-1)²]/(2n²)². Expandindo o numerador chega-se em n⁸+2n⁴+1, que e exatamente (n⁴+1)² (um \"quadrado perfeito disfarcado\"). Assim, m² = (n⁴+1)²/(2n²)², e tirando a raiz (valor positivo): m = (n⁴+1)/(2n²). (CA-AA-AFN/2020, Q9)"
+      },
+      {
+        id: 21,
+        text: "Sejam a e b arcos complementares da primeira volta positiva (ou seja, a+b=90°), e (sen a+sen b)/(sen a-sen b) = √(3). O valor de sen(3a/5)+cos(3b) e:",
+        options: [
+          "A) √(5)",
+          "B) √(3)",
+          "C) √(2)",
+          "D) 1",
+          "E) 0"
+        ],
+        correct: 2,
+        subject: "Provas Anteriores: Geometria Plana e Trigonometria",
+        explanation: "Como a+b=90°, temos sen b=cos a. Substituindo na equacao e chamando t=tan a, chega-se em tan a = 2+√(3), que e o valor conhecido de tan(75°). Logo a=75° e (como sao complementares) b=15°. Calculando sen(3x75/5)+cos(3x15) = sen(45°)+cos(45°) = √(2)/2+√(2)/2 = √(2). (CA-AA-AFN/2020, Q10)"
+      },
+      {
+        id: 22,
+        text: "Um condominio e composto por 7 edificios enfileirados. Na manutencao que esta sendo feita, decidiu-se por pintar cada edificio com uma so cor. Alem disso, dispoe-se de 4 cores diferentes e dois edificios consecutivos nao poderao ter a mesma cor. Nessas condicoes, quantas sao as opcoes de pintura dos edificios desse condominio?",
+        options: [
+          "A) 7⁴",
+          "B) 4⁷",
+          "C) 4x3⁶",
+          "D) 7!/(4!x3!)",
+          "E) 10!/(7!x3!)"
+        ],
+        correct: 2,
+        subject: "Provas Anteriores: Análise Combinatória e Probabilidade",
+        explanation: "O primeiro edificio pode ser pintado de 4 cores. Cada edificio seguinte nao pode repetir a cor do vizinho anterior, entao sobram 3 opcoes para cada um dos 6 edificios restantes. Total: 4x3x3x3x3x3x3 = 4x3⁶. (CA-AA-AFN/2020, Q11)"
+      },
+      {
+        id: 23,
+        text: "Em um grupo de aspirantes a oficial, ha 10 que sao do corpo feminino e 15 que sao do corpo masculino. Desse grupo, escolhe-se ao acaso dois aspirantes, um apos o outro. Em porcentagem, qual a probabilidade de ser escolhido primeiro uma aspirante do corpo feminino e, em segundo, um aspirante do corpo masculino?",
+        options: [
+          "A) 20%",
+          "B) 25%",
+          "C) 26%",
+          "D) 28%",
+          "E) 30%"
+        ],
+        correct: 1,
+        subject: "Provas Anteriores: Análise Combinatória e Probabilidade",
+        explanation: "Total de aspirantes: 25. A probabilidade de o primeiro escolhido ser mulher e 10/25. Depois disso restam 24 pessoas, das quais 15 sao homens, entao a probabilidade do segundo ser homem e 15/24. Multiplicando: (10/25)x(15/24) = 150/600 = 1/4 = 25%. (CA-AA-AFN/2020, Q13)"
+      },
+      {
+        id: 24,
+        text: "Considere um tetraedro regular de aresta 2 cm. Escolhe-se um ponto P no interior desse tetraedro. Calcule a soma das distancias de P as faces desse tetraedro.",
+        options: [
+          "A) 2√(5)/3",
+          "B) 2√(3)/3",
+          "C) √(6)/6",
+          "D) √(6)/3",
+          "E) 2√(6)/3"
+        ],
+        correct: 4,
+        subject: "Provas Anteriores: Geometria Espacial",
+        explanation: "Propriedade importante: em um tetraedro regular, a soma das distancias de QUALQUER ponto interior as 4 faces e sempre a mesma e e igual a altura do tetraedro (e o \"Teorema de Viviani\" em 3D). A altura de um tetraedro regular de aresta a e h=a.√(6)/3. Para a=2: h=2√(6)/3. (CA-AA-AFN/2020, Q14)"
+      },
+      {
+        id: 25,
+        text: "Um helicoptero a 400 m de altura possui um feixe conico de luz que ilumina um circulo de diametro 50 m na superficie da agua. Um drone circular de 1 m de raio voa paralelamente a base do cone luminoso e impede totalmente a visao da embarcacao, bloqueando a luz. A que altura da superficie da agua, no minimo, deve ficar o drone para o sucesso do exercicio?",
+        options: [
+          "A) 392 m",
+          "B) 384 m",
+          "C) 350 m",
+          "D) 336 m",
+          "E) 160 m"
+        ],
+        correct: 1,
+        subject: "Provas Anteriores: Geometria Espacial",
+        explanation: "O cone de luz tem 400m de altura total e 25m de raio na base (metade do diametro 50m). Por semelhanca de triangulos, na altura h (medida a partir da agua), o raio do cone vale (400-h)x25/400. Para o disco do drone (raio 1m) tapar totalmente o cone naquela altura, seu raio precisa ser igual ou maior que o raio do cone ali: 1 ≥ (400-h)x25/400. Resolvendo com igualdade (situacao limite/minima): h=384. (CA-AA-AFN/2020, Q15)"
+      },
+      {
+        id: 26,
+        text: "Sejam a e b as solucoes da equacao 6.3^(2x) - 13.6^x + 6.2^(2x) = 0. Assinale a opcao que apresenta |a-b|.",
+        options: [
+          "A) 4",
+          "B) 3",
+          "C) 2",
+          "D) 1",
+          "E) 0"
+        ],
+        correct: 2,
+        subject: "Provas Anteriores: Álgebra e Equações",
+        explanation: "Dividindo tudo por 2^(2x): a equacao fica 6(3/2)^(2x) - 13(3/2)^x + 6 = 0. Chamando t=(3/2)^x, temos 6t²-13t+6=0, que tem raizes t=3/2 e t=2/3. De (3/2)^x=3/2 vem x=1; de (3/2)^x=2/3=(3/2)^-1 vem x=-1. Logo a e b sao 1 e -1, e |a-b|=2. (CA-AA-AFN/2021, Q9)"
+      },
+      {
+        id: 27,
+        text: "Sabendo que log12(27) = a, calcule log6(16) e assinale a opcao correta.",
+        options: [
+          "A) (3+a)/(6-a)",
+          "B) (8+4a)/(3+a)",
+          "C) (8-a)/(6+a)",
+          "D) (12-4a)/(3+a)",
+          "E) (3-a)/(6+a)"
+        ],
+        correct: 3,
+        subject: "Provas Anteriores: Matrizes, Complexos e Logaritmos",
+        explanation: "Escrevendo tudo em funcao de p=log(2) e q=log(3): a = 3q/(2p+q), pois 27=3³ e 12=2².3. Isolando p em funcao de q e a, e substituindo em log6(16) = 4p/(p+q) (pois 16=2⁴, 6=2.3), depois de simplificar chega-se a (12-4a)/(3+a). (CA-AA-AFN/2021, Q10)"
+      },
+      {
+        id: 28,
+        text: "Sejam a e b os catetos de um triangulo retangulo de hipotenusa c. Seja r o raio da circunferencia inscrita nesse triangulo. Desse modo, assinale a opcao que apresenta o valor do raio r em funcao de a, b e c.",
+        options: [
+          "A) (a+b+c)/2",
+          "B) (-a-b+c)/2",
+          "C) (a+b-c)/2",
+          "D) (a-b+c)/2",
+          "E) (-a+b+c)/2"
+        ],
+        correct: 2,
+        subject: "Provas Anteriores: Geometria Plana e Trigonometria",
+        explanation: "Essa e uma formula classica para triangulos retangulos: o raio da circunferencia inscrita e r=(a+b-c)/2, onde a e b sao os catetos e c a hipotenusa. Pode-se conferir com um triangulo 3-4-5: r=(3+4-5)/2=1, que de fato e o raio inscrito desse triangulo. (CA-AA-AFN/2021, Q11)"
+      },
+      {
+        id: 29,
+        text: "Seja o numero x = 2⁷ x p. Sabendo que p e o numero primo 2⁷-1, a soma de todos os divisores proprios (divisores naturais com excecao do proprio numero) de x e igual a:",
+        options: [
+          "A) 12816",
+          "B) 15122",
+          "C) 16128",
+          "D) 16384",
+          "E) 32768"
+        ],
+        correct: 3,
+        subject: "Provas Anteriores: Matrizes, Complexos e Logaritmos",
+        explanation: "x = 128x127 = 16256. A soma de TODOS os divisores de um numero da forma 2^a x p (p primo impar) e σ(x) = (2^(a+1)-1)x(1+p). Aqui: σ(x)=(2⁸-1)x128 = 255x128=32640. A soma dos divisores PROPRIOS (sem contar o proprio x) e σ(x)-x = 32640-16256=16384. (CA-AA-AFN/2021, Q12)"
+      },
+      {
+        id: 30,
+        text: "Quantos sao os anagramas da palavra MARINHA que NAO possuem vogais juntas?",
+        options: [
+          "A) 120",
+          "B) 240",
+          "C) 420",
+          "D) 720",
+          "E) 1680"
+        ],
+        correct: 3,
+        subject: "Provas Anteriores: Análise Combinatória e Probabilidade",
+        explanation: "MARINHA tem 4 consoantes (M,R,N,H, todas diferentes) e 3 vogais (A,A,I, com o A repetido). Primeiro, arrume as 4 consoantes: 4!=24 formas. Isso cria 5 \"espacos\" entre e nas pontas delas para colocar as vogais, sem deixar duas juntas: escolha 3 desses 5 espacos (C(5,3)=10 formas) e arrume as vogais A,A,I neles (3!/2!=3 formas, ja que os dois A sao iguais). Total: 24x10x3 = 720. (CA-AA-AFN/2021, Q15)"
+      },
+      {
+        id: 31,
+        text: "Dadas as retas r: {x=9+3lambda; y=3lambda; z=-3+3lambda} e s: (x-3)/6=(y-6)/(-6)=(z-3)/(-6), ambas no R³. Sabendo que I e o ponto de intersecao das retas r e s, qual e o valor da distancia do ponto I ate a origem (O)?",
+        options: [
+          "A) √(10)",
+          "B) 2√(10)",
+          "C) 3√(10)",
+          "D) 10√(2)",
+          "E) 10√(3)"
+        ],
+        correct: 2,
+        subject: "Provas Anteriores: Geometria Analítica e Vetores",
+        explanation: "Igualando as coordenadas de r e s (usando λ para r e μ para s), resolve-se um sistema com 2 equacoes e 2 incognitas, encontrando λ=0 e μ=1. Substituindo em r: I=(9,0,-3). A distancia ate a origem e √(9²+0²+3²)=√(90)=3√(10). (CA-AA-AFN/2022, Q9)"
+      },
+      {
+        id: 32,
+        text: "Assinale a opcao que apresenta o valor da caracteristica (posto) da matriz A = [[log3(27), log(1000), log2(8)], [log3(243), log(100000), log2(32)], [log3(81), log(10000), log2(16)]].",
+        options: [
+          "A) 0",
+          "B) 1",
+          "C) 2",
+          "D) 3",
+          "E) 4"
+        ],
+        correct: 1,
+        subject: "Provas Anteriores: Matrizes, Complexos e Logaritmos",
+        explanation: "Calculando cada logaritmo: a primeira linha vira (3,3,3), a segunda (5,5,5) e a terceira (4,4,4). Todas as tres linhas sao multiplas de (1,1,1) - ou seja, uma e proporcional a outra. Quando todas as linhas de uma matriz sao proporcionais entre si, o posto (caracteristica) da matriz e 1. (CA-AA-AFN/2022, Q10)"
+      },
+      {
+        id: 33,
+        text: "A interpolacao de 8 meios geometricos (reais) entre 5/2 e 1280 formara, ao final, uma sequencia geometrica de n termos. Assim, quanto valera o produto dos 12 termos iniciais dessa sequencia geometrica?",
+        options: [
+          "A) 2¹².(2,5)⁶⁶",
+          "B) 2⁶⁶.(2,5)⁸",
+          "C) 2⁶⁶.(2,5)¹²",
+          "D) 2⁸.(2,5)⁶⁶",
+          "E) 2⁵.(2,5)¹²"
+        ],
+        correct: 2,
+        subject: "Provas Anteriores: Progressões (PA e PG)",
+        explanation: "Inserir 8 meios geometricos entre 5/2 e 1280 cria uma PG de 10 termos (a1=5/2, a10=1280). Pela formula do termo geral: 1280 = (5/2)xr⁹, ou seja, r⁹=512=2⁹, entao r=2. Com a1=5/2 e r=2, o produto dos 12 primeiros termos dessa PG (continuando com a mesma razao) e a1¹² x r^(0+1+...+11) = (5/2)¹² x 2⁶⁶, que e justamente 2⁶⁶.(2,5)¹². (CA-AA-AFN/2022, Q11)"
+      },
+      {
+        id: 34,
+        text: "Com relacao as identidades trigonometricas, assinale a opcao INCORRETA (para os valores de x em que as expressoes estao definidas):",
+        options: [
+          "A) (1+cotg²(x)).(1-cos²(x))=1 para todo x real, x ≠ k.π",
+          "B) (1-tg(x))²+(1-cotg(x))² para todo x real, x ≠ k.π/2",
+          "C) (1-cos(x))/sen(x) + sen(x) = (1-cos(x))/tg(x) + tg(x) para todo x real, x ≠ k.π/2",
+          "D) sen(x)/cossec(x) + cos(x)/sec(x) = 0 para todo x real",
+          "E) 2.sen(x).tg(x) = 1/(cossec(x)-1) + 1/(cossec(x)+1) para todo x real"
+        ],
+        correct: 3,
+        subject: "Provas Anteriores: Geometria Plana e Trigonometria",
+        explanation: "sen(x)/cossec(x) e o mesmo que sen(x)xsen(x)=sen²(x) (ja que cossec(x)=1/sen(x)). Da mesma forma, cos(x)/sec(x)=cos²(x). Somando: sen²(x)+cos²(x), que pela relacao fundamental da trigonometria vale sempre 1 - nunca 0. Por isso essa e a afirmacao INCORRETA. (CA-AA-AFN/2022, Q12)"
+      },
+      {
+        id: 35,
+        text: "Durante uma competicao entre o Colegio Naval (CN), a Escola Preparatoria de Cadetes do Ar (EPCAR) e a Escola Preparatoria de Cadetes do Exercito (EsPCEX), verificou-se que nas partidas de futebol, 60% dos gols marcados pelo Colegio Naval eram feitos apos a cobranca de escanteio. A probabilidade de um escanteio resultar em gol e de 35% se o batedor for do CN e de 65% pelas demais escolas. Supondo que um escanteio a favor do Colegio Naval tenha sido marcado, a probabilidade de o escanteio ser cobrado por um atleta do Colegio Naval e resultar em gol e de:",
+        options: [
+          "A) 5%",
+          "B) 21%",
+          "C) 35%",
+          "D) 65%",
+          "E) 80%"
+        ],
+        correct: 2,
+        subject: "Provas Anteriores: Análise Combinatória e Probabilidade",
+        explanation: "Um escanteio \"a favor\" de um time e, por definicao, cobrado por um jogador desse mesmo time - entao ja e certeza (100%) que quem cobra e do CN. Resta so a chance de esse escanteio virar gol quando quem cobra e do CN, que o enunciado ja informa direto: 35%. (CA-AA-AFN/2022, Q13)"
+      },
+      {
+        id: 36,
+        text: "Dadas as matrizes A=[[1,2,5],[2,3,1],[0,4,2]], B=[[0,5,3],[7,2,1],[1,2,3]] e C=[[-1,7,4],[3,2,4],[7,8,5]], e correto afirmar que a matriz X, tal que X+A=B-C, e:",
+        options: [
+          "A) Simetrica.",
+          "B) Antissimetrica.",
+          "C) Inversivel.",
+          "D) Singular.",
+          "E) Nula."
+        ],
+        correct: 2,
+        subject: "Provas Anteriores: Matrizes, Complexos e Logaritmos",
+        explanation: "Isolando X: X=B-C-A. Fazendo a subtracao termo a termo, obtem-se a matriz [[0,-4,-6],[2,-3,-4],[-6,-10,-4]]. Calculando o determinante dessa matriz, o resultado e 100 (≠ zero), o que significa que ela e INVERSIVEL (e, como o determinante nao e zero, tambem nao e singular). Ela tambem nao e simetrica nem antissimetrica, conferindo termo a termo. (CA-AA-AFN/2022, Q14)"
+      },
+      {
+        id: 37,
+        text: "Um plano alfa secciona uma esfera de raio 20 cm. Sabendo que a distancia do centro da esfera ao plano alfa mede 12 cm, e correto afirmar que a area seccionada e igual a:",
+        options: [
+          "A) 36π cm²",
+          "B) 64π cm²",
+          "C) 256π cm²",
+          "D) 512π cm²",
+          "E) 1024π cm²"
+        ],
+        correct: 2,
+        subject: "Provas Anteriores: Geometria Espacial",
+        explanation: "Quando um plano corta uma esfera, a \"fatia\" (secao) e um circulo. O raio desse circulo r se relaciona com o raio da esfera R e a distancia d do centro ao plano pelo Teorema de Pitagoras: r²=R²-d² = 20²-12² = 400-144=256, entao r=16. A area do circulo seccionado e π.r² = π x 256 = 256π cm². (CA-AA-AFN/2022, Q15)"
+      },
+      {
+        id: 38,
+        text: "A Tabela 1 apresenta as notas de Matematica de 10 alunos de tres turmas diferentes (A, B e C), com medias nA, nB, nC e medianas MeA, MeB, MeC de cada turma. A Tabela 2 e a tabela de frequencia absoluta (contando as 30 notas de todas as turmas), com X1 a X5 as frequencias das faixas 0-2, 2-4, 4-6, 6-8 e 8-10, respectivamente. As notas da Turma A sao 9,7,4,9,9,4,2,2,1,3; da Turma B sao 9,9,5,8,7,7,8,4,2,1; da Turma C sao 9,9,3,3,4,8,6,6,8,4. Assinale a opcao que apresenta as relacoes corretas entre esses valores.",
+        options: [
+          "A) nA<nB=nC; MeA<MeB=MeC; X2=X3",
+          "B) nA>nB=nC; MeA<MeC<MeB; X2>X4",
+          "C) nA<nB=nC; MeA<MeC<MeB; X4<X5",
+          "D) nA<nC<nB; MeA<MeC<MeB; X1<X4",
+          "E) nA=nC; MeA<MeC<MeB; X1>X5"
+        ],
+        correct: 2,
+        subject: "Provas Anteriores: Estatística e Funções",
+        explanation: "Calculando: a media da Turma A e 5,0; da B e 6,0; da C e 6,0. Logo nA<nB=nC, confirmando o inicio das opcoes A e C. A mediana da A e 4,0; da B e 7,0; da C e 6,0 -> MeA(4) < MeC(6) < MeB(7), o que so bate com a opcao C (a opcao A diz que MeB=MeC, o que e falso: 7 ≠ 6). Contando as 30 notas por faixa: 0-2 tem 2, 2-4 tem 6, 4-6 tem 6, 6-8 tem 5, 8-10 tem 11. Logo X4(5)<X5(11), confirmando a opcao C por completo. (CA-AA-AFN/2023, Q9)"
+      },
+      {
+        id: 39,
+        text: "Analise a expressao a seguir: {[sen(π/2+x).cos(3π/2-x)] + sen(2π-x).cos(π-x)/[tg(π/2+x).cotg(3π/2-x)]}. A simplificacao dessa expressao esta corretamente representada em qual das opcoes abaixo?",
+        options: [
+          "A) -2.cos(x).sen(x)",
+          "B) sen(x).cos(x)",
+          "C) cos²(x)+sen²(x)",
+          "D) cos(x)",
+          "E) sen(x)"
+        ],
+        correct: 0,
+        subject: "Provas Anteriores: Geometria Plana e Trigonometria",
+        explanation: "Essa expressao usa as formulas de reducao ao 1° quadrante (por exemplo, sen(π/2+x)=cos(x), cos(3π/2-x)=-sen(x), etc.). Substituindo cada termo por seu equivalente e simplificando com cuidado, tudo se reduz a -sen(2x), que e o mesmo que -2.sen(x).cos(x). (CA-AA-AFN/2023, Q10)"
+      },
+      {
+        id: 40,
+        text: "Em Fisica, um certo vetor F e obtido pela expressao F=-q(v × B), na qual q e um numero real positivo e F, v e B sao vetores no R³, definidos na mesma base ortonormal positiva (i,j,k). Desconsidere o significado fisico de F, v, q e B, bem como suas respectivas unidades e assinale a opcao que apresenta corretamente o vetor F (na base ortonormal i, j, k), bem como o seu modulo ||F||, ambos em funcao do numero real q. Dados: v=2i+(3/2)j+0k; B=0i+0j+2k.",
+        options: [
+          "A) F=0i+0j+0k; ||F||=0",
+          "B) F=3qi-4qj+0k; ||F||=5q",
+          "C) F=3qi-4qj+0k; ||F||=q.√(7)",
+          "D) F=-3qi-4qj+0k; ||F||=5q",
+          "E) F=-3qi+4qj+0k; ||F||=5q"
+        ],
+        correct: 4,
+        subject: "Provas Anteriores: Geometria Analítica e Vetores",
+        explanation: "O produto vetorial (v x B) usa a \"regra do determinante\": v x B = (3,-4,0) (calculando componente a componente). Como F=-q(v x B), invertemos o sinal: F=(-3q,4q,0), ou seja, F=-3qi+4qj+0k. O modulo e raiz[(-3q)²+(4q)²] = √(9q²+16q²)=√(25q²)=5q. (CA-AA-AFN/2023, Q11)"
+      },
+      {
+        id: 41,
+        text: "Seja z um numero complexo na forma z=a+bi, em que a e b pertencem aos Reais, b ≠ 0 e i e a unidade imaginaria. Assinale a opcao que corresponde ao produto z.z-conjugado, sabendo que log12(a) = 1/2, b e a parte imaginaria do numero complexo q=7+2i e z-conjugado e o complexo conjugado de z.",
+        options: [
+          "A) 1",
+          "B) 16",
+          "C) 40",
+          "D) 40.(1-i.sen(30°)).cos(30°)",
+          "E) -16.(1+i.sen(30°)).cos(30°)"
+        ],
+        correct: 1,
+        subject: "Provas Anteriores: Matrizes, Complexos e Logaritmos",
+        explanation: "De log12(a)=1/2 vem a=12^(1/2)=√(12)=2√(3). A parte imaginaria de q=7+2i e b=2. Para qualquer numero complexo z=a+bi, o produto z vezes seu conjugado e sempre a²+b². Aqui: (2√(3))²+2² = 12+4=16. (CA-AA-AFN/2023, Q12)"
+      },
+      {
+        id: 42,
+        text: "Sejam r e s duas retas em R³. As equacoes parametricas de r e s sao respectivamente: r:{x=0+4mu; y=2+2mu; z=1+0mu} e s:{x=1+λ; y=1+λ; z=1+0lambda}, nas quais os parametros μ e λ sao reais e nao nulos. Sendo assim, e correto afirmar que r e s:",
+        options: [
+          "A) interceptam-se no ponto P(4,4,1).",
+          "B) interceptam-se no ponto P(3,1,1).",
+          "C) sao ortogonais e perpendiculares.",
+          "D) sao ortogonais e reversas.",
+          "E) nao se interceptam."
+        ],
+        correct: 0,
+        subject: "Provas Anteriores: Geometria Analítica e Vetores",
+        explanation: "Igualando as coordenadas x e y das duas retas, resolve-se o sistema e encontra-se μ=1 e λ=3 - e a coordenada z bate automaticamente (ambas valem 1). Substituindo μ=1 em r: ponto (4,4,1). As retas de fato se cruzam nesse ponto. Alem disso, os vetores diretores (4,2,0) e (1,1,0) nao sao perpendiculares (o produto escalar deles e 6, nao 0), entao as opcoes de \"ortogonais\" ja ficam descartadas. (CA-AA-AFN/2023, Q13)"
+      },
+      {
+        id: 43,
+        text: "Considere uma esfera de raio R e um cilindro cujo raio da base mede r, com os centros da esfera e do cilindro coincidindo com a origem O. O cilindro esta dentro da esfera, de modo que as circunferencias das bases do cilindro tocam a superficie da esfera. Sendo h a altura do cilindro, e sabendo que 2r/h=√(3), assinale a opcao que apresenta o volume contido na regiao externa ao cilindro e interna a esfera.",
+        options: [
+          "A) piR³(16-3√(3))/12",
+          "B) piR³",
+          "C) 7piR³/3",
+          "D) 7piR³/12",
+          "E) piR³(16+3√(3))/12"
+        ],
+        correct: 3,
+        subject: "Provas Anteriores: Geometria Espacial",
+        explanation: "Como a borda do cilindro toca a esfera, forma-se um triangulo retangulo: R²=r²+(h/2)². Usando 2r=h.√(3) (ou seja, r=h.√(3)/2), substituindo: R²=3h²/4+h²/4=h², logo h=R e r=R.√(3)/2. O volume da esfera e (4/3)piR³ e o do cilindro e π.r².h = π x (3R²/4) x R = (3/4)piR³. A diferenca (esfera menos cilindro) e (4/3-3/4)piR³ = (16/12-9/12)piR³ = 7piR³/12. (CA-AA-AFN/2023, Q14)"
+      },
+      {
+        id: 44,
+        text: "O grafico \"Rendimento da aplicacao no CDB\" mostra o montante M (em reais) de um fundo de investimento em funcao do tempo (em meses), calculado por M(x)=C(1,01)^x, em que C e o valor aplicado inicialmente. Conforme o grafico, ao completar tres meses da aplicacao (x=3), o montante e aproximadamente M(3)=1,03.C (arredondando para duas casas decimais). Assinale a opcao que mais se aproxima do valor, em reais, que estara na conta do fundo de investimento apos 72 meses, em funcao do capital investido C.",
+        options: [
+          "A) (1,06)²⁴.C",
+          "B) (1,06)¹².C",
+          "C) (1,03)³⁶.C",
+          "D) (1,09)¹².C",
+          "E) (1,06)³⁶.C"
+        ],
+        correct: 1,
+        subject: "Provas Anteriores: Estatística e Funções",
+        explanation: "O grafico da a dica de arredondar em blocos de meses: se em 3 meses o fator e 1,03 (arredondado), em 6 meses o fator fica perto de (1,03)² aprox 1,06 (tambem arredondando para duas casas). Como 72 meses sao 12 blocos de 6 meses, o montante fica em torno de (1,06)¹².C - que, conferindo, e o valor mais proximo do resultado exato (1,01)⁷².C entre as opcoes dadas. (CA-AA-AFN/2023, Q15)"
+      },
+      {
+        id: 45,
+        text: "Em uma Progressao Aritmetica (PA), o decimo termo (a10) e igual a 82 e o vigesimo termo (a20) e igual a 122. Qual e o valor do primeiro termo (a1) dessa PA?",
+        options: [
+          "A) 28",
+          "B) 34",
+          "C) 40",
+          "D) 46",
+          "E) 52"
+        ],
+        correct: 3,
+        subject: "Provas Anteriores: Progressões (PA e PG)",
+        explanation: "Entre o 10° e o 20° termo existem 10 \"saltos\" de razao r: a20-a10=10r -> 122-82=40=10r -> r=4. Para achar a1, volta-se 9 saltos a partir de a10: a1=a10-9r=82-36=46. (CA-AA-AFN/2024, Q9)"
+      },
+      {
+        id: 46,
+        text: "Os militares de uma Esquadra de Tiro (ET) possuem alturas iguais a 1,80 m, 1,70 m, 1,68 m e 1,62 m. Analisando essas medidas, encontre o Desvio Padrao delas e assinale a opcao correta.",
+        options: [
+          "A) 0,0648",
+          "B) 0,0598",
+          "C) 0,0354",
+          "D) 0,0221",
+          "E) 0,0168"
+        ],
+        correct: 0,
+        subject: "Provas Anteriores: Estatística e Funções",
+        explanation: "A media das alturas e 1,70 m. O desvio padrao mede o quanto os valores se afastam, em media, dessa media: calcula-se a diferenca de cada altura para a media, eleva-se ao quadrado, tira-se a media desses quadrados, e depois a raiz quadrada. Fazendo essas contas, o resultado e aproximadamente 0,0648. (CA-AA-AFN/2024, Q10)"
+      },
+      {
+        id: 47,
+        text: "Uma bola de sinuca possui um formato esferico. Sabendo que o diametro da bola e de 52 mm, qual e, aproximadamente, o volume desse solido em centimetros cubicos (cm³)? (Dado: π=3)",
+        options: [
+          "A) 60",
+          "B) 70",
+          "C) 80",
+          "D) 90",
+          "E) 100"
+        ],
+        correct: 1,
+        subject: "Provas Anteriores: Geometria Espacial",
+        explanation: "O raio e metade do diametro: 52mm/2=26mm=2,6cm. O volume de uma esfera e (4/3)π.r³. Com π=3: Volume=(4/3)x3x(2,6)³=4x17,576 aprox 70,3 cm³. (CA-AA-AFN/2024, Q11)"
+      },
+      {
+        id: 48,
+        text: "Analisando uma circunferencia e adotando raio OA=6 cm e arco de circunferencia AB igual a 4 cm, encontre o valor aproximado, em graus, do angulo alfa (formado entre os raios OA e OB) e assinale a opcao correta. (Dado: π=3)",
+        options: [
+          "A) 10°",
+          "B) 20°",
+          "C) 30°",
+          "D) 40°",
+          "E) 50°"
+        ],
+        correct: 3,
+        subject: "Provas Anteriores: Geometria Plana e Trigonometria",
+        explanation: "O comprimento de um arco e igual ao raio vezes o angulo (em radianos): 4=6xtheta, entao θ=4/6=2/3 radiano. Para converter para graus, multiplica-se por 180/π: θ=(2/3)x(180/3)=(2/3)x60=40°. (CA-AA-AFN/2024, Q12)"
+      },
+      {
+        id: 49,
+        text: "Um quadrado de area 64 cm² teve um aumento de 50% no comprimento do seu lado. Assim, qual e a nova area do quadrado, em cm², apos esse aumento?",
+        options: [
+          "A) 96",
+          "B) 100",
+          "C) 144",
+          "D) 168",
+          "E) 196"
+        ],
+        correct: 2,
+        subject: "Provas Anteriores: Geometria Plana e Trigonometria",
+        explanation: "Se a area e 64, o lado original e √(64)=8 cm. Aumentando 50%, o novo lado e 8x1,5=12 cm. A nova area e 12²=144 cm². (CA-AA-AFN/2024, Q13)"
+      },
+      {
+        id: 50,
+        text: "Um dado de seis faces, numeradas de 1 (um) a 6 (seis), foi lancado tres vezes. Assim, qual e a probabilidade de os tres numeros obtidos serem par?",
+        options: [
+          "A) 10,0%",
+          "B) 12,5%",
+          "C) 15,0%",
+          "D) 17,5%",
+          "E) 20,0%"
+        ],
+        correct: 1,
+        subject: "Provas Anteriores: Análise Combinatória e Probabilidade",
+        explanation: "Em cada lancamento, a chance de sair um numero par (2, 4 ou 6) e 3/6=1/2. Como os tres lancamentos sao independentes, multiplicam-se as probabilidades: (1/2)x(1/2)x(1/2)=1/8=12,5%. (CA-AA-AFN/2024, Q14)"
+      },
+      {
+        id: 51,
+        text: "Considerando f(x)=-√(3)x+5/7 e g(x)=mx-1/2, calcule o valor de m para que as retas f(x) e g(x) sejam perpendiculares e assinale a opcao correta.",
+        options: [
+          "A) √(3)/3",
+          "B) √(3)",
+          "C) 1/3",
+          "D) 2√(3)/3",
+          "E) 3√(3)/2"
+        ],
+        correct: 0,
+        subject: "Provas Anteriores: Geometria Analítica e Vetores",
+        explanation: "O coeficiente angular de f(x) e -√(3). Para duas retas serem perpendiculares, o produto dos coeficientes angulares tem que ser -1: (-√(3))xm=-1 -> m=1/√(3), que racionalizando fica √(3)/3. (CA-AA-AFN/2024, Q15)"
+      },
+      {
+        id: 52,
+        text: "Suponha que a organizacao do evento da passagem de Comando do Centro de Instrucao Almirante Alexandrino solicitou que uma das mesas redondas, que tem seis cadeiras disponiveis para os convidados, fosse destinada aos seis Oficiais mais novos (\"mais modernos\") desse centro de instrucao. De quantas formas distintas esses Oficiais podem sentar-se considerando que dois deles, por serem da mesma turma, devem estar juntos?",
+        options: [
+          "A) 6",
+          "B) 12",
+          "C) 24",
+          "D) 48",
+          "E) 60"
+        ],
+        correct: 3,
+        subject: "Provas Anteriores: Análise Combinatória e Probabilidade",
+        explanation: "Como os dois oficiais da mesma turma precisam ficar juntos, trate-os como um \"bloco unico\". Assim, sobram 5 \"unidades\" (4 pessoas + 1 bloco) para sentar em roda. Em mesa redonda, o numero de formas de arrumar n unidades e (n-1)!, entao (5-1)!=4!=24. Mas dentro do bloco, os dois oficiais podem trocar de lugar entre si (2 formas). Total: 24x2=48. (CA-AA-AFN/2025, Q9)"
+      },
+      {
+        id: 53,
+        text: "Em uma situacao hipotetica, duas Fragatas passam por um mesmo ponto A do oceano ao mesmo tempo. A primeira navega a uma velocidade de 16 km/h em um curso de 45° em relacao ao norte, no sentido horario. A segunda, a uma velocidade de 6 km/h em um curso de 105° em relacao ao norte, tambem no sentido horario. Apos uma hora, qual sera a distancia entre os navios, supondo que eles tenham mantido o mesmo curso e velocidade desde que deixaram o ponto A?",
+        options: [
+          "A) 10 km",
+          "B) 11 km",
+          "C) 12 km",
+          "D) 13 km",
+          "E) 14 km"
+        ],
+        correct: 4,
+        subject: "Provas Anteriores: Geometria Plana e Trigonometria",
+        explanation: "Apos 1 hora, a primeira Fragata percorreu 16km e a segunda 6km, partindo do mesmo ponto A mas em direcoes diferentes. O angulo entre os dois cursos e 105°-45°=60°. Usando a Lei dos Cossenos no triangulo formado: distancia² = 16²+6²-2x16x6xcos(60°) = 256+36-96 = 196. Distancia=√(196)=14 km. (CA-AA-AFN/2025, Q10)"
+      },
+      {
+        id: 54,
+        text: "A cobertura de uma barraca usada pelo Corpo de Fuzileiros Navais, feita de lona, e constituida de dois triangulos equilateros ABC e BCD, com o lado comum BC medindo 4 metros. Estando a barraca montada, os vertices A e D ficam a 1 metro do chao, enquanto os vertices B e C ficam a 2 metros do chao. Supondo que, nessas condicoes, quando os raios solares incidirem perpendicularmente ao plano do chao, a area da sombra da barraca projetada no chao, em metros quadrados, sera de:",
+        options: [
+          "A) 4√(11)",
+          "B) 4,5√(11)",
+          "C) 5√(11)",
+          "D) 5,5√(11)",
+          "E) 6√(11)"
+        ],
+        correct: 0,
+        subject: "Provas Anteriores: Geometria Espacial",
+        explanation: "A sombra, com o sol a pino, e a \"vista de cima\" da barraca. Posicionando B e C num sistema de coordenadas (separados por 4m) e usando que os triangulos sao equilateros de lado 4m com A e D a 1m de altura (contra os 2m de B e C), calcula-se que a distancia \"horizontal\" (na projecao) de A e de D ate a linha BC e √(11) metros. A sombra e formada por dois triangulos (um de cada lado de BC), cada um com base 4 e altura √(11): area de cada um e (1/2)x4x√(11)=2√(11). Somando os dois: 4√(11). (CA-AA-AFN/2025, Q11)"
+      },
+      {
+        id: 55,
+        text: "Suponha que as Fragatas da Classe Tamandare tem um equipamento cuja temperatura e determinada pela funcao T(t)=1/(2-sen(t)), onde T e em °C e t em horas. Assinale a opcao que apresenta a diferenca entre a maior e a menor temperatura desse equipamento.",
+        options: [
+          "A) 1/3 °C",
+          "B) 1/2 °C",
+          "C) 2/3 °C",
+          "D) 1 °C",
+          "E) 2 °C"
+        ],
+        correct: 2,
+        subject: "Provas Anteriores: Geometria Plana e Trigonometria",
+        explanation: "Como sen(t) varia sempre entre -1 e 1, o denominador (2-sen(t)) varia entre 1 (quando sen(t)=1) e 3 (quando sen(t)=-1). A temperatura T=1/(denominador) e MAIOR quando o denominador e MENOR: T maxima=1/1=1°C. E MENOR quando o denominador e maior: T minima=1/3°C. Diferenca: 1-1/3=2/3°C. (CA-AA-AFN/2025, Q12)"
+      },
+      {
+        id: 56,
+        text: "A agua para o abastecimento de um predio e armazenada em um sistema formado por dois reservatorios identicos, em formato de bloco retangular, ligados entre si por um cano igual ao cano de entrada. A agua entra no sistema pelo cano de entrada no Reservatorio 1, situado no topo do reservatorio, a uma vazao constante e, ao atingir o nivel do cano de ligacao, situado abaixo do topo, passa a abastecer o Reservatorio 2. Suponha que, inicialmente, os dois reservatorios estejam vazios. Qual grafico melhor descrevera a altura h do nivel da agua no Reservatorio 1, em funcao do volume V da agua no sistema?",
+        options: [
+          "A) Uma reta crescente do inicio ao fim, com inclinacao unica e constante.",
+          "B) Sobe em linha reta, depois fica praticamente estavel por um trecho (um \"plato\"), e volta a subir em linha reta com inclinacao mais suave.",
+          "C) Uma reta crescente, igual a primeira opcao, apenas com inclinacao diferente.",
+          "D) Sobe em linha reta com uma inclinacao, depois muda repentinamente para outra inclinacao constante mais acentuada.",
+          "E) Uma curva suave que cresce cada vez mais devagar, sem nenhum trecho reto ou plano."
+        ],
+        correct: 1,
+        subject: "Provas Anteriores: Geometria Espacial",
+        explanation: "Enquanto so o Reservatorio 1 esta enchendo (antes de atingir o nivel do cano), a altura sobe em linha reta com a mesma inclinacao, pois toda a agua entra nele. Quando o nivel chega ao cano de ligacao, o Reservatorio 1 praticamente \"trava\" nessa altura enquanto a agua passa a encher o Reservatorio 2 ate alcancar o mesmo nivel (formando um \"plato\" na altura de R1). Depois que os dois reservatorios se igualam, ambos sobem juntos, mas agora repartindo o mesmo volume entre uma area duas vezes maior - por isso a subida final e reta, so que com inclinacao mais suave (metade da inicial). Esse padrao de \"sobe, achata, sobe mais devagar\" e o que aparece na opcao correta. (CA-AA-AFN/2025, Q13)"
+      },
+      {
+        id: 57,
+        text: "Na comemoracao do aniversario da Escola Naval, as bebidas foram servidas em tacas no formato de cone reto. Um dos participantes serviu-se de uma taca completamente cheia, bebendo ate que a altura do liquido restante fosse a metade da altura da taca. Qual e o percentual, aproximado, que indica a quantidade de liquido que resta na taca em relacao a taca cheia?",
+        options: [
+          "A) 12,5%",
+          "B) 25%",
+          "C) 37,5%",
+          "D) 40%",
+          "E) 50%"
+        ],
+        correct: 0,
+        subject: "Provas Anteriores: Geometria Espacial",
+        explanation: "Numa taca em forma de cone (vertice para baixo), o liquido que resta forma um cone menor, semelhante ao cone total, mas com metade da altura. Quando as dimensoes lineares de um solido sao reduzidas pela metade, o VOLUME e reduzido para (1/2)³=1/8 do original - nao para metade! Logo, resta apenas 1/8 = 12,5% do volume total. (CA-AA-AFN/2025, Q15)"
+      },
+      {
+        id: 58,
+        text: "Uma PA (Progressão Aritmética) começa em 3 e tem razão 5. Qual é o 6º termo dessa progressão?",
+        options: [
+          "A) 18",
+          "B) 23",
+          "C) 28",
+          "D) 33",
+          "E) 38"
+        ],
+        correct: 2,
+        subject: "Exercícios Extras: Progressão Aritmética (PA)",
+        explanation: "Numa PA, cada termo é o anterior mais a razão (r=5). A fórmula do termo geral é aₙ = a₁ + (n−1)×r. Aqui: a₆ = 3 + (6−1)×5 = 3+25 = 28. Outro jeito de pensar: 3, 8, 13, 18, 23, 28 — o 6º termo é 28."
+      },
+      {
+        id: 59,
+        text: "Em uma PA, o primeiro termo é 10 e a razão é 4. Qual é o vigésimo termo (a₂₀)?",
+        options: [
+          "A) 86",
+          "B) 90",
+          "C) 94",
+          "D) 96",
+          "E) 100"
+        ],
+        correct: 0,
+        subject: "Exercícios Extras: Progressão Aritmética (PA)",
+        explanation: "Use a fórmula aₙ = a₁+(n−1)×r. Aqui, a₂₀ = 10+(20−1)×4 = 10+76 = 86."
+      },
+      {
+        id: 60,
+        text: "Numa PA, sabe-se que a₃=11 e a₇=27. Qual é a razão dessa progressão?",
+        options: [
+          "A) 2",
+          "B) 3",
+          "C) 4",
+          "D) 5",
+          "E) 6"
+        ],
+        correct: 2,
+        subject: "Exercícios Extras: Progressão Aritmética (PA)",
+        explanation: "Entre o 3º e o 7º termo existem 4 \"saltos\" de razão r (de a₃ para a₇ são 7−3=4 passos): a₇−a₃=4r → 27−11=16=4r → r=4."
+      },
+      {
+        id: 61,
+        text: "Qual é a soma dos 10 primeiros termos da PA 2, 5, 8, 11, ... ?",
+        options: [
+          "A) 145",
+          "B) 155",
+          "C) 160",
+          "D) 165",
+          "E) 170"
+        ],
+        correct: 1,
+        subject: "Exercícios Extras: Progressão Aritmética (PA)",
+        explanation: "Primeiro ache o 10º termo: a₁₀ = 2+(10−1)×3 = 2+27=29. A soma de uma PA é: Sₙ = (a₁+aₙ)×n/2. Aqui: S₁₀ = (2+29)×10/2 = 31×5 = 155."
+      },
+      {
+        id: 62,
+        text: "Um atleta corre todo dia um pouco mais que no dia anterior, sempre a mesma distância a mais. No primeiro dia correu 2 km e no quinto dia correu 6 km. Quantos km ele correrá no décimo dia, se continuar nesse ritmo?",
+        options: [
+          "A) 9",
+          "B) 10",
+          "C) 11",
+          "D) 12",
+          "E) 13"
+        ],
+        correct: 2,
+        subject: "Exercícios Extras: Progressão Aritmética (PA)",
+        explanation: "Como ele sempre soma a mesma distância fixa, é uma PA. Do dia 1 ao dia 5 são 4 \"saltos\": a₅−a₁=4r → 6−2=4=4r → r=1 (soma 1km a mais por dia). No 10º dia: a₁₀ = a₁+9r = 2+9×1=11 km."
+      },
+      {
+        id: 63,
+        text: "A soma dos três primeiros termos de uma PA é 24, e a razão dessa progressão é 3. Qual é o primeiro termo?",
+        options: [
+          "A) 3",
+          "B) 4",
+          "C) 5",
+          "D) 6",
+          "E) 7"
+        ],
+        correct: 2,
+        subject: "Exercícios Extras: Progressão Aritmética (PA)",
+        explanation: "Numa PA de 3 termos consecutivos, o termo do meio é sempre a média dos três, então o termo do meio vale 24÷3=8. Como a razão é 3, o primeiro termo é 8−3=5 (e o terceiro seria 8+3=11). Conferindo: 5+8+11=24 ✓."
+      },
+      {
+        id: 64,
+        text: "Uma escada tem degraus de altura constante. O primeiro degrau tem 15 cm de altura em relação ao chão e o oitavo degrau tem 120 cm de altura. Qual é a altura de cada degrau (a razão da PA)?",
+        options: [
+          "A) 12 cm",
+          "B) 13 cm",
+          "C) 14 cm",
+          "D) 15 cm",
+          "E) 16 cm"
+        ],
+        correct: 3,
+        subject: "Exercícios Extras: Progressão Aritmética (PA)",
+        explanation: "Do 1º ao 8º degrau existem 7 \"saltos\" de razão r: a₈−a₁=7r → 120−15=105=7r → r=105÷7=15. Cada degrau sobe 15 cm."
+      },
+      {
+        id: 65,
+        text: "Uma PG (Progressão Geométrica) começa em 3 e tem razão 2. Qual é o 5º termo dessa progressão?",
+        options: [
+          "A) 24",
+          "B) 36",
+          "C) 48",
+          "D) 60",
+          "E) 96"
+        ],
+        correct: 2,
+        subject: "Exercícios Extras: Progressão Geométrica (PG)",
+        explanation: "Numa PG, cada termo é o anterior MULTIPLICADO pela razão (aqui, razão=2). A fórmula do termo geral é aₙ = a₁×r^(n−1). Aqui: a₅ = 3×2⁴ = 3×16=48. Conferindo por extenso: 3, 6, 12, 24, 48 — o 5º termo é 48."
+      },
+      {
+        id: 66,
+        text: "Em uma PG, o primeiro termo é 5 e a razão é 3. Qual é o quarto termo (a₄)?",
+        options: [
+          "A) 45",
+          "B) 90",
+          "C) 135",
+          "D) 180",
+          "E) 225"
+        ],
+        correct: 2,
+        subject: "Exercícios Extras: Progressão Geométrica (PG)",
+        explanation: "Use aₙ=a₁×r^(n−1). Aqui: a₄=5×3³=5×27=135."
+      },
+      {
+        id: 67,
+        text: "Uma bactéria se multiplica dobrando de quantidade a cada hora. Se no início havia 5 bactérias, quantas haverá depois de 6 horas?",
+        options: [
+          "A) 160",
+          "B) 240",
+          "C) 320",
+          "D) 480",
+          "E) 640"
+        ],
+        correct: 2,
+        subject: "Exercícios Extras: Progressão Geométrica (PG)",
+        explanation: "Como a quantidade DOBRA a cada hora, é uma PG de razão 2, com a₁=5 (quantidade inicial, \"hora 0\"). Depois de 6 horas: quantidade = 5×2⁶ = 5×64=320."
+      },
+      {
+        id: 68,
+        text: "Numa PG de termos positivos, sabe-se que a₁=4 e a₄=32. Qual é a razão dessa progressão?",
+        options: [
+          "A) 1,5",
+          "B) 2",
+          "C) 2,5",
+          "D) 3",
+          "E) 3,5"
+        ],
+        correct: 1,
+        subject: "Exercícios Extras: Progressão Geométrica (PG)",
+        explanation: "Use a₄=a₁×r³: 32=4×r³ → r³=8 → r=2 (raiz cúbica de 8 é 2)."
+      },
+      {
+        id: 69,
+        text: "Qual é a soma da PG infinita 1 + 1/2 + 1/4 + 1/8 + 1/16 + ... (que continua para sempre, sempre dividindo por 2)?",
+        options: [
+          "A) 1",
+          "B) 1,5",
+          "C) 2",
+          "D) 2,5",
+          "E) 3"
+        ],
+        correct: 2,
+        subject: "Exercícios Extras: Progressão Geométrica (PG)",
+        explanation: "Para uma PG infinita com razão entre −1 e 1, existe uma fórmula direta: Soma = a₁/(1−r). Aqui, a₁=1 e r=1/2: Soma = 1/(1−1/2) = 1/(1/2) = 2."
+      },
+      {
+        id: 70,
+        text: "Um carro perde 10% do seu valor a cada ano (ou seja, no ano seguinte ele vale 90% do valor do ano anterior). Se hoje ele vale R$ 40.000, aproximadamente quanto valerá daqui a 2 anos?",
+        options: [
+          "A) R$ 32.000",
+          "B) R$ 32.400",
+          "C) R$ 33.000",
+          "D) R$ 34.000",
+          "E) R$ 36.000"
+        ],
+        correct: 1,
+        subject: "Exercícios Extras: Progressão Geométrica (PG)",
+        explanation: "Isso é uma PG de razão 0,9 (90%). Depois de 1 ano: 40.000×0,9=36.000. Depois de 2 anos: 36.000×0,9=32.400 (ou direto: 40.000×0,9²=40.000×0,81=32.400)."
+      },
+      {
+        id: 71,
+        text: "Numa PG, a₁=2 e a₃=18. Sabendo que todos os termos são positivos, qual é o valor de a₂?",
+        options: [
+          "A) 4",
+          "B) 5",
+          "C) 6",
+          "D) 8",
+          "E) 10"
+        ],
+        correct: 2,
+        subject: "Exercícios Extras: Progressão Geométrica (PG)",
+        explanation: "Uma propriedade das PGs: cada termo é a \"média geométrica\" dos seus vizinhos, ou seja, a₂² = a₁×a₃. Aqui: a₂² = 2×18=36, então a₂=√36=6. (Também dá pra achar a razão primeiro: a₃=a₁×r² → 18=2×r² → r²=9 → r=3; depois a₂=a₁×r=2×3=6.)"
+      },
+      {
+        id: 72,
+        text: "Uma lanchonete oferece 3 tipos de pão e 4 tipos de recheio. De quantas formas diferentes um cliente pode montar um sanduíche escolhendo 1 pão e 1 recheio?",
+        options: [
+          "A) 7",
+          "B) 9",
+          "C) 10",
+          "D) 12",
+          "E) 15"
+        ],
+        correct: 3,
+        subject: "Exercícios Extras: Análise Combinatória",
+        explanation: "Quando uma escolha não depende da outra (escolher o pão não afeta as opções de recheio), multiplicamos as possibilidades: 3 pães × 4 recheios = 12 combinações possíveis."
+      },
+      {
+        id: 73,
+        text: "Quantos números de 3 algarismos diferentes podem ser formados usando apenas os algarismos 1, 2, 3, 4 e 5 (sem repetir nenhum algarismo no número)?",
+        options: [
+          "A) 15",
+          "B) 30",
+          "C) 60",
+          "D) 90",
+          "E) 125"
+        ],
+        correct: 2,
+        subject: "Exercícios Extras: Análise Combinatória",
+        explanation: "Para o primeiro algarismo há 5 opções. Como não pode repetir, para o segundo sobram 4 opções, e para o terceiro sobram 3 opções. Total: 5×4×3=60."
+      },
+      {
+        id: 74,
+        text: "De quantas formas diferentes 5 pessoas podem se sentar em 5 cadeiras enfileiradas (uma do lado da outra)?",
+        options: [
+          "A) 20",
+          "B) 60",
+          "C) 100",
+          "D) 120",
+          "E) 150"
+        ],
+        correct: 3,
+        subject: "Exercícios Extras: Análise Combinatória",
+        explanation: "Isso é uma permutação simples de 5 pessoas: 5!=5×4×3×2×1=120 formas diferentes."
+      },
+      {
+        id: 75,
+        text: "Um time de futebol de salão tem 8 jogadores disponíveis, mas só 5 jogam por vez (e a ordem entre eles em campo não importa, é só quem está jogando). De quantas formas diferentes o técnico pode escolher os 5 jogadores que vão para a quadra?",
+        options: [
+          "A) 40",
+          "B) 56",
+          "C) 336",
+          "D) 6720",
+          "E) 32768"
+        ],
+        correct: 1,
+        subject: "Exercícios Extras: Análise Combinatória",
+        explanation: "Como a ORDEM não importa (só interessa QUEM está em quadra, não em que posição foi escolhido), usamos combinação: C(8,5) = 8!/(5!×3!) = (8×7×6)/(3×2×1) = 336/6 = 56."
+      },
+      {
+        id: 76,
+        text: "Uma senha de cofre tem 4 dígitos, cada um de 0 a 9, e os dígitos PODEM se repetir. Quantas senhas diferentes são possíveis?",
+        options: [
+          "A) 210",
+          "B) 5040",
+          "C) 10000",
+          "D) 40320",
+          "E) 100000"
+        ],
+        correct: 2,
+        subject: "Exercícios Extras: Análise Combinatória",
+        explanation: "Como cada um dos 4 dígitos pode ser qualquer valor de 0 a 9 (10 opções), e a repetição é permitida, cada posição é independente: 10×10×10×10 = 10⁴ = 10.000 senhas possíveis."
+      },
+      {
+        id: 77,
+        text: "Numa sala há 6 pessoas. Se todas se cumprimentarem com um aperto de mão (cada par de pessoas se cumprimenta uma única vez), quantos apertos de mão acontecerão ao todo?",
+        options: [
+          "A) 12",
+          "B) 15",
+          "C) 18",
+          "D) 21",
+          "E) 30"
+        ],
+        correct: 1,
+        subject: "Exercícios Extras: Análise Combinatória",
+        explanation: "Um aperto de mão é um \"par\" de pessoas, e a ordem não importa (A cumprimentar B é o mesmo aperto que B cumprimentar A). Isso é uma combinação de 6 pessoas tomadas 2 a 2: C(6,2) = 6!/(2!×4!) = (6×5)/2 = 15."
+      },
+      {
+        id: 78,
+        text: "Quantos anagramas (reorganizações das letras) tem a palavra AMOR?",
+        options: [
+          "A) 4",
+          "B) 8",
+          "C) 12",
+          "D) 16",
+          "E) 24"
+        ],
+        correct: 4,
+        subject: "Exercícios Extras: Análise Combinatória",
+        explanation: "AMOR tem 4 letras, todas diferentes entre si. O número de anagramas de uma palavra com n letras todas diferentes é n!: 4!=4×3×2×1=24."
+      },
+      {
+        id: 79,
+        text: "Quantos anagramas tem a palavra ANA (repare que a letra A aparece duas vezes)?",
+        options: [
+          "A) 2",
+          "B) 3",
+          "C) 4",
+          "D) 6",
+          "E) 9"
+        ],
+        correct: 1,
+        subject: "Exercícios Extras: Análise Combinatória",
+        explanation: "ANA tem 3 letras, mas o A se repete 2 vezes. Se todas as letras fossem diferentes, seriam 3!=6 anagramas, mas como o A se repete, dividimos por 2! (as formas de trocar os dois A entre si, que dão o mesmo resultado): 6/2=3. De fato, os únicos anagramas são: ANA, AAN, NAA."
+      }
+    ];
+
+    // App State
+    let currentIndex = 0;
+    let userAnswers = {}; // { questionIndex: selectedOptionIndex }
+    let mode = 'study'; // 'study' or 'exam'
+    let activeFilter = 'all'; // 'all', 'unanswered', 'answered'
+    let subjectFilter = 'all';
+    let discardedOptions = {}; // { questionIndex: { optionIndex: true } }
+    let timerInterval = null;
+
+    // Local Storage Keys (cache local / fallback offline)
+    const STORAGE_KEY_ANSWERS = 'matematica_answers';
+    const STORAGE_KEY_MODE = 'matematica_mode';
+    const STORAGE_KEY_DISCARDED = 'matematica_discarded_options';
+    const STORAGE_KEY_START = 'matematica_elapsed_start';
+
+    // --- Supabase: sessão vem da página inicial (index.html) ---
+    const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const QUIZ_ID = 'MATEMATICA';
+
+    function toggleSwitchMenu() {
+      const menu = document.getElementById('switch-quiz-menu');
+      if (menu) menu.classList.toggle('hidden');
+    }
+    document.addEventListener('click', (e) => {
+      const menu = document.getElementById('switch-quiz-menu');
+      const btn = document.getElementById('switch-quiz-btn');
+      if (!menu || menu.classList.contains('hidden')) return;
+      if (!menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.classList.add('hidden');
+      }
+    });
+    async function applySwitchMenuLocks() {
+      const { data: acessos } = await sb.from('acessos').select('quiz_id').eq('user_id', currentUser.id);
+      const liberadas = new Set((acessos || []).map(a => a.quiz_id));
+      document.querySelectorAll('[data-switch-quiz-id]').forEach(item => {
+        const quizId = item.getAttribute('data-switch-quiz-id');
+        if (!liberadas.has(quizId)) {
+          item.classList.add('hidden');
+        }
+      });
+    }
+
+    let currentUser = null;
+    let saveDebounceTimer = null;
+
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending', 'gate-no-access'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    async function handleLogout() {
+      if (timerInterval) clearInterval(timerInterval);
+      await sb.auth.signOut();
+    }
+
+    async function onUserAuthenticated() {
+      const { data: perfil } = await sb
+        .from('profiles')
+        .select('aprovado')
+        .eq('id', currentUser.id)
+        .maybeSingle();
+
+      const aprovado = perfil ? perfil.aprovado : false;
+
+      if (!aprovado) {
+        showGate('gate-pending');
+        return;
+      }
+
+      const { data: acesso } = await sb
+        .from('acessos')
+        .select('quiz_id')
+        .eq('user_id', currentUser.id)
+        .eq('quiz_id', QUIZ_ID)
+        .maybeSingle();
+
+      if (!acesso) {
+        showGate('gate-no-access');
+        return;
+      }
+
+      document.getElementById('access-screen').classList.add('hidden');
+      const bar = document.getElementById('user-bar');
+      bar.classList.remove('hidden');
+      bar.classList.add('flex');
+      document.getElementById('user-email').textContent = currentUser.email;
+      await applySwitchMenuLocks();
+
+      await loadSavedState();
+      currentIndex = 0;
+      renderQuestion();
+      renderGrid();
+      updateTrackers();
+
+      if (!localStorage.getItem(STORAGE_KEY_START)) {
+        localStorage.setItem(STORAGE_KEY_START, String(Date.now()));
+      }
+      startElapsedTimer();
+      updateElapsedTimer();
+    }
+
+    function showAccessScreen() {
+      document.getElementById('user-bar').classList.add('hidden');
+      document.getElementById('user-bar').classList.remove('flex');
+      if (timerInterval) clearInterval(timerInterval);
+      showGate('gate-logged-out');
+    }
+
+    // Init App
+    window.addEventListener('DOMContentLoaded', () => {
+      populateSubjectFilter();
+      sb.auth.onAuthStateChange((event, session) => {
+        if (session && session.user) {
+          currentUser = session.user;
+          onUserAuthenticated();
+        } else if (event === 'SIGNED_OUT' || event === 'INITIAL_SESSION') {
+          currentUser = null;
+          showAccessScreen();
+        }
+      });
+    });
+
+    // Atalhos de teclado: ← / → navegam entre questões, A–E marcam a alternativa
+    document.addEventListener('keydown', (e) => {
+      const locked = !document.getElementById('access-screen').classList.contains('hidden');
+      if (locked) return;
+      const typingInField = ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName);
+      if (typingInField) return;
+
+      if (e.key === 'ArrowRight') { nextQuestion(); }
+      else if (e.key === 'ArrowLeft') { prevQuestion(); }
+      else {
+        const letterIndex = 'abcdefgh'.indexOf(e.key.toLowerCase());
+        if (letterIndex > -1 && questionsData[currentIndex] && letterIndex < questionsData[currentIndex].options.length) {
+          selectOption(letterIndex);
+        }
+      }
+    });
+
+    function startElapsedTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(updateElapsedTimer, 1000);
+    }
+
+    function formatElapsed(ms) {
+      const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+      const h = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+      const m = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+      const sec = String(totalSeconds % 60).padStart(2, '0');
+      return `${h}:${m}:${sec}`;
+    }
+
+    function updateElapsedTimer() {
+      const el = document.getElementById('elapsed-timer');
+      if (!el) return;
+      const start = Number(localStorage.getItem(STORAGE_KEY_START));
+      el.querySelector('span').innerText = start ? formatElapsed(Date.now() - start) : '00:00:00';
+    }
+
+    async function loadSavedState() {
+      userAnswers = {};
+      discardedOptions = {};
+      let loadedFromCloud = false;
+
+      if (currentUser) {
+        try {
+          const { data, error } = await sb
+            .from('progresso')
+            .select('respostas, descartadas, modo')
+            .eq('user_id', currentUser.id)
+            .eq('quiz_id', QUIZ_ID)
+            .maybeSingle();
+          if (!error && data) {
+            userAnswers = data.respostas || {};
+            discardedOptions = data.descartadas || {};
+            if (data.modo) setMode(data.modo, false);
+            loadedFromCloud = true;
+          }
+        } catch (e) { /* segue para o cache local */ }
+      }
+
+      if (!loadedFromCloud) {
+        const savedAnswers = localStorage.getItem(STORAGE_KEY_ANSWERS);
+        if (savedAnswers) {
+          try { userAnswers = JSON.parse(savedAnswers); } catch(e) { userAnswers = {}; }
+        }
+        const savedMode = localStorage.getItem(STORAGE_KEY_MODE);
+        if (savedMode) setMode(savedMode, false);
+        const savedDiscarded = localStorage.getItem(STORAGE_KEY_DISCARDED);
+        if (savedDiscarded) {
+          try { discardedOptions = JSON.parse(savedDiscarded) || {}; } catch(e) { discardedOptions = {}; }
+        }
+      }
+    }
+
+    async function syncProgressToCloud() {
+      if (!currentUser) return;
+      await sb.from('progresso').upsert({
+        user_id: currentUser.id,
+        quiz_id: QUIZ_ID,
+        respostas: userAnswers,
+        descartadas: discardedOptions,
+        modo: mode,
+        atualizado_em: new Date().toISOString()
+      });
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY_ANSWERS, JSON.stringify(userAnswers));
+      localStorage.setItem(STORAGE_KEY_DISCARDED, JSON.stringify(discardedOptions));
+      if (currentUser) {
+        clearTimeout(saveDebounceTimer);
+        saveDebounceTimer = setTimeout(syncProgressToCloud, 600);
+      }
+    }
+
+    function isDiscarded(qIndex, optIndex) {
+      return !!(discardedOptions[qIndex] && discardedOptions[qIndex][optIndex]);
+    }
+
+    function toggleDiscard(optIndex) {
+      if (!discardedOptions[currentIndex]) discardedOptions[currentIndex] = {};
+      if (discardedOptions[currentIndex][optIndex]) {
+        delete discardedOptions[currentIndex][optIndex];
+      } else {
+        discardedOptions[currentIndex][optIndex] = true;
+        // If the user had selected this option, remove that answer so the discarded option cannot remain selected.
+        if (userAnswers[currentIndex] === optIndex) delete userAnswers[currentIndex];
+      }
+      if (Object.keys(discardedOptions[currentIndex]).length === 0) delete discardedOptions[currentIndex];
+      saveState();
+      renderQuestion();
+      renderGrid();
+    }
+
+    function setMode(newMode, render = true) {
+      mode = newMode;
+      localStorage.setItem(STORAGE_KEY_MODE, mode);
+      if (currentUser && render) {
+        clearTimeout(saveDebounceTimer);
+        saveDebounceTimer = setTimeout(syncProgressToCloud, 600);
+      }
+
+      const studyBtn = document.getElementById('btn-mode-study');
+      const examBtn = document.getElementById('btn-mode-exam');
+
+      if (mode === 'study') {
+        studyBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-white shadow';
+        examBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-white';
+      } else {
+        examBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-white shadow';
+        studyBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-white';
+      }
+
+      if (render) {
+        renderQuestion();
+        renderGrid();
+      }
+    }
+
+    function renderQuestion() {
+      const q = questionsData[currentIndex];
+      const selectedOption = userAnswers[currentIndex];
+
+      // Update question text and badge
+      document.getElementById('question-badge').innerText = `Questão #${q.id}`;
+      document.getElementById('question-subject-tag').innerText = q.subject;
+      document.getElementById('question-text').innerText = q.text;
+
+      // Status tag
+      const statusTag = document.getElementById('question-status-tag');
+      if (selectedOption !== undefined) {
+        statusTag.classList.remove('hidden');
+        if (mode === 'study') {
+          if (selectedOption === q.correct) {
+            statusTag.className = 'text-xs px-2.5 py-1 rounded font-medium bg-emerald-900/60 text-emerald-300 border border-emerald-700';
+            statusTag.innerText = 'Correta';
+          } else {
+            statusTag.className = 'text-xs px-2.5 py-1 rounded font-medium bg-rose-900/60 text-rose-300 border border-rose-700';
+            statusTag.innerText = 'Incorreta';
+          }
+        } else {
+          statusTag.className = 'text-xs px-2.5 py-1 rounded font-medium bg-slate-700 text-slate-300';
+          statusTag.innerText = 'Respondida';
+        }
+      } else {
+        statusTag.classList.add('hidden');
+      }
+
+      // Options
+      const container = document.getElementById('options-container');
+      container.innerHTML = '';
+
+      q.options.forEach((optText, optIdx) => {
+        const discarded = isDiscarded(currentIndex, optIdx);
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.onclick = () => { if (!isDiscarded(currentIndex, optIdx)) selectOption(optIdx); };
+
+        let baseClasses = 'w-full text-left p-4 pr-3 rounded-xl border text-sm md:text-base font-medium transition-all flex items-start gap-3 ';
+
+        if (discarded) {
+          baseClasses += 'bg-slate-800/30 border-slate-700/50 text-slate-500 opacity-50 line-through cursor-pointer';
+        } else if (selectedOption === undefined) {
+          // Unanswered
+          baseClasses += 'bg-navy-900/60 border-navy-700/80 text-slate-200 hover:bg-navy-700/50 hover:border-navy-500';
+        } else {
+          if (mode === 'study') {
+            // Study Mode: reveal correct & incorrect immediately
+            if (optIdx === q.correct) {
+              baseClasses += 'bg-emerald-950/70 border-emerald-600 text-emerald-200 shadow-sm';
+            } else if (optIdx === selectedOption && selectedOption !== q.correct) {
+              baseClasses += 'bg-rose-950/70 border-rose-600 text-rose-200 shadow-sm';
+            } else {
+              baseClasses += 'bg-navy-900/30 border-navy-800 text-slate-500 opacity-60';
+            }
+          } else {
+            // Exam Mode: show only user selection
+            if (optIdx === selectedOption) {
+              baseClasses += 'bg-navy-600/80 border-navy-400 text-white shadow-md';
+            } else {
+              baseClasses += 'bg-navy-900/60 border-navy-700/80 text-slate-300 hover:bg-navy-700/40';
+            }
+          }
+        }
+
+        btn.className = baseClasses;
+
+        // Custom indicator radio
+        let radioIcon = '';
+        if (selectedOption === undefined || discarded) {
+          radioIcon = `<span class="w-5 h-5 rounded-full border border-slate-500 flex items-center justify-center shrink-0 mt-0.5 ${discarded ? 'opacity-40' : ''}"></span>`;
+        } else if (mode === 'study') {
+          if (optIdx === q.correct) {
+            radioIcon = `<span class="w-5 h-5 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center shrink-0 mt-0.5 text-xs"><i class="fa-solid fa-check"></i></span>`;
+          } else if (optIdx === selectedOption && selectedOption !== q.correct) {
+            radioIcon = `<span class="w-5 h-5 rounded-full bg-rose-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs"><i class="fa-solid fa-xmark"></i></span>`;
+          } else {
+            radioIcon = `<span class="w-5 h-5 rounded-full border border-slate-700 flex items-center justify-center shrink-0 mt-0.5"></span>`;
+          }
+        } else { // Exam mode
+          if (optIdx === selectedOption) {
+            radioIcon = `<span class="w-5 h-5 rounded-full bg-white text-navy-900 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold"><i class="fa-solid fa-circle text-[8px]"></i></span>`;
+          } else {
+            radioIcon = `<span class="w-5 h-5 rounded-full border border-slate-500 flex items-center justify-center shrink-0 mt-0.5"></span>`;
+          }
+        }
+
+        const lockState = discarded ? 'fa-lock-open text-slate-300' : 'fa-lock text-slate-500';
+        btn.innerHTML = `${radioIcon}<span class="flex-1 ${discarded ? 'line-through' : ''}">${optText}</span><span role="button" tabindex="0" aria-label="${discarded ? 'Restaurar alternativa' : 'Descartar alternativa'}" title="${discarded ? 'Restaurar alternativa' : 'Cortar/descartar alternativa'}" class="ml-2 shrink-0 w-7 h-7 rounded-md flex items-center justify-center hover:bg-white/10 ${discarded ? 'bg-slate-700/50' : ''}" onclick="event.stopPropagation(); toggleDiscard(${optIdx})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();toggleDiscard(${optIdx})}"><i class="fa-solid ${lockState} text-xs"></i></span>`;
+        container.appendChild(btn);
+      });
+
+      // Explanation Box (Study Mode)
+      const expBox = document.getElementById('explanation-box');
+      if (mode === 'study' && selectedOption !== undefined) {
+        expBox.classList.remove('hidden');
+        const isRight = selectedOption === q.correct;
+        const expTitle = document.getElementById('explanation-title');
+        const expText = document.getElementById('explanation-text');
+
+        if (isRight) {
+          expTitle.className = 'flex items-center gap-2 text-sm font-bold text-emerald-400 mb-1';
+          expTitle.innerHTML = `<i class="fa-solid fa-circle-check"></i> Resposta Correta!`;
+          expText.innerText = `A alternativa gabarito é: ${q.options[q.correct]}`;
+        } else {
+          expTitle.className = 'flex items-center gap-2 text-sm font-bold text-rose-400 mb-1';
+          expTitle.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> Resposta Incorreta`;
+          expText.innerText = `Você selecionou a opção (${String.fromCharCode(65 + selectedOption)}), mas a correta é a alternativa: ${q.options[q.correct]}`;
+        }
+
+        const expDetail = document.getElementById('explanation-detail');
+        const expDetailText = document.getElementById('explanation-detail-text');
+        if (q.explanation) {
+          expDetail.classList.remove('hidden');
+          expDetailText.innerText = q.explanation;
+        } else {
+          expDetail.classList.add('hidden');
+        }
+      } else {
+        expBox.classList.add('hidden');
+      }
+
+      // Nav buttons state
+      document.getElementById('btn-prev').disabled = currentIndex === 0;
+      document.getElementById('btn-next').disabled = currentIndex === questionsData.length - 1;
+
+      updateTrackers();
+
+      // Pequena transição ao trocar de questão
+      const card = document.getElementById('question-card');
+      card.classList.remove('question-in');
+      void card.offsetWidth;
+      card.classList.add('question-in');
+    }
+
+    function selectOption(optIndex) {
+      if (isDiscarded(currentIndex, optIndex)) return;
+      userAnswers[currentIndex] = optIndex;
+      saveState();
+      renderQuestion();
+      renderGrid();
+    }
+
+    function prevQuestion() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderQuestion();
+        renderGrid();
+      }
+    }
+
+    function nextQuestion() {
+      if (currentIndex < questionsData.length - 1) {
+        currentIndex++;
+        renderQuestion();
+        renderGrid();
+      }
+    }
+
+    function setFilter(filter) {
+      activeFilter = filter;
+      document.getElementById('filter-all').className = filter === 'all' ? 'py-1 rounded text-center bg-navy-700 text-white' : 'py-1 rounded text-center text-slate-400 hover:text-white';
+      document.getElementById('filter-unanswered').className = filter === 'unanswered' ? 'py-1 rounded text-center bg-navy-700 text-white' : 'py-1 rounded text-center text-slate-400 hover:text-white';
+      document.getElementById('filter-answered').className = filter === 'answered' ? 'py-1 rounded text-center bg-navy-700 text-white' : 'py-1 rounded text-center text-slate-400 hover:text-white';
+      renderGrid();
+    }
+
+    function setSubjectFilter(subject) {
+      subjectFilter = subject;
+      renderGrid();
+    }
+
+    function populateSubjectFilter() {
+      const select = document.getElementById('subject-filter');
+      if (!select) return;
+      const subjects = [...new Set(questionsData.map(q => q.subject))].sort();
+      subjects.forEach(subj => {
+        const opt = document.createElement('option');
+        opt.value = subj;
+        opt.textContent = subj;
+        select.appendChild(opt);
+      });
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('questions-grid');
+      grid.innerHTML = '';
+
+      questionsData.forEach((q, idx) => {
+        const isAnswered = userAnswers[idx] !== undefined;
+
+        // Apply filter
+        if (activeFilter === 'unanswered' && isAnswered) return;
+        if (activeFilter === 'answered' && !isAnswered) return;
+        if (subjectFilter !== 'all' && q.subject !== subjectFilter) return;
+
+        const btn = document.createElement('button');
+        btn.onclick = () => {
+          currentIndex = idx;
+          renderQuestion();
+          renderGrid();
+        };
+
+        let classes = 'h-9 w-full rounded text-xs font-mono font-bold flex items-center justify-center transition-all border ';
+
+        if (idx === currentIndex) {
+          classes += 'bg-navy-500 border-white text-white shadow-md ring-2 ring-navy-400/50 ';
+        } else if (isAnswered) {
+          if (mode === 'study') {
+            if (userAnswers[idx] === q.correct) {
+              classes += 'bg-emerald-900/80 border-emerald-600 text-emerald-200 ';
+            } else {
+              classes += 'bg-rose-900/80 border-rose-600 text-rose-200 ';
+            }
+          } else {
+            classes += 'bg-slate-700 border-slate-600 text-slate-200 ';
+          }
+        } else {
+          classes += 'bg-navy-900/80 border-navy-700 text-slate-400 hover:bg-navy-700/50 hover:text-white ';
+        }
+
+        btn.className = classes;
+        btn.innerText = idx + 1;
+        grid.appendChild(btn);
+      });
+    }
+
+    function updateTrackers() {
+      const total = questionsData.length;
+      const answeredCount = Object.keys(userAnswers).length;
+
+      document.getElementById('question-tracker').innerText = `Questão ${currentIndex + 1} de ${total}`;
+      document.getElementById('answered-tracker').innerText = `${answeredCount} de ${total} respondidas`;
+
+      const percentage = (answeredCount / total) * 100;
+      document.getElementById('progress-bar').style.width = `${percentage}%`;
+
+      // Score counter in drawer
+      let correctCount = 0;
+      Object.keys(userAnswers).forEach(idx => {
+        if (userAnswers[idx] === questionsData[idx].correct) {
+          correctCount++;
+        }
+      });
+      document.getElementById('score-counter').innerText = `${correctCount}/${total}`;
+    }
+
+    function resetQuiz() {
+      if (confirm('Tem certeza de que deseja reiniciar o simulado? Suas respostas salvas serão apagadas.')) {
+        userAnswers = {};
+        discardedOptions = {};
+        localStorage.removeItem(STORAGE_KEY_ANSWERS);
+        localStorage.removeItem(STORAGE_KEY_DISCARDED);
+        localStorage.setItem(STORAGE_KEY_START, String(Date.now()));
+        if (currentUser) {
+          sb.from('progresso').delete().eq('user_id', currentUser.id).eq('quiz_id', QUIZ_ID).then(() => {});
+        }
+        currentIndex = 0;
+        renderQuestion();
+        renderGrid();
+        updateElapsedTimer();
+      }
+    }
+
+    function finishQuiz() {
+      const total = questionsData.length;
+      let correct = 0;
+      let answered = 0;
+
+      questionsData.forEach((q, idx) => {
+        if (userAnswers[idx] !== undefined) {
+          answered++;
+          if (userAnswers[idx] === q.correct) {
+            correct++;
+          }
+        }
+      });
+
+      const wrong = answered - correct;
+      const percent = Math.round((correct / total) * 100);
+
+      document.getElementById('modal-correct').innerText = correct;
+      document.getElementById('modal-wrong').innerText = wrong;
+      document.getElementById('modal-percent').innerText = `${percent}%`;
+
+      const feedback = document.getElementById('modal-feedback');
+      if (percent >= 80) {
+        feedback.innerText = 'Excelente desempenho! Você demonstrou forte domínio de Matemática.';
+      } else if (percent >= 60) {
+        feedback.innerText = 'Bom resultado! Revise os tópicos incorretos para atingir uma nota ainda maior.';
+      } else {
+        feedback.innerText = 'Recomendamos uma revisão nos tópicos de Matemática e tentar o simulado novamente.';
+      }
+
+      document.getElementById('results-modal').classList.remove('hidden');
+
+      if (currentUser) {
+        sb.from('resultados').insert({
+          user_id: currentUser.id,
+          quiz_id: QUIZ_ID,
+          acertos: correct,
+          erros: wrong,
+          percentual: percent,
+          respostas: userAnswers
+        }).then(() => {});
+
+        // Log detalhado por questão (alimenta a análise por assunto do desempenho.html)
+        const detalhes = [];
+        questionsData.forEach((q, idx) => {
+          if (userAnswers[idx] !== undefined) {
+            detalhes.push({
+              user_id: currentUser.id,
+              quiz_id: QUIZ_ID,
+              subject: q.subject,
+              question_id: q.id,
+              acertou: userAnswers[idx] === q.correct
+            });
+          }
+        });
+        if (detalhes.length > 0) {
+          sb.from('respostas_detalhadas').insert(detalhes).then(() => {});
+        }
+      }
+    }
+
+    function closeModal() {
+      document.getElementById('results-modal').classList.add('hidden');
+    }
+  </script>
+
+  <!-- Estilo das alternativas descartadas -->
+  <style>
+    .option-discarded {
+      opacity: .48 !important;
+      filter: grayscale(.7);
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      text-decoration-color: rgba(148,163,184,.9);
+    }
+  </style>
+
+  <!-- Custom Scrollbar Styling -->
+  <style>
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #000F26;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #1E3E62;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #1E56A0;
+    }
+  </style>
+</body>
+</html>
