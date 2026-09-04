@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linha do Tempo · Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Infográficos de linha do tempo: Tratados coloniais, Transferência da Corte Portuguesa e Brasil Imperial. Material de apoio visual para História Naval.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: { 800: '#0B192C', 900: '#000F26', 700: '#1E3E62', 600: '#1E56A0', 500: '#0066CC', 100: '#E6F0FA' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes access-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    button:focus-visible, [role="button"]:focus-visible { outline: 2px solid #2384d6; outline-offset: 2px; }
+    #lightbox { transition: opacity .2s ease; }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">🗺️</div>
+      <div class="font-serif font-semibold text-[26px] text-white tracking-tight">Linha do Tempo</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial para acessar a linha do tempo.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-white text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-navy-900 border-b border-navy-700 sticky top-0 z-30">
+    <div class="max-w-5xl mx-auto px-4 md:px-6 py-3 flex items-center gap-3">
+      <a href="index.html" class="flex items-center gap-2 shrink-0" title="Voltar ao painel">
+        <div class="bg-navy-600 text-white p-2 rounded-lg shadow"><i class="fa-solid fa-anchor"></i></div>
+      </a>
+      <div class="flex-1 min-w-0">
+        <div class="font-serif font-semibold text-[17px] text-white tracking-tight truncate">Linha do Tempo</div>
+        <div class="text-[11px] text-slate-400 truncate">Tratados, Corte Portuguesa e Brasil Imperial</div>
+      </div>
+      <a href="flashcards-historia.html" class="hidden sm:flex items-center gap-1.5 bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg hover:border-navy-500 transition-colors">
+        <i class="fa-solid fa-layer-group"></i> Flashcards
+      </a>
+      <div class="flex items-center gap-2 shrink-0">
+        <div id="user-bar" class="hidden bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2" title="Conectado">
+          <i class="fa-solid fa-user text-navy-500"></i>
+          <span id="user-email" class="max-w-[140px] truncate"></span>
+          <button onclick="handleLogout()" class="ml-1 text-rose-300 hover:text-rose-200 transition-colors" title="Sair da conta">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 md:px-6 py-6 md:py-10">
+    <p class="text-sm text-slate-400 mb-8 text-center">Toque em qualquer imagem para ampliar. Esse material acompanha o baralho de flashcards <a href="flashcards-historia.html" class="text-navy-400 hover:text-white underline underline-offset-2">"Tratados, Corte Portuguesa e Independência"</a>.</p>
+
+    <div class="space-y-10">
+      <section>
+        <h2 class="font-serif text-xl font-semibold text-white mb-1">Tratados que definiram as fronteiras do Brasil Colonial</h2>
+        <p class="text-xs text-slate-400 mb-3">1680 – 1801</p>
+        <img src="img/tratados-fronteiras-1680-1801.jpg" alt="Linha do tempo dos tratados que definiram as fronteiras do Brasil Colonial, 1680 a 1801" loading="lazy" class="w-full rounded-xl border border-navy-700 shadow-lg cursor-zoom-in hover:opacity-90 transition-opacity" onclick="openLightbox(this.src, this.alt)">
+      </section>
+
+      <section>
+        <h2 class="font-serif text-xl font-semibold text-white mb-1">Transferência da Corte Portuguesa e Invasão da Guiana Francesa</h2>
+        <p class="text-xs text-slate-400 mb-3">1807 – 1808</p>
+        <img src="img/transferencia-corte-1807-1808.jpg" alt="Linha do tempo da transferência da Corte Portuguesa para o Brasil e da invasão da Guiana Francesa, 1807 a 1808" loading="lazy" class="w-full rounded-xl border border-navy-700 shadow-lg cursor-zoom-in hover:opacity-90 transition-opacity" onclick="openLightbox(this.src, this.alt)">
+      </section>
+
+      <section>
+        <h2 class="font-serif text-xl font-semibold text-white mb-1">Brasil Imperial: Consolidação, Conflitos e Independência</h2>
+        <p class="text-xs text-slate-400 mb-3">1816 – 1824 · visão geral</p>
+        <img src="img/brasil-imperial-1816-1824-geral.jpg" alt="Linha do tempo geral do Brasil Imperial: consolidação, conflitos e independência, 1816 a 1824" loading="lazy" class="w-full rounded-xl border border-navy-700 shadow-lg cursor-zoom-in hover:opacity-90 transition-opacity" onclick="openLightbox(this.src, this.alt)">
+      </section>
+
+      <section>
+        <h2 class="font-serif text-xl font-semibold text-white mb-1">Brasil Imperial — detalhe (1820, 1821 e 1824)</h2>
+        <p class="text-xs text-slate-400 mb-3">Cisplatina, Revolta Nativista, "Fico", Independência e revoltas provinciais</p>
+        <img src="img/brasil-imperial-1816-1824-detalhe.jpg" alt="Linha do tempo detalhada do Brasil Imperial em 1820, 1821 e 1824" loading="lazy" class="w-full rounded-xl border border-navy-700 shadow-lg cursor-zoom-in hover:opacity-90 transition-opacity" onclick="openLightbox(this.src, this.alt)">
+      </section>
+    </div>
+  </main>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="hidden fixed inset-0 z-[90] bg-black/90 items-center justify-center p-4 cursor-zoom-out" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="" class="max-w-full max-h-full rounded-lg shadow-2xl">
+    <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white/80 hover:text-white text-2xl" aria-label="Fechar">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <script>
+    const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    let currentUser = null;
+
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    async function handleLogout() {
+      await sb.auth.signOut();
+    }
+
+    async function onUserAuthenticated() {
+      const { data: perfil } = await sb
+        .from('profiles')
+        .select('aprovado')
+        .eq('id', currentUser.id)
+        .maybeSingle();
+
+      const aprovado = perfil ? perfil.aprovado : false;
+
+      if (!aprovado) {
+        showGate('gate-pending');
+        return;
+      }
+
+      document.getElementById('access-screen').classList.add('hidden');
+      const bar = document.getElementById('user-bar');
+      bar.classList.remove('hidden');
+      bar.classList.add('flex');
+      document.getElementById('user-email').textContent = currentUser.email;
+    }
+
+    function showAccessScreen() {
+      document.getElementById('user-bar').classList.add('hidden');
+      document.getElementById('user-bar').classList.remove('flex');
+      showGate('gate-logged-out');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      sb.auth.onAuthStateChange((event, session) => {
+        if (session && session.user) {
+          currentUser = session.user;
+          onUserAuthenticated();
+        } else if (event === 'SIGNED_OUT' || event === 'INITIAL_SESSION') {
+          currentUser = null;
+          showAccessScreen();
+        }
+      });
+    });
+
+    function openLightbox(src, alt) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-img').alt = alt;
+      const lb = document.getElementById('lightbox');
+      lb.classList.remove('hidden');
+      lb.classList.add('flex');
+    }
+    function closeLightbox() {
+      const lb = document.getElementById('lightbox');
+      lb.classList.add('hidden');
+      lb.classList.remove('flex');
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>
