@@ -60,6 +60,12 @@
         <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
         <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
       </div>
+
+      <div id="gate-no-access" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-lock text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Você ainda não tem acesso liberado a este material. Fale com o administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
     </div>
   </div>
 
@@ -131,11 +137,12 @@
     const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
     const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
     const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const QUIZ_ID = 'LINHA_DO_TEMPO_HISTORIA';
 
     let currentUser = null;
 
     function showGate(panel) {
-      ['gate-checking', 'gate-logged-out', 'gate-pending'].forEach(id => {
+      ['gate-checking', 'gate-logged-out', 'gate-pending', 'gate-no-access'].forEach(id => {
         const el = document.getElementById(id);
         el.classList.add('hidden');
         el.classList.remove('flex');
@@ -161,6 +168,18 @@
 
       if (!aprovado) {
         showGate('gate-pending');
+        return;
+      }
+
+      const { data: acesso } = await sb
+        .from('acessos')
+        .select('quiz_id')
+        .eq('user_id', currentUser.id)
+        .eq('quiz_id', QUIZ_ID)
+        .maybeSingle();
+
+      if (!acesso) {
+        showGate('gate-no-access');
         return;
       }
 
