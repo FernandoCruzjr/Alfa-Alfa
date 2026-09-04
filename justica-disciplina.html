@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Justiça e Disciplina (Sindicância) · Simulado — Plataforma de Estudos CA-AA/AFN</title>
-  <meta name="description" content="Simulado interativo de Justiça e Disciplina (Sindicância) para concursos, com modo estudo, modo prova, filtro por assunto e acompanhamento de desempenho.">
+  <title>Justiça e Disciplina · Simulado — Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Simulado interativo de Justiça e Disciplina (DGPM-315) para concursos, com modo estudo, modo prova, filtro por assunto e gabarito explicado.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -70,7 +70,7 @@
   <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
     <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
       <div class="text-[46px] leading-none mb-2" aria-hidden="true">⚓</div>
-      <div class="font-serif font-semibold text-[26px] text-white tracking-tight">Justiça e Disciplina (Sindicância)</div>
+      <div class="font-serif font-semibold text-[26px] text-white tracking-tight">Justiça e Disciplina</div>
       <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
 
       <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
@@ -98,7 +98,7 @@
         <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
       </div>
 
-      <div class="text-[11px] text-[#7895b5] mt-6 pt-4 border-t border-[#1c3a5c] w-full">Justiça e Disciplina (Sindicância) para Concursos</div>
+      <div class="text-[11px] text-[#7895b5] mt-6 pt-4 border-t border-[#1c3a5c] w-full">Justiça e Disciplina para Concursos</div>
     </div>
   </div>
 
@@ -111,8 +111,8 @@
           <i class="fa-solid fa-anchor text-2xl"></i>
         </div>
         <div>
-          <h1 class="font-serif text-xl font-semibold text-white tracking-wide">Justiça e Disciplina (Sindicância)</h1>
-          <p class="text-xs text-slate-400">Regulamento disciplinar e sindicâncias</p>
+          <h1 class="font-serif text-xl font-semibold text-white tracking-wide">Justiça e Disciplina</h1>
+          <p class="text-xs text-slate-400">Sindicância, IPM, Deserção, Prisão em Flagrante (DGPM-315)</p>
         </div>
       </div>
 
@@ -230,8 +230,8 @@
       <!-- Progress Bar & Stats -->
       <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 shadow-sm flex flex-col gap-3">
         <div class="flex justify-between items-center text-sm font-semibold">
-          <span id="question-tracker" class="text-navy-500 font-bold">Questão 1 de 38</span>
-          <span id="answered-tracker" class="text-slate-400 text-xs">0 de 38 respondidas</span>
+          <span id="question-tracker" class="text-navy-500 font-bold">Questão 1 de 147</span>
+          <span id="answered-tracker" class="text-slate-400 text-xs">0 de 147 respondidas</span>
         </div>
         <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
           <div id="progress-bar" class="bg-navy-500 h-full w-0 transition-all duration-300"></div>
@@ -267,6 +267,9 @@
         <div id="explanation-box" class="mt-6 p-4 rounded-lg bg-slate-900/90 border border-slate-700 hidden">
           <div class="flex items-center gap-2 text-sm font-bold mb-1" id="explanation-title"></div>
           <div class="text-xs md:text-sm text-slate-300" id="explanation-text"></div>
+          <div class="text-xs md:text-sm text-slate-300 mt-3 pt-3 border-t border-slate-700/60 hidden" id="explanation-detail">
+            <span class="text-navy-400 font-semibold">Como resolver: </span><span id="explanation-detail-text"></span>
+          </div>
         </div>
 
         <!-- Question Navigation Buttons -->
@@ -291,10 +294,10 @@
     <aside class="lg:col-span-1 bg-navy-800/80 border border-navy-700 rounded-xl p-4 flex flex-col gap-4 h-fit">
       <div class="flex justify-between items-center border-b border-navy-700 pb-3">
         <h2 class="text-sm font-bold text-slate-200 flex items-center gap-2">
-          <i class="fa-solid fa-list-ol text-navy-500"></i> Navegação (38)
+          <i class="fa-solid fa-list-ol text-navy-500"></i> Navegação (147)
         </h2>
         <span class="text-xs bg-slate-900 px-2 py-1 rounded text-slate-400 font-mono" id="score-counter">
-          0/38
+          0/147
         </span>
       </div>
 
@@ -354,7 +357,7 @@
         <i class="fa-solid fa-trophy"></i>
       </div>
       <h2 class="font-serif text-2xl font-semibold text-white mb-1">Resultado do Simulado</h2>
-      <p class="text-xs text-slate-400 mb-6">Justiça e Disciplina (Sindicância) para Concursos</p>
+      <p class="text-xs text-slate-400 mb-6">Justiça e Disciplina para Concursos</p>
 
       <div class="grid grid-cols-3 gap-3 mb-6">
         <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
@@ -400,7 +403,8 @@ const questionsData = [
           "D) contravenção disciplinar"
         ],
         correct: 2,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 2,
@@ -413,7 +417,8 @@ const questionsData = [
           "E) escrivão"
         ],
         correct: 2,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 3,
@@ -426,7 +431,8 @@ const questionsData = [
           "E) 48 horas"
         ],
         correct: 1,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 4,
@@ -439,7 +445,8 @@ const questionsData = [
           "E) mensagem"
         ],
         correct: 1,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 5,
@@ -452,7 +459,8 @@ const questionsData = [
           "E) despachos"
         ],
         correct: 2,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 6,
@@ -465,7 +473,8 @@ const questionsData = [
           "E) portaria"
         ],
         correct: 4,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 7,
@@ -478,7 +487,8 @@ const questionsData = [
           "E) termo de compromisso"
         ],
         correct: 1,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 8,
@@ -491,7 +501,8 @@ const questionsData = [
           "E) Despacho"
         ],
         correct: 4,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 9,
@@ -504,7 +515,8 @@ const questionsData = [
           "E) Despacho"
         ],
         correct: 0,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 10,
@@ -517,7 +529,8 @@ const questionsData = [
           "E) ofício"
         ],
         correct: 2,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 11,
@@ -530,7 +543,8 @@ const questionsData = [
           "E) Despacho"
         ],
         correct: 0,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 12,
@@ -543,7 +557,8 @@ const questionsData = [
           "E) portaria /portaria de em instauração"
         ],
         correct: 4,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 13,
@@ -556,7 +571,8 @@ const questionsData = [
           "E) qualquer oficial"
         ],
         correct: 2,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 14,
@@ -569,7 +585,8 @@ const questionsData = [
           "E) oficial"
         ],
         correct: 0,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 15,
@@ -582,7 +599,8 @@ const questionsData = [
           "E) termo de compromisso"
         ],
         correct: 4,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 16,
@@ -595,7 +613,8 @@ const questionsData = [
           "E) reservado e sigiloso"
         ],
         correct: 1,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 17,
@@ -608,7 +627,8 @@ const questionsData = [
           "E) portaria de autuação"
         ],
         correct: 1,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 18,
@@ -621,7 +641,8 @@ const questionsData = [
           "E) comunicação interna"
         ],
         correct: 3,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 19,
@@ -634,7 +655,8 @@ const questionsData = [
           "E) mensagem assinada pelo encarregado"
         ],
         correct: 2,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 20,
@@ -647,7 +669,8 @@ const questionsData = [
           "E) Despacho"
         ],
         correct: 1,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 21,
@@ -660,7 +683,8 @@ const questionsData = [
           "E) mensagem do escrivão a autoridade aqui estiver subordinado o requisitado"
         ],
         correct: 0,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 22,
@@ -673,7 +697,8 @@ const questionsData = [
           "E) cinco dias úteis"
         ],
         correct: 0,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 23,
@@ -686,7 +711,8 @@ const questionsData = [
           "E) mensagem"
         ],
         correct: 2,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 24,
@@ -699,7 +725,8 @@ const questionsData = [
           "E) Despacho"
         ],
         correct: 0,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 25,
@@ -712,7 +739,8 @@ const questionsData = [
           "E) termo de recebimento"
         ],
         correct: 3,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 26,
@@ -725,7 +753,8 @@ const questionsData = [
           "E) juntada"
         ],
         correct: 0,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 27,
@@ -738,7 +767,8 @@ const questionsData = [
           "E) precatória"
         ],
         correct: 1,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 28,
@@ -751,7 +781,8 @@ const questionsData = [
           "E) testemunha em seguida sindicado e por último ofendido"
         ],
         correct: 1,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 29,
@@ -764,7 +795,8 @@ const questionsData = [
           "E) termo de declaração"
         ],
         correct: 4,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 30,
@@ -777,7 +809,8 @@ const questionsData = [
           "E) termo de inquirição"
         ],
         correct: 4,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 31,
@@ -790,7 +823,8 @@ const questionsData = [
           "E) termo inquirição"
         ],
         correct: 2,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 32,
@@ -803,7 +837,8 @@ const questionsData = [
           "E) carta precatória"
         ],
         correct: 4,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 33,
@@ -816,7 +851,8 @@ const questionsData = [
           "E) entre 7 e 20 horas"
         ],
         correct: 1,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 34,
@@ -829,7 +865,8 @@ const questionsData = [
           "E) 3 horas"
         ],
         correct: 1,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 35,
@@ -842,7 +879,8 @@ const questionsData = [
           "E) depoimento"
         ],
         correct: 3,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 36,
@@ -855,7 +893,8 @@ const questionsData = [
           "E) pela impressão digital do polegar esquerdo e na ausência o direito"
         ],
         correct: 0,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 37,
@@ -868,7 +907,8 @@ const questionsData = [
           "E) encarregado da sindicância"
         ],
         correct: 4,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
       },
       {
         id: 38,
@@ -881,7 +921,1465 @@ const questionsData = [
           "E) termo de compromisso"
         ],
         correct: 0,
-        subject: "Justiça e Disciplina (Sindicância)"
+        subject: "Justiça e Disciplina — Banco Original",
+        explanation: ""
+      },
+      {
+        id: 39,
+        text: "É o responsável por exercer o controle externo da PJM",
+        options: [
+          "A) Ministério Público",
+          "B) Comando do Distrito Naval da Área",
+          "C) Comando de Operações Navais",
+          "D) Ministério Público Militar",
+          "E) Estado-Maior da Armada"
+        ],
+        correct: 3,
+        subject: "Sistema Judiciário Militar e Situação Processual",
+        explanation: ""
+      },
+      {
+        id: 40,
+        text: "Correlacione as colunas de acordo com a definição de seu respectivo conceito: (1) Sindicância (2) Inquérito Policial Militar (3) Crime Militar (4) Contravenção Disciplinar (5) Ministério Público (6) Ministério Público Militar (_) Compete o exercício de atribuições junto à justiça militar, dentre as quais, promover, privativamente, a ação penal pública e exercer o controle externo da PJM. (_) Procedimento administrativo investigatório instaurado no exercício da polícia judiciária militar, disciplinado pelo CPP, destinado à apuração de fato caracterizado, em tese, como crime militar e a consequente identificação da autoria do mesmo, a fim de subsidiar a propositura da Ação Penal pelo Ministério Público Militar. (_) É toda ação ou omissão contrária às obrigações ou aos deveres militares estatuídos nas leis, nos regulamentos e nas disposições em vigor que fundamentam a OM. (_) Instituição permanente, essencial à função jurisdicional do Estado, cujas atribuições institucionais englobam a fiscalização da polícia judiciária e a titularidade da ação penal. (_) Procedimento administrativo investigatório sumário, que se destina a apurar ocorrências anômalas ao serviço, sobre as quais o titular da OM considere necessários maiores esclarecimentos, que não configurem, a princípio, crime militar. (_) Infração penal prevista no CPM.",
+        options: [
+          "A) 6-1-4-5-2-3",
+          "B) 5-1-3-6-2-4",
+          "C) 6-2-5-4-1-3",
+          "D) 6-2-4-5-3-1",
+          "E) 6-2-4-5-1-3"
+        ],
+        correct: 4,
+        subject: "Sistema Judiciário Militar e Situação Processual",
+        explanation: ""
+      },
+      {
+        id: 41,
+        text: "A justiça federal especial abrange a justiça militar, a justiça eleitoral e a justiça do trabalho.",
+        options: [
+          "A) Verdadeiro",
+          "B) Falso"
+        ],
+        correct: 0,
+        subject: "Sistema Judiciário Militar e Situação Processual",
+        explanation: ""
+      },
+      {
+        id: 42,
+        text: "A justiça Federal comum compõe-se, exceto dos:",
+        options: [
+          "A) Tribunais Regionais Federais",
+          "B) Tribunal do Júri Federal",
+          "C) Tribunais de Justiça",
+          "D) Juízes Federais",
+          "E) Juizados Especiais"
+        ],
+        correct: 2,
+        subject: "Sistema Judiciário Militar e Situação Processual",
+        explanation: ""
+      },
+      {
+        id: 43,
+        text: "Observe as proposições abaixo, assinale V ou F e depois marque a alternativa correta: (_) Os juizados especiais, apesar do nome, não pertencem à justiça especializada, mas à justiça comum. (_) Tanto as causas da justiça federal, como as da justiça estadual, cumpridos os requisitos exigidos, podem ser submetidas ao STJ, tribunal que além de sua competência originária, aparece como última instância da justiça comum em matéria constitucional, o que se dá através de recurso ordinário ou recurso especial. (_) No Brasil, o órgão de cúpula do Poder Judiciário é o STF, composto por 11 ministros. (_) A função precípua do STF é preservar, por meio de sua interpretação construtiva, o “espírito” e os princípios da constituição da República, já que é seu intérprete definitivo.",
+        options: [
+          "A) VVVV",
+          "B) FFVF",
+          "C) FFVV",
+          "D) FVVV",
+          "E) VFVV"
+        ],
+        correct: 4,
+        subject: "Sistema Judiciário Militar e Situação Processual",
+        explanation: ""
+      },
+      {
+        id: 44,
+        text: "O Sistema de Assessoria Jurídica Consultiva da Marinha (SAJCM) é composto pelo Consultor Jurídico-Adjunto do Comando da Marinha (CJACM), pelas Assessorias Jurídicas das OM da MB e pelas Centrais de Processos Judiciários (CPJ), cuja organização encontra-se regulamentada nas Normas para a Organização e o Funcionamento do SAJCM, aprovadas pela Portaria nº 319/MB, de 12JUN2013, que disciplinam, dentre outros, os seguintes assuntos, EXCETO:",
+        options: [
+          "A) Procedimentos para as ações contra a União e para as ações de iniciativa da MB.",
+          "B) Procedimentos a serem tomados pelo titular da OM que receber Mandado de Busca e Apreensão.",
+          "C) Procedimentos relativos às ações mandamentais contra ato de Autoridade Naval.",
+          "D) Procedimentos quanto ao recebimento de denúncias anônimas.",
+          "E) Procedimentos a serem realizados por ocasião de visita de advogado ou oficial de justiça em OM da MB."
+        ],
+        correct: 4,
+        subject: "Sistema Judiciário Militar e Situação Processual",
+        explanation: ""
+      },
+      {
+        id: 45,
+        text: "Qual das opções abaixo é a responsável por representar as autoridades judiciárias militares acerca da insanidade mental do indiciado?",
+        options: [
+          "A) O Chefe da junta médica do DN da Área",
+          "B) O comandante da OM ou pessoa por ele delegada.",
+          "C) Médico especializado do CPMM",
+          "D) Junta de Saúde competente",
+          "E) Polícia Judiciária Militar"
+        ],
+        correct: 4,
+        subject: "Sistema Judiciário Militar e Situação Processual",
+        explanation: ""
+      },
+      {
+        id: 46,
+        text: "Analise as proposições abaixo e depois marque a alternativa correta: I – O Comandante ou autoridade equivalente, ao tomar conhecimento que um militar, seu subordinado, encontra-se na condição de envolvido, autor do fato, indiciado, investigado, denunciado ou querelado em procedimentos ou processos criminais, em sede policial ou judicial, deverá fazer a imediata comunicação, por meio de mensagem, à DPMM ou ao CPesFN, quando militar do CFN. II – O texto da mensagem acima citada deverá conter: NIP, posto ou graduação, nome do militar e um relato sucinto do fato ocorrido e será complementado, em no máximo 10 dias, por meio de ofício encaminhando a cópia dos documentos recebidos do militar, do poder judiciário ou da autoridade policial, quando disponível, e o enquadramento a que foi submetido. III – A mensagem e o ofício deverão ser encaminhados com cópia ao ComDN da área e também ao CIM. IV – Até o dia 10 dos meses de fevereiro e setembro, as OM deverão encaminhar, por ofício, preferencialmente por meio físico, sem prejuízo do disposto anteriormente, um resumo contendo todos os movimentos ocorridos ou não, no procedimento ou processo. Para tal incumbência a OM deverá designar e informar o militar responsável pela função, por meio de portaria e distribuí-la à DPMM, CPesFN, quando militar do CFN e ao CIM.",
+        options: [
+          "A) Apenas I e III estão corretas",
+          "B) Apenas II e IV estão corretas",
+          "C) Apenas I, II e III estão corretas",
+          "D) Apenas I e II estão corretas",
+          "E) Apenas I e IV estão corretas"
+        ],
+        correct: 0,
+        subject: "Sistema Judiciário Militar e Situação Processual",
+        explanation: ""
+      },
+      {
+        id: 47,
+        text: "É a situação na qual o militar da ativa deixa de ocupar vaga na escala hierárquica de seu Corpo ou Quadro, nele permanecendo sem número:",
+        options: [
+          "A) Agregação",
+          "B) Reforma",
+          "C) Afastamento do desempenho de funções",
+          "D) Reserva remunerada",
+          "E) Adido"
+        ],
+        correct: 0,
+        subject: "Agregação e Reversão",
+        explanation: ""
+      },
+      {
+        id: 48,
+        text: "O ato de agregação e afastamento do exercício de funções será expedido pelo:",
+        options: [
+          "A) Ministro da Defesa",
+          "B) Comandante de Operações Navais",
+          "C) Comandante do Distrito Naval da Área",
+          "D) Chefe do Estado-Maior da Armada",
+          "E) Comandante da Marinha ou pela autoridade a qual tenha sido delegada competência."
+        ],
+        correct: 4,
+        subject: "Agregação e Reversão",
+        explanation: ""
+      },
+      {
+        id: 49,
+        text: "O militar agregado ficará adido à OM onde servia, ao DN ou em OM designada pelo SDP ao qual está vinculado, onde estiver tramitando o processo. Quando o Foro do processo localizar-se em município que não o da sede do DN, o militar ficará adido à OM mais próxima daquele Foro.",
+        options: [
+          "A) Falso",
+          "B) Verdadeiro"
+        ],
+        correct: 0,
+        subject: "Agregação e Reversão",
+        explanation: ""
+      },
+      {
+        id: 50,
+        text: "É o ato pelo qual o militar agregado retorna ao respectivo Corpo ou Quadro, tão logo cesse o motivo que determinou a sua agregação?",
+        options: [
+          "A) Incorporação",
+          "B) Reinclusão",
+          "C) Reincorporação",
+          "D) Inclusão",
+          "E) Reversão"
+        ],
+        correct: 4,
+        subject: "Agregação e Reversão",
+        explanation: ""
+      },
+      {
+        id: 51,
+        text: "Assinale V ou F (_) Reversão é o ato pelo qual o militar agregado retorna ao respectivo Corpo ou Quadro, tão logo cesse o motivo que determinou sua agregação. (_) Quando desertor, se oficial, a reversão dar-se-á após a captura ou apresentação voluntária. (_) Quando praça, com estabilidade assegurada, a reversão dar-se-á ao final do processo.",
+        options: [
+          "A) FVF",
+          "B) VFF",
+          "C) FVV",
+          "D) FFF",
+          "E) VVV"
+        ],
+        correct: 1,
+        subject: "Agregação e Reversão",
+        explanation: ""
+      },
+      {
+        id: 52,
+        text: "O 2ºSG-FN-MU AMORIM servia no Com8DN e, em virtude de um desentendimento com seus vizinhos na Vila Naval, acabou se envolvendo em uma confusão a qual desencadeou agressão física por parte do músico. Seu vizinho, prejudicado fisicamente, entrou na justiça contra o Sargento que teve que responder criminalmente. O SG Amorim não contava com a ação judicial e ficou estarrecido com o fato, uma vez que seu regresso à sede já havia sido deferido e ele aguardava somente o seu desembarque. Receoso, procurou o jurídico de sua OM pois queria saber se a ação judicial movida pelo vizinho poderia atrapalhar o seu retorno e obteve a seguinte resposta:",
+        options: [
+          "A) Que ele seria movimentado, mas teria a obrigatoriedade de comparecer às audiências marcadas para o Foro de origem da tramitação da ação penal.",
+          "B) Deveria procurar um advogado que o ajudasse a resolver esse imbróglio, uma vez que ao estar arrolado em um processo criminal ele fica restrito de ser movimentado.",
+          "C) Que não deveria se preocupar, visto que o militar que estiver respondendo a processo na justiça criminal, comum ou militar, em liberdade, não poderá ser movimentado para OM localizada fora da sede do Foro correspondente, exceto quando devidamente autorizado pelo juízo competente e pelo CPesFN.",
+          "D) Que não deveria preocupar-se, pois o processo corre apenas na esfera militar e, como militar da ativa, ele consegue ser encontrado em qualquer OM do Brasil.",
+          "E) Que precisaria fazer um requerimento ao CPesFN solicitando a manutenção da intenção de movimentação, a qual ficaria restrita até o trânsito em julgado da sentença penal condenatória."
+        ],
+        correct: 2,
+        subject: "Sistema Judiciário Militar e Situação Processual",
+        explanation: ""
+      },
+      {
+        id: 53,
+        text: "O tempo passado como desertor poderá ser computável para inclusão em quota compulsória.",
+        options: [
+          "A) Verdadeiro",
+          "B) Falso"
+        ],
+        correct: 0,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 54,
+        text: "Em relação aos procedimentos de uma sindicância, é correto o que se afirma: I – É um procedimento administrativo sumário que se utiliza a Administração Naval; II – Pode ou não ter sindicados; III – A fim de proceder à apuração de ocorrências anômalas ao serviço; IV – As ocorrências anômalas, caso confirmadas, podem fornecer, ou não, elementos concretos para uma posterior abertura de um processo administrativo ou Inquérito Policial Militar. V – Reveste-se de caráter probatório, com objetivo de apuração final dos fatos.",
+        options: [
+          "A) Está correto apenas o que se afirma nas opções I e III",
+          "B) Está correto apenas o que se afirma nas opções III e V",
+          "C) Está correto apenas o que se afirma nas opções II, III e IV",
+          "D) Está correto apenas o que se afirma nas opções I, II e III",
+          "E) Está correto apenas o que se afirma nas opções I, II, III, IV e V"
+        ],
+        correct: 3,
+        subject: "Sindicância — Procedimentos Gerais",
+        explanation: ""
+      },
+      {
+        id: 55,
+        text: "Complete a lacunas de acordo com o contido no item 3.2.1 do capítulo 3, da DGPM-315: “A instauração da sindicância compete______________:",
+        options: [
+          "A) Ao titular da OM e, na sua ausência, ao Imediato.",
+          "B) Oficiais superiores das OM",
+          "C) Titulares de OM e oficiais generais",
+          "D) A todo oficial da MB",
+          "E) Aos titulares de OM"
+        ],
+        correct: 4,
+        subject: "Sindicância — Procedimentos Gerais",
+        explanation: ""
+      },
+      {
+        id: 56,
+        text: "Em relação aos procedimentos da Sindicância, assinale a alternativa correta:",
+        options: [
+          "A) A sindicância é iniciada mediante autuação do encarregado pela autoridade nomeante, iniciada dentro do prazo máximo de 48h após o conhecimento do fato a ser apurado.",
+          "B) A sindicância é iniciada mediante portaria de autuação, iniciada dentro do prazo máximo de 48 horas após o conhecimento do fato a ser apurado.",
+          "C) A sindicância é iniciada mediante portaria de autuação, preferencialmente dentro do prazo máximo de 48horas após o conhecimento do fato a ser apurado.",
+          "D) A sindicância é iniciada mediante portaria de instauração, preferencialmente dentro do prazo máximo de 48 horas após o conhecimento do fato a ser apurado.",
+          "E) A sindicância é iniciada mediante portaria de instauração, dentro do prazo máximo de 48h após o conhecimento do fato a ser apurado."
+        ],
+        correct: 3,
+        subject: "Sindicância — Procedimentos Gerais",
+        explanation: ""
+      },
+      {
+        id: 57,
+        text: "A substituição do encarregado, no decorrer da sindicância, deverá ser informada por:",
+        options: [
+          "A) Ofício da Autoridade Nomeante",
+          "B) Comunicação Padronizada",
+          "C) Ofício do Encarregado da Sindicância",
+          "D) Mensagem",
+          "E) Despacho da Autoridade Nomeante"
+        ],
+        correct: 3,
+        subject: "Sindicância — Procedimentos Gerais",
+        explanation: ""
+      },
+      {
+        id: 58,
+        text: "Se, durante as investigações, for verificada a existência de indícios de contravenção disciplinar ou crime contra oficial mais antigo, qual ação deverá ser tomada?",
+        options: [
+          "A) O encarregado emitirá um relatório final, sem tecer comentários quanto à ação do oficial mais antigo e remeterá os autos à autoridade nomeante.",
+          "B) O encarregado emitirá um relatório parcial, sem tecer comentários quanto à ação do oficial mais antigo e remeterá os autos à autoridade nomeante.",
+          "C) O encarregado emitirá um relatório preliminar, sem tecer comentários quanto à ação do oficial mais antigo e remeterá os autos à autoridade nomeante.",
+          "D) O encarregado emitirá um relatório preliminar, sem se aprofundar nos detalhes contrários ao oficial mais antigo, que servirá de subsídio para confecção da solução pela autoridade nomeante.",
+          "E) O encarregado emitirá um relatório preliminar, que servirá de subsídio para confecção da solução pela autoridade nomeante."
+        ],
+        correct: 1,
+        subject: "Sindicância — Procedimentos Gerais",
+        explanation: ""
+      },
+      {
+        id: 59,
+        text: "A designação do escrivão, por meio de portaria, caberá ao respectivo encarregado da sindicância, caso não tenha sido efeituada pela autoridade nomeante na Portaria de autuação, sendo a função exercida por um Oficial subalterno, quando se destinar a apuração de contravenção disciplinar por parte de oficial, por suboficial ou sargento nos demais casos.",
+        options: [
+          "A) Falso",
+          "B) Verdadeiro"
+        ],
+        correct: 0,
+        subject: "Sindicância — Procedimentos Gerais",
+        explanation: ""
+      },
+      {
+        id: 60,
+        text: "O escrivão designado ou ad hoc prestará o compromisso legal de manter os autos em sigilo e de cumprir, fielmente, o contido nestas normas e nas demais aplicáveis, e lavrará o competente:",
+        options: [
+          "A) Termo de Sigilo",
+          "B) Termo de Declaração",
+          "C) Termo de Inquirição",
+          "D) Termo de Compromisso",
+          "E) Termo de Acareação"
+        ],
+        correct: 3,
+        subject: "Sindicância — Procedimentos Gerais",
+        explanation: ""
+      },
+      {
+        id: 61,
+        text: "A sindicância, em regra, tem caráter _________, cuja classificação dependerá da matéria tratada e, caso envolva oficial, será classificada no grau ____________",
+        options: [
+          "A) Ostensivo – Informação Pessoal",
+          "B) Ostensivo - Ostensivo",
+          "C) Sigiloso - Ultrassecreto",
+          "D) Sigiloso - Reservado",
+          "E) Sigiloso - Secreto"
+        ],
+        correct: 3,
+        subject: "Sindicância — Procedimentos Gerais",
+        explanation: ""
+      },
+      {
+        id: 62,
+        text: "A autoridade nomeante atribuirá o grau de sigilo dos autos na(o):",
+        options: [
+          "A) Respectivo TCI",
+          "B) Termo de Compromisso",
+          "C) Portaria de instauração",
+          "D) Autuação",
+          "E) Portaria de autuação"
+        ],
+        correct: 2,
+        subject: "Sindicância — Procedimentos Gerais",
+        explanation: ""
+      },
+      {
+        id: 63,
+        text: "Determinada a instauração por autoridade superior ao titular da OM onde se processará a Sindicância, deverá o início desta ser-lhe comunicado por meio de Ofício da Autoridade Nomeante.",
+        options: [
+          "A) Falso",
+          "B) Verdadeiro"
+        ],
+        correct: 0,
+        subject: "Sindicância — Procedimentos Gerais",
+        explanation: ""
+      },
+      {
+        id: 64,
+        text: "A mensagem inicial conterá os seguintes dados, EXCETO:",
+        options: [
+          "A) A data da instauração",
+          "B) Natureza da sindicância instaurada",
+          "C) Resumo do fato a apurar",
+          "D) O prazo para a realização da sindicância",
+          "E) Patente e nome do encarregado"
+        ],
+        correct: 1,
+        subject: "Sindicância — Procedimentos Gerais",
+        explanation: ""
+      },
+      {
+        id: 65,
+        text: "Todas as solicitações externas determinadas pelo encarregado serão feitas por meio de ofício, por ele assinado.",
+        options: [
+          "A) Verdadeiro",
+          "B) Falso"
+        ],
+        correct: 0,
+        subject: "Sindicância — Procedimentos Gerais",
+        explanation: ""
+      },
+      {
+        id: 66,
+        text: "O encarregado determinará ao escrivão as providências a serem tomadas, por meio de _______________, em continuação a documentos ou no verso destes.",
+        options: [
+          "A) Certidão",
+          "B) Despacho",
+          "C) Ofício",
+          "D) Solução",
+          "E) Juntada"
+        ],
+        correct: 1,
+        subject: "Sindicância — Procedimentos Gerais",
+        explanation: ""
+      },
+      {
+        id: 67,
+        text: "O SG Gilberto foi designado pelo Comandante de sua OM para atuar como escrivão em uma Sindicância. Militar safo, o referido Sargento buscou verificar quem era o Oficial Encarregado, para saber se ele já tinha experiência na faina. Com o desenrolar do procedimento administrativo os documentos foram acumulando e alguns demoraram a serem juntados aos autos, um deles era um documento que não faria diferença para as diligências. O advogado do indiciado solicitou acesso aos elementos relacionados às diligências e o Encarregado prontamente negou, pois, de acordo com o item 3.8.4 da DGPM-315, o Encarregado poderá limitar o acesso do advogado a elementos de prova relacionados a diligências em andamento e ainda não cumpridas. O escrivão, já experiente na faina, buscou assessorar o encarregado agindo da seguinte maneira:",
+        options: [
+          "A) Prontamente o SG Gilberto apoiou a decisão do Encarregado e o assessorou de forma positiva quanto à entrega do material, eis que os documentos ainda não haviam sido juntados.",
+          "B) O SG Gilberto rechaçou a intenção do advogado e informou ao encarregado que a decisão sobre a distribuição do material deveria ser tomada pela Autoridade Nomeante, pois as tratativas externas cabem à quem determinou que fosse aberto o procedimento administrativo.",
+          "C) O SG Gilberto informou que a restrição de tal acesso ocorrerá nos casos em que seja comprometida a eficiência, a eficácia ou a finalidade das diligências. Como o material solicitado pelo advogado não faria diferença no curso do procedimento administrativo, o escrivão sugeriu que tais materiais fossem disponibilizados ao advogado sem problema algum.",
+          "D) Por determinação do encarregado, o SG Gilberto juntou todos os documentos disponíveis aos autos, o fazendo por meio de juntada, elaborou uma certidão dando cumprimento ao fato e encaminhou os autos ao encarregado por meio de termo de compromisso, assessorando-o de modo que ele remetesse os autos à Autoridade Nomeante no prazo de 3 dias úteis para que o Advogado pudesse ter acesso aos documentos.",
+          "E) Como o SG era apenas o escrivão da Sindicância, absteve-se de tecer comentários, uma vez que seu papel nesse procedimento é meramente administrativo, cabendo à Autoridade Nomeante a tomada de decisões para públicos externos."
+        ],
+        correct: 2,
+        subject: "Sindicância — Procedimentos Gerais",
+        explanation: ""
+      },
+      {
+        id: 68,
+        text: "Sempre que for requisitado militar ou servidor público da MB, lotado em outra OM ou na inatividade, seu comparecimento será solicitado por meio de ________________. As solicitações internas serão feitas por meio de _________________, da (o) ________________ à(ao) _____________________, devendo ser juntada cópia desses documentos aos autos.",
+        options: [
+          "A) Ofício - documentos internos – Encarregado - requisitante",
+          "B) Mensagem – documentos internos – Encarregado - requisitado",
+          "C) Ofício externo – Intimação – Encarregado - requisitado",
+          "D) Oficío – documentos internos – Encarregado – autoridade a que estiver subordinado o requisitado.",
+          "E) Ofício da Autoridade Nomeante – mensagem – Autoridade Nomeante - requisitado"
+        ],
+        correct: 3,
+        subject: "Sindicância — Procedimentos Gerais",
+        explanation: ""
+      },
+      {
+        id: 69,
+        text: "O notificado ou o recebedor da notificação firmará recibo na cópia, retendo o original. O recibo deverá conter, EXCETO:",
+        options: [
+          "A) Assinatura do recebedor",
+          "B) Posto/graduação e nome",
+          "C) Hora do recebimento",
+          "D) Data",
+          "E) Local"
+        ],
+        correct: 1,
+        subject: "Sindicância — Procedimentos Gerais",
+        explanation: ""
+      },
+      {
+        id: 70,
+        text: "É o termo mediante o qual o escrivão submete a Sindicância ao exame e despacho do encarregado?",
+        options: [
+          "A) Recebimento",
+          "B) Conclusão",
+          "C) Despacho",
+          "D) Compromisso",
+          "E) Certidão"
+        ],
+        correct: 1,
+        subject: "Sindicância — Procedimentos Gerais",
+        explanation: ""
+      },
+      {
+        id: 71,
+        text: "Sempre que o escrivão receber os autos do encarregado lavrará o:",
+        options: [
+          "A) Despacho",
+          "B) Termo de Entrega",
+          "C) Termo de recebimento",
+          "D) Termo de Conclusão",
+          "E) Relatório"
+        ],
+        correct: 2,
+        subject: "Sindicância — Procedimentos Gerais",
+        explanation: ""
+      },
+      {
+        id: 72,
+        text: "É o termo inicial da Sindicância subscrito pelo escrivão, posicionando-se após a capa da Sindicância:",
+        options: [
+          "A) Portaria de Instauração",
+          "B) Termo de Compromisso",
+          "C) Autuação",
+          "D) Portaria de Autuação",
+          "E) Juntada"
+        ],
+        correct: 2,
+        subject: "Sindicância — Procedimentos Gerais",
+        explanation: ""
+      },
+      {
+        id: 73,
+        text: "Quais documentos devem estar necessariamente inclusos na Autuação?",
+        options: [
+          "A) Portaria de instauração, seus anexos e o termo de declaração",
+          "B) Portaria de Instauração, seus anexos e o termo de recebimento",
+          "C) Portaria de Instauração, seus anexos e o termo de compromisso",
+          "D) Portaria de autuação, seus anexos e o termo de abertura",
+          "E) Portaria de autuação, seus anexos e o termo de sigilo"
+        ],
+        correct: 2,
+        subject: "Sindicância — Procedimentos Gerais",
+        explanation: ""
+      },
+      {
+        id: 74,
+        text: "Todas as peças da Sindicância serão, por ordem cronológica reunidas, formando os autos. Todas as folhas juntadas aos autos deverão ser rubricadas e numeradas pelo encarregado.",
+        options: [
+          "A) Verdadeiro",
+          "B) Falso"
+        ],
+        correct: 1,
+        subject: "Sindicância — Procedimentos Gerais",
+        explanation: "Pelo escrivão"
+      },
+      {
+        id: 75,
+        text: "A numeração das folhas anexadas aos autos é sempre lançada no ângulo superior direito do anverso da folha, a partir da folha 1 (Autuação)",
+        options: [
+          "A) Falso",
+          "B) Verdadeiro"
+        ],
+        correct: 1,
+        subject: "Sindicância — Procedimentos Gerais",
+        explanation: ""
+      },
+      {
+        id: 76,
+        text: "Correlacione as colunas de acordo com a ordem e os termos da oitiva na sindicância: (1) Ofendido (2) Sindicado (3) Testemunha (_) Termo de Depoimento (_) Termo de Declaração (_) Termo de Inquirição",
+        options: [
+          "A) 3 1 2",
+          "B) 3 2 1",
+          "C) 1 2 3",
+          "D) 1 3 2",
+          "E) 2 1 3"
+        ],
+        correct: 0,
+        subject: "Sindicância — Oitivas e Depoimentos",
+        explanation: ""
+      },
+      {
+        id: 77,
+        text: "Qual é o procedimento para ouvir a testemunha, o sindicado ou o ofendido que se encontrar em cidade diferente da qual for instaurada a sindicância?",
+        options: [
+          "A) Deverão ser comunicados do fato com, pelo menos, 5 dias úteis e serão ouvidos pelo Encarregado e pelo Escrivão, que viajarão até o local de encontro e realizarão a Oitiva na delegacia de polícia mais próxima.",
+          "B) A MB deverá providenciar o translado das partes envolvidas para que seja feita a oitiva no local de abertura da Sindicância.",
+          "C) Será feita por videochamada, nos mesmos moldes dos julgamentos online realizados pelo Sistema Judiciário.",
+          "D) Poderão ser ouvidos, se for de todo necessário, por meio de carta precatória.",
+          "E) Deverão ser comunicados do fato com, pelo menos, 7 dias úteis e serão ouvidos pelo Encarregado e pelo Escrivão, que viajarão até o local de encontro e realizarão a Oitiva na OM da MB mais próxima."
+        ],
+        correct: 3,
+        subject: "Sindicância — Oitivas e Depoimentos",
+        explanation: ""
+      },
+      {
+        id: 78,
+        text: "A oitiva das testemunhas e do Sindicado, exceto em caso de urgência inadiável, que constará da respectiva assentada, devem ser realizadas durante o período que medeie:",
+        options: [
+          "A) 8h e 18h",
+          "B) 8h e 17h",
+          "C) 7h e 18h",
+          "D) 8h e o pôr do sol",
+          "E) 7h e o pôr do sol"
+        ],
+        correct: 2,
+        subject: "Sindicância — Oitivas e Depoimentos",
+        explanation: ""
+      },
+      {
+        id: 79,
+        text: "As oitivas não deverão ser, normalmente, realizadas por ______________, sendo _____________ um descanso de ___________.",
+        options: [
+          "A) Mais de 6h consecutivas - facultado - 30 minutos",
+          "B) Mais de 4h consecutivas - observado - 30 minutos",
+          "C) Mais de 4h consecutivas - obrigatório - 30 minutos",
+          "D) Mais de 4h consecutivas - facultado - 30 minutos",
+          "E) Mais de 6h consecutivas - obrigatório - 50 minutos."
+        ],
+        correct: 3,
+        subject: "Sindicância — Oitivas e Depoimentos",
+        explanation: ""
+      },
+      {
+        id: 80,
+        text: "É prudente que a Inquirição do sindicado seja acompanhada por 2 testemunhas nomeadas pelo Encarregado, as quais assinarão o Termo de Inquirição.",
+        options: [
+          "A) Verdadeiro",
+          "B) Falso"
+        ],
+        correct: 0,
+        subject: "Sindicância — Oitivas e Depoimentos",
+        explanation: ""
+      },
+      {
+        id: 81,
+        text: "Se, antes da solução da autoridade nomeante, o encarregado verificar a existência de indícios contra qualquer testemunha ou ofendido que levem ao enquadramento de algum destes como sindicado, deverá notificá-los e inquiri-los nessa condição.",
+        options: [
+          "A) Verdadeiro",
+          "B) Falso"
+        ],
+        correct: 1,
+        subject: "Sindicância — Oitivas e Depoimentos",
+        explanation: "ntes do relatório"
+      },
+      {
+        id: 82,
+        text: "Assinale a alternativa correta quanto aos procedimentos para a oitiva de uma sindicância;",
+        options: [
+          "A) Poderão ser ouvidos, à semelhança das testemunhas, os menores de 14 anos, os doentes ou deficientes mentais, os ascendentes, descendentes, sogro, sogra, genro, nora, cônjuge, irmão ou pessoa que tenha vínculo de adoção com o sindicado, observado O disposto no art. 352, §2° do CPPM, que os isenta compromisso de dizer a verdade, sendo, assim, denominados informantes.",
+          "B) Poderão ser ouvidos, à semelhança das testemunhas, os menores de 18 anos, os doentes ou deficientes mentais, os ascendentes, descendentes, sogro, sogra, genro, nora, cônjuge, irmão ou pessoa que tenha vínculo de adoção com o sindicado, observado O disposto no art. 352, §2° do CPPM, que os isenta compromisso de dizer a verdade, sendo, assim, denominados meros informantes.",
+          "C) Poderão ser ouvidos, à semelhança das testemunhas, os menores de 14 anos, os doentes ou deficientes mentais, os ascendentes, descendentes, sogro, sogra, genro, nora, cônjuge, irmão ou pessoa que tenha vínculo de adoção com o sindicado, observado O disposto no art. 352, §2° do CPPM, que os isenta compromisso de dizer a verdade, sendo, assim, denominados meros informantes.",
+          "D) Poderão ser ouvidos, como as testemunhas, os menores de 18 anos, os doentes ou deficientes mentais, os ascendentes, descendentes, sogro, sogra, genro, nora, cônjuge, irmão ou pessoa que tenha vínculo de adoção com o sindicado, observado O disposto no art. 352, §2° do CPPM, que os isenta compromisso de dizer a verdade, sendo, assim, denominados meros informantes.",
+          "E) Poderão ser ouvidos, à semelhança das testemunhas, os menores de 18 anos, os doentes ou deficientes mentais, os ascendentes, descendentes, sogro, sogra, genro, nora, cônjuge, irmão ou pessoa que tenha vínculo de adoção com o sindicado, observado o disposto no art. 352, §2° do CPPM, que os obriga ao compromisso de dizer a verdade, sendo, assim, denominados informantes."
+        ],
+        correct: 1,
+        subject: "Sindicância — Oitivas e Depoimentos",
+        explanation: ""
+      },
+      {
+        id: 83,
+        text: "Com base nos procedimentos de sindicância, assinale V ou F e depois marque a alternativa correta: (_) Antes de iniciar qualquer oitiva é conveniente que o depoente seja entrevistado pelo Encarregado da sindicância. (_) Cada testemunha é obrigada a prestar o compromisso de dizer a verdade, nos termos contidos no art. 352 do CPPM, que constará do texto inicial de seu depoimento. (_) A testemunha não está obrigada a prestar esclarecimentos acerca de fatos criminosos que tenha participado.",
+        options: [
+          "A) VVF",
+          "B) VFF",
+          "C) FVF",
+          "D) VFV",
+          "E) VVV"
+        ],
+        correct: 4,
+        subject: "Sindicância — Oitivas e Depoimentos",
+        explanation: ""
+      },
+      {
+        id: 84,
+        text: "A Solução será exarada pela autoridade nomeante:",
+        options: [
+          "A) 10 dias úteis após a conclusão do procedimento",
+          "B) Preferencialmente até 10 dias úteis após a conclusão do procedimento",
+          "C) Preferencialmente até 10 dias após a conclusão do procedimento",
+          "D) Até 10 dias após a conclusão do procedimento",
+          "E) 10 dias após a conclusão do procedimento"
+        ],
+        correct: 2,
+        subject: "Sindicância — Solução e Arquivamento",
+        explanation: ""
+      },
+      {
+        id: 85,
+        text: "A solução da sindicância é ato privativo da autoridade que determinou a sua instauração ex officio, não se atendo à pessoa ocupante do cargo, mas sim à autoridade que dele advém. Assim sendo, a solução dada por outrem, no impedimento, não é admitida, uma vez que não possuiria efeito legal.",
+        options: [
+          "A) Falso",
+          "B) Verdadeiro"
+        ],
+        correct: 0,
+        subject: "Sindicância — Solução e Arquivamento",
+        explanation: ""
+      },
+      {
+        id: 86,
+        text: "Concluída a sindicância e proferida a solução, serão os autos arquivados na OM por:",
+        options: [
+          "A) 1 ano",
+          "B) 6 anos",
+          "C) 5 anos",
+          "D) 3 anos",
+          "E) 2 anos"
+        ],
+        correct: 2,
+        subject: "Sindicância — Solução e Arquivamento",
+        explanation: ""
+      },
+      {
+        id: 87,
+        text: "Correlacione de acordo com o previsto para remessa da Sindicância e arquivamento dos autos: (1) Quando a sindicância for instaurada para apurar causa de falecimento de militar ou de servidor civil, cópias do relatório e da solução deverão ser encaminhadas à(ao)________________. (2) Quando a sindicância for instaurada para apurar avaria, extravio ou danos à Fazenda Nacional, bem como desvio de numerário ou material cadastrado ou controlado, cópias do relatório e da solução serão encaminhados à(ao)___________________. (3) Quando a sindicância for instaurada para apurar extravio de publicações controladas da MB, cópias do relatório e da solução deverão ser encaminhadas à(ao) ______________________ (4) Quando a sindicância for instaurada para apurar o comprometimento de qualquer aspecto correlato ao Plano de Segurança Orgânica de OM isolada ou Complexo Naval, cópia da solução deverá ser encaminhada à(ao) _______________ (_) Centro de Controle Interno da Marinha (_) Autoridade responsável pelo controle da referida publicação e ao EMA (_) DPMM, ao CPesFN ou à DPCvM (_) ComOpNav",
+        options: [
+          "A) 1 – 3 – 2 – 4",
+          "B) 2 – 3 – 4 – 1",
+          "C) 2 – 3 – 1 – 4",
+          "D) 2 – 1 – 4 – 3",
+          "E) 4 – 3 – 2 – 1"
+        ],
+        correct: 2,
+        subject: "Sindicância — Solução e Arquivamento",
+        explanation: ""
+      },
+      {
+        id: 88,
+        text: "Os crimes de que trata o Art.9º do Código Penal Militar, quando dolosos contra a vida e cometidos por militares das Forças Armadas contra civil, serão de competência da Justiça Militar da União, EXCETO se praticados no contexto:",
+        options: [
+          "A) De atividade de natureza militar, de operação de paz, de Garantia da Lei e da Ordem ou de atribuição subsidiária, realizadas em conformidade com o disposto no art. 142 da CF/88.",
+          "B) Do cumprimento de ordem direta do Ministro da Marinha, do Exército ou da Aeronáutica, durante o exercício da função de caráter militar.",
+          "C) De ação que envolva a segurança de instituição militar ou de missão militar, mesmo que não beligerante.",
+          "D) Do cumprimento de atribuições que lhes forem estabelecidas pelo Ministro de Estado de Defesa",
+          "E) Do cumprimento de atribuições que lhes forem estabelecidas pelo Presidente da República."
+        ],
+        correct: 1,
+        subject: "Inquérito Policial Militar (IPM)",
+        explanation: ""
+      },
+      {
+        id: 89,
+        text: "Assinale V ou F nas proposições abaixo, de acordo com os procedimentos previstos para os casos de Inquérito Policial Militar (IPM) (_) No Inquérito são obtidos os elementos que servirão de base para o oferecimento de denúncia pelo Ministério Público Militar, se for o caso. (_) Será obrigatoriamente instaurado IPM quando o Militar for considerado desaparecido. (_) No caso de morte, em que se evidencie a suspeita da ocorrência de Crime Militar, será também instaurado IPM. (_) Se, por si só, for suficiente para a elucidação do fato e sua autoria, o auto de prisão em flagrante delito substituirá o inquérito, dispensando todas outras diligências, inclusive o exame de corpo de delito no crime que deixe vestígios.",
+        options: [
+          "A) VFVF",
+          "B) VVVV",
+          "C) FVFV",
+          "D) FVVF",
+          "E) VVVF"
+        ],
+        correct: 3,
+        subject: "Inquérito Policial Militar (IPM)",
+        explanation: ""
+      },
+      {
+        id: 90,
+        text: "\"A instauração do IPM compete às autoridades mencionadas no art. 7º do CPPM, nestas normas denominadas autoridades nomeantes. Obedecidas as normas regulamentares de jurisdição, comando e hierarquia, essas atribuições poderão ser delegadas a Oficiais da ativa, para fins especificados e por tempo limitado.\" Tendo como base o trecho acima, assinale a alternativa correta.",
+        options: [
+          "A) A delegação para instauração do IPM deverá recair em Oficial de posto superior ao do indiciado quando esse for Oficial da Ativa.",
+          "B) A delegação para instauração do IPM deverá recair em Oficial de posto superior ao do indiciado quando esse for Oficial da Ativa ou da reserva remunerada.",
+          "C) A delegação para instauração do IPM deverá recair em Oficial de posto superior ao do indiciado quando esse for Oficial da Ativa, da reserva remunerada ou reformado.",
+          "D) A delegação para instauração do IPM deverá recair em Oficial de posto superior ao do indiciado quando esse for Oficial da Ativa, da reserva remunerada ou não, ou reformado.",
+          "E) A delegação para instauração do IPM deverá recair em Oficial de posto superior ao do indiciado quando esse for Oficial da Ativa, da reserva remunerada ou não remunerada."
+        ],
+        correct: 3,
+        subject: "Inquérito Policial Militar (IPM)",
+        explanation: ""
+      },
+      {
+        id: 91,
+        text: "Por ocasião do IPM, em caso de recusa do indiciado para realização do exame médico, quem deverá decidir sobre o fato:",
+        options: [
+          "A) O Encarregado do IPM.",
+          "B) A autoridade Nomeante.",
+          "C) O Juiz Auditor.",
+          "D) O comandante do DN da área.",
+          "E) Chefe da Junta de Saúde."
+        ],
+        correct: 2,
+        subject: "Inquérito Policial Militar (IPM)",
+        explanation: ""
+      },
+      {
+        id: 92,
+        text: "Assinale a opção correta quando houver necessidade da detenção do indiciado (militar) no decorrer de um IPM para apurar o cometimento de crime propriamente militar, com propósito de melhor elucidar os fatos:",
+        options: [
+          "A) O mandado de prisão será lavrado pelo Escrivão e assinado pela autoridade nomeante, uma vez que o encarregado, caso seja mais moderno, fica impossibilitado de mandar prender um militar mais antigo no curso do IPM.",
+          "B) A prisão independerá de flagrante delito ou de ordem judicial, devendo o encarregado lavrar o competente mandado de prisão.",
+          "C) Caso exista na área, o núcleo de polícia judiciária militar será o responsável pela busca e pela prisão do indiciado, mediante ofício da autoridade nomeante.",
+          "D) Na ausência de flagrante delito nenhuma pessoa será presa, pois a presunção da inocência a protege. Nesse caso, o encarregado deverá comunicar o fato ao juiz auditor, que lavrará a ordem judicial competente para que seja efetuada a prisão em caráter preventivo.",
+          "E) A autoridade nomeante, por meio de ofício, comunicará o fato ao juiz auditor, detalhando sucintamente as razões que justifiquem a restrição de liberdade do indiciado."
+        ],
+        correct: 1,
+        subject: "Inquérito Policial Militar (IPM)",
+        explanation: ""
+      },
+      {
+        id: 93,
+        text: "Assim que ocorrer a prisão de um indiciado militar no curso do IPM, o encarregado do procedimento deverá imediatamente providenciar as opções abaixo, EXCETO:",
+        options: [
+          "A) A comunicação à família do preso, ou a qualquer pessoa por ele indicada, do local onde o mesmo se encontra detido.",
+          "B) A autorização para que seja prestada assistência pela família do preso ou por seu advogado, se este assim o desejar.",
+          "C) A comunicação da prisão ao Comando do Distrito Naval ou Comando Naval em cuja área ocorreu a detenção, à DPMM e ao CPesFN, quando envolver militar do CFN",
+          "D) A comunicação da prisão às autoridades judiciária militar e do ministério público competentes.",
+          "E) A confecção de ofício que será endereçado ao GCM, com cópia para o respectivo ODS, Comimsup e ao CIM."
+        ],
+        correct: 4,
+        subject: "Inquérito Policial Militar (IPM)",
+        explanation: ""
+      },
+      {
+        id: 94,
+        text: "A liberação do indiciado preso se fará por meio de:",
+        options: [
+          "A) Decisão do Comandante do Distrito Naval da Área.",
+          "B) Despacho exarado pelo Encarregado.",
+          "C) Despacho exarado pela Autoridade Nomeante.",
+          "D) Decisão Judicial do Juiz Auditor.",
+          "E) Decisão do Ministério Público Militar."
+        ],
+        correct: 1,
+        subject: "Inquérito Policial Militar (IPM)",
+        explanation: ""
+      },
+      {
+        id: 95,
+        text: "Quando, no curso das investigações, surgir necessidade da prisão do indiciado que tenha praticado crime impropriamente militar, deverá o encarregado solicitar a decretação da prisão preventiva, com base nos arts.254 e 255 do CPPM, ao Juiz-Auditor da Circunscrição Judiciária Militar competente.",
+        options: [
+          "A) Verdadeiro",
+          "B) Falso"
+        ],
+        correct: 0,
+        subject: "Inquérito Policial Militar (IPM)",
+        explanation: ""
+      },
+      {
+        id: 96,
+        text: "A prorrogação do prazo para conclusão do IPM será solicitada:",
+        options: [
+          "A) Pelo Encarregado ao Juiz-Auditor da CJM da área por ofício.",
+          "B) Pela autoridade nomeante ao CIM, via Comimsup por mensagem.",
+          "C) Pela autoridade nomeante ao seu comimsup por mensagem.",
+          "D) Pelo Encarregado ao Comimsup via autoridade nomeante por mensagem.",
+          "E) Pela autoridade nomeante ao Juiz-Auditor da CJM da área por ofício."
+        ],
+        correct: 2,
+        subject: "Inquérito Policial Militar (IPM)",
+        explanation: ""
+      },
+      {
+        id: 97,
+        text: "A Autoridade delegante poderá, nos termos do §2º do art.22 do CPPM, em discordando da solução dada ao IPM pela autoridade delegada, avocá-lo para dar solução diversa. A avocação é providência extraordinária, só se justificando quando se ficar de forma fundamentada.",
+        options: [
+          "A) Falso",
+          "B) Verdadeiro"
+        ],
+        correct: 1,
+        subject: "Inquérito Policial Militar (IPM)",
+        explanation: ""
+      },
+      {
+        id: 98,
+        text: "A autoridade de polícia judiciária militar (autoridade nomeante) não poderá aplicar punição disciplinar militar com sede apenas nas provas colhidas no IPM, dado que este procedimento não comporta o contraditório.",
+        options: [
+          "A) Verdadeiro",
+          "B) Falso"
+        ],
+        correct: 0,
+        subject: "Inquérito Policial Militar (IPM)",
+        explanation: ""
+      },
+      {
+        id: 99,
+        text: "Qual procedimento deverá ser feito quando ficar constatado que o IPM, conforme apurado, não caracteriza contravenção disciplinar nem crime:",
+        options: [
+          "A) Os autos serão conclusos e, imediatamente encaminhados ao CIM para guarda permanente. A decisão do arquivamento compete à autoridade nomeante.",
+          "B) O encarregado arquivar os autos em sua OM pelo período especificado na Tabela de Temporalidade e, passado o tempo de guarda na OM, os autos serão encaminhados ao CIM em virtude da natureza do procedimento.",
+          "C) O encarregado fará remessa dos autos conclusos ao N-PJM da área (caso exista), onde as peças serão arquivadas pelo período de 5 anos.",
+          "D) A autoridade nomeante deverá encaminhá-lo à CJM correspondente, pois o arquivamento só poderá ser feito pelo Juiz-Auditor competente.",
+          "E) O encarregado, por determinação da autoridade nomeante, mandará arquivar os autos do IPM, fazendo remessa das peças à DPHDM com cópia do relatório e da solução para o CIM e para o Juiz-Auditor da CJM da área."
+        ],
+        correct: 3,
+        subject: "Inquérito Policial Militar (IPM)",
+        explanation: ""
+      },
+      {
+        id: 100,
+        text: "Leia o trecho abaixo e depois assinale V ou F nas proposições. \"Os autos de Sindicância que derem origem à instauração de IPM serão anexados à portaria da autoridade nomeante, não podendo ser efetuada qualquer supressão ou alteração em suas partes, devendo ser adotadas as seguintes medidas:\" (_) As testemunhas que tenham prestado, na Sindicância, depoimentos relevantes e elucidativos estarão isentas de serem reinquiridas, uma vez que todo o procedimento realizado no decorrer da Sindicância serve como base de prova e as testemunhas já haviam realizado o juramento de dizer a verdade. (_) Os laudos de exame e avaliação anexados aos autos de Sindicância, por já se fazerem inclusos em outro procedimento, possuem fé pública e não necessitam de autenticação para anexação ao IPM. (_) Os autos da Sindicância serão juntados ao IPM no início das novas peças, devendo a numeração do Inquérito seguir a partir do fim da numeração da Sindicância, mantendo uma ordem cronológica dos fatos, para fins de verificação.",
+        options: [
+          "A) VVV",
+          "B) VFV",
+          "C) FFF",
+          "D) VVF",
+          "E) FFV"
+        ],
+        correct: 2,
+        subject: "Inquérito Policial Militar (IPM)",
+        explanation: ""
+      },
+      {
+        id: 101,
+        text: "O crime de deserção ocorre quando o militar da ativa ou da reserva designado para o serviço ativo, sem estar devidamente autorizado, incidir em uma das hipóteses abaixo, EXCETO:",
+        options: [
+          "A) Deixar de se apresentar no momento do deslocamento da unidade ou força em que serve.",
+          "B) Fugir em seguida à prática de crime para evitar a prisão, permanecendo ausente por mais de 8 dias.",
+          "C) Conseguir exclusão do serviço ativo ou situação de inatividade, criando ou simulando incapacidade.",
+          "D) Viajar em caráter particular, por ocasião das férias, sem ter passado a mensagem de ausência de sede, permanecendo fora do local onde serve por mais de 8 dias.",
+          "E) Evadir-se do poder da escolta, permanecendo ausente por mais de 8 dias."
+        ],
+        correct: 3,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 102,
+        text: "A contagem dos dias de ausência, para que se consume o crime de deserção é feita:",
+        options: [
+          "A) A partir do dia seguinte ao da constatação da ausência.",
+          "B) A partir do dia da constatação da ausência.",
+          "C) A partir das 18h do dia da constatação da ausência.",
+          "D) A partir do término do oitavo dia da constatação da ausência",
+          "E) A partir do início do oitavo dia da constatação da ausência."
+        ],
+        correct: 0,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 103,
+        text: "Em caso de fuga ou evasão, a falta injustificada (Dia D) será no dia em que ocorreu a fuga ou evasão e a Parte de Ausência será lavrada no dia seguinte ao da falta injustificada (D+1)",
+        options: [
+          "A) Falso",
+          "B) Verdadeiro"
+        ],
+        correct: 1,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 104,
+        text: "Desligado o militar de sua OM, deixando de ocorrer sua apresentação, os procedimentos de deserção serão cumpridos:",
+        options: [
+          "A) Pela OM de origem, cabendo à OM de destino ser comunicada de todas as fases do processo de deserção e investigação.",
+          "B) Pela OM de destino, cabendo à OM de origem cooperar com a investigação da ausência.",
+          "C) Pela OM de origem, uma vez que, no período do trânsito, até a apresentação na nova OM, o militar é responsabilidade da OM antiga.",
+          "D) Pela OM de origem, cabendo à OM de destino, por meio da seção de inteligência, cooperar com a investigação de ausência.",
+          "E) Pela OM de destino, visto que o militar, ao desembarcar, deixa de ter vínculo com a sua OM anterior e passa a responder perante o novo comando."
+        ],
+        correct: 1,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 105,
+        text: "Quem será o responsável por comunicar, por meio da parte de ausência, ao comandante ou à autoridade equivalente, a ausência de um Suboficial?",
+        options: [
+          "A) Vice-diretor.",
+          "B) Chefe do Departamento de Administração.",
+          "C) Encarregado do Militar.",
+          "D) Imediato.",
+          "E) Encarregado da Seção de Inteligência."
+        ],
+        correct: 2,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 106,
+        text: "Ao receber a parte de ausência, o Comandante ou autoridade equivalente, deverá despachar em sua continuidade as seguintes providências, EXCETO:",
+        options: [
+          "A) Mandar proceder buscas no Instituto Médico Legal da área, bem como realizar contatos com a autoridade policial e com o corpo de bombeiros, a fim de verificar uma suposta morte ou envolvimento em crime por parte do ausente.",
+          "B) Designar um oficial intermediário ou subalterno, como Escrivão, no caso de oficial; ou, Suboficial ou Sargento, no caso de praça, a fim de serem lavrados os documentos pertinentes.",
+          "C) Designar um oficial mais antigo que o ausente, como Encarregado da Investigação da Ausência.",
+          "D) Mandar proceder ou solicitar que sejam precedidos pedidos de informações aos hospitais da Marinha na área, quanto à possível baixa do ausente.",
+          "E) Mandar proceder ao inventário do material deixado na OM pelo militar ausente e determinar que sejam inventariados os bens da Fazenda Nacional que se encontravam sob a responsabilidade do ausente, destacando as faltas e indicando os valores parciais e o valor total."
+        ],
+        correct: 0,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 107,
+        text: "O comandante ou autoridade equivalente, com o propósito de tentar evitar a consumação do crime de deserção, providenciará a entrega, ao militar ausente, em sua residência, de uma intimação. Assinale abaixo a opção correta no caso em que o militar não é encontrado:",
+        options: [
+          "A) No caso de não haver ninguém na residência do ausente, o oficial encarregado de entregá-la fará constar, com a presença de duas testemunhas, que deixou a intimação na caixa de correios e firmará recibo na cópia que será assinada pelas duas testemunhas.",
+          "B) O oficial responsável pela entrega da intimação entregará um recibo à quem estiver no local, o qual terá a informação da ida de militares até a residência do ausente para entregar a intimação em mãos.",
+          "C) Deverá ser solicitada à pessoa maior de 18 anos, e residente no local, a aposição de recibo na cópia da mesma.",
+          "D) A intimação somente será válida se entregue em mãos, logo, ninguém além do próprio destinatário poderá recebê-la.",
+          "E) O oficial retornará para bordo com a intimação e tentará, no espaço de 2 semanas, efetuar mais duas entregas em dias da semana diferente."
+        ],
+        correct: 2,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 108,
+        text: "Após oito dias de ausência, quando da consumação da deserção, será encaminhada ao Comandante, ou autoridade equivalente, o Termo de Deserção, sendo, logo a seguir, lavrada a Parte de Deserção pelo Imediato, em caso de Oficial; ou pelo o Encarregado do Pessoal em caso de praças.",
+        options: [
+          "A) Verdadeiro",
+          "B) Falso"
+        ],
+        correct: 1,
+        subject: "Deserção",
+        explanation: "Primeiro é a Parte de Deserção e depois o Termo de Deserção. Quem lavra o TD é o EIA"
+      },
+      {
+        id: 109,
+        text: "Analise as proposições abaixo referentes ao Termo de Deserção e depois marque a opção correta. I – Será assinado pelo Comandante ou autoridade equivalente, e por duas testemunhas idôneas, de preferência oficiais, além do Oficial Encarregado. II – Após lavrado, será transcrito em Ordem de Serviço (OS). Cópia da OS e o original do Termo de Deserção deverão ser anexados aos autos. III – Os comandantes de OM que sejam oficiais generais poderão delegar competência, no todo ou em parte, para assinar os documentos relativos a processos de deserção de oficiais e praças, a oficiais subordinados, desde que a delegação recaia sobre oficial mais antigo que o ausente.",
+        options: [
+          "A) FVF",
+          "B) VVV",
+          "C) VVF",
+          "D) FFF",
+          "E) FFV"
+        ],
+        correct: 2,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 110,
+        text: "No caso de deserção por perda de navio ou de aeronave, o Comandante (ou autoridade superior) deverá, ao receber a Parte de Ausência, despachar em sua continuação, determinando as ações descritas nas alíneas a e c do art. 9.5. A Parte de Deserção e o Termo de Deserção serão lavrados no dia seguinte (D+1), caso não sejam recebidas informações sobre o paradeiro do desertor que justifiquem a ausência.",
+        options: [
+          "A) Verdadeiro",
+          "B) Falso"
+        ],
+        correct: 1,
+        subject: "Deserção",
+        explanation: "Parte de Deserção e o Termo de Deserção serão lavrados de imediato"
+      },
+      {
+        id: 111,
+        text: "Assinale V ou F em relação aos procedimentos de Deserção constantes no Capítulo 9 da publicação referência. (_) Consumada a deserção da praça especial ou da praça sem estabilidade, ela será, imediatamente, excluída do serviço ativo. (_) Quando a praça for estável, ela ficará agregada. (_) O oficial desertor, caso seja de carreira, será agregado e permanecerá nessa situação ao se apresentar voluntariamente ou ser capturado, até decisão transitada em julgado.",
+        options: [
+          "A) FVF",
+          "B) VFV",
+          "C) VVV",
+          "D) FFV",
+          "E) VVF"
+        ],
+        correct: 4,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 112,
+        text: "Tratando-se de militar sem estabilidade, ao ser excluído do Serviço Ativo por Deserção, por Portaria da DPMM, do CPesFN ou Comando de Distritos Navais, conforme o caso, deverá ser desligado de sua OM:",
+        options: [
+          "A) Na data do término do contrato",
+          "B) Na data da parte de ausência",
+          "C) Na data da falta injustificada",
+          "D) Na data da consumação do crime de deserção.",
+          "E) Na data da apresentação voluntária ou captura"
+        ],
+        correct: 3,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 113,
+        text: "Ao ser solicitada ao Comando de Distrito Naval a captura de militar desertor, deverá ser incluída uma cópia do Termo de Deserção, bem como informados seus aspectos fisionômicos, inclusive com fotografias, a fim de facilitar o seu reconhecimento. Nessa ocasião, o Encarregado da IPD deverá:",
+        options: [
+          "A) Informar, por mensagem, os dados do militar desertor à DPMM ou ao CPesFN, conforme for o caso, com cópia para o CIM e para os demais Distritos Navais.",
+          "B) Expedir ofício ao CIM comunicando a situação do militar foragido e desertor, além de encaminhar cópia para a superintendência de Polícia Civil do Estado de abertura da IPD e para os demais Distritos Navais.",
+          "C) Expedir ofício à superintendência Regional da Polícia Federal de seu Estado, com cópia para o Distrito Naval da área, participando que o militar é desertor e encontra-se foragido.",
+          "D) Expedir ofício assinado pela autoridade responsável pelo IPD para a Superintendência da Polícia Federal em Brasília e para as Superintendências Estaduais de Polícia Civil, com cópia para os Distritos Navais e para as autoridades aeroportuárias, informando os dados do militar desertor.",
+          "E) Expedir ofício à superintendência da Polícia Federal em Brasília, de modo que a informação sobre o militar desertor possa ser disseminada em todo território nacional. Além disso, deve ser encaminhada cópia para todos os Distritos Navais, Comandos Militares (EB) e Comandos Aéreos Regionais (FAB)."
+        ],
+        correct: 2,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 114,
+        text: "Assinale V ou F em relação aos procedimentos de transferência para prisão militar. (_) O desertor, ao ser capturado ou apresentar-se voluntariamente, será transferido, imediatamente, para prisão militar da MB localizada na área da Circunscrição Judiciária Militar onde tramitará o processo penal. (_) O termo de Deserção tem caráter de instrução provisória, sujeitando, desde logo, o desertor à prisão. (_) O desertor que não for julgado dentro de 60 dias após a sua captura ou apresentação voluntária, será posto em liberdade, por Alvará de soltura expedido pela autoridade judicial, salvo se tiver dado causa ao retardamento do processo ou lhe seja decretada a prisão preventiva.",
+        options: [
+          "A) FFV",
+          "B) FFF",
+          "C) VVF",
+          "D) VFF",
+          "E) VVV"
+        ],
+        correct: 4,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 115,
+        text: "A prisão do desertor precisa ser imediatamente comunicada EXCETO à(ao):",
+        options: [
+          "A) Juiz Auditor com jurisdição sobre o local do crime.",
+          "B) Defensoria Pública da União, caso não informe o nome do seu advogado.",
+          "C) DPMM, CPesFN ou DPCvM, conforme o caso.",
+          "D) Ministério Público.",
+          "E) Família do preso ou à pessoa por ele indicada."
+        ],
+        correct: 2,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 116,
+        text: "Deverá ser permitido ao preso informar os motivos pelos quais desertou, tomando a termo suas declarações.",
+        options: [
+          "A) Verdadeiro",
+          "B) Falso"
+        ],
+        correct: 0,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 117,
+        text: "A cópia do Termo de Inspeção de Saúde deve ser autenticada pelo:",
+        options: [
+          "A) Comandante do Distrito Naval da Área",
+          "B) Secretário da Junta de Saúde",
+          "C) Autoridade Nomeante",
+          "D) Encarregado do Núcleo de Polícia Judiciária",
+          "E) Encarregado da IPD"
+        ],
+        correct: 1,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 118,
+        text: "Analise as proposições abaixo relativas aos procedimentos para reinclusão e reversão e depois marque a alternativa correta. I – A praça desertora sem estabilidade deverá ser reincluída tão logo aconteça a apresentação voluntária ou a captura, para somente depois passar pela inspeção de saúde. II – A praça estável, quando por ocasião da sua captura ou apresentação voluntária, ficará agregada até o término do processo e o trânsito em julgado da sentença penal condenatória. Após concluso o processo, passará por IS. III – Em caso de incapacidade definitiva, nos casos em que o desertor é estável, ele será imediatamente isento da reversão do processo.",
+        options: [
+          "A) VFV",
+          "B) FFV",
+          "C) FFF",
+          "D) VVV",
+          "E) FVV"
+        ],
+        correct: 2,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 119,
+        text: "O pagamento da praça sem estabilidade deverá ser reativado:",
+        options: [
+          "A) Logo após a captura e com data a contar da data de assinatura da portaria.",
+          "B) Logo após a captura e com data a contar a partir do lançamento do apto da Inspeção de saúde.",
+          "C) Após a formalização da Portaria de reinclusão, com data retroativa ao apto em Inspeção de Saúde.",
+          "D) Após a formalização da portaria e com data retroativa à assinatura da portaria.",
+          "E) Após a formalização da portaria de reinclusão, com data retroativa a data da captura ou da apresentação voluntária."
+        ],
+        correct: 2,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 120,
+        text: "De acordo com o item 9.18.3 da DGPM-315, assinale a opção correta em relação à reversão da praça estável.",
+        options: [
+          "A) Dependerá do resultado da Inspeção de Saúde.",
+          "B) Independerá do resultado da Inspeção de Saúde e será retroativa à data da apresentação voluntária/captura.",
+          "C) Independerá do resultado da Inspeção de Saúde, sendo confirmada a partir da data do apto.",
+          "D) Dependerá do resultado da Inspeção de Saúde e será retroativa à data do início da Inspeção.",
+          "E) Dependerá do resultado da Inspeção de Saúde e se dará a partir da data do apto."
+        ],
+        correct: 1,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 121,
+        text: "O pagamento da praça estável deverá ser reativado após a formalização do ato de reversão, com data retroativa à data da sua captura.",
+        options: [
+          "A) Verdadeiro",
+          "B) Falso"
+        ],
+        correct: 0,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 122,
+        text: "A IPD será remetida, por meio de ___________, ao Juiz-Auditor da Circunscrição Judiciária Militar da Área onde ocorreu a deserção, até _________ dias após lavrado o(a) ___________.",
+        options: [
+          "A) Ofício URGENTE – Cinco dias – Termo de Deserção.",
+          "B) Ofício PREFERENCIAL – três dias – Parte de Deserção.",
+          "C) Ofício ESPECIAL – três dias – Termo de Deserção.",
+          "D) Ofício ROTINA – três dias – Parte de Ausência.",
+          "E) Ofício como INFORMAÇÃO PESSOAL – cinco dias – Parte de Deserção."
+        ],
+        correct: 0,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 123,
+        text: "Com base em seus conhecimentos da norma, caso um militar que faça parte da Guarnição da EAMES seja considerado desertor, a IPD deverá ser remetida ao:",
+        options: [
+          "A) Juiz-Auditor Distribuidor das Auditorias da 4ª Circunscrição Judiciária Militar.",
+          "B) Juiz-Auditor Distribuidor das Auditorias da 3ª Circunscrição Judiciária Militar.",
+          "C) Juiz-Auditor Distribuidor das Auditorias da 2ª Circunscrição Judiciária Militar.",
+          "D) Juiz-Auditor Distribuidor das Auditorias da 1ª Circunscrição Judiciária Militar.",
+          "E) Juiz-Auditor Distribuidor das Auditorias da 5ª Circunscrição Judiciária Militar."
+        ],
+        correct: 3,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 124,
+        text: "Numa primeira fase, os documentos do militar desertor serão encerrados e encaminhados ao Comando do Distrito Naval em cuja jurisdição correrá o processo penal. Serão nessas OM arquivados, até a captura ou a apresentação voluntária do desertor ou pelo prazo de _______ após a data da deserção, quando serão encaminhados e mantidos na DPHDM.",
+        options: [
+          "A) Um ano",
+          "B) Dois anos",
+          "C) Cinco anos",
+          "D) Três anos",
+          "E) Quatro anos"
+        ],
+        correct: 1,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 125,
+        text: "O Termo de Deserção Restaurado é realizado pelo(a):",
+        options: [
+          "A) Ministro do STM",
+          "B) Juiz-Auditor",
+          "C) Ministério Público Militar",
+          "D) Autoridade competente pela lavratura do Termo de Deserção original.",
+          "E) Comandante do Distrito Naval da Área"
+        ],
+        correct: 3,
+        subject: "Deserção",
+        explanation: ""
+      },
+      {
+        id: 126,
+        text: "A prisão em flagrante ocorre quando é presenciada ou constatada, dentro de determinado prazo, a ocorrência de um ilícito penal. Considera-se que haja prisão em flagrante quando o agente é encontrado, EXCETO:",
+        options: [
+          "A) Cometendo infração penal.",
+          "B) Quando for encontrado, num prazo compatível com as circunstâncias de cada caso, com instrumentos, armas, objetos ou materiais, assim como com lesões corporais ou a roupa em desalinho ou com manchas de sangue ou outras evidências que façam presumir ser ele autor ou participante de ato delituoso.",
+          "C) Quando, após a prática desta, seja perseguido dentro de um tempo bem próximo ao tempo da infração, não importando por quanto tempo dure a perseguição, desde que não haja solução de continuidade.",
+          "D) Quando é encontrado até 5 minutos após o ato delituoso, desde que haja evidências do cometimento do crime para ser decretada a prisão em flagrante.",
+          "E) Quando acaba de cometer uma infração penal."
+        ],
+        correct: 3,
+        subject: "Prisão em Flagrante",
+        explanation: ""
+      },
+      {
+        id: 127,
+        text: "Quando o Flagrante por si só não for suficiente para a elucidação do fato e sua autoria, o APF delito será peça inicial do IPM, sendo, nesta hipótese, desnecessária a portaria.",
+        options: [
+          "A) Verdadeiro",
+          "B) Falso"
+        ],
+        correct: 0,
+        subject: "Prisão em Flagrante",
+        explanation: ""
+      },
+      {
+        id: 128,
+        text: "Em relação aos procedimentos para prisão em flagrante, assinale V ou F. (_) Qualquer pessoa poderá, e os militares deverão, prender quem for insubmisso ou desertor, ou seja, encontrado em flagrante delito. (_) Ninguém será preso senão em flagrante delito ou por ordem escrita e fundamentada da autoridade judiciária competente, expedida por meio de mandado de prisão, salvo nos casos de transgressão militar, crime propriamente militar ou impropriamente militar. (_) O auto de prisão em flagrante deverá conter, pelo menos, o depoimento de duas pessoas que tiverem assistido ao fato delituoso ou presenciado a apresentação do preso à autoridade competente. (_) A prisão em flagrante poderá ser efetuada em qualquer dia, hora e local, entretanto, não poderá ser realizada penetrando o domicílio onde se encontre o infrator, uma vez que a residência é local inviolável.",
+        options: [
+          "A) FVVF",
+          "B) VFVV",
+          "C) FFVV",
+          "D) VFVF",
+          "E) VVVV"
+        ],
+        correct: 3,
+        subject: "Prisão em Flagrante",
+        explanation: ""
+      },
+      {
+        id: 129,
+        text: "De acordo com o item 10.5.7 da publicação em tela, em se tratando de crime onde há prova material, é necessário lavrar o respectivo:",
+        options: [
+          "A) Termo de Coleta de Dados",
+          "B) Termo de Provas",
+          "C) Termo de Reconhecimento de Objetos.",
+          "D) Termo de Apreensão",
+          "E) Termo de Material"
+        ],
+        correct: 3,
+        subject: "Prisão em Flagrante",
+        explanation: ""
+      },
+      {
+        id: 130,
+        text: "Ocorrendo a prisão em flagrante, em área sob a jurisdição militar, ou condução de preso em flagrante a uma OM, deverá o mesmo ser imediatamente apresentado a uma das opções abaixo, EXCETO:",
+        options: [
+          "A) Autoridade Equivalente ao Comandante",
+          "B) Comandante",
+          "C) Imediato",
+          "D) Oficial de Serviço",
+          "E) Oficial de Quarto"
+        ],
+        correct: 2,
+        subject: "Prisão em Flagrante",
+        explanation: ""
+      },
+      {
+        id: 131,
+        text: "O Comandante, autoridade equivalente, oficial de serviço ou de quarto, após a prisão em flagrante em área sob jurisdição militar, ou condução de preso em flagrante a uma OM providenciará a lavratura do competente:",
+        options: [
+          "A) Termo de Detenção",
+          "B) Termo de Condução",
+          "C) Termo de Prisão",
+          "D) Termo de Provas",
+          "E) Termo de Apresentação"
+        ],
+        correct: 4,
+        subject: "Prisão em Flagrante",
+        explanation: ""
+      },
+      {
+        id: 132,
+        text: "Complete as lacunas com a opção correta: “Quando o preso for encaminhado à prisão não subordinada à autoridade que o autuou, será apresentado por ____________, contendo, em anexo, cópia do(a) _________________. O recebimento do preso será certificado por meio de _____________, mandado passar pela autoridade que o receber, em cópia do ________________.”",
+        options: [
+          "A) Ofício – Ficha datiloscópica – Juntada – Termo de Apreensão.",
+          "B) Termo de Apresentação – Intimação da Prisão – Termo de Apresentação – Termo de Apreensão.",
+          "C) Termo de Apresentação – Laudo da Inspeção de Saúde – Termo de Recebimento – Termo de Apresentação.",
+          "D) Termo de Prisão em Flagrante – Caderneta Registro – Recibo – Termo de Prisão em Flagrante.",
+          "E) Ofício – Auto de Prisão em Flagrante – Recibo – Auto de Prisão em Flagrante."
+        ],
+        correct: 4,
+        subject: "Prisão em Flagrante",
+        explanation: ""
+      },
+      {
+        id: 133,
+        text: "O preso deverá ser conduzido normalmente, sendo admissível o emprego da força, quando indispensável, nos casos de: I – Desobediência; II – Resistência; III – Tentativa de fuga.",
+        options: [
+          "A) Nenhuma está correta.",
+          "B) Apenas I e II estão corretas",
+          "C) Apenas II e III estão corretas",
+          "D) Apenas a II está correta",
+          "E) I, II e III estão corretas."
+        ],
+        correct: 4,
+        subject: "Prisão em Flagrante",
+        explanation: ""
+      },
+      {
+        id: 134,
+        text: "Os ofícios de notificação e os relacionados com providências determinadas pelo encarregado ou autoridade que presidiu a autuação da prisão em flagrante, assim como todos os documentos mandados juntar aos autos, deverão ser relacionados no(a):",
+        options: [
+          "A) Termo de Coleta",
+          "B) Termo de Juntada",
+          "C) Despacho",
+          "D) Termo de Recebimento",
+          "E) Termo de Anexação"
+        ],
+        correct: 1,
+        subject: "Prisão em Flagrante",
+        explanation: ""
+      },
+      {
+        id: 135,
+        text: "Em relação aos procedimentos descritos no capítulo 10 da DGPM-315, assinale V ou F e depois marque a opção correta. (_) Em caso de insubordinação ou desacato, o infrator deve ser alertado para o fato de que sua atitude constitui crime, a fim de configurar a predisposição consciente de praticar o ato. Caso, após alertado, mantenha a atitude, o oficial de serviço ou de quarto deverá ser acionado para que possa ser dada a voz de prisão. (_) Na prisão em flagrante, a captura dar-se-á pela simples voz de prisão. (_) A prisão em flagrante, quanto ao sigilo, terá, normalmente, tratamento OSTENSIVO. Quando o preso for oficial, os autos serão classificados como RESERVADO. Se o fato envolver assunto que afete a Segurança Nacional, os autos serão classificados como SECRETO ou ULTRASSECRETO.",
+        options: [
+          "A) VFF",
+          "B) VFV",
+          "C) FVF",
+          "D) VVV",
+          "E) FFF"
+        ],
+        correct: 2,
+        subject: "Prisão em Flagrante",
+        explanation: "(F) Não existe a obrigatoriedade de acionar o oficial de serviço para que seja dada voz de prisão, uma vez que o item 10.5.2 da DGPM-315 afirma que qualquer pessoa poderá e OS MILITARES DEVERÃO prender quem for insubmisso ou desertor, ou seja, encontrado em flagrante delito. (V) Afirmação verdadeira, de acordo com o item 10.8 da DGPM-315. (F) Quando o preso for OFICIAL ou SUBOFICIAL, os autos serão classificados como RESERVADO. Se envolver fato que afete a Segurança Nacional, os autos serão classificados como RESERVADO ou SECRETO."
+      },
+      {
+        id: 136,
+        text: "Cada depoente deverá ser completamente qualificado no final do texto do termo.",
+        options: [
+          "A) Falso",
+          "B) Verdadeiro"
+        ],
+        correct: 0,
+        subject: "Depoimentos e Compromisso de Dizer a Verdade",
+        explanation: "identificação deve ser feita NO INÍCIO do texto do termo"
+      },
+      {
+        id: 137,
+        text: "Cada depoente, com exceção do infrator, é obrigado a prestar o compromisso de dizer a verdade, nos termos contidos no art. 352 do CPPM, e este fato constará no texto inicial de seu depoimento.",
+        options: [
+          "A) Verdadeiro",
+          "B) Falso"
+        ],
+        correct: 1,
+        subject: "Depoimentos e Compromisso de Dizer a Verdade",
+        explanation: "s exceções são o INFRATOR e o OFENDIDO"
+      },
+      {
+        id: 138,
+        text: "Em Relação ao compromisso de dizer a verdade estabelecido para cada um dos procedimentos, correlacione as colunas de acordo com a opção correspondente: (1) Sindicância (2) Inquérito Policial Militar (3) Prisão em Flagrante (4) Execução Penal (_) Poderão ser ouvidos, à semelhança das testemunhas, os menores de 14 anos, os doentes ou deficientes mentais, os ascendentes, descendentes, sogro, sogra, genro, nora, cônjuge, separado judicialmente/divorciado, irmão ou pessoa que tenha vínculo de adoção com o indiciado, observado o disposto nos art. 352, §2º e art. 354 do CPPM, estando isentos do compromisso de dizer a verdade e, sendo assim, denominados informantes. (_) Poderão ser ouvidos, à semelhança das testemunhas, os menores de 18 anos, os doentes ou deficientes mentais, os ascendentes, descendentes, sogro, sogra, genro, nora, cônjuge, irmão ou pessoa que tenha vínculo de adoção com o sindicado, observando o disposto no art. 352, §2º do CPPM, que os isenta do compromisso de dizer a verdade, sendo assim, considerados meros informantes. (_) Os menores de 18 anos, as pessoas com deficiência mental, os ascendentes, descendentes, sogra, sogra, genro, nora, cônjuge, irmão ou pessoa que tenha vínculo de adoção com o preso, poderão ser ouvidos como testemunhas, observado o disposto no art. 354 do CPPM, estando isentos do compromisso de dizer a verdade.",
+        options: [
+          "A) 2-1-3",
+          "B) 3-2-1",
+          "C) 1-2-3",
+          "D) 4-1-2",
+          "E) 2-3-4"
+        ],
+        correct: 0,
+        subject: "Depoimentos e Compromisso de Dizer a Verdade",
+        explanation: "Os itens da DGPM-315 que amparam o gabarito são os seguintes: 8.16.8/3.16.8/10.14.2"
+      },
+      {
+        id: 139,
+        text: "Em relação aos depoimentos nos casos de Prisão em Flagrante, assinale abaixo a opção que não será tomada a termo no Auto de Prisão em Flagrante:",
+        options: [
+          "A) Responsável pela voz de prisão.",
+          "B) Conduzido.",
+          "C) Vítima ou ofendido, se houver e puder fazê-lo.",
+          "D) Testemunhas ou informantes.",
+          "E) Condutor do preso."
+        ],
+        correct: 0,
+        subject: "Depoimentos e Compromisso de Dizer a Verdade",
+        explanation: "De acordo com o item 10.15.1 da DGPM-315, os depoimentos do condutor do preso, das testemunhas ou informantes, da vítima ou ofendido, se houver e puder fazê-lo e do conduzido serão tomados a termo no “Auto de Prisão em Flagrante”"
+      },
+      {
+        id: 140,
+        text: "No ordenamento jurídico brasileiro existem as seguintes espécies de prisão, EXCETO:",
+        options: [
+          "A) Prisão decorrente de sentença penal condenatória com trânsito em julgado.",
+          "B) Prisão em flagrante",
+          "C) Prisão administrativa para os casos de transgressão disciplinar militar e para os estrangeiros em situação irregular no país.",
+          "D) Prisão provisória (ou cautelar).",
+          "E) Prisão civil para o responsável pelo inadimplemento voluntário e inescusável de obrigação alimentícia."
+        ],
+        correct: 1,
+        subject: "Prisão: Espécies, Algemas e Regimes Prisionais",
+        explanation: "Prisão em flagrante é uma subespécie da prisão provisória ou cautelar"
+      },
+      {
+        id: 141,
+        text: "De acordo com o art. 68 do COM, o condenado pela Justiça Militar não pode cumprir pena em estabelecimento de outro Distrito Naval.",
+        options: [
+          "A) Falso",
+          "B) Verdadeiro"
+        ],
+        correct: 0,
+        subject: "Prisão: Espécies, Algemas e Regimes Prisionais",
+        explanation: "Pode cumprir"
+      },
+      {
+        id: 142,
+        text: "O 2ºSG-FN-MU DENTUÇO destacou-se, ao longo da carreira naval, por ser um militar de altíssimo padrão, respeitado pelos superiores e admirado pelos subordinados. Graças aos relevantes serviços prestados, o SG DENTUÇO foi condecorado com inúmeras medalhas, entre as quais podemos citar a Medalha do Mérito Militar, a Medalha do Mérito Anfíbio, a Medalha Mérito Tamandaré e também com a Ordem do Mérito Naval. No entanto, uma vida repleta de bons serviços foi prejudicada por uma ação infundada do SG DENTUÇO. Certo dia, após uma cerimônia cansativa, quando estava próximo de chegar em casa – na vila naval da dentuçolândia - o SG DENTUÇO se envolveu em uma briga com um vizinho e fez uso desproporcional da força ao atirar contra o conflitante. Uma viatura do Grupamento de Fuzileiros Navais, que fazia ronda na Vila Naval, passava próximo do local da ocorrência e os militares deram voz de prisão ao SG DENTUÇO. O preso resistiu à voz de prisão dada pelos militares de serviço, mas não representou perigo de fuga. Diante disso os militares foram obrigados a fazer uso de algemas para conter as ações do SG DENTUÇO, coloca-lo na viatura e encaminhá-lo ao local da custódia para que fossem realizados os trâmites burocráticos da prisão. Conhecedor das normas explicitas na DGPM-315, assinale abaixo a opção correta em relação ao fato citado no texto, principalmente sobre a utilização de algemas:",
+        options: [
+          "A) A prerrogativa de hierarquia funcional do SG DENTUÇO, somada ao seu histórico de condecorações, impõe a submissão de sua prisão imediata à autoridade de escalão superior, não sendo legítima sua detenção por patrulha ordinária.",
+          "B) É proibida a utilização de algemas em oficiais e graduados das FA e das Forças Auxiliares, conforme preconizado no art. 234, §1 do CPPM.",
+          "C) A conduta dos militares da patrulha foi acertada, pois não existe impeditivo legal que os impedisse de agir da maneira que os militares agiram.",
+          "D) A utilização de algemas pelos militares responsáveis pela prisão apenas se justificaria se o comportamento do SG DENTUÇO configurasse ameaça concreta e iminente à ordem pública, sendo vedada tal medida diante da ausência de risco coletivo.",
+          "E) A conduta dos militares foi errada, uma vez que o fato do SG DENTUÇO estar inscrito no livro da Ordem do Mérito Naval proíbe que ele seja algemado."
+        ],
+        correct: 4,
+        subject: "Prisão: Espécies, Algemas e Regimes Prisionais",
+        explanation: ""
+      },
+      {
+        id: 143,
+        text: "Não poderão ser algemados, conforme dispõe o art. 234, §1º, do CPPM, EXCETO:",
+        options: [
+          "A) Prefeito do Distrito Federal",
+          "B) Chefes de Polícia",
+          "C) Governadores",
+          "D) Presidente da República",
+          "E) Interventores de Estado"
+        ],
+        correct: 3,
+        subject: "Prisão: Espécies, Algemas e Regimes Prisionais",
+        explanation: ""
+      },
+      {
+        id: 144,
+        text: "Assinale V ou F em relação aos regimes prisionais: (_) Existem três regimes prisionais: Fechado, semiaberto e aberto (_) Os presídios destinam-se aos condenados à pena de reclusão em regime fechado e semiaberto. (_) Os albergues destinam-se ao cumprimento de pena privativa de liberdade em regime aberto. (_) A legislação militar não contempla os regimes prisionais semiaberto e aberto. (_) O Presídio da Marinha foi concebido somente para o cumprimento do regime prisional fechado. (_) O funcionamento do PM e o trato dos prisioneiros regem-se pelas Normas da DPMM e pelas ordens internas do PM, com a Orientação técnica da DGPM.",
+        options: [
+          "A) VFVFVF",
+          "B) FFVVVF",
+          "C) VFVVFF",
+          "D) FFVFVF",
+          "E) VFVVVF"
+        ],
+        correct: 4,
+        subject: "Prisão: Espécies, Algemas e Regimes Prisionais",
+        explanation: ""
+      },
+      {
+        id: 145,
+        text: "Observe as afirmações e depois marque a opção correta. I – Caso o militar, em regime fechado, tenha precedência sobre o Diretor o PM a pena deverá ser cumprida no sistema prisional comum. II – O regime semiaberto poderá ser cumprido nos Grupamentos de Fuzileiros Navais ou em OM cujas instalações atendam da melhor forma possível às disposições legais. III – O regime aberto baseia-se na capacidade de senso de responsabilidade do condenado, estimulando e valorizando os deveres próprios da sua condição, em especial o de trabalhar. IV – Caberá ao comando do Distrito Naval da Área designar uma OM diversa daquela em que o militar da ativa estiver cumprindo regime aberto para que ele cumpra expediente normal de trabalho, preferencialmente próxima daquela em que estiver recolhido, desde que não seja um Comando de Força, OM de ensino ou OM de instrução.",
+        options: [
+          "A) Apenas II, III e IV estão corretas",
+          "B) Apenas III e IV estão corretas",
+          "C) Todas estão corretas",
+          "D) Todas estão incorretas",
+          "E) Apenas I e III estão corretas"
+        ],
+        correct: 3,
+        subject: "Prisão: Espécies, Algemas e Regimes Prisionais",
+        explanation: ""
+      },
+      {
+        id: 146,
+        text: "O Presídio da Marinha destina-se à custódia de militares, principalmente os lotados na área abrangida pelo Com1ºDN, nas seguinte situações, EXCETO:",
+        options: [
+          "A) Desertores que sejam capturados ou que se apresentem voluntariamente",
+          "B) Praças submetidas à prisão disciplinar",
+          "C) Submetidos à prisão provisória determinada pela Justiça Militar ou Comum",
+          "D) Submetidos à medida de segurança de internação",
+          "E) Condenados à pena privativa de liberdade em regime fechado"
+        ],
+        correct: 1,
+        subject: "Prisão: Espécies, Algemas e Regimes Prisionais",
+        explanation: ""
+      },
+      {
+        id: 147,
+        text: "A(O) __________ estabelecerá normas complementares sobre o funcionamento do PM e sobre o trato dos militares recolhidos nesta OM:",
+        options: [
+          "A) DGPM",
+          "B) ComOpNav",
+          "C) CGCFN",
+          "D) Com1ºDN",
+          "E) DPMM"
+        ],
+        correct: 3,
+        subject: "Prisão: Espécies, Algemas e Regimes Prisionais",
+        explanation: ""
       }
     ];
 
@@ -1264,6 +2762,15 @@ const questionsData = [
           expTitle.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> Resposta Incorreta`;
           expText.innerText = `Você selecionou a opção (${String.fromCharCode(65 + selectedOption)}), mas a correta é a alternativa: ${q.options[q.correct]}`;
         }
+
+        const expDetail = document.getElementById('explanation-detail');
+        const expDetailText = document.getElementById('explanation-detail-text');
+        if (q.explanation) {
+          expDetail.classList.remove('hidden');
+          expDetailText.innerText = q.explanation;
+        } else {
+          expDetail.classList.add('hidden');
+        }
       } else {
         expBox.classList.add('hidden');
       }
@@ -1433,11 +2940,11 @@ const questionsData = [
 
       const feedback = document.getElementById('modal-feedback');
       if (percent >= 80) {
-        feedback.innerText = 'Excelente desempenho! Você demonstrou forte domínio de Justiça e Disciplina (Sindicância).';
+        feedback.innerText = 'Excelente desempenho! Você demonstrou forte domínio de Justiça e Disciplina.';
       } else if (percent >= 60) {
         feedback.innerText = 'Bom resultado! Revise os tópicos incorretos para atingir uma nota ainda maior.';
       } else {
-        feedback.innerText = 'Recomendamos uma revisão nos tópicos de Justiça e Disciplina (Sindicância) e tentar o simulado novamente.';
+        feedback.innerText = 'Recomendamos uma revisão nos tópicos de Justiça e Disciplina e tentar o simulado novamente.';
       }
 
       document.getElementById('results-modal').classList.remove('hidden');
