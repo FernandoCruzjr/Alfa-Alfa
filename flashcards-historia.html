@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcards de História · Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Flashcards de revisão de História Naval: navios, comandantes, batalhas, guerras e tratados. Estude de forma rápida e visual para o CA-AA/AFN.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: { 800: '#0B192C', 900: '#000F26', 700: '#1E3E62', 600: '#1E56A0', 500: '#0066CC', 100: '#E6F0FA' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes access-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .perspective { perspective: 1600px; }
+    #flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform .5s cubic-bezier(.4,.2,.2,1);
+      transform-style: preserve-3d;
+    }
+    #flip-card-inner.flipped { transform: rotateY(180deg); }
+    .card-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-back { transform: rotateY(180deg); }
+    @media (prefers-reduced-motion: reduce) {
+      #flip-card-inner { transition: none; }
+    }
+    button:focus-visible, [role="button"]:focus-visible { outline: 2px solid #2384d6; outline-offset: 2px; }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso: apenas verifica se já há login feito na página inicial -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">🗂️</div>
+      <div class="font-serif font-semibold text-[26px] text-white tracking-tight">Flashcards de História</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial para acessar os flashcards.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-white text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-navy-900 border-b border-navy-700 sticky top-0 z-30">
+    <div class="max-w-5xl mx-auto px-4 md:px-6 py-3 flex items-center gap-3">
+      <a href="index.html" class="flex items-center gap-2 shrink-0" title="Voltar ao painel">
+        <div class="bg-navy-600 text-white p-2 rounded-lg shadow"><i class="fa-solid fa-anchor"></i></div>
+      </a>
+      <div class="flex-1 min-w-0">
+        <div class="font-serif font-semibold text-[17px] text-white tracking-tight truncate">Flashcards de História</div>
+        <div class="text-[11px] text-slate-400 truncate">Navios, comandantes, batalhas e tratados</div>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <div id="user-bar" class="hidden bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2" title="Conectado">
+          <i class="fa-solid fa-user text-navy-500"></i>
+          <span id="user-email" class="max-w-[140px] truncate"></span>
+          <button onclick="handleLogout()" class="ml-1 text-rose-300 hover:text-rose-200 transition-colors" title="Sair da conta">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-1 max-w-2xl w-full mx-auto px-4 md:px-6 py-6 md:py-10 flex flex-col items-center">
+
+    <!-- Seletor de baralho -->
+    <div class="w-full mb-5">
+      <label for="deck-select" class="block text-xs text-slate-400 mb-1.5">Escolha o baralho</label>
+      <select id="deck-select" onchange="onDeckChange()" class="w-full bg-navy-800 border border-navy-700 text-slate-100 text-sm rounded-lg px-3 py-2.5 focus:outline-none focus:border-navy-500"></select>
+    </div>
+
+    <!-- Progresso -->
+    <div class="w-full flex items-center justify-between mb-3 text-xs text-slate-400">
+      <span id="progress-label">Carta 1 de 31</span>
+      <div class="flex items-center gap-3">
+        <button onclick="toggleShuffle()" id="shuffle-btn" class="flex items-center gap-1.5 hover:text-white transition-colors" title="Embaralhar">
+          <i class="fa-solid fa-shuffle"></i> <span class="hidden sm:inline">Embaralhar</span>
+        </button>
+        <button onclick="restartDeck()" class="flex items-center gap-1.5 hover:text-white transition-colors" title="Recomeçar">
+          <i class="fa-solid fa-rotate-left"></i> <span class="hidden sm:inline">Recomeçar</span>
+        </button>
+      </div>
+    </div>
+    <div class="w-full h-1.5 bg-navy-800 rounded-full overflow-hidden mb-6">
+      <div id="progress-bar" class="h-full bg-navy-500 transition-all" style="width: 3%;"></div>
+    </div>
+
+    <!-- Cartão -->
+    <div class="perspective w-full" style="height: 340px;">
+      <div id="flip-card-inner" onclick="flipCard()" role="button" tabindex="0" aria-label="Virar cartão" class="cursor-pointer select-none">
+        <div class="card-face bg-gradient-to-br from-navy-800 to-navy-900 border border-navy-600/60 shadow-2xl px-6 py-7 md:px-8 md:py-8">
+          <div class="text-[10px] uppercase tracking-wide text-navy-400 font-semibold mb-3">Pergunta</div>
+          <div id="card-front-text" class="flex-1 flex items-center text-[15px] md:text-lg text-white leading-relaxed overflow-y-auto"></div>
+          <div class="text-center text-[11px] text-slate-500 mt-3"><i class="fa-solid fa-hand-pointer mr-1"></i>Toque no cartão para ver a resposta</div>
+        </div>
+        <div class="card-face card-back bg-gradient-to-br from-emerald-950 to-navy-900 border border-emerald-700/50 shadow-2xl px-6 py-7 md:px-8 md:py-8">
+          <div class="text-[10px] uppercase tracking-wide text-emerald-400 font-semibold mb-2">Resposta</div>
+          <div id="card-back-text" class="text-lg md:text-xl font-serif font-semibold text-white mb-3"></div>
+          <div id="card-explanation" class="flex-1 text-[13px] md:text-sm text-slate-300 leading-relaxed overflow-y-auto pr-1"></div>
+          <div class="text-center text-[11px] text-slate-500 mt-3"><i class="fa-solid fa-hand-pointer mr-1"></i>Toque para voltar</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navegação -->
+    <div class="w-full flex items-center justify-between mt-6 gap-3">
+      <button onclick="prevCard()" id="btn-prev" class="flex-1 h-12 rounded-xl bg-navy-800 border border-navy-700 hover:border-navy-500 text-slate-200 text-sm font-medium transition-all flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed">
+        <i class="fa-solid fa-arrow-left"></i> Anterior
+      </button>
+      <button onclick="flipCard()" class="h-12 px-5 rounded-xl bg-navy-600 hover:bg-navy-500 text-white text-sm font-semibold transition-all flex items-center justify-center gap-2 shadow-lg">
+        <i class="fa-solid fa-rotate"></i> Virar
+      </button>
+      <button onclick="nextCard()" id="btn-next" class="flex-1 h-12 rounded-xl bg-navy-800 border border-navy-700 hover:border-navy-500 text-slate-200 text-sm font-medium transition-all flex items-center justify-center gap-2">
+        Próxima <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+
+    <div class="w-full text-center text-[11px] text-slate-500 mt-5">
+      Atalhos: <kbd class="px-1.5 py-0.5 bg-navy-800 border border-navy-700 rounded">←</kbd> <kbd class="px-1.5 py-0.5 bg-navy-800 border border-navy-700 rounded">→</kbd> navegar · <kbd class="px-1.5 py-0.5 bg-navy-800 border border-navy-700 rounded">Espaço</kbd> virar
+    </div>
+
+    <a href="historia-naval.html" class="mt-8 text-xs text-navy-400 hover:text-white transition-colors flex items-center gap-1.5">
+      <i class="fa-solid fa-arrow-right"></i> Ir para o simulado completo de História Naval (483 questões)
+    </a>
+  </main>
+
+  <script>
+    // ===== Dados dos baralhos =====
+    const DECKS = {"Navios e Comandantes": [{"front": "De acordo com o Almirante Bittencourt, na obra Introdução à História Marítima Brasileira, qual tipo de navio pode ser considerado a verdadeira origem do navio de guerra para emprego no oceano:", "back": "Galeão", "explanation": "O galeão (séc. XVI) combinava boa capacidade de carga com artilharia lateral robusta, sendo considerado o primeiro navio verdadeiramente projetado para o combate em alto-mar, substituindo a nau nesse papel."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, qual foi primeiro navio em que Joaquim Marques de Lisboa embarcou?", "back": "Fragata Niterói", "explanation": "A Fragata Niterói foi o primeiro navio em que Joaquim Marques de Lisboa (futuro Marquês de Tamandaré) embarcou, iniciando a carreira de um dos maiores nomes da Marinha brasileira."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, qual navio e quem era o comandante responsável por escoltar e atacar o comboio Português até a foz do Rio Tejo?", "back": "Fragata Niterói - John Taylor", "explanation": "A Fragata Niterói, sob comando de John Taylor, foi encarregada de escoltar e atacar o comboio português até a foz do rio Tejo, episódio das ações navais na Independência."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, \"\"geralmente, tinham duas cobertas corridas e um castelo de proa mais baixo e menor do que o de popa; eram dotados de três a quatro mastros, o de vante e o principal com velas retangulares, e os dois de mezena com pano latino, além do gurupés a vante no bico de proa, com vela trapezoidal\"\" as características citadas descrevem qual tipo de navio da antiguidade?", "back": "Galeão Clássico", "explanation": "O 'Galeão Clássico' tinha duas cobertas corridas, castelo de proa baixo, 3-4 mastros com velas quadradas e mezena de pano latino — a configuração-padrão dessa classe de navio na Era das Descobertas."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, qual foi o primeiro navio brasileiro a navegar no Pacífico?", "back": "Corveta Bahiana", "explanation": "A Corveta Bahiana foi o primeiro navio de guerra brasileiro a navegar no Oceano Pacífico, marco na projeção da Marinha brasileira além do Atlântico."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, qual foi o primeiro navio encouraçado a chegar para as operações no Rio Paraguai?", "back": "Encouraçado Brasil", "explanation": "O Encouraçado Brasil foi o primeiro navio couraçado a chegar para reforçar as operações navais no Rio Paraguai, durante a Guerra do Paraguai."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, foi o primeiro navio de guerra do Reino Unido com propulsão totalmente a vapor?", "back": "HMS Devastation", "explanation": "O HMS Devastation (1871) foi o primeiro navio de guerra britânico com propulsão totalmente a vapor, sem depender de velas."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, em 1850 a França lança ao mar o primeiro navio dotado com hélice:", "back": "Fragata Gloire", "explanation": "A Fragata Gloire, lançada pela França em 1850, foi o primeiro navio dotado de hélice, marcando a virada da propulsão a vela/roda para a hélice submersa."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, qual foi o primeiro navio a vapor construído no Arsenal da corte?", "back": "Barca Tétis", "explanation": "A Barca Tétis foi o primeiro navio a vapor construído no Arsenal da Corte (Rio de Janeiro), marco da produção nacional de embarcações a vapor."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, qual foi o primeiro navio a vapor de combate da Marinha Imperial?", "back": "Fragata Dom Afonso", "explanation": "A Fragata Dom Afonso foi o primeiro navio a vapor de combate incorporado à Marinha Imperial brasileira."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, qual foi o primeiro navio a vapor de grande porte a ser incorporado à Esquadra?", "back": "Fragata Amazonas", "explanation": "A Fragata Amazonas foi o primeiro navio a vapor de grande porte incorporado à Esquadra brasileira."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, por ocasião do contexto da Revolta da Armada, qual navio foi responsável por atingir um torpedo na proa do Aquidabã?", "back": "Torpedeira Gustavo Sampaio", "explanation": "Na Revolta da Armada, a Torpedeira Gustavo Sampaio atingiu com um torpedo a proa do encouraçado Aquidabã, um dos episódios navais mais marcantes da revolta."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, a partir de qual navio foram comandados os movimentos da Revolta dos Marinheiros?", "back": "Cruzador Bahia", "explanation": "O Cruzador Bahia foi a embarcação a partir da qual foram comandados os movimentos da Revolta dos Marinheiros (1910), liderada por João Cândido."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, em reuniões clandestinas, ficou combinado que o movimento eclodiria no navio que primeiro aplicasse a chibata, sendo assim, a Revolta dos Marinheiros iniciou-se em qual navio?", "back": "Encouraçado Minas Gerais", "explanation": "A Revolta dos Marinheiros começou no Encouraçado Minas Gerais, combinado que o movimento eclodiria no navio que primeiro aplicasse castigo de chibata."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, no contexto da primeira guerra mundial, qual foi o primeiro navio brasileiro a ser afundado?", "back": "NM Paraná", "explanation": "O NM Paraná foi o primeiro navio brasileiro afundado na Primeira Guerra Mundial, episódio que contribuiu para a entrada do Brasil no conflito ao lado dos Aliados."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, no contexto da 2ª GM, qual foi o primeiro navio atacado por uma potência do Eixo?", "back": "NM Taubaté", "explanation": "O NM Taubaté foi o primeiro navio brasileiro atacado por uma potência do Eixo na Segunda Guerra Mundial."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, qual foi o navio mercante torpedeado ao largo da costa do Ceará pelo submarino alemão Barbarigo?", "back": "NM Comandante Lira", "explanation": "O NM Comandante Lira foi torpedeado ao largo da costa do Ceará pelo submarino Barbarigo, um dos ataques que levaram o Brasil a declarar guerra ao Eixo."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, qual foi o primeiro navio perdido pela Marinha no contexto da Segunda Guerra Mundial?", "back": "Navio Auxiliar Vital de Oliveira", "explanation": "O Navio Auxiliar Vital de Oliveira foi o primeiro navio perdido pela Marinha (não mercante) na Segunda Guerra Mundial."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, quem foi o principal responsável por promover as expedições marítimas enviadas à costa africana?", "back": "D. Henrique", "explanation": "D. Henrique, o 'Infante D. Henrique' (o Navegador), foi o principal patrocinador das expedições marítimas portuguesas à costa africana no início das Grandes Navegações."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, foi o responsável por comandar a naveta de mantimentos com as cartas de Cabral, do Mestre João e de Pero Vaz de Caminha, dando notícias ao Rei sobre a nova terra descoberta?", "back": "Gaspar de Lemos", "explanation": "Gaspar de Lemos comandou a naveta de mantimentos que levou a Portugal as cartas de Cabral e de Caminha, anunciando o descobrimento do Brasil."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, quem foi o responsável por obter reforços de Portugal e organizar a ofensiva contra o forte Coligny?", "back": "Mem de Sá", "explanation": "Mem de Sá, terceiro Governador-Geral do Brasil, obteve reforços e organizou a ofensiva que expulsou os franceses do Forte Coligny, encerrando a França Antártica."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, foi o responsável por comandar a primeira força naval da Marinha após setembro de 1822 a qual atuou contra as tropas de D. Álvaro Macedo, entrincheiradas em Montevidéu:", "back": "David Jewett", "explanation": "David Jewett comandou a primeira força naval organizada pela Marinha brasileira após a Independência (set. 1822), contra as tropas entrincheiradas em Montevidéu."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, foi o responsável por comandar a força naval do sul nas ações navais sobre a Cisplatina?", "back": "Pedro Antônio Nunes", "explanation": "Pedro Antônio Nunes comandou a força naval do sul nas ações navais brasileiras durante a Guerra da Cisplatina."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, quem foi o comandante da força naval responsável por estabelecer o bloqueio ao porto de Recife por ocasião da Confederação do Equador?", "back": "John Taylor", "explanation": "John Taylor comandou a força naval que bloqueou o porto de Recife durante a repressão à Confederação do Equador (1824)."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, no contexto das revoltas regenciais, quem foi o responsável por comandar a Força Naval que atuou na Sabinada?", "back": "Theodoro Beaurepaire", "explanation": "Theodoro Beaurepaire comandou a Força Naval que atuou na repressão à Sabinada, na Bahia, durante o Período Regencial."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, quem foi o responsável por comandar a Força Naval na Balaiada?", "back": "Joaquim Marques de Lisboa", "explanation": "Joaquim Marques de Lisboa (futuro Marquês de Tamandaré) comandou a Força Naval que atuou na repressão à Balaiada, no Maranhão."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, no contexto das revoltas regenciais, quem foi o responsável por comandar a Força Naval estacionada em Pernambuco durante a Revolução Praieira?", "back": "Joaquim José Inácio", "explanation": "Joaquim José Inácio (futuro Visconde de Inhaúma) comandou a Força Naval estacionada em Pernambuco durante a Revolução Praieira."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, quem foi o responsável por comandar a Força Naval Brasileira na Guerra contra Oribe e Rosas?", "back": "John Pascoe Grenfell", "explanation": "John Pascoe Grenfell comandou a Força Naval Brasileira na guerra contra Oribe e Rosas, sendo um dos oficiais estrangeiros que mais tempo serviu ao Brasil."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, quem foi o responsável por comandar a divisão naval avançada que ultrapassou primeiramente a Fortaleza de Humaitá?", "back": "Delfim Carlos de Carvalho", "explanation": "Delfim Carlos de Carvalho comandou a divisão naval avançada, a primeira a ultrapassar a Fortaleza de Humaitá, na Guerra do Paraguai."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, quem foi o responsável por conceber, em 1904, o plano de reaparelhamento naval?", "back": "Almirante Júlio de Noronha", "explanation": "O Almirante Júlio de Noronha concebeu, em 1904, o primeiro grande plano de reaparelhamento naval brasileiro do início do século XX."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, considerando as sensíveis e rápidas inovações no setor naval ocorridas na época, quem foi o responsável por modificar, em 1906, o plano de reaparelhamento naval?", "back": "Almirante Alexandrino de Alencar", "explanation": "O Almirante Alexandrino de Alencar modificou, em 1906, o plano de reaparelhamento naval para acompanhar as rápidas inovações tecnológicas da época."}], "Batalhas, Guerras e Tratados": [{"front": "De acordo com Almirante Bittencourt, na obra Introdução à História Marítima Brasileira, qual tratado determinou o reconhecimento da independência do Reino de Portugal?", "back": "Tratado de Zamora", "explanation": "O Tratado de Zamora (1143) foi o acordo em que Afonso VII de Leão e Castela reconheceu Portugal como reino independente."}, {"front": "De acordo com o Almirante Bittencourt, na obra Introdução à História Marítima Brasileira, no contexto das invasões estrangeiras no Brasil, para os luso-espanhóis, a _______________, foi uma derrota estratégica.", "back": "Batalha de 1640", "explanation": "Em 1640, a chamada 'Batalha de 1640' (Restauração portuguesa) representou uma derrota estratégica para os interesses castelhanos no Brasil, coincidindo com a expulsão dos holandeses."}, {"front": "De acordo com Almirante Bittencourt, na obra Introdução à História Marítima Brasileira, a Batalha mais significativa da Guerra Cisplatina foi a:", "back": "Batalha de Passo do Rosário", "explanation": "A Batalha de Passo do Rosário (1827) foi o confronto terrestre mais decisivo da Guerra Cisplatina entre Brasil e Argentina."}, {"front": "De acordo com Almirante Bittencourt, na obra Introdução à História Marítima Brasileira, nos primeiros meses da Guerra Cisplatina, o bloqueio naval imposto pela Esquadra brasileira provocou o primeiro combate entre as forças navais. Esse combate ficou conhecido como:", "back": "Combate de Colares", "explanation": "O Combate de Colares foi o primeiro combate naval da Guerra Cisplatina, resultado do bloqueio imposto pela Esquadra brasileira nos primeiros meses do conflito."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, é considerada a maior batalha naval em águas litorâneas da América Portuguesa", "back": "Batalha Naval dos Abrolhos", "explanation": "A Batalha Naval dos Abrolhos é considerada a maior batalha naval travada em águas litorâneas da América Portuguesa."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, após a morte de D. Fernando I, a ameaça Castelhana na ordem sucessória do trono português foi dirimida a partir de qual batalha?", "back": "Batalha de Aljubarrota", "explanation": "A Batalha de Aljubarrota (1385) resolveu a crise sucessória portuguesa a favor de D. João I, afastando de vez a ameaça castelhana ao trono."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, qual tratado prévia a partilha do mundo em dois hemisférios, contados a partir do meridiano que passava a 370 léguas a oeste do Arquipélago de Cabo Verde?", "back": "Tratado de Tordesilhas", "explanation": "O Tratado de Tordesilhas (1494) dividiu o mundo entre Portugal e Espanha a partir de um meridiano a 370 léguas a oeste de Cabo Verde."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, essa batalha marcou o fim da supremacia naval espanhola?", "back": "Batalha Naval de Downs", "explanation": "A Batalha de Downs (1639), vencida pelos holandeses, marcou o fim definitivo da supremacia naval espanhola."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, foi o tratado firmado entre França e Espanha em 27 de outubro de 1807. Por esse acordo, qualquer que fosse a resposta de D.João ao ultimato de Napoleão, o território continental e as colônias portuguesas seriam desigualmente divididos entre os dois Estados subscritores.", "back": "Tratado de Fontainebleau", "explanation": "O Tratado de Fontainebleau (27/out/1807), entre França e Espanha, previa a divisão do território português entre os dois países, independentemente da resposta de D. João ao ultimato de Napoleão."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, por ocasião da tomada da Cisplatina, análise o excerto e responda o que se pede: Não foi imediata a completa submissão da Banda Oriental. Ainda por alguns anos, Artigas opôs tenaz resistência à dominação portuguesa, até sua derrota final na_____________.", "back": "Batalha de Taquarembó", "explanation": "A Batalha de Taquarembó marcou a derrota final de Artigas, encerrando sua resistência à dominação portuguesa na Banda Oriental (Cisplatina)."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, onde ocorreu o batismo de fogo de Joaquim Marques de Lisboa?", "back": "Combate de 4 de maio", "explanation": "O 'Combate de 4 de maio' foi o batismo de fogo de Joaquim Marques de Lisboa, futuro Marquês de Tamandaré."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, é considerado o conflito mais longo da história do país, se estendendo por quase todo o turbulento Período Regencial, chegando ao Segundo Reinado?", "back": "Guerra dos Farrapos", "explanation": "A Guerra dos Farrapos é considerada o conflito mais longo da história do Brasil, estendendo-se por quase todo o Período Regencial até o Segundo Reinado (1835-1845)."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, análise o excerto abaixo: Por ocasião do combate, a 2ª Divisão da Esquadra brasileira, mediante emprego do fogo naval, encurralou a Armada argentina entre os navios da Marinha Imperial e os bancos de areia, destruindo e capturando alguns vasos de guerra inimigos. Essa batalha naval foi determinante para liquidação da Esquadra argentina e revelou a eficácia da estratégia empregada pelo Almirante Rodrigo Pinto Guedes: o bloqueio naval. Em qual batalha aconteceu o descrito acima?", "back": "Batalha de Monte Santiago", "explanation": "Na Batalha de Monte Santiago, a 2ª Divisão da Esquadra brasileira encurralou a Armada argentina entre seus navios e os bancos de areia, decisiva na estratégia de bloqueio naval do Almirante Rodrigo Pinto Guedes."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, a _________________ pode ser considerada como decisiva, pois garantiu a efetividade do bloqueio e eliminou as chances de uma vitória rápida dos paraguaios?", "back": "Batalha Naval do Riachuelo", "explanation": "A Batalha Naval do Riachuelo foi decisiva na Guerra do Paraguai: garantiu a efetividade do bloqueio brasileiro e eliminou as chances de vitória rápida paraguaia."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, por ocasião do contexto da Revolta da Armada, em qual combate Saldanha da Gama foi morto?", "back": "Combate em Campo Osório", "explanation": "Saldanha da Gama foi morto no Combate em Campo Osório, durante a Revolta da Armada."}, {"front": "HMN - Assinale a alternativa em que ocorreu o domínio do mar contrastado:", "back": "Batalha Naval da Jutlândia", "explanation": "A Batalha da Jutlândia (1916), na 1ª Guerra Mundial, é o exemplo clássico de 'domínio do mar contrastado' — nenhum lado (Reino Unido e Alemanha) obteve controle inconteste do mar."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, a ocasião em que o Brasil impediu que barcos franceses continuassem capturando lagostas em nossa plataforma continental ficou conhecida como:", "back": "Guerra da lagosta", "explanation": "A 'Guerra da Lagosta' foi o episódio em que o Brasil impediu que barcos franceses continuassem capturando lagostas em nossa plataforma continental."}, {"front": "Segundo o livro Marinha do Brasil: uma síntese histórica, foi travada entre portugueses e tabajaras, de um lado, e franceses e tupinambás, de outro. A vitória definiu a soberania portuguesa e a expulsão dos franceses da região. Além disso, possibilitou que grande parte da Amazônia passasse para o domínio português e, posteriormente, brasileiro:", "back": "Batalha de Guaxenduba", "explanation": "A Batalha de Guaxenduba (portugueses e tabajaras vs. franceses e tupinambás) definiu a soberania portuguesa e permitiu a expulsão dos franceses da região amazônica."}, {"front": "De acordo com Caminha, na obra História Marítima, qual das diversas batalhas ocorridas no período das três guerras anglo-holandesas viu a Marinha holandesa na mais alta eficiência, e seu maior expoente, De Ruyter, no cume de sua glória?", "back": "Batalha de Texel", "explanation": "A Batalha de Texel, nas Guerras Anglo-Holandesas, viu a Marinha holandesa em sua mais alta eficiência, com De Ruyter no auge de sua glória."}, {"front": "De acordo com Caminha, na obra História Marítima, por meio de qual tratado a Holanda cedeu Nova Iorque à Inglaterra?", "back": "Tratado de Breda", "explanation": "Pelo Tratado de Breda (1667), a Holanda cedeu Nova Amsterdã (atual Nova Iorque) à Inglaterra."}, {"front": "De acordo com Caminha, na obra História Marítima, qual tratado assinala o advento da supremacia marítima, comercial e financeira da Grã-Bretanha?", "back": "Tratado de Utrecht", "explanation": "O Tratado de Utrecht (1713) assinala o advento da supremacia marítima, comercial e financeira da Grã-Bretanha."}, {"front": "De acordo com Caminha, na obra História Marítima, antes dessa guerra, a Inglaterra era uma das potências navais; depois dela passou a ser a potência naval, sem uma segunda. Qual das opções abaixo corresponde à guerra em questão na citação?", "back": "Guerra de Sucessão da Espanha", "explanation": "Antes da Guerra de Sucessão da Espanha, a Inglaterra era uma das potências navais; depois dela, tornou-se A potência naval, sem rival à altura."}, {"front": "De acordo com Caminha, na obra História Marítima, qual das opções abaixo pôs fim à Guerra de Sucessão da Áustria?", "back": "Paz de Aix-la-Chapelle", "explanation": "A Paz de Aix-la-Chapelle (1748) pôs fim à Guerra de Sucessão da Áustria."}, {"front": "De acordo com Caminha, na obra História Marítima, foi a campanha naval chave de todo conflito durante a 2ª Guerra Mundial:", "back": "Batalha do Atlântico", "explanation": "A Batalha do Atlântico foi a campanha naval-chave de todo o conflito durante a Segunda Guerra Mundial."}, {"front": "De acordo com Caminha, na obra História Marítima, qual foi o tratado que permitiu de que Alemanha possuísse uma esquadra equivalente a trinta e cinco por cento da frota de superfície inglesa?", "back": "Tratado de Londres", "explanation": "O Tratado de Londres (1935) permitiu que a Alemanha possuísse uma esquadra equivalente a 35% da frota de superfície inglesa."}, {"front": "“Inversamente, os normandos que ocuparam o nordeste da França no século IX, em contato com o solo fértil e vasto, passaram antes a se dedicar à agricultura e à pecuária do que às aventuras marítimas, anteriormente tanto de seu gosto. O mesmo sucedeu com os anglo- saxões, invasores da Grã-Bretanha, nos primeiros séculos da idade média. Enquanto o território da Ilha foi suficiente para a população, os ingleses não se arrojaram para o mar como faziam já os portugueses e italianos.” (Caminha, João Carlos Gonçalves. História Marítima. p..165) A partir, porém, de qual evento a situação dos ingleses mudou e, paulatinamente eles recuperaram o gosto das aventuras marítimas já desvanecidas na lembrança das gerações anteriores e a Grã-Bretanha deixou de ser uma nação de economia baseada na agricultura e no pastoreio?", "back": "Guerra das Duas Rosas", "explanation": "A Guerra das Duas Rosas foi o evento que, paulatinamente, fez os ingleses recuperarem o gosto pelas aventuras marítimas, abandonando a economia baseada em agricultura e pastoreio."}, {"front": "De acordo com Liddell Hart, em seu livro “As Grandes Guerras da História”, qual pode ser considerada a primeira grande guerra da história moderna:", "back": "Guerra dos trinta anos", "explanation": "A Guerra dos Trinta Anos é considerada a primeira grande guerra da história moderna, segundo Liddell Hart."}, {"front": "De acordo com Albuquerque e Silva, na obra Fatos da História Naval, por ocasião das disputas entre a cristandade e os mouros, durante o século XVI, no mar mediterrâneo, deu-se a última grande ação entre navios de remos na história:", "back": "Batalha de Lepanto", "explanation": "A Batalha de Lepanto (1571), entre cristandade e otomanos no Mediterrâneo, foi a última grande ação entre navios de remos da história."}, {"front": "De acordo com Albuquerque e Silva, na obra Fatos da História Naval, é tida como a primeira das guerras mundiais, porque suas operações desenvolveram-se na Europa, na América do Norte, na África e na Índia:", "back": "Guerra dos Sete Anos.", "explanation": "A Guerra dos Sete Anos é tida como a primeira das guerras mundiais, pois suas operações se estenderam por Europa, América do Norte, África e Índia."}, {"front": "De acordo com Albuquerque e Silva, na obra Fatos da História Naval, em qual batalha deu-se pela primeira vez a ruptura da linha de batalha no mar, embora de modo não intencional?", "back": "Batalha das Ilhas Santas", "explanation": "Na Batalha das Ilhas Santas ocorreu, pela primeira vez (embora não intencionalmente), a ruptura da linha de batalha no mar."}, {"front": "De acordo com Albuquerque e Silva, na obra Fatos da História Naval, em qual das guerras abaixo a França perdeu o Canadá e a Índia para a Inglaterra:", "back": "Guerra da Revolução Francesa", "explanation": "Segundo a fonte, foi na Guerra da Revolução Francesa que a França perdeu o Canadá e a Índia para a Inglaterra."}, {"front": "De acordo com Albuquerque e Silva, na obra Fatos da História Naval, foi nessa guerra que se firmou a importância do navio encouraçado:", "back": "Guerra de Secessão Americana", "explanation": "Foi na Guerra de Secessão Americana que se firmou definitivamente a importância do navio encouraçado (duelo Monitor x Merrimack)."}, {"front": "De acordo com Albuquerque e Silva, na obra Fatos da História Naval, os corsários de superfície alemães tiveram grande atividade, tornando-se famosos, como foi o caso do Graf Spee, afundado em decorrência da:", "back": "Batalha do Rio da Prata", "explanation": "O encouraçado de bolso alemão Graf Spee foi vencido na Batalha do Rio da Prata, tornando-se um dos corsários de superfície mais famosos afundados na 2ª Guerra Mundial."}, {"front": "De acordo com Albuquerque e Silva, na obra Fatos da História Naval, a derrota francesa ocorrida na _______________ fez com que a Indochina fosse dividida e que Ho Chi Minh assumisse a chefia do Vietnã do Norte:", "back": "Batalha de Dien Bien Phu.", "explanation": "A derrota francesa na Batalha de Dien Bien Phu (1954) levou à divisão da Indochina e à ascensão de Ho Chi Minh à chefia do Vietnã do Norte."}]};
+
+    // ===== Supabase: sessão vem da página inicial (index.html) =====
+    const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    let currentUser = null;
+    let deckNames = Object.keys(DECKS);
+    let currentDeckName = deckNames[0];
+    let currentDeck = DECKS[currentDeckName].slice();
+    let currentIndex = 0;
+    let flipped = false;
+    let shuffled = false;
+
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    async function handleLogout() {
+      await sb.auth.signOut();
+    }
+
+    async function onUserAuthenticated() {
+      const { data: perfil } = await sb
+        .from('profiles')
+        .select('aprovado')
+        .eq('id', currentUser.id)
+        .maybeSingle();
+
+      const aprovado = perfil ? perfil.aprovado : false;
+
+      if (!aprovado) {
+        showGate('gate-pending');
+        return;
+      }
+
+      document.getElementById('access-screen').classList.add('hidden');
+      const bar = document.getElementById('user-bar');
+      bar.classList.remove('hidden');
+      bar.classList.add('flex');
+      document.getElementById('user-email').textContent = currentUser.email;
+
+      initDeckSelect();
+      renderCard();
+    }
+
+    function showAccessScreen() {
+      document.getElementById('user-bar').classList.add('hidden');
+      document.getElementById('user-bar').classList.remove('flex');
+      showGate('gate-logged-out');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      sb.auth.onAuthStateChange((event, session) => {
+        if (session && session.user) {
+          currentUser = session.user;
+          onUserAuthenticated();
+        } else if (event === 'SIGNED_OUT' || event === 'INITIAL_SESSION') {
+          currentUser = null;
+          showAccessScreen();
+        }
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      const locked = !document.getElementById('access-screen').classList.contains('hidden');
+      if (locked) return;
+      if (e.key === 'ArrowRight') nextCard();
+      else if (e.key === 'ArrowLeft') prevCard();
+      else if (e.key === ' ') { e.preventDefault(); flipCard(); }
+    });
+
+    function initDeckSelect() {
+      const select = document.getElementById('deck-select');
+      select.innerHTML = '';
+      deckNames.forEach(name => {
+        const opt = document.createElement('option');
+        opt.value = name;
+        opt.textContent = `${name} (${DECKS[name].length} cartas)`;
+        select.appendChild(opt);
+      });
+      select.value = currentDeckName;
+    }
+
+    function onDeckChange() {
+      currentDeckName = document.getElementById('deck-select').value;
+      currentDeck = DECKS[currentDeckName].slice();
+      if (shuffled) shuffleArray(currentDeck);
+      currentIndex = 0;
+      flipped = false;
+      renderCard();
+    }
+
+    function shuffleArray(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function toggleShuffle() {
+      shuffled = !shuffled;
+      const btn = document.getElementById('shuffle-btn');
+      if (shuffled) {
+        shuffleArray(currentDeck);
+        btn.classList.add('text-navy-400');
+      } else {
+        currentDeck = DECKS[currentDeckName].slice();
+        btn.classList.remove('text-navy-400');
+      }
+      currentIndex = 0;
+      flipped = false;
+      renderCard();
+    }
+
+    function restartDeck() {
+      currentIndex = 0;
+      flipped = false;
+      if (shuffled) shuffleArray(currentDeck);
+      renderCard();
+    }
+
+    function flipCard() {
+      flipped = !flipped;
+      document.getElementById('flip-card-inner').classList.toggle('flipped', flipped);
+    }
+
+    function renderCard() {
+      const card = currentDeck[currentIndex];
+      document.getElementById('card-front-text').innerText = card.front;
+      document.getElementById('card-back-text').innerText = card.back;
+      document.getElementById('card-explanation').innerText = card.explanation || '';
+      document.getElementById('flip-card-inner').classList.remove('flipped');
+      flipped = false;
+
+      const total = currentDeck.length;
+      document.getElementById('progress-label').innerText = `Carta ${currentIndex + 1} de ${total}`;
+      document.getElementById('progress-bar').style.width = `${((currentIndex + 1) / total) * 100}%`;
+      document.getElementById('btn-prev').disabled = currentIndex === 0;
+
+      const nextBtn = document.getElementById('btn-next');
+      if (currentIndex === total - 1) {
+        nextBtn.innerHTML = 'Recomeçar <i class="fa-solid fa-rotate-left"></i>';
+      } else {
+        nextBtn.innerHTML = 'Próxima <i class="fa-solid fa-arrow-right"></i>';
+      }
+    }
+
+    function nextCard() {
+      if (currentIndex < currentDeck.length - 1) {
+        currentIndex++;
+        renderCard();
+      } else {
+        restartDeck();
+      }
+    }
+
+    function prevCard() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderCard();
+      }
+    }
+  </script>
+</body>
+</html>
