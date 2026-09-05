@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minhas Anotações · Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Todas as suas anotações pessoais, reunidas por matéria, para revisão.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: { 800: '#0B192C', 900: '#000F26', 700: '#1E3E62', 600: '#1E56A0', 500: '#0066CC', 100: '#E6F0FA' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes access-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    #access-card { animation: access-in .5s ease-out .1s forwards; }
+    button:focus-visible, select:focus-visible, a:focus-visible { outline: 2px solid #2384d6; outline-offset: 2px; }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">📝</div>
+      <div class="font-serif font-semibold text-[26px] text-white tracking-tight">Minhas Anotações</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial para acessar suas anotações.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-white text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-navy-900 border-b border-navy-700 sticky top-0 z-30 shadow-lg">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="bg-navy-600 text-white p-2.5 rounded-lg shadow">
+          <i class="fa-solid fa-pen-to-square text-2xl"></i>
+        </div>
+        <div>
+          <h1 class="font-serif text-xl font-semibold text-white tracking-wide">Minhas Anotações</h1>
+          <p class="text-xs text-slate-400">Suas notas pessoais, reunidas por matéria</p>
+        </div>
+      </div>
+      <a href="index.html" class="bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 hover:border-navy-500 transition-colors">
+        <i class="fa-solid fa-house"></i> Painel geral
+      </a>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 md:px-6 py-6">
+
+    <!-- Resumo -->
+    <div id="summary-bar" class="mb-5 text-sm text-slate-300"></div>
+
+    <!-- Filtro -->
+    <div class="mb-5 flex items-center gap-3">
+      <label for="subject-filter" class="text-xs font-medium text-slate-400 flex items-center gap-1.5 shrink-0">
+        <i class="fa-solid fa-layer-group text-navy-500"></i> Matéria
+      </label>
+      <select id="subject-filter" onchange="renderList()" class="bg-navy-800 border border-navy-700 text-slate-200 text-sm rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-navy-500">
+        <option value="all">Todas as matérias</option>
+      </select>
+    </div>
+
+    <!-- Estado vazio -->
+    <div id="empty-state" class="hidden text-center py-16 text-slate-400">
+      <i class="fa-solid fa-note-sticky text-4xl mb-4 text-navy-600"></i>
+      <p class="text-sm">Você ainda não escreveu nenhuma anotação.</p>
+      <p class="text-xs mt-1 text-slate-500">Suas notas aparecerão aqui conforme você for estudando nos simulados.</p>
+    </div>
+
+    <!-- Carregando -->
+    <div id="loading-state" class="text-center py-16 text-slate-400">
+      <i class="fa-solid fa-circle-notch fa-spin text-2xl"></i>
+    </div>
+
+    <!-- Lista de anotações -->
+    <div id="notes-list" class="space-y-3"></div>
+
+  </main>
+
+  <footer class="max-w-5xl w-full mx-auto px-4 md:px-6 pb-6 pt-2 text-center text-[11px] text-slate-500">
+    Plataforma de Estudos · CA-AA/AFN
+  </footer>
+
+  <script>
+    const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // Mapa de matérias: QUIZ_ID -> { label, url }
+    // OBS: confira se os QUIZ_IDs de CAAML_703 e CERIMONIAL abaixo batem com o que está
+    // definido dentro de caaml-703.html e cerimonial.html — ajuste se necessário.
+    const QUIZ_LABELS = {
+      PORTUGUES: { label: 'Língua Portuguesa', url: 'portugues.html' },
+      HISTORIA_NAVAL: { label: 'História Naval', url: 'historia-naval.html' },
+      GEOGRAFIA: { label: 'Geografia', url: 'geografia.html' },
+      MATEMATICA: { label: 'Matemática', url: 'matematica.html' },
+      'CAAML-703': { label: 'CAAML-703', url: 'caaml-703.html' },
+      CERIMONIAL: { label: 'Cerimonial da Marinha', url: 'cerimonial.html' },
+      CAMAAL_CAV: { label: 'CAMAAL/CAv', url: 'camaal-cav.html' },
+      OGSA: { label: 'OGSA', url: 'ogsa.html' },
+      JUSTICA_DISCIPLINA: { label: 'Justiça e Disciplina', url: 'justica-disciplina.html' },
+      LIDERANCA: { label: 'Liderança', url: 'lideranca.html' },
+      LIDERANCA_ATRIBUTOS: { label: 'Liderança — Atributos', url: 'lideranca-atributos.html' },
+      ROSAS_VIRTUDES: { label: 'Rosas das Virtudes', url: 'rosas-virtudes.html' },
+      ESTATUTO_RDM: { label: 'Estatuto dos Militares e RDM', url: 'estatuto-rdm.html' },
+      PEM2040: { label: 'PEM-2040', url: 'pem2040.html' },
+      PROVA_SIMULADA: { label: 'Prova Simulada', url: null }
+    };
+
+    let currentUser = null;
+    let allNotes = [];
+
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    function labelFor(quizId) {
+      return (QUIZ_LABELS[quizId] && QUIZ_LABELS[quizId].label) || quizId;
+    }
+
+    function urlFor(quizId, questionId) {
+      const info = QUIZ_LABELS[quizId];
+      if (!info || !info.url) return null;
+      return `${info.url}?q=${encodeURIComponent(questionId)}`;
+    }
+
+    async function loadNotes() {
+      const { data, error } = await sb
+        .from('anotacoes')
+        .select('quiz_id, question_id, texto, atualizado_em')
+        .eq('user_id', currentUser.id)
+        .order('atualizado_em', { ascending: false });
+
+      document.getElementById('loading-state').classList.add('hidden');
+
+      allNotes = (data || []).filter(n => n.texto && n.texto.trim() !== '');
+
+      if (allNotes.length === 0) {
+        document.getElementById('empty-state').classList.remove('hidden');
+        document.getElementById('summary-bar').textContent = '';
+        return;
+      }
+
+      // Popular filtro de matérias
+      const subjects = [...new Set(allNotes.map(n => n.quiz_id))].sort((a, b) => labelFor(a).localeCompare(labelFor(b)));
+      const select = document.getElementById('subject-filter');
+      subjects.forEach(quizId => {
+        const opt = document.createElement('option');
+        opt.value = quizId;
+        opt.textContent = labelFor(quizId);
+        select.appendChild(opt);
+      });
+
+      const numMaterias = subjects.length;
+      document.getElementById('summary-bar').textContent =
+        `${allNotes.length} anotação${allNotes.length === 1 ? '' : 'ões'} em ${numMaterias} matéria${numMaterias === 1 ? '' : 's'}`;
+
+      renderList();
+    }
+
+    function renderList() {
+      const filter = document.getElementById('subject-filter').value;
+      const list = document.getElementById('notes-list');
+      list.innerHTML = '';
+
+      const filtered = filter === 'all' ? allNotes : allNotes.filter(n => n.quiz_id === filter);
+
+      filtered.forEach(n => {
+        const card = document.createElement('div');
+        card.className = 'bg-navy-800/80 border border-navy-700 rounded-xl p-4';
+
+        const d = n.atualizado_em ? new Date(n.atualizado_em) : null;
+        const dataStr = d ? `${d.toLocaleDateString('pt-BR')} às ${d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}` : '';
+        const link = urlFor(n.quiz_id, n.question_id);
+
+        card.innerHTML = `
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <div class="flex items-center gap-2">
+              <span class="text-[11px] font-bold uppercase tracking-wide text-navy-400">${labelFor(n.quiz_id)}</span>
+              <span class="text-xs text-slate-500">· Questão #${n.question_id}</span>
+            </div>
+            <span class="text-[11px] text-slate-500">${dataStr}</span>
+          </div>
+          <p class="text-sm text-slate-200 whitespace-pre-line mb-3">${n.texto.replace(/</g, '&lt;')}</p>
+          ${link ? `<a href="${link}" class="text-xs text-navy-400 hover:text-navy-300 font-medium inline-flex items-center gap-1.5"><i class="fa-solid fa-arrow-right"></i> Abrir questão</a>` : ''}
+        `;
+        list.appendChild(card);
+      });
+    }
+
+    sb.auth.onAuthStateChange((event, session) => {
+      if (session && session.user) {
+        currentUser = session.user;
+        onUserAuthenticated();
+      } else {
+        currentUser = null;
+        showGate('gate-logged-out');
+      }
+    });
+
+    async function onUserAuthenticated() {
+      const { data: perfil } = await sb.from('profiles').select('aprovado').eq('id', currentUser.id).maybeSingle();
+      if (!perfil || !perfil.aprovado) {
+        showGate('gate-pending');
+        return;
+      }
+      document.getElementById('access-screen').classList.add('hidden');
+      await loadNotes();
+    }
+  </script>
+</body>
+</html>

@@ -271,15 +271,18 @@
 
         <!-- Minha Anotação (nota pessoal do aluno sobre a questão) -->
         <div class="mt-6 p-4 rounded-lg bg-navy-900/60 border border-navy-700">
-          <label for="note-textarea" class="flex items-center gap-2 text-sm font-bold text-slate-200 mb-2">
-            <i class="fa-solid fa-pen-to-square text-navy-500"></i> Minha Anotação
-          </label>
-          <textarea id="note-textarea" rows="3" placeholder="Escreva aqui um resumo ou observação pessoal sobre esta questão..." class="w-full bg-navy-950/60 border border-navy-700 text-slate-200 text-sm rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-navy-500 resize-y"></textarea>
+          <div class="flex items-center justify-between mb-2">
+            <label for="note-textarea" class="flex items-center gap-2 text-sm font-bold text-slate-200">
+              <i class="fa-solid fa-pen-to-square text-navy-500"></i> Minha Anotação
+            </label>
+            <button onclick="exportNotes()" class="text-xs text-slate-400 hover:text-white flex items-center gap-1.5 transition-colors" title="Baixar todas as suas anotações desta matéria">
+              <i class="fa-solid fa-file-arrow-down"></i> Exportar
+            </button>
+          </div>
+          <textarea id="note-textarea" rows="3" oninput="scheduleNoteSave()" placeholder="Escreva aqui um resumo ou observação pessoal sobre esta questão..." class="w-full bg-navy-950/60 border border-navy-700 text-slate-200 text-sm rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-navy-500 resize-y"></textarea>
           <div class="flex items-center justify-between mt-2">
             <span id="note-status" class="text-xs text-slate-500"></span>
-            <button onclick="saveNote()" class="bg-navy-700 hover:bg-navy-600 text-white text-xs px-3 py-1.5 rounded-lg font-medium transition-all flex items-center gap-1.5">
-              <i class="fa-solid fa-floppy-disk"></i> Salvar anotação
-            </button>
+            <span id="note-timestamp" class="text-[11px] text-slate-500"></span>
           </div>
         </div>
 
@@ -351,6 +354,12 @@
         <div class="flex items-center gap-2">
           <span class="w-3 h-3 rounded-sm bg-rose-700 inline-block"></span>
           <span>Incorreta (Estudo)</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="relative w-3 h-3 rounded-sm bg-navy-900 border border-navy-700 inline-block">
+            <span class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+          </span>
+          <span>Tem anotação</span>
         </div>
       </div>
     </aside>
@@ -5180,7 +5189,8 @@ const questionsData = [
     let subjectFilter = 'all';
     let discardedOptions = {}; // { questionIndex: { optionIndex: true } }
     let timerInterval = null;
-    let notesCache = {}; // { question.id (string): texto da anotação }
+    let notesCache = {}; // { question.id (string): { texto, atualizado_em } }
+    let noteSaveTimer = null;
 
     // Local Storage Keys (cache local / fallback offline)
     const STORAGE_KEY_ANSWERS = 'caaml_703_answers';
@@ -5272,6 +5282,12 @@ const questionsData = [
 
       await loadSavedState();
       currentIndex = 0;
+      const params = new URLSearchParams(window.location.search);
+      const qParam = params.get('q');
+      if (qParam) {
+        const idx = questionsData.findIndex(q => String(q.id) === qParam);
+        if (idx !== -1) currentIndex = idx;
+      }
       renderQuestion();
       renderGrid();
       updateTrackers();
@@ -5369,7 +5385,7 @@ const questionsData = [
             .eq('user_id', currentUser.id)
             .eq('quiz_id', QUIZ_ID);
           notesCache = {};
-          (notas || []).forEach(n => { notesCache[String(n.question_id)] = n.texto; });
+          (notas || []).forEach(n => { notesCache[String(n.question_id)] = { texto: n.texto, atualizado_em: n.atualizado_em }; });
         } catch (e) { /* segue sem anotações carregadas */ }
       }
 
@@ -5568,9 +5584,19 @@ const questionsData = [
 
       // Minha Anotação (carrega o texto salvo desta questão, se houver)
       const noteBox = document.getElementById('note-textarea');
-      if (noteBox) noteBox.value = notesCache[String(q.id)] || '';
+      const noteEntry = notesCache[String(q.id)];
+      if (noteBox) noteBox.value = noteEntry ? noteEntry.texto : '';
       const noteStatus = document.getElementById('note-status');
       if (noteStatus) { noteStatus.textContent = ''; noteStatus.className = 'text-xs text-slate-500'; }
+      const noteTimestamp = document.getElementById('note-timestamp');
+      if (noteTimestamp) {
+        if (noteEntry && noteEntry.atualizado_em) {
+          const d = new Date(noteEntry.atualizado_em);
+          noteTimestamp.textContent = `Editado em ${d.toLocaleDateString('pt-BR')} às ${d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}`;
+        } else {
+          noteTimestamp.textContent = '';
+        }
+      }
 
       // Nav buttons state
       document.getElementById('btn-prev').disabled = currentIndex === 0;
@@ -5585,6 +5611,14 @@ const questionsData = [
       card.classList.add('question-in');
     }
 
+    function scheduleNoteSave() {
+      const status = document.getElementById('note-status');
+      status.textContent = 'Digitando...';
+      status.className = 'text-xs text-slate-500';
+      clearTimeout(noteSaveTimer);
+      noteSaveTimer = setTimeout(saveNote, 1000);
+    }
+
     async function saveNote() {
       const status = document.getElementById('note-status');
       if (!currentUser) {
@@ -5597,20 +5631,60 @@ const questionsData = [
       status.textContent = 'Salvando...';
       status.className = 'text-xs text-slate-400';
       try {
+        const agora = new Date().toISOString();
         await sb.from('anotacoes').upsert({
           user_id: currentUser.id,
           quiz_id: QUIZ_ID,
           question_id: String(q.id),
           texto: texto,
-          atualizado_em: new Date().toISOString()
+          atualizado_em: agora
         }, { onConflict: 'user_id,quiz_id,question_id' });
-        notesCache[String(q.id)] = texto;
+        notesCache[String(q.id)] = { texto: texto, atualizado_em: agora };
         status.textContent = 'Salvo ✓';
         status.className = 'text-xs text-emerald-400';
+        const noteTimestamp = document.getElementById('note-timestamp');
+        if (noteTimestamp) {
+          const d = new Date(agora);
+          noteTimestamp.textContent = `Editado em ${d.toLocaleDateString('pt-BR')} às ${d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}`;
+        }
+        renderGrid();
       } catch (e) {
         status.textContent = 'Erro ao salvar. Tente novamente.';
         status.className = 'text-xs text-rose-400';
       }
+    }
+
+    function exportNotes() {
+      const entries = Object.keys(notesCache)
+        .map(qid => ({ qid, ...notesCache[qid] }))
+        .filter(n => n.texto && n.texto.trim() !== '');
+
+      if (entries.length === 0) {
+        alert('Você ainda não tem nenhuma anotação salva nesta matéria.');
+        return;
+      }
+
+      entries.sort((a, b) => Number(a.qid) - Number(b.qid));
+
+      let content = `Minhas Anotações — Língua Portuguesa\nPlataforma de Estudos CA-AA/AFN\nExportado em ${new Date().toLocaleString('pt-BR')}\n\n`;
+      entries.forEach(n => {
+        const q = questionsData.find(qq => String(qq.id) === n.qid);
+        content += `Questão #${n.qid}${q ? ' — ' + q.subject : ''}\n`;
+        if (q) content += `${q.text}\n`;
+        content += `\nMinha anotação: ${n.texto}\n`;
+        if (n.atualizado_em) content += `(editado em ${new Date(n.atualizado_em).toLocaleString('pt-BR')})\n`;
+        content += `\n${'-'.repeat(40)}\n\n`;
+      });
+
+      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'minhas-anotacoes-portugues.txt';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
     }
 
     function selectOption(optIndex) {
@@ -5700,7 +5774,17 @@ const questionsData = [
         }
 
         btn.className = classes;
+        btn.style.position = 'relative';
         btn.innerText = idx + 1;
+
+        const noteEntry = notesCache[String(q.id)];
+        if (noteEntry && noteEntry.texto && noteEntry.texto.trim() !== '') {
+          const dot = document.createElement('span');
+          dot.className = 'absolute top-0.5 right-0.5 w-1.5 h-1.5 rounded-full bg-amber-400';
+          dot.title = 'Você tem uma anotação nesta questão';
+          btn.appendChild(dot);
+        }
+
         grid.appendChild(btn);
       });
     }
