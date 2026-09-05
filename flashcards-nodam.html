@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcards de NODAM · Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Flashcards de revisão do SGM-105 (NODAM): tipos de documentos, classificação e sigilo, documentos digitais e gestão de documentos.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: { 800: '#0B192C', 900: '#000F26', 700: '#1E3E62', 600: '#1E56A0', 500: '#0066CC', 100: '#E6F0FA' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes access-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .perspective { perspective: 1600px; }
+    #flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform .5s cubic-bezier(.4,.2,.2,1);
+      transform-style: preserve-3d;
+    }
+    #flip-card-inner.flipped { transform: rotateY(180deg); }
+    .card-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-back { transform: rotateY(180deg); }
+    @media (prefers-reduced-motion: reduce) {
+      #flip-card-inner { transition: none; }
+    }
+    button:focus-visible, [role="button"]:focus-visible { outline: 2px solid #2384d6; outline-offset: 2px; }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso: apenas verifica se já há login feito na página inicial -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">🗂️</div>
+      <div class="font-serif font-semibold text-[26px] text-white tracking-tight">Flashcards de NODAM</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial para acessar os flashcards.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-white text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+
+      <div id="gate-no-access" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-lock text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Você ainda não tem acesso liberado a este material. Fale com o administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-navy-900 border-b border-navy-700 sticky top-0 z-30">
+    <div class="max-w-5xl mx-auto px-4 md:px-6 py-3 flex items-center gap-3">
+      <a href="index.html" class="flex items-center gap-2 shrink-0" title="Voltar ao painel">
+        <div class="bg-navy-600 text-white p-2 rounded-lg shadow"><i class="fa-solid fa-anchor"></i></div>
+      </a>
+      <div class="flex-1 min-w-0">
+        <div class="font-serif font-semibold text-[17px] text-white tracking-tight truncate">Flashcards de NODAM</div>
+        <div class="text-[11px] text-slate-400 truncate">SGM-105 — Normas de Documentação da Marinha</div>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <div id="user-bar" class="hidden bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2" title="Conectado">
+          <i class="fa-solid fa-user text-navy-500"></i>
+          <span id="user-email" class="max-w-[140px] truncate"></span>
+          <button onclick="handleLogout()" class="ml-1 text-rose-300 hover:text-rose-200 transition-colors" title="Sair da conta">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-1 max-w-2xl w-full mx-auto px-4 md:px-6 py-6 md:py-10 flex flex-col items-center">
+
+    <!-- Seletor de baralho -->
+    <div class="w-full mb-5">
+      <label for="deck-select" class="block text-xs text-slate-400 mb-1.5">Escolha o baralho</label>
+      <select id="deck-select" onchange="onDeckChange()" class="w-full bg-navy-800 border border-navy-700 text-slate-100 text-sm rounded-lg px-3 py-2.5 focus:outline-none focus:border-navy-500"></select>
+    </div>
+
+    <!-- Progresso -->
+    <div class="w-full flex items-center justify-between mb-3 text-xs text-slate-400">
+      <span id="progress-label">Carta 1 de 31</span>
+      <div class="flex items-center gap-3">
+        <button onclick="toggleShuffle()" id="shuffle-btn" class="flex items-center gap-1.5 hover:text-white transition-colors" title="Embaralhar">
+          <i class="fa-solid fa-shuffle"></i> <span class="hidden sm:inline">Embaralhar</span>
+        </button>
+        <button onclick="restartDeck()" class="flex items-center gap-1.5 hover:text-white transition-colors" title="Recomeçar">
+          <i class="fa-solid fa-rotate-left"></i> <span class="hidden sm:inline">Recomeçar</span>
+        </button>
+      </div>
+    </div>
+    <div class="w-full h-1.5 bg-navy-800 rounded-full overflow-hidden mb-6">
+      <div id="progress-bar" class="h-full bg-navy-500 transition-all" style="width: 3%;"></div>
+    </div>
+
+    <!-- Cartão -->
+    <div class="perspective w-full" style="height: 340px;">
+      <div id="flip-card-inner" onclick="flipCard()" role="button" tabindex="0" aria-label="Virar cartão" class="cursor-pointer select-none">
+        <div class="card-face bg-gradient-to-br from-navy-800 to-navy-900 border border-navy-600/60 shadow-2xl px-6 py-7 md:px-8 md:py-8">
+          <div class="text-[10px] uppercase tracking-wide text-navy-400 font-semibold mb-3">Pergunta</div>
+          <div id="card-front-text" class="flex-1 flex items-center text-[15px] md:text-lg text-white leading-relaxed overflow-y-auto"></div>
+          <div class="text-center text-[11px] text-slate-500 mt-3"><i class="fa-solid fa-hand-pointer mr-1"></i>Toque no cartão para ver a resposta</div>
+        </div>
+        <div class="card-face card-back bg-gradient-to-br from-emerald-950 to-navy-900 border border-emerald-700/50 shadow-2xl px-6 py-7 md:px-8 md:py-8">
+          <div class="text-[10px] uppercase tracking-wide text-emerald-400 font-semibold mb-2">Resposta</div>
+          <div id="card-back-text" class="text-lg md:text-xl font-serif font-semibold text-white mb-3"></div>
+          <div id="card-explanation" class="flex-1 text-[13px] md:text-sm text-slate-300 leading-relaxed overflow-y-auto pr-1"></div>
+          <div class="text-center text-[11px] text-slate-500 mt-3"><i class="fa-solid fa-hand-pointer mr-1"></i>Toque para voltar</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navegação -->
+    <div class="w-full flex items-center justify-between mt-6 gap-3">
+      <button onclick="prevCard()" id="btn-prev" class="flex-1 h-12 rounded-xl bg-navy-800 border border-navy-700 hover:border-navy-500 text-slate-200 text-sm font-medium transition-all flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed">
+        <i class="fa-solid fa-arrow-left"></i> Anterior
+      </button>
+      <button onclick="flipCard()" class="h-12 px-5 rounded-xl bg-navy-600 hover:bg-navy-500 text-white text-sm font-semibold transition-all flex items-center justify-center gap-2 shadow-lg">
+        <i class="fa-solid fa-rotate"></i> Virar
+      </button>
+      <button onclick="nextCard()" id="btn-next" class="flex-1 h-12 rounded-xl bg-navy-800 border border-navy-700 hover:border-navy-500 text-slate-200 text-sm font-medium transition-all flex items-center justify-center gap-2">
+        Próxima <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+
+    <div class="w-full text-center text-[11px] text-slate-500 mt-5">
+      Atalhos: <kbd class="px-1.5 py-0.5 bg-navy-800 border border-navy-700 rounded">←</kbd> <kbd class="px-1.5 py-0.5 bg-navy-800 border border-navy-700 rounded">→</kbd> navegar · <kbd class="px-1.5 py-0.5 bg-navy-800 border border-navy-700 rounded">Espaço</kbd> virar
+    </div>
+
+    <a href="mapas-mentais.html" class="mt-8 text-xs text-navy-400 hover:text-white transition-colors flex items-center gap-1.5">
+      <i class="fa-solid fa-arrow-right"></i> Ver o mapa mental completo do SGM-105 (NODAM)
+    </a>
+  </main>
+
+  <script>
+    // ===== Dados dos baralhos =====
+    const DECKS = {"Tipos de Documentos Administrativos": [{"front": "Quais são os 3 grandes tipos de documentos, conforme a classificação inicial do NODAM?", "back": "Operativos, Publicações e Especiais (além dos Administrativos, que se subdividem em mais categorias)", "explanation": "Essa é a divisão de mais alto nível dos documentos administrativos (DA) na Marinha, antes de entrar no detalhamento dos documentos administrativos propriamente ditos."}, {"front": "Quais são as 3 categorias de documentos \"Administrativos\"?", "back": "Declaratório, Normativos e Correspondência", "explanation": "Cada uma dessas categorias reúne documentos com função específica: declarar um fato (Declaratório), estabelecer regras (Normativos), ou comunicar entre partes (Correspondência)."}, {"front": "Cite pelo menos 3 exemplos de documentos do tipo \"Declaratório\".", "back": "Atestado, Certidão, Ordem do Dia, Ordem de Serviço, Parecer, Termo", "explanation": "Documentos declaratórios registram ou atestam uma situação, fato ou decisão já tomada."}, {"front": "Cite os documentos do tipo \"Normativos\".", "back": "Instrução Normativa, Instrução Permanente, Norma Permanente, Ordem Interna, Portaria", "explanation": "Documentos normativos estabelecem regras, procedimentos ou diretrizes a serem seguidos dentro da Organização Militar."}, {"front": "Cite pelo menos 5 exemplos de documentos do tipo \"Correspondência\".", "back": "Carta, Circular, Comunicação Padronizada, Despacho, Despacho Decisório, Memorando, Ofício, Ofício Externo, Requerimento", "explanation": "A Correspondência é a categoria mais numerosa de documentos administrativos, cobrindo a comunicação escrita entre pessoas e órgãos, tanto internos quanto externos."}], "Classificação e Sigilo": [{"front": "Quanto ao Âmbito, como um documento administrativo pode ser classificado?", "back": "Interno ou Externo", "explanation": "Essa classificação indica se o documento circula apenas dentro da própria OM/Marinha (interno) ou também para fora dela (externo)."}, {"front": "Quanto à Procedência, quais são as 3 classificações possíveis de um DA?", "back": "Urgente, Especial e Rotina", "explanation": "Essa classificação indica a prioridade de tramitação do documento."}, {"front": "Quanto ao Acesso, quais são os graus de sigilo dos documentos administrativos?", "back": "Ostensivo (acesso livre) e Sigilosos: Ultrassecreto, Secreto e Reservado (do mais alto ao mais baixo grau de restrição)", "explanation": "Documento com informação pessoal também é tratado como Ostensivo nesse esquema, mas com cuidados de privacidade."}, {"front": "A reprodução de todo ou parte de um DA sigiloso depende de quê?", "back": "De autorização da autoridade EXPEDITORA (a autoridade de origem do documento), conforme as normas em vigor", "explanation": "Isso garante que só quem originou o documento sigiloso possa autorizar sua reprodução, evitando vazamentos."}, {"front": "Para extrair um trecho (extrato) de um DA classificado como ULTRASSECRETO, quem pode autorizar?", "back": "Apenas a autoridade classificadora", "explanation": "É o grau de sigilo mais restrito, então só quem classificou o documento originalmente pode autorizar extratos."}, {"front": "Para extrair um trecho de um DA classificado como SECRETO, quem pode autorizar?", "back": "A autoridade classificadora OU uma autoridade hierarquicamente superior a ela", "explanation": "Diferente do Ultrassecreto, o grau Secreto permite que uma autoridade superior também autorize o extrato, dando mais flexibilidade."}, {"front": "Para extrair um trecho de um DA classificado como RESERVADO, de quem é a responsabilidade?", "back": "Das autoridades destinatárias — exceto quando isso for expressamente vedado no próprio documento", "explanation": "O grau Reservado é o mais \"aberto\" entre os sigilosos: quem recebe o documento já pode, por padrão, extrair trechos dele."}, {"front": "Um DA que só é sigiloso por ter um anexo sigiloso: o que acontece quando esse anexo é retirado?", "back": "O documento é desclassificado assim que o anexo sigiloso é retirado", "explanation": "Essa desclassificação automática precisa ser registrada no campo específico do TCI (Termo de Classificação de Informação)."}, {"front": "O que é o TCI e para que serve?", "back": "Termo de Classificação de Informação — formaliza a decisão de classificação, desclassificação, reclassificação ou redução do prazo de sigilo de um documento", "explanation": "O TCI deve ser criado dentro do sistema SIGDEM, garantindo o registro formal de qualquer mudança no grau de sigilo de um documento."}, {"front": "Em qual sistema deve ser criado o TCI?", "back": "No SIGDEM", "explanation": "SIGDEM é o sistema usado para gerir a documentação e seus respectivos graus de sigilo dentro da Marinha."}, {"front": "Quem pode reavaliar a classificação/desclassificação de um documento sigiloso?", "back": "A autoridade classificadora ou uma autoridade hierarquicamente superior, mediante provocação ou de ofício", "explanation": "\"De ofício\" significa que a própria autoridade pode iniciar a reavaliação por conta própria, sem precisar que alguém solicite."}, {"front": "Quando uma autoridade reduz o grau de sigilo de um documento, como ela precisa formalizar isso?", "back": "Por meio de um TCI, encaminhando uma via às OM interessadas para anexação ao respectivo DA, e lançando a informação no SIGDEM", "explanation": "Esse processo garante que todas as organizações que possuem cópia do documento fiquem cientes da mudança no grau de sigilo."}], "Documentos Digitais": [{"front": "O correio eletrônico usado entre caixas postais do SECOM é considerado documento oficial?", "back": "Não — é considerado comunicação interpessoal, não oficial. Se assumir caráter oficial, será intitulado \"Correspondência Eletrônica\"", "explanation": "Essa distinção é importante: nem todo e-mail trocado na Marinha vale como documento administrativo oficial."}, {"front": "Quais são os dois tipos de assinatura eletrônica previstos, e o que os diferencia?", "back": "Tipo II: assinatura eletrônica avançada (usa o sistema Órion, não pode ser acessada fora da MB). Tipo III: assinatura eletrônica qualificada", "explanation": "O Tipo II é mais restrito ao ambiente interno da Marinha, enquanto o Tipo III (qualificada) tem validade mais ampla, seguindo padrões da ICP-Brasil."}, {"front": "O que é o Certificado Digital, no contexto dos documentos da Marinha?", "back": "Uma identidade virtual gerada e assinada por uma Autoridade Certificadora", "explanation": "É o certificado que dá validade jurídica a um documento nato digital assinado eletronicamente."}, {"front": "Um documento nato digital assinado com certificado digital precisa ser impresso e assinado fisicamente para ter validade jurídica?", "back": "Não — ele já possui validade jurídica sem necessidade de impressão e assinatura física", "explanation": "Se alguém imprimir esse documento mesmo assim, essa versão impressa é considerada apenas uma cópia simples, com valor meramente informativo."}, {"front": "Depois que um documento administrativo (DA) recebe assinatura digital, o que NÃO pode acontecer com ele?", "back": "Ele não pode mais sofrer nenhuma alteração", "explanation": "Essa regra garante a integridade do documento assinado digitalmente, como prova de que não foi adulterado depois da assinatura."}, {"front": "Em qual formato os documentos administrativos natos digitais devem ser produzidos?", "back": "PDF/A", "explanation": "O PDF/A é um formato específico voltado para arquivamento de longo prazo, garantindo que o documento continue legível e acessível no futuro."}, {"front": "A autenticação digital pode ser usada em quais tipos de documento, e quando ela pode ser feita?", "back": "Pode ser usada em documentos físicos digitalizados; só pode ser feita depois que o documento original já foi assinado", "explanation": "Além disso, o documento físico original precisa ser preservado na OM de origem — a autenticação digital não substitui a guarda do papel original."}, {"front": "Em relação à segurança na tramitação eletrônica de documentos, quando o grau ultrassecreto pode tramitar por meio eletrônico?", "back": "Apenas em casos extremos", "explanation": "Isso mostra que, mesmo permitindo tramitação eletrônica de qualquer DA em tese, o grau mais alto de sigilo (ultrassecreto) tem uma restrição adicional forte."}, {"front": "Quantas cifras de criptografia são exigidas para documentos Reservados, e quantas para Secretos e Ultrassecretos?", "back": "Reservado: apenas 1 cifra. Secreto e Ultrassecreto: cifrados duplamente (2 cifras)", "explanation": "Quanto maior o grau de sigilo, maior o nível de proteção criptográfica exigido na tramitação eletrônica."}, {"front": "Documentos natos digitais podem ser arquivados em meio digital?", "back": "Sim — mas todos devem estar devidamente impressos e assinados via ORION antes disso", "explanation": "O sistema ORION é a plataforma usada pela Marinha para gestão e assinatura desses documentos."}], "Gestão de Documentos": [{"front": "Quais são as 3 fases da Gestão de Documentos?", "back": "Produção, Utilização e Destinação", "explanation": "Esse é o ciclo de vida básico de qualquer documento administrativo, da criação até seu destino final (guarda permanente ou eliminação)."}, {"front": "No Planejamento e Mapeamento de Processo, quanto tempo dura a fase corrente e a fase intermediária de um documento?", "back": "Fase corrente: 5 anos. Fase intermediária: 9 anos", "explanation": "Depois dessas fases, o documento vai para a destinação final: guarda permanente ou eliminação (em 22 anos, no caso de informações recapituladas)."}, {"front": "Depois das fases corrente (5 anos) e intermediária (9 anos), em quantos anos as informações recapituladas podem ser eliminadas?", "back": "Em 22 anos", "explanation": "Esse prazo total (5+9+mais um período adicional) reflete a política de retenção documental da Marinha antes da eliminação definitiva."}, {"front": "Na fase de Execução e Acompanhamento, qual é a destinação final do documento?", "back": "Eliminação", "explanation": "Diferente do fluxo de planejamento/mapeamento (que pode terminar em guarda permanente), a fase de execução e acompanhamento tem a eliminação como destino final padrão."}, {"front": "Quais tipos de documento são arquivados no SECOM, com qual grau de sigilo?", "back": "Documentos com informações pessoais, classificados com grau de sigilo Reservado", "explanation": "Isso reflete a preocupação em proteger dados pessoais dentro do sistema de arquivamento da Marinha."}, {"front": "O que é a LVA, no contexto do arquivamento de documentos?", "back": "Lista de Verificação Anual", "explanation": "É um documento de controle usado para conferência periódica dos documentos arquivados."}, {"front": "Onde a OM deve disponibilizar a LVA, se ela não estiver na página do Comimsup?", "back": "Na intranet da própria OM", "explanation": "Isso garante que a Lista de Verificação Anual esteja sempre acessível a quem precisar consultá-la, mesmo que não esteja centralizada na página do Comando Imediatamente Superior."}]};
+
+    // ===== Supabase: sessão vem da página inicial (index.html) =====
+    const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const QUIZ_ID = 'NODAM_FLASHCARDS';
+
+    let currentUser = null;
+    let deckNames = Object.keys(DECKS);
+    let currentDeckName = deckNames[0];
+    let currentDeck = DECKS[currentDeckName].slice();
+    let currentIndex = 0;
+    let flipped = false;
+    let shuffled = false;
+
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending', 'gate-no-access'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    async function handleLogout() {
+      await sb.auth.signOut();
+    }
+
+    async function onUserAuthenticated() {
+      const { data: perfil } = await sb
+        .from('profiles')
+        .select('aprovado')
+        .eq('id', currentUser.id)
+        .maybeSingle();
+
+      const aprovado = perfil ? perfil.aprovado : false;
+
+      if (!aprovado) {
+        showGate('gate-pending');
+        return;
+      }
+
+      const { data: acesso } = await sb
+        .from('acessos')
+        .select('quiz_id')
+        .eq('user_id', currentUser.id)
+        .eq('quiz_id', QUIZ_ID)
+        .maybeSingle();
+
+      if (!acesso) {
+        showGate('gate-no-access');
+        return;
+      }
+
+      document.getElementById('access-screen').classList.add('hidden');
+      const bar = document.getElementById('user-bar');
+      bar.classList.remove('hidden');
+      bar.classList.add('flex');
+      document.getElementById('user-email').textContent = currentUser.email;
+
+      initDeckSelect();
+      renderCard();
+    }
+
+    function showAccessScreen() {
+      document.getElementById('user-bar').classList.add('hidden');
+      document.getElementById('user-bar').classList.remove('flex');
+      showGate('gate-logged-out');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      sb.auth.onAuthStateChange((event, session) => {
+        if (session && session.user) {
+          currentUser = session.user;
+          onUserAuthenticated();
+        } else if (event === 'SIGNED_OUT' || event === 'INITIAL_SESSION') {
+          currentUser = null;
+          showAccessScreen();
+        }
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      const locked = !document.getElementById('access-screen').classList.contains('hidden');
+      if (locked) return;
+      if (e.key === 'ArrowRight') nextCard();
+      else if (e.key === 'ArrowLeft') prevCard();
+      else if (e.key === ' ') { e.preventDefault(); flipCard(); }
+    });
+
+    function initDeckSelect() {
+      const select = document.getElementById('deck-select');
+      select.innerHTML = '';
+      deckNames.forEach(name => {
+        const opt = document.createElement('option');
+        opt.value = name;
+        opt.textContent = `${name} (${DECKS[name].length} cartas)`;
+        select.appendChild(opt);
+      });
+      select.value = currentDeckName;
+    }
+
+    function onDeckChange() {
+      currentDeckName = document.getElementById('deck-select').value;
+      currentDeck = DECKS[currentDeckName].slice();
+      if (shuffled) shuffleArray(currentDeck);
+      currentIndex = 0;
+      flipped = false;
+      renderCard();
+    }
+
+    function shuffleArray(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function toggleShuffle() {
+      shuffled = !shuffled;
+      const btn = document.getElementById('shuffle-btn');
+      if (shuffled) {
+        shuffleArray(currentDeck);
+        btn.classList.add('text-navy-400');
+      } else {
+        currentDeck = DECKS[currentDeckName].slice();
+        btn.classList.remove('text-navy-400');
+      }
+      currentIndex = 0;
+      flipped = false;
+      renderCard();
+    }
+
+    function restartDeck() {
+      currentIndex = 0;
+      flipped = false;
+      if (shuffled) shuffleArray(currentDeck);
+      renderCard();
+    }
+
+    function flipCard() {
+      flipped = !flipped;
+      document.getElementById('flip-card-inner').classList.toggle('flipped', flipped);
+    }
+
+    function renderCard() {
+      const card = currentDeck[currentIndex];
+      document.getElementById('card-front-text').innerText = card.front;
+      document.getElementById('card-back-text').innerText = card.back;
+      document.getElementById('card-explanation').innerText = card.explanation || '';
+      document.getElementById('flip-card-inner').classList.remove('flipped');
+      flipped = false;
+
+      const total = currentDeck.length;
+      document.getElementById('progress-label').innerText = `Carta ${currentIndex + 1} de ${total}`;
+      document.getElementById('progress-bar').style.width = `${((currentIndex + 1) / total) * 100}%`;
+      document.getElementById('btn-prev').disabled = currentIndex === 0;
+
+      const nextBtn = document.getElementById('btn-next');
+      if (currentIndex === total - 1) {
+        nextBtn.innerHTML = 'Recomeçar <i class="fa-solid fa-rotate-left"></i>';
+      } else {
+        nextBtn.innerHTML = 'Próxima <i class="fa-solid fa-arrow-right"></i>';
+      }
+    }
+
+    function nextCard() {
+      if (currentIndex < currentDeck.length - 1) {
+        currentIndex++;
+        renderCard();
+      } else {
+        restartDeck();
+      }
+    }
+
+    function prevCard() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderCard();
+      }
+    }
+  </script>
+</body>
+</html>
