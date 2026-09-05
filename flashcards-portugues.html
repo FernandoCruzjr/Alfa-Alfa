@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcards de Português · Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Flashcards de revisão de Português: gêneros textuais organizados por esfera de circulação social, com definição e exemplo.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: { 800: '#0B192C', 900: '#000F26', 700: '#1E3E62', 600: '#1E56A0', 500: '#0066CC', 100: '#E6F0FA' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes access-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .perspective { perspective: 1600px; }
+    #flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform .5s cubic-bezier(.4,.2,.2,1);
+      transform-style: preserve-3d;
+    }
+    #flip-card-inner.flipped { transform: rotateY(180deg); }
+    .card-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-back { transform: rotateY(180deg); }
+    @media (prefers-reduced-motion: reduce) {
+      #flip-card-inner { transition: none; }
+    }
+    button:focus-visible, [role="button"]:focus-visible { outline: 2px solid #2384d6; outline-offset: 2px; }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso: apenas verifica se já há login feito na página inicial -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">🗂️</div>
+      <div class="font-serif font-semibold text-[26px] text-white tracking-tight">Flashcards de Português</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial para acessar os flashcards.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-white text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-navy-900 border-b border-navy-700 sticky top-0 z-30">
+    <div class="max-w-5xl mx-auto px-4 md:px-6 py-3 flex items-center gap-3">
+      <a href="index.html" class="flex items-center gap-2 shrink-0" title="Voltar ao painel">
+        <div class="bg-navy-600 text-white p-2 rounded-lg shadow"><i class="fa-solid fa-anchor"></i></div>
+      </a>
+      <div class="flex-1 min-w-0">
+        <div class="font-serif font-semibold text-[17px] text-white tracking-tight truncate">Flashcards de Português</div>
+        <div class="text-[11px] text-slate-400 truncate">Gêneros textuais por esfera de circulação social</div>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <div id="user-bar" class="hidden bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2" title="Conectado">
+          <i class="fa-solid fa-user text-navy-500"></i>
+          <span id="user-email" class="max-w-[140px] truncate"></span>
+          <button onclick="handleLogout()" class="ml-1 text-rose-300 hover:text-rose-200 transition-colors" title="Sair da conta">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-1 max-w-2xl w-full mx-auto px-4 md:px-6 py-6 md:py-10 flex flex-col items-center">
+
+    <!-- Seletor de baralho -->
+    <div class="w-full mb-5">
+      <label for="deck-select" class="block text-xs text-slate-400 mb-1.5">Escolha o baralho</label>
+      <select id="deck-select" onchange="onDeckChange()" class="w-full bg-navy-800 border border-navy-700 text-slate-100 text-sm rounded-lg px-3 py-2.5 focus:outline-none focus:border-navy-500"></select>
+    </div>
+
+    <!-- Progresso -->
+    <div class="w-full flex items-center justify-between mb-3 text-xs text-slate-400">
+      <span id="progress-label">Carta 1 de 31</span>
+      <div class="flex items-center gap-3">
+        <button onclick="toggleShuffle()" id="shuffle-btn" class="flex items-center gap-1.5 hover:text-white transition-colors" title="Embaralhar">
+          <i class="fa-solid fa-shuffle"></i> <span class="hidden sm:inline">Embaralhar</span>
+        </button>
+        <button onclick="restartDeck()" class="flex items-center gap-1.5 hover:text-white transition-colors" title="Recomeçar">
+          <i class="fa-solid fa-rotate-left"></i> <span class="hidden sm:inline">Recomeçar</span>
+        </button>
+      </div>
+    </div>
+    <div class="w-full h-1.5 bg-navy-800 rounded-full overflow-hidden mb-6">
+      <div id="progress-bar" class="h-full bg-navy-500 transition-all" style="width: 3%;"></div>
+    </div>
+
+    <!-- Cartão -->
+    <div class="perspective w-full" style="height: 340px;">
+      <div id="flip-card-inner" onclick="flipCard()" role="button" tabindex="0" aria-label="Virar cartão" class="cursor-pointer select-none">
+        <div class="card-face bg-gradient-to-br from-navy-800 to-navy-900 border border-navy-600/60 shadow-2xl px-6 py-7 md:px-8 md:py-8">
+          <div class="text-[10px] uppercase tracking-wide text-navy-400 font-semibold mb-3">Pergunta</div>
+          <div id="card-front-text" class="flex-1 flex items-center text-[15px] md:text-lg text-white leading-relaxed overflow-y-auto"></div>
+          <div class="text-center text-[11px] text-slate-500 mt-3"><i class="fa-solid fa-hand-pointer mr-1"></i>Toque no cartão para ver a resposta</div>
+        </div>
+        <div class="card-face card-back bg-gradient-to-br from-emerald-950 to-navy-900 border border-emerald-700/50 shadow-2xl px-6 py-7 md:px-8 md:py-8">
+          <div class="text-[10px] uppercase tracking-wide text-emerald-400 font-semibold mb-2">Resposta</div>
+          <div id="card-back-text" class="text-lg md:text-xl font-serif font-semibold text-white mb-3"></div>
+          <div id="card-explanation" class="flex-1 text-[13px] md:text-sm text-slate-300 leading-relaxed overflow-y-auto pr-1"></div>
+          <div class="text-center text-[11px] text-slate-500 mt-3"><i class="fa-solid fa-hand-pointer mr-1"></i>Toque para voltar</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navegação -->
+    <div class="w-full flex items-center justify-between mt-6 gap-3">
+      <button onclick="prevCard()" id="btn-prev" class="flex-1 h-12 rounded-xl bg-navy-800 border border-navy-700 hover:border-navy-500 text-slate-200 text-sm font-medium transition-all flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed">
+        <i class="fa-solid fa-arrow-left"></i> Anterior
+      </button>
+      <button onclick="flipCard()" class="h-12 px-5 rounded-xl bg-navy-600 hover:bg-navy-500 text-white text-sm font-semibold transition-all flex items-center justify-center gap-2 shadow-lg">
+        <i class="fa-solid fa-rotate"></i> Virar
+      </button>
+      <button onclick="nextCard()" id="btn-next" class="flex-1 h-12 rounded-xl bg-navy-800 border border-navy-700 hover:border-navy-500 text-slate-200 text-sm font-medium transition-all flex items-center justify-center gap-2">
+        Próxima <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+
+    <div class="w-full text-center text-[11px] text-slate-500 mt-5">
+      Atalhos: <kbd class="px-1.5 py-0.5 bg-navy-800 border border-navy-700 rounded">←</kbd> <kbd class="px-1.5 py-0.5 bg-navy-800 border border-navy-700 rounded">→</kbd> navegar · <kbd class="px-1.5 py-0.5 bg-navy-800 border border-navy-700 rounded">Espaço</kbd> virar
+    </div>
+
+    <a href="portugues.html" class="mt-8 text-xs text-navy-400 hover:text-white transition-colors flex items-center gap-1.5">
+      <i class="fa-solid fa-arrow-right"></i> Ir para o simulado completo de Português (372 questões)
+    </a>
+  </main>
+
+  <script>
+    // ===== Dados dos baralhos =====
+    const DECKS = {"Esfera Cotidiana e Familiar": [{"front": "Texto curto e informal, geralmente manuscrito, usado para deixar um recado rápido a alguém, sem a formalidade de uma carta.", "back": "Bilhete", "explanation": "Exemplo: \"Fui à padaria, volto em 10 minutos. Beijo, mãe.\""}, {"front": "Texto que enumera, de forma objetiva e sem frases completas, os itens que se pretende adquirir.", "back": "Lista de Compras", "explanation": "Exemplo: \"Leite, pão, ovos, café, sabão em pó.\""}, {"front": "Texto informal, geralmente curto, trocado em tempo real por aplicativos de mensagens instantâneas, podendo conter abreviações, emojis e linguagem coloquial.", "back": "Mensagem de WhatsApp", "explanation": "Exemplo: \"Oi! Cheguei em casa, já pode ficar tranquilo 😊\""}, {"front": "Correspondência eletrônica trocada entre pessoas próximas, com linguagem mais livre, mas ainda organizada em saudação, corpo do texto e despedida.", "back": "E-mail Informal", "explanation": "Exemplo: um e-mail para um amigo combinando um encontro no fim de semana"}, {"front": "Texto de caráter pessoal e íntimo, escrito geralmente em primeira pessoa, no qual o autor registra fatos, sentimentos e reflexões do seu dia a dia.", "back": "Diário", "explanation": "Exemplo: um relato sobre como foi o primeiro dia de um novo emprego"}, {"front": "Texto instrucional que apresenta, em sequência, os ingredientes necessários e o passo a passo para o preparo de um prato.", "back": "Receita Culinária", "explanation": "Exemplo: a receita de um bolo de chocolate, com lista de ingredientes e modo de preparo"}], "Esfera Jornalística e Midiática": [{"front": "Texto informativo, objetivo e impessoal, que relata um fato recente de interesse público, respondendo geralmente a: o quê, quem, quando, onde, como e por quê.", "back": "Notícia", "explanation": "Exemplo: um texto sobre a aprovação de uma nova lei, publicado em um jornal"}, {"front": "Texto jornalístico mais aprofundado que a notícia, que investiga um assunto com mais detalhes, contexto e, muitas vezes, entrevistas com diferentes fontes.", "back": "Reportagem", "explanation": "Exemplo: uma matéria detalhada sobre os impactos de uma seca em uma região do país"}, {"front": "Texto de opinião, sem assinatura individual, que expressa o posicionamento oficial de um veículo de comunicação sobre um assunto atual.", "back": "Editorial", "explanation": "Exemplo: um texto de jornal defendendo a posição do próprio veículo sobre uma reforma política"}, {"front": "Texto breve, de tom leve e muitas vezes bem-humorado, que comenta situações do cotidiano com um olhar reflexivo ou crítico do autor.", "back": "Crônica", "explanation": "Exemplo: um texto sobre as peripécias de pegar um ônibus lotado pela manhã"}, {"front": "Texto enviado por um leitor a um veículo de comunicação, geralmente para opinar sobre algo já publicado ou expor um ponto de vista.", "back": "Carta ao Leitor", "explanation": "Exemplo: uma carta enviada a uma revista criticando uma matéria publicada na edição anterior"}, {"front": "Texto estruturado em formato de perguntas e respostas, no qual uma pessoa busca obter informações ou opiniões de outra.", "back": "Entrevista", "explanation": "Exemplo: uma conversa publicada com um cientista sobre uma nova descoberta"}, {"front": "Texto assinado no qual o autor defende, com argumentos, um ponto de vista pessoal sobre um tema polêmico ou atual.", "back": "Artigo de Opinião", "explanation": "Exemplo: um texto defendendo a importância da vacinação, assinado por um médico"}, {"front": "Texto multimodal (geralmente imagem + frase curta), de caráter humorístico ou crítico, que circula amplamente pela internet e é facilmente reproduzido e adaptado.", "back": "Meme", "explanation": "Exemplo: uma imagem engraçada com legenda comentando um fato do momento, compartilhada nas redes sociais"}, {"front": "Texto curto, com limite de caracteres, publicado em rede social, que pode expressar opiniões, notícias rápidas ou comentários pessoais.", "back": "Tweet (Post no X)", "explanation": "Exemplo: uma publicação curta comentando o resultado de um jogo de futebol"}], "Esfera Literária e Artística": [{"front": "Texto marcado pela linguagem figurada, ritmo e, muitas vezes, rima e divisão em versos e estrofes, priorizando a função poética da linguagem.", "back": "Poema", "explanation": "Exemplo: um texto que expressa, em versos, um sentimento de saudade"}, {"front": "Narrativa curta, com poucos personagens e um único conflito central, geralmente concentrada em um espaço de tempo reduzido.", "back": "Conto", "explanation": "Exemplo: uma história curta sobre um encontro inesperado entre dois estranhos"}, {"front": "Narrativa longa e complexa, com múltiplos personagens, enredos e, geralmente, mais de um conflito, desenvolvida ao longo de diversos capítulos.", "back": "Romance", "explanation": "Exemplo: uma obra que acompanha a vida de uma família ao longo de várias gerações"}, {"front": "Narrativa curta, geralmente protagonizada por animais com características humanas, que termina com uma lição de moral explícita.", "back": "Fábula", "explanation": "Exemplo: a história da cigarra e da formiga, que ensina sobre a importância do trabalho e do planejamento"}, {"front": "Narrativa de extensão intermediária entre o conto e o romance, ou obra ficcional seriada, veiculada geralmente em capítulos na televisão.", "back": "Novela", "explanation": "Exemplo: uma trama exibida diariamente na TV, dividida em capítulos, com vários núcleos de personagens"}, {"front": "Texto escrito para ser encenado, estruturado predominantemente em diálogos entre personagens, organizado em atos e cenas.", "back": "Peça de Teatro", "explanation": "Exemplo: uma obra dramática dividida em três atos, encenada em um palco"}, {"front": "Texto poético destinado a ser cantado, geralmente organizado em estrofes e refrão, associado a uma melodia.", "back": "Letra de Música", "explanation": "Exemplo: a letra de uma canção popular que fala sobre um amor perdido"}], "Esfera Acadêmica e Científica": [{"front": "Texto que apresenta de forma sistemática os resultados de uma pesquisa original, seguindo uma estrutura formal (introdução, metodologia, resultados, discussão), destinado à comunidade acadêmica.", "back": "Artigo Científico", "explanation": "Exemplo: um texto publicado em revista especializada sobre os efeitos de um novo medicamento"}, {"front": "Trabalho acadêmico extenso e original, apresentado para a obtenção do título de doutor, que exige contribuição inédita para a área de conhecimento.", "back": "Tese", "explanation": "Exemplo: um estudo de doutorado que propõe uma nova abordagem para o tratamento de uma doença"}, {"front": "Trabalho acadêmico apresentado para a obtenção do título de mestre, com exigência de originalidade um pouco menor que a da tese.", "back": "Dissertação", "explanation": "Exemplo: um trabalho de mestrado que analisa o impacto de uma política pública em uma cidade"}, {"front": "Texto que apresenta, de forma condensada e objetiva, as ideias principais de um texto mais extenso, sem incluir opiniões pessoais de quem resume.", "back": "Resumo", "explanation": "Exemplo: um texto de poucos parágrafos que sintetiza os pontos principais de um artigo científico"}, {"front": "Texto que apresenta e avalia criticamente uma obra (livro, filme, peça etc.), combinando resumo do conteúdo com opinião fundamentada de quem escreve.", "back": "Resenha", "explanation": "Exemplo: um texto que resume e avalia criticamente um livro recém-lançado"}, {"front": "Texto que apresenta uma reflexão pessoal e argumentativa sobre um tema, com maior liberdade de estilo do que um artigo científico tradicional.", "back": "Ensaio", "explanation": "Exemplo: um texto reflexivo sobre os rumos da educação no século XXI"}, {"front": "Trabalho acadêmico que aprofunda o estudo de um único tema específico, geralmente exigido ao final de um curso de graduação ou especialização.", "back": "Monografia", "explanation": "Exemplo: um trabalho de conclusão de curso sobre um tema específico de Direito"}, {"front": "Texto curto e objetivo que apresenta o significado, a classe gramatical e, às vezes, a origem de uma palavra.", "back": "Verbete de Dicionário", "explanation": "Exemplo: a definição da palavra \"efêmero\" em um dicionário de língua portuguesa"}], "Esfera Publicitária e Comercial": [{"front": "Texto verbal e/ou visual que tem como objetivo persuadir o público a adquirir um produto, serviço ou ideia, usando recursos de linguagem convincentes.", "back": "Anúncio Publicitário", "explanation": "Exemplo: uma propaganda de televisão promovendo um novo modelo de carro"}, {"front": "Material impresso, geralmente dobrado, que apresenta de forma resumida e visualmente atrativa informações sobre um produto, serviço ou evento.", "back": "Folder", "explanation": "Exemplo: um panfleto distribuído numa feira, com informações sobre os produtos de uma empresa"}, {"front": "Texto publicitário de grandes dimensões, fixado em locais de grande circulação, com mensagem curta e impactante, feita para ser lida rapidamente.", "back": "Outdoor", "explanation": "Exemplo: um painel enorme à beira de uma rodovia anunciando uma promoção"}, {"front": "Texto curto e objetivo, organizado por categorias, usado para anunciar a venda, compra, aluguel ou oferta de algo (imóveis, empregos, produtos etc.).", "back": "Classificados", "explanation": "Exemplo: um anúncio de jornal oferecendo um apartamento para alugar"}, {"front": "Texto visual, geralmente de grande formato, que combina imagem e pouco texto para divulgar rapidamente um evento, produto ou campanha.", "back": "Cartaz", "explanation": "Exemplo: um pôster afixado em um mural anunciando um show"}, {"front": "Texto instrucional que orienta, passo a passo, como montar, usar ou operar corretamente um produto.", "back": "Manual de Instruções", "explanation": "Exemplo: o guia que acompanha um eletrodoméstico, explicando como configurá-lo"}], "Esfera Burocrática e Legal": [{"front": "Documento formal que estabelece direitos e deveres entre duas ou mais partes, com validade jurídica, geralmente assinado por todos os envolvidos.", "back": "Contrato", "explanation": "Exemplo: um contrato de aluguel entre locador e locatário"}, {"front": "Documento que registra, de forma resumida e formal, o que foi discutido e decidido durante uma reunião ou assembleia.", "back": "Ata", "explanation": "Exemplo: o registro oficial de uma reunião de condomínio, com as decisões tomadas"}, {"front": "Documento oficial que atesta, de forma formal, um fato ou dado registrado em algum órgão público.", "back": "Certidão", "explanation": "Exemplo: uma certidão de nascimento, emitida por um cartório"}, {"front": "Documento pelo qual uma pessoa autoriza formalmente outra a agir em seu nome em determinados assuntos.", "back": "Procuração", "explanation": "Exemplo: um documento que autoriza alguém a retirar documentos em nome de outra pessoa"}, {"front": "Texto normativo, elaborado e aprovado pelo Poder Legislativo, que estabelece regras de caráter geral e obrigatório para a sociedade.", "back": "Lei", "explanation": "Exemplo: uma lei que torna obrigatório o uso do cinto de segurança"}, {"front": "Documento público que divulga, com regras e prazos claros, a abertura de um processo seletivo, concurso ou licitação.", "back": "Edital", "explanation": "Exemplo: o edital de abertura de um concurso público para a Marinha"}, {"front": "Ato normativo emitido pelo Poder Executivo (presidente, governador ou prefeito), usado para regulamentar leis ou tratar de assuntos administrativos.", "back": "Decreto", "explanation": "Exemplo: um decreto presidencial que regulamenta a aplicação de uma lei já existente"}, {"front": "Documento interno, direto e objetivo, usado para comunicação rápida entre setores ou departamentos de uma mesma instituição.", "back": "Memorando", "explanation": "Exemplo: um comunicado interno de uma empresa informando sobre uma mudança de horário"}]};
+
+    // ===== Supabase: sessão vem da página inicial (index.html) =====
+    const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    let currentUser = null;
+    let deckNames = Object.keys(DECKS);
+    let currentDeckName = deckNames[0];
+    let currentDeck = DECKS[currentDeckName].slice();
+    let currentIndex = 0;
+    let flipped = false;
+    let shuffled = false;
+
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    async function handleLogout() {
+      await sb.auth.signOut();
+    }
+
+    async function onUserAuthenticated() {
+      const { data: perfil } = await sb
+        .from('profiles')
+        .select('aprovado')
+        .eq('id', currentUser.id)
+        .maybeSingle();
+
+      const aprovado = perfil ? perfil.aprovado : false;
+
+      if (!aprovado) {
+        showGate('gate-pending');
+        return;
+      }
+
+      document.getElementById('access-screen').classList.add('hidden');
+      const bar = document.getElementById('user-bar');
+      bar.classList.remove('hidden');
+      bar.classList.add('flex');
+      document.getElementById('user-email').textContent = currentUser.email;
+
+      initDeckSelect();
+      renderCard();
+    }
+
+    function showAccessScreen() {
+      document.getElementById('user-bar').classList.add('hidden');
+      document.getElementById('user-bar').classList.remove('flex');
+      showGate('gate-logged-out');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      sb.auth.onAuthStateChange((event, session) => {
+        if (session && session.user) {
+          currentUser = session.user;
+          onUserAuthenticated();
+        } else if (event === 'SIGNED_OUT' || event === 'INITIAL_SESSION') {
+          currentUser = null;
+          showAccessScreen();
+        }
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      const locked = !document.getElementById('access-screen').classList.contains('hidden');
+      if (locked) return;
+      if (e.key === 'ArrowRight') nextCard();
+      else if (e.key === 'ArrowLeft') prevCard();
+      else if (e.key === ' ') { e.preventDefault(); flipCard(); }
+    });
+
+    function initDeckSelect() {
+      const select = document.getElementById('deck-select');
+      select.innerHTML = '';
+      deckNames.forEach(name => {
+        const opt = document.createElement('option');
+        opt.value = name;
+        opt.textContent = `${name} (${DECKS[name].length} cartas)`;
+        select.appendChild(opt);
+      });
+      select.value = currentDeckName;
+    }
+
+    function onDeckChange() {
+      currentDeckName = document.getElementById('deck-select').value;
+      currentDeck = DECKS[currentDeckName].slice();
+      if (shuffled) shuffleArray(currentDeck);
+      currentIndex = 0;
+      flipped = false;
+      renderCard();
+    }
+
+    function shuffleArray(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function toggleShuffle() {
+      shuffled = !shuffled;
+      const btn = document.getElementById('shuffle-btn');
+      if (shuffled) {
+        shuffleArray(currentDeck);
+        btn.classList.add('text-navy-400');
+      } else {
+        currentDeck = DECKS[currentDeckName].slice();
+        btn.classList.remove('text-navy-400');
+      }
+      currentIndex = 0;
+      flipped = false;
+      renderCard();
+    }
+
+    function restartDeck() {
+      currentIndex = 0;
+      flipped = false;
+      if (shuffled) shuffleArray(currentDeck);
+      renderCard();
+    }
+
+    function flipCard() {
+      flipped = !flipped;
+      document.getElementById('flip-card-inner').classList.toggle('flipped', flipped);
+    }
+
+    function renderCard() {
+      const card = currentDeck[currentIndex];
+      document.getElementById('card-front-text').innerText = card.front;
+      document.getElementById('card-back-text').innerText = card.back;
+      document.getElementById('card-explanation').innerText = card.explanation || '';
+      document.getElementById('flip-card-inner').classList.remove('flipped');
+      flipped = false;
+
+      const total = currentDeck.length;
+      document.getElementById('progress-label').innerText = `Carta ${currentIndex + 1} de ${total}`;
+      document.getElementById('progress-bar').style.width = `${((currentIndex + 1) / total) * 100}%`;
+      document.getElementById('btn-prev').disabled = currentIndex === 0;
+
+      const nextBtn = document.getElementById('btn-next');
+      if (currentIndex === total - 1) {
+        nextBtn.innerHTML = 'Recomeçar <i class="fa-solid fa-rotate-left"></i>';
+      } else {
+        nextBtn.innerHTML = 'Próxima <i class="fa-solid fa-arrow-right"></i>';
+      }
+    }
+
+    function nextCard() {
+      if (currentIndex < currentDeck.length - 1) {
+        currentIndex++;
+        renderCard();
+      } else {
+        restartDeck();
+      }
+    }
+
+    function prevCard() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderCard();
+      }
+    }
+  </script>
+</body>
+</html>
