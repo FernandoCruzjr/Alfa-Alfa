@@ -269,6 +269,20 @@
           <div class="text-xs md:text-sm text-slate-300" id="explanation-text"></div>
         </div>
 
+        <!-- Minha Anotação (nota pessoal do aluno sobre a questão) -->
+        <div class="mt-6 p-4 rounded-lg bg-navy-900/60 border border-navy-700">
+          <label for="note-textarea" class="flex items-center gap-2 text-sm font-bold text-slate-200 mb-2">
+            <i class="fa-solid fa-pen-to-square text-navy-500"></i> Minha Anotação
+          </label>
+          <textarea id="note-textarea" rows="3" placeholder="Escreva aqui um resumo ou observação pessoal sobre esta questão..." class="w-full bg-navy-950/60 border border-navy-700 text-slate-200 text-sm rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-navy-500 resize-y"></textarea>
+          <div class="flex items-center justify-between mt-2">
+            <span id="note-status" class="text-xs text-slate-500"></span>
+            <button onclick="saveNote()" class="bg-navy-700 hover:bg-navy-600 text-white text-xs px-3 py-1.5 rounded-lg font-medium transition-all flex items-center gap-1.5">
+              <i class="fa-solid fa-floppy-disk"></i> Salvar anotação
+            </button>
+          </div>
+        </div>
+
         <!-- Question Navigation Buttons -->
         <div class="mt-8 pt-4 border-t border-navy-700/60 flex justify-between items-center gap-3">
           <button id="btn-prev" onclick="prevQuestion()" class="bg-navy-700 hover:bg-navy-600 text-white text-sm px-4 py-2.5 rounded-lg transition-all flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed">
@@ -5166,6 +5180,7 @@ const questionsData = [
     let subjectFilter = 'all';
     let discardedOptions = {}; // { questionIndex: { optionIndex: true } }
     let timerInterval = null;
+    let notesCache = {}; // { question.id (string): texto da anotação }
 
     // Local Storage Keys (cache local / fallback offline)
     const STORAGE_KEY_ANSWERS = 'caaml_703_answers';
@@ -5346,6 +5361,16 @@ const questionsData = [
             loadedFromCloud = true;
           }
         } catch (e) { /* segue para o cache local */ }
+
+        try {
+          const { data: notas } = await sb
+            .from('anotacoes')
+            .select('question_id, texto')
+            .eq('user_id', currentUser.id)
+            .eq('quiz_id', QUIZ_ID);
+          notesCache = {};
+          (notas || []).forEach(n => { notesCache[String(n.question_id)] = n.texto; });
+        } catch (e) { /* segue sem anotações carregadas */ }
       }
 
       if (!loadedFromCloud) {
@@ -5541,6 +5566,12 @@ const questionsData = [
         expBox.classList.add('hidden');
       }
 
+      // Minha Anotação (carrega o texto salvo desta questão, se houver)
+      const noteBox = document.getElementById('note-textarea');
+      if (noteBox) noteBox.value = notesCache[String(q.id)] || '';
+      const noteStatus = document.getElementById('note-status');
+      if (noteStatus) { noteStatus.textContent = ''; noteStatus.className = 'text-xs text-slate-500'; }
+
       // Nav buttons state
       document.getElementById('btn-prev').disabled = currentIndex === 0;
       document.getElementById('btn-next').disabled = currentIndex === questionsData.length - 1;
@@ -5552,6 +5583,34 @@ const questionsData = [
       card.classList.remove('question-in');
       void card.offsetWidth;
       card.classList.add('question-in');
+    }
+
+    async function saveNote() {
+      const status = document.getElementById('note-status');
+      if (!currentUser) {
+        status.textContent = 'Faça login para salvar sua anotação.';
+        status.className = 'text-xs text-amber-400';
+        return;
+      }
+      const q = questionsData[currentIndex];
+      const texto = document.getElementById('note-textarea').value;
+      status.textContent = 'Salvando...';
+      status.className = 'text-xs text-slate-400';
+      try {
+        await sb.from('anotacoes').upsert({
+          user_id: currentUser.id,
+          quiz_id: QUIZ_ID,
+          question_id: String(q.id),
+          texto: texto,
+          atualizado_em: new Date().toISOString()
+        }, { onConflict: 'user_id,quiz_id,question_id' });
+        notesCache[String(q.id)] = texto;
+        status.textContent = 'Salvo ✓';
+        status.className = 'text-xs text-emerald-400';
+      } catch (e) {
+        status.textContent = 'Erro ao salvar. Tente novamente.';
+        status.className = 'text-xs text-rose-400';
+      }
     }
 
     function selectOption(optIndex) {
