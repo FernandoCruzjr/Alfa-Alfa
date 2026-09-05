@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapas Mentais · Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Mapas mentais interativos por matéria: CAMAAL 1202 (CAV) e Justiça e Disciplina (Deserção, Sindicância, IPM).">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: { 800: '#0B192C', 900: '#000F26', 700: '#1E3E62', 600: '#1E56A0', 500: '#0066CC', 100: '#E6F0FA' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes access-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    button:focus-visible, [role="button"]:focus-visible { outline: 2px solid #2384d6; outline-offset: 2px; }
+    details > summary { list-style: none; cursor: pointer; }
+    details > summary::-webkit-details-marker { display: none; }
+    .tree-chevron { transition: transform .2s ease; }
+    details[open] > summary .tree-chevron { transform: rotate(90deg); }
+    .tree-node { border-left: 1px dashed #26456b; }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">🧠</div>
+      <div class="font-serif font-semibold text-[26px] text-white tracking-tight">Mapas Mentais</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial para acessar esse material.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-white text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+
+      <div id="gate-no-access" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-lock text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Você ainda não tem acesso liberado a este material. Fale com o administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-navy-900 border-b border-navy-700 sticky top-0 z-30">
+    <div class="max-w-3xl mx-auto px-4 md:px-6 py-3 flex items-center gap-3">
+      <a href="index.html" class="flex items-center gap-2 shrink-0" title="Voltar ao painel">
+        <div class="bg-navy-600 text-white p-2 rounded-lg shadow"><i class="fa-solid fa-anchor"></i></div>
+      </a>
+      <div class="flex-1 min-w-0">
+        <div class="font-serif font-semibold text-[17px] text-white tracking-tight truncate">Mapas Mentais</div>
+        <div class="text-[11px] text-slate-400 truncate">Organizados por matéria</div>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <div id="user-bar" class="hidden bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2" title="Conectado">
+          <i class="fa-solid fa-user text-navy-500"></i>
+          <span id="user-email" class="max-w-[140px] truncate"></span>
+          <button onclick="handleLogout()" class="ml-1 text-rose-300 hover:text-rose-200 transition-colors" title="Sair da conta">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-1 max-w-3xl w-full mx-auto px-4 md:px-6 py-6 md:py-10">
+    <label for="subject-select" class="block text-xs text-slate-400 mb-1.5">Matéria</label>
+    <select id="subject-select" onchange="onSubjectChange()" class="w-full bg-navy-800 border border-navy-700 text-slate-100 text-sm rounded-lg px-3 py-2.5 mb-6 focus:outline-none focus:border-navy-500"></select>
+
+    <div id="maps-container" class="space-y-4"></div>
+  </main>
+
+  <script>
+    // ===== Dados dos mapas mentais =====
+    const MAPS_BY_SUBJECT = {"CAMAAL 1202 (CAV)": [{"label": "Métodos de Extinção de Incêndio e Agentes Extintores", "tree": {"title": "CAAML-1202 — Métodos de Extinção de Incêndio", "children": [{"title": "Métodos de Extinção", "children": [{"title": "Abafamento", "children": [{"title": "Abaixo de 13%-8% de comburente não haverá combustão"}]}, {"title": "Resfriamento", "children": [{"title": "Método mais antigo"}, {"title": "Agente universal: água"}, {"title": "Para combustíveis que tenham comburente"}]}, {"title": "Isolamento", "children": [{"title": "Etapa do processo de extinção"}]}, {"title": "Quebra da Reação em Cadeia", "children": [{"title": "Introduz substâncias com a intenção de inibir a combustão"}, {"title": "A reação só é interrompida durante o uso — deve ser mantido até o resfriamento"}]}]}, {"title": "Estágios do Incêndio", "children": [{"title": "Fase Inicial", "children": [{"title": "Rollover"}, {"title": "Lean flashover"}]}, {"title": "Fase de Desenvolvimento", "children": [{"title": "Combustão súbita generalizada, cerca de 600°C"}, {"title": "Espalhamento repentino das chamas a todo material (Flashover)"}]}, {"title": "Logo Após o Flashover — Incêndio Desenvolvido", "children": [{"title": "Backdraft"}, {"title": "Queda de intensidade"}]}]}, {"title": "Redução de Riscos de Incêndio nas Praças de Máquinas", "children": [{"title": "Inspecionar frequentemente"}, {"title": "Estabelecer normas de segurança"}, {"title": "Testar e inspecionar"}, {"title": "Doutrinar, educar e treinar"}, {"title": "Incentivar todas as práticas de prevenção"}]}, {"title": "Agentes Extintores", "children": [{"title": "A — Água", "children": [{"title": "Jato sólido"}, {"title": "Neblina de alta (na ausência de espuma, classes B e C, a 2m de distância)"}, {"title": "Ação: resfriamento"}]}, {"title": "B — Espuma", "children": [{"title": "Classes A e B"}, {"title": "Composição: água (85%), LGE, ar — Princípio de Venturi"}, {"title": "Espuma mecânica: abafamento, quebra da reação, resfriamento (líquidos muito aquecidos)"}, {"title": "Vapor: abafamento, classe B"}]}, {"title": "C — CO2", "children": [{"title": "Gás inerte — reduz o comburente para abaixo de 16%"}, {"title": "Ação: abafamento, classes B e C"}, {"title": "Alta e baixa pressão; provoca asfixia; mau condutor de cargas elétricas estáticas"}, {"title": "Compostos Halogenados (Halon)", "children": [{"title": "Nuvem de gás incolor e inodoro, densidade 5x a do ar"}, {"title": "Ação: quebra da reação em cadeia"}, {"title": "Decompõe a 500°C formando elementos tóxicos"}, {"title": "Reentrar somente após 15 min, com equipamento autônomo de respiração"}, {"title": "Halon 1211 — módulos de motores/turbinas, mais tóxico que o 1301", "children": [{"title": "Até 4%: seguro até 5 min"}, {"title": "4 a 5%: até 1 min"}, {"title": "Acima de 5%: evitar qualquer contato"}]}, {"title": "Halon 1301", "children": [{"title": "5 a 7%: sem efeito até 5 min"}, {"title": "7 a 10%: perda de capacidade motora e acuidade mental, sem incapacitação, até 1 min"}, {"title": "Acima de 10%: desmaio e possível morte em 1 min"}]}]}, {"title": "Compostos Halocarbonados", "children": [{"title": "Componentes primários: Flúor, Bromo, Cloro, Iodo"}, {"title": "Gases limpos — não deixam resíduos"}, {"title": "Não usar em: metais reativos, metais hídricos, químicos, nitrato, pólvora"}, {"title": "Exemplos: Heptafluoropropano, Trifluorometano, NAF-SIII, NAF-S125, Novec™ 1230"}]}]}, {"title": "D — Pó Químico", "children": [{"title": "Pó Químico Seco", "children": [{"title": "Ação: quebra da reação em cadeia + abafamento, classes B e C"}, {"title": "Tratamento anti-higroscópico (para não umedecer)"}, {"title": "PKP — Purple-K: bicarbonato de potássio ou cloreto de potássio"}, {"title": "PQS Plus Fifty: bicarbonato de sódio, cor azul, classes B e C"}, {"title": "FORAY — Pó Químico ABC: fosfato de monoamônia (derrete a 149°C), sulfato de amônia, cor amarela, classes A, B e C"}]}, {"title": "MET-L-X — Pó Químico Especial (classe D)", "children": [{"title": "Composição: cloreto de sódio, cloreto de bário, monofosfato de amônia, grafite seco"}, {"title": "Ação: abafamento"}, {"title": "Uso: baterias de lítio/cádmio; motores de magnésio, selênio, antimônio, potássio, alumínio fragmentado, zinco, titânio, sódio, zircônio"}]}]}, {"title": "K — PQ Umedecido (Solução Aquosa de Pó Químico — APC)", "children": [{"title": "Solução aquosa de carbonato de potássio"}, {"title": "Ação: resfriamento"}, {"title": "Uso: óleos com autoignição entre 288 e 385°C"}, {"title": "Composição: acetato de potássio, carbonato de potássio, citrato de potássio (ou combinação)"}, {"title": "Saponificação: C2H3KO2, NaHCO3, C6H5K3O7"}]}]}]}}], "Justiça e Disciplina": [{"label": "Deserção", "tree": {"title": "Deserção", "children": [{"title": "Ausência", "children": [{"title": "Falta injustificada = \"Dia D\""}, {"title": "Evasão ou Fuga"}, {"title": "Parte de Ausência (D+1)", "children": [{"title": "A partir das 0h"}, {"title": "Feita pelo Imediato (se oficial) ou pelo Encarregado do Pessoal/Divisão (se praça)"}, {"title": "Encaminhada ao comandante"}]}, {"title": "Parte de Deserção", "children": [{"title": "Encaminhada ao comandante pelo Imediato (oficial) ou Encarregado do Pessoal/Divisão (praça ou praça especial)"}, {"title": "Deserção se consuma a partir da 0h do dia D+9"}]}, {"title": "Termo de Deserção", "children": [{"title": "Lavrado pelo encarregado da investigação da ausência, logo após receber a Parte de Deserção"}, {"title": "Junta todos os documentos sobre a deserção"}, {"title": "Assinado pelo comandante e por 2 testemunhas idôneas (de preferência oficiais), além do oficial encarregado"}, {"title": "Depois de lavrado: transcrito em Ordem de Serviço (OS), com cópia anexada aos autos"}]}, {"title": "Delegação: oficiais-generais comandantes de OM podem delegar competência (total ou parcial) para assinar os documentos"}]}, {"title": "Providências Decorrentes (ao receber a Parte de Ausência)", "children": [{"title": "Comandante despacha as providências"}, {"title": "Designa oficial mais antigo que o ausente como Encarregado da Investigação da Ausência"}, {"title": "Designa oficial intermediário como Escrivão (ou Suboficial/Sargento, no caso de praça)"}, {"title": "Pede informações aos hospitais da Marinha do Brasil"}, {"title": "Procede inventário do material deixado na OM e dos bens da Fazenda Nacional sob responsabilidade do ausente"}]}, {"title": "Providências para Localização e Retorno do Ausente", "children": [{"title": "Com o propósito de evitar o crime de deserção: providencia entrega de uma intimação na residência"}, {"title": "Se o ausente não for encontrado: maior de 18 anos residente no local assina o recibo"}]}, {"title": "Situação do Militar Após Consumada a Deserção", "children": [{"title": "Praça especial ou sem estabilidade: imediatamente excluída do serviço ativo (por Portaria da DPMM)"}, {"title": "Praça estável: agregada"}, {"title": "Oficial: agregado até a decisão transitar em julgado"}]}, {"title": "Documentos-Chave e Comunicação", "children": [{"title": "Parte de Ausência"}, {"title": "Parte de Deserção"}, {"title": "Termo de Deserção"}, {"title": "Comunicados por meio de Mensagem ao comandante do Distrito Naval (DN)"}]}, {"title": "Espólio", "children": [{"title": "Inventariado e remetido à OM onde o réu aguarda julgamento"}, {"title": "Se em 90 dias não houver captura (contados da remessa da IPD): entregue mediante recibo à família"}]}, {"title": "Transferência para Prisão Militar", "children": [{"title": "Após captura ou apresentação voluntária: transferido imediatamente para prisão da MB"}, {"title": "O Termo de Deserção tem caráter provisório"}, {"title": "Se não for julgado em 60 dias: posto em liberdade por Alvará de Soltura (autoridade judicial), salvo se causou retardamento ou tiver prisão preventiva decretada"}, {"title": "Prisão comunicada imediatamente ao Juiz-Auditor com jurisdição sobre o local do crime, à família e à Defensoria Pública"}]}, {"title": "Inspeção de Saúde", "children": [{"title": "Imediatamente após a captura, na OM da MB onde ocorreu o fato ou na mais próxima"}, {"title": "Termo de Inspeção de Saúde (ou cópia autenticada pelo Secretário da Junta de Saúde) remetido com urgência"}, {"title": "Praça sem estabilidade", "children": [{"title": "Reincluída quando julgada apta para o serviço militar"}, {"title": "Em caso de incapacidade definitiva: isenta da reinclusão e do processo (autos arquivados após pronunciamento do MP)"}, {"title": "Enquanto não reincluída: tratada como civil — sem expediente, sem serviço, sem pagamento (retroativo à data da reinclusão, não à captura)"}]}, {"title": "Praça estável", "children": [{"title": "Imediatamente revertida, independente da inspeção de saúde"}, {"title": "Se julgada incapaz: pode ser reformada ou isenta do processo — tratada como militar, pois está agregada até o ato de reversão"}]}]}, {"title": "Comunicação da Captura", "children": [{"title": "Imediatamente por Mensagem à DPMM e ao CIM, pela OM que realizou a captura"}, {"title": "Se não for o DN da área: mensagem também endereçada a essas OM"}, {"title": "DN onde foi capturado: manda mensagem aos outros DN e ofício ao SIT-MAR"}]}, {"title": "Remessa da IPD e Outros Documentos", "children": [{"title": "Por ofício urgente ao Juiz-Auditor da Circunscrição Judiciária Militar da área onde ocorreu a deserção"}, {"title": "Até 5 dias após lavrado o Termo de Deserção, com cópia para a DPMM"}]}]}}, {"label": "Sindicância", "tree": {"title": "Sindicância", "children": [{"title": "Despacho", "children": [{"title": "Procedimento administrativo para apuração de ocorrências anômalas no serviço"}, {"title": "Instaurado pelo titular da OM ou autoridade equivalente"}, {"title": "Relacionado ao RDM, ao Conselho de Disciplina e ao Conselho de Justificação"}]}, {"title": "Autoridade Nomeante", "children": [{"title": "É o comandante da OM"}, {"title": "Pode delegar essa atribuição a oficiais da ativa, para fins específicos e por tempo limitado"}, {"title": "Portaria de Instauração: prazo máximo de 48h após o conhecimento do fato"}]}, {"title": "Encarregado da Sindicância", "children": [{"title": "Substituição do encarregado: por meio de mensagem"}, {"title": "A portaria da autoridade nomeante deve conter a motivação do ato"}, {"title": "A autoridade nomeante restituirá o processo por meio de despacho"}, {"title": "Relatório Parcial: quando houver indícios contra oficial mais antigo, ou indícios de ilícito penal"}, {"title": "Assume as atribuições por meio da Portaria de Autuação"}]}, {"title": "Solicitação Externa", "children": [{"title": "Feita por ofício, convocação militar ou civil"}, {"title": "Outra OM: por ofício / Mesma OM (interno): por CI"}, {"title": "Assinado pelo encarregado; recibo na cópia, retendo o original, ou com 2 testemunhas"}, {"title": "Intimação, notificação ou convocação: antecedência mínima de 3 dias úteis"}]}, {"title": "Ordem da Oitiva", "children": [{"title": "Preferencialmente:"}, {"title": "Ofendido → Termo de Declaração"}, {"title": "Testemunhas → Termo de Depoimento"}, {"title": "Sindicados → Termo de Inquirição"}, {"title": "Termos em folhas separadas"}, {"title": "É prudente que a inquirição do sindicado tenha 2 testemunhas nomeadas pelo encarregado, no Termo de Inquirição"}]}, {"title": "Carta Precatória", "children": [{"title": "Usada quando o depoente se encontrar em cidade diferente da qual foi instaurada a sindicância"}]}, {"title": "Horário da Oitiva", "children": [{"title": "Das 7h às 18h"}, {"title": "Não deve ultrapassar 4h consecutivas"}, {"title": "Descanso de 30 min facultado"}, {"title": "É conveniente que o encarregado entreviste o depoente antes da oitiva formal"}]}, {"title": "Recusa de Assinatura", "children": [{"title": "Resolvida com 2 testemunhas convocadas pelo encarregado"}, {"title": "Mencionar o fato no fim do depoimento, antes das assinaturas"}, {"title": "As testemunhas assinam as folhas sem rubricá-las"}]}, {"title": "Confissão", "children": [{"title": "Deve ser firmada de acordo com os arts. 307 a 310"}, {"title": "Não dispensa outras diligências que sirvam para elucidar o fato"}]}, {"title": "Termo de Acareação", "children": [{"title": "Lavrado quando houver divergência entre declarações"}, {"title": "Acareados não prestam novo compromisso de dizer a verdade, por já terem prestado"}]}, {"title": "Exames Periciais", "children": [{"title": "Realizados por 2 peritos"}, {"title": "Encaminhados ao núcleo de polícia judiciária"}, {"title": "Peritos: de preferência oficiais da ativa, lotados na área de formação técnica compatível"}]}, {"title": "Relatório", "children": [{"title": "Terminada a sindicância, o encarregado emite um relatório em 2 partes"}, {"title": "1ª parte: minuciosa exposição dos atos realizados"}, {"title": "2ª parte: conclusão — se houve ou não contravenção, ou indício de ilícito penal (propor IPM)"}]}, {"title": "Solução", "children": [{"title": "A autoridade nomeante examina as conclusões e decide por meio de solução"}, {"title": "Exarada preferencialmente em até 10 dias após a conclusão do procedimento"}, {"title": "Arquivada na OM por 5 anos, depois remetida à DPHDM"}, {"title": "Falecimento de militar ou civil: cópia do relatório e da solução para DPMM, CPesFN ou DPCvM (para fins de pensão militar)"}]}, {"title": "Escrivão", "children": [{"title": "Oficial subalterno, quando a sindicância envolver oficial, suboficial ou sargento"}, {"title": "Na falta: qualquer pessoa idônea (Ad Hoc)"}, {"title": "Lavra: Termo de Recebimento, Certidão, Termo de Conclusão, Termo de Compromisso"}]}, {"title": "Autuação", "children": [{"title": "Vem logo após a capa"}, {"title": "Reúne todos os documentos iniciais entregues pelo encarregado: Portaria de Instauração + Termo de Compromisso"}]}, {"title": "Reunião e Ordem das Peças", "children": [{"title": "Em ordem cronológica"}, {"title": "Todas as folhas juntadas devem ser rubricadas e numeradas pelo escrivão"}, {"title": "Numeração no ângulo superior direito do anverso da folha"}]}, {"title": "Sigilo", "children": [{"title": "Se envolver oficial: classificada como Reservado"}]}, {"title": "Formulação de Quesitos", "children": [{"title": "O encarregado deve ter o máximo de atenção em sua formulação"}, {"title": "Avaliação direta e indireta"}]}, {"title": "Laudo de Avaliação", "children": [{"title": "Danos à Fazenda Nacional: verificados por 2 peritos designados pela autoridade nomeante ou pelo encarregado"}, {"title": "Avaliação indireta (material extraviado): cópia do relatório e da solução para o Centro de Controle Interno da Marinha"}, {"title": "Extravio de publicações controladas da MB: cópia para o responsável pela publicação e para o EMA, via cadeia hierárquica"}, {"title": "Comprometimento do Plano de Segurança Orgânica: cópia da solução para o ComOpNav, analisada pela Subchefia de Inteligência"}]}, {"title": "Reconhecimento de Pessoas e Objetos", "children": [{"title": "Termo de Reconhecimento de Pessoa"}, {"title": "Termo de Reconhecimento de Objeto"}]}, {"title": "Ocorrência Fora da Jurisdição Militar", "children": [{"title": "Cópia da ocorrência, com Termo de Depoimento/Declaração dos envolvidos"}, {"title": "Boletim de Socorro: encaminhado ao hospital"}, {"title": "Exame pericial: encaminhado ao Instituto de Criminalística"}, {"title": "Exame de corpo de delito ou Laudo de exame cadavérico: encaminhado ao Instituto Médico Legal"}]}, {"title": "Conhecimento dos Autos pelos Interessados", "children": [{"title": "A autoridade nomeante permite cópia dos autos, da solução e do relatório a quem solicitar, mediante requerimento"}]}, {"title": "Falecimento", "children": [{"title": "A sindicância é encerrada com a cópia da certidão de óbito"}]}, {"title": "Buscas Domiciliares", "children": [{"title": "Não cabem, dada a inviolabilidade do domicílio"}, {"title": "A residência do militar não é lugar sujeito à Administração Naval"}]}, {"title": "Prazos para Conclusão e Prorrogação", "children": [{"title": "Prazo regular: 40 dias"}, {"title": "Pode ser prorrogado pela autoridade nomeante, preferencialmente sem ultrapassar 60 dias"}, {"title": "Não há prazo mínimo"}, {"title": "A sindicância poderá ser suspensa"}]}]}}, {"label": "Inquérito Policial Militar (IPM)", "tree": {"title": "Inquérito Policial Militar (IPM)", "children": [{"title": "Procedimento Administrativo (Art. 9º)"}, {"title": "Autoridade Nomeante", "children": [{"title": "Oficiais da ativa, de posto superior ao indiciado"}, {"title": "Instaura por meio de Portaria de Instauração"}]}, {"title": "Encarregado do IPM", "children": [{"title": "Sempre que possível, oficial não inferior a Capitão-Tenente (CT)"}, {"title": "Assume por meio de Portaria de Autuação"}]}, {"title": "Substituição do Encarregado", "children": [{"title": "Comunicada por meio de mensagem"}]}, {"title": "Solicitação Externa", "children": [{"title": "Feita por meio de ofício"}]}, {"title": "Relatório Parcial", "children": [{"title": "Emitido quando há indícios contra oficial mais antigo"}, {"title": "A autoridade nomeante despacha, retorna o IPM e escolherá outro encarregado"}]}, {"title": "Interrogatório do Indiciado", "children": [{"title": "O encarregado indica 2 testemunhas para acompanhar"}, {"title": "As testemunhas assinam o Termo de Interrogatório"}]}, {"title": "Formulação de Quesitos", "children": [{"title": "Formulados aos peritos pelo encarregado, com o máximo de atenção"}]}, {"title": "Escrivão", "children": [{"title": "Um oficial subalterno, ou qualquer pessoa idônea (Ad Hoc)"}, {"title": "Recebe as determinações do encarregado por meio de despacho"}, {"title": "Lavra: Termo de Compromisso, Certidão, Termo de Conclusão, Termo de Recebimento"}]}, {"title": "Grau de Sigilo", "children": [{"title": "Caráter sigiloso"}, {"title": "Mensagem ao DN de jurisdição, à DPMM, ao CPesFN ou à DPCvM"}, {"title": "Órgão setorial: Comimsup, GCM e CIM"}, {"title": "Deve conter: posto, nome e NIP do encarregado e do indiciado; data e número da Portaria de Instauração; resumo do fato"}, {"title": "Se envolver atividades físicas ou técnicas: informar a Diretoria relacionada"}, {"title": "Se o indiciado for oficial-general: mensagem também para o Comandante da Marinha (CM) e o CEMA"}]}, {"title": "Detenção do Indiciado", "children": [{"title": "Antes de ser levado ao local de detenção (ou por ocasião de sua libertação): submetido a exame médico (saúde mental e integridade física), juntado aos autos"}, {"title": "Crime propriamente militar: comunicar a prisão à autoridade judiciária militar, ao Ministério Público, ao Comando Naval, ao Comando do Distrito e à família do preso"}, {"title": "Nos dias 10 de março, julho e novembro: informar a situação atual e encaminhar cópia da OS que designa o militar responsável por acompanhar o caso"}]}, {"title": "Convocação Militar ou Civil", "children": [{"title": "Outra OM: por ofício / Mesma OM: por CI / Civis (testemunhas ou ofendidos): por ofício"}, {"title": "Intimação sempre de dia, com antecedência de 3 dias"}, {"title": "Testemunha: presta compromisso de dizer a verdade"}, {"title": "Indiciado e ofendido: isentos do compromisso"}, {"title": "Se recusarem assinar o Termo de Depoimento: firmado por 2 testemunhas, mencionando o fato ao final"}, {"title": "Se o indiciado confessar a culpa: firma interrogatório conforme arts. 307 a 310"}, {"title": "Corpo de delito obrigatório nas infrações que deixam vestígios; não dispensa outras diligências que sirvam para elucidar o fato"}]}, {"title": "Acareação", "children": [{"title": "Quando há divergência em declarações sobre fatos ou circunstâncias (arts. 365 e 367)"}, {"title": "Lavra-se o Termo de Acareação"}]}, {"title": "Nota de Culpa", "children": [{"title": "Entregue ao preso em até 24h, solicitando que firme recibo"}, {"title": "Se recusar: 2 testemunhas, certificada por certidão"}]}, {"title": "Transferência para Local de Custódia", "children": [{"title": "Assim que possível, comunicar ao DN local, à família ou a quem o preso indicar"}, {"title": "Mensagem com o mesmo grau de sigilo da mensagem inicial"}, {"title": "Para autoridades estranhas à MB: por ofício"}, {"title": "Militar de outra Força ou OM da MB: apresentado ao seu comandante, escoltado, por meio de ofício (mesmo tratamento para servidor civil)"}, {"title": "Só pode ser transferido após autorização do Juiz-Auditor da circunscrição"}]}, {"title": "Autuação", "children": [{"title": "Termo inicial do IPM, subscrito pelo escrivão"}, {"title": "Vem após a capa e a folha de qualificação do indiciado"}]}, {"title": "Reunião e Ordem das Peças", "children": [{"title": "Ordem cronológica"}, {"title": "Folhas rubricadas e numeradas pelo escrivão, a partir da folha 1"}]}, {"title": "Juntada", "children": [{"title": "Registra a anexação de documento/papel de interesse à prova"}, {"title": "Feita mediante prévio despacho do encarregado"}]}, {"title": "Defensor", "children": [{"title": "Advogado com carteira da OAB"}]}, {"title": "Ordem da Oitiva", "children": [{"title": "Preferencialmente: Ofendido → Testemunhas → Indiciado"}, {"title": "Quantas vezes for necessário"}]}, {"title": "Termos da Oitiva", "children": [{"title": "Ofendido: Termo de Inquirição"}, {"title": "Indiciado: Termo de Interrogatório"}, {"title": "Testemunhas: Termo de Inquirição"}]}, {"title": "Informantes", "children": [{"title": "Isentos do compromisso de dizer a verdade"}, {"title": "Ex.: menores de 14 anos, irmãos, sogros, deficientes, ascendentes, descendentes"}]}, {"title": "Carta Precatória", "children": [{"title": "Para quem estiver em cidade diferente de onde foi instaurado o IPM"}, {"title": "Encaminhada à autoridade militar (de preferência da MB) sediada no local"}, {"title": "A autoridade despachará com a maior brevidade possível"}]}, {"title": "Exames Periciais", "children": [{"title": "Requisição de diligências e exames — Laudo de Exame Pericial (realizado na própria MB)"}, {"title": "Formulação de quesitos: o encarregado deve ter o máximo cuidado"}, {"title": "Exame de corpo de delito: Laudo de Exame de Corpo de Delito (direto)"}, {"title": "Laudo indireto: realizado depois, com depoimento de quem presenciou a ocorrência"}, {"title": "Avaliação direta e indireta (danos à Fazenda Nacional): Laudo de Avaliação, feito por 2 peritos — se a direta for impossível, faz-se a indireta"}]}, {"title": "Ocorrência Fora da Jurisdição Militar", "children": [{"title": "Laudo de Exame Cadavérico"}, {"title": "Termo de Reconhecimento de Cadáver"}]}, {"title": "Busca Domiciliar", "children": [{"title": "O encarregado lavra o Termo de Informação para Busca e Apreensão"}, {"title": "E solicita ordem judicial"}]}, {"title": "Apreensão e Restituição de Bens", "children": [{"title": "O encarregado, por ofício com cópia para o GCM e a CJACM, pode requerer o sequestro de bens adquiridos pelo indiciado"}, {"title": "Pode restituir os bens quando julgar não interessarem ao caso"}]}, {"title": "Violação de Sigiloso", "children": [{"title": "Se necessário, o encarregado solicita fundamentadamente à autoridade judiciária militar competente"}]}, {"title": "Prazos para Conclusão e Prorrogação", "children": [{"title": "20 dias, se o indiciado estiver preso (contados da execução da ordem de prisão)"}, {"title": "40 dias, nos demais casos (contados da instauração do inquérito)"}, {"title": "A prorrogação é solicitada pela autoridade nomeante ao seu Comimsup, por mensagem"}]}, {"title": "Relatório", "children": [{"title": "Emitido em 2 partes"}, {"title": "1ª parte: exposição do que ficou constatado"}, {"title": "2ª parte: conclusão a que se chegou"}]}, {"title": "Solução", "children": [{"title": "A autoridade nomeante examina o relatório e decide por meio de solução"}, {"title": "É ato privativo da autoridade nomeante"}]}, {"title": "Conhecimento dos Atos pelos Interessados", "children": [{"title": "Qualquer um pode solicitar, por meio de requerimento"}]}, {"title": "Indiciado Preso", "children": [{"title": "Capa dos autos deve conter, em tinta vermelha, a expressão \"PRESO\""}, {"title": "O ofício encaminhado deve ter precedência urgente"}]}]}}]};
+
+    const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const QUIZ_ID = 'MAPAS_MENTAIS';
+
+    let currentUser = null;
+    const subjectNames = Object.keys(MAPS_BY_SUBJECT);
+    let currentSubject = subjectNames[0];
+
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending', 'gate-no-access'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    async function handleLogout() { await sb.auth.signOut(); }
+
+    async function onUserAuthenticated() {
+      const { data: perfil } = await sb.from('profiles').select('aprovado').eq('id', currentUser.id).maybeSingle();
+      const aprovado = perfil ? perfil.aprovado : false;
+      if (!aprovado) { showGate('gate-pending'); return; }
+
+      const { data: acesso } = await sb
+        .from('acessos')
+        .select('quiz_id')
+        .eq('user_id', currentUser.id)
+        .eq('quiz_id', QUIZ_ID)
+        .maybeSingle();
+
+      if (!acesso) { showGate('gate-no-access'); return; }
+
+      document.getElementById('access-screen').classList.add('hidden');
+      const bar = document.getElementById('user-bar');
+      bar.classList.remove('hidden');
+      bar.classList.add('flex');
+      document.getElementById('user-email').textContent = currentUser.email;
+
+      initSubjectSelect();
+      renderMaps();
+    }
+
+    function showAccessScreen() {
+      document.getElementById('user-bar').classList.add('hidden');
+      document.getElementById('user-bar').classList.remove('flex');
+      showGate('gate-logged-out');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      sb.auth.onAuthStateChange((event, session) => {
+        if (session && session.user) {
+          currentUser = session.user;
+          onUserAuthenticated();
+        } else if (event === 'SIGNED_OUT' || event === 'INITIAL_SESSION') {
+          currentUser = null;
+          showAccessScreen();
+        }
+      });
+    });
+
+    function initSubjectSelect() {
+      const select = document.getElementById('subject-select');
+      select.innerHTML = '';
+      subjectNames.forEach(name => {
+        const opt = document.createElement('option');
+        opt.value = name;
+        opt.textContent = `${name} (${MAPS_BY_SUBJECT[name].length} mapa${MAPS_BY_SUBJECT[name].length > 1 ? 's' : ''})`;
+        select.appendChild(opt);
+      });
+      select.value = currentSubject;
+    }
+
+    function onSubjectChange() {
+      currentSubject = document.getElementById('subject-select').value;
+      renderMaps();
+    }
+
+    function buildTree(node, depth) {
+      const hasChildren = node.children && node.children.length > 0;
+      if (!hasChildren) {
+        return `<div class="tree-node pl-4 py-1.5 text-sm text-slate-200">${node.title}</div>`;
+      }
+      const childrenHtml = node.children.map(c => buildTree(c, depth + 1)).join('');
+      const openAttr = depth === 0 ? 'open' : '';
+      return `
+        <details ${openAttr} class="tree-node pl-3">
+          <summary class="py-1.5 flex items-start gap-2 text-sm ${depth === 0 ? 'font-serif font-semibold text-white text-[15px]' : 'font-medium text-slate-100'}">
+            <i class="fa-solid fa-chevron-right tree-chevron text-[10px] mt-1.5 text-navy-400 flex-shrink-0"></i>
+            <span>${node.title}</span>
+          </summary>
+          <div class="pl-2">${childrenHtml}</div>
+        </details>
+      `;
+    }
+
+    function renderMaps() {
+      const container = document.getElementById('maps-container');
+      container.innerHTML = '';
+      const maps = MAPS_BY_SUBJECT[currentSubject];
+      maps.forEach(m => {
+        const card = document.createElement('div');
+        card.className = 'bg-navy-800/70 border border-navy-700 rounded-xl p-4 md:p-5';
+        card.innerHTML = `
+          <div class="flex items-center gap-2 mb-3">
+            <i class="fa-solid fa-diagram-project text-navy-400"></i>
+            <h2 class="font-serif font-semibold text-white text-base">${m.label}</h2>
+          </div>
+          ${buildTree(m.tree, 0)}
+        `;
+        container.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>
