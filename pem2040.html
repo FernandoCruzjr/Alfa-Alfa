@@ -269,6 +269,20 @@
           <div class="text-xs md:text-sm text-slate-300" id="explanation-text"></div>
         </div>
 
+        <!-- Minha Anotação (nota pessoal do aluno sobre a questão) -->
+        <div class="mt-6 p-4 rounded-lg bg-navy-900/60 border border-navy-700">
+          <div class="flex items-center justify-between mb-2">
+            <label for="note-textarea" class="flex items-center gap-2 text-sm font-bold text-slate-200">
+              <i class="fa-solid fa-pen-to-square text-navy-500"></i> Minha Anotação
+            </label>
+          </div>
+          <textarea id="note-textarea" rows="3" oninput="scheduleNoteSave()" placeholder="Escreva aqui um resumo ou observação pessoal sobre esta questão..." class="w-full bg-white border border-navy-700 text-black text-sm rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-navy-500 resize-y"></textarea>
+          <div class="flex items-center justify-between mt-2">
+            <span id="note-status" class="text-xs text-slate-500"></span>
+            <span id="note-timestamp" class="text-[11px] text-slate-500"></span>
+          </div>
+        </div>
+
         <!-- Question Navigation Buttons -->
         <div class="mt-8 pt-4 border-t border-navy-700/60 flex justify-between items-center gap-3">
           <button id="btn-prev" onclick="prevQuestion()" class="bg-navy-700 hover:bg-navy-600 text-white text-sm px-4 py-2.5 rounded-lg transition-all flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed">
@@ -1114,6 +1128,9 @@ const questionsData = [
     let activeFilter = 'all'; // 'all', 'unanswered', 'answered'
     let subjectFilter = 'all';
     let discardedOptions = {}; // { questionIndex: { optionIndex: true } }
+    let notesCache = {}; // { question.id (string): { texto, atualizado_em } }
+    let noteSaveTimer = null;
+
     let timerInterval = null;
 
     // Local Storage Keys (cache local / fallback offline)
@@ -1295,6 +1312,16 @@ const questionsData = [
             loadedFromCloud = true;
           }
         } catch (e) { /* segue para o cache local */ }
+
+        try {
+          const { data: notas } = await sb
+            .from('anotacoes')
+            .select('question_id, texto')
+            .eq('user_id', currentUser.id)
+            .eq('quiz_id', QUIZ_ID);
+          notesCache = {};
+          (notas || []).forEach(n => { notesCache[String(n.question_id)] = { texto: n.texto, atualizado_em: n.atualizado_em }; });
+        } catch (e) { /* segue sem anotações carregadas */ }
       }
 
       if (!loadedFromCloud) {
@@ -1490,6 +1517,22 @@ const questionsData = [
         expBox.classList.add('hidden');
       }
 
+      // Minha Anotação (carrega o texto salvo desta questão, se houver)
+      const noteBox = document.getElementById('note-textarea');
+      const noteEntry = notesCache[String(q.id)];
+      if (noteBox) noteBox.value = noteEntry ? noteEntry.texto : '';
+      const noteStatus = document.getElementById('note-status');
+      if (noteStatus) { noteStatus.textContent = ''; noteStatus.className = 'text-xs text-slate-500'; }
+      const noteTimestamp = document.getElementById('note-timestamp');
+      if (noteTimestamp) {
+        if (noteEntry && noteEntry.atualizado_em) {
+          const d = new Date(noteEntry.atualizado_em);
+          noteTimestamp.textContent = `Editado em ${d.toLocaleDateString('pt-BR')} às ${d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}`;
+        } else {
+          noteTimestamp.textContent = '';
+        }
+      }
+
       // Nav buttons state
       document.getElementById('btn-prev').disabled = currentIndex === 0;
       document.getElementById('btn-next').disabled = currentIndex === questionsData.length - 1;
@@ -1501,6 +1544,49 @@ const questionsData = [
       card.classList.remove('question-in');
       void card.offsetWidth;
       card.classList.add('question-in');
+    }
+
+    function scheduleNoteSave() {
+      const status = document.getElementById('note-status');
+      status.textContent = 'Digitando...';
+      status.className = 'text-xs text-slate-500';
+      clearTimeout(noteSaveTimer);
+      noteSaveTimer = setTimeout(saveNote, 1000);
+    }
+
+    async function saveNote() {
+      const status = document.getElementById('note-status');
+      if (!currentUser) {
+        status.textContent = 'Faça login para salvar sua anotação.';
+        status.className = 'text-xs text-amber-400';
+        return;
+      }
+      const q = questionsData[currentIndex];
+      const texto = document.getElementById('note-textarea').value;
+      status.textContent = 'Salvando...';
+      status.className = 'text-xs text-slate-400';
+      try {
+        const agora = new Date().toISOString();
+        await sb.from('anotacoes').upsert({
+          user_id: currentUser.id,
+          quiz_id: QUIZ_ID,
+          question_id: String(q.id),
+          texto: texto,
+          atualizado_em: agora
+        }, { onConflict: 'user_id,quiz_id,question_id' });
+        notesCache[String(q.id)] = { texto: texto, atualizado_em: agora };
+        status.textContent = 'Salvo ✓';
+        status.className = 'text-xs text-emerald-400';
+        const noteTimestamp = document.getElementById('note-timestamp');
+        if (noteTimestamp) {
+          const d = new Date(agora);
+          noteTimestamp.textContent = `Editado em ${d.toLocaleDateString('pt-BR')} às ${d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}`;
+        }
+        renderGrid();
+      } catch (e) {
+        status.textContent = 'Erro ao salvar. Tente novamente.';
+        status.className = 'text-xs text-rose-400';
+      }
     }
 
     function selectOption(optIndex) {
@@ -1591,6 +1677,15 @@ const questionsData = [
 
         btn.className = classes;
         btn.innerText = idx + 1;
+
+        const noteEntry = notesCache[String(q.id)];
+        if (noteEntry && noteEntry.texto && noteEntry.texto.trim() !== '') {
+          const dot = document.createElement('span');
+          dot.className = 'absolute top-0.5 right-0.5 w-1.5 h-1.5 rounded-full bg-amber-400';
+          dot.title = 'Você tem uma anotação nesta questão';
+          btn.appendChild(dot);
+        }
+
         grid.appendChild(btn);
       });
     }
