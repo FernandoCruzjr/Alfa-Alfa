@@ -118,289 +118,229 @@
     </div>
   </header>
 
-  <main class="flex-1 max-w-5xl w-full mx-auto px-6 py-12">
-    <h2 class="font-serif text-3xl font-semibold text-white mb-2">Simulados disponíveis</h2>
-    <p class="text-sm text-slate-400 mb-4 max-w-[60ch]">Escolha um manual abaixo para praticar. Seu progresso e histórico ficam salvos automaticamente na sua conta.</p>
-    <div class="flex flex-wrap items-center gap-2 mb-10">
-      <div class="inline-flex items-center gap-2 bg-navy-800/60 border border-navy-700 rounded-full px-4 py-1.5 text-xs text-navy-100">
-        <i class="fa-solid fa-layer-group text-navy-500"></i> 2.243 questões disponíveis em 14 matérias
+  <main class="flex-1 max-w-5xl w-full mx-auto px-6 py-10 md:py-12">
+
+    <div class="flex flex-wrap items-start justify-between gap-3 mb-8">
+      <div>
+        <h2 class="font-serif text-2xl md:text-3xl font-semibold text-white">Painel de Estudos</h2>
+        <p class="text-sm text-slate-400 mt-1 max-w-[54ch]">Seu progresso fica salvo automaticamente na sua conta.</p>
+      </div>
+      <div class="inline-flex items-center gap-2 bg-navy-800/70 border border-navy-700 rounded-lg px-3.5 py-2 text-xs text-navy-100 font-mono tracking-tight shrink-0">
+        <i class="fa-solid fa-layer-group text-cyan-400"></i> 2.243 questões · 14 matérias
       </div>
     </div>
 
-    <a href="prova-simulada.html" data-quiz-id="PROVA_SIMULADA" class="block bg-gradient-to-r from-navy-700 to-navy-800 border border-navy-500/60 rounded-xl px-6 py-5 mb-8 hover:border-navy-400 transition-colors shadow-lg">
-      <div class="flex items-center gap-4">
-        <div class="bg-navy-600 text-white p-3 rounded-lg shadow flex-shrink-0">
+    <!-- Prova Simulada: destaque isolado, fora do Banco de Questões -->
+    <a href="prova-simulada.html" data-quiz-id="PROVA_SIMULADA" class="group relative block overflow-hidden rounded-2xl border border-cyan-500/30 bg-gradient-to-br from-navy-800 via-navy-800 to-navy-900 px-6 py-6 md:px-8 md:py-7 mb-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)] transition-colors hover:border-cyan-400/60">
+      <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, #fff 1px, transparent 0); background-size: 22px 22px;"></div>
+      <div class="relative flex items-center gap-5">
+        <div class="bg-navy-600 text-white p-3.5 rounded-xl shadow-lg shadow-navy-900/40 flex-shrink-0 ring-1 ring-cyan-400/20">
           <i class="fa-solid fa-shuffle text-xl"></i>
         </div>
         <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-2">
-            <span class="block text-white font-serif text-lg font-semibold">Prova Simulada</span>
-            <span class="bg-emerald-900/60 text-emerald-300 border border-emerald-700 text-[10px] px-2 py-0.5 rounded-full font-medium">Novo</span>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="block text-white font-serif text-lg md:text-xl font-semibold">Prova Simulada</span>
+            <span class="bg-cyan-950/60 text-cyan-300 border border-cyan-700/60 text-[10px] px-2 py-0.5 rounded-full font-medium">50 questões</span>
           </div>
-          <span class="block text-xs text-slate-300 mt-0.5">50 questões sorteadas aleatoriamente no formato exato da prova real: 8 Português + 8 História + 7 Geografia + 7 Matemática, e 2 de cada uma das 10 matérias de Conhecimento Militar Naval.</span>
+          <p class="text-xs md:text-sm text-slate-300 mt-1 max-w-[62ch]">Sorteio no formato exato da prova real: 8 Português + 8 História + 7 Geografia + 7 Matemática, e 2 de cada uma das 10 matérias de Conhecimento Militar Naval.</p>
         </div>
-        <i class="fa-solid fa-arrow-right text-slate-400 flex-shrink-0"></i>
+        <i class="fa-solid fa-arrow-right text-slate-400 group-hover:text-cyan-300 group-hover:translate-x-0.5 transition-all flex-shrink-0 hidden sm:block"></i>
       </div>
     </a>
 
-    <a href="flashcards-historia.html" class="block bg-navy-800/60 border border-navy-700 rounded-xl px-6 py-4 mb-4 hover:border-navy-500 transition-colors">
-      <div class="flex items-center gap-4">
-        <div class="bg-navy-700 text-white p-2.5 rounded-lg shadow flex-shrink-0">
-          <i class="fa-solid fa-layer-group text-lg"></i>
-        </div>
-        <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-2">
-            <span class="block text-white font-medium">Flashcards de História</span>
-            <span class="bg-emerald-900/60 text-emerald-300 border border-emerald-700 text-[10px] px-2 py-0.5 rounded-full font-medium">Novo</span>
-          </div>
-          <span class="block text-xs text-slate-400 mt-0.5">Navios, comandantes, batalhas, tratados coloniais, transferência da Corte, Independência e guerras↔comandantes — revisão em modo cartão · 135 cartas em 5 baralhos</span>
-        </div>
-        <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
-      </div>
-    </a>
+    <!-- Recursos de Estudo -->
+    <section class="mb-10">
+      <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3 flex items-center gap-2">
+        <i class="fa-solid fa-compass text-navy-500"></i> Recursos de Estudo
+      </h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <a href="flashcards-historia.html" class="bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+          <span class="bg-navy-700 text-white w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-layer-group"></i></span>
+          <span>
+            <span class="block text-white text-sm font-medium leading-tight">Flashcards de História</span>
+            <span class="block text-[11px] text-slate-400 mt-1 leading-snug">135 cartas · 5 baralhos</span>
+          </span>
+        </a>
 
-    <a href="linha-do-tempo-historia.html" data-quiz-id="LINHA_DO_TEMPO_HISTORIA" class="block bg-navy-800/60 border border-navy-700 rounded-xl px-6 py-4 mb-4 hover:border-navy-500 transition-colors">
-      <div class="flex items-center gap-4">
-        <div class="bg-navy-700 text-white p-2.5 rounded-lg shadow flex-shrink-0">
-          <i class="fa-solid fa-map text-lg"></i>
-        </div>
-        <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-2">
-            <span class="block text-white font-medium">Linha do Tempo — Infográficos</span>
-            <span class="bg-emerald-900/60 text-emerald-300 border border-emerald-700 text-[10px] px-2 py-0.5 rounded-full font-medium">Novo</span>
-          </div>
-          <span class="block text-xs text-slate-400 mt-0.5">Tratados coloniais, Transferência da Corte e Brasil Imperial em 4 infográficos ilustrados, com zoom</span>
-        </div>
-        <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
-      </div>
-    </a>
+        <a href="linha-do-tempo-historia.html" data-quiz-id="LINHA_DO_TEMPO_HISTORIA" class="bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+          <span class="bg-navy-700 text-white w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-map"></i></span>
+          <span>
+            <span class="block text-white text-sm font-medium leading-tight">Linha do Tempo</span>
+            <span class="block text-[11px] text-slate-400 mt-1 leading-snug">4 infográficos ilustrados</span>
+          </span>
+        </a>
 
-    <a href="comandantes-navais.html" data-quiz-id="COMANDANTES_NAVAIS" class="block bg-navy-800/60 border border-navy-700 rounded-xl px-6 py-4 mb-8 hover:border-navy-500 transition-colors">
-      <div class="flex items-center gap-4">
-        <div class="bg-navy-700 text-white p-2.5 rounded-lg shadow flex-shrink-0">
-          <i class="fa-solid fa-compass text-lg"></i>
-        </div>
-        <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-2">
-            <span class="block text-white font-medium">Comandantes Navais — Explorador</span>
-            <span class="bg-emerald-900/60 text-emerald-300 border border-emerald-700 text-[10px] px-2 py-0.5 rounded-full font-medium">Novo</span>
-          </div>
-          <span class="block text-xs text-slate-400 mt-0.5">13 comandantes, 1816-1865: clique e veja revoltas, guerras e navios de cada um</span>
-        </div>
-        <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
-      </div>
-    </a>
+        <a href="comandantes-navais.html" data-quiz-id="COMANDANTES_NAVAIS" class="bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+          <span class="bg-navy-700 text-white w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-compass"></i></span>
+          <span>
+            <span class="block text-white text-sm font-medium leading-tight">Comandantes Navais</span>
+            <span class="block text-[11px] text-slate-400 mt-1 leading-snug">13 comandantes · 1816-1865</span>
+          </span>
+        </a>
 
-    <a href="mapas-mentais.html" data-quiz-id="MAPAS_MENTAIS" class="block bg-navy-800/60 border border-navy-700 rounded-xl px-6 py-4 mb-8 hover:border-navy-500 transition-colors">
-      <div class="flex items-center gap-4">
-        <div class="bg-navy-700 text-white p-2.5 rounded-lg shadow flex-shrink-0">
-          <i class="fa-solid fa-diagram-project text-lg"></i>
-        </div>
-        <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-2">
-            <span class="block text-white font-medium">Mapas Mentais</span>
-            <span class="bg-emerald-900/60 text-emerald-300 border border-emerald-700 text-[10px] px-2 py-0.5 rounded-full font-medium">Novo</span>
-          </div>
-          <span class="block text-xs text-slate-400 mt-0.5">Organizados por matéria: CAMAAL 1202 (CAV), Justiça e Disciplina (Deserção, Sindicância, IPM) e SGM-105/NODAM — árvores clicáveis</span>
-        </div>
-        <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
-      </div>
-    </a>
+        <a href="mapas-mentais.html" data-quiz-id="MAPAS_MENTAIS" class="bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+          <span class="bg-navy-700 text-white w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-diagram-project"></i></span>
+          <span>
+            <span class="block text-white text-sm font-medium leading-tight">Mapas Mentais</span>
+            <span class="block text-[11px] text-slate-400 mt-1 leading-snug">CAV, Justiça e NODAM</span>
+          </span>
+        </a>
 
-    <a href="flashcards-nodam.html" data-quiz-id="NODAM_FLASHCARDS" class="block bg-navy-800/60 border border-navy-700 rounded-xl px-6 py-4 mb-8 hover:border-navy-500 transition-colors">
-      <div class="flex items-center gap-4">
-        <div class="bg-navy-700 text-white p-2.5 rounded-lg shadow flex-shrink-0">
-          <i class="fa-solid fa-layer-group text-lg"></i>
-        </div>
-        <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-2">
-            <span class="block text-white font-medium">Flashcards de NODAM</span>
-            <span class="bg-emerald-900/60 text-emerald-300 border border-emerald-700 text-[10px] px-2 py-0.5 rounded-full font-medium">Novo</span>
-          </div>
-          <span class="block text-xs text-slate-400 mt-0.5">SGM-105: tipos de documentos, classificação e sigilo, documentos digitais e gestão de documentos · 34 cartas em 4 baralhos</span>
-        </div>
-        <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
-      </div>
-    </a>
+        <a href="flashcards-nodam.html" data-quiz-id="NODAM_FLASHCARDS" class="bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+          <span class="bg-navy-700 text-white w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-file-lines"></i></span>
+          <span>
+            <span class="block text-white text-sm font-medium leading-tight">Flashcards de NODAM</span>
+            <span class="block text-[11px] text-slate-400 mt-1 leading-snug">34 cartas · 4 baralhos</span>
+          </span>
+        </a>
 
-    <a href="anotacoes.html" class="block bg-navy-800/60 border border-navy-700 rounded-xl px-6 py-4 mb-8 hover:border-navy-500 transition-colors">
-      <div class="flex items-center gap-4">
-        <div class="bg-navy-700 text-white p-2.5 rounded-lg shadow flex-shrink-0">
-          <i class="fa-solid fa-pen-to-square text-lg"></i>
-        </div>
-        <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-2">
-            <span class="block text-white font-medium">Minhas Anotações</span>
-            <span class="bg-emerald-900/60 text-emerald-300 border border-emerald-700 text-[10px] px-2 py-0.5 rounded-full font-medium">Novo</span>
-          </div>
-          <span class="block text-xs text-slate-400 mt-0.5">Reveja tudo que você escreveu nas questões, reunido por matéria, num só lugar</span>
-        </div>
-        <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
+        <a href="anotacoes.html" class="bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+          <span class="bg-navy-700 text-white w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-pen-to-square"></i></span>
+          <span>
+            <span class="block text-white text-sm font-medium leading-tight">Minhas Anotações</span>
+            <span class="block text-[11px] text-slate-400 mt-1 leading-snug">Suas notas, por matéria</span>
+          </span>
+        </a>
       </div>
-    </a>
+    </section>
 
-    <!-- Grupo 1: Conhecimento Geral -->
-    <div class="bg-navy-800/80 border border-navy-700 rounded-xl overflow-hidden mb-8">
-      <button type="button" class="topic-toggle w-full flex items-center justify-between px-6 py-4" data-target="grupo-geral">
-        <span class="flex items-center gap-3 font-serif text-lg font-semibold text-white tracking-wide">
-          <i class="fa-solid fa-graduation-cap text-navy-500"></i> Conhecimento Geral
+    <!-- Banco de Questões: agrupado atrás de um único toggle -->
+    <section>
+      <button type="button" id="bank-toggle" class="w-full flex items-center justify-between gap-3 bg-navy-800/80 border border-navy-700 hover:border-navy-500 rounded-xl px-5 py-4 transition-colors">
+        <span class="flex items-center gap-3">
+          <span class="bg-navy-700 text-white w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-bars"></i>
+          </span>
+          <span class="text-left">
+            <span class="block font-serif text-lg font-semibold text-white">Banco de Questões</span>
+            <span class="block text-xs text-slate-400">14 matérias organizadas por área de conhecimento</span>
+          </span>
         </span>
-        <i class="fa-solid fa-chevron-down text-slate-400 topic-chevron transition-transform"></i>
+        <i id="bank-chevron" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
       </button>
-      <div id="grupo-geral" class="border-t border-navy-700 hidden">
-        <a href="portugues.html" data-quiz-id="PORTUGUES" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
-          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
-          <span class="flex-1 min-w-0">
-            <span class="block text-white font-medium">Língua Portuguesa</span>
-            <span class="block text-xs text-slate-400">Gramática e norma-padrão · 372 questões · 21 assuntos filtráveis</span>
-          </span>
-          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
-        </a>
 
-        <a href="historia-naval.html" data-quiz-id="HISTORIA_NAVAL" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
-          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
-          <span class="flex-1 min-w-0">
-            <span class="block text-white font-medium">História Militar Naval</span>
-            <span class="block text-xs text-slate-400">Marinha do Brasil e história marítima mundial · 483 questões · 24 tópicos filtráveis</span>
-          </span>
-          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
-        </a>
+      <div id="bank-panel" class="hidden mt-3 bg-navy-800/60 border border-navy-700 rounded-xl overflow-hidden">
+        <div class="flex gap-2 p-2 border-b border-navy-700">
+          <button type="button" class="bank-segment-btn flex-1 text-xs font-medium py-2 rounded-lg transition-all" data-segment="geral">Conhecimento Geral</button>
+          <button type="button" class="bank-segment-btn flex-1 text-xs font-medium py-2 rounded-lg transition-all" data-segment="naval">Conhecimento Militar Naval</button>
+        </div>
 
-        <a href="geografia.html" data-quiz-id="GEOGRAFIA" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
-          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
-          <span class="flex-1 min-w-0">
-            <span class="block text-white font-medium">Geografia</span>
-            <span class="block text-xs text-slate-400">Geografia geral, GECON e geopolítica (Sene &amp; Moreira) · 164 questões · 9 tópicos filtráveis</span>
-          </span>
-          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
-        </a>
+        <div id="bank-segment-geral" class="bank-segment-panel">
+          <a href="portugues.html" data-quiz-id="PORTUGUES" class="topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-white text-sm font-medium">Língua Portuguesa</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">372 questões · 21 assuntos</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="historia-naval.html" data-quiz-id="HISTORIA_NAVAL" class="topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-white text-sm font-medium">História Militar Naval</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">483 questões · 24 tópicos</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="geografia.html" data-quiz-id="GEOGRAFIA" class="topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-white text-sm font-medium">Geografia</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">164 questões · 9 tópicos</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="matematica.html" data-quiz-id="MATEMATICA" class="topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-white text-sm font-medium">Matemática</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">79 questões · 11 tópicos</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <div class="flex items-center gap-3 px-5 py-3 text-slate-500">
+            <span class="flex-1 min-w-0">
+              <span class="block font-medium text-sm">Redação</span>
+              <span class="block text-[11px]">Em breve</span>
+            </span>
+          </div>
+        </div>
 
-        <a href="matematica.html" data-quiz-id="MATEMATICA" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
-          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
-          <span class="flex-1 min-w-0">
-            <span class="block text-white font-medium">Matemática</span>
-            <span class="block text-xs text-slate-400">Provas anteriores (2017-2025) com gabarito explicado + PA, PG e Combinatória · 79 questões · 11 tópicos filtráveis</span>
-          </span>
-          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
-        </a>
-
-        <div class="flex items-center gap-4 px-6 py-4 text-slate-500">
-          <span class="w-6 h-6 rounded border-2 border-dashed border-slate-600 flex-shrink-0"></span>
-          <span class="flex-1 min-w-0">
-            <span class="block font-medium">Redação</span>
-            <span class="block text-xs">Em breve</span>
-          </span>
+        <div id="bank-segment-naval" class="bank-segment-panel hidden">
+          <a href="caaml-703.html" data-quiz-id="CAAML-703" class="topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-white text-sm font-medium">Embarcações Miúdas &amp; Segurança</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">65 questões</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="cerimonial.html" data-quiz-id="CERIMONIAL" class="topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-white text-sm font-medium">Cerimonial da Marinha</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">280 questões</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="rosas-virtudes.html" data-quiz-id="ROSAS_VIRTUDES" class="topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-white text-sm font-medium">Rosas das Virtudes</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">30 questões</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="lideranca-atributos.html" data-quiz-id="LIDERANCA_ATRIBUTOS" class="topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-white text-sm font-medium">Liderança — Atributos</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">25 questões</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="justica-disciplina.html" data-quiz-id="JUSTICA_DISCIPLINA" class="topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-white text-sm font-medium">Justiça e Disciplina</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">147 questões · 11 tópicos</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="lideranca.html" data-quiz-id="LIDERANCA" class="topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-white text-sm font-medium">Liderança</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">185 questões · 7 tópicos</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="ogsa.html" data-quiz-id="OGSA" class="topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-white text-sm font-medium">OGSA</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">211 questões · 13 tópicos</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="camaal-cav.html" data-quiz-id="CAMAAL_CAV" class="topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-white text-sm font-medium">CAMAAL 1202 (CAV)</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">122 questões · 6 tópicos</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="estatuto-rdm.html" data-quiz-id="ESTATUTO_RDM" class="topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-white text-sm font-medium">Estatuto dos Militares &amp; RDM</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">25 questões · 2 tópicos</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="pem2040.html" data-quiz-id="PEM2040" class="topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-white text-sm font-medium">PEM-2040</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">55 questões · 5 tópicos</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <div class="flex items-center gap-3 px-5 py-3 text-slate-500">
+            <span class="flex-1 min-w-0">
+              <span class="block font-medium text-sm">Novas matérias em breve</span>
+            </span>
+          </div>
         </div>
       </div>
-    </div>
-
-    <!-- Grupo 2: Conhecimento Militar Naval -->
-    <div class="bg-navy-800/80 border border-navy-700 rounded-xl overflow-hidden">
-      <button type="button" class="topic-toggle w-full flex items-center justify-between px-6 py-4" data-target="grupo-naval">
-        <span class="flex items-center gap-3 font-serif text-lg font-semibold text-white tracking-wide">
-          <i class="fa-solid fa-anchor text-navy-500"></i> Conhecimento Militar Naval
-        </span>
-        <i class="fa-solid fa-chevron-down text-slate-400 topic-chevron transition-transform"></i>
-      </button>
-      <div id="grupo-naval" class="border-t border-navy-700 hidden">
-        <a href="caaml-703.html" data-quiz-id="CAAML-703" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
-          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
-          <span class="flex-1 min-w-0">
-            <span class="block text-white font-medium">Embarcações Miúdas &amp; Segurança</span>
-            <span class="block text-xs text-slate-400">Apresentação Marinheira · 65 questões · Modo estudo e modo prova</span>
-          </span>
-          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
-        </a>
-
-        <a href="cerimonial.html" data-quiz-id="CERIMONIAL" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
-          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
-          <span class="flex-1 min-w-0">
-            <span class="block text-white font-medium">Cerimonial da Marinha</span>
-            <span class="block text-xs text-slate-400">Honras, continências e visitas · 280 questões · Filtro por assunto</span>
-          </span>
-          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
-        </a>
-
-        <a href="rosas-virtudes.html" data-quiz-id="ROSAS_VIRTUDES" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
-          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
-          <span class="flex-1 min-w-0">
-            <span class="block text-white font-medium">Rosas das Virtudes</span>
-            <span class="block text-xs text-slate-400">Valores e virtudes militares · 30 questões</span>
-          </span>
-          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
-        </a>
-
-        <a href="lideranca-atributos.html" data-quiz-id="LIDERANCA_ATRIBUTOS" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
-          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
-          <span class="flex-1 min-w-0">
-            <span class="block text-white font-medium">Liderança — Atributos</span>
-            <span class="block text-xs text-slate-400">Atributos do líder militar · 25 questões</span>
-          </span>
-          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
-        </a>
-
-        <a href="justica-disciplina.html" data-quiz-id="JUSTICA_DISCIPLINA" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
-          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
-          <span class="flex-1 min-w-0">
-            <span class="block text-white font-medium">Justiça e Disciplina</span>
-            <span class="block text-xs text-slate-400">DGPM-315: Sindicância, IPM, Deserção, Prisão em Flagrante · 147 questões · 11 tópicos filtráveis</span>
-          </span>
-          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
-        </a>
-
-        <a href="lideranca.html" data-quiz-id="LIDERANCA" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
-          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
-          <span class="flex-1 min-w-0">
-            <span class="block text-white font-medium">Liderança</span>
-            <span class="block text-xs text-slate-400">Fundamentos de liderança militar (EMA-137) · 185 questões · 7 tópicos filtráveis</span>
-          </span>
-          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
-        </a>
-
-        <a href="ogsa.html" data-quiz-id="OGSA" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
-          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
-          <span class="flex-1 min-w-0">
-            <span class="block text-white font-medium">OGSA</span>
-            <span class="block text-xs text-slate-400">Organização Geral do Serviço na Marinha · 211 questões · 13 tópicos filtráveis</span>
-          </span>
-          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
-        </a>
-
-        <a href="camaal-cav.html" data-quiz-id="CAMAAL_CAV" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
-          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
-          <span class="flex-1 min-w-0">
-            <span class="block text-white font-medium">CAMAAL 1202 (CAV)</span>
-            <span class="block text-xs text-slate-400">Controle de Avarias (CAAML-1201/1202) · 122 questões · 6 tópicos filtráveis</span>
-          </span>
-          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
-        </a>
-
-        <a href="estatuto-rdm.html" data-quiz-id="ESTATUTO_RDM" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
-          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
-          <span class="flex-1 min-w-0">
-            <span class="block text-white font-medium">Estatuto dos Militares &amp; RDM</span>
-            <span class="block text-xs text-slate-400">Estatuto dos Militares e Regulamento Disciplinar · 25 questões · 2 tópicos filtráveis</span>
-          </span>
-          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
-        </a>
-
-        <a href="pem2040.html" data-quiz-id="PEM2040" class="topic-row flex items-center gap-4 px-6 py-4 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
-          <span class="w-6 h-6 rounded border-2 border-slate-500 flex-shrink-0"></span>
-          <span class="flex-1 min-w-0">
-            <span class="block text-white font-medium">PEM-2040</span>
-            <span class="block text-xs text-slate-400">Plano Estratégico da Marinha 2040 · 55 questões · 5 tópicos filtráveis</span>
-          </span>
-          <i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>
-        </a>
-
-        <div class="flex items-center gap-4 px-6 py-4 text-slate-500">
-          <span class="w-6 h-6 rounded border-2 border-dashed border-slate-600 flex-shrink-0"></span>
-          <span class="flex-1 min-w-0">
-            <span class="block font-medium">Novas matérias em breve</span>
-          </span>
-        </div>
-      </div>
-    </div>
+    </section>
   </main>
 
   <footer class="max-w-5xl w-full mx-auto px-6 pb-8 text-center text-[11px] text-slate-500">
@@ -582,25 +522,32 @@
     }
 
     window.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.topic-toggle').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const target = document.getElementById(btn.getAttribute('data-target'));
-          const chevron = btn.querySelector('.topic-chevron');
-          const isOpening = target.classList.contains('hidden');
+      const bankToggle = document.getElementById('bank-toggle');
+      const bankPanel = document.getElementById('bank-panel');
+      const bankChevron = document.getElementById('bank-chevron');
 
-          document.querySelectorAll('.topic-toggle').forEach(otherBtn => {
-            const otherTarget = document.getElementById(otherBtn.getAttribute('data-target'));
-            const otherChevron = otherBtn.querySelector('.topic-chevron');
-            if (otherTarget && otherTarget !== target) {
-              otherTarget.classList.add('hidden');
-              if (otherChevron) otherChevron.classList.remove('rotate-180');
-            }
-          });
-
-          if (target) target.classList.toggle('hidden', !isOpening);
-          if (chevron) chevron.classList.toggle('rotate-180', isOpening);
-        });
+      bankToggle.addEventListener('click', () => {
+        const isOpening = bankPanel.classList.contains('hidden');
+        bankPanel.classList.toggle('hidden', !isOpening);
+        bankChevron.classList.toggle('rotate-180', isOpening);
       });
+
+      const segmentActiveCls = 'bank-segment-btn flex-1 text-xs font-medium py-2 rounded-lg transition-all bg-navy-600 text-white';
+      const segmentInactiveCls = 'bank-segment-btn flex-1 text-xs font-medium py-2 rounded-lg transition-all text-slate-400 hover:text-white';
+
+      function setSegment(segment) {
+        document.querySelectorAll('.bank-segment-btn').forEach(btn => {
+          btn.className = btn.getAttribute('data-segment') === segment ? segmentActiveCls : segmentInactiveCls;
+        });
+        document.getElementById('bank-segment-geral').classList.toggle('hidden', segment !== 'geral');
+        document.getElementById('bank-segment-naval').classList.toggle('hidden', segment !== 'naval');
+      }
+
+      document.querySelectorAll('.bank-segment-btn').forEach(btn => {
+        btn.addEventListener('click', () => setSegment(btn.getAttribute('data-segment')));
+      });
+
+      setSegment('geral');
 
       sb.auth.onAuthStateChange((event, session) => {
         if (event === 'PASSWORD_RECOVERY') {
