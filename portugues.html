@@ -275,11 +275,8 @@
             <label for="note-textarea" class="flex items-center gap-2 text-sm font-bold text-slate-200">
               <i class="fa-solid fa-pen-to-square text-navy-500"></i> Minha Anotação
             </label>
-            <button onclick="exportNotes()" class="text-xs text-slate-400 hover:text-white flex items-center gap-1.5 transition-colors" title="Baixar todas as suas anotações desta matéria">
-              <i class="fa-solid fa-file-arrow-down"></i> Exportar
-            </button>
           </div>
-          <textarea id="note-textarea" rows="3" oninput="scheduleNoteSave()" placeholder="Escreva aqui um resumo ou observação pessoal sobre esta questão..." class="w-full bg-navy-950/60 border border-navy-700 text-slate-200 text-sm rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-navy-500 resize-y"></textarea>
+          <textarea id="note-textarea" rows="3" oninput="scheduleNoteSave()" placeholder="Escreva aqui um resumo ou observação pessoal sobre esta questão..." class="w-full bg-white border border-navy-700 text-black text-sm rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-navy-500 resize-y"></textarea>
           <div class="flex items-center justify-between mt-2">
             <span id="note-status" class="text-xs text-slate-500"></span>
             <span id="note-timestamp" class="text-[11px] text-slate-500"></span>
@@ -5652,39 +5649,6 @@ const questionsData = [
         status.textContent = 'Erro ao salvar. Tente novamente.';
         status.className = 'text-xs text-rose-400';
       }
-    }
-
-    function exportNotes() {
-      const entries = Object.keys(notesCache)
-        .map(qid => ({ qid, ...notesCache[qid] }))
-        .filter(n => n.texto && n.texto.trim() !== '');
-
-      if (entries.length === 0) {
-        alert('Você ainda não tem nenhuma anotação salva nesta matéria.');
-        return;
-      }
-
-      entries.sort((a, b) => Number(a.qid) - Number(b.qid));
-
-      let content = `Minhas Anotações — Língua Portuguesa\nPlataforma de Estudos CA-AA/AFN\nExportado em ${new Date().toLocaleString('pt-BR')}\n\n`;
-      entries.forEach(n => {
-        const q = questionsData.find(qq => String(qq.id) === n.qid);
-        content += `Questão #${n.qid}${q ? ' — ' + q.subject : ''}\n`;
-        if (q) content += `${q.text}\n`;
-        content += `\nMinha anotação: ${n.texto}\n`;
-        if (n.atualizado_em) content += `(editado em ${new Date(n.atualizado_em).toLocaleString('pt-BR')})\n`;
-        content += `\n${'-'.repeat(40)}\n\n`;
-      });
-
-      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'minhas-anotacoes-portugues.txt';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
     }
 
     function selectOption(optIndex) {
