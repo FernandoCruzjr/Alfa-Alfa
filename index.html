@@ -125,9 +125,6 @@
         <h2 class="font-serif text-2xl md:text-3xl font-semibold text-white">Painel de Estudos</h2>
         <p class="text-sm text-slate-400 mt-1 max-w-[54ch]">Seu progresso fica salvo automaticamente na sua conta.</p>
       </div>
-      <div class="inline-flex items-center gap-2 bg-navy-800/70 border border-navy-700 rounded-lg px-3.5 py-2 text-xs text-navy-100 font-mono tracking-tight shrink-0">
-        <i class="fa-solid fa-layer-group text-cyan-400"></i> 2.243 questões · 14 matérias
-      </div>
     </div>
 
     <!-- Prova Simulada: destaque isolado, fora do Banco de Questões -->
@@ -544,30 +541,10 @@
 
       document.querySelectorAll('[data-quiz-id]').forEach(card => {
         const quizId = card.getAttribute('data-quiz-id');
-        const isFlashcard = card.classList.contains('flashcard-row');
         if (!liberadas.has(quizId)) {
-          if (isFlashcard) {
-            lockFlashcardRow(card);
-          } else {
-            card.classList.add('hidden');
-          }
+          card.classList.add('hidden');
         }
       });
-    }
-
-    function lockFlashcardRow(row) {
-      row.classList.add('opacity-60', 'pointer-events-none');
-      const iconWrap = row.querySelector('.flashcard-lock-icon');
-      if (iconWrap) {
-        iconWrap.classList.remove('text-emerald-400');
-        iconWrap.classList.add('text-slate-500');
-        iconWrap.innerHTML = '<i class="fa-solid fa-lock"></i>';
-      }
-      const badge = document.createElement('span');
-      badge.className = 'text-[10px] text-slate-500 border border-slate-600 rounded-full px-2 py-0.5 flex-shrink-0';
-      badge.textContent = 'Bloqueado';
-      const chevron = row.querySelector('.fa-chevron-right');
-      if (chevron) row.insertBefore(badge, chevron);
     }
 
     function showAccessScreen() {
