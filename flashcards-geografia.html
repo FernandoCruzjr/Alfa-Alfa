@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geografia · Flashcards — Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Flashcards de Geografia para concursos, organizados em 10 decks temáticos, com modo de estudo por repetição e acompanhamento de domínio por assunto.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: { 800: '#0B192C', 900: '#000F26', 700: '#1E3E62', 600: '#1E56A0', 500: '#0066CC', 100: '#E6F0FA' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes access-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes card-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .card-in { animation: card-in .25s ease-out; }
+    @media (prefers-reduced-motion: reduce) { #access-card, .card-in { animation: none !important; } }
+    button:focus-visible, [role="button"]:focus-visible { outline: 2px solid #2384d6; outline-offset: 2px; }
+
+    .flip-scene { perspective: 1600px; }
+    .flip-card {
+      position: relative; width: 100%; height: 100%;
+      transform-style: preserve-3d; transition: transform .5s cubic-bezier(.4,.2,.2,1);
+    }
+    .flip-card.flipped { transform: rotateY(180deg); }
+    .flip-face {
+      position: absolute; inset: 0; backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 20px; padding: 2rem;
+      text-align: center;
+    }
+    .flip-front { background: linear-gradient(160deg,#0f2543,#0b1b30); border: 1px solid #284b6d; }
+    .flip-back { background: linear-gradient(160deg,#12305a,#0c2140); border: 1px solid #2f5c8a; transform: rotateY(180deg); }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">⚓</div>
+      <div class="font-serif font-semibold text-[26px] text-white tracking-tight">Geografia · Flashcards</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial para acessar os flashcards.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-white text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+
+      <div id="gate-no-access" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-lock text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Você ainda não tem acesso liberado a Geografia. Fale com o administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+
+      <div class="text-[11px] text-[#7895b5] mt-6 pt-4 border-t border-[#1c3a5c] w-full">Geografia para Concursos</div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-navy-900 border-b border-navy-700 sticky top-0 z-30 shadow-lg">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="bg-navy-600 text-white p-2.5 rounded-lg shadow">
+          <i class="fa-solid fa-layer-group text-2xl"></i>
+        </div>
+        <div>
+          <h1 class="font-serif text-xl font-semibold text-white tracking-wide">Flashcards de Geografia</h1>
+          <p class="text-xs text-slate-400">10 decks temáticos · assuntos mais cobrados em prova (2017–2025)</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="geografia.html" class="bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 hover:border-navy-500 transition-colors">
+          <i class="fa-solid fa-arrow-left"></i> Voltar ao simulado
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-6xl w-full mx-auto px-4 py-8">
+
+    <!-- VISÃO DE DECKS -->
+    <section id="deck-view">
+      <div class="mb-6">
+        <h2 class="font-serif text-2xl font-semibold text-white">Escolha um deck para estudar</h2>
+        <p class="text-sm text-slate-400 mt-1">Cada card mostra uma pergunta na frente e a resposta no verso. Toque no card para virar.</p>
+      </div>
+      <div id="deck-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    </section>
+
+    <!-- VISÃO DE ESTUDO -->
+    <section id="study-view" class="hidden">
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+        <button onclick="backToDecks()" class="text-xs text-slate-300 hover:text-white flex items-center gap-1.5">
+          <i class="fa-solid fa-arrow-left"></i> Todos os decks
+        </button>
+        <div class="flex items-center gap-2">
+          <span id="deck-title" class="font-serif text-lg text-white"></span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="shuffleDeck()" class="bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg hover:border-navy-500 transition-colors">
+            <i class="fa-solid fa-shuffle mr-1"></i> Embaralhar
+          </button>
+          <button onclick="resetMastered()" class="bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg hover:border-navy-500 transition-colors">
+            <i class="fa-solid fa-rotate-left mr-1"></i> Reiniciar domínio
+          </button>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <div class="flex justify-between text-xs text-slate-400 mb-1">
+          <span id="card-counter">Card 1 de 1</span>
+          <span id="mastered-counter">0 dominados</span>
+        </div>
+        <div class="w-full h-2 bg-navy-800 rounded-full overflow-hidden border border-navy-700">
+          <div id="progress-bar" class="h-full bg-navy-500 transition-all" style="width:0%"></div>
+        </div>
+      </div>
+
+      <div class="flip-scene h-[320px] sm:h-[360px] max-w-2xl mx-auto card-in" id="flip-scene" onclick="flipCard()">
+        <div class="flip-card" id="flip-card">
+          <div class="flip-face flip-front">
+            <div>
+              <div class="text-[10px] uppercase tracking-widest text-navy-100/60 mb-3">Pergunta</div>
+              <p id="card-front-text" class="text-lg sm:text-xl font-medium text-white leading-snug"></p>
+              <div class="text-[11px] text-slate-400 mt-5"><i class="fa-solid fa-hand-pointer mr-1"></i>toque para ver a resposta</div>
+            </div>
+          </div>
+          <div class="flip-face flip-back">
+            <div>
+              <div class="text-[10px] uppercase tracking-widest text-navy-100/60 mb-3">Resposta</div>
+              <p id="card-back-text" class="text-base sm:text-lg text-slate-100 leading-relaxed"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-2xl mx-auto mt-6 flex items-center justify-between gap-3">
+        <button onclick="prevCard()" class="bg-navy-800 border border-navy-700 text-slate-200 h-11 px-4 rounded-lg hover:border-navy-500 transition-colors">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button onclick="toggleMastered()" id="mastered-btn" class="flex-1 h-11 rounded-lg border text-sm font-semibold transition-colors flex items-center justify-center gap-2">
+          <i class="fa-solid fa-check"></i> <span>Marcar como dominado</span>
+        </button>
+        <button onclick="nextCard()" class="bg-navy-800 border border-navy-700 text-slate-200 h-11 px-4 rounded-lg hover:border-navy-500 transition-colors">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+      <p class="text-center text-[11px] text-slate-500 mt-4">Atalhos: barra de espaço vira o card · setas ← → navegam · M marca como dominado</p>
+    </section>
+  </main>
+
+  <footer class="border-t border-navy-800 py-4 text-center text-[11px] text-slate-500">
+    Flashcards de Geografia — Plataforma de Estudos CA-AA/AFN
+  </footer>
+
+  <script>
+    // ---------------- Supabase (mesmo gate do simulado) ----------------
+    const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const QUIZ_ID = 'GEOGRAFIA_FLASHCARDS';
+    let currentUser = null;
+
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending', 'gate-no-access'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    async function onUserAuthenticated() {
+      const { data: perfil } = await sb.from('profiles').select('aprovado').eq('id', currentUser.id).maybeSingle();
+      const aprovado = perfil ? perfil.aprovado : false;
+      if (!aprovado) { showGate('gate-pending'); return; }
+
+      const { data: acesso } = await sb.from('acessos').select('quiz_id').eq('user_id', currentUser.id).eq('quiz_id', QUIZ_ID).maybeSingle();
+      if (!acesso) { showGate('gate-no-access'); return; }
+
+      document.getElementById('access-screen').classList.add('hidden');
+      initApp();
+    }
+
+    function showAccessScreen() { showGate('gate-logged-out'); }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      sb.auth.onAuthStateChange((event, session) => {
+        if (session && session.user) {
+          currentUser = session.user;
+          onUserAuthenticated();
+        } else if (event === 'SIGNED_OUT' || event === 'INITIAL_SESSION') {
+          currentUser = null;
+          showAccessScreen();
+        }
+      });
+    });
+
+    // ---------------- Dados dos decks ----------------
+    const DECKS = [
+      {
+        id: 'organismos',
+        name: 'Organismos Internacionais e Sistema Monetário',
+        icon: 'fa-landmark',
+        desc: 'ONU, Bretton Woods, FMI, GATT/OMC, OPEP, OCDE, G20, indicadores',
+        cards: [
+          ["O que foi a Conferência de Bretton Woods (1944)?", "Reunião convocada por EUA e Reino Unido que criou o FMI e o Banco Mundial (BIRD) e estabeleceu o dólar-ouro como padrão monetário internacional do pós-guerra."],
+          ["O que definiu a Conferência de Yalta (1945)?", "Reuniu EUA, URSS e Reino Unido antes do fim da 2ª Guerra para definir as áreas de influência das potências vencedoras no pós-guerra."],
+          ["O que foi decidido na Conferência de Potsdam (1945)?", "Reorganizou administrativamente a Alemanha derrotada, dividindo-a (e Berlim) em zonas de ocupação controladas pelos Aliados."],
+          ["O que originou a Conferência de São Francisco (1945)?", "Reuniu 51 países e aprovou a Carta das Nações Unidas, criando a ONU."],
+          ["O que foi a Conferência de Bandung (1955)?", "Reuniu nações recém-independentes da Ásia e África; lançou as bases do Movimento dos Países Não Alinhados (terceiro-mundismo)."],
+          ["Qual o objetivo da ONU e o que ela substituiu?", "Preservar a paz e a segurança mundial e promover cooperação internacional; substituiu a Liga das Nações. Sede em Nova York."],
+          ["Como é composto o Conselho de Segurança da ONU e qual seu poder?", "15 membros (5 permanentes + 10 eleitos por 2 anos); pode sancionar, cortar relações diplomáticas, bloquear economicamente e autorizar uso de força militar."],
+          ["O que é o FMI e qual seu papel principal?", "Fundo Monetário Internacional; concede empréstimos a países com dificuldades no balanço de pagamentos, geralmente exigindo ajustes fiscais."],
+          ["O que é o BIRD?", "Banco Internacional de Reconstrução e Desenvolvimento — braço do 'Banco Mundial' focado em financiar reconstrução e desenvolvimento."],
+          ["O que é a AID (Associação Internacional de Desenvolvimento)?", "Criada em 1960; concede empréstimos sem juros e assistência técnica aos 81 países mais pobres do mundo."],
+          ["O que foi o GATT e quando foi criado?", "Acordo Geral de Tarifas e Comércio (1947); buscava reduzir barreiras ao comércio internacional por meio de rodadas de negociação."],
+          ["O que substituiu o GATT e quando?", "A OMC (Organização Mundial do Comércio), criada em 1995, após a Rodada Uruguai."],
+          ["O que foi a Rodada Uruguai do GATT?", "Rodada (1986-1994) que ampliou o escopo do acordo para agricultura, serviços e propriedade intelectual, originando a OMC."],
+          ["O que é a OPEP e quando foi criada?", "Organização dos Países Exportadores de Petróleo (1960); formada majoritariamente por países árabes para romper o oligopólio das 'sete irmãs'."],
+          ["O que é a OCDE?", "Reúne economias desenvolvidas comprometidas com livre mercado e democracia, com participação crescente de emergentes (BRICS)."],
+          ["O que é o G-20 financeiro e por que foi criado?", "Reúne as maiores economias desenvolvidas e emergentes; fortalecido após crises financeiras (1997-2008) para discutir regulação econômica global."],
+          ["O que é a OTAN e quando foi criada?", "Organização do Tratado do Atlântico Norte (1949), aliança militar ocidental da Guerra Fria."],
+          ["O que foi o Pacto de Varsóvia?", "Aliança militar dos países do bloco soviético (1955), criada em resposta à OTAN."],
+          ["O que representa a sigla ESG?", "Environment, Social and Governance — critérios de sustentabilidade usados para avaliar empresas, não é organismo financeiro internacional."],
+          ["Qual a diferença entre PIB e PNB?", "PIB mede a produção dentro do território nacional, independente da nacionalidade; PNB considera a produção de nacionais mesmo fora do país."],
+          ["O que mede o IDH e quem o criou?", "Índice de Desenvolvimento Humano (ONU, anos 1990); combina renda, educação e longevidade."],
+          ["O que mede o Índice de Gini?", "A concentração de renda de uma sociedade, variando de 0 (igualdade perfeita) a 1 (desigualdade máxima)."],
+          ["O que são as agências de rating (S&P, Moody's, Fitch)?", "Avaliam o risco de crédito de empresas e países numa escala de AAA a D, orientando investidores privados; não são subordinadas a bancos centrais."],
+          ["O que motivou o fortalecimento do G-20 em 2008?", "A crise financeira originada nos EUA (subprime) exigiu maior coordenação entre economias desenvolvidas e emergentes."],
+          ["Por que a desregulamentação financeira dos anos 1980 é apontada como causa de crises mais frequentes?", "Ampliou a liberdade de circulação do capital especulativo, tornando os sistemas financeiros mais vulneráveis a crises internacionais."]
+        ]
+      },
+      {
+        id: 'producao',
+        name: 'Globalização e Modelos de Produção',
+        icon: 'fa-industry',
+        desc: 'Taylorismo, Fordismo, Toyotismo, acumulação flexível, etapas do capitalismo',
+        cards: [
+          ["O que caracteriza o Taylorismo?", "Organização científica do trabalho: cronometragem de tarefas e especialização extrema do operário em uma única etapa da produção."],
+          ["O que caracteriza o Fordismo?", "Aplica os princípios tayloristas à linha de montagem (esteira móvel); produção em massa, padronizada, com formação de grandes estoques."],
+          ["Por que o Fordismo entrou em crise nos anos 1970?", "Esgotamento do modelo, choques do petróleo (1973/1979) e queda de produtividade, associados à crise do Estado de Bem-Estar Social."],
+          ["O que caracteriza o Toyotismo?", "Flexibilização da produção; operário polivalente, produção sob encomenda, sistema just in time (estoque mínimo)."],
+          ["O que é o sistema just in time?", "Produção conforme a demanda real, eliminando grandes estoques ('estoque zero')."],
+          ["O que é o Kanban?", "Sistema de cartões/sinalização visual que controla o fluxo de produção e reposição de peças no toyotismo."],
+          ["O que é 'acumulação flexível' (conceito de David Harvey)?", "Conceito mais amplo que o toyotismo — flexibilização das relações de trabalho, do capital financeiro e da localização produtiva na globalização."],
+          ["Qual a relação entre acumulação flexível e desterritorialização?", "A flexibilização fragiliza as bases territoriais fixas das empresas e do trabalho, facilitando a relocalização produtiva (terceirização)."],
+          ["Quando começou a ser usado o termo 'globalização' e por quem?", "Nos anos 1980, por consultores de administração de universidades americanas, para descrever a expansão global de empresas transnacionais."],
+          ["Segundo Sene e Moreira, a globalização é análoga a quê em outras etapas do capitalismo?", "Está para o período informacional assim como o colonialismo esteve para a etapa comercial e o imperialismo para a industrial/financeira."],
+          ["O que é o 'sistema-mundo'?", "Conceito que descreve a integração de países e regiões do planeta em um único sistema econômico, típica do período informacional."],
+          ["Quais são as quatro etapas históricas do capitalismo?", "Comercial (mercantilismo), Industrial (liberalismo), Financeiro (keynesianismo) e Informacional (neoliberalismo)."],
+          ["Quais teóricos são associados ao Capitalismo Comercial e Industrial?", "Comercial → mercantilismo; Industrial → liberalismo (Adam Smith e David Ricardo)."],
+          ["Quais teóricos são associados ao Capitalismo Financeiro e Informacional?", "Financeiro → keynesianismo (John Maynard Keynes); Informacional → neoliberalismo (Milton Friedman)."],
+          ["O que é desterritorialização, segundo Haesbaert?", "Processo pelo qual as relações econômicas (financeiras e do ciberespaço) superam ou destroem barreiras e fixações territoriais tradicionais."],
+          ["A 'invasão' mais típica da globalização, segundo Sene e Moreira, é de quê?", "Dos capitais especulativos/produtivos — de alta fluidez e baixo controle por parte dos governos nacionais."],
+          ["O que caracteriza as relações de trabalho na Primeira Revolução Industrial?", "Expropriação do trabalhador de seu conhecimento e dos meios de subsistência, aumentando desigualdades socioeconômicas."],
+          ["O que caracteriza a Segunda Revolução Industrial?", "Padronização e produção em massa (fordismo/taylorismo), com forte demanda por mão de obra industrial."],
+          ["O que caracteriza a Terceira Revolução Industrial (Técnico-Científica)?", "Informatização da produção a partir dos anos 1990, aumento da competitividade global e do desemprego estrutural."],
+          ["O que é desemprego estrutural?", "Desemprego causado por mudanças permanentes na atividade produtiva (automação, reestruturação), não apenas por crises conjunturais."],
+          ["O que caracteriza o neoliberalismo como doutrina econômica?", "Defesa da livre atuação do mercado, redução da intervenção estatal e abertura comercial e financeira."],
+          ["O que é a 'sociedade em rede', segundo Manuel Castells?", "Organização social e econômica baseada na conexão informacional, articulando lugares distantes por redes de comunicação e capital."],
+          ["Como a globalização amplia as desigualdades entre territórios?", "Conecta mercados e pessoas, mas países com infraestrutura de telecomunicações insuficiente e renda baixa ficam à margem dos fluxos mais dinâmicos."],
+          ["O que caracteriza a flexibilização das relações trabalhistas recentes?", "Aumento de contratos temporários, tempo parcial e terceirização, associados à busca por redução de custos."],
+          ["Qual o papel da terceirização no capitalismo flexível?", "Transferência de atividades de uma empresa para outras, reduzindo custos fixos e responsabilidades trabalhistas diretas."]
+        ]
+      },
+      {
+        id: 'guerrafria',
+        name: 'Guerra Fria e Nova Ordem Mundial',
+        icon: 'fa-globe',
+        desc: 'Bipolaridade, Cortina de Ferro, 11/9, multipolaridade',
+        cards: [
+          ["O que foi a 'Cortina de Ferro'?", "Expressão de Winston Churchill para a fronteira ideológica que separava o Leste europeu comunista do Oeste capitalista."],
+          ["Quais alianças militares se opunham na Guerra Fria?", "OTAN (bloco ocidental, 1949) x Pacto de Varsóvia (bloco soviético, 1955)."],
+          ["O que definiu a Conferência de Potsdam para a Alemanha?", "Divisão da Alemanha (e de Berlim) em quatro zonas de ocupação militar (EUA, URSS, Reino Unido e França)."],
+          ["O que marcou o fim da Guerra Fria?", "A queda do Muro de Berlim (1989) e a dissolução da União Soviética (1991)."],
+          ["O que foram os 'milagres econômicos' da Guerra Fria?", "Altíssimas taxas de crescimento entre 1950-1980 em países como Alemanha, Itália, Japão, Coreia do Sul e Brasil."],
+          ["O que caracterizou a hegemonia dos EUA no pós-Segunda Guerra?", "Maior credor global, promotor do comércio multilateral e financiador da reconstrução europeia via Plano Marshall."],
+          ["O que foi o Plano Marshall?", "Programa de ajuda financeira dos EUA para a reconstrução da Europa Ocidental (e Japão), contendo o avanço comunista."],
+          ["Como a URSS estabeleceu sua área de influência no Leste Europeu?", "Implantou governos comunistas em países como Polônia, Hungria e Tchecoslováquia após a libertação nazista."],
+          ["O que aconteceu em 11 de setembro de 2001 e quais suas consequências?", "Ataques terroristas às Torres Gêmeas geraram a 'Doutrina Bush', a invasão do Afeganistão (2001) e do Iraque (2003)."],
+          ["O que foi a Doutrina Bush?", "Política externa dos EUA pós-11/9 que autorizava ações militares preventivas contra ameaças terroristas, mesmo sem aval da ONU."],
+          ["A invasão do Iraque em 2003 teve aprovação do Conselho de Segurança da ONU?", "Não — foi realizada sem essa aprovação, sob alegação (nunca confirmada) de armas químicas."],
+          ["O que é a 'Pax Americana'?", "Conceito que descreve a hegemonia militar e política dos EUA, reforçada após 2001 (Lei Patriota, 4ª Frota no Atlântico Sul)."],
+          ["O que caracteriza a transição para uma ordem mundial multipolar?", "Ascensão da China, fortalecimento dos BRICS e do G-20, e relativo enfraquecimento da hegemonia única dos EUA após 2008."],
+          ["Como a crise de 2007-2008 impactou a ordem mundial?", "Enfraqueceu relativamente os EUA e a Europa, favorecendo a ascensão econômica da China e de outras potências emergentes."],
+          ["O que foi a Guerra do Afeganistão (2001)?", "Invasão liderada pelos EUA em resposta ao 11/9, contra o regime Talibã que abrigava a Al-Qaeda."],
+          ["O que caracterizou a Segunda Guerra do Golfo (2003)?", "Invasão do Iraque por coalizão liderada pelos EUA, justificada por supostas armas de destruição em massa nunca encontradas."],
+          ["Como a Guerra Fria pode ser descrita quanto ao confronto direto?", "As superpotências evitaram confronto direto, disputando influência por guerras por procuração, corrida armamentista e espacial."],
+          ["O que foi a Conferência de Bandung e sua relação com a Guerra Fria?", "Lançou as bases do Movimento dos Países Não Alinhados, um 'terceiro caminho' entre capitalismo e comunismo."],
+          ["Como a queda do Muro de Berlim impactou a geopolítica europeia?", "Permitiu a reunificação da Alemanha (1990) e o fim da divisão do continente pela Cortina de Ferro."],
+          ["O que caracteriza o mundo 'unipolar' dos anos 1990-2000?", "Hegemonia praticamente incontestada dos EUA após o fim da URSS, antes da ascensão de potências como a China."],
+          ["Qual o papel da reativação da 4ª Frota Naval dos EUA no Atlântico Sul (pós-2008)?", "Sinalizou interesse renovado dos EUA na América do Sul, diante da maior presença de outras potências na região."]
+        ]
+      },
+      {
+        id: 'russia',
+        name: 'Geopolítica da Rússia e Conflitos no Oriente Médio',
+        icon: 'fa-oil-well',
+        desc: 'Rússia, Crimeia, petróleo, Guerra do Golfo',
+        cards: [
+          ["Por que o Cáucaso é estratégico para a Rússia?", "Fronteira entre o mundo eslavo-ortodoxo e o islâmico, com gasodutos/oleodutos importantes e questões de segurança nacional."],
+          ["Por que a Rússia anexou a Crimeia em 2014?", "A península abriga o porto de Sebastopol, sede da Frota do Mar Negro russa — motivo estratégico central, além de vínculos históricos."],
+          ["O que gerou tensão entre Rússia e EUA quanto ao escudo antimíssil?", "A instalação de um escudo antimísseis dos EUA na Polônia e na República Tcheca, vista pela Rússia como ameaça à sua segurança."],
+          ["Qual o interesse russo na Síria?", "Apoio ao governo de Bashar al-Assad, reforçando o projeto de retorno da Rússia ao papel de potência global no Oriente Médio."],
+          ["Por que a economia russa é considerada dependente de recursos naturais?", "Forte dependência de petróleo e gás, setores ligados ao Estado, usados até como instrumento de pressão geopolítica."],
+          ["Qual a tensão histórica entre Rússia e Ucrânia quanto à OTAN/UE?", "Preocupação russa com a possível adesão ucraniana à OTAN e à UE, ameaçando sua esfera de influência no Leste Europeu."],
+          ["O que eram as 'sete irmãs'?", "Oligopólio de grandes empresas petrolíferas ocidentais que dominava o setor antes da criação da OPEP."],
+          ["O que detonou o choque do petróleo de 1973?", "A Guerra do Yom Kippur (conflito árabe-israelense); países árabes da OPEP usaram o petróleo como arma política."],
+          ["Qual foi o impacto do choque de 1973 no preço do barril?", "Subiu de cerca de US$ 2,70 para US$ 11,20."],
+          ["O que motivou o segundo choque do petróleo (1979)?", "A Revolução Iraniana, que reduziu a oferta de petróleo no mercado internacional."],
+          ["O que caracterizou a Guerra do Golfo de 1990-91?", "O Iraque invadiu o Kuwait disputando reservas petrolíferas; intervenção liderada pelos EUA expulsou as tropas iraquianas."],
+          ["Qual a justificativa oficial (não confirmada) para a Segunda Guerra do Golfo (2003)?", "Suposta posse de armas químicas pelo Iraque — nenhuma arma foi encontrada após a invasão."],
+          ["Por que se diz que a Guerra do Iraque (2003) tinha motivação econômica oculta?", "Segundo críticos, a justificativa das armas químicas encobria o interesse em enfraquecer um rival econômico e controlar petróleo."],
+          ["Por que a diversificação da matriz energética é hoje prioridade global?", "Para reduzir dependência do petróleo por razões ambientais e de segurança energética, diante do esgotamento de jazidas."],
+          ["O que caracteriza a relação da Rússia com a Geórgia (Ossétia do Sul)?", "A Rússia interveio na crise separatista para impedir o alinhamento georgiano com o Ocidente e proteger seus interesses no Cáucaso."],
+          ["Qual a relação entre a Rússia e os gasodutos que abastecem a Europa?", "É grande fornecedora de gás à Europa e já usou cortes de fornecimento como pressão política, sobretudo após sanções ocidentais."],
+          ["O que caracteriza o conceito de 'entorno estratégico' russo?", "Regiões vizinhas (ex-repúblicas soviéticas, Leste Europeu) que a Rússia considera de interesse geopolítico vital."],
+          ["Como Turquia e Irã se relacionam com a estratégia russa no Oriente Médio?", "São parceiros regionais importantes na tentativa russa de ampliar influência e contrabalançar a presença ocidental."],
+          ["Qual o principal recurso que sustenta o poder de barganha internacional da Rússia?", "As reservas de petróleo e gás natural, fundamentais para a economia europeia."],
+          ["Por que o esgotamento de novas jazidas petrolíferas preocupa os países centrais?", "Obriga à reutilização de poços antigos e ao desenvolvimento de fontes de energia alternativas."]
+        ]
+      },
+      {
+        id: 'blocos',
+        name: 'Blocos Econômicos e Integração Regional',
+        icon: 'fa-handshake',
+        desc: 'Mercosul, IIRSA, União Europeia, Brexit, NAFTA',
+        cards: [
+          ["O que é o Tratado de Assunção (1991)?", "Criou o Mercosul, formado inicialmente por Brasil, Argentina, Uruguai e Paraguai."],
+          ["Qual a origem geopolítica do Mercosul?", "Aproximação bilateral entre Brasil e Argentina, que buscavam integração econômica e superação de rivalidades históricas."],
+          ["O Mercosul é uma união aduaneira completa?", "Não — é uma união aduaneira imperfeita, pois nem todos os produtos seguem a Tarifa Externa Comum (TEC)."],
+          ["O que é a IIRSA?", "Iniciativa para a Integração da Infraestrutura Regional Sul-Americana; estabeleceu 10 eixos prioritários de integração viária e energética."],
+          ["Cite exemplos de eixos da IIRSA.", "Eixo Interoceânico Central (Brasil, Bolívia, Paraguai, Peru, Chile) e Eixo do Amazonas."],
+          ["O que é a Rodovia Interoceânica (Brasil-Peru)?", "Eixo viário que liga o Acre ao litoral peruano, passando por Rondônia — conexão com o Oceano Pacífico."],
+          ["O que é o Corredor Interoceânico Sul-Americano?", "Liga o porto de Santos aos portos de Arica e Iquique (Chile), conectando Atlântico e Pacífico via Brasil, Bolívia e Chile."],
+          ["O que é o Gasoduto Bolívia-Brasil?", "Exemplo clássico de integração energética sul-americana, levando gás natural boliviano ao Brasil."],
+          ["O que foi a UNASUL e por que perdeu força?", "Bloco de integração política e de segurança sul-americana; perdeu relevância a partir de meados dos anos 2010 por divergências políticas."],
+          ["O que é a Aliança do Pacífico e quem a compõe?", "Chile, Colômbia, México e Peru — bloco voltado à exportação de commodities, de orientação mais liberal."],
+          ["O que foi a CECA (1951)?", "Comunidade Europeia do Carvão e do Aço — embrião da integração europeia, unindo França e Alemanha."],
+          ["O que estabeleceu o Tratado de Maastricht?", "Criou a União Europeia (1992/93), definindo a união econômica e monetária e o caminho para o euro."],
+          ["O que foi o Brexit e quando se concretizou?", "Saída do Reino Unido da União Europeia; referendo em 2016, saída oficial em 31 de janeiro de 2020."],
+          ["Quais fatores impulsionaram o Brexit?", "Sentimento antiimigração, xenofobia e temor da concorrência de trabalhadores estrangeiros no mercado britânico."],
+          ["O que é o NAFTA e quando foi criado?", "Acordo de livre-comércio entre EUA, México e Canadá, criado nos anos 1990."],
+          ["O NAFTA estabeleceu uma Tarifa Externa Comum?", "Não — é zona de livre-comércio, diferente de uma união aduaneira como o Mercosul; não há TEC nem livre circulação de pessoas."],
+          ["O que são as maquiladoras?", "Indústrias montadoras instaladas na fronteira do México com os EUA, atraídas por mão de obra barata."],
+          ["Qual o impacto da crise de 2008 nos países do NAFTA?", "Afetou fortemente Canadá e México devido à alta dependência econômica em relação aos EUA."],
+          ["O que é a SADC?", "Comunidade de Desenvolvimento da África Austral — bloco regional voltado à integração econômica e de segurança."],
+          ["O que é a APEC?", "Cooperação Econômica da Ásia e do Pacífico (1994); reduzir barreiras alfandegárias e promover desenvolvimento regional."],
+          ["Qual a diferença entre zona de livre-comércio e união aduaneira?", "Na zona de livre-comércio cada país mantém sua tarifa para terceiros; na união aduaneira há uma Tarifa Externa Comum (TEC)."],
+          ["O que caracteriza a Região Platina no Mercosul?", "Núcleo geoeconômico do bloco (Bacia do Prata), concentra as principais metrópoles e zonas agroindustriais dos membros."],
+          ["Qual o objetivo do Mercosul além do comercial?", "Constituir um espaço sul-americano integrado nos âmbitos político, social, ambiental e de infraestrutura."],
+          ["Por que a integração sul-americana é considerada uma 'tarefa árdua'?", "Envolve superar divergências políticas e diplomáticas entre países com interesses nem sempre convergentes."]
+        ]
+      },
+      {
+        id: 'africa',
+        name: 'África e Imperialismo',
+        icon: 'fa-earth-africa',
+        desc: 'Partilha colonial, IDH, China na África, Africom',
+        cards: [
+          ["O que foi a Conferência de Berlim (1884-85)?", "Partilha colonial da África entre potências europeias, sem participação de africanos — origem de fronteiras artificiais conflituosas."],
+          ["Quais as principais características do Magrebe (África Setentrional)?", "Predomínio islâmico, reservas de petróleo, gás e fosfatos, forte vínculo comercial com a Europa."],
+          ["Por que a África Subsaariana concentra baixos IDH apesar da riqueza mineral?", "Legado colonial, desigualdades estruturais e instabilidade política herdada das fronteiras artificiais."],
+          ["Quais regiões africanas se destacam na exploração petrolífera atual?", "Golfo da Guiné, Nigéria e Guiné Equatorial."],
+          ["Como a China se relaciona economicamente com a África hoje?", "Tornou-se um dos maiores parceiros comerciais, investindo em infraestrutura em troca de acesso a recursos minerais e energéticos."],
+          ["Cite países africanos com forte presença de investimentos chineses.", "Angola, Sudão e África do Sul, entre outros."],
+          ["O que é a 'terceira corrida imperialista' na África?", "Nova disputa por recursos africanos (terras, minérios) por potências emergentes e tradicionais a partir dos anos 2000."],
+          ["Qual o papel das Sociedades Geográficas europeias do século XIX na África?", "Instrumento científico de apoio ao colonialismo — mapeamento e exploração atendiam interesses das metrópoles."],
+          ["O que foi o AFRICOM e quando foi criado?", "Comando militar dos EUA para a África (2007), oficialmente antiterrorismo, mas também para conter a influência chinesa."],
+          ["Como o Brasil se relaciona economicamente com a África atualmente?", "Como parceiro comercial e colaborador do desenvolvimento (ex.: unidade da Embrapa em Gana)."],
+          ["Qual o impacto da demanda de países emergentes na economia africana?", "Modificou trocas de matérias-primas, manufaturados e serviços, aumentando o fluxo de negócios para cidades africanas."],
+          ["O que caracteriza a SADC?", "Bloco regional de integração econômica e de segurança no sul da África; a África do Sul é seu membro mais importante."],
+          ["Por que a região do Sahel enfrenta instabilidade política?", "Fronteiras herdadas do colonialismo, disputas étnicas e recursos escassos favorecem conflitos na transição deserto-savana."],
+          ["Como a guerra civil na Líbia se relaciona com interesses internacionais?", "Interesse ocidental pelo petróleo líbio e apoio a opositores de Kadafi resultaram em guerra civil e desestabilização."],
+          ["Qual a relação entre o imperialismo do século XIX e o comércio exterior africano atual?", "Muitos países ainda exportam majoritariamente commodities (padrão colonial), com pouca industrialização interna."],
+          ["Como eram financiadas as sociedades de geografia europeias?", "Por estadistas e comerciantes interessados na exploração econômica, sob discurso científico e civilizatório."],
+          ["Por que a Nigéria é caso emblemático de 'maldição dos recursos naturais'?", "Apesar da riqueza em petróleo, enfrenta desigualdade social, conflitos internos e dependência da exportação de commodities."]
+        ]
+      },
+      {
+        id: 'amazonia',
+        name: 'Amazônia e Regionalização do Brasil',
+        icon: 'fa-tree',
+        desc: 'Sudam, Zona Franca, Calha Norte, complexos regionais',
+        cards: [
+          ["O que foi a Sudam e quando surgiu?", "Superintendência do Desenvolvimento da Amazônia, criada ainda sob forte influência da economia da borracha, no 2º governo Vargas."],
+          ["Qual foi a lógica geopolítica da ocupação amazônica no Governo Militar?", "'Integrar para não entregar' — espaço de fronteira econômica, demográfica e política, com migração incentivada e rodovias."],
+          ["O que é a Zona Franca de Manaus e quando foi criada?", "Polo industrial com incentivos fiscais (1967), gerando concentração urbana e industrial pontual em meio à floresta."],
+          ["O que foi o Programa Grande Carajás?", "Grande projeto de exploração mineral com forte impacto na organização espacial do Maranhão e leste do Pará."],
+          ["O que é o Programa Calha Norte?", "Programa militar (década de 1980) de desenvolvimento e segurança ao norte dos rios Solimões e Amazonas."],
+          ["O que é a Faixa de Fronteira?", "Faixa de cerca de 150 km ao longo das fronteiras terrestres brasileiras, de vital importância à segurança nacional."],
+          ["O que é o SIPAM/SIVAM?", "Sistema de Proteção da Amazônia — rede de monitoramento (radares, satélites, sensoriamento remoto), com centro em Brasília."],
+          ["O que foi o Projeto RADAM/RADAMBRASIL?", "Mapeamento por sensoriamento remoto e aerofotogrametria, iniciado nos anos 1970 e depois estendido a todo o Brasil."],
+          ["Quem são os 'povos da floresta'?", "Indígenas, seringueiros, castanheiros, quilombolas e ribeirinhos — populações tradicionais da Amazônia."],
+          ["Por que as rodovias amazônicas são polêmicas?", "Facilitam a circulação de mercadorias e pessoas, mas são um dos principais vetores de desmatamento."],
+          ["Quais os três grandes complexos regionais definidos por Pedro Pichas Geiger (anos 1960)?", "Amazônia, Nordeste e Centro-Sul, com base em critérios geoeconômicos."],
+          ["Quais as características do Centro-Sul?", "Maior concentração industrial, setor agropecuário mais dinâmico e redes de transporte/comunicação mais densas."],
+          ["Como se divide internamente o Nordeste?", "Zona da Mata (cana-de-açúcar, indústria), Agreste (transição) e Sertão (semiárido, pecuária, irrigação no São Francisco)."],
+          ["Qual subdivisão nordestina tem irregularidade pluviométrica mas diversidade econômica?", "O Sertão — bovinos e caprinos, feijão e cana, brejos úmidos e fruticultura irrigada."],
+          ["Quais cidades industriais se destacam no Agreste/Zona da Mata nordestino?", "Campina Grande, Caruaru e Camaçari."],
+          ["Desde quando o IBGE é responsável pela divisão regional do Brasil?", "Desde os primórdios da instituição, aprofundada nos anos 1940."],
+          ["Qual a diferença entre a divisão regional atual do IBGE e as antigas?", "A atual se baseia no agrupamento de municípios, diferente das antigas divisões por agrupamento de estados."],
+          ["Por que a Amazônia é 'espaço de fronteira' em três dimensões?", "Fronteira econômica (recursos), demográfica (migração) e política (segurança), sobretudo a partir dos anos 1960."],
+          ["O que caracteriza o extrativismo como alternativa ao desmatamento?", "Aproveita produtos da floresta (látex, castanha) com aplicações industriais e farmacêuticas, sem desmatar."],
+          ["O que caracteriza uma reserva extrativista?", "Unidade de conservação de uso sustentável que permite exploração controlada por populações tradicionais."],
+          ["Como a migração inter-regional impactou a ocupação amazônica?", "O governo incentivou a vinda de populações de outras regiões (Nordeste, Sul) para colonizar a Amazônia a partir dos anos 1960-70."],
+          ["Qual a importância da Transamazônica na ocupação da região?", "Rodovia símbolo do projeto de integração nacional do Governo Militar, incentivando a colonização."]
+        ]
+      },
+      {
+        id: 'urbanizacao',
+        name: 'População, Urbanização e Migrações',
+        icon: 'fa-city',
+        desc: 'Demografia, segregação socioespacial, migração venezuelana',
+        cards: [
+          ["O que caracteriza a transição demográfica brasileira?", "Queda das taxas de mortalidade com a urbanização e revolução médico-sanitária (1940-1980), seguida pela queda da natalidade."],
+          ["O que é o envelhecimento populacional e por que preocupa o Brasil?", "Alargamento do topo da pirâmide etária (mais idosos); pressiona a Previdência Social e o sistema de saúde."],
+          ["O que é crescimento vegetativo?", "Saldo entre taxas de natalidade e mortalidade de uma população; vem desacelerando no Brasil."],
+          ["O que causa a fragmentação do espaço urbano?", "Moradia, trabalho, estudo e lazer deixam de coincidir espacialmente, gerando deslocamentos e congestionamentos."],
+          ["Qual a principal causa da segregação socioespacial nas cidades?", "A diferença socioeconômica na ocupação do solo urbano, com impacto direto na qualidade de vida."],
+          ["Os condomínios fechados resolvem o problema habitacional brasileiro?", "Não — aprofundam a fragmentação social urbana, sendo distintos das aglomerações subnormais (favelas)."],
+          ["O que caracteriza a deterioração de áreas centrais urbanas?", "Esvaziamento populacional e comercial de bairros centrais, às vezes seguido de políticas de revitalização."],
+          ["Desde quando as regiões metropolitanas são reconhecidas oficialmente no Brasil?", "Desde 1973, por lei federal; a Constituição de 1988 permitiu a estadualização desse reconhecimento."],
+          ["O que é 'ilha de calor urbana'?", "Elevação da temperatura em áreas urbanizadas em relação a áreas vizinhas, por impermeabilização do solo e verticalização."],
+          ["O que é inversão térmica e sua relação com a poluição?", "Fenômeno natural que aprisiona poluentes próximos à superfície; é agravado (não causado) pela poluição urbana."],
+          ["O que caracteriza a imigração venezuelana para o Brasil?", "Fluxo intenso via Boa Vista/Pacaraima (Roraima), motivado pela crise política e econômica na Venezuela."],
+          ["Como classificar o movimento migratório dos venezuelanos?", "Migração internacional de caráter econômico/humanitário, com forte concentração em cidades fronteiriças."],
+          ["Qual o principal impacto da imigração venezuelana em Boa Vista?", "Pressão sobre mercado de trabalho, serviços públicos e crescimento populacional do município."],
+          ["O que caracteriza a urbanização acelerada em países em desenvolvimento?", "Ocorre sem controle adequado de infraestrutura, gerando loteamentos clandestinos, muitos em áreas de risco."],
+          ["A urbanização garante acesso amplo a serviços essenciais nas metrópoles de países em desenvolvimento?", "Não necessariamente — a metrópole nem sempre estende suas possibilidades a todos os habitantes."],
+          ["O que caracteriza o 'efeito estufa' do ponto de vista ambiental urbano?", "Fenômeno natural, intensificado por ação humana (emissão de gases), com efeitos globais, não restritos a países pobres."],
+          ["Como as chuvas ácidas se formam?", "Combinação de gases poluentes (óxidos de enxofre e nitrogênio) com a umidade atmosférica — não se confundem com CFCs."],
+          ["Qual o desafio imposto pelo aumento global da urbanização?", "Exige um modelo de desenvolvimento sustentável, equilibrando crescimento urbano e qualidade de vida."],
+          ["O que caracteriza o mercado de trabalho nas transformações tecnológicas recentes?", "Exige mão de obra cada vez mais qualificada e em constante atualização, dificultando a empregabilidade dos menos qualificados."],
+          ["Segundo a OIT, qual grupo é mais afetado pelo desemprego em crises econômicas?", "Os jovens (15-24 anos) — primeiros a perder o emprego em crises, últimos a entrar no mercado na recuperação."],
+          ["Como a flexibilização trabalhista se relaciona com a terceirização?", "A desregulamentação das leis trabalhistas incentivou contratos temporários e a transferência de atividades entre empresas."],
+          ["O que caracteriza a informalidade no mercado de trabalho contemporâneo?", "Tornou-se mais complexa devido à flexibilização das relações trabalhistas nas últimas décadas."]
+        ]
+      },
+      {
+        id: 'ambiente',
+        name: 'Meio Ambiente, Energia e Antártica',
+        icon: 'fa-leaf',
+        desc: 'Conferências ambientais, SNUC, matriz energética, PROANTAR',
+        cards: [
+          ["O que foi a Conferência de Estocolmo (1972)?", "Primeira grande conferência da ONU sobre meio ambiente; expôs o antagonismo entre desenvolvimento e preservação ambiental."],
+          ["O que foi o Clube de Roma e o relatório 'Limites do Crescimento' (1972)?", "Estudo que alertava para o esgotamento dos recursos naturais caso mantido o padrão de crescimento e consumo."],
+          ["O que estabeleceu o Relatório Brundtland (1987)?", "Consolidou o conceito de desenvolvimento sustentável, conciliando crescimento econômico e proteção ambiental."],
+          ["O que resultou da Rio-92?", "A Agenda 21, além das Convenções sobre Biodiversidade e sobre Mudanças Climáticas."],
+          ["O que estabeleceu o Protocolo de Kyoto (1997)?", "Metas de redução de emissão de gases do efeito estufa para países desenvolvidos."],
+          ["O que foi a Rio+10 (Joanesburgo, 2002)?", "Conferência de acompanhamento dos compromissos da Rio-92, dez anos depois."],
+          ["O que foi a Rio+20 (2012)?", "Conferência da ONU sobre desenvolvimento sustentável no Rio de Janeiro, vinte anos após a Rio-92."],
+          ["O que é o PNUMA?", "Programa das Nações Unidas para o Meio Ambiente, criado a partir de deliberações de conferências ambientais internacionais."],
+          ["Quais as duas categorias de manejo do SNUC?", "Unidades de Proteção Integral e Unidades de Uso Sustentável."],
+          ["Cite exemplos de Unidades de Proteção Integral.", "Parque Nacional, Estação Ecológica, Reserva Biológica, Monumento Natural, Refúgio da Vida Silvestre."],
+          ["Cite exemplos de Unidades de Uso Sustentável.", "Área de Proteção Ambiental (APA), Reserva Extrativista, Floresta Nacional, Reserva da Fauna."],
+          ["Qual a principal fonte de energia primária no Brasil?", "A energia hidrelétrica, renovável, mas dependente do regime de chuvas e do nível dos reservatórios."],
+          ["O que causou a crise energética (apagão) de 2001 no Brasil?", "Baixos níveis dos reservatórios associados à falta de investimento em diversificação da matriz energética."],
+          ["O que caracterizou o 'apagão' de 2009?", "Novo problema de fornecimento de energia, apesar de medidas regulatórias após a crise de 2001."],
+          ["Por que se defende a diversificação da matriz energética brasileira?", "Para reduzir a dependência exclusiva das hidrelétricas e do regime de chuvas."],
+          ["Cite fontes renováveis de energia.", "Energia hidrelétrica, solar, eólica e biocombustíveis."],
+          ["Cite fontes não renováveis de energia.", "Petróleo, carvão mineral, gás natural, urânio e xisto betuminoso."],
+          ["O que é o Tratado da Antártica e quando entrou em vigor?", "Assinado em 1959, em vigor desde 1961; reserva a região à paz e à ciência, proibindo atividades militares e mineração."],
+          ["O que é o Protocolo de Madri?", "Instrumento de 1991 que reforça a proteção ambiental da Antártica e regula a atuação de países e indivíduos."],
+          ["O que é o PROANTAR e quando o Brasil aderiu ao Tratado da Antártica?", "Programa Antártico Brasileiro (anos 1980); o Brasil aderiu ao Tratado da Antártica em 1975."],
+          ["Por que a Antártica é relevante para o clima e o território brasileiro?", "Controla circulações atmosféricas e oceânicas do Hemisfério Sul, influenciando clima, agricultura e pesca no Brasil."],
+          ["O Tratado da Antártica permite mineração?", "Não — o Protocolo de Madri proíbe expressamente atividades de mineração na região."],
+          ["O que motivou o Brasil a criar o PROANTAR?", "Motivações científicas, geopolíticas e econômicas, dada a proximidade relativa do Brasil com o continente antártico."],
+          ["O que caracteriza as termelétricas na matriz energética brasileira?", "Complementam as hidrelétricas em períodos de estiagem, mas têm custo ambiental e econômico mais alto."],
+          ["O que caracteriza o IPCC?", "Painel Intergovernamental sobre Mudança Climática, grupo científico da ONU que avalia evidências sobre mudanças climáticas globais."]
+        ]
+      },
+      {
+        id: 'industria',
+        name: 'Indústria, Agronegócio e Indicadores no Brasil e no Mundo',
+        icon: 'fa-seedling',
+        desc: 'Industrialização brasileira, agronegócio, PIB/IDH/Gini, potências industriais',
+        cards: [
+          ["O que caracteriza a Lei Eusébio de Queirós (1850) do ponto de vista econômico?", "Tarifas do período (como a Tarifa Alves Branco) são associadas por alguns autores ao início de uma política de substituição de importações."],
+          ["Quando se acelera de fato a industrialização brasileira e por quê?", "A partir de 1930 (Era Vargas), com o Estado criando infraestrutura, indústrias de base e energia."],
+          ["O que foi a Política de Substituição de Importações (PSI)?", "Modelo com forte intervenção estatal e protecionismo, vigente com força até os anos 1980 no Brasil."],
+          ["O que caracterizou a abertura econômica no governo Collor?", "Redução de tarifas de importação e fim de reservas de mercado, expondo a indústria nacional à concorrência internacional."],
+          ["O que foi o Plano Collor (1990)?", "Confisco de depósitos bancários acima de determinado valor, redução tarifária e tentativa (frustrada) de controle da inflação."],
+          ["Quais setores foram beneficiados pela abertura econômica dos anos 1990?", "Energia, comunicações e setor bancário, com incentivos para modernização e competitividade."],
+          ["Qual o efeito ambíguo da abertura de mercado sobre a indústria brasileira?", "Modernizou o parque industrial, mas também gerou desemprego estrutural em setores menos competitivos."],
+          ["O agronegócio brasileiro é hoje potência mundial em quê?", "O Brasil é um dos maiores produtores mundiais de alimentos, respondendo por parcela expressiva do PIB."],
+          ["Quais as principais críticas ao modelo do agronegócio?", "Concentração fundiária, uso intensivo de agrotóxicos e transgênicos, dependência de transnacionais e impactos ambientais."],
+          ["O agronegócio se restringe às atividades do campo?", "Não — envolve também atividades urbanas de industrialização, serviços e entretenimento ligadas à cadeia produtiva."],
+          ["O que caracteriza a Revolução Verde e suas críticas?", "Aumentou a produtividade com sementes melhoradas e mecanização, mas é criticada por reduzir a biodiversidade."],
+          ["Como se caracteriza a mão de obra rural diante da modernização agrícola?", "A mecanização intensa reduz a demanda por mão de obra, sobretudo a menos qualificada."],
+          ["Qual a diferença entre PIB e PNB na prática de questões de prova?", "PIB = produção dentro do território (qualquer nacionalidade); PNB = produção de agentes nacionais mesmo fora do país."],
+          ["O que mede o IDH e quais suas três dimensões?", "Longevidade, educação e renda — índice da ONU para medir bem-estar além do aspecto econômico."],
+          ["Um IDH alto garante ausência de desigualdade interna?", "Não — é uma média nacional que não capta necessariamente disparidades regionais e sociais internas."],
+          ["O que mede o Índice de Gini e como se interpreta?", "Mede a concentração de renda; quanto mais próximo de 1, maior a desigualdade."],
+          ["Por que a carga tributária brasileira é criticada quanto à justiça social?", "Predominam tributos indiretos (sobre consumo), que oneram proporcionalmente mais os mais pobres."],
+          ["O que caracterizam as agências de rating no sistema financeiro?", "Avaliam risco de crédito numa escala (AAA a D) para orientar investidores, sem vínculo com bancos centrais."],
+          ["Qual o papel do capital especulativo na economia globalizada?", "Alta fluidez e baixo controle por governos nacionais, associado a crises financeiras recorrentes."],
+          ["O que caracterizou a industrialização dos 'Tigres Asiáticos'?", "Coreia do Sul, Taiwan, Hong Kong e Singapura — industrialização acelerada com forte papel do Estado e exportação intensiva."],
+          ["Como a China mudou seu papel no comércio internacional?", "Passou de receptora de investimentos e mão de obra barata a exportadora líquida de capital e potência tecnológica."],
+          ["Como se deu a independência do subcontinente indiano em 1947?", "Partilha do domínio britânico em dois Estados: Índia (maioria hindu) e Paquistão (maioria muçulmana)."],
+          ["Qual a principal disputa territorial entre Índia e Paquistão?", "O controle da região da Caxemira, motivo de tensão constante entre dois países com armas nucleares."],
+          ["O que é o 'Vale do Silício indiano'?", "Região em torno de Bangalore, no sul da Índia, com forte concentração de investimentos em tecnologia da informação."],
+          ["Como se deu a industrialização dos Estados Unidos?", "Iniciada na primeira metade do século XIX, favorecida por recursos naturais e proximidade com o Atlântico."],
+          ["Por que surgiu o Vale do Silício nos EUA e quando?", "A partir dos anos 1970, ligado à Guerra Fria e à indústria aeroespacial/militar."],
+          ["Como ocorreu a industrialização japonesa?", "Acelerada a partir da Era Meiji (1868), com forte investimento estatal, seguida de expansão imperialista na Ásia."],
+          ["O que foram os Zaibatsus?", "Grandes conglomerados familiares japoneses (como Mitsubishi e Mitsui) que dominaram a economia até o pós-guerra."],
+          ["Como se deu a reconstrução industrial do Japão após a 2ª Guerra?", "Rápida recuperação com apoio dos EUA e manutenção de grandes grupos econômicos — um dos maiores 'milagres econômicos'."]
+        ]
+      }
+    ];
+
+    // ---------------- Estado ----------------
+    let currentDeck = null;
+    let order = [];
+    let idx = 0;
+    let flipped = false;
+
+    function masteredKey(deckId) { return `flash_mastered_${deckId}`; }
+    function getMastered(deckId) {
+      try { return new Set(JSON.parse(localStorage.getItem(masteredKey(deckId)) || '[]')); }
+      catch (e) { return new Set(); }
+    }
+    function setMastered(deckId, set) {
+      localStorage.setItem(masteredKey(deckId), JSON.stringify([...set]));
+    }
+
+    function initApp() {
+      renderDeckGrid();
+      document.getElementById('deck-view').classList.remove('hidden');
+    }
+
+    function renderDeckGrid() {
+      const grid = document.getElementById('deck-grid');
+      grid.innerHTML = '';
+      DECKS.forEach(deck => {
+        const mastered = getMastered(deck.id);
+        const total = deck.cards.length;
+        const pct = total ? Math.round((mastered.size / total) * 100) : 0;
+        const card = document.createElement('button');
+        card.className = 'text-left bg-navy-800/60 border border-navy-700 rounded-2xl p-5 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-3';
+        card.onclick = () => openDeck(deck.id);
+        card.innerHTML = `
+          <div class="flex items-center gap-3">
+            <div class="bg-navy-600 text-white w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
+              <i class="fa-solid ${deck.icon}"></i>
+            </div>
+            <div>
+              <div class="font-serif text-base text-white leading-tight">${deck.name}</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">${total} flashcards</div>
+            </div>
+          </div>
+          <p class="text-xs text-slate-400">${deck.desc}</p>
+          <div>
+            <div class="flex justify-between text-[10px] text-slate-500 mb-1">
+              <span>${mastered.size}/${total} dominados</span>
+              <span>${pct}%</span>
+            </div>
+            <div class="w-full h-1.5 bg-navy-900 rounded-full overflow-hidden">
+              <div class="h-full bg-emerald-500" style="width:${pct}%"></div>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function openDeck(deckId) {
+      currentDeck = DECKS.find(d => d.id === deckId);
+      order = currentDeck.cards.map((_, i) => i);
+      idx = 0;
+      flipped = false;
+      document.getElementById('deck-title').innerText = currentDeck.name;
+      document.getElementById('deck-view').classList.add('hidden');
+      document.getElementById('study-view').classList.remove('hidden');
+      renderCard();
+    }
+
+    function backToDecks() {
+      document.getElementById('study-view').classList.add('hidden');
+      document.getElementById('deck-view').classList.remove('hidden');
+      renderDeckGrid();
+    }
+
+    function renderCard() {
+      const cardIdx = order[idx];
+      const [front, back] = currentDeck.cards[cardIdx];
+      document.getElementById('card-front-text').innerText = front;
+      document.getElementById('card-back-text').innerText = back;
+      flipped = false;
+      document.getElementById('flip-card').classList.remove('flipped');
+
+      const total = currentDeck.cards.length;
+      document.getElementById('card-counter').innerText = `Card ${idx + 1} de ${total}`;
+
+      const mastered = getMastered(currentDeck.id);
+      document.getElementById('mastered-counter').innerText = `${mastered.size} dominados`;
+      document.getElementById('progress-bar').style.width = `${Math.round((mastered.size / total) * 100)}%`;
+
+      const btn = document.getElementById('mastered-btn');
+      if (mastered.has(cardIdx)) {
+        btn.className = 'flex-1 h-11 rounded-lg border text-sm font-semibold transition-colors flex items-center justify-center gap-2 bg-emerald-900/60 border-emerald-600 text-emerald-200';
+        btn.querySelector('span').innerText = 'Dominado ✓';
+      } else {
+        btn.className = 'flex-1 h-11 rounded-lg border text-sm font-semibold transition-colors flex items-center justify-center gap-2 bg-navy-800 border-navy-700 text-slate-200 hover:border-navy-500';
+        btn.querySelector('span').innerText = 'Marcar como dominado';
+      }
+    }
+
+    function flipCard() {
+      flipped = !flipped;
+      document.getElementById('flip-card').classList.toggle('flipped', flipped);
+    }
+
+    function nextCard() {
+      idx = (idx + 1) % order.length;
+      renderCard();
+    }
+    function prevCard() {
+      idx = (idx - 1 + order.length) % order.length;
+      renderCard();
+    }
+
+    function shuffleDeck() {
+      for (let i = order.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [order[i], order[j]] = [order[j], order[i]];
+      }
+      idx = 0;
+      renderCard();
+    }
+
+    function toggleMastered() {
+      const cardIdx = order[idx];
+      const mastered = getMastered(currentDeck.id);
+      if (mastered.has(cardIdx)) mastered.delete(cardIdx);
+      else mastered.add(cardIdx);
+      setMastered(currentDeck.id, mastered);
+      renderCard();
+    }
+
+    function resetMastered() {
+      if (confirm('Reiniciar o progresso de domínio deste deck?')) {
+        setMastered(currentDeck.id, new Set());
+        renderCard();
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      const locked = !document.getElementById('access-screen').classList.contains('hidden');
+      if (locked) return;
+      const studyVisible = !document.getElementById('study-view').classList.contains('hidden');
+      if (!studyVisible) return;
+      if (e.key === ' ') { e.preventDefault(); flipCard(); }
+      else if (e.key === 'ArrowRight') { nextCard(); }
+      else if (e.key === 'ArrowLeft') { prevCard(); }
+      else if (e.key.toLowerCase() === 'm') { toggleMastered(); }
+    });
+  </script>
+</body>
+</html>
