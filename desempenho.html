@@ -597,7 +597,7 @@
     async function carregarDesempenho() {
       const { data: resultados, error } = await sb
         .from('resultados')
-        .select('quiz_id, acertos, erros, percentual, criado_em')
+        .select('id, quiz_id, acertos, erros, percentual, criado_em')
         .eq('user_id', currentUser.id)
         .order('criado_em', { ascending: false });
 
@@ -634,13 +634,51 @@
         document.getElementById('prova-indice-melhor').textContent = Math.round(melhor.percentual) + '%';
         document.getElementById('prova-trend-badge').innerHTML = trendBadge(provaAttempts);
         document.getElementById('prova-bars-chart').innerHTML = verticalBarsSVG(provaAttempts);
-        document.getElementById('prova-attempts-list').innerHTML = provaAttempts.slice().reverse().map((a, i) => `
-          <div class="flex items-center gap-3 py-1.5 border-b border-navy-700/60 last:border-0">
-            <span class="text-slate-500 w-16">${fmtDate(a.criado_em)}</span>
-            <span class="flex-1 text-slate-400">${a.acertos} acertos · ${a.erros} erros</span>
-            <span class="font-semibold ${a.percentual >= 80 ? 'text-emerald-400' : a.percentual >= 60 ? 'text-amber-400' : 'text-rose-400'}">${Math.round(a.percentual)}%</span>
-          </div>
-        `).join('');
+
+        // Detalhamento por matéria de cada tentativa (ex.: "Português 4/8")
+        const idsComResultado = provaAttempts.map(a => a.id).filter(id => id !== undefined && id !== null);
+        let breakdownByResultado = {};
+        if (idsComResultado.length > 0) {
+          const { data: detalhesProva } = await sb
+            .from('respostas_detalhadas')
+            .select('resultado_id, subject, acertou')
+            .eq('user_id', currentUser.id)
+            .eq('quiz_id', 'PROVA_SIMULADA')
+            .in('resultado_id', idsComResultado);
+
+          (detalhesProva || []).forEach(d => {
+            if (d.resultado_id === null || d.resultado_id === undefined) return;
+            if (!breakdownByResultado[d.resultado_id]) breakdownByResultado[d.resultado_id] = {};
+            if (!breakdownByResultado[d.resultado_id][d.subject]) breakdownByResultado[d.resultado_id][d.subject] = { acertos: 0, total: 0 };
+            breakdownByResultado[d.resultado_id][d.subject].total++;
+            if (d.acertou) breakdownByResultado[d.resultado_id][d.subject].acertos++;
+          });
+        }
+
+        document.getElementById('prova-attempts-list').innerHTML = provaAttempts.slice().reverse().map((a, i) => {
+          const bySubjectAttempt = breakdownByResultado[a.id];
+          let breakdownHTML = '<div class="text-[10px] text-slate-600 italic mt-1">detalhamento por matéria não disponível pra essa tentativa</div>';
+          if (bySubjectAttempt) {
+            const chips = Object.entries(bySubjectAttempt)
+              .sort((x, y) => x[0].localeCompare(y[0]))
+              .map(([subject, s]) => {
+                const pct = 100 * s.acertos / s.total;
+                const color = pct >= 70 ? 'text-emerald-400 border-emerald-700/50' : pct >= 50 ? 'text-amber-400 border-amber-700/50' : 'text-rose-400 border-rose-700/50';
+                return `<span class="inline-flex items-center gap-1 border ${color} rounded-md px-2 py-1 text-[11px]">${subject} <strong>${s.acertos}/${s.total}</strong></span>`;
+              }).join('');
+            breakdownHTML = `<div class="flex flex-wrap gap-1.5 mt-2">${chips}</div>`;
+          }
+          return `
+            <div class="py-2.5 border-b border-navy-700/60 last:border-0">
+              <div class="flex items-center gap-3">
+                <span class="text-slate-500 w-16">${fmtDate(a.criado_em)}</span>
+                <span class="flex-1 text-slate-400">${a.acertos} acertos · ${a.erros} erros</span>
+                <span class="font-semibold ${a.percentual >= 80 ? 'text-emerald-400' : a.percentual >= 60 ? 'text-amber-400' : 'text-rose-400'}">${Math.round(a.percentual)}%</span>
+              </div>
+              ${breakdownHTML}
+            </div>
+          `;
+        }).join('');
       }
 
       // ---- gauges gerais ----

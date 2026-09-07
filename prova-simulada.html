@@ -1258,7 +1258,7 @@ let questionsData = [];
       }
     }
 
-    function finishQuiz() {
+    async function finishQuiz() {
       const total = questionsData.length;
       let correct = 0;
       let answered = 0;
@@ -1291,16 +1291,18 @@ let questionsData = [];
       document.getElementById('results-modal').classList.remove('hidden');
 
       if (currentUser) {
-        sb.from('resultados').insert({
+        const { data: resultadoInserido } = await sb.from('resultados').insert({
           user_id: currentUser.id,
           quiz_id: QUIZ_ID,
           acertos: correct,
           erros: wrong,
           percentual: percent,
           respostas: userAnswers
-        }).then(() => {});
+        }).select('id').single();
 
-        // Log detalhado por questão (alimenta a análise por assunto do desempenho.html)
+        const resultadoId = resultadoInserido ? resultadoInserido.id : null;
+
+        // Log detalhado por questão (alimenta a análise por assunto e por tentativa do desempenho.html)
         const detalhes = [];
         questionsData.forEach((q, idx) => {
           if (userAnswers[idx] !== undefined) {
@@ -1309,7 +1311,8 @@ let questionsData = [];
               quiz_id: QUIZ_ID,
               subject: q.subject,
               question_id: q.id,
-              acertou: userAnswers[idx] === q.correct
+              acertou: userAnswers[idx] === q.correct,
+              resultado_id: resultadoId
             });
           }
         });
