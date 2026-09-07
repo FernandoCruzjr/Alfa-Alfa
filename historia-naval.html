@@ -7723,7 +7723,7 @@ const questionsData = [
       addAssistantMessage('user', query);
       input.value = '';
 
-      const results = assistantSearch(query, 3);
+      const results = assistantSearch(query, 100);
 
       if (results.length === 0) {
         addAssistantMessage('assistant',
