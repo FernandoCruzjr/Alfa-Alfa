@@ -7,11 +7,11 @@
   <meta name="description" content="Simulados gratuitos e interativos para o Concurso de Admissão ao Curso de Formação de Oficiais Auxiliares (CA-AA/AFN).">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <script>
     tailwind.config = {
       theme: {
@@ -520,7 +520,7 @@
     // --- Supabase: autenticação central da plataforma ---
     const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
     const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
-    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    let sb = null;
     let currentUser = null;
 
     function traduzErro(msg) {
@@ -739,6 +739,8 @@
     }
 
     window.addEventListener('DOMContentLoaded', () => {
+      sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
       // Chuva da tempestade (tela de login)
       const rainContainer = document.getElementById('rain-container');
       if (rainContainer && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
