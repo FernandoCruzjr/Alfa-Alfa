@@ -275,7 +275,16 @@
       #access-screen.exiting { animation: none !important; opacity: 0; }
     }
 
-    /* ===== Transição de saída do login: "cortina de onda" ===== */
+    /* ===== "Chrome" do cabeçalho: fica sempre navy escuro, independente do tema ===== */
+    .chrome-bg-900 { background-color: #000F26 !important; }
+    .chrome-bg-800 { background-color: #0B192C !important; }
+    .chrome-border-700 { border-color: #1E3E62 !important; }
+    .chrome-border-600 { border-color: #1E56A0 !important; }
+    .chrome-text-white { color: #FFFFFF !important; }
+    .chrome-text-slate-400 { color: #94A3B8 !important; }
+    .chrome-text-slate-200 { color: #E2E8F0 !important; }
+    .chrome-hover-border-500:hover { border-color: #0066CC !important; }
+    .chrome-hover-text-white:hover { color: #FFFFFF !important; }
     #access-screen {
       transition: none;
       position: fixed;
@@ -459,21 +468,21 @@
     </div>
   </div>
 
-  <header class="bg-navy-900 border-b border-navy-700">
+  <header class="chrome-bg-900 border-b chrome-border-700">
     <div class="max-w-5xl mx-auto px-6 py-5 flex items-center gap-3">
-      <div class="bg-navy-600 text-ink p-2.5 rounded-lg shadow">
+      <div class="bg-navy-600 chrome-text-white p-2.5 rounded-lg shadow">
         <i class="fa-solid fa-anchor text-2xl"></i>
       </div>
       <div class="flex-1">
-        <h1 class="font-serif text-xl font-semibold text-ink tracking-wide">Plataforma de Estudos</h1>
-        <p class="text-xs text-slate-400">CA-AA/AFN — Concurso de Admissão ao Curso de Formação de Oficiais Auxiliares</p>
+        <h1 class="font-serif text-xl font-semibold chrome-text-white tracking-wide">Plataforma de Estudos</h1>
+        <p class="text-xs chrome-text-slate-400">CA-AA/AFN — Concurso de Admissão ao Curso de Formação de Oficiais Auxiliares</p>
       </div>
-      <button id="theme-toggle-btn" onclick="toggleTheme()" class="bg-navy-800 border border-navy-700 hover:border-navy-500 text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors flex-shrink-0" title="Alternar entre modo claro e escuro" aria-label="Alternar tema claro/escuro">
+      <button id="theme-toggle-btn" onclick="toggleTheme()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors flex-shrink-0" title="Alternar entre modo claro e escuro" aria-label="Alternar tema claro/escuro">
         <i class="fa-solid fa-moon text-sm" id="theme-toggle-icon-moon"></i>
         <i class="fa-solid fa-sun text-sm hidden" id="theme-toggle-icon-sun"></i>
       </button>
-      <div id="user-bar" class="hidden bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2">
-        <a href="desempenho.html" class="flex items-center gap-1.5 pr-2 mr-1 border-r border-navy-600 hover:text-ink transition-colors" title="Meu Desempenho">
+      <div id="user-bar" class="hidden chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2">
+        <a href="desempenho.html" class="flex items-center gap-1.5 pr-2 mr-1 border-r chrome-border-600 chrome-hover-text-white transition-colors" title="Meu Desempenho">
           <i class="fa-solid fa-chart-simple text-navy-500"></i> <span class="hidden sm:inline">Meu Desempenho</span>
         </a>
         <i class="fa-solid fa-user text-navy-500"></i>
