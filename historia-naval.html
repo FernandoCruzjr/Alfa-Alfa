@@ -7642,6 +7642,7 @@ const questionsData = [
         <div class="chrome-text-white text-sm font-semibold">Cabo Velho do Mar</div>
         <div class="chrome-text-slate-400 text-[10px]">Assistente de História</div>
       </div>
+      <button onclick="clearAssistantChat()" class="chrome-text-slate-400 chrome-hover-text-white text-sm" title="Limpar conversa"><i class="fa-solid fa-trash-can"></i></button>
       <button onclick="toggleAssistant()" class="chrome-text-slate-400 chrome-hover-text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <div id="assistant-messages" class="flex-1 overflow-y-auto min-h-0 px-4 py-4 space-y-3 text-sm"></div>
@@ -7690,6 +7691,12 @@ const questionsData = [
       return scored.slice(0, limit);
     }
 
+    function clearAssistantChat() {
+      document.getElementById('assistant-messages').innerHTML = '';
+      addAssistantMessage('assistant',
+        'Ó BOY! Se enquadra pra falar com o Cabo Velho de Esquadra ⚓ Pode me perguntar sobre navios, comandantes, guerras e batalhas da História Naval — eu procuro no banco de questões e nas suas próprias anotações dessa matéria, e te dou o bizu de onde encontrar. Pode ficar à vontade!');
+    }
+
     function toggleAssistant() {
       const panel = document.getElementById('assistant-panel');
       const isHidden = panel.classList.contains('hidden');
@@ -7697,7 +7704,7 @@ const questionsData = [
       document.getElementById('assistant-fab-icon').className = isHidden ? 'fa-solid fa-xmark text-xl' : 'fa-solid fa-comment-dots text-xl';
       if (isHidden && document.getElementById('assistant-messages').children.length === 0) {
         addAssistantMessage('assistant',
-          'Ó da guarda! Sou o Cabo Velho do Mar ⚓ Pode me perguntar sobre navios, comandantes, guerras e batalhas da História Naval — eu procuro no banco de questões e nas suas próprias anotações dessa matéria, e te mostro o que encontrar. 🔍');
+          'Ó BOY! Se enquadra pra falar com o Cabo Velho de Esquadra ⚓ Pode me perguntar sobre navios, comandantes, guerras e batalhas da História Naval — eu procuro no banco de questões e nas suas próprias anotações dessa matéria, e te dou o bizu de onde encontrar. Pode ficar à vontade!');
         document.getElementById('assistant-input').focus();
       }
     }
