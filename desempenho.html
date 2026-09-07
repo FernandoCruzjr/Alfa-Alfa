@@ -366,6 +366,32 @@
       <p class="text-sm">Você ainda não finalizou nenhum simulado. Assim que terminar um, o resultado aparece aqui.</p>
     </div>
 
+    <!-- Prova Simulada: tentativas separadas, em destaque -->
+    <div id="prova-simulada-wrap" class="hidden mb-10">
+      <div class="flex items-center gap-2 mb-1">
+        <i class="fa-solid fa-file-pen text-navy-500"></i>
+        <h2 class="font-serif text-lg font-semibold text-ink">Prova Simulada — Histórico de Tentativas</h2>
+      </div>
+      <p class="text-xs text-slate-500 mb-4">Cada tentativa é mostrada separadamente — nada aqui é somado ou reduzido a um único índice.</p>
+      <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-5">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <div class="flex items-center gap-4">
+            <div class="text-center">
+              <div class="font-serif text-2xl font-semibold text-ink" id="prova-indice-atual">—</div>
+              <div class="text-[10px] text-slate-400 uppercase tracking-wide">Última tentativa</div>
+            </div>
+            <div class="text-center">
+              <div class="font-serif text-2xl font-semibold text-ink" id="prova-indice-melhor">—</div>
+              <div class="text-[10px] text-slate-400 uppercase tracking-wide">Melhor tentativa</div>
+            </div>
+          </div>
+          <div id="prova-trend-badge"></div>
+        </div>
+        <div id="prova-bars-chart" class="overflow-x-auto pb-1"></div>
+        <div id="prova-attempts-list" class="mt-4 space-y-1.5 text-xs"></div>
+      </div>
+    </div>
+
     <!-- Ranking -->
     <div id="ranking-wrap" class="hidden mb-10">
       <h2 class="font-serif text-lg font-semibold text-ink mb-4">Meu Desempenho — Ranking</h2>
@@ -534,6 +560,40 @@
         </svg>`;
     }
 
+    // ---- gráfico de barras verticais: uma barra por tentativa, em ordem cronológica ----
+    function verticalBarsSVG(attemptsChrono) {
+      const barW = 22, gap = 16, h = 130, padTop = 16, padBottom = 22;
+      const usableH = h - padTop - padBottom;
+      const totalW = attemptsChrono.length * (barW + gap) + gap;
+      const bars = attemptsChrono.map((a, i) => {
+        const pct = Math.max(0, Math.min(100, a.percentual));
+        const barH = Math.max(2, (pct / 100) * usableH);
+        const x = gap + i * (barW + gap);
+        const y = padTop + (usableH - barH);
+        const color = pct >= 80 ? '#34d399' : pct >= 60 ? '#fbbf24' : '#fb7185';
+        return `
+          <text x="${x + barW/2}" y="${y - 5}" text-anchor="middle" fill="#94A3B8" style="font-size:9px">${Math.round(pct)}%</text>
+          <rect x="${x}" y="${y}" width="${barW}" height="${barH}" rx="4" fill="${color}" />
+          <text x="${x + barW/2}" y="${h - 6}" text-anchor="middle" fill="#64748B" style="font-size:9px">${i + 1}ª</text>
+        `;
+      }).join('');
+      return `<svg viewBox="0 0 ${totalW} ${h}" width="${totalW}" height="${h}" style="min-width:${totalW}px">
+        <line x1="0" y1="${h - padBottom}" x2="${totalW}" y2="${h - padBottom}" stroke="#1E3E62" stroke-width="1"/>
+        ${bars}
+      </svg>`;
+    }
+
+    // ---- indicador de melhora/piora: compara a ultima tentativa com a anterior ----
+    function trendBadge(attemptsChrono) {
+      if (attemptsChrono.length < 2) return '<span class="text-[11px] text-slate-500">ainda sem histórico suficiente pra comparar</span>';
+      const prev = attemptsChrono[attemptsChrono.length - 2].percentual;
+      const last = attemptsChrono[attemptsChrono.length - 1].percentual;
+      const diff = Math.round(last - prev);
+      if (Math.abs(diff) < 1) return '<span class="text-[11px] text-slate-400 flex items-center gap-1"><i class="fa-solid fa-minus"></i> estável em relação à tentativa anterior</span>';
+      if (diff > 0) return `<span class="text-[11px] text-emerald-400 font-semibold flex items-center gap-1"><i class="fa-solid fa-arrow-trend-up"></i> melhorou ${diff} pontos em relação à tentativa anterior</span>`;
+      return `<span class="text-[11px] text-rose-400 font-semibold flex items-center gap-1"><i class="fa-solid fa-arrow-trend-down"></i> caiu ${Math.abs(diff)} pontos em relação à tentativa anterior</span>`;
+    }
+
     async function carregarDesempenho() {
       const { data: resultados, error } = await sb
         .from('resultados')
@@ -561,6 +621,27 @@
         const totalErros = attempts.reduce((s, a) => s + a.erros, 0);
         return { id, attempts, best, totalAcertos, totalErros };
       });
+
+      // ---- Prova Simulada: seção dedicada, tentativas separadas ----
+      const provaAttempts = (bySubject['PROVA_SIMULADA'] || [])
+        .slice()
+        .sort((a, b) => new Date(a.criado_em) - new Date(b.criado_em));
+      if (provaAttempts.length > 0) {
+        document.getElementById('prova-simulada-wrap').classList.remove('hidden');
+        const ultima = provaAttempts[provaAttempts.length - 1];
+        const melhor = provaAttempts.reduce((m, a) => a.percentual > m.percentual ? a : m, provaAttempts[0]);
+        document.getElementById('prova-indice-atual').textContent = Math.round(ultima.percentual) + '%';
+        document.getElementById('prova-indice-melhor').textContent = Math.round(melhor.percentual) + '%';
+        document.getElementById('prova-trend-badge').innerHTML = trendBadge(provaAttempts);
+        document.getElementById('prova-bars-chart').innerHTML = verticalBarsSVG(provaAttempts);
+        document.getElementById('prova-attempts-list').innerHTML = provaAttempts.slice().reverse().map((a, i) => `
+          <div class="flex items-center gap-3 py-1.5 border-b border-navy-700/60 last:border-0">
+            <span class="text-slate-500 w-16">${fmtDate(a.criado_em)}</span>
+            <span class="flex-1 text-slate-400">${a.acertos} acertos · ${a.erros} erros</span>
+            <span class="font-semibold ${a.percentual >= 80 ? 'text-emerald-400' : a.percentual >= 60 ? 'text-amber-400' : 'text-rose-400'}">${Math.round(a.percentual)}%</span>
+          </div>
+        `).join('');
+      }
 
       // ---- gauges gerais ----
       const totalTentativas = resultados.length;
@@ -591,7 +672,7 @@
       }
 
       // ---- ranking ----
-      const ranked = [...perSubject].sort((a, b) => b.best - a.best);
+      const ranked = [...perSubject].filter(s => s.id !== 'PROVA_SIMULADA').sort((a, b) => b.best - a.best);
       if (ranked.length >= 1) {
         document.getElementById('ranking-wrap').classList.remove('hidden');
         const medals = ['🥇', '🥈', '🥉'];
@@ -619,29 +700,43 @@
         }
       }
 
-      // ---- cards por matéria, agrupados ----
+      // ---- cards por matéria, agrupados (Prova Simulada tem seção própria acima) ----
       const geralCards = document.getElementById('grupo-geral-cards');
       const navalCards = document.getElementById('grupo-naval-cards');
       geralCards.innerHTML = '';
       navalCards.innerHTML = '';
 
-      perSubject.sort((a, b) => quizLabel(a.id).localeCompare(quizLabel(b.id))).forEach(s => {
-        const c = classify(s.best);
-        const last = s.attempts[0];
-        const card = document.createElement('div');
-        card.className = 'bg-navy-800/80 border border-navy-700 rounded-xl p-5 shadow-lg flex flex-col items-center text-center gap-3';
-        card.innerHTML = `
-          <h3 class="font-serif text-base font-semibold text-ink">${quizLabel(s.id)}</h3>
-          ${gaugeSVG(s.best, { size: 88 })}
-          <div class="text-xs font-semibold ${c.text}">${c.label}</div>
-          <div class="text-[11px] text-slate-400">
-            ${s.attempts.length} tentativa${s.attempts.length > 1 ? 's' : ''} ·
-            ${s.totalAcertos} acertos · ${s.totalErros} erros
-          </div>
-          <div class="text-[10px] text-slate-500">última em ${fmtDate(last.criado_em)}</div>
-        `;
-        (quizGroup(s.id) === 'geral' ? geralCards : navalCards).appendChild(card);
-      });
+      perSubject
+        .filter(s => s.id !== 'PROVA_SIMULADA')
+        .sort((a, b) => quizLabel(a.id).localeCompare(quizLabel(b.id)))
+        .forEach(s => {
+          const chrono = s.attempts.slice().sort((a, b) => new Date(a.criado_em) - new Date(b.criado_em));
+          const atual = chrono[chrono.length - 1];
+          const c = classify(atual.percentual);
+          const card = document.createElement('div');
+          card.className = 'bg-navy-800/80 border border-navy-700 rounded-xl p-5 shadow-lg flex flex-col gap-3';
+          card.innerHTML = `
+            <h3 class="font-serif text-base font-semibold text-ink text-center">${quizLabel(s.id)}</h3>
+            <div class="flex items-center justify-center gap-6">
+              <div class="text-center">
+                <div class="font-serif text-2xl font-semibold ${c.text}">${Math.round(atual.percentual)}%</div>
+                <div class="text-[10px] text-slate-400 uppercase tracking-wide">Índice atual</div>
+              </div>
+              <div class="text-center">
+                <div class="font-serif text-2xl font-semibold text-ink">${Math.round(s.best)}%</div>
+                <div class="text-[10px] text-slate-400 uppercase tracking-wide">Melhor</div>
+              </div>
+            </div>
+            <div class="text-center">${trendBadge(chrono)}</div>
+            <div class="overflow-x-auto pb-1 flex justify-center">${verticalBarsSVG(chrono)}</div>
+            <div class="text-[11px] text-slate-400 text-center">
+              ${s.attempts.length} tentativa${s.attempts.length > 1 ? 's' : ''} ·
+              ${s.totalAcertos} acertos · ${s.totalErros} erros
+            </div>
+            <div class="text-[10px] text-slate-500 text-center">última em ${fmtDate(atual.criado_em)}</div>
+          `;
+          (quizGroup(s.id) === 'geral' ? geralCards : navalCards).appendChild(card);
+        });
 
       if (geralCards.children.length > 0) document.getElementById('grupo-geral-wrap').classList.remove('hidden');
       if (navalCards.children.length > 0) document.getElementById('grupo-naval-wrap').classList.remove('hidden');
