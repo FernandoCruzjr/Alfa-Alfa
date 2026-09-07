@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" style="background:#0c1116">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,6 +49,15 @@
     /* ===== Transição de saída do login: "cortina de onda" ===== */
     #access-screen {
       transition: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #access-screen.hidden {
+      display: none;
     }
     #access-screen.exiting {
       animation: access-exit .85s cubic-bezier(.6,0,.4,1) forwards;
@@ -58,15 +67,6 @@
       0% { transform: translateY(0); }
       100% { transform: translateY(-100%); }
     }
-    #access-wave-edge {
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 100%;
-      height: 70px;
-      transform: translateY(1px);
-    }
-
     /* ===== Acordeões das pastas (Flashcards / Banco de Questões) ===== */
     .accordion-panel {
       overflow: hidden;
@@ -89,7 +89,7 @@
     #storm-stage {
       position: absolute;
       inset: 0;
-      transform: scale(1.5) translateX(22%);
+      transform: scale(1.9) translateX(22%);
       transform-origin: center;
     }
     #storm-photo {
@@ -173,10 +173,10 @@
     }
   </style>
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans" style="background:#0c1116">
 
   <!-- Tela de acesso: login / cadastro / recuperação de senha via Supabase Auth -->
-  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+  <div id="access-screen" class="hidden fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
     <div id="storm-bg" aria-hidden="true">
       <div id="storm-stage">
         <div id="storm-photo"></div>
@@ -187,9 +187,6 @@
       <div class="lightning-flash delay2"></div>
       <div id="rain-container"></div>
     </div>
-    <svg id="access-wave-edge" viewBox="0 0 1600 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,40 C200,90 400,0 600,45 C800,90 1000,10 1200,50 C1350,80 1500,40 1600,55 L1600,100 L0,100 Z" fill="#0b1b30"/>
-    </svg>
     <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-8 flex flex-col items-center text-center opacity-0 translate-y-2 relative z-10" style="animation: access-in .5s ease-out .1s forwards;">
       <div class="text-[46px] leading-none mb-2" aria-hidden="true">⚓</div>
       <div class="font-script font-bold text-[32px] leading-tight text-white">Fernando Cruz</div>
@@ -576,6 +573,9 @@
 
     function hideAccessScreenWithWave() {
       const screen = document.getElementById('access-screen');
+      if (screen.classList.contains('hidden')) {
+        return;
+      }
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         screen.classList.add('hidden');
         return;
