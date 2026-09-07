@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <script>
+    // Aplica o tema salvo (ou escuro por padrão) antes de qualquer coisa renderizar,
+    // pra evitar um "flash" da cor errada ao carregar a página.
+    (function() {
+      try {
+        var saved = localStorage.getItem('site_theme');
+        var theme = saved === 'light' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rosas das Virtudes · Simulado — Plataforma de Estudos CA-AA/AFN</title>
@@ -26,19 +37,259 @@
           },
           colors: {
             navy: {
-              800: '#0B192C',
-              900: '#000F26',
-              700: '#1E3E62',
-              600: '#1E56A0',
-              500: '#0066CC',
-              100: '#E6F0FA'
-            }
+              100: 'rgb(var(--tw-navy-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-navy-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-navy-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-navy-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-navy-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-navy-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-navy-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-navy-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-navy-900) / <alpha-value>)'
+            },
+            ink: 'rgb(var(--tw-ink) / <alpha-value>)',
+            slate: {
+              50: 'rgb(var(--tw-slate-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-slate-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-slate-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-slate-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-slate-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-slate-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-slate-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-slate-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-slate-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-slate-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-slate-950) / <alpha-value>)'
+            },
+            emerald: {
+              50: 'rgb(var(--tw-emerald-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-emerald-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-emerald-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-emerald-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-emerald-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-emerald-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-emerald-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-emerald-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-emerald-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-emerald-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-emerald-950) / <alpha-value>)'
+            },
+            rose: {
+              50: 'rgb(var(--tw-rose-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-rose-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-rose-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-rose-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-rose-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-rose-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-rose-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-rose-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-rose-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-rose-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-rose-950) / <alpha-value>)'
+            },
+            amber: {
+              50: 'rgb(var(--tw-amber-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-amber-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-amber-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-amber-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-amber-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-amber-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-amber-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-amber-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-amber-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-amber-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-amber-950) / <alpha-value>)'
+            },
+            cyan: {
+              50: 'rgb(var(--tw-cyan-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-cyan-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-cyan-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-cyan-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-cyan-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-cyan-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-cyan-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-cyan-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-cyan-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-cyan-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-cyan-950) / <alpha-value>)'
+            },
+            sky: { 400: 'rgb(var(--tw-sky-400) / <alpha-value>)' },
+            lime: { 400: 'rgb(var(--tw-lime-400) / <alpha-value>)' }
           }
         }
       }
     }
   </script>
   <style>
+:root {
+  --tw-slate-50: 248 250 252;
+  --tw-slate-100: 241 245 249;
+  --tw-slate-200: 226 232 240;
+  --tw-slate-300: 203 213 225;
+  --tw-slate-400: 148 163 184;
+  --tw-slate-500: 100 116 139;
+  --tw-slate-600: 71 85 105;
+  --tw-slate-700: 51 65 85;
+  --tw-slate-800: 30 41 59;
+  --tw-slate-900: 15 23 42;
+  --tw-slate-950: 2 6 23;
+  --tw-emerald-50: 236 253 245;
+  --tw-emerald-100: 209 250 229;
+  --tw-emerald-200: 167 243 208;
+  --tw-emerald-300: 110 231 183;
+  --tw-emerald-400: 52 211 153;
+  --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 5 150 105;
+  --tw-emerald-700: 4 120 87;
+  --tw-emerald-800: 6 95 70;
+  --tw-emerald-900: 6 78 59;
+  --tw-emerald-950: 2 44 34;
+  --tw-rose-50: 255 241 242;
+  --tw-rose-100: 255 228 230;
+  --tw-rose-200: 254 205 211;
+  --tw-rose-300: 253 164 175;
+  --tw-rose-400: 251 113 133;
+  --tw-rose-500: 244 63 94;
+  --tw-rose-600: 225 29 72;
+  --tw-rose-700: 190 18 60;
+  --tw-rose-800: 159 18 57;
+  --tw-rose-900: 136 19 55;
+  --tw-rose-950: 76 5 25;
+  --tw-amber-50: 255 251 235;
+  --tw-amber-100: 254 243 199;
+  --tw-amber-200: 253 230 138;
+  --tw-amber-300: 252 211 77;
+  --tw-amber-400: 251 191 36;
+  --tw-amber-500: 245 158 11;
+  --tw-amber-600: 217 119 6;
+  --tw-amber-700: 180 83 9;
+  --tw-amber-800: 146 64 14;
+  --tw-amber-900: 120 53 15;
+  --tw-amber-950: 69 26 3;
+  --tw-cyan-50: 236 254 255;
+  --tw-cyan-100: 207 250 254;
+  --tw-cyan-200: 165 243 252;
+  --tw-cyan-300: 103 232 249;
+  --tw-cyan-400: 34 211 238;
+  --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 8 145 178;
+  --tw-cyan-700: 14 116 144;
+  --tw-cyan-800: 21 94 117;
+  --tw-cyan-900: 22 78 99;
+  --tw-cyan-950: 8 51 68;
+  --tw-sky-400: 56 189 248;
+  --tw-lime-400: 163 230 53;
+  --tw-navy-100: 230 240 250;
+  --tw-navy-200: 192 219 245;
+  --tw-navy-300: 143 193 238;
+  --tw-navy-400: 77 158 224;
+  --tw-navy-500: 0 102 204;
+  --tw-navy-600: 30 86 160;
+  --tw-navy-700: 30 62 98;
+  --tw-navy-800: 11 25 44;
+  --tw-navy-900: 0 15 38;
+  --tw-ink: 255 255 255;
+}
+
+[data-theme="light"] {
+  --tw-slate-50: 2 6 23;
+  --tw-slate-100: 15 23 42;
+  --tw-slate-200: 30 41 59;
+  --tw-slate-300: 51 65 85;
+  --tw-slate-400: 71 85 105;
+  --tw-slate-500: 100 116 139;
+  --tw-slate-600: 148 163 184;
+  --tw-slate-700: 203 213 225;
+  --tw-slate-800: 226 232 240;
+  --tw-slate-900: 241 245 249;
+  --tw-slate-950: 248 250 252;
+  --tw-emerald-50: 2 44 34;
+  --tw-emerald-100: 6 78 59;
+  --tw-emerald-200: 6 95 70;
+  --tw-emerald-300: 4 120 87;
+  --tw-emerald-400: 5 150 105;
+  --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 52 211 153;
+  --tw-emerald-700: 110 231 183;
+  --tw-emerald-800: 167 243 208;
+  --tw-emerald-900: 209 250 229;
+  --tw-emerald-950: 236 253 245;
+  --tw-rose-50: 76 5 25;
+  --tw-rose-100: 136 19 55;
+  --tw-rose-200: 159 18 57;
+  --tw-rose-300: 190 18 60;
+  --tw-rose-400: 225 29 72;
+  --tw-rose-500: 244 63 94;
+  --tw-rose-600: 251 113 133;
+  --tw-rose-700: 253 164 175;
+  --tw-rose-800: 254 205 211;
+  --tw-rose-900: 255 228 230;
+  --tw-rose-950: 255 241 242;
+  --tw-amber-50: 69 26 3;
+  --tw-amber-100: 120 53 15;
+  --tw-amber-200: 146 64 14;
+  --tw-amber-300: 180 83 9;
+  --tw-amber-400: 217 119 6;
+  --tw-amber-500: 245 158 11;
+  --tw-amber-600: 251 191 36;
+  --tw-amber-700: 252 211 77;
+  --tw-amber-800: 253 230 138;
+  --tw-amber-900: 254 243 199;
+  --tw-amber-950: 255 251 235;
+  --tw-cyan-50: 8 51 68;
+  --tw-cyan-100: 22 78 99;
+  --tw-cyan-200: 21 94 117;
+  --tw-cyan-300: 14 116 144;
+  --tw-cyan-400: 8 145 178;
+  --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 34 211 238;
+  --tw-cyan-700: 103 232 249;
+  --tw-cyan-800: 165 243 252;
+  --tw-cyan-900: 207 250 254;
+  --tw-cyan-950: 236 254 255;
+  --tw-sky-400: 56 189 248;
+  --tw-lime-400: 163 230 53;
+  --tw-navy-100: 0 15 38;
+  --tw-navy-200: 11 25 44;
+  --tw-navy-300: 30 62 98;
+  --tw-navy-400: 30 86 160;
+  --tw-navy-500: 0 102 204;
+  --tw-navy-600: 77 158 224;
+  --tw-navy-700: 143 193 238;
+  --tw-navy-800: 192 219 245;
+  --tw-navy-900: 230 240 250;
+  --tw-ink: 11 25 44;
+}
+
+    @keyframes access-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shake {
+      10%, 90% { transform: translateX(-1px); }
+      20%, 80% { transform: translateX(2px); }
+      30%, 50%, 70% { transform: translateX(-4px); }
+      40%, 60% { transform: translateX(4px); }
+    }
+    .shake { animation: shake .5s; }
+    @media (prefers-reduced-motion: reduce) {
+      #access-card, .shake { animation: none !important; }
+      .lightning-flash, .rain-drop, #vortex-swirl { animation: none !important; }
+      #access-screen.exiting { animation: none !important; opacity: 0; }
+    }
+
+    /* ===== "Chrome" do cabeçalho: fica sempre navy escuro, independente do tema ===== */
+    .chrome-bg-900 { background-color: #000F26 !important; }
+    .chrome-bg-800 { background-color: #0B192C !important; }
+    .chrome-bg-600 { background-color: #1E56A0 !important; }
+    .chrome-border-700 { border-color: #1E3E62 !important; }
+    .chrome-border-600 { border-color: #1E56A0 !important; }
+    .chrome-text-white { color: #FFFFFF !important; }
+    .chrome-text-slate-400 { color: #94A3B8 !important; }
+    .chrome-text-slate-200 { color: #E2E8F0 !important; }
+    .chrome-hover-border-500:hover { border-color: #0066CC !important; }
+    .chrome-hover-text-white:hover { color: #FFFFFF !important; }
+
     @keyframes access-in {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
@@ -70,7 +321,7 @@
   <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
     <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
       <div class="text-[46px] leading-none mb-2" aria-hidden="true">⚓</div>
-      <div class="font-serif font-semibold text-[26px] text-white tracking-tight">Rosas das Virtudes</div>
+      <div class="font-serif font-semibold text-[26px] text-ink tracking-tight">Rosas das Virtudes</div>
       <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
 
       <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
@@ -81,7 +332,7 @@
       <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
         <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
         <p class="text-sm text-slate-300">Você precisa entrar pela página inicial para acessar este simulado.</p>
-        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-white text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-ink text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
           <i class="fa-solid fa-arrow-left"></i> Ir para o login
         </a>
       </div>
@@ -89,13 +340,13 @@
       <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
         <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
         <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
-        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-ink underline underline-offset-2">Voltar para a página inicial</a>
       </div>
 
       <div id="gate-no-access" class="hidden flex-col items-center gap-3 py-2">
         <i class="fa-solid fa-lock text-3xl text-amber-300"></i>
         <p class="text-sm text-amber-200">Você ainda não tem acesso liberado a esta matéria. Fale com o administrador.</p>
-        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-white underline underline-offset-2">Voltar para a página inicial</a>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-ink underline underline-offset-2">Voltar para a página inicial</a>
       </div>
 
       <div class="text-[11px] text-[#7895b5] mt-6 pt-4 border-t border-[#1c3a5c] w-full">Rosas das Virtudes para Concursos</div>
@@ -104,109 +355,110 @@
 
 
   <!-- Header -->
-  <header class="bg-navy-900 border-b border-navy-700 sticky top-0 z-30 shadow-lg">
+  <header class="chrome-bg-900 border-b chrome-border-700 sticky top-0 z-30 shadow-lg">
     <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
       <div class="flex items-center gap-3">
-        <div class="bg-navy-600 text-white p-2.5 rounded-lg shadow">
+        <div class="chrome-bg-600 chrome-text-white p-2.5 rounded-lg shadow">
           <i class="fa-solid fa-anchor text-2xl"></i>
         </div>
         <div>
-          <h1 class="font-serif text-xl font-semibold text-white tracking-wide">Rosas das Virtudes</h1>
-          <p class="text-xs text-slate-400">Valores e virtudes militares</p>
+          <h1 class="font-serif text-xl font-semibold chrome-text-white tracking-wide">Rosas das Virtudes</h1>
+          <p class="text-xs chrome-text-slate-400">Valores e virtudes militares</p>
         </div>
       </div>
 
       <!-- Mode Switcher & Actions -->
       <div class="flex items-center gap-3">
-        <div class="bg-navy-800 p-1 rounded-lg border border-navy-700 flex text-xs">
-          <button id="btn-mode-study" onclick="setMode('study')" class="px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-white shadow">
+        <div class="chrome-bg-800 p-1 rounded-lg border chrome-border-700 flex text-xs">
+          <button id="btn-mode-study" onclick="setMode('study')" class="px-3 py-1.5 rounded-md font-medium transition-all chrome-bg-600 chrome-text-white shadow">
             <i class="fa-solid fa-graduation-cap mr-1"></i> Modo Estudo
           </button>
-          <button id="btn-mode-exam" onclick="setMode('exam')" class="px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-white">
+          <button id="btn-mode-exam" onclick="setMode('exam')" class="px-3 py-1.5 rounded-md font-medium transition-all chrome-text-slate-400 chrome-hover-text-white">
             <i class="fa-solid fa-clock mr-1"></i> Modo Prova
           </button>
         </div>
 
-        <div id="elapsed-timer" class="bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg flex items-center gap-1.5" title="Tempo decorrido">
+        <div id="elapsed-timer" class="chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg flex items-center gap-1.5" title="Tempo decorrido">
           <i class="fa-solid fa-stopwatch text-navy-500"></i><span>00:00:00</span>
         </div>
 
         <div class="relative">
-          <button id="switch-quiz-btn" onclick="toggleSwitchMenu()" class="bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 hover:border-navy-500 transition-colors" title="Trocar de simulado">
+          <button id="switch-quiz-btn" onclick="toggleSwitchMenu()" class="chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 chrome-hover-border-500 transition-colors" title="Trocar de simulado">
             <i class="fa-solid fa-layer-group text-navy-500"></i> <span class="hidden sm:inline">Outros Simulados</span> <i class="fa-solid fa-chevron-down text-[9px]"></i>
           </button>
-          <div id="switch-quiz-menu" class="hidden absolute right-0 mt-2 w-72 max-h-[75vh] overflow-y-auto bg-navy-800 border border-navy-700 rounded-xl shadow-2xl z-40">
-            <a href="index.html" class="flex items-center gap-2 px-4 py-3 text-xs text-navy-200 border-b border-navy-700 hover:bg-navy-700/40 transition-colors">
+          <div id="switch-quiz-menu" class="hidden absolute right-0 mt-2 w-72 max-h-[75vh] overflow-y-auto chrome-bg-800 border chrome-border-700 rounded-xl shadow-2xl z-40">
+            <a href="index.html" class="flex items-center gap-2 px-4 py-3 text-xs text-navy-200 border-b chrome-border-700 hover:bg-navy-700/40 transition-colors">
               <i class="fa-solid fa-house"></i> Painel geral
             </a>
-            <div class="px-4 pt-2 pb-1 border-b border-navy-700">
+            <div class="px-4 pt-2 pb-1 border-b chrome-border-700">
         <a href="prova-simulada.html" data-switch-quiz-id="PROVA_SIMULADA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-navy-200 hover:bg-navy-700/40 transition-colors">
           <span><i class="fa-solid fa-shuffle mr-1"></i> Prova Simulada (50 questões)</span>
           <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
         </a>
             </div>
             <div class="px-4 pt-3 pb-1 text-[10px] uppercase tracking-wide text-slate-500">Conhecimento Geral</div>
-        <a href="portugues.html" data-switch-quiz-id="PORTUGUES" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+        <a href="portugues.html" data-switch-quiz-id="PORTUGUES" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
           <span>Língua Portuguesa</span>
           <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
         </a>
-        <a href="historia-naval.html" data-switch-quiz-id="HISTORIA_NAVAL" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+        <a href="historia-naval.html" data-switch-quiz-id="HISTORIA_NAVAL" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
           <span>História Militar Naval</span>
           <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
         </a>
-        <a href="geografia.html" data-switch-quiz-id="GEOGRAFIA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+        <a href="geografia.html" data-switch-quiz-id="GEOGRAFIA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
           <span>Geografia</span>
           <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
         </a>
-        <a href="matematica.html" data-switch-quiz-id="MATEMATICA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+        <a href="matematica.html" data-switch-quiz-id="MATEMATICA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
           <span>Matemática</span>
           <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
         </a>
-            <div class="px-4 pt-3 pb-1 text-[10px] uppercase tracking-wide text-slate-500 border-t border-navy-700 mt-1">Conhecimento Militar Naval</div>
-        <a href="caaml-703.html" data-switch-quiz-id="CAAML-703" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+            <div class="px-4 pt-3 pb-1 text-[10px] uppercase tracking-wide text-slate-500 border-t chrome-border-700 mt-1">Conhecimento Militar Naval</div>
+        <a href="caaml-703.html" data-switch-quiz-id="CAAML-703" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
           <span>Embarcações Miúdas & Segurança</span>
           <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
         </a>
-        <a href="cerimonial.html" data-switch-quiz-id="CERIMONIAL" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+        <a href="cerimonial.html" data-switch-quiz-id="CERIMONIAL" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
           <span>Cerimonial da Marinha</span>
           <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
         </a>
-        <div class="flex items-center justify-between px-4 py-2.5 text-xs text-white bg-navy-700/50">
+        <div class="flex items-center justify-between px-4 py-2.5 text-xs chrome-text-white bg-navy-700/50">
           <span class="font-semibold">Rosas das Virtudes</span>
           <i class="fa-solid fa-check text-emerald-400 text-[10px]"></i>
         </div>
-        <a href="lideranca-atributos.html" data-switch-quiz-id="LIDERANCA_ATRIBUTOS" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+        <a href="lideranca-atributos.html" data-switch-quiz-id="LIDERANCA_ATRIBUTOS" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
           <span>Liderança — Atributos</span>
           <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
         </a>
-        <a href="justica-disciplina.html" data-switch-quiz-id="JUSTICA_DISCIPLINA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+        <a href="justica-disciplina.html" data-switch-quiz-id="JUSTICA_DISCIPLINA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
           <span>Justiça e Disciplina</span>
           <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
         </a>
-        <a href="lideranca.html" data-switch-quiz-id="LIDERANCA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+        <a href="lideranca.html" data-switch-quiz-id="LIDERANCA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
           <span>Liderança</span>
           <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
         </a>
-        <a href="ogsa.html" data-switch-quiz-id="OGSA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+        <a href="ogsa.html" data-switch-quiz-id="OGSA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
           <span>OGSA</span>
           <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
         </a>
-        <a href="camaal-cav.html" data-switch-quiz-id="CAMAAL_CAV" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+        <a href="camaal-cav.html" data-switch-quiz-id="CAMAAL_CAV" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
           <span>CAMAAL 1202 (CAV)</span>
           <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
         </a>
-        <a href="estatuto-rdm.html" data-switch-quiz-id="ESTATUTO_RDM" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+        <a href="estatuto-rdm.html" data-switch-quiz-id="ESTATUTO_RDM" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
           <span>Estatuto dos Militares & RDM</span>
           <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
         </a>
-        <a href="pem2040.html" data-switch-quiz-id="PEM2040" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-navy-700/40 transition-colors">
+        <a href="pem2040.html" data-switch-quiz-id="PEM2040" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
           <span>PEM-2040</span>
           <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
         </a>
           </div>
         </div>
 
-        <div id="user-bar" class="hidden bg-navy-800 border border-navy-700 text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2" title="Conectado">
+        <button id="theme-toggle-btn" onclick="toggleTheme()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors flex-shrink-0" title="Alternar entre modo claro e escuro" aria-label="Alternar tema claro/escuro"><i class="fa-solid fa-moon text-sm" id="theme-toggle-icon-moon"></i><i class="fa-solid fa-sun text-sm hidden" id="theme-toggle-icon-sun"></i></button>
+      <div id="user-bar" class="hidden chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2" title="Conectado">
           <i class="fa-solid fa-user text-navy-500"></i>
           <span id="user-email" class="max-w-[140px] truncate"></span>
           <button onclick="handleLogout()" class="ml-1 text-rose-300 hover:text-rose-200 transition-colors" title="Sair da conta">
@@ -285,15 +537,15 @@
 
         <!-- Question Navigation Buttons -->
         <div class="mt-8 pt-4 border-t border-navy-700/60 flex justify-between items-center gap-3">
-          <button id="btn-prev" onclick="prevQuestion()" class="bg-navy-700 hover:bg-navy-600 text-white text-sm px-4 py-2.5 rounded-lg transition-all flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed">
+          <button id="btn-prev" onclick="prevQuestion()" class="bg-navy-700 hover:bg-navy-600 text-ink text-sm px-4 py-2.5 rounded-lg transition-all flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed">
             <i class="fa-solid fa-arrow-left"></i> Anterior
           </button>
 
           <div class="flex gap-2">
-            <button id="btn-finish" onclick="finishQuiz()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-sm px-5 py-2.5 rounded-lg font-semibold transition-all flex items-center gap-2 shadow-lg shadow-emerald-900/30">
+            <button id="btn-finish" onclick="finishQuiz()" class="bg-emerald-600 hover:bg-emerald-500 text-ink text-sm px-5 py-2.5 rounded-lg font-semibold transition-all flex items-center gap-2 shadow-lg shadow-emerald-900/30">
               <i class="fa-solid fa-check-double"></i> Finalizar Simulado
             </button>
-            <button id="btn-next" onclick="nextQuestion()" class="bg-navy-600 hover:bg-navy-500 text-white text-sm px-4 py-2.5 rounded-lg transition-all flex items-center gap-2">
+            <button id="btn-next" onclick="nextQuestion()" class="bg-navy-600 hover:bg-navy-500 text-ink text-sm px-4 py-2.5 rounded-lg transition-all flex items-center gap-2">
               Próxima <i class="fa-solid fa-arrow-right"></i>
             </button>
           </div>
@@ -314,9 +566,9 @@
 
       <!-- Filters -->
       <div class="grid grid-cols-3 gap-1 text-[11px] font-medium bg-navy-900 p-1 rounded-lg">
-        <button onclick="setFilter('all')" id="filter-all" class="py-1 rounded text-center bg-navy-700 text-white">Todas</button>
-        <button onclick="setFilter('unanswered')" id="filter-unanswered" class="py-1 rounded text-center text-slate-400 hover:text-white">Faltam</button>
-        <button onclick="setFilter('answered')" id="filter-answered" class="py-1 rounded text-center text-slate-400 hover:text-white">Feitas</button>
+        <button onclick="setFilter('all')" id="filter-all" class="py-1 rounded text-center bg-navy-700 text-ink">Todas</button>
+        <button onclick="setFilter('unanswered')" id="filter-unanswered" class="py-1 rounded text-center text-slate-400 hover:text-ink">Faltam</button>
+        <button onclick="setFilter('answered')" id="filter-answered" class="py-1 rounded text-center text-slate-400 hover:text-ink">Feitas</button>
       </div>
 
       <!-- Filtro por assunto -->
@@ -367,7 +619,7 @@
       <div class="w-16 h-16 bg-navy-700 text-navy-500 rounded-full flex items-center justify-center mx-auto mb-4 border border-navy-600 text-2xl shadow-inner">
         <i class="fa-solid fa-trophy"></i>
       </div>
-      <h2 class="font-serif text-2xl font-semibold text-white mb-1">Resultado do Simulado</h2>
+      <h2 class="font-serif text-2xl font-semibold text-ink mb-1">Resultado do Simulado</h2>
       <p class="text-xs text-slate-400 mb-6">Rosas das Virtudes para Concursos</p>
 
       <div class="grid grid-cols-3 gap-3 mb-6">
@@ -390,10 +642,10 @@
       </p>
 
       <div class="flex gap-3 justify-center">
-        <button onclick="closeModal()" class="bg-navy-700 hover:bg-navy-600 text-white px-5 py-2.5 rounded-lg text-sm transition-all font-medium">
+        <button onclick="closeModal()" class="bg-navy-700 hover:bg-navy-600 text-ink px-5 py-2.5 rounded-lg text-sm transition-all font-medium">
           Revisar Respostas
         </button>
-        <button onclick="resetQuiz(); closeModal();" class="bg-navy-600 hover:bg-navy-500 text-white px-5 py-2.5 rounded-lg text-sm transition-all font-semibold shadow-lg">
+        <button onclick="resetQuiz(); closeModal();" class="bg-navy-600 hover:bg-navy-500 text-ink px-5 py-2.5 rounded-lg text-sm transition-all font-semibold shadow-lg">
           Tentar Novamente
         </button>
       </div>
@@ -858,6 +1110,21 @@ const questionsData = [
       document.getElementById('access-screen').classList.remove('hidden');
     }
 
+    function applyThemeIcon() {
+      const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+      document.getElementById('theme-toggle-icon-moon').classList.toggle('hidden', theme === 'light');
+      document.getElementById('theme-toggle-icon-sun').classList.toggle('hidden', theme !== 'light');
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('site_theme', next); } catch (e) { /* ignora se indisponível */ }
+      applyThemeIcon();
+    }
+
+
     async function handleLogout() {
       if (timerInterval) clearInterval(timerInterval);
       await sb.auth.signOut();
@@ -918,6 +1185,7 @@ const questionsData = [
 
     // Init App
     window.addEventListener('DOMContentLoaded', () => {
+      applyThemeIcon();
       populateSubjectFilter();
       sb.auth.onAuthStateChange((event, session) => {
         if (session && session.user) {
@@ -1065,11 +1333,11 @@ const questionsData = [
       const examBtn = document.getElementById('btn-mode-exam');
 
       if (mode === 'study') {
-        studyBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-white shadow';
-        examBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-white';
+        studyBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-ink shadow';
+        examBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-ink';
       } else {
-        examBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-white shadow';
-        studyBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-white';
+        examBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-ink shadow';
+        studyBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-ink';
       }
 
       if (render) {
@@ -1137,7 +1405,7 @@ const questionsData = [
           } else {
             // Exam Mode: show only user selection
             if (optIdx === selectedOption) {
-              baseClasses += 'bg-navy-600/80 border-navy-400 text-white shadow-md';
+              baseClasses += 'bg-navy-600/80 border-navy-400 text-ink shadow-md';
             } else {
               baseClasses += 'bg-navy-900/60 border-navy-700/80 text-slate-300 hover:bg-navy-700/40';
             }
@@ -1154,7 +1422,7 @@ const questionsData = [
           if (optIdx === q.correct) {
             radioIcon = `<span class="w-5 h-5 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center shrink-0 mt-0.5 text-xs"><i class="fa-solid fa-check"></i></span>`;
           } else if (optIdx === selectedOption && selectedOption !== q.correct) {
-            radioIcon = `<span class="w-5 h-5 rounded-full bg-rose-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs"><i class="fa-solid fa-xmark"></i></span>`;
+            radioIcon = `<span class="w-5 h-5 rounded-full bg-rose-500 text-ink flex items-center justify-center shrink-0 mt-0.5 text-xs"><i class="fa-solid fa-xmark"></i></span>`;
           } else {
             radioIcon = `<span class="w-5 h-5 rounded-full border border-slate-700 flex items-center justify-center shrink-0 mt-0.5"></span>`;
           }
@@ -1290,9 +1558,9 @@ const questionsData = [
 
     function setFilter(filter) {
       activeFilter = filter;
-      document.getElementById('filter-all').className = filter === 'all' ? 'py-1 rounded text-center bg-navy-700 text-white' : 'py-1 rounded text-center text-slate-400 hover:text-white';
-      document.getElementById('filter-unanswered').className = filter === 'unanswered' ? 'py-1 rounded text-center bg-navy-700 text-white' : 'py-1 rounded text-center text-slate-400 hover:text-white';
-      document.getElementById('filter-answered').className = filter === 'answered' ? 'py-1 rounded text-center bg-navy-700 text-white' : 'py-1 rounded text-center text-slate-400 hover:text-white';
+      document.getElementById('filter-all').className = filter === 'all' ? 'py-1 rounded text-center bg-navy-700 text-ink' : 'py-1 rounded text-center text-slate-400 hover:text-ink';
+      document.getElementById('filter-unanswered').className = filter === 'unanswered' ? 'py-1 rounded text-center bg-navy-700 text-ink' : 'py-1 rounded text-center text-slate-400 hover:text-ink';
+      document.getElementById('filter-answered').className = filter === 'answered' ? 'py-1 rounded text-center bg-navy-700 text-ink' : 'py-1 rounded text-center text-slate-400 hover:text-ink';
       renderGrid();
     }
 
@@ -1335,7 +1603,7 @@ const questionsData = [
         let classes = 'h-9 w-full rounded text-xs font-mono font-bold flex items-center justify-center transition-all border ';
 
         if (idx === currentIndex) {
-          classes += 'bg-navy-500 border-white text-white shadow-md ring-2 ring-navy-400/50 ';
+          classes += 'bg-navy-500 border-white text-ink shadow-md ring-2 ring-navy-400/50 ';
         } else if (isAnswered) {
           if (mode === 'study') {
             if (userAnswers[idx] === q.correct) {
@@ -1347,7 +1615,7 @@ const questionsData = [
             classes += 'bg-slate-700 border-slate-600 text-slate-200 ';
           }
         } else {
-          classes += 'bg-navy-900/80 border-navy-700 text-slate-400 hover:bg-navy-700/50 hover:text-white ';
+          classes += 'bg-navy-900/80 border-navy-700 text-slate-400 hover:bg-navy-700/50 hover:text-ink ';
         }
 
         btn.className = classes;
