@@ -42,6 +42,62 @@
     .shake { animation: shake .5s; }
     @media (prefers-reduced-motion: reduce) {
       #access-card, .shake { animation: none !important; }
+      .lightning-flash, .rain-drop, #storm-photo { animation: none !important; }
+    }
+
+    /* ===== Animação de tempestade no mar (tela de login) ===== */
+    #storm-bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      z-index: 0;
+    }
+    @keyframes ken-burns {
+      0% { transform: scale(1) translate(0, 0); }
+      100% { transform: scale(1.12) translate(-1%, -1%); }
+    }
+    #storm-photo {
+      position: absolute;
+      inset: -2%;
+      background-image: url('login-navio-tempestade.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      animation: ken-burns 26s ease-in-out infinite alternate;
+      filter: saturate(1.05) contrast(1.05);
+    }
+    #storm-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(6,19,38,.25) 0%, rgba(6,19,38,.55) 55%, rgba(6,19,38,.88) 100%);
+    }
+    .wave-layer { display: none; }
+
+    @keyframes lightning-strike {
+      0%, 96%, 100% { opacity: 0; }
+      97% { opacity: .55; }
+      97.5% { opacity: .05; }
+      98% { opacity: .4; }
+      98.5% { opacity: 0; }
+    }
+    .lightning-flash {
+      position: absolute;
+      inset: 0;
+      background: #eaf3ff;
+      animation: lightning-strike 9s infinite;
+      animation-delay: 3s;
+    }
+    .lightning-flash.delay2 { animation-delay: 6.4s; animation-duration: 13s; }
+
+    @keyframes rain-fall {
+      from { transform: translateY(-10%); }
+      to { transform: translateY(110%); }
+    }
+    .rain-drop {
+      position: absolute;
+      top: -10%;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(180,210,255,.35), transparent);
+      animation: rain-fall linear infinite;
     }
     button:focus-visible, input:focus-visible, a:focus-visible {
       outline: 2px solid #2384d6;
@@ -53,7 +109,14 @@
 
   <!-- Tela de acesso: login / cadastro / recuperação de senha via Supabase Auth -->
   <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
-    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-8 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
+    <div id="storm-bg" aria-hidden="true">
+      <div id="storm-photo"></div>
+      <div id="storm-vignette"></div>
+      <div class="lightning-flash"></div>
+      <div class="lightning-flash delay2"></div>
+      <div id="rain-container"></div>
+    </div>
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-8 flex flex-col items-center text-center opacity-0 translate-y-2 relative z-10" style="animation: access-in .5s ease-out .1s forwards;">
       <div class="text-[46px] leading-none mb-2" aria-hidden="true">⚓</div>
       <div class="font-script font-bold text-[32px] leading-tight text-white">Fernando Cruz</div>
       <div class="text-[11px] text-[#91a9c3] mt-1 italic mb-5">"O sucesso é a soma de pequenos esforços repetidos dia após dia"</div>
@@ -557,6 +620,21 @@
     }
 
     window.addEventListener('DOMContentLoaded', () => {
+      // Chuva da tempestade (tela de login)
+      const rainContainer = document.getElementById('rain-container');
+      if (rainContainer && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const totalDrops = 40;
+        for (let i = 0; i < totalDrops; i++) {
+          const drop = document.createElement('div');
+          drop.className = 'rain-drop';
+          drop.style.left = `${Math.random() * 100}%`;
+          drop.style.height = `${18 + Math.random() * 30}px`;
+          drop.style.animationDuration = `${0.5 + Math.random() * 0.6}s`;
+          drop.style.animationDelay = `${Math.random() * 2}s`;
+          rainContainer.appendChild(drop);
+        }
+      }
+
       const flashcardsToggle = document.getElementById('flashcards-toggle');
       const flashcardsPanel = document.getElementById('flashcards-panel');
       const flashcardsChevron = document.getElementById('flashcards-chevron');
