@@ -84,15 +84,20 @@
       inset: 0;
       overflow: hidden;
       z-index: 0;
-      background: #101820;
+      background: #0c1116;
+    }
+    #storm-stage {
+      position: absolute;
+      inset: 0;
+      transform: scale(1.5) translateX(22%);
+      transform-origin: center;
     }
     #storm-photo {
       position: absolute;
       inset: 0;
-      background-image: url('login-tempestade-vortice.jpg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center center;
+      background-image: url('login-oficial-tempestade.jpg');
+      background-size: cover;
+      background-position: center;
       filter: saturate(1.05) contrast(1.05);
     }
     @keyframes vortex-spin {
@@ -101,16 +106,16 @@
     }
     #vortex-swirl {
       position: absolute;
-      left: 50%;
-      top: 23.5%;
-      width: 46vmin;
-      height: 46vmin;
-      max-width: 420px;
-      max-height: 420px;
+      left: 59.4%;
+      top: 18.2%;
+      width: 30vmin;
+      height: 30vmin;
+      max-width: 300px;
+      max-height: 300px;
       transform: translate(-50%, -50%);
       animation: vortex-spin 14s linear infinite;
       mix-blend-mode: screen;
-      opacity: .55;
+      opacity: .5;
       background: conic-gradient(
         from 0deg,
         transparent 0deg,
@@ -131,7 +136,7 @@
     #storm-vignette {
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at center, rgba(6,19,38,.05) 0%, rgba(6,19,38,.35) 60%, rgba(6,19,38,.75) 100%);
+      background: radial-gradient(ellipse at 50% 40%, rgba(6,19,38,.05) 0%, rgba(6,19,38,.4) 60%, rgba(6,19,38,.8) 100%);
     }
     .wave-layer { display: none; }
 
@@ -173,8 +178,10 @@
   <!-- Tela de acesso: login / cadastro / recuperação de senha via Supabase Auth -->
   <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
     <div id="storm-bg" aria-hidden="true">
-      <div id="storm-photo"></div>
-      <div id="vortex-swirl"></div>
+      <div id="storm-stage">
+        <div id="storm-photo"></div>
+        <div id="vortex-swirl"></div>
+      </div>
       <div id="storm-vignette"></div>
       <div class="lightning-flash"></div>
       <div class="lightning-flash delay2"></div>
