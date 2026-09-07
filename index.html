@@ -42,7 +42,40 @@
     .shake { animation: shake .5s; }
     @media (prefers-reduced-motion: reduce) {
       #access-card, .shake { animation: none !important; }
-      .lightning-flash, .rain-drop, #storm-photo { animation: none !important; }
+      .lightning-flash, .rain-drop, #vortex-swirl { animation: none !important; }
+      #access-screen.exiting { animation: none !important; opacity: 0; }
+    }
+
+    /* ===== Transição de saída do login: "cortina de onda" ===== */
+    #access-screen {
+      transition: none;
+    }
+    #access-screen.exiting {
+      animation: access-exit .85s cubic-bezier(.6,0,.4,1) forwards;
+      pointer-events: none;
+    }
+    @keyframes access-exit {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-100%); }
+    }
+    #access-wave-edge {
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 70px;
+      transform: translateY(1px);
+    }
+
+    /* ===== Acordeões das pastas (Flashcards / Banco de Questões) ===== */
+    .accordion-panel {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height .5s cubic-bezier(.34,1.15,.64,1), opacity .4s ease;
+    }
+    .accordion-panel.open {
+      opacity: 1;
     }
 
     /* ===== Animação de tempestade no mar (tela de login) ===== */
@@ -51,24 +84,54 @@
       inset: 0;
       overflow: hidden;
       z-index: 0;
-    }
-    @keyframes ken-burns {
-      0% { transform: scale(1) translate(0, 0); }
-      100% { transform: scale(1.12) translate(-1%, -1%); }
+      background: #101820;
     }
     #storm-photo {
       position: absolute;
-      inset: -2%;
-      background-image: url('login-navio-tempestade.jpg');
-      background-size: cover;
-      background-position: center 30%;
-      animation: ken-burns 26s ease-in-out infinite alternate;
+      inset: 0;
+      background-image: url('login-tempestade-vortice.jpg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
       filter: saturate(1.05) contrast(1.05);
+    }
+    @keyframes vortex-spin {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    #vortex-swirl {
+      position: absolute;
+      left: 50%;
+      top: 23.5%;
+      width: 46vmin;
+      height: 46vmin;
+      max-width: 420px;
+      max-height: 420px;
+      transform: translate(-50%, -50%);
+      animation: vortex-spin 14s linear infinite;
+      mix-blend-mode: screen;
+      opacity: .55;
+      background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(210,235,255,.55) 18deg,
+        transparent 55deg,
+        transparent 110deg,
+        rgba(210,235,255,.4) 140deg,
+        transparent 170deg,
+        transparent 230deg,
+        rgba(210,235,255,.5) 255deg,
+        transparent 290deg,
+        transparent 340deg,
+        rgba(210,235,255,.35) 355deg,
+        transparent 360deg
+      );
+      border-radius: 50%;
     }
     #storm-vignette {
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at center, rgba(6,19,38,.25) 0%, rgba(6,19,38,.55) 55%, rgba(6,19,38,.88) 100%);
+      background: radial-gradient(ellipse at center, rgba(6,19,38,.05) 0%, rgba(6,19,38,.35) 60%, rgba(6,19,38,.75) 100%);
     }
     .wave-layer { display: none; }
 
@@ -111,11 +174,15 @@
   <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
     <div id="storm-bg" aria-hidden="true">
       <div id="storm-photo"></div>
+      <div id="vortex-swirl"></div>
       <div id="storm-vignette"></div>
       <div class="lightning-flash"></div>
       <div class="lightning-flash delay2"></div>
       <div id="rain-container"></div>
     </div>
+    <svg id="access-wave-edge" viewBox="0 0 1600 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C200,90 400,0 600,45 C800,90 1000,10 1200,50 C1350,80 1500,40 1600,55 L1600,100 L0,100 Z" fill="#0b1b30"/>
+    </svg>
     <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-8 flex flex-col items-center text-center opacity-0 translate-y-2 relative z-10" style="animation: access-in .5s ease-out .1s forwards;">
       <div class="text-[46px] leading-none mb-2" aria-hidden="true">⚓</div>
       <div class="font-script font-bold text-[32px] leading-tight text-white">Fernando Cruz</div>
@@ -469,6 +536,51 @@
       card.classList.add('shake');
     }
 
+    function toggleAccordion(panel, chevron, isOpening) {
+      if (isOpening) {
+        panel.classList.remove('hidden');
+        const targetHeight = panel.scrollHeight;
+        panel.style.maxHeight = '0px';
+        void panel.offsetHeight; // força o navegador a recalcular antes de animar
+        panel.style.maxHeight = targetHeight + 'px';
+        panel.classList.add('open');
+        if (chevron) chevron.classList.add('rotate-180');
+        panel.addEventListener('transitionend', function handler(e) {
+          if (e.propertyName === 'max-height') {
+            panel.style.maxHeight = 'none';
+            panel.removeEventListener('transitionend', handler);
+          }
+        });
+      } else {
+        const currentHeight = panel.scrollHeight;
+        panel.style.maxHeight = currentHeight + 'px';
+        void panel.offsetHeight;
+        panel.style.maxHeight = '0px';
+        panel.classList.remove('open');
+        if (chevron) chevron.classList.remove('rotate-180');
+        panel.addEventListener('transitionend', function handler(e) {
+          if (e.propertyName === 'max-height') {
+            panel.classList.add('hidden');
+            panel.removeEventListener('transitionend', handler);
+          }
+        });
+      }
+    }
+
+    function hideAccessScreenWithWave() {
+      const screen = document.getElementById('access-screen');
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        screen.classList.add('hidden');
+        return;
+      }
+      screen.classList.add('exiting');
+      screen.addEventListener('animationend', function handler() {
+        screen.classList.add('hidden');
+        screen.classList.remove('exiting');
+        screen.removeEventListener('animationend', handler);
+      });
+    }
+
     function showForm(name) {
       ['login-form', 'signup-form', 'recovery-form', 'pending-panel'].forEach(id => {
         const el = document.getElementById(id);
@@ -589,7 +701,7 @@
         return;
       }
 
-      document.getElementById('access-screen').classList.add('hidden');
+      hideAccessScreenWithWave();
       const bar = document.getElementById('user-bar');
       bar.classList.remove('hidden');
       bar.classList.add('flex');
@@ -638,21 +750,21 @@
       const flashcardsToggle = document.getElementById('flashcards-toggle');
       const flashcardsPanel = document.getElementById('flashcards-panel');
       const flashcardsChevron = document.getElementById('flashcards-chevron');
+      flashcardsPanel.classList.add('accordion-panel');
 
       flashcardsToggle.addEventListener('click', () => {
-        const isOpening = flashcardsPanel.classList.contains('hidden');
-        flashcardsPanel.classList.toggle('hidden', !isOpening);
-        flashcardsChevron.classList.toggle('rotate-180', isOpening);
+        const isOpening = !flashcardsPanel.classList.contains('open');
+        toggleAccordion(flashcardsPanel, flashcardsChevron, isOpening);
       });
 
       const bankToggle = document.getElementById('bank-toggle');
       const bankPanel = document.getElementById('bank-panel');
       const bankChevron = document.getElementById('bank-chevron');
+      bankPanel.classList.add('accordion-panel');
 
       bankToggle.addEventListener('click', () => {
-        const isOpening = bankPanel.classList.contains('hidden');
-        bankPanel.classList.toggle('hidden', !isOpening);
-        bankChevron.classList.toggle('rotate-180', isOpening);
+        const isOpening = !bankPanel.classList.contains('open');
+        toggleAccordion(bankPanel, bankChevron, isOpening);
       });
 
       const segmentActiveCls = 'bank-segment-btn flex-1 text-xs font-medium py-2 rounded-lg transition-all bg-navy-600 text-white';
