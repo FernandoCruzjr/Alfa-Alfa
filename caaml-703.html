@@ -1444,6 +1444,7 @@
     const STORAGE_KEY_MODE = 'caaml_703_mode';
     const STORAGE_KEY_DISCARDED = 'caaml_703_discarded_options';
     const STORAGE_KEY_START = 'caaml_703_elapsed_start';
+    const STORAGE_KEY_CURRENT = 'caaml_703_current_index';
 
     // --- Supabase: sessão vem da página inicial (index.html) ---
     const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
@@ -1543,7 +1544,8 @@
       await applySwitchMenuLocks();
 
       await loadSavedState();
-      currentIndex = 0;
+      const savedIndex = parseInt(localStorage.getItem(STORAGE_KEY_CURRENT), 10);
+      currentIndex = (!isNaN(savedIndex) && savedIndex >= 0 && savedIndex < questionsData.length) ? savedIndex : 0;
       renderQuestion();
       renderGrid();
       updateTrackers();
@@ -1758,11 +1760,14 @@
 
       q.options.forEach((optText, optIdx) => {
         const discarded = isDiscarded(currentIndex, optIdx);
+        const row = document.createElement('div');
+        row.className = 'flex items-stretch gap-2';
+
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.onclick = () => { if (!isDiscarded(currentIndex, optIdx)) selectOption(optIdx); };
 
-        let baseClasses = 'w-full text-left p-4 pr-3 rounded-xl border text-sm md:text-base font-medium transition-all flex items-start gap-3 ';
+        let baseClasses = 'flex-1 min-w-0 text-left p-4 pr-3 rounded-xl border text-sm md:text-base font-medium transition-all flex items-start gap-3 ';
 
         if (discarded) {
           baseClasses += 'bg-slate-800/30 border-slate-700/50 text-slate-500 opacity-50 line-through cursor-pointer';
@@ -1811,9 +1816,21 @@
           }
         }
 
-        const lockState = discarded ? 'fa-lock-open text-slate-300' : 'fa-lock text-slate-500';
-        btn.innerHTML = `${radioIcon}<span class="flex-1 ${discarded ? 'line-through' : ''}">${optText}</span><span role="button" tabindex="0" aria-label="${discarded ? 'Restaurar alternativa' : 'Descartar alternativa'}" title="${discarded ? 'Restaurar alternativa' : 'Cortar/descartar alternativa'}" class="ml-2 shrink-0 w-7 h-7 rounded-md flex items-center justify-center hover:bg-white/10 ${discarded ? 'bg-slate-700/50' : ''}" onclick="event.stopPropagation(); toggleDiscard(${optIdx})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();toggleDiscard(${optIdx})}"><i class="fa-solid ${lockState} text-xs"></i></span>`;
-        container.appendChild(btn);
+        btn.innerHTML = `${radioIcon}<span class="flex-1 ${discarded ? 'line-through' : ''}">${optText}</span>`;
+
+        // Cadeado de descartar/restaurar: fica FORA da alternativa, depois dela.
+        // Fechado (fa-lock) = alternativa cortada/descartada. Aberto (fa-lock-open) = disponível.
+        const lockBtn = document.createElement('button');
+        lockBtn.type = 'button';
+        lockBtn.setAttribute('aria-label', discarded ? 'Restaurar alternativa' : 'Descartar alternativa');
+        lockBtn.title = discarded ? 'Restaurar alternativa' : 'Cortar/descartar alternativa';
+        lockBtn.className = `shrink-0 w-10 rounded-xl border flex items-center justify-center transition-all ${discarded ? 'bg-slate-700/50 border-slate-600' : 'bg-navy-900/60 border-navy-700/80 hover:bg-navy-700/50 hover:border-navy-500'}`;
+        lockBtn.onclick = (e) => { e.stopPropagation(); toggleDiscard(optIdx); };
+        lockBtn.innerHTML = `<i class="fa-solid ${discarded ? 'fa-lock text-slate-300' : 'fa-lock-open text-slate-500'} text-sm"></i>`;
+
+        row.appendChild(btn);
+        row.appendChild(lockBtn);
+        container.appendChild(row);
       });
 
       // Explanation Box (Study Mode)
@@ -1911,15 +1928,29 @@
 
     function selectOption(optIndex) {
       if (isDiscarded(currentIndex, optIndex)) return;
+      const jaTinhaResposta = userAnswers[currentIndex] !== undefined;
       userAnswers[currentIndex] = optIndex;
       saveState();
       renderQuestion();
       renderGrid();
+
+      // Salva o resultado dessa questão em tempo real, sem esperar finalizar o simulado
+      if (currentUser && !jaTinhaResposta) {
+        const q = questionsData[currentIndex];
+        sb.from('respostas_detalhadas').insert({
+          user_id: currentUser.id,
+          quiz_id: QUIZ_ID,
+          subject: q.subject,
+          question_id: q.id,
+          acertou: optIndex === q.correct
+        }).then(() => {});
+      }
     }
 
     function prevQuestion() {
       if (currentIndex > 0) {
         currentIndex--;
+        localStorage.setItem(STORAGE_KEY_CURRENT, String(currentIndex));
         renderQuestion();
         renderGrid();
       }
@@ -1928,6 +1959,7 @@
     function nextQuestion() {
       if (currentIndex < questionsData.length - 1) {
         currentIndex++;
+        localStorage.setItem(STORAGE_KEY_CURRENT, String(currentIndex));
         renderQuestion();
         renderGrid();
       }
@@ -1955,6 +1987,7 @@
         const btn = document.createElement('button');
         btn.onclick = () => {
           currentIndex = idx;
+          localStorage.setItem(STORAGE_KEY_CURRENT, String(currentIndex));
           renderQuestion();
           renderGrid();
         };
@@ -2070,23 +2103,7 @@
           percentual: percent,
           respostas: userAnswers
         }).then(() => {});
-
-        // Log detalhado por questão (alimenta a análise por assunto do desempenho.html)
-        const detalhes = [];
-        questionsData.forEach((q, idx) => {
-          if (userAnswers[idx] !== undefined) {
-            detalhes.push({
-              user_id: currentUser.id,
-              quiz_id: QUIZ_ID,
-              subject: q.subject,
-              question_id: q.id,
-              acertou: userAnswers[idx] === q.correct
-            });
-          }
-        });
-        if (detalhes.length > 0) {
-          sb.from('respostas_detalhadas').insert(detalhes).then(() => {});
-        }
+        // (o detalhamento por questão já foi salvo em tempo real, questão a questão, em selectOption())
       }
     }
 
@@ -2123,5 +2140,137 @@
       background: #1E56A0;
     }
   </style>
+  <!-- ===== Assistente de Busca: Guerras e Batalhas ===== -->
+  <button id="assistant-fab" onclick="toggleAssistant()" class="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-navy-600 hover:bg-navy-500 text-ink shadow-2xl flex items-center justify-center transition-all" title="Perguntar ao Cabo Velho de Esquadra">
+    <i class="fa-solid fa-comment-dots text-xl" id="assistant-fab-icon"></i>
+  </button>
+
+  <div id="assistant-panel" class="hidden fixed bottom-24 right-5 z-40 w-[94vw] max-w-[440px] h-[80vh] max-h-[640px] bg-navy-800 border border-navy-700 rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+    <div class="chrome-bg-900 border-b chrome-border-700 px-4 py-3 flex items-center gap-2.5 flex-shrink-0">
+      <i class="fa-solid fa-anchor chrome-text-white"></i>
+      <div class="flex-1 min-w-0">
+        <div class="chrome-text-white text-sm font-semibold">Cabo Velho do Mar</div>
+        <div class="chrome-text-slate-400 text-[10px]">Assistente de CAAML-703</div>
+      </div>
+      <button onclick="clearAssistantChat()" class="chrome-text-slate-400 chrome-hover-text-white text-sm" title="Limpar conversa"><i class="fa-solid fa-trash-can"></i></button>
+      <button onclick="toggleAssistant()" class="chrome-text-slate-400 chrome-hover-text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div id="assistant-messages" class="flex-1 overflow-y-auto min-h-0 px-4 py-4 space-y-3 text-sm"></div>
+    <div class="border-t border-navy-700 p-3 flex gap-2 flex-shrink-0">
+      <input id="assistant-input" type="text" placeholder="Ex: quem comandou o Riachuelo?" class="flex-1 bg-navy-900 border border-navy-700 text-ink text-sm rounded-lg px-3 py-2 outline-none focus:border-navy-500" onkeydown="if(event.key==='Enter') sendAssistantMessage()">
+      <button onclick="sendAssistantMessage()" class="bg-navy-600 hover:bg-navy-500 text-ink w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <script>
+    // ===== Lógica do assistente de busca (100% local, sem IA externa) =====
+    const ASSISTANT_STOPWORDS = new Set(['que','quem','qual','quais','como','onde','quando','porque','por','para',
+      'com','uma','umas','uns','dos','das','foi','ser','sao','esta','estava','eram','sobre','isso','essa','esse',
+      'me','diz','fale','conte','sabe','voce','você','tem','existe','existiu','aconteceu','aconteceram','falar']);
+
+    function assistantNormalize(s) {
+      return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^\w\s]/g, ' ');
+    }
+
+    function assistantSearch(query, limit) {
+      limit = limit || 3;
+      const rawWords = assistantNormalize(query).split(/\s+/).filter(w => w.length > 2);
+      const words = rawWords.filter(w => !ASSISTANT_STOPWORDS.has(w));
+      const effectiveWords = words.length > 0 ? words : rawWords;
+      if (effectiveWords.length === 0) return [];
+
+      const scored = questionsData.map(q => {
+        const correctText = (q.options[q.correct] || '').replace(/^[A-E]\)\s*/, '');
+        const subjectNorm = assistantNormalize(q.subject);
+        const noteEntry = (typeof notesCache !== 'undefined') ? notesCache[String(q.id)] : null;
+        const noteText = (noteEntry && noteEntry.texto) ? noteEntry.texto : '';
+        const haystack = assistantNormalize(q.text + ' ' + correctText + ' ' + q.subject + ' ' + noteText);
+        const noteHaystack = assistantNormalize(noteText);
+        let score = 0;
+        let noteMatched = false;
+        effectiveWords.forEach(w => {
+          const re = new RegExp('\\b' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b');
+          if (re.test(haystack)) score += 1;
+          if (re.test(subjectNorm)) score += 0.5;
+          if (noteHaystack && re.test(noteHaystack)) { score += 0.75; noteMatched = true; }
+        });
+        return { q, score, correctText, noteText: noteMatched ? noteText : '' };
+      }).filter(x => x.score >= 1);
+
+      scored.sort((a, b) => b.score - a.score);
+      return scored.slice(0, limit);
+    }
+
+    function clearAssistantChat() {
+      document.getElementById('assistant-messages').innerHTML = '';
+      addAssistantMessage('assistant',
+        'Ó BOY! Se enquadra pra falar com o Cabo Velho de Esquadra ⚓ Pode me perguntar sobre qualquer assunto de CAAML-703 — eu procuro no banco de questões e nas suas próprias anotações dessa matéria, e te dou o bizu de onde encontrar. Pode ficar à vontade!');
+    }
+
+    function toggleAssistant() {
+      const panel = document.getElementById('assistant-panel');
+      const isHidden = panel.classList.contains('hidden');
+      panel.classList.toggle('hidden', !isHidden);
+      document.getElementById('assistant-fab-icon').className = isHidden ? 'fa-solid fa-xmark text-xl' : 'fa-solid fa-comment-dots text-xl';
+      if (isHidden && document.getElementById('assistant-messages').children.length === 0) {
+        addAssistantMessage('assistant',
+          'Ó BOY! Se enquadra pra falar com o Cabo Velho de Esquadra ⚓ Pode me perguntar sobre qualquer assunto de CAAML-703 — eu procuro no banco de questões e nas suas próprias anotações dessa matéria, e te dou o bizu de onde encontrar. Pode ficar à vontade!');
+        document.getElementById('assistant-input').focus();
+      }
+    }
+
+    function addAssistantMessage(role, html) {
+      const wrap = document.getElementById('assistant-messages');
+      const bubble = document.createElement('div');
+      if (role === 'user') {
+        bubble.className = 'bg-navy-600 text-ink rounded-xl rounded-br-sm px-3 py-2 ml-8 text-right break-words';
+        bubble.innerText = html;
+      } else {
+        bubble.className = 'bg-navy-900/70 border border-navy-700 text-slate-200 rounded-xl rounded-bl-sm px-3 py-2.5 mr-6 break-words leading-relaxed';
+        bubble.innerHTML = html;
+      }
+      wrap.appendChild(bubble);
+      requestAnimationFrame(() => { wrap.scrollTop = wrap.scrollHeight; });
+    }
+
+    function sendAssistantMessage() {
+      const input = document.getElementById('assistant-input');
+      const query = input.value.trim();
+      if (!query) return;
+      addAssistantMessage('user', query);
+      input.value = '';
+
+      const results = assistantSearch(query, 100);
+
+      if (results.length === 0) {
+        addAssistantMessage('assistant',
+          'Não achei nada no banco de questões de CAAML-703 sobre isso. Tenta usar outras palavras-chave.');
+        return;
+      }
+
+      const top = results[0];
+      let html = `<div class="mb-2"><span class="text-[10px] uppercase tracking-wide text-navy-400 font-semibold">${top.q.subject}</span></div>`;
+      html += `<div class="mb-2">${top.q.text}</div>`;
+      html += `<div class="text-emerald-400 font-semibold flex items-center gap-1.5"><i class="fa-solid fa-check"></i> ${top.correctText}</div>`;
+      if (top.noteText) {
+        html += `<div class="mt-2 pt-2 border-t border-navy-700/60 text-[12px] text-amber-200 flex items-start gap-1.5"><i class="fa-solid fa-pen-to-square mt-0.5"></i><span><strong>Sua anotação:</strong> ${top.noteText}</span></div>`;
+      }
+
+      if (results.length > 1) {
+        html += '<div class="mt-3 pt-2 border-t border-navy-700/60 text-[11px] text-slate-400">Também relacionado:</div>';
+        html += '<div class="mt-1.5 space-y-2.5">';
+        results.slice(1).forEach(r => {
+          html += `<div class="text-[12px] text-slate-300">
+            <div>• ${r.q.text}</div>
+            <div class="text-emerald-400/90 font-medium pl-3 mt-0.5"><i class="fa-solid fa-check text-[10px] mr-1"></i>${r.correctText}</div>
+          </div>`;
+        });
+        html += '</div>';
+      }
+
+      addAssistantMessage('assistant', html);
+    }
+  </script>
+
 </body>
 </html>

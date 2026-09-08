@@ -6931,6 +6931,7 @@ const questionsData = [
     const STORAGE_KEY_MODE = 'historia_naval_mode';
     const STORAGE_KEY_DISCARDED = 'historia_naval_discarded_options';
     const STORAGE_KEY_START = 'historia_naval_elapsed_start';
+    const STORAGE_KEY_CURRENT = 'historia_naval_current_index';
 
     // --- Supabase: sessão vem da página inicial (index.html) ---
     const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
@@ -7030,7 +7031,8 @@ const questionsData = [
       await applySwitchMenuLocks();
 
       await loadSavedState();
-      currentIndex = 0;
+      const savedIndex = parseInt(localStorage.getItem(STORAGE_KEY_CURRENT), 10);
+      currentIndex = (!isNaN(savedIndex) && savedIndex >= 0 && savedIndex < questionsData.length) ? savedIndex : 0;
       renderQuestion();
       renderGrid();
       updateTrackers();
@@ -7247,11 +7249,14 @@ const questionsData = [
 
       q.options.forEach((optText, optIdx) => {
         const discarded = isDiscarded(currentIndex, optIdx);
+        const row = document.createElement('div');
+        row.className = 'flex items-stretch gap-2';
+
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.onclick = () => { if (!isDiscarded(currentIndex, optIdx)) selectOption(optIdx); };
 
-        let baseClasses = 'w-full text-left p-4 pr-3 rounded-xl border text-sm md:text-base font-medium transition-all flex items-start gap-3 ';
+        let baseClasses = 'flex-1 min-w-0 text-left p-4 pr-3 rounded-xl border text-sm md:text-base font-medium transition-all flex items-start gap-3 ';
 
         if (discarded) {
           baseClasses += 'bg-slate-800/30 border-slate-700/50 text-slate-500 opacity-50 line-through cursor-pointer';
@@ -7300,9 +7305,21 @@ const questionsData = [
           }
         }
 
-        const lockState = discarded ? 'fa-lock-open text-slate-300' : 'fa-lock text-slate-500';
-        btn.innerHTML = `${radioIcon}<span class="flex-1 ${discarded ? 'line-through' : ''}">${optText}</span><span role="button" tabindex="0" aria-label="${discarded ? 'Restaurar alternativa' : 'Descartar alternativa'}" title="${discarded ? 'Restaurar alternativa' : 'Cortar/descartar alternativa'}" class="ml-2 shrink-0 w-7 h-7 rounded-md flex items-center justify-center hover:bg-white/10 ${discarded ? 'bg-slate-700/50' : ''}" onclick="event.stopPropagation(); toggleDiscard(${optIdx})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();toggleDiscard(${optIdx})}"><i class="fa-solid ${lockState} text-xs"></i></span>`;
-        container.appendChild(btn);
+        btn.innerHTML = `${radioIcon}<span class="flex-1 ${discarded ? 'line-through' : ''}">${optText}</span>`;
+
+        // Cadeado de descartar/restaurar: fica FORA da alternativa, depois dela.
+        // Fechado (fa-lock) = alternativa cortada/descartada. Aberto (fa-lock-open) = disponível.
+        const lockBtn = document.createElement('button');
+        lockBtn.type = 'button';
+        lockBtn.setAttribute('aria-label', discarded ? 'Restaurar alternativa' : 'Descartar alternativa');
+        lockBtn.title = discarded ? 'Restaurar alternativa' : 'Cortar/descartar alternativa';
+        lockBtn.className = `shrink-0 w-10 rounded-xl border flex items-center justify-center transition-all ${discarded ? 'bg-slate-700/50 border-slate-600' : 'bg-navy-900/60 border-navy-700/80 hover:bg-navy-700/50 hover:border-navy-500'}`;
+        lockBtn.onclick = (e) => { e.stopPropagation(); toggleDiscard(optIdx); };
+        lockBtn.innerHTML = `<i class="fa-solid ${discarded ? 'fa-lock text-slate-300' : 'fa-lock-open text-slate-500'} text-sm"></i>`;
+
+        row.appendChild(btn);
+        row.appendChild(lockBtn);
+        container.appendChild(row);
       });
 
       // Explanation Box (Study Mode)
@@ -7422,6 +7439,7 @@ const questionsData = [
     function prevQuestion() {
       if (currentIndex > 0) {
         currentIndex--;
+        localStorage.setItem(STORAGE_KEY_CURRENT, String(currentIndex));
         renderQuestion();
         renderGrid();
       }
@@ -7430,6 +7448,7 @@ const questionsData = [
     function nextQuestion() {
       if (currentIndex < questionsData.length - 1) {
         currentIndex++;
+        localStorage.setItem(STORAGE_KEY_CURRENT, String(currentIndex));
         renderQuestion();
         renderGrid();
       }
@@ -7475,6 +7494,7 @@ const questionsData = [
         const btn = document.createElement('button');
         btn.onclick = () => {
           currentIndex = idx;
+          localStorage.setItem(STORAGE_KEY_CURRENT, String(currentIndex));
           renderQuestion();
           renderGrid();
         };
