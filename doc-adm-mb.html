@@ -1,0 +1,4127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>
+    // Aplica o tema salvo (ou escuro por padrão) antes de qualquer coisa renderizar,
+    // pra evitar um "flash" da cor errada ao carregar a página.
+    (function() {
+      try {
+        var saved = localStorage.getItem('site_theme');
+        var theme = saved === 'light' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentação Administrativa na MB · Simulado — Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Simulado interativo de Documentação Administrativa na MB e RDM para concursos, com modo estudo, modo prova, filtro por assunto e acompanhamento de desempenho.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Fraunces (títulos, caráter naval/editorial) + Inter (texto e interface) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: {
+              100: 'rgb(var(--tw-navy-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-navy-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-navy-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-navy-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-navy-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-navy-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-navy-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-navy-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-navy-900) / <alpha-value>)'
+            },
+            ink: 'rgb(var(--tw-ink) / <alpha-value>)',
+            slate: {
+              50: 'rgb(var(--tw-slate-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-slate-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-slate-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-slate-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-slate-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-slate-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-slate-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-slate-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-slate-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-slate-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-slate-950) / <alpha-value>)'
+            },
+            emerald: {
+              50: 'rgb(var(--tw-emerald-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-emerald-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-emerald-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-emerald-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-emerald-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-emerald-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-emerald-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-emerald-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-emerald-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-emerald-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-emerald-950) / <alpha-value>)'
+            },
+            rose: {
+              50: 'rgb(var(--tw-rose-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-rose-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-rose-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-rose-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-rose-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-rose-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-rose-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-rose-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-rose-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-rose-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-rose-950) / <alpha-value>)'
+            },
+            amber: {
+              50: 'rgb(var(--tw-amber-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-amber-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-amber-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-amber-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-amber-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-amber-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-amber-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-amber-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-amber-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-amber-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-amber-950) / <alpha-value>)'
+            },
+            cyan: {
+              50: 'rgb(var(--tw-cyan-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-cyan-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-cyan-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-cyan-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-cyan-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-cyan-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-cyan-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-cyan-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-cyan-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-cyan-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-cyan-950) / <alpha-value>)'
+            },
+            sky: { 400: 'rgb(var(--tw-sky-400) / <alpha-value>)' },
+            lime: { 400: 'rgb(var(--tw-lime-400) / <alpha-value>)' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+:root {
+  --tw-slate-50: 248 250 252;
+  --tw-slate-100: 241 245 249;
+  --tw-slate-200: 226 232 240;
+  --tw-slate-300: 203 213 225;
+  --tw-slate-400: 148 163 184;
+  --tw-slate-500: 100 116 139;
+  --tw-slate-600: 71 85 105;
+  --tw-slate-700: 51 65 85;
+  --tw-slate-800: 30 41 59;
+  --tw-slate-900: 15 23 42;
+  --tw-slate-950: 2 6 23;
+  --tw-emerald-50: 236 253 245;
+  --tw-emerald-100: 209 250 229;
+  --tw-emerald-200: 167 243 208;
+  --tw-emerald-300: 110 231 183;
+  --tw-emerald-400: 52 211 153;
+  --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 5 150 105;
+  --tw-emerald-700: 4 120 87;
+  --tw-emerald-800: 6 95 70;
+  --tw-emerald-900: 6 78 59;
+  --tw-emerald-950: 2 44 34;
+  --tw-rose-50: 255 241 242;
+  --tw-rose-100: 255 228 230;
+  --tw-rose-200: 254 205 211;
+  --tw-rose-300: 253 164 175;
+  --tw-rose-400: 251 113 133;
+  --tw-rose-500: 244 63 94;
+  --tw-rose-600: 225 29 72;
+  --tw-rose-700: 190 18 60;
+  --tw-rose-800: 159 18 57;
+  --tw-rose-900: 136 19 55;
+  --tw-rose-950: 76 5 25;
+  --tw-amber-50: 255 251 235;
+  --tw-amber-100: 254 243 199;
+  --tw-amber-200: 253 230 138;
+  --tw-amber-300: 252 211 77;
+  --tw-amber-400: 251 191 36;
+  --tw-amber-500: 245 158 11;
+  --tw-amber-600: 217 119 6;
+  --tw-amber-700: 180 83 9;
+  --tw-amber-800: 146 64 14;
+  --tw-amber-900: 120 53 15;
+  --tw-amber-950: 69 26 3;
+  --tw-cyan-50: 236 254 255;
+  --tw-cyan-100: 207 250 254;
+  --tw-cyan-200: 165 243 252;
+  --tw-cyan-300: 103 232 249;
+  --tw-cyan-400: 34 211 238;
+  --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 8 145 178;
+  --tw-cyan-700: 14 116 144;
+  --tw-cyan-800: 21 94 117;
+  --tw-cyan-900: 22 78 99;
+  --tw-cyan-950: 8 51 68;
+  --tw-sky-400: 56 189 248;
+  --tw-lime-400: 163 230 53;
+  --tw-navy-100: 230 240 250;
+  --tw-navy-200: 192 219 245;
+  --tw-navy-300: 143 193 238;
+  --tw-navy-400: 77 158 224;
+  --tw-navy-500: 0 102 204;
+  --tw-navy-600: 30 86 160;
+  --tw-navy-700: 30 62 98;
+  --tw-navy-800: 11 25 44;
+  --tw-navy-900: 0 15 38;
+  --tw-ink: 255 255 255;
+}
+
+[data-theme="light"] {
+  --tw-slate-50: 2 6 23;
+  --tw-slate-100: 15 23 42;
+  --tw-slate-200: 30 41 59;
+  --tw-slate-300: 51 65 85;
+  --tw-slate-400: 71 85 105;
+  --tw-slate-500: 100 116 139;
+  --tw-slate-600: 148 163 184;
+  --tw-slate-700: 203 213 225;
+  --tw-slate-800: 226 232 240;
+  --tw-slate-900: 241 245 249;
+  --tw-slate-950: 248 250 252;
+  --tw-emerald-50: 2 44 34;
+  --tw-emerald-100: 6 78 59;
+  --tw-emerald-200: 6 95 70;
+  --tw-emerald-300: 4 120 87;
+  --tw-emerald-400: 5 150 105;
+  --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 52 211 153;
+  --tw-emerald-700: 110 231 183;
+  --tw-emerald-800: 167 243 208;
+  --tw-emerald-900: 209 250 229;
+  --tw-emerald-950: 236 253 245;
+  --tw-rose-50: 76 5 25;
+  --tw-rose-100: 136 19 55;
+  --tw-rose-200: 159 18 57;
+  --tw-rose-300: 190 18 60;
+  --tw-rose-400: 225 29 72;
+  --tw-rose-500: 244 63 94;
+  --tw-rose-600: 251 113 133;
+  --tw-rose-700: 253 164 175;
+  --tw-rose-800: 254 205 211;
+  --tw-rose-900: 255 228 230;
+  --tw-rose-950: 255 241 242;
+  --tw-amber-50: 69 26 3;
+  --tw-amber-100: 120 53 15;
+  --tw-amber-200: 146 64 14;
+  --tw-amber-300: 180 83 9;
+  --tw-amber-400: 217 119 6;
+  --tw-amber-500: 245 158 11;
+  --tw-amber-600: 251 191 36;
+  --tw-amber-700: 252 211 77;
+  --tw-amber-800: 253 230 138;
+  --tw-amber-900: 254 243 199;
+  --tw-amber-950: 255 251 235;
+  --tw-cyan-50: 8 51 68;
+  --tw-cyan-100: 22 78 99;
+  --tw-cyan-200: 21 94 117;
+  --tw-cyan-300: 14 116 144;
+  --tw-cyan-400: 8 145 178;
+  --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 34 211 238;
+  --tw-cyan-700: 103 232 249;
+  --tw-cyan-800: 165 243 252;
+  --tw-cyan-900: 207 250 254;
+  --tw-cyan-950: 236 254 255;
+  --tw-sky-400: 56 189 248;
+  --tw-lime-400: 163 230 53;
+  --tw-navy-100: 0 15 38;
+  --tw-navy-200: 11 25 44;
+  --tw-navy-300: 30 62 98;
+  --tw-navy-400: 30 86 160;
+  --tw-navy-500: 0 102 204;
+  --tw-navy-600: 77 158 224;
+  --tw-navy-700: 143 193 238;
+  --tw-navy-800: 192 219 245;
+  --tw-navy-900: 230 240 250;
+  --tw-ink: 11 25 44;
+}
+
+    @keyframes access-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shake {
+      10%, 90% { transform: translateX(-1px); }
+      20%, 80% { transform: translateX(2px); }
+      30%, 50%, 70% { transform: translateX(-4px); }
+      40%, 60% { transform: translateX(4px); }
+    }
+    .shake { animation: shake .5s; }
+    @media (prefers-reduced-motion: reduce) {
+      #access-card, .shake { animation: none !important; }
+      .lightning-flash, .rain-drop, #vortex-swirl { animation: none !important; }
+      #access-screen.exiting { animation: none !important; opacity: 0; }
+    }
+
+    /* ===== "Chrome" do cabeçalho: fica sempre navy escuro, independente do tema ===== */
+    .chrome-bg-900 { background-color: #000F26 !important; }
+    .chrome-bg-800 { background-color: #0B192C !important; }
+    .chrome-bg-600 { background-color: #1E56A0 !important; }
+    .chrome-border-700 { border-color: #1E3E62 !important; }
+    .chrome-border-600 { border-color: #1E56A0 !important; }
+    .chrome-text-white { color: #FFFFFF !important; }
+    .chrome-text-slate-400 { color: #94A3B8 !important; }
+    .chrome-text-slate-200 { color: #E2E8F0 !important; }
+    .chrome-hover-border-500:hover { border-color: #0066CC !important; }
+    .chrome-hover-text-white:hover { color: #FFFFFF !important; }
+
+    @keyframes access-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shake {
+      10%, 90% { transform: translateX(-1px); }
+      20%, 80% { transform: translateX(2px); }
+      30%, 50%, 70% { transform: translateX(-4px); }
+      40%, 60% { transform: translateX(4px); }
+    }
+    .shake { animation: shake .5s; }
+    @keyframes question-in {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #question-card.question-in { animation: question-in .28s ease-out; }
+    @media (prefers-reduced-motion: reduce) {
+      #access-card, #question-card, .shake { animation: none !important; }
+    }
+    button:focus-visible, input:focus-visible, [role="button"]:focus-visible {
+      outline: 2px solid #2384d6;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso: apenas verifica se já há login feito na página inicial -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">⚓</div>
+      <div class="font-serif font-semibold text-[26px] text-ink tracking-tight">Documentação Administrativa na MB</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial para acessar este simulado.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-ink text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-ink underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+
+      <div id="gate-no-access" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-lock text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Você ainda não tem acesso liberado a esta matéria. Fale com o administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-ink underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+
+      <div class="text-[11px] text-[#7895b5] mt-6 pt-4 border-t border-[#1c3a5c] w-full">Documentação Administrativa na MB para Concursos</div>
+    </div>
+  </div>
+
+
+  <!-- Header -->
+  <header class="chrome-bg-900 border-b chrome-border-700 sticky top-0 z-30 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="chrome-bg-600 chrome-text-white p-2.5 rounded-lg shadow">
+          <i class="fa-solid fa-anchor text-2xl"></i>
+        </div>
+        <div>
+          <h1 class="font-serif text-xl font-semibold chrome-text-white tracking-wide">Documentação Administrativa na MB</h1>
+          <p class="text-xs chrome-text-slate-400">Documentação Administrativa na MB e Regulamento Disciplinar da Marinha</p>
+        </div>
+      </div>
+
+      <!-- Mode Switcher & Actions -->
+      <div class="flex items-center gap-3">
+        <div class="chrome-bg-800 p-1 rounded-lg border chrome-border-700 flex text-xs">
+          <button id="btn-mode-study" onclick="setMode('study')" class="px-3 py-1.5 rounded-md font-medium transition-all chrome-bg-600 chrome-text-white shadow">
+            <i class="fa-solid fa-graduation-cap mr-1"></i> Modo Estudo
+          </button>
+          <button id="btn-mode-exam" onclick="setMode('exam')" class="px-3 py-1.5 rounded-md font-medium transition-all chrome-text-slate-400 chrome-hover-text-white">
+            <i class="fa-solid fa-clock mr-1"></i> Modo Prova
+          </button>
+        </div>
+
+        <div id="elapsed-timer" class="chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg flex items-center gap-1.5" title="Tempo decorrido">
+          <i class="fa-solid fa-stopwatch text-navy-500"></i><span>00:00:00</span>
+        </div>
+
+        <div class="relative">
+          <button id="switch-quiz-btn" onclick="toggleSwitchMenu()" class="chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 chrome-hover-border-500 transition-colors" title="Trocar de simulado">
+            <i class="fa-solid fa-layer-group text-navy-500"></i> <span class="hidden sm:inline">Outros Simulados</span> <i class="fa-solid fa-chevron-down text-[9px]"></i>
+          </button>
+          <div id="switch-quiz-menu" class="hidden absolute right-0 mt-2 w-72 max-h-[75vh] overflow-y-auto chrome-bg-800 border chrome-border-700 rounded-xl shadow-2xl z-40">
+            <a href="index.html" class="flex items-center gap-2 px-4 py-3 text-xs text-navy-200 border-b chrome-border-700 hover:bg-navy-700/40 transition-colors">
+              <i class="fa-solid fa-house"></i> Painel geral
+            </a>
+            <div class="px-4 pt-2 pb-1 border-b chrome-border-700">
+        <a href="prova-simulada.html" data-switch-quiz-id="PROVA_SIMULADA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs text-navy-200 hover:bg-navy-700/40 transition-colors">
+          <span><i class="fa-solid fa-shuffle mr-1"></i> Prova Simulada (50 questões)</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+            </div>
+            <div class="px-4 pt-3 pb-1 text-[10px] uppercase tracking-wide text-slate-500">Conhecimento Geral</div>
+        <a href="portugues.html" data-switch-quiz-id="PORTUGUES" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Língua Portuguesa</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="historia-naval.html" data-switch-quiz-id="HISTORIA_NAVAL" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>História Militar Naval</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="geografia.html" data-switch-quiz-id="GEOGRAFIA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Geografia</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="matematica.html" data-switch-quiz-id="MATEMATICA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Matemática</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+            <div class="px-4 pt-3 pb-1 text-[10px] uppercase tracking-wide text-slate-500 border-t chrome-border-700 mt-1">Conhecimento Militar Naval</div>
+        <a href="caaml-703.html" data-switch-quiz-id="CAAML-703" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Embarcações Miúdas & Segurança</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="cerimonial.html" data-switch-quiz-id="CERIMONIAL" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Cerimonial da Marinha</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="rosas-virtudes.html" data-switch-quiz-id="ROSAS_VIRTUDES" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Rosas das Virtudes</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="lideranca-atributos.html" data-switch-quiz-id="LIDERANCA_ATRIBUTOS" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Liderança — Atributos</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="justica-disciplina.html" data-switch-quiz-id="JUSTICA_DISCIPLINA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Justiça e Disciplina</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="lideranca.html" data-switch-quiz-id="LIDERANCA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>Liderança</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="ogsa.html" data-switch-quiz-id="OGSA" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>OGSA</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="camaal-cav.html" data-switch-quiz-id="CAMAAL_CAV" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>CAMAAL 1202 (CAV)</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+        <div class="flex items-center justify-between px-4 py-2.5 text-xs chrome-text-white bg-navy-700/50">
+          <span class="font-semibold">Documentação Administrativa na MB</span>
+          <i class="fa-solid fa-check text-emerald-400 text-[10px]"></i>
+        </div>
+        <a href="pem2040.html" data-switch-quiz-id="PEM2040" class="switch-quiz-item flex items-center justify-between px-4 py-2.5 text-xs chrome-text-slate-200 hover:bg-navy-700/40 transition-colors">
+          <span>PEM-2040</span>
+          <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+        </a>
+          </div>
+        </div>
+
+        <button id="theme-toggle-btn" onclick="toggleTheme()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors flex-shrink-0" title="Alternar entre modo claro e escuro" aria-label="Alternar tema claro/escuro"><i class="fa-solid fa-moon text-sm" id="theme-toggle-icon-moon"></i><i class="fa-solid fa-sun text-sm hidden" id="theme-toggle-icon-sun"></i></button>
+      <div id="user-bar" class="hidden chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2" title="Conectado">
+          <i class="fa-solid fa-user text-navy-500"></i>
+          <span id="user-email" class="max-w-[140px] truncate"></span>
+          <button onclick="handleLogout()" class="ml-1 text-rose-300 hover:text-rose-200 transition-colors" title="Sair da conta">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
+
+        <button onclick="resetQuiz()" class="bg-rose-900/40 hover:bg-rose-800 text-rose-200 border border-rose-700/50 text-xs px-3 py-2 rounded-lg transition-all flex items-center gap-1.5" title="Reiniciar Simulado">
+          <i class="fa-solid fa-rotate-right"></i> Reiniciar
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+    <!-- Left / Center: Question Panel -->
+    <section class="lg:col-span-3 flex flex-col gap-6">
+
+      <!-- Progress Bar & Stats -->
+      <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 shadow-sm flex flex-col gap-3">
+        <div class="flex justify-between items-center text-sm font-semibold">
+          <span id="question-tracker" class="text-navy-500 font-bold">Questão 1 de 25</span>
+          <span id="answered-tracker" class="text-slate-400 text-xs">0 de 25 respondidas</span>
+        </div>
+        <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+          <div id="progress-bar" class="bg-navy-500 h-full w-0 transition-all duration-300"></div>
+        </div>
+      </div>
+
+      <!-- Question Card -->
+      <div id="question-card" class="bg-navy-800/90 border border-navy-700 rounded-xl p-6 shadow-xl flex flex-col justify-between min-h-[420px] relative">
+        <div>
+          <!-- Question Header Badge -->
+          <div class="flex justify-between items-center mb-4 gap-2">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span id="question-badge" class="bg-navy-700/60 text-navy-100 text-xs px-3 py-1 rounded-full font-mono border border-navy-600">
+                Questão #599
+              </span>
+              <span id="question-subject-tag" class="bg-navy-900 text-slate-400 text-xs px-3 py-1 rounded-full border border-navy-700"></span>
+            </div>
+            <span id="question-status-tag" class="text-xs px-2.5 py-1 rounded font-medium hidden"></span>
+          </div>
+
+          <!-- Question Body -->
+          <div id="question-text" class="text-base md:text-lg font-medium text-slate-100 leading-relaxed whitespace-pre-line mb-6">
+            Carregando questão...
+          </div>
+
+          <!-- Options Container -->
+          <div id="options-container" class="space-y-3">
+            <!-- Options will be dynamically rendered -->
+          </div>
+        </div>
+
+        <!-- Explanation Block (Study Mode) -->
+        <div id="explanation-box" class="mt-6 p-4 rounded-lg bg-slate-900/90 border border-slate-700 hidden">
+          <div class="flex items-center gap-2 text-sm font-bold mb-1" id="explanation-title"></div>
+          <div class="text-xs md:text-sm text-slate-300" id="explanation-text"></div>
+        </div>
+
+        <!-- Minha Anotação (nota pessoal do aluno sobre a questão) -->
+        <div class="mt-6 p-4 rounded-lg bg-navy-900/60 border border-navy-700">
+          <div class="flex items-center justify-between mb-2">
+            <label for="note-textarea" class="flex items-center gap-2 text-sm font-bold text-slate-200">
+              <i class="fa-solid fa-pen-to-square text-navy-500"></i> Minha Anotação
+            </label>
+          </div>
+          <textarea id="note-textarea" rows="3" oninput="scheduleNoteSave()" placeholder="Escreva aqui um resumo ou observação pessoal sobre esta questão..." class="w-full bg-white border border-navy-700 text-black text-sm rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-navy-500 resize-y"></textarea>
+          <div class="flex items-center justify-between mt-2">
+            <span id="note-status" class="text-xs text-slate-500"></span>
+            <span id="note-timestamp" class="text-[11px] text-slate-500"></span>
+          </div>
+        </div>
+
+        <!-- Question Navigation Buttons -->
+        <div class="mt-8 pt-4 border-t border-navy-700/60 flex justify-between items-center gap-3">
+          <button id="btn-prev" onclick="prevQuestion()" class="bg-navy-700 hover:bg-navy-600 text-ink text-sm px-4 py-2.5 rounded-lg transition-all flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed">
+            <i class="fa-solid fa-arrow-left"></i> Anterior
+          </button>
+
+          <div class="flex gap-2">
+            <button id="btn-finish" onclick="finishQuiz()" class="bg-emerald-600 hover:bg-emerald-500 text-ink text-sm px-5 py-2.5 rounded-lg font-semibold transition-all flex items-center gap-2 shadow-lg shadow-emerald-900/30">
+              <i class="fa-solid fa-check-double"></i> Finalizar Simulado
+            </button>
+            <button id="btn-next" onclick="nextQuestion()" class="bg-navy-600 hover:bg-navy-500 text-ink text-sm px-4 py-2.5 rounded-lg transition-all flex items-center gap-2">
+              Próxima <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right: Question Drawer / Grid Nav -->
+    <aside class="lg:col-span-1 bg-navy-800/80 border border-navy-700 rounded-xl p-4 flex flex-col gap-4 h-fit">
+      <div class="flex justify-between items-center border-b border-navy-700 pb-3">
+        <h2 class="text-sm font-bold text-slate-200 flex items-center gap-2">
+          <i class="fa-solid fa-list-ol text-navy-500"></i> Navegação (25)
+        </h2>
+        <span class="text-xs bg-slate-900 px-2 py-1 rounded text-slate-400 font-mono" id="score-counter">
+          0/25
+        </span>
+      </div>
+
+      <!-- Filters -->
+      <div class="grid grid-cols-3 gap-1 text-[11px] font-medium bg-navy-900 p-1 rounded-lg">
+        <button onclick="setFilter('all')" id="filter-all" class="py-1 rounded text-center bg-navy-700 text-ink">Todas</button>
+        <button onclick="setFilter('unanswered')" id="filter-unanswered" class="py-1 rounded text-center text-slate-400 hover:text-ink">Faltam</button>
+        <button onclick="setFilter('answered')" id="filter-answered" class="py-1 rounded text-center text-slate-400 hover:text-ink">Feitas</button>
+      </div>
+
+      <!-- Filtro por assunto -->
+      <div>
+        <label for="subject-filter" class="text-[11px] font-medium text-slate-400 flex items-center gap-1.5 mb-1.5">
+          <i class="fa-solid fa-layer-group text-navy-500"></i> Assunto
+        </label>
+        <select id="subject-filter" onchange="setSubjectFilter(this.value)" class="w-full bg-navy-900 border border-navy-700 text-slate-200 text-xs rounded-lg px-2.5 py-2 outline-none focus:ring-2 focus:ring-navy-500">
+          <option value="all">Todos os assuntos</option>
+        </select>
+      </div>
+
+      <!-- Grid of Buttons -->
+      <div id="questions-grid" class="grid grid-cols-5 gap-1.5 max-h-[380px] overflow-y-auto p-1 custom-scrollbar">
+        <!-- Grid Items injected via JS -->
+      </div>
+
+      <!-- Legend -->
+      <div class="border-t border-navy-700 pt-3 text-[11px] space-y-1.5 text-slate-400">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-navy-600 border border-navy-500 inline-block"></span>
+          <span>Atual</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-slate-700 inline-block"></span>
+          <span>Respondida</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-emerald-700 inline-block"></span>
+          <span>Correta (Estudo)</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-rose-700 inline-block"></span>
+          <span>Incorreta (Estudo)</span>
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer class="max-w-7xl w-full mx-auto px-4 md:px-6 pb-6 pt-2 text-center text-[11px] text-slate-500">
+    Plataforma de Estudos · CA-AA/AFN — seu progresso neste simulado fica salvo automaticamente neste navegador.
+  </footer>
+
+  <!-- Modal Results -->
+  <div id="results-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-navy-800 border border-navy-700 rounded-2xl max-w-lg w-full p-6 text-center shadow-2xl relative animate-fade-in">
+      <div class="w-16 h-16 bg-navy-700 text-navy-500 rounded-full flex items-center justify-center mx-auto mb-4 border border-navy-600 text-2xl shadow-inner">
+        <i class="fa-solid fa-trophy"></i>
+      </div>
+      <h2 class="font-serif text-2xl font-semibold text-ink mb-1">Resultado do Simulado</h2>
+      <p class="text-xs text-slate-400 mb-6">Documentação Administrativa na MB para Concursos</p>
+
+      <div class="grid grid-cols-3 gap-3 mb-6">
+        <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
+          <div class="text-xs text-slate-400">Acertos</div>
+          <div id="modal-correct" class="text-2xl font-bold text-emerald-400">0</div>
+        </div>
+        <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
+          <div class="text-xs text-slate-400">Erros</div>
+          <div id="modal-wrong" class="text-2xl font-bold text-rose-400">0</div>
+        </div>
+        <div class="bg-navy-900/80 p-3 rounded-xl border border-navy-700">
+          <div class="text-xs text-slate-400">Aproveitamento</div>
+          <div id="modal-percent" class="text-2xl font-bold text-sky-400">0%</div>
+        </div>
+      </div>
+
+      <p id="modal-feedback" class="text-sm text-slate-300 mb-6 px-2">
+        Continue praticando para consolidar seus conhecimentos!
+      </p>
+
+      <div class="flex gap-3 justify-center">
+        <button onclick="closeModal()" class="bg-navy-700 hover:bg-navy-600 text-ink px-5 py-2.5 rounded-lg text-sm transition-all font-medium">
+          Revisar Respostas
+        </button>
+        <button onclick="resetQuiz(); closeModal();" class="bg-navy-600 hover:bg-navy-500 text-ink px-5 py-2.5 rounded-lg text-sm transition-all font-semibold shadow-lg">
+          Tentar Novamente
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Code -->
+  <script>
+    // Quiz Questions Dataset
+const questionsData = [
+      {
+        id: 1,
+        text: "Segundo a NODAM (SGM-105), documento é definido como:",
+        options: [
+          "A) o papel que contém informações administrativas",
+          "B) unidade de registro de informações, qualquer que seja o suporte ou formato",
+          "C) exclusivamente arquivo digital assinado eletronicamente",
+          "D) qualquer correspondência oficial da Marinha",
+          "E) apenas os documentos classificados como sigilosos"
+        ],
+        correct: 1,
+        subject: "Documentos"
+      },
+      {
+        id: 2,
+        text: "Os documentos de interesse da Marinha do Brasil estão enquadrados nos seguintes grupos, EXCETO:",
+        options: [
+          "A) Documentos Administrativos",
+          "B) Documentos Operativos",
+          "C) Publicações",
+          "D) Documentos Especiais",
+          "E) Documentos Internacionais"
+        ],
+        correct: 4,
+        subject: "Documentos"
+      },
+      {
+        id: 3,
+        text: "Os Documentos Administrativos (DA) visam divulgar normas, transmitir ordens e decisões, esclarecer situações, declarar direitos, especificar materiais e estabelecer procedimentos técnicos, subdividindo-se em:",
+        options: [
+          "A) Normativos, de Correspondência e Declaratórios",
+          "B) Ostensivos, Sigilosos e Reservados",
+          "C) Internos, Externos e Mistos",
+          "D) Físicos, Digitais e Híbridos",
+          "E) Urgentes, Especiais e de Rotina"
+        ],
+        correct: 0,
+        subject: "Documentos"
+      },
+      {
+        id: 4,
+        text: "São considerados DA Normativos regidos pela NODAM, EXCETO:",
+        options: [
+          "A) Instrução Normativa (IN)",
+          "B) Instrução Permanente (INST)",
+          "C) Norma Permanente (NORM)",
+          "D) Ordem Interna (OI)",
+          "E) Ofício (Of)"
+        ],
+        correct: 4,
+        subject: "Documentos"
+      },
+      {
+        id: 5,
+        text: "São DA de Correspondência regidos pela NODAM, EXCETO:",
+        options: [
+          "A) Carta",
+          "B) Circular (Circ)",
+          "C) Memorando (Memo)",
+          "D) Atestado",
+          "E) Ofício (Of)"
+        ],
+        correct: 3,
+        subject: "Documentos"
+      },
+      {
+        id: 6,
+        text: "São DA Declaratórios regidos pela NODAM, EXCETO:",
+        options: [
+          "A) Atestado",
+          "B) Certidão",
+          "C) Ordem do Dia (OD)",
+          "D) Circular (Circ)",
+          "E) Termo"
+        ],
+        correct: 3,
+        subject: "Documentos"
+      },
+      {
+        id: 7,
+        text: "Nos DA, em conformidade com o Manual de Redação da Presidência da República, deverá ser empregada a fonte:",
+        options: [
+          "A) Arial",
+          "B) Times New Roman",
+          "C) \"Carlito\", correspondendo à \"Calibri\" em aplicativos que não são softwares livres",
+          "D) Verdana",
+          "E) Comic Sans"
+        ],
+        correct: 2,
+        subject: "Documentos"
+      },
+      {
+        id: 8,
+        text: "Os DA deverão tramitar por meio do sistema de gerência de documentos homologado pela Marinha, denominado:",
+        options: [
+          "A) SISCOFIS",
+          "B) SiGDEM",
+          "C) SIGAM",
+          "D) SISPAG",
+          "E) LEGISMAR"
+        ],
+        correct: 1,
+        subject: "Documentos"
+      },
+      {
+        id: 9,
+        text: "O DA é classificado quanto:",
+        options: [
+          "A) apenas ao âmbito",
+          "B) ao âmbito, à precedência e ao acesso",
+          "C) apenas à precedência e ao acesso",
+          "D) exclusivamente ao grau de sigilo",
+          "E) ao formato e ao tamanho"
+        ],
+        correct: 1,
+        subject: "Classificação dos Documentos Administrativos"
+      },
+      {
+        id: 10,
+        text: "Quanto ao âmbito, o DA classifica-se em interno, quando tramita exclusivamente entre organizações da MB, ou:",
+        options: [
+          "A) reservado",
+          "B) urgente",
+          "C) externo, quando tramita entre organizações da MB e entidades extra-MB",
+          "D) sigiloso",
+          "E) especial"
+        ],
+        correct: 2,
+        subject: "Classificação dos Documentos Administrativos"
+      },
+      {
+        id: 11,
+        text: "Quanto à precedência, o DA poderá ter um dos seguintes graus:",
+        options: [
+          "A) urgente, especial ou rotina",
+          "B) ultrassecreto, secreto ou reservado",
+          "C) interno ou externo",
+          "D) ostensivo ou sigiloso",
+          "E) prioritário, comum ou eventual"
+        ],
+        correct: 0,
+        subject: "Classificação dos Documentos Administrativos"
+      },
+      {
+        id: 12,
+        text: "O grau de precedência \"especial\" somente será atribuído ao DA de âmbito:",
+        options: [
+          "A) externo",
+          "B) interno",
+          "C) misto",
+          "D) internacional",
+          "E) qualquer âmbito, sem restrição"
+        ],
+        correct: 1,
+        subject: "Classificação dos Documentos Administrativos"
+      },
+      {
+        id: 13,
+        text: "Quanto ao acesso, os DA sigilosos podem ser classificados, EXCETO, como:",
+        options: [
+          "A) Ultrassecreto (U)",
+          "B) Secreto (S)",
+          "C) Reservado (R)",
+          "D) Confidencial (C)",
+          "E) nenhuma das anteriores, todas são classificações válidas"
+        ],
+        correct: 3,
+        subject: "Classificação dos Documentos Administrativos"
+      },
+      {
+        id: 14,
+        text: "A reprodução do todo ou de parte de DA sigiloso terá o mesmo grau de sigilo do original, e dependerá de autorização:",
+        options: [
+          "A) do Comandante da Marinha, sempre",
+          "B) da autoridade expedidora, em conformidade com as normas em vigor",
+          "C) do Ministério Público Militar",
+          "D) do destinatário do documento",
+          "E) de qualquer oficial superior"
+        ],
+        correct: 1,
+        subject: "Classificação dos Documentos Administrativos"
+      },
+      {
+        id: 15,
+        text: "Extratos de DA Ultrassecretos dependem de permissão:",
+        options: [
+          "A) da autoridade classificadora",
+          "B) de qualquer autoridade hierarquicamente superior ao destinatário",
+          "C) do Ministério da Defesa",
+          "D) do próprio destinatário do documento",
+          "E) da DAdM"
+        ],
+        correct: 0,
+        subject: "Classificação dos Documentos Administrativos"
+      },
+      {
+        id: 16,
+        text: "Extratos de DA Reservados serão elaborados sob responsabilidade das autoridades destinatárias, exceto quando:",
+        options: [
+          "A) o documento for muito extenso",
+          "B) expressamente vedado no próprio documento",
+          "C) o destinatário não for oficial",
+          "D) o documento tiver mais de um ano de emissão",
+          "E) não houver anexos"
+        ],
+        correct: 1,
+        subject: "Classificação dos Documentos Administrativos"
+      },
+      {
+        id: 17,
+        text: "O DA que contiver anexos sigilosos será classificado com o grau de sigilo:",
+        options: [
+          "A) sempre inferior ao dos anexos",
+          "B) igual ou superior ao maior grau indicado nesses anexos",
+          "C) automaticamente reservado, independentemente dos anexos",
+          "D) definido exclusivamente pelo destinatário",
+          "E) igual à média dos graus de sigilo dos anexos"
+        ],
+        correct: 1,
+        subject: "Classificação dos Documentos Administrativos"
+      },
+      {
+        id: 18,
+        text: "O TCI (Termo de Classificação de Informação) é o formulário que formaliza a decisão de:",
+        options: [
+          "A) arquivamento definitivo do documento",
+          "B) classificação, desclassificação, reclassificação ou redução do prazo de sigilo de informação classificada",
+          "C) autenticação digital do documento",
+          "D) numeração sequencial dos documentos",
+          "E) distribuição de cópias"
+        ],
+        correct: 1,
+        subject: "Classificação dos Documentos Administrativos"
+      },
+      {
+        id: 19,
+        text: "O DA sigiloso deverá ser formalizado, especificamente, por meio do TCI, de acordo com o modelo contido na publicação:",
+        options: [
+          "A) SGM-105",
+          "B) EMA-414",
+          "C) SGM-503",
+          "D) MD33-M-02",
+          "E) EMA-137"
+        ],
+        correct: 1,
+        subject: "Classificação dos Documentos Administrativos"
+      },
+      {
+        id: 20,
+        text: "A classificação das informações será reavaliada pela autoridade classificadora ou por autoridade hierarquicamente superior, mediante provocação ou de ofício, conforme disposto no art. 29 da Lei nº:",
+        options: [
+          "A) 12.527/2011",
+          "B) 6.880/80",
+          "C) 10.278/2020",
+          "D) 8.112/1990",
+          "E) 9.784/1999"
+        ],
+        correct: 0,
+        subject: "Classificação dos Documentos Administrativos"
+      },
+      {
+        id: 21,
+        text: "O DA de Correspondência classificado como sigiloso, unicamente por encaminhar anexo sigiloso, será desclassificado:",
+        options: [
+          "A) somente após um ano de arquivamento",
+          "B) tão logo seja retirado esse anexo",
+          "C) apenas mediante autorização do CM",
+          "D) nunca, permanece sigiloso indefinidamente",
+          "E) apenas ao final do processo administrativo"
+        ],
+        correct: 1,
+        subject: "Classificação dos Documentos Administrativos"
+      },
+      {
+        id: 22,
+        text: "Na hipótese de documento ou processo que contenha informações classificadas em diferentes graus de sigilo, será atribuído ao documento:",
+        options: [
+          "A) o grau de sigilo mais baixo",
+          "B) o grau de sigilo mais elevado",
+          "C) a média entre os graus de sigilo",
+          "D) o grau de sigilo do documento mais antigo",
+          "E) nenhum grau de sigilo, permanece ostensivo"
+        ],
+        correct: 1,
+        subject: "Classificação dos Documentos Administrativos"
+      },
+      {
+        id: 23,
+        text: "Considera-se gestão de documentos o conjunto de procedimentos e operações técnicas referentes à sua produção, tramitação, uso, avaliação e arquivamento em fase corrente e intermediária, visando:",
+        options: [
+          "A) apenas sua digitalização",
+          "B) sua eliminação ou recolhimento para guarda permanente",
+          "C) exclusivamente sua classificação de sigilo",
+          "D) sua distribuição a todas as OM da MB",
+          "E) sua tradução para outros idiomas"
+        ],
+        correct: 1,
+        subject: "Gestão de Documentos"
+      },
+      {
+        id: 24,
+        text: "De acordo com o Conselho Nacional de Arquivos (CONARQ), as fases da gestão de documentos são:",
+        options: [
+          "A) produção, classificação e arquivamento",
+          "B) recebimento, registro e destinação",
+          "C) produção, utilização e destinação",
+          "D) criação, revisão e publicação",
+          "E) elaboração, assinatura e distribuição"
+        ],
+        correct: 2,
+        subject: "Gestão de Documentos"
+      },
+      {
+        id: 25,
+        text: "A fase de \"utilização\" na gestão de documentos diz respeito:",
+        options: [
+          "A) à produção dos documentos em razão da execução das atividades de um órgão",
+          "B) ao fluxo percorrido pelos documentos para o cumprimento de sua função administrativa, e à sua guarda após cessar o trâmite",
+          "C) exclusivamente à eliminação de documentos",
+          "D) à digitalização de documentos físicos",
+          "E) à classificação de sigilo dos documentos"
+        ],
+        correct: 1,
+        subject: "Gestão de Documentos"
+      },
+      {
+        id: 26,
+        text: "A fase de \"destinação\" implica em decidir quais documentos devem ser conservados, quais devem ser eliminados e:",
+        options: [
+          "A) por quanto tempo devem ser mantidos por razões administrativas, legais ou fiscais",
+          "B) quem será o responsável pela guarda",
+          "C) em que formato digital devem ser convertidos",
+          "D) qual o grau de sigilo a ser atribuído",
+          "E) para qual OM devem ser transferidos"
+        ],
+        correct: 0,
+        subject: "Gestão de Documentos"
+      },
+      {
+        id: 27,
+        text: "Classificação, no contexto da gestão de documentos, é a organização dos documentos de acordo com um código ou plano de classificação, com o objetivo de:",
+        options: [
+          "A) reduzir o volume de arquivos físicos",
+          "B) reunir os documentos que tratam de um mesmo assunto, agilizando sua recuperação",
+          "C) definir exclusivamente o grau de sigilo",
+          "D) determinar a autoridade competente para assiná-los",
+          "E) padronizar a fonte tipográfica utilizada"
+        ],
+        correct: 1,
+        subject: "Gestão de Documentos"
+      },
+      {
+        id: 28,
+        text: "O Código de Classificação está definido na Portaria do CONARQ nº:",
+        options: [
+          "A) 47/2020",
+          "B) 154/2013",
+          "C) 17/2018",
+          "D) 88/1983",
+          "E) 105/2021"
+        ],
+        correct: 0,
+        subject: "Gestão de Documentos"
+      },
+      {
+        id: 29,
+        text: "Para documentos com assuntos relacionados à área-fim (Ministério da Defesa), deve ser utilizado o Código de Classificação aprovado pela Portaria do CONARQ nº:",
+        options: [
+          "A) 47/2020",
+          "B) 154/2013",
+          "C) 17/2018",
+          "D) 6.880/1980",
+          "E) 12.527/2011"
+        ],
+        correct: 1,
+        subject: "Gestão de Documentos"
+      },
+      {
+        id: 30,
+        text: "A Tabela de Temporalidade e Destinação de Documentos (TTDD) determina prazos e condições de guarda tendo em vista:",
+        options: [
+          "A) apenas a eliminação de documentos",
+          "B) a transferência, recolhimento ou a eliminação de documentos",
+          "C) exclusivamente a digitalização",
+          "D) apenas a guarda permanente",
+          "E) a atribuição do grau de sigilo"
+        ],
+        correct: 1,
+        subject: "Gestão de Documentos"
+      },
+      {
+        id: 31,
+        text: "Na TTDD, a fase intermediária relaciona-se ao período em que o documento ainda é necessário à OM, porém com menor frequência de uso, devendo ser transferido para:",
+        options: [
+          "A) o Arquivo Nacional",
+          "B) a DPHDM",
+          "C) o SECOM da própria OM, permanentemente",
+          "D) o CONARQ",
+          "E) a DAdM"
+        ],
+        correct: 1,
+        subject: "Gestão de Documentos"
+      },
+      {
+        id: 32,
+        text: "Na TTDD, quando o documento não apresenta valor secundário (probatório ou informativo), a destinação final é:",
+        options: [
+          "A) a guarda permanente",
+          "B) a eliminação",
+          "C) a transferência para outra OM",
+          "D) a digitalização obrigatória",
+          "E) o recolhimento ao Arquivo Nacional imediatamente"
+        ],
+        correct: 1,
+        subject: "Gestão de Documentos"
+      },
+      {
+        id: 33,
+        text: "Os procedimentos para avaliar conjuntos documentais e proceder com a destinação, bem como a formação das subcomissões de avaliação, estão previstos em:",
+        options: [
+          "A) SGM-105",
+          "B) NORMAS PARA GESTÃO ARQUIVÍSTICA (SGM-503)",
+          "C) EMA-414",
+          "D) MD33-M-02",
+          "E) EMA-137"
+        ],
+        correct: 1,
+        subject: "Gestão de Documentos"
+      },
+      {
+        id: 34,
+        text: "A Lista de Verificação Anual (LVA) consiste na relação de documentos, de um mesmo tipo, que se encontram em vigor, e:",
+        options: [
+          "A) tem a finalidade de cancelar qualquer documento nela não relacionado",
+          "B) não tem a finalidade de cancelar documento algum, mesmo que nela não relacionado",
+          "C) substitui o Código de Classificação",
+          "D) só é aplicável a documentos sigilosos",
+          "E) é elaborada exclusivamente pela DAdM"
+        ],
+        correct: 1,
+        subject: "Gestão de Documentos"
+      },
+      {
+        id: 35,
+        text: "A assinatura eletrônica do tipo II, disponibilizada pela MB por meio da DCTIM, é realizada por meio do sistema:",
+        options: [
+          "A) SiGDEM",
+          "B) Orion",
+          "C) LEGISMAR",
+          "D) BONO",
+          "E) SERPRO"
+        ],
+        correct: 1,
+        subject: "Documentos Digitais"
+      },
+      {
+        id: 36,
+        text: "Os documentos assinados com o Orion NÃO podem ser acessados extra-MB, sendo obrigatório, nesse caso:",
+        options: [
+          "A) converter o arquivo para PDF/A",
+          "B) que uma via original seja impressa e assinada de próprio punho pela autoridade expedidora",
+          "C) usar assinatura eletrônica qualificada em substituição",
+          "D) enviar o documento por Circular",
+          "E) autenticar o documento em cartório"
+        ],
+        correct: 1,
+        subject: "Documentos Digitais"
+      },
+      {
+        id: 37,
+        text: "A assinatura eletrônica do tipo III (qualificada) utiliza certificado digital, nos termos da Medida Provisória nº:",
+        options: [
+          "A) 2.200-2/2001",
+          "B) 10.278/2020",
+          "C) 6.583/2008",
+          "D) 9.784/1999",
+          "E) 10.139/2019"
+        ],
+        correct: 0,
+        subject: "Documentos Digitais"
+      },
+      {
+        id: 38,
+        text: "De acordo com a legislação atual, possui a confiança inequívoca do Estado brasileiro, para fins de certificação digital:",
+        options: [
+          "A) qualquer empresa privada de tecnologia",
+          "B) a ICP-Brasil (Infraestrutura de Chaves Públicas Brasileira)",
+          "C) apenas a Receita Federal",
+          "D) o Ministério da Defesa isoladamente",
+          "E) apenas Autoridades Certificadoras estrangeiras"
+        ],
+        correct: 1,
+        subject: "Documentos Digitais"
+      },
+      {
+        id: 39,
+        text: "Nessa estrutura de certificação digital, o Serviço de Identificação da Marinha (SIM) atua como:",
+        options: [
+          "A) Autoridade Certificadora principal",
+          "B) Agente de Registro Remoto (ARR)",
+          "C) Autoridade Classificadora",
+          "D) Unidade Protocolizadora",
+          "E) Autoridade Certificadora de Defesa"
+        ],
+        correct: 1,
+        subject: "Documentos Digitais"
+      },
+      {
+        id: 40,
+        text: "A Portaria Normativa nº 17/MD, de 13 de abril de 2018, estabeleceu as normas de funcionamento da:",
+        options: [
+          "A) DAdM",
+          "B) Autoridade Certificadora de Defesa (AC Defesa)",
+          "C) DCTIM",
+          "D) SiGDEM",
+          "E) DPHDM"
+        ],
+        correct: 1,
+        subject: "Documentos Digitais"
+      },
+      {
+        id: 41,
+        text: "Os documentos nato-digitais assinados com certificado digital possuem validade jurídica, sendo que qualquer reprodução em papel de um documento nato-digital com assinatura digital é considerada:",
+        options: [
+          "A) o documento original",
+          "B) uma cópia simples com valor apenas informativo",
+          "C) uma cópia autenticada com valor jurídico pleno",
+          "D) documento inválido, sem qualquer valor",
+          "E) documento sigiloso automaticamente"
+        ],
+        correct: 1,
+        subject: "Documentos Digitais"
+      },
+      {
+        id: 42,
+        text: "Após receber a assinatura digital, o DA:",
+        options: [
+          "A) pode ser livremente alterado pela autoridade signatária",
+          "B) não poderá sofrer alterações",
+          "C) só pode ser alterado por autoridade superior",
+          "D) perde a validade jurídica em 30 dias",
+          "E) precisa ser reassinado a cada trâmite"
+        ],
+        correct: 1,
+        subject: "Documentos Digitais"
+      },
+      {
+        id: 43,
+        text: "Os documentos nato-digitais, assinados com certificado ICP-Brasil, deverão ser produzidos em formato:",
+        options: [
+          "A) DOCX",
+          "B) PDF/A",
+          "C) ODT",
+          "D) TXT",
+          "E) JPEG"
+        ],
+        correct: 1,
+        subject: "Documentos Digitais"
+      },
+      {
+        id: 44,
+        text: "De acordo com o Decreto nº 10.278/2020, o documento digitalizado destinado a se equiparar a documento físico para todos os efeitos legais deverá ser assinado digitalmente com certificação:",
+        options: [
+          "A) qualquer certificado digital válido",
+          "B) no padrão ICP-Brasil",
+          "C) apenas assinatura tipo Orion",
+          "D) reconhecimento de firma em cartório",
+          "E) rubrica manuscrita digitalizada"
+        ],
+        correct: 1,
+        subject: "Documentos Digitais"
+      },
+      {
+        id: 45,
+        text: "Na autenticação digital de documento físico digitalizado, o original físico:",
+        options: [
+          "A) pode ser descartado após a digitalização",
+          "B) deve ser preservado na OM de origem",
+          "C) deve ser enviado ao Arquivo Nacional",
+          "D) perde toda validade jurídica",
+          "E) deve ser destruído para evitar fraude"
+        ],
+        correct: 1,
+        subject: "Documentos Digitais"
+      },
+      {
+        id: 46,
+        text: "Segundo a NODAM, poderá tramitar por meio eletrônico qualquer DA independentemente do seu grau de sigilo, sendo que a transmissão de DA ULTRASSECRETO por meio eletrônico só será permitida:",
+        options: [
+          "A) nunca, é expressamente proibida",
+          "B) em casos extremos que requeiram tramitação e solução imediata",
+          "C) mediante autorização do Presidente da República",
+          "D) apenas em dias úteis",
+          "E) apenas com dupla criptografia obrigatória em qualquer situação"
+        ],
+        correct: 1,
+        subject: "Documentos Digitais"
+      },
+      {
+        id: 47,
+        text: "Os DA sigilosos serão, obrigatoriamente, criptografados após serem assinados digitalmente. Os DA com grau de sigilo RESERVADO levarão:",
+        options: [
+          "A) dupla cifra",
+          "B) apenas uma cifra",
+          "C) tripla cifra",
+          "D) nenhuma cifra, apenas senha",
+          "E) cifra apenas se solicitado"
+        ],
+        correct: 1,
+        subject: "Documentos Digitais"
+      },
+      {
+        id: 48,
+        text: "Os DA com grau de sigilo SECRETO e ULTRASSECRETO serão:",
+        options: [
+          "A) cifrados uma única vez",
+          "B) duplamente cifrados, após compactados",
+          "C) apenas compactados, sem cifra",
+          "D) enviados exclusivamente por via física",
+          "E) tratados da mesma forma que os documentos reservados"
+        ],
+        correct: 1,
+        subject: "Documentos Digitais"
+      },
+      {
+        id: 49,
+        text: "Não deverão ser tramitados e mantidos DA sigilosos em texto claro:",
+        options: [
+          "A) apenas em pen drives",
+          "B) nas redes locais das OM nem nas unidades de disco rígido das estações de trabalho",
+          "C) apenas fora do horário de expediente",
+          "D) apenas em Organizações Militares de pequeno porte",
+          "E) exclusivamente durante o transporte físico"
+        ],
+        correct: 1,
+        subject: "Documentos Digitais"
+      },
+      {
+        id: 50,
+        text: "Quando o tamanho obtido pelo somatório de arquivos que compõem o DA for superior a 1 MB, estes poderão ser compactados em um único arquivo, exceto quando:",
+        options: [
+          "A) o DA for de âmbito interno",
+          "B) os arquivos já tiverem sido compactados anteriormente",
+          "C) o DA for de rotina",
+          "D) houver menos de dez arquivos",
+          "E) o destinatário for extra-MB"
+        ],
+        correct: 1,
+        subject: "Documentos Digitais"
+      },
+      {
+        id: 51,
+        text: "Excepcionalmente, admite-se a inclusão no sistema de arquivos compactados quando houver mais de:",
+        options: [
+          "A) 3 arquivos a serem anexados",
+          "B) 5 arquivos a serem anexados",
+          "C) 10 arquivos a serem anexados",
+          "D) 20 arquivos a serem anexados",
+          "E) 50 arquivos a serem anexados"
+        ],
+        correct: 2,
+        subject: "Documentos Digitais"
+      },
+      {
+        id: 52,
+        text: "O DA é composto pelas seguintes partes básicas:",
+        options: [
+          "A) capa, sumário, texto e anexo",
+          "B) cabeçalho, texto, assinatura e cópias ou distribuição",
+          "C) timbre, ementa, artigos e vigência",
+          "D) título, corpo e rodapé",
+          "E) origem, destino e conteúdo"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 53,
+        text: "Deve ser utilizado, para impressão dos DA, tamanho de papel:",
+        options: [
+          "A) A-3",
+          "B) A-4 (29,7 x 21 cm), na cor branca",
+          "C) Ofício",
+          "D) Carta (Letter)",
+          "E) A-5"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 54,
+        text: "A margem esquerda dos DA deverá ser de:",
+        options: [
+          "A) 1,5 cm",
+          "B) 2,0 cm",
+          "C) 3,0 cm",
+          "D) 4,0 cm",
+          "E) 2,5 cm"
+        ],
+        correct: 2,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 55,
+        text: "A margem direita dos DA deverá ser de:",
+        options: [
+          "A) 1,0 cm",
+          "B) 1,5 cm",
+          "C) 2,0 cm",
+          "D) 3,0 cm",
+          "E) 2,5 cm"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 56,
+        text: "Será utilizada fonte tamanho \"12\" para o texto em geral, tamanho \"11\" para:",
+        options: [
+          "A) o cabeçalho",
+          "B) as citações",
+          "C) as notas de rodapé",
+          "D) a assinatura",
+          "E) o vocativo"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 57,
+        text: "Será utilizada fonte tamanho \"10\" nos DA para:",
+        options: [
+          "A) o texto em geral",
+          "B) as citações",
+          "C) as notas de rodapé",
+          "D) o título",
+          "E) a numeração de páginas"
+        ],
+        correct: 2,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 58,
+        text: "Para SIGILO, PRECEDÊNCIA e INFORMAÇÃO PESSOAL, será empregada fonte Carlito ou Calibri, negrito, tamanho:",
+        options: [
+          "A) 10",
+          "B) 11",
+          "C) 12",
+          "D) 14",
+          "E) 16"
+        ],
+        correct: 3,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 59,
+        text: "A marcação de \"Informação Pessoal\" será feita no canto superior direito, usando a expressão \"nos termos da Lei nº\":",
+        options: [
+          "A) 12.527/2011, regulamentada pelo Dec. nº 7.724/2012",
+          "B) 6.880/80",
+          "C) 8.112/1990",
+          "D) 9.784/1999",
+          "E) 10.278/2020"
+        ],
+        correct: 0,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 60,
+        text: "O Brasão utilizado como timbre dos DA terá o tamanho de:",
+        options: [
+          "A) 1,0 cm x 1,0 cm",
+          "B) 1,5 cm x 1,5 cm",
+          "C) 2,0 cm x 2,0 cm",
+          "D) 3,0 cm x 3,0 cm",
+          "E) 2,5 cm x 2,5 cm"
+        ],
+        correct: 2,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 61,
+        text: "As cópias dos DA cujo trâmite seja realizado por meio físico serão distinguidas do original pela aposição da palavra:",
+        options: [
+          "A) \"DUPLICATA\"",
+          "B) \"CÓPIA\", na primeira página, canto superior direito",
+          "C) \"VIA\"",
+          "D) \"REPRODUÇÃO\"",
+          "E) \"SEGUNDA VIA\""
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 62,
+        text: "O Grupo Indicador é composto de quantos elementos?",
+        options: [
+          "A) 2 (dois)",
+          "B) 3 (três)",
+          "C) 4 (quatro)",
+          "D) 5 (cinco)",
+          "E) 1 (um)"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 63,
+        text: "No Grupo Indicador, o 1º elemento representa:",
+        options: [
+          "A) o Elemento Organizacional da OM responsável pela confecção do documento",
+          "B) o código de classificação sugerida para arquivamento",
+          "C) o protocolo do DA anterior",
+          "D) o grau de sigilo do documento",
+          "E) o ano de expedição"
+        ],
+        correct: 0,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 64,
+        text: "No Grupo Indicador, o 2º elemento representa:",
+        options: [
+          "A) o Elemento Organizacional responsável",
+          "B) o código da classificação sugerida para arquivamento",
+          "C) o protocolo do DA anterior, quando houver",
+          "D) a data de expedição",
+          "E) o número de vias"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 65,
+        text: "No Grupo Indicador, a escrituração do 3º elemento (protocolo do DA anterior) é obrigatória somente quando:",
+        options: [
+          "A) o documento for sigiloso",
+          "B) a elaboração de um DA é resposta de outro",
+          "C) o documento tiver mais de uma página",
+          "D) o destinatário for extra-MB",
+          "E) o DA for de caráter normativo"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 66,
+        text: "O número de ordem do DA poderá ter atribuição de sequência:",
+        options: [
+          "A) apenas anual",
+          "B) apenas contínua",
+          "C) anual ou contínua",
+          "D) apenas mensal",
+          "E) apenas trimestral"
+        ],
+        correct: 2,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 67,
+        text: "Na sequência anual, o Ofício (Of) e o Ofício Externo (OfExt):",
+        options: [
+          "A) têm numerações totalmente independentes",
+          "B) terão a mesma numeração sequencial",
+          "C) não são numerados",
+          "D) usam numeração departamental obrigatoriamente",
+          "E) reiniciam a numeração a cada semestre"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 68,
+        text: "O Número de Ordem de um DA normativo cancelado ou renumerado só será reaproveitado após:",
+        options: [
+          "A) 6 (seis) meses",
+          "B) 1 (um) ano",
+          "C) 2 (dois) anos",
+          "D) 5 (cinco) anos",
+          "E) nunca poderá ser reaproveitado"
+        ],
+        correct: 2,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 69,
+        text: "A reedição de um DA normativo será indicada por uma letra maiúscula após o número de ordem, começando com:",
+        options: [
+          "A) \"B\"",
+          "B) \"A\"",
+          "C) \"R\" (de reedição)",
+          "D) um número romano",
+          "E) um asterisco"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 70,
+        text: "Normalmente, NÃO são numerados os seguintes DA, salvo se julgado conveniente pela OM:",
+        options: [
+          "A) Ofício e Memorando",
+          "B) Atestado, Carta, Requerimento e Certidão",
+          "C) Portaria e Instrução Normativa",
+          "D) Circular e Despacho",
+          "E) Ordem de Serviço e Ordem do Dia"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 71,
+        text: "Se no texto de um DA interno houver necessidade de mencionar outros documentos, estes deverão ser relacionados no cabeçalho, usando-se a palavra:",
+        options: [
+          "A) \"Anexo:\"",
+          "B) \"Referência:\" ou \"Referências:\"",
+          "C) \"Vide:\"",
+          "D) \"Vocativo:\"",
+          "E) \"Cópias:\""
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 72,
+        text: "Nos DA de âmbito externo, as referências a outros documentos devem ser citadas:",
+        options: [
+          "A) apenas no cabeçalho, nunca no texto",
+          "B) no texto",
+          "C) apenas em anexo separado",
+          "D) não são permitidas referências em DA externos",
+          "E) apenas verbalmente, antes da entrega"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 73,
+        text: "Quando houver mais de um documento a ser relacionado como referência, serão listados na ordem em que forem citados no texto, precedidos de:",
+        options: [
+          "A) números romanos",
+          "B) letras maiúsculas, em ordem alfabética",
+          "C) letras minúsculas",
+          "D) algarismos arábicos",
+          "E) asteriscos numerados"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 74,
+        text: "Não se deve referenciar, segundo as regras gerais de referência da NODAM:",
+        options: [
+          "A) documentos digitais",
+          "B) documentos com prazo de arquivamento vencido",
+          "C) documentos sigilosos",
+          "D) documentos de âmbito interno",
+          "E) documentos assinados eletronicamente"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 75,
+        text: "Os anexos de documentos relacionados no cabeçalho como \"anexos\" passam a ser chamados de:",
+        options: [
+          "A) apensos",
+          "B) adendos",
+          "C) apêndices",
+          "D) suplementos",
+          "E) complementos"
+        ],
+        correct: 0,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 76,
+        text: "Não é permitido anexar dinheiro em espécie a DA que use serviço postal, restrição esta extensiva ao:",
+        options: [
+          "A) SiGDEM",
+          "B) Serviço Postal da Marinha (SPM)",
+          "C) LEGISMAR",
+          "D) SECOM",
+          "E) Orion"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 77,
+        text: "O vocativo, quando empregado, precede imediatamente o texto e é seguido de \"Senhor\" ou \"Senhora\", exceto em DA endereçados aos Chefes dos Poderes Legislativo e Judiciário, quando se utilizará:",
+        options: [
+          "A) \"Vossa Senhoria\"",
+          "B) \"Excelentíssimo Senhor\"",
+          "C) apenas o cargo, sem tratamento",
+          "D) \"Digníssimo Senhor\"",
+          "E) \"Ilustríssimo Senhor\""
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 78,
+        text: "A redação do texto de um DA deve caracterizar-se pela impessoalidade, uso do padrão culto de linguagem, clareza, formalidade, concisão, simplicidade e:",
+        options: [
+          "A) informalidade",
+          "B) objetividade",
+          "C) subjetividade",
+          "D) prolixidade",
+          "E) redundância"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 79,
+        text: "A transcrição de trechos de outra fonte no texto de um DA contendo mais de três linhas será efetuada:",
+        options: [
+          "A) sem qualquer formalidade adicional",
+          "B) entre aspas, com recuo de texto e redução do tamanho da fonte para \"11\"",
+          "C) apenas em anexo separado",
+          "D) em itálico, sem aspas",
+          "E) apenas com autorização da autoridade superior"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 80,
+        text: "No texto de DA de correspondência (exceto OfExt), o Item destinado à apresentação da conclusão, solução proposta ou providência solicitada é o:",
+        options: [
+          "A) Item 1",
+          "B) Item 2",
+          "C) Item 3",
+          "D) Item 4",
+          "E) não há item específico para isso"
+        ],
+        correct: 2,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 81,
+        text: "No texto de DA de correspondência, o Item 1 destina-se:",
+        options: [
+          "A) à conclusão",
+          "B) à exposição concisa e precisa de um fato ou apresentação de um problema",
+          "C) apenas a informações complementares",
+          "D) à análise fundamentada",
+          "E) à assinatura da autoridade"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 82,
+        text: "Nos textos normativos (exceto Portaria), as diversas partes do texto serão colocadas sob a forma de itens e subitens. O primeiro item será, obrigatoriamente, destinado a:",
+        options: [
+          "A) \"CONCEITOS\"",
+          "B) \"PROPÓSITO\"",
+          "C) \"VIGÊNCIA\"",
+          "D) \"DEFINIÇÕES\"",
+          "E) \"GENERALIDADES\""
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 83,
+        text: "Nos textos normativos, o último item obrigatório é o de \"VIGÊNCIA\", seguido, quando couber, pelo de:",
+        options: [
+          "A) \"PROPÓSITO\"",
+          "B) \"CANCELAMENTO\"",
+          "C) \"CONCEITOS\"",
+          "D) \"RECOMENDAÇÕES\"",
+          "E) \"GENERALIDADES\""
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 84,
+        text: "No caso particular de Portaria, o Artigo (Art.) é a unidade básica de apresentação, e seus textos são iniciados com letra maiúscula e encerrados com ponto final, exceto quando tiverem incisos, caso em que serão encerrados por:",
+        options: [
+          "A) ponto e vírgula",
+          "B) dois pontos",
+          "C) reticências",
+          "D) vírgula",
+          "E) travessão"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 85,
+        text: "Os artigos de uma Portaria podem desdobrar-se em parágrafos ou incisos; os parágrafos em incisos; os incisos em alíneas; e as alíneas em:",
+        options: [
+          "A) subalíneas",
+          "B) itens",
+          "C) subitens",
+          "D) tópicos",
+          "E) capítulos"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 86,
+        text: "Quando existente apenas um parágrafo em um artigo, utiliza-se a expressão:",
+        options: [
+          "A) \"§ 1º\"",
+          "B) \"parágrafo único\", por extenso",
+          "C) \"único parágrafo\"",
+          "D) \"§ único\"",
+          "E) \"parágrafo exclusivo\""
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 87,
+        text: "Os incisos são indicados por algarismos romanos, as alíneas por letras minúsculas seguidas de parêntese e os itens por:",
+        options: [
+          "A) letras maiúsculas",
+          "B) algarismos arábicos seguidos de ponto",
+          "C) algarismos romanos",
+          "D) asteriscos",
+          "E) travessões"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 88,
+        text: "Para autoridade subordinada, são verbos adequados no texto do DA, EXCETO:",
+        options: [
+          "A) determinar",
+          "B) recomendar",
+          "C) remeter",
+          "D) submeter",
+          "E) comunicar"
+        ],
+        correct: 3,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 89,
+        text: "Quando o tratamento do destinatário for \"Vossa Senhoria\", o endereçamento a ser empregado é:",
+        options: [
+          "A) \"A Sua Senhoria o(a) Senhor(a)\"",
+          "B) \"Ao Senhor\" ou \"À Senhora\"",
+          "C) \"Ao Digníssimo Senhor\"",
+          "D) \"Ao Ilustríssimo Senhor\"",
+          "E) \"Vossa Excelência\""
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 90,
+        text: "O Número Único de Protocolo (NUP) deve integrar, entre outros, os seguintes DA produzidos, EXCETO:",
+        options: [
+          "A) INST, NORM e Port",
+          "B) Carta, Circ e CP",
+          "C) Of, OfExt e Desp",
+          "D) Memo, DD, OD, OS e CPPJ",
+          "E) Atestado e Certidão, sempre"
+        ],
+        correct: 4,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 91,
+        text: "As UP (Unidades Protocolizadoras), ao produzirem os DA, deverão atribuir um NUP:",
+        options: [
+          "A) após a expedição",
+          "B) antes da sua expedição",
+          "C) somente se solicitado pelo destinatário",
+          "D) apenas para documentos sigilosos",
+          "E) apenas para processos, nunca para documentos avulsos"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 92,
+        text: "O uso de siglas e abreviaturas nos DA obedecerá ao estabelecido, entre outras publicações, no:",
+        options: [
+          "A) EMA-414",
+          "B) MANUAL DE ABREVIATURAS, SIGLAS, SÍMBOLOS E CONVENÇÕES CARTOGRÁFICAS DAS FORÇAS ARMADAS (MD33-M-02)",
+          "C) SGM-503",
+          "D) SGM-105, exclusivamente",
+          "E) Manual de Redação da Presidência da República, exclusivamente"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 93,
+        text: "A assinatura \"Por delegação de competência\" (Por ordem:) NÃO será usada quando o DA:",
+        options: [
+          "A) tratar de assunto de rotina",
+          "B) tratar de comunicação sobre aplicação de pena disciplinar, salvo se imposta pelo próprio signatário por delegação",
+          "C) for endereçado a autoridade subordinada",
+          "D) for de âmbito interno",
+          "E) for um Ofício comum"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 94,
+        text: "Nos documentos de âmbito externo, o termo \"Por ordem:\" será substituído por:",
+        options: [
+          "A) \"Por delegação:\"",
+          "B) \"Incumbiu-me\"",
+          "C) \"Em nome de:\"",
+          "D) \"Por designação:\"",
+          "E) \"A pedido de:\""
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 95,
+        text: "Para aqueles documentos destinados a autoridade de maior precedência, o termo \"Incumbiu-me\" será substituído por:",
+        options: [
+          "A) \"Por ordem\"",
+          "B) \"Na ausência\"",
+          "C) \"No impedimento de\"",
+          "D) \"A mando de\"",
+          "E) \"Sob autorização de\""
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 96,
+        text: "Nos documentos de âmbito interno, a assinatura no impedimento será precedida do termo:",
+        options: [
+          "A) \"Por ordem:\"",
+          "B) \"No impedimento de:\"",
+          "C) \"Na ausência de:\"",
+          "D) \"Em substituição a:\"",
+          "E) \"Interinamente por:\""
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 97,
+        text: "Para documentos com mais de uma assinatura, a disposição será:",
+        options: [
+          "A) do mais moderno para o mais antigo",
+          "B) do mais antigo para o mais moderno, da esquerda para a direita e de cima para baixo",
+          "C) em ordem alfabética pelo nome",
+          "D) aleatória, a critério de quem redige",
+          "E) sempre com o Titular da OM ao centro"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 98,
+        text: "No DA com assinatura digital, deverá constar, abaixo do cargo da autoridade expedidora, a expressão:",
+        options: [
+          "A) \"AUTENTICADO DIGITALMENTE\"",
+          "B) \"ASSINADO DIGITALMENTE\"",
+          "C) \"CONFERE COM O ORIGINAL\"",
+          "D) \"VÁLIDO ELETRONICAMENTE\"",
+          "E) \"CERTIFICADO ICP-BRASIL\""
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 99,
+        text: "A rubrica da autoridade responsável, quando o documento possuir mais de uma página, será colocada:",
+        options: [
+          "A) apenas na última página",
+          "B) em todas as páginas que antecedem aquela onde será colocada a assinatura, na parte superior direita",
+          "C) apenas na primeira página",
+          "D) no rodapé de todas as páginas",
+          "E) apenas nas páginas com anexos"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 100,
+        text: "Poderão usar Cópias Autenticadas:",
+        options: [
+          "A) qualquer militar da OM",
+          "B) os Almirantes e os Titulares de OM que expeçam elevada quantidade de documentos",
+          "C) apenas o pessoal do SECOM",
+          "D) apenas oficiais subalternos",
+          "E) qualquer servidor civil da OM"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 101,
+        text: "O DA só poderá ser autenticado:",
+        options: [
+          "A) antes da assinatura do documento original",
+          "B) após a assinatura do documento original pela autoridade expedidora",
+          "C) simultaneamente à assinatura",
+          "D) apenas após seu arquivamento",
+          "E) mediante autorização judicial"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 102,
+        text: "As páginas de um documento serão numeradas sucessivamente desde a primeira até a última, na margem inferior, centralizada, exceto quando o documento:",
+        options: [
+          "A) for sigiloso",
+          "B) tiver apenas uma página",
+          "C) for de âmbito externo",
+          "D) for uma Portaria",
+          "E) tiver mais de dez páginas"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 103,
+        text: "A indicação \"Distribuição:\" será utilizada para os documentos:",
+        options: [
+          "A) que possuam destinatário definido no cabeçalho",
+          "B) de emissão repetitiva ou em série, que divulguem assunto para conhecimento de várias OM",
+          "C) exclusivamente sigilosos",
+          "D) apenas de âmbito externo",
+          "E) que não possuam número de ordem"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 104,
+        text: "A indicação \"Cópias:\" é usada nos documentos cujo destinatário está definido no cabeçalho, normalmente aqueles que contêm:",
+        options: [
+          "A) \"Referência:\"",
+          "B) \"Ao:\"",
+          "C) \"Anexo:\"",
+          "D) \"Distribuição:\"",
+          "E) \"Vocativo:\""
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 105,
+        text: "A Instrução Normativa (IN) é expedida, no âmbito da MB, exclusivamente:",
+        options: [
+          "A) pelos Titulares de OM",
+          "B) pelo CM (Comandante da Marinha)",
+          "C) pelo EMA",
+          "D) pelos Almirantes de Esquadra",
+          "E) pela DAdM"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 106,
+        text: "Quando a IN for expedida pelos Comandantes da Marinha, do Exército e da Aeronáutica conjuntamente, receberá o título de:",
+        options: [
+          "A) IN Tripartite",
+          "B) Instrução Normativa Conjunta (INC)",
+          "C) IN Interforças",
+          "D) Portaria Normativa Conjunta",
+          "E) IN Unificada"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 107,
+        text: "A Instrução Permanente (INST) é o DA normativo por meio do qual o EMA, os ODS, o GCM, as OMOT e as OM com atribuições de Diretoria Especializada estabelecem normas e procedimentos:",
+        options: [
+          "A) apenas de âmbito interno da própria OM",
+          "B) sobre assuntos de sua competência, para toda a MB",
+          "C) exclusivamente para uso militar em combate",
+          "D) apenas em caráter temporário",
+          "E) apenas para assuntos sigilosos"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 108,
+        text: "O uso de INST deverá ser restrito ao mínimo indispensável, evitando-se:",
+        options: [
+          "A) sua reedição periódica",
+          "B) a emissão de instruções em cascata ou múltiplas sobre o mesmo assunto",
+          "C) sua distribuição a várias OM",
+          "D) o uso de numeração departamental",
+          "E) sua inserção no LEGISMAR"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 109,
+        text: "A INST deverá ser reeditada quando:",
+        options: [
+          "A) completar um ano de vigência",
+          "B) o número de modificações já divulgadas for elevado, ou ocorrer alteração significativa",
+          "C) houver troca do Titular da OM",
+          "D) for solicitado por qualquer OM subordinada",
+          "E) completar dez modificações, exatamente"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 110,
+        text: "O cancelamento de uma INST será divulgado no último item de outra INST, ou por meio de:",
+        options: [
+          "A) Circular",
+          "B) Nota em BONO",
+          "C) Ofício",
+          "D) Portaria",
+          "E) Mensagem ao GCM"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 111,
+        text: "A Norma Permanente (NORM) é o DA normativo pelo qual os Almirantes, em cargo de Comando, Direção ou Chefia, bem como os Oficiais Superiores Comandantes de Força, estabelecem normas e procedimentos que serão cumpridos:",
+        options: [
+          "A) apenas por sua própria OM",
+          "B) pelas OM que lhes são subordinadas",
+          "C) por toda a Marinha, sem exceção",
+          "D) apenas pelo público externo",
+          "E) apenas por Organizações extra-MB"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 112,
+        text: "A Ordem Interna (OI) é o DA normativo pelo qual:",
+        options: [
+          "A) o CM estabelece normas para toda a MB",
+          "B) os Titulares de OM estabelecem normas e procedimentos no âmbito interno de suas OM",
+          "C) o EMA regula assuntos operativos",
+          "D) especialistas emitem opinião fundamentada",
+          "E) autoridades exaltam datas históricas"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 113,
+        text: "O cancelamento de uma OI, sem implicar reedição, se dará por meio da divulgação em:",
+        options: [
+          "A) Boletim da Marinha",
+          "B) Plano do Dia",
+          "C) Circular",
+          "D) Ofício circular",
+          "E) Nota em BONO, exclusivamente"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 114,
+        text: "O texto de uma Portaria subdivide-se em cinco partes: Ementa, preâmbulo terminado em \"resolve:\", texto propriamente dito, cláusula de revogação (quando aplicável) e:",
+        options: [
+          "A) cláusula de vigência",
+          "B) anexo obrigatório",
+          "C) assinatura dupla",
+          "D) referência legal",
+          "E) distribuição nominal"
+        ],
+        correct: 0,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 115,
+        text: "As Portarias de caráter pessoal, referentes a agentes públicos nominalmente identificados:",
+        options: [
+          "A) sempre possuem ementa detalhada",
+          "B) não possuem ementa",
+          "C) dispensam assinatura da autoridade",
+          "D) são sempre sigilosas",
+          "E) têm numeração departamental obrigatória"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 116,
+        text: "A revogação de Portaria far-se-á por meio de nova Portaria que elencará, explicitamente, os documentos revogados, evitando-se a expressão:",
+        options: [
+          "A) \"fica revogado o dispositivo anterior\"",
+          "B) \"revogadas as disposições em contrário\" ou equivalente",
+          "C) \"cancela-se o documento nº\"",
+          "D) \"sem efeito a partir desta data\"",
+          "E) \"extinta a vigência anterior\""
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 117,
+        text: "NÃO é mais permitida a inserção, no artigo \"VIGÊNCIA\" de uma Portaria, do texto que diz que ela:",
+        options: [
+          "A) entra em vigor na data de publicação",
+          "B) ficará automaticamente cancelada, logo após surtir o efeito a que se propõe",
+          "C) revoga disposições anteriores",
+          "D) deve ser publicada no Diário Oficial",
+          "E) tem vigência de um ano"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 118,
+        text: "No caso de alteração de Portaria, deverá constar na sua ementa a expressão inicial \"Altera a Portaria nº /AAAA,...\", onde AAAA representa o ano, sempre com:",
+        options: [
+          "A) dois algarismos",
+          "B) quatro algarismos",
+          "C) por extenso",
+          "D) sem indicação do ano",
+          "E) três algarismos"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 119,
+        text: "Segundo o Decreto nº 10.139/2019, Portaria de caráter normativo é aquela que tem a finalidade de disciplinar a aplicação de leis, decretos e regulamentos, e que:",
+        options: [
+          "A) seja de aplicação exclusivamente interna da OM",
+          "B) não seja de aplicação exclusivamente interna da OM",
+          "C) trate apenas de assuntos de pessoal",
+          "D) seja assinada apenas pelo CM",
+          "E) tenha caráter transitório"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 120,
+        text: "A Carta somente deverá ser utilizada em endereçamentos:",
+        options: [
+          "A) internos à MB",
+          "B) extra-MB",
+          "C) sigilosos",
+          "D) urgentes",
+          "E) entre Almirantes"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 121,
+        text: "A Circular (Circ) é o DA de correspondência por meio do qual os Almirantes e Oficiais Superiores Comandantes de Força promovem alterações de DA normativos, exceto:",
+        options: [
+          "A) Instruções Permanentes",
+          "B) Normas Permanentes",
+          "C) Portarias",
+          "D) Ordens Internas",
+          "E) Instruções Normativas"
+        ],
+        correct: 2,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 122,
+        text: "A Circ é um DA de caráter temporário, cuja vigência não pode se estender para o ano seguinte ao de sua divulgação, EXCETO quando emitida nos meses de:",
+        options: [
+          "A) janeiro e fevereiro",
+          "B) novembro e dezembro",
+          "C) junho e julho",
+          "D) março e abril",
+          "E) qualquer mês, sem restrição"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 123,
+        text: "Até o dia quinze de janeiro, as OM deverão emitir Circ renumerando, para o ano corrente, as Circ de anos anteriores que precisem permanecer em vigor, desde que:",
+        options: [
+          "A) o titular da OM permaneça o mesmo da época de edição",
+          "B) tenham menos de cinco anos",
+          "C) sejam de âmbito externo",
+          "D) não sejam sigilosas",
+          "E) qualquer Circ pode ser renumerada, sem condição"
+        ],
+        correct: 0,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 124,
+        text: "A Comunicação Padronizada (CP) é o documento por meio do qual Elementos Organizacionais tratam de assuntos de rotina. Quando a comunicação envolver o Titular da OM, como origem ou destinatário, deve ser empregado:",
+        options: [
+          "A) o Memorando",
+          "B) o Ofício",
+          "C) a Circular",
+          "D) o Despacho",
+          "E) a Carta"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 125,
+        text: "A Comunicação Padronizada de Processos Judiciais (CPPJ) é documento de âmbito interno da MB, utilizado pelas Centrais de Processos Judiciários (CPJ), sendo classificada obrigatoriamente como:",
+        options: [
+          "A) rotina",
+          "B) especial",
+          "C) URGENTE",
+          "D) sigilosa",
+          "E) ostensiva"
+        ],
+        correct: 2,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 126,
+        text: "A CPPJ será confeccionada em três vias, sendo:",
+        options: [
+          "A) uma original e duas cópias, com uma cópia arquivada na CPJ de origem e a outra enviada à CPJ/GCM",
+          "B) três originais idênticos",
+          "C) uma original e duas vias eletrônicas",
+          "D) apenas cópias, sem original",
+          "E) duas originais e uma cópia"
+        ],
+        correct: 0,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 127,
+        text: "O Despacho (Desp) é o DA de correspondência utilizado, exclusivamente, no âmbito interno da MB, em continuação:",
+        options: [
+          "A) à Portaria",
+          "B) ao Ofício",
+          "C) à Circular",
+          "D) ao Memorando",
+          "E) à Ordem de Serviço"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 128,
+        text: "Se os anexos de um expediente não tiverem sido alterados em um novo Despacho, será usada a expressão:",
+        options: [
+          "A) \"Sem anexos\"",
+          "B) \"Os mesmos do ofício inicial\"",
+          "C) \"Conforme referência\"",
+          "D) \"Vide anexo anterior\"",
+          "E) \"Anexos inalterados desde a origem\""
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 129,
+        text: "Um Despacho terá:",
+        options: [
+          "A) apenas um único destinatário",
+          "B) até três destinatários",
+          "C) destinatários ilimitados",
+          "D) sempre mais de um destinatário",
+          "E) nenhum destinatário definido"
+        ],
+        correct: 0,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 130,
+        text: "Não cabe o emprego de Despacho por parte dos endereçados de cópias de um expediente; havendo necessidade de manifestação, deve ser utilizado:",
+        options: [
+          "A) um novo Ofício ou Mensagem",
+          "B) uma Circular",
+          "C) um Parecer",
+          "D) uma Nota em BONO",
+          "E) um Termo"
+        ],
+        correct: 0,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 131,
+        text: "No Requerimento (Req), a redação do texto utilizará:",
+        options: [
+          "A) a primeira pessoa do singular",
+          "B) a terceira pessoa do singular, para se referir ao requerente",
+          "C) a primeira pessoa do plural",
+          "D) a segunda pessoa do singular",
+          "E) linguagem indireta livre, sem pessoa definida"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 132,
+        text: "O Requerimento endereçado ao Titular da OM será rubricado:",
+        options: [
+          "A) pelo próprio requerente",
+          "B) pela segunda autoridade dessa OM",
+          "C) por qualquer oficial presente",
+          "D) apenas pelo COMIMSUP",
+          "E) não requer rubrica, apenas assinatura"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 133,
+        text: "Quando o Requerente for o próprio Titular da OM, a rubrica do Requerimento caberá:",
+        options: [
+          "A) à segunda autoridade da mesma OM",
+          "B) ao Comando Imediatamente Superior (COMIMSUP)",
+          "C) a qualquer oficial subordinado",
+          "D) ao Ministério Público Militar",
+          "E) não é necessária rubrica nesse caso"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 134,
+        text: "O Atestado é o DA declaratório pelo qual os Titulares de OM ou autoridade delegada comprovam, a pedido:",
+        options: [
+          "A) um direito pecuniário",
+          "B) um fato ou situação de que tenham conhecimento",
+          "C) uma punição disciplinar",
+          "D) a existência de um processo judicial",
+          "E) uma alteração de cargo"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 135,
+        text: "A Certidão é o DA declaratório mediante o qual os Titulares de OM declaram a existência de fatos com base:",
+        options: [
+          "A) em depoimentos verbais",
+          "B) em documentos existentes na OM",
+          "C) em decisão judicial",
+          "D) em parecer técnico",
+          "E) exclusivamente em registros digitais externos"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 136,
+        text: "A Certidão que transcreve, por inteiro, o conteúdo do registro ou documento fonte é chamada de Certidão:",
+        options: [
+          "A) Parcial",
+          "B) Integral (ou \"Verbo ad Verbum\")",
+          "C) Narrativa",
+          "D) Negativa",
+          "E) Informativa apenas"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 137,
+        text: "A Certidão que nega a existência ou registro de um determinado ato ou fato é chamada de Certidão:",
+        options: [
+          "A) Integral",
+          "B) Parcial",
+          "C) Narrativa",
+          "D) Negativa",
+          "E) Retificadora"
+        ],
+        correct: 3,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 138,
+        text: "A Certidão que descreve pedaços esparsos do original, sem copiar todo o texto, ou que responde a perguntas formuladas, é também chamada de:",
+        options: [
+          "A) Certidão Integral",
+          "B) Certidão em Relatório ou Certidão Informativa",
+          "C) Certidão Negativa",
+          "D) Certidão Textual",
+          "E) Certidão Verbo ad Verbum"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 139,
+        text: "A Certidão será digitada em espaço um, sem ponto parágrafo, sem espaços em branco, sem entrelinhas, sem rasuras, e as emendas serão:",
+        options: [
+          "A) simplesmente ignoradas",
+          "B) ressalvadas no texto, antes do encerramento",
+          "C) corrigidas por Nota em BONO",
+          "D) motivo para anulação obrigatória do documento",
+          "E) autorizadas apenas pelo CM"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 140,
+        text: "A Ordem do Dia (OD) é o DA declaratório mediante o qual o CM e os Titulares de OM:",
+        options: [
+          "A) aplicam punições disciplinares",
+          "B) exaltam datas históricas ou fatos significativos",
+          "C) estabelecem normas de procedimento interno",
+          "D) emitem opinião técnica fundamentada",
+          "E) registram alterações de cargo de pessoal"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 141,
+        text: "A Ordem de Serviço (OS) é o DA declaratório por meio do qual o CM e os Titulares de OM registram determinação técnica ou administrativa relativa a, EXCETO:",
+        options: [
+          "A) direitos e obrigações do pessoal",
+          "B) ratificação de atos de subordinados",
+          "C) punições impostas a Oficiais e Suboficiais",
+          "D) designação de pessoal para funções em âmbito interno",
+          "E) alteração de denominação de Organização Militar"
+        ],
+        correct: 4,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 142,
+        text: "Quando a OS contiver um único lançamento detectado como incorreto, ela poderá ser:",
+        options: [
+          "A) reeditada integralmente",
+          "B) cancelada pela OM de origem",
+          "C) anulada por Circular",
+          "D) corrigida sem qualquer formalidade",
+          "E) enviada à DAdM para retificação"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 143,
+        text: "Quando a OS contiver vários lançamentos e um deles for incorreto, ela poderá ser:",
+        options: [
+          "A) cancelada integralmente",
+          "B) retificada pela OM de origem",
+          "C) substituída por Portaria",
+          "D) arquivada sem alteração",
+          "E) reenviada para nova assinatura de toda a OS"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 144,
+        text: "O Parecer é o DA declaratório pelo qual:",
+        options: [
+          "A) o CM estabelece normas gerais",
+          "B) especialistas emitem opinião fundamentada sobre determinado assunto",
+          "C) se comprova um fato mediante documento",
+          "D) se relatam resultados de inspeções",
+          "E) se exaltam datas históricas"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 145,
+        text: "O texto do Parecer conterá o histórico do problema, a análise fundamentada e:",
+        options: [
+          "A) uma recomendação disciplinar",
+          "B) uma conclusão",
+          "C) uma tabela de prazos",
+          "D) um anexo obrigatório",
+          "E) uma citação de jurisprudência obrigatória"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 146,
+        text: "Imediatamente após a assinatura do Parecer pela autoridade especialista, será digitado o Termo de Aprovação, que será assinado:",
+        options: [
+          "A) pela mesma autoridade que assinou o Parecer",
+          "B) pela autoridade Titular da OM, hierarquicamente superior à que emitiu o Parecer",
+          "C) por qualquer testemunha presente",
+          "D) pelo Ministério Público Militar",
+          "E) não é necessário Termo de Aprovação"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 147,
+        text: "Os prazos máximos para Parecer sobre proposições com tramitação ordinária, contados da data de recebimento pelas OM até a entrada das respostas no GCM, são de:",
+        options: [
+          "A) 20 dias",
+          "B) 30 dias",
+          "C) 40 dias",
+          "D) 60 dias",
+          "E) 90 dias"
+        ],
+        correct: 2,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 148,
+        text: "Os prazos para Parecer sobre proposições em regime de preferência (prioridade ou urgência) e para Respostas a Requerimentos de Informação (RI) são, respectivamente:",
+        options: [
+          "A) 40 dias e 40 dias",
+          "B) 20 dias e 20 dias",
+          "C) 30 dias e 15 dias",
+          "D) 10 dias e 5 dias",
+          "E) 60 dias e 30 dias"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 149,
+        text: "O Termo é o DA lavrado por pessoa especificamente autorizada, com a finalidade de relatar fatos, inventariar bens ou documentos, ou:",
+        options: [
+          "A) aplicar punições disciplinares",
+          "B) escriturar resultados de inspeções e vistorias",
+          "C) estabelecer normas gerais",
+          "D) delegar competência",
+          "E) classificar o grau de sigilo de documentos"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 150,
+        text: "Os Termos são numerados sequencialmente dentro do ano, independentemente:",
+        options: [
+          "A) da OM emissora",
+          "B) do título e do assunto",
+          "C) da autoridade signatária",
+          "D) do grau de sigilo",
+          "E) do número de testemunhas"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 151,
+        text: "O Termo será encerrado pela expressão:",
+        options: [
+          "A) \"Nada mais havendo a tratar, encerra-se o presente Termo\"",
+          "B) \"E, para constar, foi lavrado o presente TERMO, que vai assinado\"",
+          "C) \"Estando de acordo, firmam o presente instrumento\"",
+          "D) \"Em testemunho da verdade, assinam\"",
+          "E) \"Fica encerrado o presente Termo nesta data\""
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 152,
+        text: "O curriculum vitae de militares da MB, para uso de Organizações extra-MB, deve relacionar cursos de graduação e pós-graduação, EXCETO:",
+        options: [
+          "A) cursos de formação de Oficial ou Praça",
+          "B) cursos expeditos de duração inferior a três meses",
+          "C) cursos de relevância para a carreira",
+          "D) cursos extra-MB, citando a instituição de ensino",
+          "E) condecorações recebidas"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 153,
+        text: "Ao receber um processo não digital, a Unidade Protocolizadora (UP) deverá, entre outras providências:",
+        options: [
+          "A) recusar automaticamente se houver qualquer dano no invólucro",
+          "B) verificar se o invólucro está íntegro e se as folhas estão corretamente numeradas e subsequentes",
+          "C) digitalizar imediatamente e destruir o original físico",
+          "D) enviar diretamente ao Arquivo Nacional",
+          "E) aguardar 48 horas antes de qualquer providência"
+        ],
+        correct: 1,
+        subject: "Composição de Processos"
+      },
+      {
+        id: 154,
+        text: "Havendo danos no invólucro do processo recebido, adulteração ou qualquer irregularidade, o fato deverá ser:",
+        options: [
+          "A) ignorado se não comprometer o conteúdo",
+          "B) registrado no ato do recebimento, com comunicação imediata à autoridade competente",
+          "C) resolvido apenas verbalmente com o remetente",
+          "D) registrado apenas se o processo for sigiloso",
+          "E) motivo automático de devolução, sem registro"
+        ],
+        correct: 1,
+        subject: "Composição de Processos"
+      },
+      {
+        id: 155,
+        text: "O processo com poucos volumes poderá ser digitalizado em formato PDF/A e inserido no sistema para trâmite, sendo que o original:",
+        options: [
+          "A) deve ser destruído após a digitalização",
+          "B) deve ser mantido na OM que o recebeu",
+          "C) deve ser enviado ao Arquivo Nacional",
+          "D) deve ser devolvido ao remetente",
+          "E) perde a validade jurídica"
+        ],
+        correct: 1,
+        subject: "Composição de Processos"
+      },
+      {
+        id: 156,
+        text: "Na autuação de processo não digital, ao numerar as folhas com o carimbo de \"NUMERAÇÃO DE FOLHA OU PEÇA\", a numeração deverá ser feita:",
+        options: [
+          "A) em ordem decrescente",
+          "B) em ordem crescente, sem rasuras, preferencialmente no canto superior direito",
+          "C) apenas na primeira e última folha",
+          "D) de forma aleatória, conforme a organização do setor",
+          "E) apenas nas folhas com anexos"
+        ],
+        correct: 1,
+        subject: "Composição de Processos"
+      },
+      {
+        id: 157,
+        text: "Na autuação de processo, a capa junto a toda a documentação deverá ser presa com colchetes, em ordem cronológica:",
+        options: [
+          "A) do mais recente para o mais antigo",
+          "B) do mais antigo para o mais recente",
+          "C) por ordem alfabética de assunto",
+          "D) por grau de sigilo, do maior para o menor",
+          "E) sem ordem específica exigida"
+        ],
+        correct: 1,
+        subject: "Composição de Processos"
+      },
+      {
+        id: 158,
+        text: "Para processos digitais, sempre que um documento for inserido no processo com temporalidade ou grau de sigilo maior que o processo, o sistema:",
+        options: [
+          "A) rejeita automaticamente a inserção",
+          "B) verifica e aplica ao processo inteiro a maior temporalidade e/ou sigilo",
+          "C) mantém a temporalidade original do processo, ignorando o novo documento",
+          "D) exige nova autuação completa",
+          "E) solicita aprovação do Arquivo Nacional"
+        ],
+        correct: 1,
+        subject: "Composição de Processos"
+      },
+      {
+        id: 159,
+        text: "Na Juntada por Anexação de Processos, o processo principal, obrigatoriamente, será:",
+        options: [
+          "A) o processo mais recente",
+          "B) o processo mais antigo",
+          "C) o processo de maior volume",
+          "D) o processo de menor grau de sigilo",
+          "E) definido por sorteio entre as OM envolvidas"
+        ],
+        correct: 1,
+        subject: "Composição de Processos"
+      },
+      {
+        id: 160,
+        text: "Na Juntada por Anexação de Processos (não digitais), deve-se lavrar o Termo de Juntada por Anexação, em folha a ser anexada:",
+        options: [
+          "A) antes da primeira folha do processo principal",
+          "B) após a última folha do processo principal",
+          "C) no meio do processo, por ordem cronológica",
+          "D) em um processo à parte",
+          "E) apenas eletronicamente, mesmo em processo físico"
+        ],
+        correct: 1,
+        subject: "Composição de Processos"
+      },
+      {
+        id: 161,
+        text: "Na Juntada por Apensação de Processos (não digitais), os processos serão mantidos sobrepostos, presos por cadarço ou similar de algodão cru com largura mínima de:",
+        options: [
+          "A) 10 mm",
+          "B) 20 mm",
+          "C) 30 mm",
+          "D) 50 mm",
+          "E) 15 mm"
+        ],
+        correct: 2,
+        subject: "Composição de Processos"
+      },
+      {
+        id: 162,
+        text: "Na apensação de processos, cada processo mantém:",
+        options: [
+          "A) uma numeração unificada com o outro processo",
+          "B) sua numeração original de folhas",
+          "C) apenas a numeração do processo principal",
+          "D) numeração provisória até a desapensação",
+          "E) nenhuma numeração durante a apensação"
+        ],
+        correct: 1,
+        subject: "Composição de Processos"
+      },
+      {
+        id: 163,
+        text: "A operação de apensação de processos:",
+        options: [
+          "A) altera definitivamente o Código de Classificação de ambos os processos",
+          "B) não altera o Código de Classificação e Temporalidade e o grau de sigilo dos processos envolvidos",
+          "C) elimina automaticamente o processo acessório",
+          "D) exige nova autuação de ambos os processos",
+          "E) só pode ser feita mediante autorização do CM"
+        ],
+        correct: 1,
+        subject: "Composição de Processos"
+      },
+      {
+        id: 164,
+        text: "Diferentemente da anexação (que é definitiva), a apensação de processos é:",
+        options: [
+          "A) também definitiva e irreversível",
+          "B) provisória, podendo ser desfeita pela desapensação",
+          "C) proibida pela NODAM",
+          "D) aplicável apenas a processos digitais",
+          "E) aplicável apenas a processos sigilosos"
+        ],
+        correct: 1,
+        subject: "Composição de Processos"
+      },
+      {
+        id: 165,
+        text: "A Desapensação consiste em:",
+        options: [
+          "A) unir definitivamente dois processos",
+          "B) separar processos que estavam apensados",
+          "C) retirar uma folha específica de um processo",
+          "D) reconstituir um processo extraviado",
+          "E) digitalizar um processo físico"
+        ],
+        correct: 1,
+        subject: "Composição de Processos"
+      },
+      {
+        id: 166,
+        text: "O Desentranhamento consiste em:",
+        options: [
+          "A) unir dois processos distintos",
+          "B) separar fisicamente documento(s) do processo, mantendo a numeração original sem renumerar",
+          "C) criar um novo processo a partir de folhas retiradas",
+          "D) reconstituir um processo perdido",
+          "E) apensar provisoriamente dois processos"
+        ],
+        correct: 1,
+        subject: "Composição de Processos"
+      },
+      {
+        id: 167,
+        text: "No processo digital, o sistema NÃO permitirá a retirada (desentranhamento) de:",
+        options: [
+          "A) qualquer documento do processo",
+          "B) documentos principais, processos anexos ou despachos decisórios",
+          "C) apenas documentos sigilosos",
+          "D) documentos com mais de uma página",
+          "E) documentos assinados eletronicamente"
+        ],
+        correct: 1,
+        subject: "Composição de Processos"
+      },
+      {
+        id: 168,
+        text: "O Desmembramento consiste em separar fisicamente documento(s) de um processo com a finalidade de:",
+        options: [
+          "A) eliminá-los definitivamente",
+          "B) formar outro processo",
+          "C) enviá-los a outra OM sem formar novo processo",
+          "D) reduzir o grau de sigilo do processo original",
+          "E) arquivá-los separadamente sem gerar novo processo"
+        ],
+        correct: 1,
+        subject: "Composição de Processos"
+      },
+      {
+        id: 169,
+        text: "Na Reconstituição de Processos (por perda ou extravio), deverá ser lavrado o \"Termo de Reconstituição de Processo\", que será:",
+        options: [
+          "A) anexado ao final do processo reconstituído",
+          "B) a primeira folha do processo reconstituído",
+          "C) enviado apenas à DAdM, sem compor o processo",
+          "D) dispensável se houver cópia digital",
+          "E) assinado apenas pelo CM"
+        ],
+        correct: 1,
+        subject: "Composição de Processos"
+      },
+      {
+        id: 170,
+        text: "Ao reconstituir um processo, será atribuído ao processo formado um novo NUP, e o NUP anterior será:",
+        options: [
+          "A) descartado definitivamente",
+          "B) mantido como referência",
+          "C) reutilizado em outro processo",
+          "D) transferido para o Arquivo Nacional",
+          "E) anulado por Portaria"
+        ],
+        correct: 1,
+        subject: "Composição de Processos"
+      },
+      {
+        id: 171,
+        text: "No caso de perda ou extravio de apenas um volume de um processo (não do processo inteiro), deverá ser lavrado:",
+        options: [
+          "A) o \"Termo de Reconstituição de Processo\"",
+          "B) o \"Termo de Reconstituição de Volume\"",
+          "C) uma nova Portaria de autuação",
+          "D) um Ofício de comunicação à DAdM apenas",
+          "E) não há procedimento específico, segue-se o processo normalmente"
+        ],
+        correct: 1,
+        subject: "Composição de Processos"
+      },
+      {
+        id: 172,
+        text: "Ao autuar um processo, deve-se apor o carimbo \"EM BRANCO\":",
+        options: [
+          "A) na capa do processo",
+          "B) no verso das folhas que não contenham informações registradas",
+          "C) apenas na última folha",
+          "D) em todas as folhas do processo, indistintamente",
+          "E) apenas em processos sigilosos"
+        ],
+        correct: 1,
+        subject: "Composição de Processos"
+      },
+      {
+        id: 173,
+        text: "O carimbo \"CONFERE COM O ORIGINAL DIGITAL\" é utilizado tendo em vista a necessidade de:",
+        options: [
+          "A) autenticar documentos em papel comum",
+          "B) tramitar, em meio físico, documentos assinados digitalmente",
+          "C) substituir a assinatura digital",
+          "D) validar documentos estrangeiros",
+          "E) dispensar a autuação de processos"
+        ],
+        correct: 1,
+        subject: "Composição de Processos"
+      },
+      {
+        id: 174,
+        text: "Nos processos digitais, o sigilo estará informado na papeleta do processo e, adicionalmente, na aba:",
+        options: [
+          "A) \"Referências\"",
+          "B) TCI",
+          "C) \"Anexos\"",
+          "D) \"Distribuição\"",
+          "E) \"Histórico Geral\""
+        ],
+        correct: 1,
+        subject: "Composição de Processos"
+      },
+      {
+        id: 175,
+        text: "Sobre a produção de documentos, a produção do DA físico deverá ser feita, no mínimo, em:",
+        options: [
+          "A) uma única via",
+          "B) duas vias originais",
+          "C) três vias originais",
+          "D) quatro vias, sempre",
+          "E) tantas vias quantos forem os destinatários, sem mínimo definido"
+        ],
+        correct: 1,
+        subject: "Gestão de Documentos"
+      },
+      {
+        id: 176,
+        text: "O DA será submetido à apreciação das autoridades da OM, seguindo:",
+        options: [
+          "A) apenas a decisão do produtor do documento",
+          "B) a cadeia hierárquica e suas respectivas normas internas, até a aprovação e assinatura pela autoridade competente",
+          "C) exclusivamente a ordem de chegada",
+          "D) sorteio entre os setores interessados",
+          "E) apenas o critério de urgência declarado pelo produtor"
+        ],
+        correct: 1,
+        subject: "Gestão de Documentos"
+      },
+      {
+        id: 177,
+        text: "O acompanhamento da fase de \"Utilização\" de um documento poderá ser observado:",
+        options: [
+          "A) apenas em relatório mensal da OM",
+          "B) na trilha de auditoria do SiGDEM",
+          "C) apenas mediante solicitação formal ao CM",
+          "D) no Boletim da Marinha",
+          "E) não há forma de acompanhamento previsto"
+        ],
+        correct: 1,
+        subject: "Gestão de Documentos"
+      },
+      {
+        id: 178,
+        text: "Segundo o Manual Técnico, os documentos trocados entre OM ou enviados para órgãos extra-MB deverão, sempre que possível, ser gerados no formato:",
+        options: [
+          "A) DOCX",
+          "B) PDF",
+          "C) TXT",
+          "D) RTF",
+          "E) HTML"
+        ],
+        correct: 1,
+        subject: "Documentos Digitais"
+      },
+      {
+        id: 179,
+        text: "Quando houver necessidade de alteração, pela OM de destino, do DA em seu formato original (como minutas de normas enviadas para aprovação), deverão ser utilizados os formatos de arquivo:",
+        options: [
+          "A) PDF exclusivamente",
+          "B) ODF \"Open Document Format\"",
+          "C) apenas imagem (JPEG/PNG)",
+          "D) apenas texto puro (TXT)",
+          "E) qualquer formato proprietário disponível"
+        ],
+        correct: 1,
+        subject: "Documentos Digitais"
+      },
+      {
+        id: 180,
+        text: "Na relação dos órgãos e entidades dos Poderes da União, dos Estados, do Distrito Federal e dos Municípios com o cidadão, a exigência de reconhecimento de firma:",
+        options: [
+          "A) foi mantida obrigatória em todos os casos",
+          "B) fica dispensada, cabendo ao agente administrativo confrontar a assinatura com o documento de identidade",
+          "C) foi substituída por assinatura digital em todos os casos",
+          "D) só se aplica a documentos sigilosos",
+          "E) foi extinta apenas para militares"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 181,
+        text: "Os anexos poderão ser desdobrados em apêndices, e estes, por sua vez, em:",
+        options: [
+          "A) subanexos",
+          "B) adendos",
+          "C) suplementos",
+          "D) complementos",
+          "E) tópicos"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 182,
+        text: "Os anexos, apêndices e adendos de documentos normativos, exceto a Ordem Interna, serão obrigatoriamente:",
+        options: [
+          "A) digitados em fonte diferente do documento principal",
+          "B) assinados ou rubricados pelo Titular da OM",
+          "C) enviados separadamente do documento principal",
+          "D) arquivados em local diferente do documento principal",
+          "E) numerados com algarismos romanos"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 183,
+        text: "O grau de sigilo de um anexo será:",
+        options: [
+          "A) sempre inferior ao do documento principal",
+          "B) igual ou superior àquele atribuído ao seu apêndice ou adendo de maior grau de sigilo",
+          "C) definido exclusivamente pelo destinatário",
+          "D) sempre ostensivo, independentemente do conteúdo",
+          "E) irrelevante para a classificação do documento"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 184,
+        text: "Quando um anexo, por seu peso ou tamanho, não puder tramitar apenso ao documento a que pertence, ele será:",
+        options: [
+          "A) descartado e substituído por resumo",
+          "B) devidamente acondicionado e receberá etiqueta com a identificação completa do documento",
+          "C) digitalizado obrigatoriamente",
+          "D) enviado por serviço postal separado, sem identificação",
+          "E) considerado documento autônomo, sem vínculo"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 185,
+        text: "A divulgação de um documento será apresentada:",
+        options: [
+          "A) na primeira folha do documento, antes do texto",
+          "B) na última folha do documento, após a assinatura",
+          "C) em anexo específico separado",
+          "D) apenas verbalmente, na entrega",
+          "E) no cabeçalho de todas as páginas"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 186,
+        text: "A indicação \"Distribuição:\" é usada, por exemplo, em Circulares, Ordens de Serviço, Instruções Permanentes e Portarias, situações em que:",
+        options: [
+          "A) há sempre um único destinatário definido no cabeçalho",
+          "B) não há destinatário definido no cabeçalho",
+          "C) o documento é sempre sigiloso",
+          "D) o documento não pode ser numerado",
+          "E) é obrigatório o uso de Referência"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 187,
+        text: "Abaixo da palavra \"Cópias:\", será, ao final, incluída a palavra:",
+        options: [
+          "A) \"Fim\"",
+          "B) \"Arquivo\", referente à via original destinada ao SECOM da OM",
+          "C) \"Encerrado\"",
+          "D) \"Concluído\"",
+          "E) \"Distribuído\""
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 188,
+        text: "Quando todos os anexos acompanharem a cópia de um documento, será usada a expressão:",
+        options: [
+          "A) \"c/anexos\"",
+          "B) \"com todos os anexos\"",
+          "C) \"anexos completos\"",
+          "D) \"anexado integralmente\"",
+          "E) \"anexos inclusos\""
+        ],
+        correct: 0,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 189,
+        text: "Não é permitida a remessa de cópias de documentos aos escalões superiores sobre assuntos ainda em fase de estudo, salvo se:",
+        options: [
+          "A) o assunto for urgente",
+          "B) houver prévia autorização ou determinação superior",
+          "C) o documento for sigiloso",
+          "D) o prazo de resposta estiver vencido",
+          "E) o remetente for Almirante"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 190,
+        text: "Nos documentos divulgados por meio do Boletim da Marinha do Brasil (Bol MB):",
+        options: [
+          "A) será sempre publicada a \"Distribuição:\"",
+          "B) não se publicará a \"Distribuição:\"",
+          "C) é obrigatório anexo específico",
+          "D) exige-se dupla assinatura",
+          "E) o grau de sigilo é automaticamente elevado"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 191,
+        text: "Os documentos encaminhados por meio de \"Distribuição:\" serão todos considerados como:",
+        options: [
+          "A) cópias simples, sem valor",
+          "B) original",
+          "C) rascunho",
+          "D) minuta",
+          "E) documento provisório"
+        ],
+        correct: 1,
+        subject: "Composição dos Documentos Administrativos"
+      },
+      {
+        id: 192,
+        text: "Segundo a NODAM, para efeito de \"assunto de rotina\" em uma Comunicação Padronizada (CP), considera-se a remessa de informações funcionais periódicas, documentos ou materiais, e a comunicação de fatos, desde que NÃO envolvam:",
+        options: [
+          "A) mais de uma OM",
+          "B) juízo de valor da própria OM, juízos de competência superior, decisões, ordens ou determinações",
+          "C) prazo definido",
+          "D) mais de um Elemento Organizacional",
+          "E) numeração sequencial"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 193,
+        text: "A implementação da CPPJ observará os termos das Normas para Organização e Funcionamento do:",
+        options: [
+          "A) SiGDEM",
+          "B) Sistema de Assessoria Jurídica Consultiva da Marinha (SAJCM)",
+          "C) LEGISMAR",
+          "D) CONARQ",
+          "E) Arquivo Nacional"
+        ],
+        correct: 1,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 194,
+        text: "Analise as afirmativas sobre a Circular (Circ):\nI. É um DA de correspondência.\nII. Pode ser usada para alterar Portarias.\nIII. Sua vigência deve estar explicitamente declarada.\nEstão corretas:",
+        options: [
+          "A) apenas I e III",
+          "B) apenas I e II",
+          "C) apenas II e III",
+          "D) I, II e III",
+          "E) nenhuma das afirmativas está correta"
+        ],
+        correct: 0,
+        subject: "Tipos de Documentos Administrativos"
+      },
+      {
+        id: 195,
+        text: "Sobre os graus de sigilo previstos na NODAM, é correto afirmar que documentos Reservados são identificados pela abreviatura:",
+        options: [
+          "A) (U)",
+          "B) (S)",
+          "C) (R)",
+          "D) (C)",
+          "E) (P)"
+        ],
+        correct: 2,
+        subject: "Classificação dos Documentos Administrativos"
+      },
+      {
+        id: 196,
+        text: "Documentos classificados como Ultrassecretos são identificados, de forma abreviada, pela letra:",
+        options: [
+          "A) (U)",
+          "B) (S)",
+          "C) (R)",
+          "D) (T)",
+          "E) (X)"
+        ],
+        correct: 0,
+        subject: "Classificação dos Documentos Administrativos"
+      },
+      {
+        id: 197,
+        text: "Documentos classificados como Secretos são identificados, de forma abreviada, pela letra:",
+        options: [
+          "A) (U)",
+          "B) (S)",
+          "C) (R)",
+          "D) (K)",
+          "E) (C)"
+        ],
+        correct: 1,
+        subject: "Classificação dos Documentos Administrativos"
+      },
+      {
+        id: 198,
+        text: "No caso de DA contendo Informação Pessoal, o tratamento deverá seguir os mesmos moldes do DA do grau de sigilo:",
+        options: [
+          "A) Ultrassecreto",
+          "B) Secreto",
+          "C) Reservado",
+          "D) qualquer grau, a critério do produtor",
+          "E) não há tratamento específico, é tratado como ostensivo"
+        ],
+        correct: 2,
+        subject: "Classificação dos Documentos Administrativos"
+      },
+      {
+        id: 199,
+        text: "A tramitação do DA de âmbito interno com precedência \"especial\" possui prioridade sobre a tramitação do DA:",
+        options: [
+          "A) urgente",
+          "B) de rotina",
+          "C) sigiloso",
+          "D) de âmbito externo",
+          "E) normativo"
+        ],
+        correct: 1,
+        subject: "Classificação dos Documentos Administrativos"
+      },
+      {
+        id: 200,
+        text: "O DA \"urgente\" é aquele que exige do recebedor:",
+        options: [
+          "A) apenas conhecimento em até 30 dias",
+          "B) ação ou conhecimento imediato",
+          "C) resposta por escrito em até 5 dias úteis",
+          "D) encaminhamento a escalão superior",
+          "E) autorização prévia do CM"
+        ],
+        correct: 1,
+        subject: "Classificação dos Documentos Administrativos"
+      }
+    ];
+
+    // App State
+    let currentIndex = 0;
+    let userAnswers = {}; // { questionIndex: selectedOptionIndex }
+    let mode = 'study'; // 'study' or 'exam'
+    let activeFilter = 'all'; // 'all', 'unanswered', 'answered'
+    let subjectFilter = 'all';
+    let discardedOptions = {}; // { questionIndex: { optionIndex: true } }
+    let notesCache = {}; // { question.id (string): { texto, atualizado_em } }
+    let noteSaveTimer = null;
+
+    let timerInterval = null;
+
+    // Local Storage Keys (cache local / fallback offline)
+    const STORAGE_KEY_ANSWERS = 'doc_adm_mb_answers';
+    const STORAGE_KEY_MODE = 'doc_adm_mb_mode';
+    const STORAGE_KEY_DISCARDED = 'doc_adm_mb_discarded_options';
+    const STORAGE_KEY_START = 'doc_adm_mb_elapsed_start';
+    const STORAGE_KEY_CURRENT = 'doc_adm_mb_current_index';
+
+    // --- Supabase: sessão vem da página inicial (index.html) ---
+    const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const QUIZ_ID = 'DOC_ADM_MB';
+
+    function toggleSwitchMenu() {
+      const menu = document.getElementById('switch-quiz-menu');
+      if (menu) menu.classList.toggle('hidden');
+    }
+    document.addEventListener('click', (e) => {
+      const menu = document.getElementById('switch-quiz-menu');
+      const btn = document.getElementById('switch-quiz-btn');
+      if (!menu || menu.classList.contains('hidden')) return;
+      if (!menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.classList.add('hidden');
+      }
+    });
+    async function applySwitchMenuLocks() {
+      const { data: acessos } = await sb.from('acessos').select('quiz_id').eq('user_id', currentUser.id);
+      const liberadas = new Set((acessos || []).map(a => a.quiz_id));
+      document.querySelectorAll('[data-switch-quiz-id]').forEach(item => {
+        const quizId = item.getAttribute('data-switch-quiz-id');
+        if (!liberadas.has(quizId)) {
+          item.classList.add('hidden');
+        }
+      });
+    }
+
+    let currentUser = null;
+    let saveDebounceTimer = null;
+
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending', 'gate-no-access'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    function applyThemeIcon() {
+      const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+      document.getElementById('theme-toggle-icon-moon').classList.toggle('hidden', theme === 'light');
+      document.getElementById('theme-toggle-icon-sun').classList.toggle('hidden', theme !== 'light');
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('site_theme', next); } catch (e) { /* ignora se indisponível */ }
+      applyThemeIcon();
+    }
+
+
+    async function handleLogout() {
+      if (timerInterval) clearInterval(timerInterval);
+      await sb.auth.signOut();
+    }
+
+    async function onUserAuthenticated() {
+      const { data: perfil } = await sb
+        .from('profiles')
+        .select('aprovado')
+        .eq('id', currentUser.id)
+        .maybeSingle();
+
+      const aprovado = perfil ? perfil.aprovado : false;
+
+      if (!aprovado) {
+        showGate('gate-pending');
+        return;
+      }
+
+      const { data: acesso } = await sb
+        .from('acessos')
+        .select('quiz_id')
+        .eq('user_id', currentUser.id)
+        .eq('quiz_id', QUIZ_ID)
+        .maybeSingle();
+
+      if (!acesso) {
+        showGate('gate-no-access');
+        return;
+      }
+
+      document.getElementById('access-screen').classList.add('hidden');
+      const bar = document.getElementById('user-bar');
+      bar.classList.remove('hidden');
+      bar.classList.add('flex');
+      document.getElementById('user-email').textContent = currentUser.email;
+      await applySwitchMenuLocks();
+
+      await loadSavedState();
+      const savedIndex = parseInt(localStorage.getItem(STORAGE_KEY_CURRENT), 10);
+      currentIndex = (!isNaN(savedIndex) && savedIndex >= 0 && savedIndex < questionsData.length) ? savedIndex : 0;
+      renderQuestion();
+      renderGrid();
+      updateTrackers();
+
+      if (!localStorage.getItem(STORAGE_KEY_START)) {
+        localStorage.setItem(STORAGE_KEY_START, String(Date.now()));
+      }
+      startElapsedTimer();
+      updateElapsedTimer();
+    }
+
+    function showAccessScreen() {
+      document.getElementById('user-bar').classList.add('hidden');
+      document.getElementById('user-bar').classList.remove('flex');
+      if (timerInterval) clearInterval(timerInterval);
+      showGate('gate-logged-out');
+    }
+
+    // Init App
+    window.addEventListener('DOMContentLoaded', () => {
+      applyThemeIcon();
+      populateSubjectFilter();
+      sb.auth.onAuthStateChange((event, session) => {
+        if (session && session.user) {
+          currentUser = session.user;
+          onUserAuthenticated();
+        } else if (event === 'SIGNED_OUT' || event === 'INITIAL_SESSION') {
+          currentUser = null;
+          showAccessScreen();
+        }
+      });
+    });
+
+    // Atalhos de teclado: ← / → navegam entre questões, A–E marcam a alternativa
+    document.addEventListener('keydown', (e) => {
+      const locked = !document.getElementById('access-screen').classList.contains('hidden');
+      if (locked) return;
+      const typingInField = ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName);
+      if (typingInField) return;
+
+      if (e.key === 'ArrowRight') { nextQuestion(); }
+      else if (e.key === 'ArrowLeft') { prevQuestion(); }
+      else {
+        const letterIndex = 'abcdefgh'.indexOf(e.key.toLowerCase());
+        if (letterIndex > -1 && questionsData[currentIndex] && letterIndex < questionsData[currentIndex].options.length) {
+          selectOption(letterIndex);
+        }
+      }
+    });
+
+    function startElapsedTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(updateElapsedTimer, 1000);
+    }
+
+    function formatElapsed(ms) {
+      const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+      const h = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+      const m = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+      const sec = String(totalSeconds % 60).padStart(2, '0');
+      return `${h}:${m}:${sec}`;
+    }
+
+    function updateElapsedTimer() {
+      const el = document.getElementById('elapsed-timer');
+      if (!el) return;
+      const start = Number(localStorage.getItem(STORAGE_KEY_START));
+      el.querySelector('span').innerText = start ? formatElapsed(Date.now() - start) : '00:00:00';
+    }
+
+    async function loadSavedState() {
+      userAnswers = {};
+      discardedOptions = {};
+      let loadedFromCloud = false;
+
+      if (currentUser) {
+        try {
+          const { data, error } = await sb
+            .from('progresso')
+            .select('respostas, descartadas, modo')
+            .eq('user_id', currentUser.id)
+            .eq('quiz_id', QUIZ_ID)
+            .maybeSingle();
+          if (!error && data) {
+            userAnswers = data.respostas || {};
+            discardedOptions = data.descartadas || {};
+            if (data.modo) setMode(data.modo, false);
+            loadedFromCloud = true;
+          }
+        } catch (e) { /* segue para o cache local */ }
+
+        try {
+          const { data: notas } = await sb
+            .from('anotacoes')
+            .select('question_id, texto')
+            .eq('user_id', currentUser.id)
+            .eq('quiz_id', QUIZ_ID);
+          notesCache = {};
+          (notas || []).forEach(n => { notesCache[String(n.question_id)] = { texto: n.texto, atualizado_em: n.atualizado_em }; });
+        } catch (e) { /* segue sem anotações carregadas */ }
+      }
+
+      if (!loadedFromCloud) {
+        const savedAnswers = localStorage.getItem(STORAGE_KEY_ANSWERS);
+        if (savedAnswers) {
+          try { userAnswers = JSON.parse(savedAnswers); } catch(e) { userAnswers = {}; }
+        }
+        const savedMode = localStorage.getItem(STORAGE_KEY_MODE);
+        if (savedMode) setMode(savedMode, false);
+        const savedDiscarded = localStorage.getItem(STORAGE_KEY_DISCARDED);
+        if (savedDiscarded) {
+          try { discardedOptions = JSON.parse(savedDiscarded) || {}; } catch(e) { discardedOptions = {}; }
+        }
+      }
+    }
+
+    async function syncProgressToCloud() {
+      if (!currentUser) return;
+      await sb.from('progresso').upsert({
+        user_id: currentUser.id,
+        quiz_id: QUIZ_ID,
+        respostas: userAnswers,
+        descartadas: discardedOptions,
+        modo: mode,
+        atualizado_em: new Date().toISOString()
+      });
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY_ANSWERS, JSON.stringify(userAnswers));
+      localStorage.setItem(STORAGE_KEY_DISCARDED, JSON.stringify(discardedOptions));
+      if (currentUser) {
+        clearTimeout(saveDebounceTimer);
+        saveDebounceTimer = setTimeout(syncProgressToCloud, 600);
+      }
+    }
+
+    function isDiscarded(qIndex, optIndex) {
+      return !!(discardedOptions[qIndex] && discardedOptions[qIndex][optIndex]);
+    }
+
+    function toggleDiscard(optIndex) {
+      if (!discardedOptions[currentIndex]) discardedOptions[currentIndex] = {};
+      if (discardedOptions[currentIndex][optIndex]) {
+        delete discardedOptions[currentIndex][optIndex];
+      } else {
+        discardedOptions[currentIndex][optIndex] = true;
+        // If the user had selected this option, remove that answer so the discarded option cannot remain selected.
+        if (userAnswers[currentIndex] === optIndex) delete userAnswers[currentIndex];
+      }
+      if (Object.keys(discardedOptions[currentIndex]).length === 0) delete discardedOptions[currentIndex];
+      saveState();
+      renderQuestion();
+      renderGrid();
+    }
+
+    function setMode(newMode, render = true) {
+      mode = newMode;
+      localStorage.setItem(STORAGE_KEY_MODE, mode);
+      if (currentUser && render) {
+        clearTimeout(saveDebounceTimer);
+        saveDebounceTimer = setTimeout(syncProgressToCloud, 600);
+      }
+
+      const studyBtn = document.getElementById('btn-mode-study');
+      const examBtn = document.getElementById('btn-mode-exam');
+
+      if (mode === 'study') {
+        studyBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-ink shadow';
+        examBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-ink';
+      } else {
+        examBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all bg-navy-600 text-ink shadow';
+        studyBtn.className = 'px-3 py-1.5 rounded-md font-medium transition-all text-slate-400 hover:text-ink';
+      }
+
+      if (render) {
+        renderQuestion();
+        renderGrid();
+      }
+    }
+
+    function renderQuestion() {
+      const q = questionsData[currentIndex];
+      const selectedOption = userAnswers[currentIndex];
+
+      // Update question text and badge
+      document.getElementById('question-badge').innerText = `Questão #${q.id}`;
+      document.getElementById('question-subject-tag').innerText = q.subject;
+      document.getElementById('question-text').innerText = q.text;
+
+      // Status tag
+      const statusTag = document.getElementById('question-status-tag');
+      if (selectedOption !== undefined) {
+        statusTag.classList.remove('hidden');
+        if (mode === 'study') {
+          if (selectedOption === q.correct) {
+            statusTag.className = 'text-xs px-2.5 py-1 rounded font-medium bg-emerald-900/60 text-emerald-300 border border-emerald-700';
+            statusTag.innerText = 'Correta';
+          } else {
+            statusTag.className = 'text-xs px-2.5 py-1 rounded font-medium bg-rose-900/60 text-rose-300 border border-rose-700';
+            statusTag.innerText = 'Incorreta';
+          }
+        } else {
+          statusTag.className = 'text-xs px-2.5 py-1 rounded font-medium bg-slate-700 text-slate-300';
+          statusTag.innerText = 'Respondida';
+        }
+      } else {
+        statusTag.classList.add('hidden');
+      }
+
+      // Options
+      const container = document.getElementById('options-container');
+      container.innerHTML = '';
+
+      q.options.forEach((optText, optIdx) => {
+        const discarded = isDiscarded(currentIndex, optIdx);
+        const row = document.createElement('div');
+        row.className = 'flex items-stretch gap-2';
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.onclick = () => { if (!isDiscarded(currentIndex, optIdx)) selectOption(optIdx); };
+
+        let baseClasses = 'flex-1 min-w-0 text-left p-4 pr-3 rounded-xl border text-sm md:text-base font-medium transition-all flex items-start gap-3 ';
+
+        if (discarded) {
+          baseClasses += 'bg-slate-800/30 border-slate-700/50 text-slate-500 opacity-50 line-through cursor-pointer';
+        } else if (selectedOption === undefined) {
+          // Unanswered
+          baseClasses += 'bg-navy-900/60 border-navy-700/80 text-slate-200 hover:bg-navy-700/50 hover:border-navy-500';
+        } else {
+          if (mode === 'study') {
+            // Study Mode: reveal correct & incorrect immediately
+            if (optIdx === q.correct) {
+              baseClasses += 'bg-emerald-950/70 border-emerald-600 text-emerald-200 shadow-sm';
+            } else if (optIdx === selectedOption && selectedOption !== q.correct) {
+              baseClasses += 'bg-rose-950/70 border-rose-600 text-rose-200 shadow-sm';
+            } else {
+              baseClasses += 'bg-navy-900/30 border-navy-800 text-slate-500 opacity-60';
+            }
+          } else {
+            // Exam Mode: show only user selection
+            if (optIdx === selectedOption) {
+              baseClasses += 'bg-navy-600/80 border-navy-400 text-ink shadow-md';
+            } else {
+              baseClasses += 'bg-navy-900/60 border-navy-700/80 text-slate-300 hover:bg-navy-700/40';
+            }
+          }
+        }
+
+        btn.className = baseClasses;
+
+        // Custom indicator radio
+        let radioIcon = '';
+        if (selectedOption === undefined || discarded) {
+          radioIcon = `<span class="w-5 h-5 rounded-full border border-slate-500 flex items-center justify-center shrink-0 mt-0.5 ${discarded ? 'opacity-40' : ''}"></span>`;
+        } else if (mode === 'study') {
+          if (optIdx === q.correct) {
+            radioIcon = `<span class="w-5 h-5 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center shrink-0 mt-0.5 text-xs"><i class="fa-solid fa-check"></i></span>`;
+          } else if (optIdx === selectedOption && selectedOption !== q.correct) {
+            radioIcon = `<span class="w-5 h-5 rounded-full bg-rose-500 text-ink flex items-center justify-center shrink-0 mt-0.5 text-xs"><i class="fa-solid fa-xmark"></i></span>`;
+          } else {
+            radioIcon = `<span class="w-5 h-5 rounded-full border border-slate-700 flex items-center justify-center shrink-0 mt-0.5"></span>`;
+          }
+        } else { // Exam mode
+          if (optIdx === selectedOption) {
+            radioIcon = `<span class="w-5 h-5 rounded-full bg-white text-navy-900 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold"><i class="fa-solid fa-circle text-[8px]"></i></span>`;
+          } else {
+            radioIcon = `<span class="w-5 h-5 rounded-full border border-slate-500 flex items-center justify-center shrink-0 mt-0.5"></span>`;
+          }
+        }
+
+        btn.innerHTML = `${radioIcon}<span class="flex-1 ${discarded ? 'line-through' : ''}">${optText}</span>`;
+
+        // Cadeado de descartar/restaurar: fica FORA da alternativa, depois dela.
+        // Fechado (fa-lock) = alternativa cortada/descartada. Aberto (fa-lock-open) = disponível.
+        const lockBtn = document.createElement('button');
+        lockBtn.type = 'button';
+        lockBtn.setAttribute('aria-label', discarded ? 'Restaurar alternativa' : 'Descartar alternativa');
+        lockBtn.title = discarded ? 'Restaurar alternativa' : 'Cortar/descartar alternativa';
+        lockBtn.className = `shrink-0 w-10 rounded-xl border flex items-center justify-center transition-all ${discarded ? 'bg-slate-700/50 border-slate-600' : 'bg-navy-900/60 border-navy-700/80 hover:bg-navy-700/50 hover:border-navy-500'}`;
+        lockBtn.onclick = (e) => { e.stopPropagation(); toggleDiscard(optIdx); };
+        lockBtn.innerHTML = `<i class="fa-solid ${discarded ? 'fa-lock text-slate-300' : 'fa-lock-open text-slate-500'} text-sm"></i>`;
+
+        row.appendChild(btn);
+        row.appendChild(lockBtn);
+        container.appendChild(row);
+      });
+
+      // Explanation Box (Study Mode)
+      const expBox = document.getElementById('explanation-box');
+      if (mode === 'study' && selectedOption !== undefined) {
+        expBox.classList.remove('hidden');
+        const isRight = selectedOption === q.correct;
+        const expTitle = document.getElementById('explanation-title');
+        const expText = document.getElementById('explanation-text');
+
+        if (isRight) {
+          expTitle.className = 'flex items-center gap-2 text-sm font-bold text-emerald-400 mb-1';
+          expTitle.innerHTML = `<i class="fa-solid fa-circle-check"></i> Resposta Correta!`;
+          expText.innerText = `A alternativa gabarito é: ${q.options[q.correct]}`;
+        } else {
+          expTitle.className = 'flex items-center gap-2 text-sm font-bold text-rose-400 mb-1';
+          expTitle.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> Resposta Incorreta`;
+          expText.innerText = `Você selecionou a opção (${String.fromCharCode(65 + selectedOption)}), mas a correta é a alternativa: ${q.options[q.correct]}`;
+        }
+      } else {
+        expBox.classList.add('hidden');
+      }
+
+      // Minha Anotação (carrega o texto salvo desta questão, se houver)
+      const noteBox = document.getElementById('note-textarea');
+      const noteEntry = notesCache[String(q.id)];
+      if (noteBox) noteBox.value = noteEntry ? noteEntry.texto : '';
+      const noteStatus = document.getElementById('note-status');
+      if (noteStatus) { noteStatus.textContent = ''; noteStatus.className = 'text-xs text-slate-500'; }
+      const noteTimestamp = document.getElementById('note-timestamp');
+      if (noteTimestamp) {
+        if (noteEntry && noteEntry.atualizado_em) {
+          const d = new Date(noteEntry.atualizado_em);
+          noteTimestamp.textContent = `Editado em ${d.toLocaleDateString('pt-BR')} às ${d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}`;
+        } else {
+          noteTimestamp.textContent = '';
+        }
+      }
+
+      // Nav buttons state
+      document.getElementById('btn-prev').disabled = currentIndex === 0;
+      document.getElementById('btn-next').disabled = currentIndex === questionsData.length - 1;
+
+      updateTrackers();
+
+      // Pequena transição ao trocar de questão
+      const card = document.getElementById('question-card');
+      card.classList.remove('question-in');
+      void card.offsetWidth;
+      card.classList.add('question-in');
+    }
+
+    function scheduleNoteSave() {
+      const status = document.getElementById('note-status');
+      status.textContent = 'Digitando...';
+      status.className = 'text-xs text-slate-500';
+      clearTimeout(noteSaveTimer);
+      noteSaveTimer = setTimeout(saveNote, 1000);
+    }
+
+    async function saveNote() {
+      const status = document.getElementById('note-status');
+      if (!currentUser) {
+        status.textContent = 'Faça login para salvar sua anotação.';
+        status.className = 'text-xs text-amber-400';
+        return;
+      }
+      const q = questionsData[currentIndex];
+      const texto = document.getElementById('note-textarea').value;
+      status.textContent = 'Salvando...';
+      status.className = 'text-xs text-slate-400';
+      try {
+        const agora = new Date().toISOString();
+        await sb.from('anotacoes').upsert({
+          user_id: currentUser.id,
+          quiz_id: QUIZ_ID,
+          question_id: String(q.id),
+          texto: texto,
+          atualizado_em: agora
+        }, { onConflict: 'user_id,quiz_id,question_id' });
+        notesCache[String(q.id)] = { texto: texto, atualizado_em: agora };
+        status.textContent = 'Salvo ✓';
+        status.className = 'text-xs text-emerald-400';
+        const noteTimestamp = document.getElementById('note-timestamp');
+        if (noteTimestamp) {
+          const d = new Date(agora);
+          noteTimestamp.textContent = `Editado em ${d.toLocaleDateString('pt-BR')} às ${d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}`;
+        }
+        renderGrid();
+      } catch (e) {
+        status.textContent = 'Erro ao salvar. Tente novamente.';
+        status.className = 'text-xs text-rose-400';
+      }
+    }
+
+    function selectOption(optIndex) {
+      if (isDiscarded(currentIndex, optIndex)) return;
+      const jaTinhaResposta = userAnswers[currentIndex] !== undefined;
+      userAnswers[currentIndex] = optIndex;
+      saveState();
+      renderQuestion();
+      renderGrid();
+
+      // Salva o resultado dessa questão em tempo real, sem esperar finalizar o simulado
+      if (currentUser && !jaTinhaResposta) {
+        const q = questionsData[currentIndex];
+        sb.from('respostas_detalhadas').insert({
+          user_id: currentUser.id,
+          quiz_id: QUIZ_ID,
+          subject: q.subject,
+          question_id: q.id,
+          acertou: optIndex === q.correct
+        }).then(() => {});
+      }
+    }
+
+    function prevQuestion() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        localStorage.setItem(STORAGE_KEY_CURRENT, String(currentIndex));
+        renderQuestion();
+        renderGrid();
+      }
+    }
+
+    function nextQuestion() {
+      if (currentIndex < questionsData.length - 1) {
+        currentIndex++;
+        localStorage.setItem(STORAGE_KEY_CURRENT, String(currentIndex));
+        renderQuestion();
+        renderGrid();
+      }
+    }
+
+    function setFilter(filter) {
+      activeFilter = filter;
+      document.getElementById('filter-all').className = filter === 'all' ? 'py-1 rounded text-center bg-navy-700 text-ink' : 'py-1 rounded text-center text-slate-400 hover:text-ink';
+      document.getElementById('filter-unanswered').className = filter === 'unanswered' ? 'py-1 rounded text-center bg-navy-700 text-ink' : 'py-1 rounded text-center text-slate-400 hover:text-ink';
+      document.getElementById('filter-answered').className = filter === 'answered' ? 'py-1 rounded text-center bg-navy-700 text-ink' : 'py-1 rounded text-center text-slate-400 hover:text-ink';
+      renderGrid();
+    }
+
+    function setSubjectFilter(subject) {
+      subjectFilter = subject;
+      renderGrid();
+    }
+
+    function populateSubjectFilter() {
+      const select = document.getElementById('subject-filter');
+      if (!select) return;
+      const subjects = [...new Set(questionsData.map(q => q.subject))].sort();
+      subjects.forEach(subj => {
+        const opt = document.createElement('option');
+        opt.value = subj;
+        opt.textContent = subj;
+        select.appendChild(opt);
+      });
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('questions-grid');
+      grid.innerHTML = '';
+
+      questionsData.forEach((q, idx) => {
+        const isAnswered = userAnswers[idx] !== undefined;
+
+        // Apply filter
+        if (activeFilter === 'unanswered' && isAnswered) return;
+        if (activeFilter === 'answered' && !isAnswered) return;
+        if (subjectFilter !== 'all' && q.subject !== subjectFilter) return;
+
+        const btn = document.createElement('button');
+        btn.onclick = () => {
+          currentIndex = idx;
+          localStorage.setItem(STORAGE_KEY_CURRENT, String(currentIndex));
+          renderQuestion();
+          renderGrid();
+        };
+
+        let classes = 'h-9 w-full rounded text-xs font-mono font-bold flex items-center justify-center transition-all border ';
+
+        if (idx === currentIndex) {
+          classes += 'bg-navy-500 border-white text-ink shadow-md ring-2 ring-navy-400/50 ';
+        } else if (isAnswered) {
+          if (mode === 'study') {
+            if (userAnswers[idx] === q.correct) {
+              classes += 'bg-emerald-900/80 border-emerald-600 text-emerald-200 ';
+            } else {
+              classes += 'bg-rose-900/80 border-rose-600 text-rose-200 ';
+            }
+          } else {
+            classes += 'bg-slate-700 border-slate-600 text-slate-200 ';
+          }
+        } else {
+          classes += 'bg-navy-900/80 border-navy-700 text-slate-400 hover:bg-navy-700/50 hover:text-ink ';
+        }
+
+        btn.className = classes;
+        btn.innerText = idx + 1;
+
+        const noteEntry = notesCache[String(q.id)];
+        if (noteEntry && noteEntry.texto && noteEntry.texto.trim() !== '') {
+          const dot = document.createElement('span');
+          dot.className = 'absolute top-0.5 right-0.5 w-1.5 h-1.5 rounded-full bg-amber-400';
+          dot.title = 'Você tem uma anotação nesta questão';
+          btn.appendChild(dot);
+        }
+
+        grid.appendChild(btn);
+      });
+    }
+
+    function updateTrackers() {
+      const total = questionsData.length;
+      const answeredCount = Object.keys(userAnswers).length;
+
+      document.getElementById('question-tracker').innerText = `Questão ${currentIndex + 1} de ${total}`;
+      document.getElementById('answered-tracker').innerText = `${answeredCount} de ${total} respondidas`;
+
+      const percentage = (answeredCount / total) * 100;
+      document.getElementById('progress-bar').style.width = `${percentage}%`;
+
+      // Score counter in drawer
+      let correctCount = 0;
+      Object.keys(userAnswers).forEach(idx => {
+        if (userAnswers[idx] === questionsData[idx].correct) {
+          correctCount++;
+        }
+      });
+      document.getElementById('score-counter').innerText = `${correctCount}/${total}`;
+    }
+
+    function resetQuiz() {
+      if (confirm('Tem certeza de que deseja reiniciar o simulado? Suas respostas salvas serão apagadas.')) {
+        userAnswers = {};
+        discardedOptions = {};
+        localStorage.removeItem(STORAGE_KEY_ANSWERS);
+        localStorage.removeItem(STORAGE_KEY_DISCARDED);
+        localStorage.setItem(STORAGE_KEY_START, String(Date.now()));
+        if (currentUser) {
+          sb.from('progresso').delete().eq('user_id', currentUser.id).eq('quiz_id', QUIZ_ID).then(() => {});
+        }
+        currentIndex = 0;
+        renderQuestion();
+        renderGrid();
+        updateElapsedTimer();
+      }
+    }
+
+    function finishQuiz() {
+      const total = questionsData.length;
+      let correct = 0;
+      let answered = 0;
+
+      questionsData.forEach((q, idx) => {
+        if (userAnswers[idx] !== undefined) {
+          answered++;
+          if (userAnswers[idx] === q.correct) {
+            correct++;
+          }
+        }
+      });
+
+      const wrong = answered - correct;
+      const percent = Math.round((correct / total) * 100);
+
+      document.getElementById('modal-correct').innerText = correct;
+      document.getElementById('modal-wrong').innerText = wrong;
+      document.getElementById('modal-percent').innerText = `${percent}%`;
+
+      const feedback = document.getElementById('modal-feedback');
+      if (percent >= 80) {
+        feedback.innerText = 'Excelente desempenho! Você demonstrou forte domínio da Documentação Administrativa na MB e do RDM.';
+      } else if (percent >= 60) {
+        feedback.innerText = 'Bom resultado! Revise os tópicos incorretos para atingir uma nota ainda maior.';
+      } else {
+        feedback.innerText = 'Recomendamos uma revisão nos tópicos de Documentação Administrativa na MB/RDM e tentar o simulado novamente.';
+      }
+
+      document.getElementById('results-modal').classList.remove('hidden');
+
+      if (currentUser) {
+        sb.from('resultados').insert({
+          user_id: currentUser.id,
+          quiz_id: QUIZ_ID,
+          acertos: correct,
+          erros: wrong,
+          percentual: percent,
+          respostas: userAnswers
+        }).then(() => {});
+        // (o detalhamento por questão já foi salvo em tempo real, questão a questão, em selectOption())
+      }
+    }
+
+    function closeModal() {
+      document.getElementById('results-modal').classList.add('hidden');
+    }
+  </script>
+
+  <!-- Estilo das alternativas descartadas -->
+  <style>
+    .option-discarded {
+      opacity: .48 !important;
+      filter: grayscale(.7);
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      text-decoration-color: rgba(148,163,184,.9);
+    }
+  </style>
+
+  <!-- Custom Scrollbar Styling -->
+  <style>
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #000F26;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #1E3E62;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #1E56A0;
+    }
+  </style>
+  <!-- ===== Assistente de Busca: Guerras e Batalhas ===== -->
+  <button id="assistant-fab" onclick="toggleAssistant()" class="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-navy-600 hover:bg-navy-500 text-ink shadow-2xl flex items-center justify-center transition-all" title="Perguntar ao Cabo Velho de Esquadra">
+    <i class="fa-solid fa-comment-dots text-xl" id="assistant-fab-icon"></i>
+  </button>
+
+  <div id="assistant-panel" class="hidden fixed bottom-24 right-5 z-40 w-[94vw] max-w-[440px] h-[80vh] max-h-[640px] bg-navy-800 border border-navy-700 rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+    <div class="chrome-bg-900 border-b chrome-border-700 px-4 py-3 flex items-center gap-2.5 flex-shrink-0">
+      <i class="fa-solid fa-anchor chrome-text-white"></i>
+      <div class="flex-1 min-w-0">
+        <div class="chrome-text-white text-sm font-semibold">Cabo Velho do Mar</div>
+        <div class="chrome-text-slate-400 text-[10px]">Assistente de Documentação Administrativa na MB</div>
+      </div>
+      <button onclick="clearAssistantChat()" class="chrome-text-slate-400 chrome-hover-text-white text-sm" title="Limpar conversa"><i class="fa-solid fa-trash-can"></i></button>
+      <button onclick="toggleAssistant()" class="chrome-text-slate-400 chrome-hover-text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div id="assistant-messages" class="flex-1 overflow-y-auto min-h-0 px-4 py-4 space-y-3 text-sm"></div>
+    <div class="border-t border-navy-700 p-3 flex gap-2 flex-shrink-0">
+      <input id="assistant-input" type="text" placeholder="Ex: quem comandou o Riachuelo?" class="flex-1 bg-navy-900 border border-navy-700 text-ink text-sm rounded-lg px-3 py-2 outline-none focus:border-navy-500" onkeydown="if(event.key==='Enter') sendAssistantMessage()">
+      <button onclick="sendAssistantMessage()" class="bg-navy-600 hover:bg-navy-500 text-ink w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <script>
+    // ===== Lógica do assistente de busca (100% local, sem IA externa) =====
+    const ASSISTANT_STOPWORDS = new Set(['que','quem','qual','quais','como','onde','quando','porque','por','para',
+      'com','uma','umas','uns','dos','das','foi','ser','sao','esta','estava','eram','sobre','isso','essa','esse',
+      'me','diz','fale','conte','sabe','voce','você','tem','existe','existiu','aconteceu','aconteceram','falar']);
+
+    function assistantNormalize(s) {
+      return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^\w\s]/g, ' ');
+    }
+
+    function assistantSearch(query, limit) {
+      limit = limit || 3;
+      const rawWords = assistantNormalize(query).split(/\s+/).filter(w => w.length > 2);
+      const words = rawWords.filter(w => !ASSISTANT_STOPWORDS.has(w));
+      const effectiveWords = words.length > 0 ? words : rawWords;
+      if (effectiveWords.length === 0) return [];
+
+      const scored = questionsData.map(q => {
+        const correctText = (q.options[q.correct] || '').replace(/^[A-E]\)\s*/, '');
+        const subjectNorm = assistantNormalize(q.subject);
+        const noteEntry = (typeof notesCache !== 'undefined') ? notesCache[String(q.id)] : null;
+        const noteText = (noteEntry && noteEntry.texto) ? noteEntry.texto : '';
+        const haystack = assistantNormalize(q.text + ' ' + correctText + ' ' + q.subject + ' ' + noteText);
+        const noteHaystack = assistantNormalize(noteText);
+        let score = 0;
+        let noteMatched = false;
+        effectiveWords.forEach(w => {
+          const re = new RegExp('\\b' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b');
+          if (re.test(haystack)) score += 1;
+          if (re.test(subjectNorm)) score += 0.5;
+          if (noteHaystack && re.test(noteHaystack)) { score += 0.75; noteMatched = true; }
+        });
+        return { q, score, correctText, noteText: noteMatched ? noteText : '' };
+      }).filter(x => x.score >= 1);
+
+      scored.sort((a, b) => b.score - a.score);
+      return scored.slice(0, limit);
+    }
+
+    function clearAssistantChat() {
+      document.getElementById('assistant-messages').innerHTML = '';
+      addAssistantMessage('assistant',
+        'Ó BOY! Se enquadra pra falar com o Cabo Velho de Esquadra ⚓ Pode me perguntar sobre qualquer assunto de Documentação Administrativa na MB — eu procuro no banco de questões e nas suas próprias anotações dessa matéria, e te dou o bizu de onde encontrar. Pode ficar à vontade!');
+    }
+
+    function toggleAssistant() {
+      const panel = document.getElementById('assistant-panel');
+      const isHidden = panel.classList.contains('hidden');
+      panel.classList.toggle('hidden', !isHidden);
+      document.getElementById('assistant-fab-icon').className = isHidden ? 'fa-solid fa-xmark text-xl' : 'fa-solid fa-comment-dots text-xl';
+      if (isHidden && document.getElementById('assistant-messages').children.length === 0) {
+        addAssistantMessage('assistant',
+          'Ó BOY! Se enquadra pra falar com o Cabo Velho de Esquadra ⚓ Pode me perguntar sobre qualquer assunto de Documentação Administrativa na MB — eu procuro no banco de questões e nas suas próprias anotações dessa matéria, e te dou o bizu de onde encontrar. Pode ficar à vontade!');
+        document.getElementById('assistant-input').focus();
+      }
+    }
+
+    function addAssistantMessage(role, html) {
+      const wrap = document.getElementById('assistant-messages');
+      const bubble = document.createElement('div');
+      if (role === 'user') {
+        bubble.className = 'bg-navy-600 text-ink rounded-xl rounded-br-sm px-3 py-2 ml-8 text-right break-words';
+        bubble.innerText = html;
+      } else {
+        bubble.className = 'bg-navy-900/70 border border-navy-700 text-slate-200 rounded-xl rounded-bl-sm px-3 py-2.5 mr-6 break-words leading-relaxed';
+        bubble.innerHTML = html;
+      }
+      wrap.appendChild(bubble);
+      requestAnimationFrame(() => { wrap.scrollTop = wrap.scrollHeight; });
+    }
+
+    function sendAssistantMessage() {
+      const input = document.getElementById('assistant-input');
+      const query = input.value.trim();
+      if (!query) return;
+      addAssistantMessage('user', query);
+      input.value = '';
+
+      const results = assistantSearch(query, 100);
+
+      if (results.length === 0) {
+        addAssistantMessage('assistant',
+          'Não achei nada no banco de questões de Documentação Administrativa na MB sobre isso. Tenta usar outras palavras-chave.');
+        return;
+      }
+
+      const top = results[0];
+      let html = `<div class="mb-2"><span class="text-[10px] uppercase tracking-wide text-navy-400 font-semibold">${top.q.subject}</span></div>`;
+      html += `<div class="mb-2">${top.q.text}</div>`;
+      html += `<div class="text-emerald-400 font-semibold flex items-center gap-1.5"><i class="fa-solid fa-check"></i> ${top.correctText}</div>`;
+      if (top.noteText) {
+        html += `<div class="mt-2 pt-2 border-t border-navy-700/60 text-[12px] text-amber-200 flex items-start gap-1.5"><i class="fa-solid fa-pen-to-square mt-0.5"></i><span><strong>Sua anotação:</strong> ${top.noteText}</span></div>`;
+      }
+
+      if (results.length > 1) {
+        html += '<div class="mt-3 pt-2 border-t border-navy-700/60 text-[11px] text-slate-400">Também relacionado:</div>';
+        html += '<div class="mt-1.5 space-y-2.5">';
+        results.slice(1).forEach(r => {
+          html += `<div class="text-[12px] text-slate-300">
+            <div>• ${r.q.text}</div>
+            <div class="text-emerald-400/90 font-medium pl-3 mt-0.5"><i class="fa-solid fa-check text-[10px] mr-1"></i>${r.correctText}</div>
+          </div>`;
+        });
+        html += '</div>';
+      }
+
+      addAssistantMessage('assistant', html);
+    }
+  </script>
+
+</body>
+</html>
