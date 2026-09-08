@@ -7400,10 +7400,23 @@ const questionsData = [
 
     function selectOption(optIndex) {
       if (isDiscarded(currentIndex, optIndex)) return;
+      const jaTinhaResposta = userAnswers[currentIndex] !== undefined;
       userAnswers[currentIndex] = optIndex;
       saveState();
       renderQuestion();
       renderGrid();
+
+      // Salva o resultado dessa questão em tempo real, sem esperar finalizar o simulado
+      if (currentUser && !jaTinhaResposta) {
+        const q = questionsData[currentIndex];
+        sb.from('respostas_detalhadas').insert({
+          user_id: currentUser.id,
+          quiz_id: QUIZ_ID,
+          subject: q.subject,
+          question_id: q.id,
+          acertou: optIndex === q.correct
+        }).then(() => {});
+      }
     }
 
     function prevQuestion() {
@@ -7577,23 +7590,7 @@ const questionsData = [
           percentual: percent,
           respostas: userAnswers
         }).then(() => {});
-
-        // Log detalhado por questão (alimenta a análise por assunto do desempenho.html)
-        const detalhes = [];
-        questionsData.forEach((q, idx) => {
-          if (userAnswers[idx] !== undefined) {
-            detalhes.push({
-              user_id: currentUser.id,
-              quiz_id: QUIZ_ID,
-              subject: q.subject,
-              question_id: q.id,
-              acertou: userAnswers[idx] === q.correct
-            });
-          }
-        });
-        if (detalhes.length > 0) {
-          sb.from('respostas_detalhadas').insert(detalhes).then(() => {});
-        }
+        // (o detalhamento por questão já foi salvo em tempo real, questão a questão, em selectOption())
       }
     }
 
