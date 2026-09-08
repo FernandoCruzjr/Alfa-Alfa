@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>
+    // Aplica o tema salvo (ou escuro por padrão) antes de qualquer coisa renderizar,
+    // pra evitar um "flash" da cor errada ao carregar a página.
+    (function() {
+      try {
+        var saved = localStorage.getItem('site_theme');
+        var theme = saved === 'light' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcards de CAAML-703 · Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Flashcards de revisão de História Naval: navios, comandantes, batalhas, guerras e tratados. Estude de forma rápida e visual para o CA-AA/AFN.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: {
+              100: 'rgb(var(--tw-navy-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-navy-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-navy-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-navy-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-navy-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-navy-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-navy-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-navy-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-navy-900) / <alpha-value>)'
+            },
+            ink: 'rgb(var(--tw-ink) / <alpha-value>)',
+            slate: {
+              50: 'rgb(var(--tw-slate-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-slate-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-slate-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-slate-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-slate-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-slate-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-slate-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-slate-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-slate-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-slate-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-slate-950) / <alpha-value>)'
+            },
+            emerald: {
+              50: 'rgb(var(--tw-emerald-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-emerald-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-emerald-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-emerald-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-emerald-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-emerald-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-emerald-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-emerald-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-emerald-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-emerald-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-emerald-950) / <alpha-value>)'
+            },
+            rose: {
+              50: 'rgb(var(--tw-rose-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-rose-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-rose-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-rose-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-rose-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-rose-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-rose-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-rose-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-rose-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-rose-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-rose-950) / <alpha-value>)'
+            },
+            amber: {
+              50: 'rgb(var(--tw-amber-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-amber-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-amber-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-amber-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-amber-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-amber-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-amber-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-amber-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-amber-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-amber-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-amber-950) / <alpha-value>)'
+            },
+            cyan: {
+              50: 'rgb(var(--tw-cyan-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-cyan-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-cyan-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-cyan-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-cyan-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-cyan-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-cyan-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-cyan-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-cyan-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-cyan-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-cyan-950) / <alpha-value>)'
+            },
+            sky: { 400: 'rgb(var(--tw-sky-400) / <alpha-value>)' },
+            lime: { 400: 'rgb(var(--tw-lime-400) / <alpha-value>)' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+:root {
+  --tw-slate-50: 248 250 252;
+  --tw-slate-100: 241 245 249;
+  --tw-slate-200: 226 232 240;
+  --tw-slate-300: 203 213 225;
+  --tw-slate-400: 148 163 184;
+  --tw-slate-500: 100 116 139;
+  --tw-slate-600: 71 85 105;
+  --tw-slate-700: 51 65 85;
+  --tw-slate-800: 30 41 59;
+  --tw-slate-900: 15 23 42;
+  --tw-slate-950: 2 6 23;
+  --tw-emerald-50: 236 253 245;
+  --tw-emerald-100: 209 250 229;
+  --tw-emerald-200: 167 243 208;
+  --tw-emerald-300: 110 231 183;
+  --tw-emerald-400: 52 211 153;
+  --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 5 150 105;
+  --tw-emerald-700: 4 120 87;
+  --tw-emerald-800: 6 95 70;
+  --tw-emerald-900: 6 78 59;
+  --tw-emerald-950: 2 44 34;
+  --tw-rose-50: 255 241 242;
+  --tw-rose-100: 255 228 230;
+  --tw-rose-200: 254 205 211;
+  --tw-rose-300: 253 164 175;
+  --tw-rose-400: 251 113 133;
+  --tw-rose-500: 244 63 94;
+  --tw-rose-600: 225 29 72;
+  --tw-rose-700: 190 18 60;
+  --tw-rose-800: 159 18 57;
+  --tw-rose-900: 136 19 55;
+  --tw-rose-950: 76 5 25;
+  --tw-amber-50: 255 251 235;
+  --tw-amber-100: 254 243 199;
+  --tw-amber-200: 253 230 138;
+  --tw-amber-300: 252 211 77;
+  --tw-amber-400: 251 191 36;
+  --tw-amber-500: 245 158 11;
+  --tw-amber-600: 217 119 6;
+  --tw-amber-700: 180 83 9;
+  --tw-amber-800: 146 64 14;
+  --tw-amber-900: 120 53 15;
+  --tw-amber-950: 69 26 3;
+  --tw-cyan-50: 236 254 255;
+  --tw-cyan-100: 207 250 254;
+  --tw-cyan-200: 165 243 252;
+  --tw-cyan-300: 103 232 249;
+  --tw-cyan-400: 34 211 238;
+  --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 8 145 178;
+  --tw-cyan-700: 14 116 144;
+  --tw-cyan-800: 21 94 117;
+  --tw-cyan-900: 22 78 99;
+  --tw-cyan-950: 8 51 68;
+  --tw-sky-400: 56 189 248;
+  --tw-lime-400: 163 230 53;
+  --tw-navy-100: 230 240 250;
+  --tw-navy-200: 192 219 245;
+  --tw-navy-300: 143 193 238;
+  --tw-navy-400: 77 158 224;
+  --tw-navy-500: 0 102 204;
+  --tw-navy-600: 30 86 160;
+  --tw-navy-700: 30 62 98;
+  --tw-navy-800: 11 25 44;
+  --tw-navy-900: 0 15 38;
+  --tw-ink: 255 255 255;
+}
+
+[data-theme="light"] {
+  --tw-slate-50: 2 6 23;
+  --tw-slate-100: 15 23 42;
+  --tw-slate-200: 30 41 59;
+  --tw-slate-300: 51 65 85;
+  --tw-slate-400: 71 85 105;
+  --tw-slate-500: 100 116 139;
+  --tw-slate-600: 148 163 184;
+  --tw-slate-700: 203 213 225;
+  --tw-slate-800: 226 232 240;
+  --tw-slate-900: 241 245 249;
+  --tw-slate-950: 248 250 252;
+  --tw-emerald-50: 2 44 34;
+  --tw-emerald-100: 6 78 59;
+  --tw-emerald-200: 6 95 70;
+  --tw-emerald-300: 4 120 87;
+  --tw-emerald-400: 5 150 105;
+  --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 52 211 153;
+  --tw-emerald-700: 110 231 183;
+  --tw-emerald-800: 167 243 208;
+  --tw-emerald-900: 209 250 229;
+  --tw-emerald-950: 236 253 245;
+  --tw-rose-50: 76 5 25;
+  --tw-rose-100: 136 19 55;
+  --tw-rose-200: 159 18 57;
+  --tw-rose-300: 190 18 60;
+  --tw-rose-400: 225 29 72;
+  --tw-rose-500: 244 63 94;
+  --tw-rose-600: 251 113 133;
+  --tw-rose-700: 253 164 175;
+  --tw-rose-800: 254 205 211;
+  --tw-rose-900: 255 228 230;
+  --tw-rose-950: 255 241 242;
+  --tw-amber-50: 69 26 3;
+  --tw-amber-100: 120 53 15;
+  --tw-amber-200: 146 64 14;
+  --tw-amber-300: 180 83 9;
+  --tw-amber-400: 217 119 6;
+  --tw-amber-500: 245 158 11;
+  --tw-amber-600: 251 191 36;
+  --tw-amber-700: 252 211 77;
+  --tw-amber-800: 253 230 138;
+  --tw-amber-900: 254 243 199;
+  --tw-amber-950: 255 251 235;
+  --tw-cyan-50: 8 51 68;
+  --tw-cyan-100: 22 78 99;
+  --tw-cyan-200: 21 94 117;
+  --tw-cyan-300: 14 116 144;
+  --tw-cyan-400: 8 145 178;
+  --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 34 211 238;
+  --tw-cyan-700: 103 232 249;
+  --tw-cyan-800: 165 243 252;
+  --tw-cyan-900: 207 250 254;
+  --tw-cyan-950: 236 254 255;
+  --tw-sky-400: 56 189 248;
+  --tw-lime-400: 163 230 53;
+  --tw-navy-100: 0 15 38;
+  --tw-navy-200: 11 25 44;
+  --tw-navy-300: 30 62 98;
+  --tw-navy-400: 30 86 160;
+  --tw-navy-500: 0 102 204;
+  --tw-navy-600: 77 158 224;
+  --tw-navy-700: 143 193 238;
+  --tw-navy-800: 192 219 245;
+  --tw-navy-900: 230 240 250;
+  --tw-ink: 11 25 44;
+}
+
+    @keyframes access-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shake {
+      10%, 90% { transform: translateX(-1px); }
+      20%, 80% { transform: translateX(2px); }
+      30%, 50%, 70% { transform: translateX(-4px); }
+      40%, 60% { transform: translateX(4px); }
+    }
+    .shake { animation: shake .5s; }
+    @media (prefers-reduced-motion: reduce) {
+      #access-card, .shake { animation: none !important; }
+      .lightning-flash, .rain-drop, #vortex-swirl { animation: none !important; }
+      #access-screen.exiting { animation: none !important; opacity: 0; }
+    }
+
+    /* ===== "Chrome" do cabeçalho: fica sempre navy escuro, independente do tema ===== */
+    .chrome-bg-900 { background-color: #000F26 !important; }
+    .chrome-bg-800 { background-color: #0B192C !important; }
+    .chrome-bg-600 { background-color: #1E56A0 !important; }
+    .chrome-border-700 { border-color: #1E3E62 !important; }
+    .chrome-border-600 { border-color: #1E56A0 !important; }
+    .chrome-text-white { color: #FFFFFF !important; }
+    .chrome-text-slate-400 { color: #94A3B8 !important; }
+    .chrome-text-slate-200 { color: #E2E8F0 !important; }
+    .chrome-hover-border-500:hover { border-color: #0066CC !important; }
+    .chrome-hover-text-white:hover { color: #FFFFFF !important; }
+
+    @keyframes access-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .perspective { perspective: 1600px; }
+    #flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform .5s cubic-bezier(.4,.2,.2,1);
+      transform-style: preserve-3d;
+    }
+    #flip-card-inner.flipped { transform: rotateY(180deg); }
+    .card-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-back { transform: rotateY(180deg); }
+    @media (prefers-reduced-motion: reduce) {
+      #flip-card-inner { transition: none; }
+    }
+    button:focus-visible, [role="button"]:focus-visible { outline: 2px solid #2384d6; outline-offset: 2px; }
+    .mode-btn.active { background: #1E56A0; color: white; }
+    .choice-btn.correct { background: rgba(16,185,129,.15); border-color: #10b981 !important; color: #6ee7b7; }
+    .choice-btn.wrong { background: rgba(244,63,94,.15); border-color: #f43f5e !important; color: #fca5a5; }
+    .choice-btn:disabled { cursor: default; }
+    .fav-btn.is-fav i { font-weight: 900; color: #fbbf24; }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso: apenas verifica se já há login feito na página inicial -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">🗂️</div>
+      <div class="font-serif font-semibold text-[26px] text-ink tracking-tight">Flashcards de História</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial para acessar os flashcards.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-ink text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-ink underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="chrome-bg-900 border-b chrome-border-700 sticky top-0 z-30">
+    <div class="max-w-5xl mx-auto px-4 md:px-6 py-3 flex items-center gap-3">
+      <a href="index.html" class="flex items-center gap-2 shrink-0" title="Voltar ao painel">
+        <div class="chrome-bg-600 chrome-text-white p-2 rounded-lg shadow"><i class="fa-solid fa-anchor"></i></div>
+      </a>
+      <div class="flex-1 min-w-0">
+        <div class="font-serif font-semibold text-[17px] chrome-text-white tracking-tight truncate">Flashcards de História</div>
+        <div class="text-[11px] chrome-text-slate-400 truncate">Navios, comandantes, batalhas e tratados</div>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <button id="theme-toggle-btn" onclick="toggleTheme()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors flex-shrink-0" title="Alternar entre modo claro e escuro" aria-label="Alternar tema claro/escuro"><i class="fa-solid fa-moon text-sm" id="theme-toggle-icon-moon"></i><i class="fa-solid fa-sun text-sm hidden" id="theme-toggle-icon-sun"></i></button>
+      <div id="user-bar" class="hidden chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2" title="Conectado">
+          <i class="fa-solid fa-user text-navy-500"></i>
+          <span id="user-email" class="max-w-[140px] truncate"></span>
+          <button onclick="handleLogout()" class="ml-1 text-rose-300 hover:text-rose-200 transition-colors" title="Sair da conta">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-1 max-w-2xl w-full mx-auto px-4 md:px-6 py-6 md:py-10 flex flex-col items-center">
+
+    <!-- Seletor de baralho -->
+    <div class="w-full mb-3">
+      <label for="deck-select" class="block text-xs text-slate-400 mb-1.5">Escolha o baralho</label>
+      <select id="deck-select" onchange="onDeckChange()" class="w-full bg-navy-800 border border-navy-700 text-slate-100 text-sm rounded-lg px-3 py-2.5 focus:outline-none focus:border-navy-500"></select>
+    </div>
+
+    <!-- Modo de estudo -->
+    <div class="w-full flex gap-2 mb-5">
+      <button onclick="setStudyMode('flip')" id="mode-flip-btn" class="mode-btn flex-1 h-10 rounded-lg border border-navy-700 text-slate-300 text-xs font-medium transition-all flex items-center justify-center gap-1.5">
+        <i class="fa-solid fa-rotate"></i> Recordação
+      </button>
+      <button onclick="setStudyMode('choice')" id="mode-choice-btn" class="mode-btn flex-1 h-10 rounded-lg border border-navy-700 text-slate-300 text-xs font-medium transition-all flex items-center justify-center gap-1.5">
+        <i class="fa-solid fa-list-check"></i> Alternativas
+      </button>
+    </div>
+
+    <!-- Progresso -->
+    <div class="w-full flex items-center justify-between mb-3 text-xs text-slate-400">
+      <span id="progress-label">Carta 1 de 31</span>
+      <div class="flex items-center gap-3">
+        <button onclick="toggleFavorite()" id="fav-btn" class="fav-btn flex items-center gap-1.5 hover:text-amber-300 transition-colors" title="Marcar como favorito">
+          <i class="fa-regular fa-star"></i>
+        </button>
+        <button onclick="toggleShuffle()" id="shuffle-btn" class="flex items-center gap-1.5 hover:text-ink transition-colors" title="Embaralhar">
+          <i class="fa-solid fa-shuffle"></i> <span class="hidden sm:inline">Embaralhar</span>
+        </button>
+        <button onclick="restartDeck()" class="flex items-center gap-1.5 hover:text-ink transition-colors" title="Recomeçar">
+          <i class="fa-solid fa-rotate-left"></i> <span class="hidden sm:inline">Recomeçar</span>
+        </button>
+      </div>
+    </div>
+    <div class="w-full h-1.5 bg-navy-800 rounded-full overflow-hidden mb-6">
+      <div id="progress-bar" class="h-full bg-navy-500 transition-all" style="width: 3%;"></div>
+    </div>
+
+    <!-- Cartão (modo Recordação) -->
+    <div id="flip-mode-wrap" class="w-full">
+      <div class="perspective w-full" style="height: 340px;">
+        <div id="flip-card-inner" onclick="flipCard()" role="button" tabindex="0" aria-label="Virar cartão" class="cursor-pointer select-none">
+          <div class="card-face bg-gradient-to-br from-navy-800 to-navy-900 border border-navy-600/60 shadow-2xl px-6 py-7 md:px-8 md:py-8">
+            <div class="text-[10px] uppercase tracking-wide text-navy-400 font-semibold mb-3">Pergunta</div>
+            <div id="card-front-text" class="flex-1 flex items-center text-[15px] md:text-lg text-ink leading-relaxed overflow-y-auto"></div>
+            <div class="text-center text-[11px] text-slate-500 mt-3"><i class="fa-solid fa-hand-pointer mr-1"></i>Toque no cartão para ver a resposta</div>
+          </div>
+          <div class="card-face card-back bg-gradient-to-br from-emerald-950 to-navy-900 border border-emerald-700/50 shadow-2xl px-6 py-7 md:px-8 md:py-8">
+            <div class="text-[10px] uppercase tracking-wide text-emerald-400 font-semibold mb-2">Resposta</div>
+            <div id="card-back-text" class="text-lg md:text-xl font-serif font-semibold text-ink mb-3"></div>
+            <div id="card-explanation" class="flex-1 text-[13px] md:text-sm text-slate-300 leading-relaxed overflow-y-auto pr-1"></div>
+            <div class="text-center text-[11px] text-slate-500 mt-3"><i class="fa-solid fa-hand-pointer mr-1"></i>Toque para voltar</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cartão (modo Alternativas) -->
+    <div id="choice-mode-wrap" class="w-full hidden">
+      <div class="w-full rounded-[20px] bg-gradient-to-br from-navy-800 to-navy-900 border border-navy-600/60 shadow-2xl px-6 py-7 md:px-8 md:py-8 flex flex-col" style="min-height: 340px;">
+        <div class="text-[10px] uppercase tracking-wide text-navy-400 font-semibold mb-3">Pergunta</div>
+        <div id="choice-front-text" class="text-[15px] md:text-lg text-ink leading-relaxed mb-5"></div>
+        <div id="choice-options" class="flex flex-col gap-2.5"></div>
+        <div id="choice-explanation-wrap" class="hidden mt-4 pt-4 border-t border-navy-700/60">
+          <div class="text-[10px] uppercase tracking-wide text-emerald-400 font-semibold mb-1.5">Explicação</div>
+          <div id="choice-explanation" class="text-[13px] text-slate-300 leading-relaxed"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navegação -->
+    <div class="w-full flex items-center justify-between mt-6 gap-3">
+      <button onclick="prevCard()" id="btn-prev" class="flex-1 h-12 rounded-xl bg-navy-800 border border-navy-700 hover:border-navy-500 text-slate-200 text-sm font-medium transition-all flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed">
+        <i class="fa-solid fa-arrow-left"></i> Anterior
+      </button>
+      <button onclick="flipCard()" id="btn-flip" class="h-12 px-5 rounded-xl bg-navy-600 hover:bg-navy-500 text-ink text-sm font-semibold transition-all flex items-center justify-center gap-2 shadow-lg">
+        <i class="fa-solid fa-rotate"></i> Virar
+      </button>
+      <button onclick="nextCard()" id="btn-next" class="flex-1 h-12 rounded-xl bg-navy-800 border border-navy-700 hover:border-navy-500 text-slate-200 text-sm font-medium transition-all flex items-center justify-center gap-2">
+        Próxima <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+
+    <div class="w-full text-center text-[11px] text-slate-500 mt-5">
+      Atalhos: <kbd class="px-1.5 py-0.5 bg-navy-800 border border-navy-700 rounded">←</kbd> <kbd class="px-1.5 py-0.5 bg-navy-800 border border-navy-700 rounded">→</kbd> navegar · <kbd class="px-1.5 py-0.5 bg-navy-800 border border-navy-700 rounded">Espaço</kbd> virar/confirmar
+    </div>
+
+    <a href="historia-naval.html" class="mt-8 text-xs text-navy-400 hover:text-ink transition-colors flex items-center gap-1.5">
+      <i class="fa-solid fa-arrow-right"></i> Ir para o simulado completo de História Naval (483 questões)
+    </a>
+  </main>
+
+  <script>
+    // ===== Dados dos baralhos =====
+    const DECKS = {};
+
+    // Dá um id estável a cada carta (baseado no baralho de origem + posição original),
+    // pra favoritos e embaralhamento não se perderem entre si.
+    Object.keys(DECKS).forEach(deckName => {
+      DECKS[deckName].forEach((card, i) => { card._id = `${deckName}::${i}`; });
+    });
+
+    const FAVORITOS_LABEL = '⭐ Favoritos';
+    const MINHAS_QUESTOES_LABEL = '📋 Minhas Questões (da Prova)';
+    const PERSONAL_FLASHCARDS_KEY = 'fc_pessoal_CAAML_703';
+
+    function loadMinhasQuestoes() {
+      try {
+        const raw = JSON.parse(localStorage.getItem(PERSONAL_FLASHCARDS_KEY) || '[]');
+        return raw.map((c, i) => ({ front: c.front, back: c.back, explanation: c.subject || '', _id: `minhas::${c._qid ?? i}` }));
+      } catch (e) { return []; }
+    }
+
+    // ===== Supabase: sessão vem da página inicial (index.html) =====
+    const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const QUIZ_ID = 'CAAML_703_FLASHCARDS_LOCAL';
+    const FAV_STORAGE_KEY = `fc_favoritos_${QUIZ_ID}`;
+
+    let currentUser = null;
+    let deckNames = Object.keys(DECKS);
+    let currentDeckName = deckNames.length > 0 ? deckNames[0] : MINHAS_QUESTOES_LABEL;
+    let currentDeck = deckNames.length > 0 ? DECKS[currentDeckName].slice() : [];
+    let currentIndex = 0;
+    let flipped = false;
+    let shuffled = false;
+    let studyMode = 'flip'; // 'flip' ou 'choice'
+    let favorites = new Set();
+    let choiceAnswered = false;
+
+    function loadFavorites() {
+      try {
+        favorites = new Set(JSON.parse(localStorage.getItem(FAV_STORAGE_KEY) || '[]'));
+      } catch (e) { favorites = new Set(); }
+    }
+    function saveFavorites() {
+      localStorage.setItem(FAV_STORAGE_KEY, JSON.stringify([...favorites]));
+    }
+    function allCardsFlat() {
+      let all = [];
+      deckNames.forEach(name => { all = all.concat(DECKS[name]); });
+      return all;
+    }
+
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    function applyThemeIcon() {
+      const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+      document.getElementById('theme-toggle-icon-moon').classList.toggle('hidden', theme === 'light');
+      document.getElementById('theme-toggle-icon-sun').classList.toggle('hidden', theme !== 'light');
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('site_theme', next); } catch (e) { /* ignora se indisponível */ }
+      applyThemeIcon();
+    }
+
+
+    async function handleLogout() {
+      await sb.auth.signOut();
+    }
+
+    async function onUserAuthenticated() {
+      const { data: perfil } = await sb
+        .from('profiles')
+        .select('aprovado')
+        .eq('id', currentUser.id)
+        .maybeSingle();
+
+      const aprovado = perfil ? perfil.aprovado : false;
+
+      if (!aprovado) {
+        showGate('gate-pending');
+        return;
+      }
+
+      document.getElementById('access-screen').classList.add('hidden');
+      const bar = document.getElementById('user-bar');
+      bar.classList.remove('hidden');
+      bar.classList.add('flex');
+      document.getElementById('user-email').textContent = currentUser.email;
+
+      loadFavorites();
+      initDeckSelect();
+      setStudyMode('flip');
+      renderCard();
+    }
+
+    function showAccessScreen() {
+      document.getElementById('user-bar').classList.add('hidden');
+      document.getElementById('user-bar').classList.remove('flex');
+      showGate('gate-logged-out');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      applyThemeIcon();
+      sb.auth.onAuthStateChange((event, session) => {
+        if (session && session.user) {
+          currentUser = session.user;
+          onUserAuthenticated();
+        } else if (event === 'SIGNED_OUT' || event === 'INITIAL_SESSION') {
+          currentUser = null;
+          showAccessScreen();
+        }
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      const locked = !document.getElementById('access-screen').classList.contains('hidden');
+      if (locked) return;
+      if (e.key === 'ArrowRight') nextCard();
+      else if (e.key === 'ArrowLeft') prevCard();
+      else if (e.key === ' ') { e.preventDefault(); if (studyMode === 'flip') flipCard(); }
+    });
+
+    function initDeckSelect() {
+      const select = document.getElementById('deck-select');
+      select.innerHTML = '';
+      deckNames.forEach(name => {
+        const opt = document.createElement('option');
+        opt.value = name;
+        opt.textContent = `${name} (${DECKS[name].length} cartas)`;
+        select.appendChild(opt);
+      });
+      const favOpt = document.createElement('option');
+      favOpt.value = FAVORITOS_LABEL;
+      favOpt.textContent = `${FAVORITOS_LABEL} (${favorites.size})`;
+      select.appendChild(favOpt);
+
+      const minhasOpt = document.createElement('option');
+      minhasOpt.value = MINHAS_QUESTOES_LABEL;
+      minhasOpt.textContent = `${MINHAS_QUESTOES_LABEL} (${loadMinhasQuestoes().length})`;
+      select.appendChild(minhasOpt);
+
+      select.value = currentDeckName;
+    }
+
+    function getDeckByName(name) {
+      if (name === FAVORITOS_LABEL) {
+        return allCardsFlat().filter(c => favorites.has(c._id));
+      }
+      if (name === MINHAS_QUESTOES_LABEL) {
+        return loadMinhasQuestoes();
+      }
+      return DECKS[name].slice();
+    }
+
+    function onDeckChange() {
+      currentDeckName = document.getElementById('deck-select').value;
+      currentDeck = getDeckByName(currentDeckName);
+      if (shuffled) shuffleArray(currentDeck);
+      currentIndex = 0;
+      flipped = false;
+      if (currentDeck.length === 0) {
+        renderEmptyState();
+      } else {
+        renderCard();
+      }
+    }
+
+    function renderEmptyState() {
+      document.getElementById('progress-label').innerText = 'Nenhuma carta aqui ainda';
+      document.getElementById('progress-bar').style.width = '0%';
+      const msg = currentDeckName === MINHAS_QUESTOES_LABEL
+        ? 'Você ainda não virou nenhuma questão em flashcard. No simulado de História, clique em "Virar Flashcard" embaixo de uma questão para adicioná-la aqui.'
+        : 'Você ainda não marcou nenhuma carta como favorita. Toque na estrela ⭐ enquanto estuda um baralho para adicioná-la aqui.';
+      document.getElementById('card-front-text').innerText = msg;
+      document.getElementById('card-back-text').innerText = '';
+      document.getElementById('card-explanation').innerText = '';
+      document.getElementById('choice-front-text').innerText = msg;
+      document.getElementById('choice-options').innerHTML = '';
+      document.getElementById('choice-explanation-wrap').classList.add('hidden');
+    }
+
+    function shuffleArray(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function toggleShuffle() {
+      shuffled = !shuffled;
+      const btn = document.getElementById('shuffle-btn');
+      if (shuffled) {
+        shuffleArray(currentDeck);
+        btn.classList.add('text-navy-400');
+      } else {
+        currentDeck = getDeckByName(currentDeckName);
+        btn.classList.remove('text-navy-400');
+      }
+      currentIndex = 0;
+      flipped = false;
+      renderCard();
+    }
+
+    function restartDeck() {
+      currentIndex = 0;
+      flipped = false;
+      if (shuffled) shuffleArray(currentDeck);
+      renderCard();
+    }
+
+    function setStudyMode(mode) {
+      studyMode = mode;
+      document.getElementById('mode-flip-btn').classList.toggle('active', mode === 'flip');
+      document.getElementById('mode-choice-btn').classList.toggle('active', mode === 'choice');
+      document.getElementById('flip-mode-wrap').classList.toggle('hidden', mode !== 'flip');
+      document.getElementById('choice-mode-wrap').classList.toggle('hidden', mode !== 'choice');
+      document.getElementById('btn-flip').classList.toggle('hidden', mode !== 'flip');
+      if (currentDeck.length > 0) renderCard();
+    }
+
+    function flipCard() {
+      flipped = !flipped;
+      document.getElementById('flip-card-inner').classList.toggle('flipped', flipped);
+    }
+
+    function toggleFavorite() {
+      if (!currentDeck.length) return;
+      const card = currentDeck[currentIndex];
+      if (favorites.has(card._id)) {
+        favorites.delete(card._id);
+      } else {
+        favorites.add(card._id);
+      }
+      saveFavorites();
+      updateFavButton();
+      // atualiza contador no seletor
+      const opt = [...document.getElementById('deck-select').options].find(o => o.value === FAVORITOS_LABEL);
+      if (opt) opt.textContent = `${FAVORITOS_LABEL} (${favorites.size})`;
+      // se estamos vendo o próprio baralho de favoritos e desmarcou, tira da lista atual
+      if (currentDeckName === FAVORITOS_LABEL && !favorites.has(card._id)) {
+        currentDeck.splice(currentIndex, 1);
+        if (currentIndex >= currentDeck.length) currentIndex = Math.max(0, currentDeck.length - 1);
+        if (currentDeck.length === 0) { renderEmptyState(); return; }
+        renderCard();
+      }
+    }
+
+    function updateFavButton() {
+      const btn = document.getElementById('fav-btn');
+      const card = currentDeck[currentIndex];
+      const isFav = card && favorites.has(card._id);
+      btn.classList.toggle('is-fav', !!isFav);
+      btn.querySelector('i').className = isFav ? 'fa-solid fa-star' : 'fa-regular fa-star';
+    }
+
+    function renderCard() {
+      const card = currentDeck[currentIndex];
+      const total = currentDeck.length;
+
+      document.getElementById('progress-label').innerText = `Carta ${currentIndex + 1} de ${total}`;
+      document.getElementById('progress-bar').style.width = `${((currentIndex + 1) / total) * 100}%`;
+      document.getElementById('btn-prev').disabled = currentIndex === 0;
+      updateFavButton();
+
+      const nextBtn = document.getElementById('btn-next');
+      if (currentIndex === total - 1) {
+        nextBtn.innerHTML = 'Recomeçar <i class="fa-solid fa-rotate-left"></i>';
+      } else {
+        nextBtn.innerHTML = 'Próxima <i class="fa-solid fa-arrow-right"></i>';
+      }
+
+      if (studyMode === 'flip') {
+        document.getElementById('card-front-text').innerText = card.front;
+        document.getElementById('card-back-text').innerText = card.back;
+        document.getElementById('card-explanation').innerText = card.explanation || '';
+        document.getElementById('flip-card-inner').classList.remove('flipped');
+        flipped = false;
+      } else {
+        renderChoices();
+      }
+    }
+
+    function renderChoices() {
+      choiceAnswered = false;
+      const card = currentDeck[currentIndex];
+      document.getElementById('choice-front-text').innerText = card.front;
+      document.getElementById('choice-explanation-wrap').classList.add('hidden');
+
+      // monta distratores a partir de outras cartas do MESMO baralho de origem (ou do baralho atual, se for Favoritos)
+      const sourceDeckName = card._id.split('::')[0];
+      const pool = (DECKS[sourceDeckName] || currentDeck)
+        .filter(c => c._id !== card._id)
+        .map(c => c.back);
+      const uniquePool = [...new Set(pool)].filter(b => b !== card.back);
+      shuffleArray(uniquePool);
+      const distratores = uniquePool.slice(0, 3);
+      const opcoes = shuffleArray([card.back, ...distratores]);
+
+      const container = document.getElementById('choice-options');
+      container.innerHTML = '';
+      opcoes.forEach(texto => {
+        const btn = document.createElement('button');
+        btn.className = 'choice-btn text-left px-4 py-3 rounded-lg border border-navy-700 bg-navy-900/60 text-sm text-slate-200 hover:border-navy-500 transition-all';
+        btn.innerText = texto;
+        btn.onclick = () => selectChoice(texto, card, btn);
+        container.appendChild(btn);
+      });
+    }
+
+    function selectChoice(texto, card, btnEl) {
+      if (choiceAnswered) return;
+      choiceAnswered = true;
+      const buttons = document.querySelectorAll('#choice-options .choice-btn');
+      buttons.forEach(b => {
+        b.disabled = true;
+        if (b.innerText === card.back) b.classList.add('correct');
+        else if (b === btnEl) b.classList.add('wrong');
+      });
+      const wrap = document.getElementById('choice-explanation-wrap');
+      const expl = document.getElementById('choice-explanation');
+      expl.innerText = card.explanation && card.explanation.trim() !== '' ? card.explanation : card.back;
+      wrap.classList.remove('hidden');
+    }
+
+    function nextCard() {
+      if (currentIndex < currentDeck.length - 1) {
+        currentIndex++;
+        renderCard();
+      } else {
+        restartDeck();
+      }
+    }
+
+    function prevCard() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderCard();
+      }
+    }
+  </script>
+</body>
+</html>

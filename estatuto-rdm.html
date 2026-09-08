@@ -521,6 +521,10 @@
           <div class="text-xs md:text-sm text-slate-300" id="explanation-text"></div>
         </div>
 
+        <button id="flashcard-btn" onclick="saveAsFlashcard()" class="mt-4 w-full h-11 rounded-xl border border-navy-700 bg-navy-800/60 hover:bg-navy-700/60 hover:border-navy-500 text-slate-200 text-sm font-medium transition-all flex items-center justify-center gap-2">
+          <i class="fa-solid fa-layer-group text-navy-500"></i> Virar Flashcard
+        </button>
+
         <!-- Minha Anotação (nota pessoal do aluno sobre a questão) -->
         <div class="mt-6 p-4 rounded-lg bg-navy-900/60 border border-navy-700">
           <div class="flex items-center justify-between mb-2">
@@ -667,7 +671,7 @@ const questionsData = [
           "E) Acatar as autoridades civis."
         ],
         correct: 2,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "Estatuto dos Militares"
       },
       {
         id: 2,
@@ -680,7 +684,7 @@ const questionsData = [
           "E) Ética militar"
         ],
         correct: 3,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "Estatuto dos Militares"
       },
       {
         id: 3,
@@ -693,7 +697,7 @@ const questionsData = [
           "E) Valor militar"
         ],
         correct: 4,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "Estatuto dos Militares"
       },
       {
         id: 4,
@@ -706,7 +710,7 @@ const questionsData = [
           "E) Apenas I e III estão corretas"
         ],
         correct: 3,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "Estatuto dos Militares"
       },
       {
         id: 5,
@@ -719,7 +723,7 @@ const questionsData = [
           "E) 2 - 1 - 3"
         ],
         correct: 2,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "Estatuto dos Militares"
       },
       {
         id: 6,
@@ -732,7 +736,7 @@ const questionsData = [
           "E) N.D.A."
         ],
         correct: 0,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "Estatuto dos Militares"
       },
       {
         id: 7,
@@ -745,7 +749,7 @@ const questionsData = [
           "E) Valor pessoal e militar."
         ],
         correct: 0,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "Estatuto dos Militares"
       },
       {
         id: 8,
@@ -758,7 +762,7 @@ const questionsData = [
           "E) Licença para tratamento de saúde própria"
         ],
         correct: 1,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "Estatuto dos Militares"
       },
       {
         id: 9,
@@ -771,7 +775,7 @@ const questionsData = [
           "E) O poder executivo"
         ],
         correct: 4,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "Estatuto dos Militares"
       },
       {
         id: 10,
@@ -784,7 +788,7 @@ const questionsData = [
           "E) Ao Comimsup"
         ],
         correct: 2,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "Estatuto dos Militares"
       },
       {
         id: 11,
@@ -797,7 +801,7 @@ const questionsData = [
           "E) Extrema Necessidade do Serviço"
         ],
         correct: 2,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "Estatuto dos Militares"
       },
       {
         id: 12,
@@ -810,7 +814,7 @@ const questionsData = [
           "E) Instalação até 10 dias"
         ],
         correct: 0,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "Estatuto dos Militares"
       },
       {
         id: 13,
@@ -823,7 +827,7 @@ const questionsData = [
           "E) Licença para candidatar-se a cargo político"
         ],
         correct: 4,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "Estatuto dos Militares"
       },
       {
         id: 14,
@@ -836,7 +840,7 @@ const questionsData = [
           "E) Comandante de Esquadrão"
         ],
         correct: 0,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "Estatuto dos Militares"
       },
       {
         id: 15,
@@ -849,7 +853,7 @@ const questionsData = [
           "E) 24 meses"
         ],
         correct: 2,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "Estatuto dos Militares"
       },
       {
         id: 16,
@@ -862,7 +866,7 @@ const questionsData = [
           "E) Para cumprimento de punição disciplinar de natureza grave"
         ],
         correct: 4,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "Estatuto dos Militares"
       },
       {
         id: 17,
@@ -875,7 +879,7 @@ const questionsData = [
           "E) Contravenção disciplinar"
         ],
         correct: 4,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "RDM — Regulamento Disciplinar"
       },
       {
         id: 18,
@@ -888,7 +892,7 @@ const questionsData = [
           "E) Gravíssimas e leves"
         ],
         correct: 0,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "RDM — Regulamento Disciplinar"
       },
       {
         id: 19,
@@ -901,7 +905,7 @@ const questionsData = [
           "E) Ter o contraventor abusado da sua autoridade ou funcional."
         ],
         correct: 1,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "RDM — Regulamento Disciplinar"
       },
       {
         id: 20,
@@ -914,7 +918,7 @@ const questionsData = [
           "E) Provocação"
         ],
         correct: 1,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "RDM — Regulamento Disciplinar"
       },
       {
         id: 21,
@@ -927,7 +931,7 @@ const questionsData = [
           "E) Prestação anterior de serviços relevantes já conhecidos."
         ],
         correct: 4,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "RDM — Regulamento Disciplinar"
       },
       {
         id: 22,
@@ -940,7 +944,7 @@ const questionsData = [
           "E) Cabos"
         ],
         correct: 4,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "RDM — Regulamento Disciplinar"
       },
       {
         id: 23,
@@ -953,7 +957,7 @@ const questionsData = [
           "E) Os presidentes e encarregados de OM"
         ],
         correct: 1,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "RDM — Regulamento Disciplinar"
       },
       {
         id: 24,
@@ -966,7 +970,7 @@ const questionsData = [
           "E) Pelo superior ou por sua delegação às praças de graduação inferior a Sargento formatura da tripulação, ou parte dela, a que pertencer o contraventor."
         ],
         correct: 3,
-        subject: "Estatuto dos Militares — Banco Original"
+        subject: "RDM — Regulamento Disciplinar"
       },
       {
         id: 25,
@@ -979,1970 +983,7 @@ const questionsData = [
           "E) VVV"
         ],
         correct: 0,
-        subject: "Estatuto dos Militares — Banco Original"
-      },
-      {
-        id: 26,
-        text: "De acordo com o Estatuto dos Militares, são manifestações essenciais do valor militar, EXCETO:",
-        options: [
-          "A) o patriotismo",
-          "B) o civismo e o culto das tradições históricas",
-          "C) a fé na missão elevada das Forças Armadas",
-          "D) o espírito de corpo",
-          "E) a obediência hierárquica incondicional"
-        ],
-        correct: 4,
-        subject: "Do Valor Militar"
-      },
-      {
-        id: 27,
-        text: "O patriotismo, como manifestação essencial do valor militar, é traduzido pela vontade inabalável de cumprir o dever militar e:",
-        options: [
-          "A) pela busca incessante de promoção",
-          "B) pelo solene juramento de fidelidade à Pátria até com o sacrifício da própria vida",
-          "C) pela defesa exclusiva do território nacional",
-          "D) pelo respeito aos superiores hierárquicos",
-          "E) pela disciplina em tempo de paz"
-        ],
-        correct: 1,
-        subject: "Do Valor Militar"
-      },
-      {
-        id: 28,
-        text: "Segundo o Art. 27 do Estatuto dos Militares, o aprimoramento técnico-profissional é uma manifestação essencial:",
-        options: [
-          "A) da disciplina militar",
-          "B) da hierarquia militar",
-          "C) do valor militar",
-          "D) da ética militar",
-          "E) do dever militar"
-        ],
-        correct: 2,
-        subject: "Do Valor Militar"
-      },
-      {
-        id: 29,
-        text: "O sentimento do dever, o pundonor militar e o decoro da classe impõem, a cada um dos integrantes das Forças Armadas, conduta moral e profissional irrepreensíveis, com a observância dos preceitos da:",
-        options: [
-          "A) hierarquia militar",
-          "B) ética militar",
-          "C) disciplina militar",
-          "D) subordinação militar",
-          "E) camaradagem militar"
-        ],
-        correct: 1,
-        subject: "Da Ética Militar"
-      },
-      {
-        id: 30,
-        text: "Constitui preceito da ética militar, previsto no Art. 28 do Estatuto dos Militares:",
-        options: [
-          "A) exercer, com autoridade, eficiência e probidade, as funções que lhe couberem em decorrência do cargo",
-          "B) exigir de subordinados serviços particulares em qualquer circunstância",
-          "C) discutir livremente pela imprensa assuntos militares de natureza sigilosa",
-          "D) fazer uso do posto para encaminhar negócios particulares, se autorizado verbalmente",
-          "E) tratar o subordinado com rigor superior ao previsto nos regulamentos"
-        ],
-        correct: 0,
-        subject: "Da Ética Militar"
-      },
-      {
-        id: 31,
-        text: "É vedado ao militar, segundo o Art. 28 do Estatuto dos Militares, abster-se de fazer uso do posto ou da graduação para obter facilidades pessoais ou para encaminhar negócios particulares ou de terceiros. Essa vedação está prevista no inciso:",
-        options: [
-          "A) IX",
-          "B) XIII",
-          "C) XVII",
-          "D) XVIII",
-          "E) XIX"
-        ],
-        correct: 2,
-        subject: "Da Ética Militar"
-      },
-      {
-        id: 32,
-        text: "De acordo com o Art. 28 do Estatuto dos Militares, o militar deve abster-se, na inatividade, do uso das designações hierárquicas, EXCETO quando estiver:",
-        options: [
-          "A) em atividades comerciais",
-          "B) em atividades político-partidárias",
-          "C) discutindo assuntos políticos ou militares pela imprensa, sem autorização",
-          "D) no exercício de cargo de natureza civil na administração pública",
-          "E) nenhuma das anteriores admite exceção prevista no artigo"
-        ],
-        correct: 4,
-        subject: "Da Ética Militar"
-      },
-      {
-        id: 33,
-        text: "Ao militar da ativa é vedado comerciar ou tomar parte na administração ou gerência de sociedade, exceto como:",
-        options: [
-          "A) diretor-executivo de empresa privada",
-          "B) acionista ou quotista em sociedade anônima ou por quotas de responsabilidade limitada",
-          "C) sócio-gerente de qualquer natureza de empresa",
-          "D) representante comercial autônomo",
-          "E) consultor remunerado de empresas privadas"
-        ],
-        correct: 1,
-        subject: "Da Ética Militar"
-      },
-      {
-        id: 34,
-        text: "Segundo o § 3º do Art. 29 do Estatuto dos Militares, é permitido aos oficiais titulados dos Quadros ou Serviços de Saúde e de Veterinária:",
-        options: [
-          "A) exercer qualquer atividade comercial civil",
-          "B) o exercício de atividade técnico-profissional no meio civil, desde que não prejudique o serviço",
-          "C) administrar sociedade anônima como diretor",
-          "D) exercer cargo de natureza civil na administração pública sem restrições",
-          "E) participar de atividades político-partidárias, se de natureza técnica"
-        ],
-        correct: 1,
-        subject: "Da Ética Militar"
-      },
-      {
-        id: 35,
-        text: "Os deveres militares emanam de um conjunto de vínculos racionais e morais que ligam o militar à Pátria e ao seu serviço. NÃO compreende, essencialmente, um desses deveres:",
-        options: [
-          "A) a dedicação e a fidelidade à Pátria",
-          "B) o culto aos Símbolos Nacionais",
-          "C) a probidade e a lealdade em todas as circunstâncias",
-          "D) a disciplina e o respeito à hierarquia",
-          "E) a busca pessoal por promoção e ascensão na carreira"
-        ],
-        correct: 4,
-        subject: "Dos Deveres Militares — Conceituação"
-      },
-      {
-        id: 36,
-        text: "De acordo com o Art. 31 do Estatuto dos Militares, é dever militar tratar o subordinado:",
-        options: [
-          "A) com rigor e frieza, para manter a disciplina",
-          "B) dignamente e com urbanidade",
-          "C) apenas conforme o merecimento demonstrado",
-          "D) com distanciamento hierárquico absoluto",
-          "E) de acordo exclusivamente com o regulamento disciplinar"
-        ],
-        correct: 1,
-        subject: "Dos Deveres Militares — Conceituação"
-      },
-      {
-        id: 37,
-        text: "Todo cidadão, após ingressar em uma das Forças Armadas mediante incorporação, matrícula ou nomeação, prestará:",
-        options: [
-          "A) exame psicotécnico",
-          "B) compromisso de honra",
-          "C) declaração de bens",
-          "D) juramento à bandeira estadual",
-          "E) termo de responsabilidade civil"
-        ],
-        correct: 1,
-        subject: "Do Compromisso Militar"
-      },
-      {
-        id: 38,
-        text: "O compromisso do incorporado, do matriculado e do nomeado terá caráter solene e será sempre prestado sob a forma de:",
-        options: [
-          "A) assinatura de termo de posse",
-          "B) juramento à Bandeira na presença de tropa ou guarnição formada",
-          "C) declaração escrita entregue ao comandante",
-          "D) cerimônia privada com o oficial superior",
-          "E) compromisso verbal perante autoridade civil"
-        ],
-        correct: 1,
-        subject: "Do Compromisso Militar"
-      },
-      {
-        id: 39,
-        text: "O compromisso de Guarda-Marinha ou Aspirante-a-Oficial é prestado:",
-        options: [
-          "A) perante o Ministro da Marinha, exclusivamente",
-          "B) nos estabelecimentos de formação, obedecendo o cerimonial fixado nos respectivos regulamentos",
-          "C) somente após a conclusão do curso de formação",
-          "D) na presença do Presidente da República",
-          "E) em qualquer Organização Militar, a critério do comandante"
-        ],
-        correct: 1,
-        subject: "Do Compromisso Militar"
-      },
-      {
-        id: 40,
-        text: "Segundo o Art. 34 do Estatuto dos Militares, comando é a soma de autoridade, deveres e responsabilidades de que o militar é investido legalmente quando conduz homens ou dirige uma organização militar. O comando é vinculado:",
-        options: [
-          "A) exclusivamente ao cargo que o militar ocupa",
-          "B) ao grau hierárquico, constituindo prerrogativa impessoal",
-          "C) ao tempo de serviço do militar",
-          "D) à antiguidade relativa entre os militares da mesma OM",
-          "E) à formação técnica específica do militar"
-        ],
-        correct: 1,
-        subject: "Do Comando e da Subordinação"
-      },
-      {
-        id: 41,
-        text: "A subordinação não afeta, de modo algum, a dignidade pessoal do militar e decorre, exclusivamente:",
-        options: [
-          "A) do tempo de serviço prestado",
-          "B) da vontade do comandante da OM",
-          "C) da estrutura hierarquizada das Forças Armadas",
-          "D) do posto ou graduação de cada militar",
-          "E) das necessidades momentâneas do serviço"
-        ],
-        correct: 2,
-        subject: "Do Comando e da Subordinação"
-      },
-      {
-        id: 42,
-        text: "De acordo com o Art. 37 do Estatuto dos Militares, os graduados auxiliam e complementam as atividades dos oficiais, quer no adestramento e no emprego de meios, quer:",
-        options: [
-          "A) na representação oficial da Força",
-          "B) na instrução e na administração",
-          "C) na elaboração de políticas de defesa",
-          "D) no planejamento estratégico de operações",
-          "E) na fiscalização orçamentária da OM"
-        ],
-        correct: 1,
-        subject: "Do Comando e da Subordinação"
-      },
-      {
-        id: 43,
-        text: "São, essencialmente, elementos de execução, segundo o Art. 38 do Estatuto dos Militares:",
-        options: [
-          "A) os oficiais-generais",
-          "B) os oficiais superiores",
-          "C) os Cabos, Soldados-de-Primeira-Classe, Marinheiros e assemelhados",
-          "D) os suboficiais e subtenentes",
-          "E) os oficiais subalternos"
-        ],
-        correct: 2,
-        subject: "Do Comando e da Subordinação"
-      },
-      {
-        id: 44,
-        text: "Cabe ao militar a responsabilidade integral pelas decisões que tomar, pelas ordens que emitir e:",
-        options: [
-          "A) pelas ordens que receber de seus superiores",
-          "B) pelos atos que praticar",
-          "C) pelas condutas de seus subordinados, exclusivamente",
-          "D) pelas decisões coletivas de sua unidade",
-          "E) pelos resultados operacionais de sua Força"
-        ],
-        correct: 1,
-        subject: "Do Comando e da Subordinação"
-      },
-      {
-        id: 45,
-        text: "A violação das obrigações ou dos deveres militares constituirá crime, contravenção ou transgressão disciplinar, conforme dispuser:",
-        options: [
-          "A) exclusivamente o Código Penal Militar",
-          "B) a legislação ou regulamentação específicas",
-          "C) o critério pessoal do comandante da OM",
-          "D) o Regulamento Disciplinar para a Marinha, unicamente",
-          "E) decisão do Conselho de Justificação"
-        ],
-        correct: 1,
-        subject: "Da Violação das Obrigações e dos Deveres"
-      },
-      {
-        id: 46,
-        text: "Segundo o § 1º do Art. 42 do Estatuto dos Militares, a violação dos preceitos da ética militar será tão mais grave:",
-        options: [
-          "A) quanto menor for o tempo de serviço do militar",
-          "B) quanto mais elevado for o grau hierárquico de quem a cometer",
-          "C) quanto mais antigo for o militar na graduação",
-          "D) quanto mais reincidente for o militar",
-          "E) quanto maior for o dano patrimonial causado"
-        ],
-        correct: 1,
-        subject: "Da Violação das Obrigações e dos Deveres"
-      },
-      {
-        id: 47,
-        text: "No concurso de crime militar e de contravenção ou transgressão disciplinar, quando forem da mesma natureza, será aplicada:",
-        options: [
-          "A) a soma das duas penalidades",
-          "B) somente a pena relativa ao crime",
-          "C) somente a pena disciplinar, por ser mais branda",
-          "D) a pena mais grave entre as duas, a critério da autoridade",
-          "E) ambas as penalidades, cumpridas sucessivamente"
-        ],
-        correct: 1,
-        subject: "Da Violação das Obrigações e dos Deveres"
-      },
-      {
-        id: 48,
-        text: "O militar que, por sua atuação, se tornar incompatível com o cargo, ou demonstrar incapacidade no exercício de funções militares a ele inerentes:",
-        options: [
-          "A) será submetido a punição disciplinar imediata",
-          "B) será afastado do cargo",
-          "C) terá sua promoção suspensa por dois anos",
-          "D) será transferido compulsoriamente para outra OM",
-          "E) será submetido a exame psicotécnico obrigatório"
-        ],
-        correct: 1,
-        subject: "Da Violação das Obrigações e dos Deveres"
-      },
-      {
-        id: 49,
-        text: "São competentes para determinar o imediato afastamento do cargo ou o impedimento do exercício da função, EXCETO:",
-        options: [
-          "A) o Presidente da República",
-          "B) os titulares das respectivas pastas militares",
-          "C) o Chefe do Estado-Maior das Forças Armadas",
-          "D) os comandantes, chefes e diretores, na forma da legislação específica",
-          "E) qualquer oficial superior da mesma Organização Militar"
-        ],
-        correct: 4,
-        subject: "Da Violação das Obrigações e dos Deveres"
-      },
-      {
-        id: 50,
-        text: "São proibidas quaisquer manifestações coletivas, tanto sobre atos de superiores quanto:",
-        options: [
-          "A) as de caráter técnico-profissional",
-          "B) as de caráter reivindicatório ou político",
-          "C) as de caráter comemorativo",
-          "D) as de caráter esportivo ou recreativo",
-          "E) as de caráter religioso, se autorizadas"
-        ],
-        correct: 1,
-        subject: "Da Violação das Obrigações e dos Deveres"
-      },
-      {
-        id: 51,
-        text: "O Código Penal Militar relaciona e classifica os crimes militares, em tempo de paz e em tempo de guerra, e dispõe sobre:",
-        options: [
-          "A) a aplicação aos militares das penas correspondentes aos crimes por eles cometidos",
-          "B) exclusivamente os procedimentos de sindicância",
-          "C) apenas as contravenções disciplinares leves",
-          "D) o regime de promoções dos militares condenados",
-          "E) a competência dos Conselhos de Disciplina"
-        ],
-        correct: 0,
-        subject: "Da Violação das Obrigações e dos Deveres"
-      },
-      {
-        id: 52,
-        text: "Segundo o § 1º do Art. 47 do Estatuto dos Militares, as penas disciplinares de impedimento, detenção ou prisão não podem ultrapassar:",
-        options: [
-          "A) 10 (dez) dias",
-          "B) 15 (quinze) dias",
-          "C) 20 (vinte) dias",
-          "D) 30 (trinta) dias",
-          "E) 45 (quarenta e cinco) dias"
-        ],
-        correct: 3,
-        subject: "Da Violação das Obrigações e dos Deveres"
-      },
-      {
-        id: 53,
-        text: "O oficial presumivelmente incapaz de permanecer como militar da ativa será submetido a:",
-        options: [
-          "A) Conselho de Disciplina",
-          "B) Conselho de Justificação",
-          "C) Inquérito Policial Militar",
-          "D) Sindicância sumária",
-          "E) Conselho de Sentença"
-        ],
-        correct: 1,
-        subject: "Dos Conselhos de Justificação e de Disciplina"
-      },
-      {
-        id: 54,
-        text: "O Guarda-Marinha, o Aspirante-a-Oficial e as praças com estabilidade assegurada, presumivelmente incapazes de permanecerem como militares da ativa, serão submetidos a:",
-        options: [
-          "A) Conselho de Justificação",
-          "B) Conselho de Disciplina",
-          "C) Corte Marcial",
-          "D) Auditoria Militar",
-          "E) Comissão de Promoções"
-        ],
-        correct: 1,
-        subject: "Dos Conselhos de Justificação e de Disciplina"
-      },
-      {
-        id: 55,
-        text: "Compete ao Superior Tribunal Militar, em tempo de paz, julgar em instância única os processos oriundos dos Conselhos de:",
-        options: [
-          "A) Disciplina",
-          "B) Justificação",
-          "C) Promoção",
-          "D) Ética e Disciplina",
-          "E) Sindicância"
-        ],
-        correct: 1,
-        subject: "Dos Conselhos de Justificação e de Disciplina"
-      },
-      {
-        id: 56,
-        text: "Compete aos Ministros das Forças Singulares julgar, em última instância, os processos oriundos dos Conselhos de:",
-        options: [
-          "A) Justificação",
-          "B) Disciplina",
-          "C) Sentença",
-          "D) Guerra",
-          "E) Recursos Administrativos"
-        ],
-        correct: 1,
-        subject: "Dos Conselhos de Justificação e de Disciplina"
-      },
-      {
-        id: 57,
-        text: "São direitos dos militares, segundo o Art. 50 do Estatuto dos Militares, EXCETO:",
-        options: [
-          "A) a garantia da patente em toda a sua plenitude, quando oficial",
-          "B) o uso das designações hierárquicas",
-          "C) a promoção",
-          "D) a estabilidade, independentemente do tempo de serviço, mesmo para praça temporária",
-          "E) o porte de arma, com as restrições legais"
-        ],
-        correct: 3,
-        subject: "Dos Direitos dos Militares"
-      },
-      {
-        id: 58,
-        text: "De acordo com o Estatuto dos Militares, a estabilidade é assegurada, dentro das condições e limitações da legislação específica, à praça de carreira que conte:",
-        options: [
-          "A) 5 (cinco) anos ou mais de tempo de efetivo serviço",
-          "B) 10 (dez) anos ou mais de tempo de efetivo serviço",
-          "C) 15 (quinze) anos ou mais de tempo de efetivo serviço",
-          "D) 20 (vinte) anos ou mais de tempo de efetivo serviço",
-          "E) qualquer tempo de serviço, desde que seja praça especial"
-        ],
-        correct: 1,
-        subject: "Dos Direitos dos Militares"
-      },
-      {
-        id: 59,
-        text: "A moradia para o militar em atividade compreende o alojamento em organização militar, quando aquartelado ou embarcado, e a habitação:",
-        options: [
-          "A) exclusivamente em imóvel de propriedade do militar",
-          "B) para si e seus dependentes, em imóvel sob a responsabilidade da União, de acordo com a disponibilidade existente",
-          "C) apenas para oficiais superiores",
-          "D) mediante pagamento de aluguel simbólico em qualquer situação",
-          "E) somente quando o militar servir fora de sua sede de origem"
-        ],
-        correct: 1,
-        subject: "Dos Direitos dos Militares"
-      },
-      {
-        id: 60,
-        text: "É direito do militar o porte de arma, quando oficial em serviço ativo ou em inatividade, salvo caso de inatividade por:",
-        options: [
-          "A) idade avançada",
-          "B) alienação mental ou condenação por crimes contra a segurança do Estado",
-          "C) transferência voluntária para a reserva",
-          "D) invalidez permanente comprovada",
-          "E) mudança de domicílio para o exterior"
-        ],
-        correct: 1,
-        subject: "Dos Direitos dos Militares"
-      },
-      {
-        id: 61,
-        text: "O militar que se julgar prejudicado ou ofendido por ato administrativo ou disciplinar de superior hierárquico poderá:",
-        options: [
-          "A) recorrer diretamente ao Poder Judiciário, sem trâmite administrativo prévio",
-          "B) recorrer ou interpor pedido de reconsideração, queixa ou representação",
-          "C) apenas solicitar transferência de OM",
-          "D) requerer diretamente ao Presidente da República, em qualquer caso",
-          "E) organizar manifestação coletiva de protesto"
-        ],
-        correct: 1,
-        subject: "Dos Direitos dos Militares"
-      },
-      {
-        id: 62,
-        text: "O direito de recorrer na esfera administrativa prescreverá em 15 (quinze) dias corridos, a contar do recebimento da comunicação oficial, quando o ato decorra de:",
-        options: [
-          "A) punição disciplinar de qualquer natureza",
-          "B) inclusão em quota compulsória ou de composição de Quadro de Acesso",
-          "C) transferência de Organização Militar",
-          "D) concessão de férias",
-          "E) qualquer decisão administrativa, sem distinção"
-        ],
-        correct: 1,
-        subject: "Dos Direitos dos Militares"
-      },
-      {
-        id: 63,
-        text: "Nas demais hipóteses não relacionadas à quota compulsória ou composição de Quadro de Acesso, o direito de recorrer na esfera administrativa prescreve em:",
-        options: [
-          "A) 15 (quinze) dias",
-          "B) 30 (trinta) dias",
-          "C) 45 (quarenta e cinco) dias",
-          "D) 60 (sessenta) dias",
-          "E) 90 (noventa) dias"
-        ],
-        correct: 2,
-        subject: "Dos Direitos dos Militares"
-      },
-      {
-        id: 64,
-        text: "O pedido de reconsideração, a queixa e a representação, segundo o Estatuto dos Militares:",
-        options: [
-          "A) podem ser feitos coletivamente, se subscritos por mais de três militares",
-          "B) não podem ser feitos coletivamente",
-          "C) exigem sempre a assinatura de um advogado",
-          "D) só podem ser feitos por oficiais",
-          "E) prescindem de qualquer prazo"
-        ],
-        correct: 1,
-        subject: "Dos Direitos dos Militares"
-      },
-      {
-        id: 65,
-        text: "São alistáveis como eleitores os militares que sejam, EXCETO:",
-        options: [
-          "A) oficiais",
-          "B) guardas-marinha ou aspirantes-a-oficial",
-          "C) suboficiais ou subtenentes",
-          "D) sargentos",
-          "E) recrutas em serviço militar inicial, de qualquer graduação"
-        ],
-        correct: 4,
-        subject: "Dos Direitos dos Militares"
-      },
-      {
-        id: 66,
-        text: "Segundo o parágrafo único do Art. 52, o militar alistável que contar menos de 5 (cinco) anos de serviço, ao se candidatar a cargo eletivo, será:",
-        options: [
-          "A) apenas afastado temporariamente do serviço",
-          "B) excluído do serviço ativo mediante demissão ou licenciamento ex officio",
-          "C) transferido diretamente para a reserva remunerada",
-          "D) mantido no serviço ativo sem qualquer alteração",
-          "E) submetido a Conselho de Disciplina"
-        ],
-        correct: 1,
-        subject: "Dos Direitos dos Militares"
-      },
-      {
-        id: 67,
-        text: "O militar em atividade, com 5 (cinco) ou mais anos de serviço, ao se candidatar a cargo eletivo, será afastado temporariamente do serviço ativo e agregado, considerado em licença para tratar de interesse particular. Se eleito, será:",
-        options: [
-          "A) mantido na ativa, exercendo as duas funções cumulativamente",
-          "B) no ato da diplomação, transferido para a reserva remunerada",
-          "C) automaticamente reformado",
-          "D) excluído do serviço ativo, sem direito a remuneração",
-          "E) mantido agregado até o fim do mandato eletivo"
-        ],
-        correct: 1,
-        subject: "Dos Direitos dos Militares"
-      },
-      {
-        id: 68,
-        text: "O soldo é irredutível e não está sujeito a penhora, sequestro ou arresto, EXCETO:",
-        options: [
-          "A) em qualquer hipótese, sem exceção",
-          "B) nos casos previstos em lei",
-          "C) por determinação do comandante da OM",
-          "D) em caso de dívida com terceiros, sem necessidade de decisão judicial",
-          "E) apenas para oficiais-generais"
-        ],
-        correct: 1,
-        subject: "Da Remuneração"
-      },
-      {
-        id: 69,
-        text: "O valor do soldo é igual para o militar da ativa, da reserva remunerada ou reformado, de um mesmo grau hierárquico, ressalvado o disposto:",
-        options: [
-          "A) no item II do caput do Art. 50",
-          "B) no Art. 34",
-          "C) no Art. 42",
-          "D) no Regulamento Disciplinar",
-          "E) na Lei de Promoções"
-        ],
-        correct: 0,
-        subject: "Da Remuneração"
-      },
-      {
-        id: 70,
-        text: "Por ocasião de sua passagem para a inatividade, o militar terá direito a tantas quotas de soldo quantos forem os anos de serviço computáveis, até o máximo de:",
-        options: [
-          "A) 25 (vinte e cinco) anos",
-          "B) 30 (trinta) anos",
-          "C) 35 (trinta e cinco) anos",
-          "D) 40 (quarenta) anos",
-          "E) não há limite máximo"
-        ],
-        correct: 2,
-        subject: "Da Remuneração"
-      },
-      {
-        id: 71,
-        text: "Os proventos de inatividade serão revistos sempre que, por motivo de alteração do poder aquisitivo da moeda:",
-        options: [
-          "A) o militar completar 30 anos de serviço",
-          "B) se modificarem os vencimentos dos militares em serviço ativo",
-          "C) houver mudança de comando na Força",
-          "D) o militar for promovido postumamente",
-          "E) houver reforma administrativa geral"
-        ],
-        correct: 1,
-        subject: "Da Remuneração"
-      },
-      {
-        id: 72,
-        text: "Ressalvados os casos previstos em lei, os proventos da inatividade não poderão exceder:",
-        options: [
-          "A) o dobro do soldo do militar da ativa de mesmo posto",
-          "B) a remuneração percebida pelo militar da ativa no posto ou graduação correspondente",
-          "C) o teto constitucional, independentemente do posto",
-          "D) 90% da remuneração da ativa",
-          "E) não há limite estabelecido em lei"
-        ],
-        correct: 1,
-        subject: "Da Remuneração"
-      },
-      {
-        id: 73,
-        text: "O acesso da hierarquia militar, fundamentado principalmente no valor moral e profissional, é:",
-        options: [
-          "A) obrigatório, linear e automático",
-          "B) seletivo, gradual e sucessivo",
-          "C) discricionário e imediato",
-          "D) exclusivamente por antiguidade",
-          "E) exclusivamente por merecimento"
-        ],
-        correct: 1,
-        subject: "Da Promoção"
-      },
-      {
-        id: 74,
-        text: "As promoções serão efetuadas pelos critérios de antiguidade, merecimento ou escolha, ou ainda por:",
-        options: [
-          "A) sorteio e indicação política",
-          "B) bravura e post mortem",
-          "C) tempo de serviço exclusivamente",
-          "D) concurso público específico",
-          "E) decisão do Conselho de Justificação"
-        ],
-        correct: 1,
-        subject: "Da Promoção"
-      },
-      {
-        id: 75,
-        text: "Em casos extraordinários e independentes de vagas, poderá haver promoção:",
-        options: [
-          "A) por indicação do comandante imediato",
-          "B) em ressarcimento de preterição",
-          "C) por decisão do Congresso Nacional",
-          "D) automática, ao completar tempo mínimo de posto",
-          "E) apenas mediante concurso interno"
-        ],
-        correct: 1,
-        subject: "Da Promoção"
-      },
-      {
-        id: 76,
-        text: "Segundo o Art. 61 do Estatuto dos Militares, o número de vagas para promoção obrigatória de Almirantes-de-Esquadra, Generais-de-Exército e Tenentes-Brigadeiros corresponde a:",
-        options: [
-          "A) 1/8 dos respectivos Corpos ou Quadros",
-          "B) 1/4 (um quarto) dos respectivos Corpos ou Quadros",
-          "C) 1/10 dos respectivos Corpos ou Quadros",
-          "D) 1/2 dos respectivos Corpos ou Quadros",
-          "E) 1/20 dos respectivos Corpos ou Quadros"
-        ],
-        correct: 1,
-        subject: "Da Promoção"
-      },
-      {
-        id: 77,
-        text: "Não haverá promoção de militar por ocasião de sua transferência para a reserva remunerada ou:",
-        options: [
-          "A) para outra Organização Militar",
-          "B) reforma",
-          "C) licença para tratar de interesse particular",
-          "D) agregação temporária",
-          "E) férias regulamentares"
-        ],
-        correct: 1,
-        subject: "Da Promoção"
-      },
-      {
-        id: 78,
-        text: "Férias são afastamentos totais do serviço, anual e obrigatoriamente concedidos aos militares para descanso. Compete fixar a duração das férias:",
-        options: [
-          "A) ao Comandante da Organização Militar",
-          "B) ao Poder Executivo",
-          "C) ao Congresso Nacional",
-          "D) ao Ministro da respectiva Força, exclusivamente",
-          "E) ao próprio militar, dentro de limites gerais"
-        ],
-        correct: 1,
-        subject: "Das Férias e de Outros Afastamentos"
-      },
-      {
-        id: 79,
-        text: "Compete aos Comandantes Militares:",
-        options: [
-          "A) fixar a duração das férias",
-          "B) regulamentar a concessão de férias",
-          "C) revogar o direito a férias em qualquer hipótese",
-          "D) determinar o valor da remuneração de férias",
-          "E) autorizar o acúmulo de férias por tempo indeterminado"
-        ],
-        correct: 1,
-        subject: "Das Férias e de Outros Afastamentos"
-      },
-      {
-        id: 80,
-        text: "A concessão de férias NÃO é prejudicada pelo gozo anterior de licença para tratamento de saúde, nem por punição anterior decorrente de contravenção disciplinar, ou pelo estado de guerra, ou para que sejam cumpridos atos de serviço. Isso significa que:",
-        options: [
-          "A) a licença de saúde suspende automaticamente o direito às férias",
-          "B) esses fatores não anulam o direito às férias, nem o direito à licença",
-          "C) o militar perde o direito a férias se estiver em estado de guerra",
-          "D) a punição disciplinar sempre cancela o período de férias",
-          "E) apenas o estado de guerra pode prejudicar a concessão de férias"
-        ],
-        correct: 1,
-        subject: "Das Férias e de Outros Afastamentos"
-      },
-      {
-        id: 81,
-        text: "Os militares terão interrompido ou deixarão de gozar, na época prevista, o período de férias, EXCETO em caso de:",
-        options: [
-          "A) interesse da segurança nacional",
-          "B) manutenção da ordem",
-          "C) extrema necessidade do serviço",
-          "D) baixa a hospital",
-          "E) solicitação pessoal do militar sem justificativa"
-        ],
-        correct: 4,
-        subject: "Das Férias e de Outros Afastamentos"
-      },
-      {
-        id: 82,
-        text: "São períodos de afastamento total do serviço a que os militares têm direito, além das férias, EXCETO:",
-        options: [
-          "A) núpcias: 8 (oito) dias",
-          "B) luto: 8 (oito) dias",
-          "C) instalação: até 10 (dez) dias",
-          "D) trânsito: até 30 (trinta) dias",
-          "E) licença-prêmio: 90 (noventa) dias"
-        ],
-        correct: 4,
-        subject: "Das Férias e de Outros Afastamentos"
-      },
-      {
-        id: 83,
-        text: "As férias e os afastamentos por núpcias, luto, instalação e trânsito são concedidos com remuneração e:",
-        options: [
-          "A) suspendem a contagem de tempo de serviço",
-          "B) são computados como tempo de efetivo serviço para todos os efeitos legais",
-          "C) contam apenas para fins de promoção",
-          "D) são computados apenas parcialmente",
-          "E) dependem de aprovação do Ministério Público Militar"
-        ],
-        correct: 1,
-        subject: "Das Férias e de Outros Afastamentos"
-      },
-      {
-        id: 84,
-        text: "Licença é a autorização para afastamento total do serviço, em caráter:",
-        options: [
-          "A) definitivo",
-          "B) temporário",
-          "C) permanente, salvo revogação",
-          "D) irrevogável",
-          "E) compulsório"
-        ],
-        correct: 1,
-        subject: "Das Licenças"
-      },
-      {
-        id: 85,
-        text: "A licença para tratar de interesse particular é a autorização para o afastamento total do serviço, concedida ao militar com mais de:",
-        options: [
-          "A) 5 (cinco) anos de efetivo serviço",
-          "B) 10 (dez) anos de efetivo serviço",
-          "C) 15 (quinze) anos de efetivo serviço",
-          "D) 20 (vinte) anos de efetivo serviço",
-          "E) qualquer tempo de serviço, independentemente de prazo mínimo"
-        ],
-        correct: 1,
-        subject: "Das Licenças"
-      },
-      {
-        id: 86,
-        text: "A licença para tratar de interesse particular será sempre concedida:",
-        options: [
-          "A) com remuneração integral",
-          "B) com prejuízo da remuneração e da contagem de tempo de efetivo serviço",
-          "C) apenas com prejuízo da remuneração, mantendo a contagem de tempo",
-          "D) com remuneração parcial, sem prejuízo do tempo de serviço",
-          "E) sem qualquer prejuízo, exceto quanto à promoção"
-        ],
-        correct: 1,
-        subject: "Das Licenças"
-      },
-      {
-        id: 87,
-        text: "O prazo limite para a licença para acompanhar cônjuge ou companheiro é de:",
-        options: [
-          "A) 12 (doze) meses",
-          "B) 24 (vinte e quatro) meses",
-          "C) 36 (trinta e seis) meses",
-          "D) 48 (quarenta e oito) meses",
-          "E) 60 (sessenta) meses"
-        ],
-        correct: 2,
-        subject: "Das Licenças"
-      },
-      {
-        id: 88,
-        text: "A interrupção da licença especial, da licença para tratar de interesse particular e da licença para acompanhar cônjuge ou companheiro poderá ocorrer, EXCETO:",
-        options: [
-          "A) em caso de mobilização e estado de guerra",
-          "B) em caso de decretação de estado de emergência ou de sítio",
-          "C) para cumprimento de sentença que importe em restrição da liberdade individual",
-          "D) para cumprimento de punição disciplinar",
-          "E) a critério exclusivo e discricionário do próprio militar licenciado"
-        ],
-        correct: 4,
-        subject: "Das Licenças"
-      },
-      {
-        id: 89,
-        text: "Os militares da ativa, no exercício de funções militares, são dispensados do serviço:",
-        options: [
-          "A) apenas na Justiça Eleitoral",
-          "B) apenas no Tribunal do Júri",
-          "C) na instituição do Júri e na Justiça Eleitoral",
-          "D) exclusivamente em processos cíveis",
-          "E) em qualquer procedimento judicial, sem exceção"
-        ],
-        correct: 2,
-        subject: "Da Prisão de Militar"
-      },
-      {
-        id: 90,
-        text: "Os uniformes das Forças Armadas, com seus distintivos, insígnias e emblemas, são privativos dos militares e simbolizam:",
-        options: [
-          "A) apenas a tradição histórica da Força",
-          "B) a autoridade militar, com as prerrogativas inerentes",
-          "C) exclusivamente o posto do militar",
-          "D) o vínculo empregatício com a União",
-          "E) a formação técnica do militar"
-        ],
-        correct: 1,
-        subject: "Do Uso dos Uniformes"
-      },
-      {
-        id: 91,
-        text: "Constitui crime previsto na legislação específica:",
-        options: [
-          "A) o uso de uniforme por militar da ativa em qualquer circunstância",
-          "B) o desrespeito aos uniformes, distintivos, insígnias e emblemas militares, bem como seu uso por quem não tiver direito",
-          "C) apenas o uso irregular por civis",
-          "D) apenas o desrespeito cometido por militares da reserva",
-          "E) qualquer alteração no fardamento, mesmo que autorizada"
-        ],
-        correct: 1,
-        subject: "Do Uso dos Uniformes"
-      },
-      {
-        id: 92,
-        text: "É proibido ao militar o uso dos uniformes, EXCETO:",
-        options: [
-          "A) em manifestação de caráter político-partidário",
-          "B) em atividade não-militar no estrangeiro, sem autorização",
-          "C) para comparecer a solenidades militares, na inatividade, desde que autorizado",
-          "D) na inatividade, para qualquer finalidade",
-          "E) em qualquer situação após a exclusão do serviço ativo a bem da disciplina"
-        ],
-        correct: 2,
-        subject: "Do Uso dos Uniformes"
-      },
-      {
-        id: 93,
-        text: "O oficial na inatividade, quando no cargo de Ministro de Estado da Marinha, do Exército ou da Aeronáutica:",
-        options: [
-          "A) não pode, em hipótese alguma, usar uniforme militar",
-          "B) poderá usar os mesmos uniformes dos militares na ativa",
-          "C) deve usar uniforme especial de Ministro",
-          "D) só pode usar uniforme em cerimônias oficiais do Poder Executivo",
-          "E) depende de autorização do Congresso Nacional"
-        ],
-        correct: 1,
-        subject: "Do Uso dos Uniformes"
-      },
-      {
-        id: 94,
-        text: "É vedado às Forças Auxiliares e a qualquer elemento civil usar uniformes ou ostentar distintivos, insígnias ou emblemas que possam ser:",
-        options: [
-          "A) mais vistosos que os das Forças Armadas",
-          "B) confundidos com os adotados nas Forças Armadas",
-          "C) usados em cerimônias civis",
-          "D) fabricados por empresas não autorizadas",
-          "E) idênticos aos de outros países"
-        ],
-        correct: 1,
-        subject: "Do Uso dos Uniformes"
-      },
-      {
-        id: 95,
-        text: "São responsáveis pela infração das disposições sobre uso indevido de uniformes por elementos civis, além dos indivíduos que a tenham cometido:",
-        options: [
-          "A) apenas o Ministério Público Militar",
-          "B) os comandantes das Forças Auxiliares, diretores ou chefes de repartições que tenham consentido o uso indevido",
-          "C) exclusivamente o fabricante do uniforme",
-          "D) apenas a autoridade civil local",
-          "E) ninguém mais, a responsabilidade é pessoal e intransferível"
-        ],
-        correct: 1,
-        subject: "Do Uso dos Uniformes"
-      },
-      {
-        id: 96,
-        text: "Segundo o RDM, Contravenção Disciplinar é toda ação ou omissão contrária às obrigações ou aos deveres militares estatuídos nas leis, regulamentos, normas e disposições em vigor, desde que:",
-        options: [
-          "A) cause dano patrimonial à União",
-          "B) não incida no que é capitulado pelo Código Penal Militar como crime",
-          "C) seja cometida por praça de graduação inferior a Sargento",
-          "D) seja reincidente",
-          "E) tenha sido cometida na presença de superior hierárquico"
-        ],
-        correct: 1,
-        subject: "Das Contravenções Disciplinares"
-      },
-      {
-        id: 97,
-        text: "É considerada contravenção disciplinar, segundo o Art. 7º do RDM, EXCETO:",
-        options: [
-          "A) censurar atos de superior",
-          "B) responder de maneira desatenciosa ao superior",
-          "C) retardar, sem motivo justo, o cumprimento de ordem recebida da autoridade competente",
-          "D) cometer crime militar de natureza grave",
-          "E) apresentar-se em Organização Militar em estado de embriaguez"
-        ],
-        correct: 3,
-        subject: "Das Contravenções Disciplinares"
-      },
-      {
-        id: 98,
-        text: "Representar contra o superior constitui contravenção disciplinar quando feita, EXCETO:",
-        options: [
-          "A) sem prévia autorização deste",
-          "B) em inobservância à via hierárquica",
-          "C) em termos desrespeitosos",
-          "D) empregando argumentos falsos ou envolvendo má-fé",
-          "E) com prévia autorização e em termos respeitosos, por via hierárquica"
-        ],
-        correct: 4,
-        subject: "Das Contravenções Disciplinares"
-      },
-      {
-        id: 99,
-        text: "Constitui contravenção disciplinar fazer uso indevido de viaturas, embarcações ou aeronaves pertencentes à Marinha, desde que:",
-        options: [
-          "A) o ato constitua crime militar",
-          "B) o ato não constitua crime",
-          "C) haja prejuízo financeiro comprovado",
-          "D) seja reincidente",
-          "E) ocorra fora do horário de serviço"
-        ],
-        correct: 1,
-        subject: "Das Contravenções Disciplinares"
-      },
-      {
-        id: 100,
-        text: "São também consideradas contravenções disciplinares todas as omissões do dever militar não especificadas no Art. 7º do RDM, desde que:",
-        options: [
-          "A) sejam reincidentes",
-          "B) não qualificadas como crimes nas leis penais militares e cometidas contra preceitos de subordinação e regras de serviço",
-          "C) causem dano patrimonial superior a determinado valor",
-          "D) sejam cometidas por oficiais",
-          "E) envolvam mais de um militar"
-        ],
-        correct: 1,
-        subject: "Das Contravenções Disciplinares"
-      },
-      {
-        id: 101,
-        text: "As contravenções disciplinares são classificadas, segundo o Art. 8º do RDM, em:",
-        options: [
-          "A) leves, médias e graves",
-          "B) graves e leves",
-          "C) simples e qualificadas",
-          "D) primárias e reincidentes",
-          "E) individuais e coletivas"
-        ],
-        correct: 1,
-        subject: "Da Natureza das Contravenções"
-      },
-      {
-        id: 102,
-        text: "No concurso de crime militar e de contravenção disciplinar, ambos de idêntica natureza, será aplicada:",
-        options: [
-          "A) a soma das penas",
-          "B) somente a penalidade relativa ao crime",
-          "C) somente a penalidade disciplinar",
-          "D) a pena mais branda entre as duas",
-          "E) a pena a critério do Comandante da OM"
-        ],
-        correct: 1,
-        subject: "Da Natureza das Contravenções"
-      },
-      {
-        id: 103,
-        text: "São circunstâncias agravantes da contravenção disciplinar, segundo o Art. 10 do RDM, EXCETO:",
-        options: [
-          "A) reincidência",
-          "B) premeditação",
-          "C) ter sido praticada com ofensa à honra e ao pundonor militar",
-          "D) prestação anterior de serviços relevantes já reconhecidos",
-          "E) ter o contraventor abusado de sua autoridade funcional"
-        ],
-        correct: 3,
-        subject: "Da Natureza das Contravenções"
-      },
-      {
-        id: 104,
-        text: "São circunstâncias atenuantes da contravenção disciplinar, segundo o Art. 11 do RDM, EXCETO:",
-        options: [
-          "A) bons antecedentes militares",
-          "B) idade menor de 18 anos",
-          "C) tempo de serviço militar menor de seis meses",
-          "D) conluio de duas ou mais pessoas",
-          "E) provocação"
-        ],
-        correct: 3,
-        subject: "Da Natureza das Contravenções"
-      },
-      {
-        id: 105,
-        text: "São circunstâncias justificativas ou dirimentes da contravenção disciplinar, segundo o Art. 12 do RDM, EXCETO:",
-        options: [
-          "A) ignorância plenamente comprovada da ordem transgredida",
-          "B) força maior ou caso fortuito plenamente comprovado",
-          "C) legítima defesa, própria ou de outrem",
-          "D) ordem de superior hierárquico",
-          "E) maus antecedentes militares"
-        ],
-        correct: 4,
-        subject: "Da Natureza das Contravenções"
-      },
-      {
-        id: 106,
-        text: "São penas disciplinares previstas no RDM para Oficiais da ativa, EXCETO:",
-        options: [
-          "A) repreensão",
-          "B) prisão simples, até 10 dias",
-          "C) prisão rigorosa, até 10 dias",
-          "D) impedimento, até 30 dias",
-          "E) todas as anteriores são corretamente previstas para Oficiais da ativa"
-        ],
-        correct: 3,
-        subject: "Da Classificação e Extensão das Penas"
-      },
-      {
-        id: 107,
-        text: "São penas disciplinares previstas para Cabos, Marinheiros e Soldados, além de repreensão, impedimento, prisão simples e prisão rigorosa:",
-        options: [
-          "A) suspensão de vencimentos",
-          "B) serviço extraordinário, até 10 dias",
-          "C) transferência compulsória",
-          "D) reforma disciplinar",
-          "E) rebaixamento de graduação"
-        ],
-        correct: 1,
-        subject: "Da Classificação e Extensão das Penas"
-      },
-      {
-        id: 108,
-        text: "A pena de exclusão do serviço ativo, a bem da disciplina, está prevista, entre outros, para:",
-        options: [
-          "A) Oficiais da ativa",
-          "B) Suboficiais",
-          "C) apenas Almirantes",
-          "D) apenas Oficiais-Generais",
-          "E) exclusivamente civis empregados na Marinha"
-        ],
-        correct: 1,
-        subject: "Da Classificação e Extensão das Penas"
-      },
-      {
-        id: 109,
-        text: "NÃO será considerada como pena, segundo o Art. 15 do RDM:",
-        options: [
-          "A) a repreensão verbal",
-          "B) o impedimento até 30 dias",
-          "C) a admoestação que o superior fizer ao subalterno, mostrando-lhe irregularidade praticada no serviço",
-          "D) a prisão simples",
-          "E) a prisão rigorosa"
-        ],
-        correct: 2,
-        subject: "Da Classificação e Extensão das Penas"
-      },
-      {
-        id: 110,
-        text: "NÃO será considerado como pena, segundo o Art. 16 do RDM, o recolhimento em compartimento fechado, com ou sem sentinela, bem como a aplicação de camisa de força, algemas ou outro meio de coerção física de quem for atacado de:",
-        options: [
-          "A) embriaguez leve",
-          "B) loucura ou excitação violenta",
-          "C) sonolência em serviço",
-          "D) insubordinação simples",
-          "E) fadiga extrema"
-        ],
-        correct: 1,
-        subject: "Da Classificação e Extensão das Penas"
-      },
-      {
-        id: 111,
-        text: "Por uma única contravenção:",
-        options: [
-          "A) pode ser aplicada mais de uma punição, se a autoridade julgar necessário",
-          "B) NÃO pode ser aplicada mais de uma punição",
-          "C) devem ser aplicadas sempre duas punições cumulativas",
-          "D) a punição depende de aprovação de Conselho de Disciplina",
-          "E) não cabe punição disciplinar, apenas criminal"
-        ],
-        correct: 1,
-        subject: "Da Classificação e Extensão das Penas"
-      },
-      {
-        id: 112,
-        text: "A punição disciplinar, segundo o Art. 18 do RDM:",
-        options: [
-          "A) exime o punido de qualquer responsabilidade civil",
-          "B) NÃO exime o punido da responsabilidade civil que lhe couber",
-          "C) substitui a responsabilidade penal cabível",
-          "D) só se aplica após decisão judicial transitada em julgado",
-          "E) é sempre cumulativa com a pena criminal, sem exceção"
-        ],
-        correct: 1,
-        subject: "Da Classificação e Extensão das Penas"
-      },
-      {
-        id: 113,
-        text: "Têm competência para impor penas disciplinares a todos os militares da Marinha:",
-        options: [
-          "A) apenas o Comandante da Marinha",
-          "B) o Presidente da República e o Comandante da Marinha",
-          "C) qualquer oficial-general",
-          "D) o Ministro da Defesa, exclusivamente",
-          "E) o Chefe do Estado-Maior da Armada, apenas"
-        ],
-        correct: 1,
-        subject: "Da Competência e Jurisdição"
-      },
-      {
-        id: 114,
-        text: "Segundo o § 1º do Art. 19 do RDM, os Almirantes poderão delegar a competência para impor penas disciplinares:",
-        options: [
-          "A) em nenhuma hipótese",
-          "B) no todo ou em parte, a Oficiais subordinados",
-          "C) apenas a outros Almirantes",
-          "D) somente mediante autorização do Presidente da República",
-          "E) apenas para penas de repreensão"
-        ],
-        correct: 1,
-        subject: "Da Competência e Jurisdição"
-      },
-      {
-        id: 115,
-        text: "A pena de licenciamento e exclusão do Serviço Ativo da Marinha será imposta:",
-        options: [
-          "A) por qualquer Comandante de Navio",
-          "B) pelo Ministro da Marinha (Comandante da Marinha) ou por autoridade que dele tenha recebido delegação de competência",
-          "C) exclusivamente pelo Presidente da República",
-          "D) por decisão de Conselho de Justificação, sempre",
-          "E) pelo oficial mais antigo presente na Organização Militar"
-        ],
-        correct: 1,
-        subject: "Da Competência e Jurisdição"
-      },
-      {
-        id: 116,
-        text: "A pena de dispensa das funções de atividade será imposta:",
-        options: [
-          "A) por qualquer autoridade com jurisdição disciplinar",
-          "B) privativamente pelo Comandante da Marinha",
-          "C) pelo Comandante Imediatamente Superior, sem exceção",
-          "D) apenas mediante Conselho de Disciplina",
-          "E) pelo Chefe do Estado-Maior da Armada, exclusivamente"
-        ],
-        correct: 1,
-        subject: "Da Competência e Jurisdição"
-      },
-      {
-        id: 117,
-        text: "Quando duas autoridades, ambas com jurisdição disciplinar sobre o contraventor, tiverem conhecimento da falta, caberá o julgamento:",
-        options: [
-          "A) sempre à autoridade mais moderna",
-          "B) à autoridade mais antiga, ou à mais moderna, se o seu superior assim determinar",
-          "C) a ambas, cumulativamente",
-          "D) exclusivamente ao Comandante da Marinha",
-          "E) à autoridade que primeiro tomou conhecimento, independente de antiguidade"
-        ],
-        correct: 1,
-        subject: "Da Competência e Jurisdição"
-      },
-      {
-        id: 118,
-        text: "A repreensão consistirá na declaração formal de que o contraventor é assim punido por haver cometido determinada contravenção, podendo ser aplicada:",
-        options: [
-          "A) somente em público",
-          "B) em particular ou não",
-          "C) somente por escrito",
-          "D) somente verbalmente",
-          "E) apenas mediante processo formal com defesa prévia"
-        ],
-        correct: 1,
-        subject: "Do Cumprimento das Penas"
-      },
-      {
-        id: 119,
-        text: "Quando a repreensão for pública e verbal, ao Suboficial será aplicada:",
-        options: [
-          "A) na presença de Oficiais do mesmo posto ou superiores, apenas",
-          "B) nos círculos de Oficiais e Suboficiais",
-          "C) em formatura geral da guarnição",
-          "D) apenas na presença do contraventor, isoladamente",
-          "E) nos círculos de Sargentos, exclusivamente"
-        ],
-        correct: 1,
-        subject: "Do Cumprimento das Penas"
-      },
-      {
-        id: 120,
-        text: "A pena de impedimento obriga o contraventor a permanecer na Organização Militar:",
-        options: [
-          "A) com prejuízo de qualquer serviço que lhe competir",
-          "B) sem prejuízo de qualquer serviço que lhe competir",
-          "C) apenas durante o horário noturno",
-          "D) em cela de prisão",
-          "E) sob escolta permanente"
-        ],
-        correct: 1,
-        subject: "Do Cumprimento das Penas"
-      },
-      {
-        id: 121,
-        text: "A pena de serviço extraordinário consiste no desempenho, pelo contraventor, de qualquer serviço interno, inclusive faina, em dias e horas em que:",
-        options: [
-          "A) já lhe competia esse serviço normalmente",
-          "B) não lhe competir esse serviço",
-          "C) estiver de folga regulamentar apenas",
-          "D) estiver em licença médica",
-          "E) estiver embarcado exclusivamente"
-        ],
-        correct: 1,
-        subject: "Do Cumprimento das Penas"
-      },
-      {
-        id: 122,
-        text: "A pena de prisão simples consiste no recolhimento do Oficial, Suboficial ou Sargento na Organização Militar, sem prejuízo do serviço interno que lhe couber, e da Praça:",
-        options: [
-          "A) à prisão fechada, sempre",
-          "B) à sua coberta na Organização Militar, sem prejuízo dos serviços internos, salvo os de responsabilidade e confiança",
-          "C) a instituição penal civil",
-          "D) ao alojamento de outra unidade",
-          "E) à guarita de entrada da OM"
-        ],
-        correct: 1,
-        subject: "Do Cumprimento das Penas"
-      },
-      {
-        id: 123,
-        text: "A pena de prisão rigorosa consiste no recolhimento da Praça:",
-        options: [
-          "A) à sua coberta normal",
-          "B) à prisão fechada",
-          "C) aos recintos de uso de seu círculo",
-          "D) ao paiol da embarcação",
-          "E) à guarnição de bordo, sem restrição"
-        ],
-        correct: 1,
-        subject: "Do Cumprimento das Penas"
-      },
-      {
-        id: 124,
-        text: "A critério da autoridade que as impôs, as penas de prisão simples e prisão rigorosa poderão ser cumpridas pelas Praças como impedimento, computando-se, para cada dia de prisão simples:",
-        options: [
-          "A) 1 (um) dia de impedimento",
-          "B) 2 (dois) dias de impedimento",
-          "C) 3 (três) dias de impedimento",
-          "D) 4 (quatro) dias de impedimento",
-          "E) 5 (cinco) dias de impedimento"
-        ],
-        correct: 1,
-        subject: "Do Cumprimento das Penas"
-      },
-      {
-        id: 125,
-        text: "Na conversão de prisão em impedimento, computam-se, para cada dia de prisão RIGOROSA:",
-        options: [
-          "A) 1 (um) dia de impedimento",
-          "B) 2 (dois) dias de impedimento",
-          "C) 3 (três) dias de impedimento",
-          "D) 4 (quatro) dias de impedimento",
-          "E) 5 (cinco) dias de impedimento"
-        ],
-        correct: 2,
-        subject: "Do Cumprimento das Penas"
-      },
-      {
-        id: 126,
-        text: "Nenhuma pena disciplinar será imposta sem que:",
-        options: [
-          "A) haja parecer favorável de um advogado",
-          "B) o contraventor seja ouvido e sejam devidamente apurados os fatos",
-          "C) o Comandante da Marinha autorize expressamente",
-          "D) haja sindicância formal em todos os casos",
-          "E) o contraventor confesse formalmente a falta"
-        ],
-        correct: 1,
-        subject: "Das Normas para Imposição das Penas"
-      },
-      {
-        id: 127,
-        text: "Normalmente, a pena disciplinar deverá ser imposta dentro do prazo de:",
-        options: [
-          "A) 24 horas",
-          "B) 48 horas",
-          "C) 72 horas",
-          "D) 5 dias",
-          "E) 8 dias úteis"
-        ],
-        correct: 1,
-        subject: "Das Normas para Imposição das Penas"
-      },
-      {
-        id: 128,
-        text: "A prisão ou detenção de qualquer militar e o local onde se encontra deverão ser comunicados imediatamente:",
-        options: [
-          "A) apenas ao comandante da OM de origem",
-          "B) à sua família ou a pessoa por ele indicada, de acordo com a Constituição Federal",
-          "C) somente ao Ministério Público Militar",
-          "D) apenas se o militar for oficial",
-          "E) exclusivamente à imprensa oficial"
-        ],
-        correct: 1,
-        subject: "Das Normas para Imposição das Penas"
-      },
-      {
-        id: 129,
-        text: "Nenhum contraventor será interrogado se desprovido da plena capacidade de entender o caráter contravencional de sua ação ou omissão, devendo, nessa situação:",
-        options: [
-          "A) ser imediatamente liberado",
-          "B) ser recolhido a prisão, em benefício da manutenção da ordem ou de sua própria segurança",
-          "C) ser submetido a exame psicotécnico apenas",
-          "D) aguardar decisão do Ministério Público",
-          "E) ser transferido para outra Organização Militar"
-        ],
-        correct: 1,
-        subject: "Das Normas para Imposição das Penas"
-      },
-      {
-        id: 130,
-        text: "A autoridade julgará a gravidade da contravenção com imparcialidade e isenção de ânimo, sem condescendência ou rigor excessivo, levando em conta:",
-        options: [
-          "A) apenas o histórico funcional do contraventor",
-          "B) as circunstâncias justificativas ou atenuantes, os acontecimentos e a situação pessoal do contraventor",
-          "C) exclusivamente o tempo de serviço do contraventor",
-          "D) apenas o parecer do superior imediato",
-          "E) unicamente a gravidade objetiva do fato, sem outras considerações"
-        ],
-        correct: 1,
-        subject: "Das Normas para Imposição das Penas"
-      },
-      {
-        id: 131,
-        text: "Toda pena disciplinar, exceto repreensão verbal, será imposta, para Oficiais e Suboficiais, mediante:",
-        options: [
-          "A) simples comunicação verbal",
-          "B) Ordem de Serviço que contenha resumo do histórico da falta, seu enquadramento no RDM e a pena imposta",
-          "C) publicação em jornal oficial",
-          "D) memorando interno sem necessidade de fundamentação",
-          "E) decisão colegiada de oficiais superiores"
-        ],
-        correct: 1,
-        subject: "Da Forma de Imposição das Penas"
-      },
-      {
-        id: 132,
-        text: "Para Sargentos e demais Praças, a pena disciplinar (exceto repreensão verbal) será imposta mediante:",
-        options: [
-          "A) Ordem de Serviço, exclusivamente",
-          "B) lançamento nos respectivos Livros de Registro de Contravenções",
-          "C) comunicação verbal ao Comandante",
-          "D) publicação em Boletim de Bordo apenas",
-          "E) memorando reservado ao interessado"
-        ],
-        correct: 1,
-        subject: "Da Forma de Imposição das Penas"
-      },
-      {
-        id: 133,
-        text: "Quando o contraventor houver cometido contravenções simultâneas mas não correlatas, ser-lhe-ão impostas as penas:",
-        options: [
-          "A) cumulativamente em uma única sanção",
-          "B) separadamente",
-          "C) apenas a mais grave delas",
-          "D) mediante Conselho de Disciplina obrigatório",
-          "E) com redução de 50% em cada uma"
-        ],
-        correct: 1,
-        subject: "Da Forma de Imposição das Penas"
-      },
-      {
-        id: 134,
-        text: "A pena de exclusão do Serviço Ativo da Marinha será imposta, segundo o Art. 31 do RDM:",
-        options: [
-          "A) apenas por incapacidade física",
-          "B) a bem da disciplina ou por conveniência do serviço, e por incapacidade moral",
-          "C) exclusivamente por decisão judicial",
-          "D) somente mediante requerimento do próprio militar",
-          "E) apenas em caso de reincidência criminal"
-        ],
-        correct: 1,
-        subject: "Da Forma de Imposição das Penas"
-      },
-      {
-        id: 135,
-        text: "A pena de exclusão do Serviço Ativo da Marinha, a bem da disciplina ou por conveniência do serviço, será imposta sempre que a Praça de graduação inferior a Suboficial houver sido punida, no espaço de um ano, com:",
-        options: [
-          "A) 10 dias de prisão simples",
-          "B) 15 dias de prisão rigorosa",
-          "C) 30 dias de prisão rigorosa",
-          "D) 20 dias de impedimento",
-          "E) qualquer punição disciplinar, independentemente da duração"
-        ],
-        correct: 2,
-        subject: "Da Forma de Imposição das Penas"
-      },
-      {
-        id: 136,
-        text: "O licenciamento ex officio e a exclusão do Serviço Ativo da Marinha, a bem da disciplina, inabilitam o militar para:",
-        options: [
-          "A) votar em eleições",
-          "B) exercer cargo, função ou emprego na Marinha",
-          "C) contrair matrimônio civil",
-          "D) residir em território nacional",
-          "E) usar uniforme apenas em cerimônias privadas"
-        ],
-        correct: 1,
-        subject: "Da Forma de Imposição das Penas"
-      },
-      {
-        id: 137,
-        text: "O tempo que durar o impedimento preventivo será levado em conta, para o cumprimento de penas de prisão simples, na razão de:",
-        options: [
-          "A) 1/1 (integralmente)",
-          "B) 1/2",
-          "C) 1/3",
-          "D) 1/4",
-          "E) 2/3"
-        ],
-        correct: 1,
-        subject: "Da Contagem do Tempo de Punição"
-      },
-      {
-        id: 138,
-        text: "O tempo que durar o impedimento preventivo será levado em conta, para o cumprimento de penas de prisão RIGOROSA, na razão de:",
-        options: [
-          "A) 1/1 (integralmente)",
-          "B) 1/2",
-          "C) 1/3",
-          "D) 1/4",
-          "E) 2/3"
-        ],
-        correct: 2,
-        subject: "Da Contagem do Tempo de Punição"
-      },
-      {
-        id: 139,
-        text: "O tempo passado em hospitais (doentes hospitalizados):",
-        options: [
-          "A) será computado integralmente para cumprimento de pena disciplinar",
-          "B) não será computado para cumprimento de pena disciplinar",
-          "C) será computado apenas parcialmente, na razão de 1/2",
-          "D) depende de avaliação médica para ser computado",
-          "E) só não é computado se a internação for superior a 30 dias"
-        ],
-        correct: 1,
-        subject: "Da Contagem do Tempo de Punição"
-      },
-      {
-        id: 140,
-        text: "Para o registro das contravenções cometidas e penas impostas, haverá nas Organizações Militares dois livros numerados e rubricados pelo Comandante, sendo:",
-        options: [
-          "A) um para Oficiais e outro para Praças",
-          "B) um para Sargentos e outro para as demais Praças",
-          "C) um para faltas graves e outro para faltas leves",
-          "D) um digital e outro físico",
-          "E) um por semestre"
-        ],
-        correct: 1,
-        subject: "Do Registro e da Transcrição"
-      },
-      {
-        id: 141,
-        text: "Todas as penas impostas, exceto repreensões em particular, serão transcritas nos assentamentos do contraventor:",
-        options: [
-          "A) imediatamente após sua imposição, ainda que pendente recurso",
-          "B) logo após o seu cumprimento ou a solução de recursos interpostos",
-          "C) apenas ao final da carreira militar",
-          "D) somente se o militar não recorrer",
-          "E) nunca, salvo determinação judicial"
-        ],
-        correct: 1,
-        subject: "Do Registro e da Transcrição"
-      },
-      {
-        id: 142,
-        text: "Para Oficiais e Suboficiais, cópia da Ordem de Serviço que publicou a punição será remetida:",
-        options: [
-          "A) ao Ministério Público Militar",
-          "B) à DPMM ou CApCFN, conforme o caso",
-          "C) ao Superior Tribunal Militar",
-          "D) diretamente ao Comandante da Marinha",
-          "E) à Corregedoria-Geral da Marinha"
-        ],
-        correct: 1,
-        subject: "Do Registro e da Transcrição"
-      },
-      {
-        id: 143,
-        text: "A revisão do julgamento de uma contravenção disciplinar poderá ocorrer até:",
-        options: [
-          "A) 30 (trinta) dias após a data da sua imposição",
-          "B) 60 (sessenta) dias após a data da sua imposição",
-          "C) 90 (noventa) dias após a data da sua imposição",
-          "D) 120 (cento e vinte) dias após a data da sua imposição",
-          "E) 180 (cento e oitenta) dias após a data da sua imposição"
-        ],
-        correct: 3,
-        subject: "Da Anulação, Atenuação e Cancelamento"
-      },
-      {
-        id: 144,
-        text: "Fora do prazo de 120 dias, a revisão do julgamento de uma contravenção disciplinar só poderá ser feita, privativamente, por:",
-        options: [
-          "A) qualquer oficial-general",
-          "B) o Ministro da Marinha",
-          "C) o Superior Tribunal Militar",
-          "D) o Presidente da República, exclusivamente",
-          "E) o Comandante de Distrito Naval"
-        ],
-        correct: 1,
-        subject: "Da Anulação, Atenuação e Cancelamento"
-      },
-      {
-        id: 145,
-        text: "O relevamento do cumprimento da pena disciplinar, por motivo de serviços relevantes prestados à Nação pelo contraventor, poderá ser aplicado, privativamente:",
-        options: [
-          "A) por qualquer Comandante de Distrito Naval",
-          "B) pelo Presidente da República e pelo Ministro da Marinha",
-          "C) por qualquer oficial-general em comando",
-          "D) pelo Superior Tribunal Militar",
-          "E) pelo Chefe do Estado-Maior da Armada"
-        ],
-        correct: 1,
-        subject: "Da Anulação, Atenuação e Cancelamento"
-      },
-      {
-        id: 146,
-        text: "Por motivo de gala nacional ou passagem de Chefia, Comando ou Direção, o relevamento da pena poderá ser aplicado quando o contraventor já houver cumprido:",
-        options: [
-          "A) pelo menos um terço da pena",
-          "B) pelo menos metade da pena",
-          "C) a totalidade da pena",
-          "D) pelo menos dois terços da pena",
-          "E) qualquer fração da pena, sem exigência mínima"
-        ],
-        correct: 1,
-        subject: "Da Anulação, Atenuação e Cancelamento"
-      },
-      {
-        id: 147,
-        text: "O cancelamento de punições disciplinares poderá ser concedido ao militar desde que satisfaça, simultaneamente, várias condições, EXCETO:",
-        options: [
-          "A) não ter sido a falta cometida atentatória à honra pessoal, ao pundonor militar ou ao decoro da classe",
-          "B) haver decorrido o prazo de 5 (cinco) anos de efetivo serviço, sem qualquer punição",
-          "C) ter bons serviços prestados no período, mediante análise de suas folhas de alterações",
-          "D) ter parecer favorável de seu Chefe, Comandante ou Diretor",
-          "E) ter sido promovido ao menos uma vez durante esse período"
-        ],
-        correct: 4,
-        subject: "Da Anulação, Atenuação e Cancelamento"
-      },
-      {
-        id: 148,
-        text: "O militar cujas punições disciplinares tenham sido canceladas poderá concorrer, a partir da data do ato de cancelamento, em igualdade de condições com seus pares:",
-        options: [
-          "A) apenas para fins de promoção por merecimento",
-          "B) em qualquer situação da carreira",
-          "C) somente após decorrido novo prazo de 5 anos",
-          "D) apenas se aprovado por Conselho de Disciplina",
-          "E) exclusivamente para fins de transferência de OM"
-        ],
-        correct: 1,
-        subject: "Da Anulação, Atenuação e Cancelamento"
-      },
-      {
-        id: 149,
-        text: "O cancelamento de punição disciplinar concedido:",
-        options: [
-          "A) produz efeitos retroativos para todos os fins de carreira",
-          "B) não produz efeitos retroativos, para quaisquer fins de carreira",
-          "C) produz efeitos retroativos apenas para fins de promoção",
-          "D) depende de ratificação anual",
-          "E) é válido apenas para a Força em que foi concedido"
-        ],
-        correct: 1,
-        subject: "Da Anulação, Atenuação e Cancelamento"
-      },
-      {
-        id: 150,
-        text: "Todo superior que tiver conhecimento, direto ou indireto, de contravenção cometida por qualquer subalterno, deverá:",
-        options: [
-          "A) aplicar imediatamente a punição cabível",
-          "B) dar parte escrita do fato à autoridade sob cujas ordens estiver",
-          "C) ignorar o fato se não houver prejuízo ao serviço",
-          "D) comunicar apenas verbalmente ao contraventor",
-          "E) aguardar orientação do Ministério Público Militar"
-        ],
-        correct: 1,
-        subject: "Da Parte e da Prisão Imediata"
-      },
-      {
-        id: 151,
-        text: "O superior deverá dar voz de prisão imediata ao contraventor e fazê-lo recolher-se à sua Organização Militar quando a contravenção ou suas circunstâncias assim exigirem, a bem:",
-        options: [
-          "A) apenas da disciplina",
-          "B) da ordem pública, da disciplina ou da regularidade do serviço",
-          "C) exclusivamente da segurança nacional",
-          "D) apenas de evitar fuga do contraventor",
-          "E) da imagem institucional da Marinha"
-        ],
-        correct: 1,
-        subject: "Da Parte e da Prisão Imediata"
-      },
-      {
-        id: 152,
-        text: "Caso o contraventor se recuse a declarar a Organização Militar em que serve, a voz de prisão será dada em nome:",
-        options: [
-          "A) do Ministro da Marinha",
-          "B) do Comandante do Distrito Naval ou do Comando Naval em cuja jurisdição ocorrer a prisão",
-          "C) do Presidente da República",
-          "D) da autoridade policial civil local",
-          "E) do oficial mais moderno presente"
-        ],
-        correct: 1,
-        subject: "Da Parte e da Prisão Imediata"
-      },
-      {
-        id: 153,
-        text: "A quem deu parte assiste o direito de pedir à respectiva autoridade, dentro de quantos dias úteis, a reconsideração da solução, se julgar que esta deprime sua pessoa ou a dignidade de seu posto:",
-        options: [
-          "A) 3 (três) dias úteis",
-          "B) 5 (cinco) dias úteis",
-          "C) 8 (oito) dias úteis",
-          "D) 10 (dez) dias úteis",
-          "E) 15 (quinze) dias úteis"
-        ],
-        correct: 2,
-        subject: "Da Parte e da Prisão Imediata"
-      },
-      {
-        id: 154,
-        text: "O subalterno preso em decorrência de voz de prisão imediata só poderá ser solto por determinação:",
-        options: [
-          "A) de qualquer oficial presente",
-          "B) da autoridade a cuja ordem foi feita a prisão, ou de autoridade superior a ela",
-          "C) do próprio contraventor, mediante recurso",
-          "D) do Ministério Público Militar, exclusivamente",
-          "E) de decisão judicial transitada em julgado"
-        ],
-        correct: 1,
-        subject: "Da Parte e da Prisão Imediata"
-      },
-      {
-        id: 155,
-        text: "A prisão decorrente de voz de prisão imediata, de caráter preventivo, será cumprida:",
-        options: [
-          "A) como prisão rigorosa, sempre",
-          "B) como determina o Art. 24 (prisão simples)",
-          "C) em estabelecimento penal civil",
-          "D) em regime de liberdade assistida",
-          "E) conforme decisão exclusiva do contraventor"
-        ],
-        correct: 1,
-        subject: "Da Parte e da Prisão Imediata"
-      },
-      {
-        id: 156,
-        text: "Àquele a quem for imposta pena disciplinar será facultado solicitar reconsideração da punição à autoridade que a aplicou, devendo esta decidir dentro de:",
-        options: [
-          "A) 3 dias úteis",
-          "B) 5 dias úteis",
-          "C) 8 dias úteis",
-          "D) 10 dias úteis",
-          "E) 15 dias úteis"
-        ],
-        correct: 2,
-        subject: "Dos Recursos"
-      },
-      {
-        id: 157,
-        text: "O recurso contra pena disciplinar deve ser interposto após o cumprimento da pena e dentro do prazo de:",
-        options: [
-          "A) 3 dias úteis",
-          "B) 5 dias úteis",
-          "C) 8 dias úteis",
-          "D) 15 dias úteis",
-          "E) 30 dias úteis"
-        ],
-        correct: 2,
-        subject: "Dos Recursos"
-      },
-      {
-        id: 158,
-        text: "Da solução de um recurso só cabe a interposição de novos recursos às autoridades superiores, até:",
-        options: [
-          "A) o Comandante do Distrito Naval",
-          "B) o Ministro da Marinha",
-          "C) o Superior Tribunal Militar",
-          "D) o Presidente da República, sempre",
-          "E) o Chefe do Estado-Maior da Armada"
-        ],
-        correct: 1,
-        subject: "Dos Recursos"
-      },
-      {
-        id: 159,
-        text: "Contra decisão do Ministro da Marinha em recurso disciplinar, o único recurso admissível é:",
-        options: [
-          "A) recurso ao Superior Tribunal Militar",
-          "B) o pedido de reconsideração a essa mesma autoridade",
-          "C) recurso direto ao Presidente da República, sem condições",
-          "D) ação judicial ordinária",
-          "E) não cabe mais nenhum recurso"
-        ],
-        correct: 1,
-        subject: "Dos Recursos"
-      },
-      {
-        id: 160,
-        text: "Quando a punição disciplinar tiver sido imposta pelo Ministro da Marinha, caberá interposição de recurso:",
-        options: [
-          "A) ao Superior Tribunal Militar",
-          "B) ao Presidente da República",
-          "C) ao Congresso Nacional",
-          "D) ao Comandante de Operações Navais",
-          "E) não cabe recurso nesse caso"
-        ],
-        correct: 1,
-        subject: "Dos Recursos"
-      },
-      {
-        id: 161,
-        text: "O recurso deve ser remetido à autoridade a quem dirigido, dentro do prazo de oito dias úteis, devidamente:",
-        options: [
-          "A) acompanhado de parecer jurídico",
-          "B) informado pela autoridade que tiver imposto a pena",
-          "C) sem qualquer formalidade adicional",
-          "D) autenticado em cartório",
-          "E) publicado em Boletim Interno"
-        ],
-        correct: 1,
-        subject: "Dos Recursos"
-      },
-      {
-        id: 162,
-        text: "Se o recurso for julgado inteiramente procedente:",
-        options: [
-          "A) a pena será apenas reduzida pela metade",
-          "B) a punição será anulada e cancelado tudo quanto a ela se referir",
-          "C) o contraventor deverá ainda cumprir metade da pena",
-          "D) caberá novo julgamento por Conselho de Disciplina",
-          "E) a punição permanece registrada, mas sem efeitos práticos"
-        ],
-        correct: 1,
-        subject: "Dos Recursos"
-      },
-      {
-        id: 163,
-        text: "São considerados dependentes do militar, desde que assim declarados por ele na organização militar competente, EXCETO:",
-        options: [
-          "A) o cônjuge ou o companheiro com quem viva em união estável",
-          "B) o filho ou o enteado menor de 21 anos de idade",
-          "C) o filho ou o enteado inválido",
-          "D) qualquer amigo próximo indicado livremente pelo militar",
-          "E) nos termos do § 3º, o tutelado ou curatelado inválido ou menor de 18 anos sob sua guarda por decisão judicial"
-        ],
-        correct: 3,
-        subject: "Dos Direitos dos Militares"
-      },
-      {
-        id: 164,
-        text: "Após o falecimento do militar, o viúvo mantém os direitos previstos nas alíneas \"e\", \"f\" e \"s\" do inciso IV do Art. 50, enquanto conservar os requisitos de dependência, mediante participação nos custos, e:",
-        options: [
-          "A) não contrair matrimônio ou constituir união estável",
-          "B) apenas nos primeiros 12 meses após o óbito",
-          "C) apenas se não possuir renda própria",
-          "D) sem qualquer condição temporal",
-          "E) apenas se residir com dependentes menores"
-        ],
-        correct: 0,
-        subject: "Dos Direitos dos Militares"
-      },
-      {
-        id: 165,
-        text: "O Sistema de Proteção Social dos Militares das Forças Armadas, previsto no Art. 50-A, é o conjunto integrado de direitos, serviços e ações, permanentes e interativas, de:",
-        options: [
-          "A) remuneração, pensão, saúde e assistência",
-          "B) apenas remuneração e pensão",
-          "C) exclusivamente assistência médica",
-          "D) promoção e progressão funcional",
-          "E) apenas benefícios previdenciários"
-        ],
-        correct: 0,
-        subject: "Dos Direitos dos Militares"
-      },
-      {
-        id: 166,
-        text: "A remuneração dos militares ativos e inativos é encargo financeiro:",
-        options: [
-          "A) do orçamento de cada Força Armada isoladamente",
-          "B) do Tesouro Nacional",
-          "C) do Ministério da Defesa exclusivamente",
-          "D) dos Estados e Municípios, de forma compartilhada",
-          "E) de fundo próprio de previdência militar"
-        ],
-        correct: 1,
-        subject: "Da Remuneração"
-      },
-      {
-        id: 167,
-        text: "A remuneração dos militares na ativa compreende soldo, gratificações e indenizações regulares; na inatividade, compreende proventos e:",
-        options: [
-          "A) pensões vitalícias",
-          "B) adicionais",
-          "C) auxílio-moradia obrigatório",
-          "D) participação nos lucros da União",
-          "E) bonificação por tempo de serviço"
-        ],
-        correct: 1,
-        subject: "Da Remuneração"
-      },
-      {
-        id: 168,
-        text: "Analise as afirmativas sobre o Art. 60 do Estatuto dos Militares:\nI. A promoção em ressarcimento de preterição pode ocorrer em casos extraordinários e independentes de vagas.\nII. A promoção em ressarcimento de preterição é efetuada segundo os critérios de antiguidade ou merecimento.\nIII. O militar promovido em ressarcimento de preterição recebe o número que lhe competir na escala hierárquica, como se tivesse sido promovido na época devida.\nEstão corretas:",
-        options: [
-          "A) apenas I e II",
-          "B) apenas I e III",
-          "C) apenas II e III",
-          "D) I, II e III",
-          "E) nenhuma das afirmativas está correta"
-        ],
-        correct: 3,
-        subject: "Da Promoção"
-      },
-      {
-        id: 169,
-        text: "Segundo o Art. 61 do Estatuto dos Militares, o número de vagas para promoção obrigatória, em cada ano-base, para os postos relativos aos incisos IV, V, VI e VII, será fixado, para cada Força, em decretos separados, até o dia:",
-        options: [
-          "A) 31 de dezembro do ano corrente",
-          "B) 15 de janeiro do ano seguinte",
-          "C) 1º de março do ano seguinte",
-          "D) 30 de junho do ano corrente",
-          "E) 15 de dezembro do ano corrente"
-        ],
-        correct: 1,
-        subject: "Da Promoção"
-      },
-      {
-        id: 170,
-        text: "As vagas para promoção são consideradas abertas, EXCETO:",
-        options: [
-          "A) na data da assinatura do ato que promover o militar",
-          "B) na data da assinatura do ato que passar o militar para a inatividade",
-          "C) na data oficial do óbito do militar",
-          "D) na data em que o militar completa o curso de formação",
-          "E) na data fixada na Lei de Promoções de Oficiais da Ativa, em casos nela indicados"
-        ],
-        correct: 3,
-        subject: "Da Promoção"
-      },
-      {
-        id: 171,
-        text: "Sobre as licenças previstas no Estatuto dos Militares, é correto afirmar que a licença pode ser concedida, EXCETO:",
-        options: [
-          "A) para tratar de interesse particular",
-          "B) para tratamento de saúde de pessoa da família",
-          "C) para tratamento de saúde própria",
-          "D) para acompanhar cônjuge ou companheiro",
-          "E) para fins exclusivamente de lazer e turismo, sem outra justificativa"
-        ],
-        correct: 4,
-        subject: "Das Licenças"
-      },
-      {
-        id: 172,
-        text: "A concessão da licença militar é regulada:",
-        options: [
-          "A) pelo Presidente da República",
-          "B) pelo Comandante da Força",
-          "C) pelo Superior Tribunal Militar",
-          "D) pelo próprio militar requerente",
-          "E) pelo Congresso Nacional"
-        ],
-        correct: 1,
-        subject: "Das Licenças"
-      },
-      {
-        id: 173,
-        text: "Assinale a alternativa correta sobre a interrupção da licença para tratar de interesse particular: ela será definitiva quando o militar for:",
-        options: [
-          "A) promovido durante o período de licença",
-          "B) reformado ou transferido, de ofício, para a reserva remunerada",
-          "C) transferido para outra Organização Militar",
-          "D) convocado para exercício simples de rotina",
-          "E) nomeado para cargo de confiança"
-        ],
-        correct: 1,
-        subject: "Das Licenças"
-      },
-      {
-        id: 174,
-        text: "A respeito das contravenções disciplinares previstas no Art. 7º do RDM, julgue os itens:\nI. Recusar-se ao cumprimento de castigo imposto é contravenção disciplinar.\nII. Portar arma sem autorização legal ou ordem escrita de autoridade competente é contravenção disciplinar.\nIII. Disseminar boatos ou notícias tendenciosas é contravenção disciplinar.\nEstão corretas:",
-        options: [
-          "A) apenas I e II",
-          "B) apenas I e III",
-          "C) apenas II e III",
-          "D) I, II e III",
-          "E) nenhuma das afirmativas está correta"
-        ],
-        correct: 3,
-        subject: "Das Contravenções Disciplinares"
-      },
-      {
-        id: 175,
-        text: "É correto afirmar, de acordo com o RDM, que constitui contravenção disciplinar:",
-        options: [
-          "A) apresentar-se em Organização Militar em estado de embriaguez, ou embriagar-se e comportar-se de modo inconveniente na OM",
-          "B) apenas embriagar-se fora do horário de serviço",
-          "C) consumir bebida alcoólica em ambiente estritamente privado",
-          "D) recusar bebida alcoólica oferecida por superior",
-          "E) nenhuma das anteriores, pois esse ato configura apenas crime militar"
-        ],
-        correct: 0,
-        subject: "Das Contravenções Disciplinares"
-      },
-      {
-        id: 176,
-        text: "Sobre o Conselho de Disciplina e o Conselho de Justificação, é correto afirmar que:",
-        options: [
-          "A) o Conselho de Disciplina julga oficiais e o de Justificação julga praças",
-          "B) o oficial é submetido a Conselho de Justificação, e o Guarda-Marinha, Aspirante-a-Oficial e praças com estabilidade a Conselho de Disciplina",
-          "C) ambos os Conselhos têm exatamente a mesma competência e composição",
-          "D) apenas o Ministro da Marinha pode instaurar qualquer um dos dois Conselhos",
-          "E) o Conselho de Disciplina é exclusivo para crimes militares"
-        ],
-        correct: 1,
-        subject: "Dos Conselhos de Justificação e de Disciplina"
+        subject: "RDM — Regulamento Disciplinar"
       }
     ];
 
@@ -3391,6 +1432,8 @@ const questionsData = [
         }
       }
 
+      updateFlashcardBtnState();
+
       // Nav buttons state
       document.getElementById('btn-prev').disabled = currentIndex === 0;
       document.getElementById('btn-next').disabled = currentIndex === questionsData.length - 1;
@@ -3402,6 +1445,41 @@ const questionsData = [
       card.classList.remove('question-in');
       void card.offsetWidth;
       card.classList.add('question-in');
+    }
+
+    const PERSONAL_FLASHCARDS_KEY = 'fc_pessoal_ESTATUTO_RDM';
+
+    function loadPersonalFlashcards() {
+      try {
+        return JSON.parse(localStorage.getItem(PERSONAL_FLASHCARDS_KEY) || '[]');
+      } catch (e) { return []; }
+    }
+
+    function savePersonalFlashcards(list) {
+      localStorage.setItem(PERSONAL_FLASHCARDS_KEY, JSON.stringify(list));
+    }
+
+    function updateFlashcardBtnState() {
+      const q = questionsData[currentIndex];
+      const btn = document.getElementById('flashcard-btn');
+      if (!btn) return;
+      const list = loadPersonalFlashcards();
+      const jaSalva = list.some(c => c._qid === q.id);
+      btn.innerHTML = jaSalva
+        ? '<i class="fa-solid fa-check text-emerald-400"></i> Salva como flashcard'
+        : '<i class="fa-solid fa-layer-group text-navy-500"></i> Virar Flashcard';
+      btn.classList.toggle('border-emerald-700', jaSalva);
+      btn.classList.toggle('bg-emerald-900/30', jaSalva);
+    }
+
+    function saveAsFlashcard() {
+      const q = questionsData[currentIndex];
+      const correctText = (q.options[q.correct] || '').replace(/^[A-E]\)\s*/, '');
+      const list = loadPersonalFlashcards();
+      if (list.some(c => c._qid === q.id)) return;
+      list.push({ _qid: q.id, front: q.text, back: correctText, subject: q.subject });
+      savePersonalFlashcards(list);
+      updateFlashcardBtnState();
     }
 
     function scheduleNoteSave() {
