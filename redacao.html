@@ -375,6 +375,19 @@
       0% { box-shadow: 0 0 0 2px rgba(30,86,160,.7); }
       100% { box-shadow: 0 0 0 2px rgba(30,86,160,0); }
     }
+    @media print {
+      body * { visibility: hidden; }
+      #paper-sheet, #paper-sheet * { visibility: visible; }
+      #paper-sheet {
+        position: absolute;
+        top: 0;
+        left: 0;
+        box-shadow: none;
+        width: auto;
+        max-width: none;
+      }
+      .paper-line-input { border: none !important; }
+    }
   </style>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
@@ -438,6 +451,9 @@
         <button onclick="abrirBanco()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg transition-all flex items-center gap-1.5" title="Gerenciar banco de frases">
           <i class="fa-solid fa-inbox"></i> Banco de Frases
         </button>
+        <button onclick="window.print()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg transition-all flex items-center gap-1.5" title="Imprimir ou exportar como PDF">
+          <i class="fa-solid fa-print"></i> Imprimir / PDF
+        </button>
         <button onclick="limparRascunho()" class="bg-rose-900/40 hover:bg-rose-800 text-rose-200 border border-rose-700/50 text-xs px-3 py-2 rounded-lg transition-all flex items-center gap-1.5" title="Limpar tudo">
           <i class="fa-solid fa-trash"></i> Limpar
         </button>
@@ -495,7 +511,8 @@
           <option value="argumento">Argumento</option>
           <option value="conectivo">Conectivo</option>
           <option value="conectivo_desse_modo">Síntese (Desse modo...)</option>
-          <option value="repertorio">Repertório</option>
+          <option value="repertorio_1p">Repertório — 1º período (Segundo...)</option>
+          <option value="repertorio_2p">Repertório — 2º período (Nesse sentido...)</option>
           <option value="retomada_repertorio">Retomada do Repertório (Sob essa ótica...)</option>
         </select>
         <div class="flex gap-2">
@@ -514,7 +531,8 @@
           <option value="argumento">Argumento</option>
           <option value="conectivo">Conectivo</option>
           <option value="conectivo_desse_modo">Síntese (Desse modo...)</option>
-          <option value="repertorio">Repertório</option>
+          <option value="repertorio_1p">Repertório — 1º período (Segundo...)</option>
+          <option value="repertorio_2p">Repertório — 2º período (Nesse sentido...)</option>
           <option value="retomada_repertorio">Retomada do Repertório (Sob essa ótica...)</option>
         </select>
       </div>
@@ -542,13 +560,13 @@
       ]},
       { titulo: 'Desenvolvimento 1', metaLinhas: 9, periodos: [
         { id: 'd1', conectivo: 'Primordialmente,', cat: 'topico_d1', dica: 'Tópico frasal — retoma o 1º argumento.', targetLinhas: 2 },
-        { id: 'd2', conectivo: 'Segundo, (AUTOR)', cat: 'repertorio', dica: 'Repertório: uma frase de alguém relevante.', targetLinhas: 2 },
+        { id: 'd2', conectivo: 'Segundo, (AUTOR)', cat: 'repertorio_1p', dica: 'Repertório: uma frase de alguém relevante.', targetLinhas: 2 },
         { id: 'd3', conectivo: 'Sob essa ótica,', cat: 'retomada_repertorio', dica: 'Retome e explique o repertório citado.', targetLinhas: 2.5 },
         { id: 'd4', conectivo: 'Desse modo,', cat: 'conectivo', dica: 'Síntese com o texto-base, fechando o parágrafo.', targetLinhas: 5 },
       ]},
       { titulo: 'Desenvolvimento 2', metaLinhas: 8, periodos: [
         { id: 'e1', conectivo: 'Ainda sobre esse prisma, verifica-se que', cat: 'topico_d2', dica: 'Tópico frasal — retoma o 2º argumento.', targetLinhas: 2 },
-        { id: 'e2', conectivo: 'Nesse sentido, (AUTOR) ao afirmar que', cat: 'repertorio', dica: 'Repertório: uma frase de alguém relevante.', targetLinhas: 2 },
+        { id: 'e2', conectivo: 'Nesse sentido, (AUTOR) ao afirmar que', cat: 'repertorio_2p', dica: 'Repertório: uma frase de alguém relevante.', targetLinhas: 2 },
         { id: 'e3', conectivo: 'Nessa direção,', cat: 'retomada_repertorio', dica: 'Retome e explique o repertório citado.', targetLinhas: 2 },
         { id: 'e4', conectivo: 'Dessa forma,', cat: 'conectivo', dica: 'Síntese com o texto-base, fechando o parágrafo.', targetLinhas: 2 },
       ]},
@@ -817,7 +835,8 @@
       { id: 'argumento', label: 'Argumento', icon: 'fa-scale-balanced' },
       { id: 'conectivo', label: 'Conectivo', icon: 'fa-link' },
       { id: 'conectivo_desse_modo', label: 'Síntese (Desse modo...)', icon: 'fa-arrows-turn-to-dots' },
-      { id: 'repertorio', label: 'Repertório', icon: 'fa-quote-right' },
+      { id: 'repertorio_1p', label: 'Repertório — 1º período (Segundo...)', icon: 'fa-quote-right' },
+      { id: 'repertorio_2p', label: 'Repertório — 2º período (Nesse sentido...)', icon: 'fa-quote-right' },
       { id: 'retomada_repertorio', label: 'Retomada do Repertório (Sob essa ótica...)', icon: 'fa-rotate-left' },
     ];
 
@@ -834,7 +853,19 @@
     }
 
     function carregarBanco() {
-      try { return JSON.parse(localStorage.getItem(BANCO_FRASES_KEY) || '[]'); } catch (e) { return []; }
+      try {
+        const lista = JSON.parse(localStorage.getItem(BANCO_FRASES_KEY) || '[]');
+        // migração: categoria "repertorio" antiga (genérica) vira 1º ou 2º período, pelo texto
+        let mudou = false;
+        lista.forEach(f => {
+          if (f.categoria === 'repertorio') {
+            f.categoria = /nesse sentido/i.test(f.texto) ? 'repertorio_2p' : 'repertorio_1p';
+            mudou = true;
+          }
+        });
+        if (mudou) localStorage.setItem(BANCO_FRASES_KEY, JSON.stringify(lista));
+        return lista;
+      } catch (e) { return []; }
     }
     function salvarBanco(lista) {
       localStorage.setItem(BANCO_FRASES_KEY, JSON.stringify(lista));
@@ -852,20 +883,22 @@
         ['Mentalidade Marítima', 'Desse modo, o fortalecimento da mentalidade marítima favorece tanto a conscientização da sociedade quanto a valorização do mar brasileiro.'],
         ['Atlântico Sul', 'Desse modo, a atuação da Marinha do Brasil (MB) no Atlântico Sul é essencial tanto para os interesses geopolíticos quanto para a segurança estratégica nacional.'],
       ];
-      const repertorios = [
+      const repertorios1p = [
         ['Amazônia Azul', 'Segundo o Almirante Álvaro Alberto, "O mar não é um obstáculo, é uma via de comunicação e uma fonte inesgotável de riqueza."'],
-        ['Amazônia Azul', 'Nesse sentido, Sir Walter Raleigh afirma que "Quem domina o mar, domina as riquezas do mundo."'],
         ['PEM 2040', 'Segundo a instituição militar clássica Vegécio, "Se queres a paz, prepara para a guerra."'],
-        ['PEM 2040', 'Nesse sentido, o conceito alinhado ao pensamento de Celso Furtado sobre soberania econômica e industrial afirma que "Um país não é independente apenas por sua bandeira, mas pela capacidade de produzir e proteger seus próprios meios."'],
         ['Poder Naval', 'Segundo Alfred Thayer Mahan, "A nação que negligencia o seu poder naval está à mercê da vontade de potências estrangeiras."'],
-        ['Poder Naval', 'Nesse sentido, o princípio da dissuasão integral afirma que "A melhor forma de evitar a guerra é possuir forças armadas tão fortes que nenhum adversário ouse desafiá-las."'],
         ['Programa Nuclear da Marinha', 'Segundo a visão tecnológica alinhada ao pensamento de Darcy Ribeiro sobre autonomia científica, "A tecnologia não é neutra; ela liberta os povos que a dominam e escraviza os que dela dependem."'],
-        ['Programa Nuclear da Marinha', 'Nesse sentido, a ideia de consolidação da independência geopolítica do Brasil afirma que "A ciência e a tecnologia são o fundamento da soberania no século XXI."'],
         ['SisGAAz', 'Segundo o adágio estratégico militar, "Não se pode defender o que não se conhece, nem controlar o que não se vê."'],
-        ['SisGAAz', 'Nesse sentido, o conceito geopolítico sobre proteção contra ilícitos (pirataria, pesca ilegal, tráfico) afirma que "A segurança das linhas de comunicação marítima é a artéria vital da economia global."'],
         ['Mentalidade Marítima', 'Segundo o historiador e diplomata José Maria da Silva Paranhos (Barão do Rio Branco), "O Brasil é um país de costas para o mar."'],
-        ['Mentalidade Marítima', 'Nesse sentido, a ideia de patriotismo cívico-marítimo afirma que "Um povo que conhece o valor de seu mar aprende a defendê-lo como parte indissociável de sua identidade."'],
         ['Atlântico Sul', 'Segundo a ideia baseada na Zona de Paz e Cooperação do Atlântico Sul (ZOPACAS), "O Atlântico Sul deve ser uma zona de paz e cooperação, mas garantida pela força legítima de quem o protege."'],
+      ];
+      const repertorios2p = [
+        ['Amazônia Azul', 'Nesse sentido, Sir Walter Raleigh afirma que "Quem domina o mar, domina as riquezas do mundo."'],
+        ['PEM 2040', 'Nesse sentido, o conceito alinhado ao pensamento de Celso Furtado sobre soberania econômica e industrial afirma que "Um país não é independente apenas por sua bandeira, mas pela capacidade de produzir e proteger seus próprios meios."'],
+        ['Poder Naval', 'Nesse sentido, o princípio da dissuasão integral afirma que "A melhor forma de evitar a guerra é possuir forças armadas tão fortes que nenhum adversário ouse desafiá-las."'],
+        ['Programa Nuclear da Marinha', 'Nesse sentido, a ideia de consolidação da independência geopolítica do Brasil afirma que "A ciência e a tecnologia são o fundamento da soberania no século XXI."'],
+        ['SisGAAz', 'Nesse sentido, o conceito geopolítico sobre proteção contra ilícitos (pirataria, pesca ilegal, tráfico) afirma que "A segurança das linhas de comunicação marítima é a artéria vital da economia global."'],
+        ['Mentalidade Marítima', 'Nesse sentido, a ideia de patriotismo cívico-marítimo afirma que "Um povo que conhece o valor de seu mar aprende a defendê-lo como parte indissociável de sua identidade."'],
         ['Atlântico Sul', 'Nesse sentido, a visão geoestratégica sobre o posicionamento atlântico brasileiro afirma que "Quem controla as rotas do Atlântico Sul controla o comércio e o destino do hemisfério sul."'],
       ];
       const retomadas = [
@@ -880,7 +913,8 @@
 
       const lista = carregarBanco();
       sinteses.forEach(([tema, texto]) => lista.push({ id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), categoria: 'conectivo_desse_modo', texto: `[${tema}] ${texto}` }));
-      repertorios.forEach(([tema, texto]) => lista.push({ id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), categoria: 'repertorio', texto: `[${tema}] ${texto}` }));
+      repertorios1p.forEach(([tema, texto]) => lista.push({ id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), categoria: 'repertorio_1p', texto: `[${tema}] ${texto}` }));
+      repertorios2p.forEach(([tema, texto]) => lista.push({ id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), categoria: 'repertorio_2p', texto: `[${tema}] ${texto}` }));
       retomadas.forEach(([tema, texto]) => lista.push({ id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), categoria: 'retomada_repertorio', texto: `[${tema}] ${texto}` }));
       salvarBanco(lista);
       localStorage.setItem(SEED_KEY, '1');
