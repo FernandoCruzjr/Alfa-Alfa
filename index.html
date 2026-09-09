@@ -118,9 +118,6 @@
     }
   </script>
   <style>
-    /* Esconde por padrão qualquer matéria/flashcard restrito até applyAccessLocks() confirmar o acesso.
-       Evita o "flash" de conteúdo bloqueado aparecendo e sumindo ao atualizar a página. */
-    [data-quiz-id] { display: none; }
 :root {
   --tw-slate-50: 248 250 252;
   --tw-slate-100: 241 245 249;
@@ -1086,10 +1083,9 @@
 
       document.querySelectorAll('[data-quiz-id]').forEach(card => {
         const quizId = card.getAttribute('data-quiz-id');
-        if (liberadas.has(quizId)) {
-          card.style.display = '';
+        if (!liberadas.has(quizId)) {
+          card.classList.add('hidden');
         }
-        // Sem acesso: permanece escondido pelo CSS padrão [data-quiz-id] { display: none; }
       });
     }
 
