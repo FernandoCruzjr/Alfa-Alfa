@@ -509,25 +509,25 @@
 
     const STRUCTURE = [
       { titulo: 'Introdução', metaLinhas: 6, periodos: [
-        { id: 'i1', conectivo: '', dica: 'Frase de abertura, contextualizando o tema.', targetLinhas: 2.5 },
-        { id: 'i2', conectivo: 'Nesse contexto,', dica: 'Continue desenvolvendo o contexto.', targetLinhas: 2 },
-        { id: 'i3', conectivo: 'Desse modo,', dica: 'Tese com os 2 argumentos (ex.: suporte à economia e apoio à defesa).', targetLinhas: 1.5 },
+        { id: 'i1', conectivo: '', cat: 'topico', dica: 'Frase de abertura, contextualizando o tema.', targetLinhas: 2.5 },
+        { id: 'i2', conectivo: 'Nesse contexto,', cat: 'conectivo', dica: 'Continue desenvolvendo o contexto.', targetLinhas: 2 },
+        { id: 'i3', conectivo: 'Desse modo,', cat: 'argumento', dica: 'Tese com os 2 argumentos (ex.: suporte à economia e apoio à defesa).', targetLinhas: 1.5 },
       ]},
       { titulo: 'Desenvolvimento 1', metaLinhas: 9, periodos: [
-        { id: 'd1', conectivo: 'Primordialmente,', dica: 'Tópico frasal — retoma o 1º argumento.', targetLinhas: 2 },
-        { id: 'd2', conectivo: 'Segundo, (AUTOR)', dica: 'Repertório: uma frase de alguém relevante.', targetLinhas: 2 },
-        { id: 'd3', conectivo: 'Sob essa ótica,', dica: 'Retome e explique o repertório citado.', targetLinhas: 2.5 },
-        { id: 'd4', conectivo: 'Desse modo,', dica: 'Síntese com o texto-base, fechando o parágrafo.', targetLinhas: 5 },
+        { id: 'd1', conectivo: 'Primordialmente,', cat: 'topico', dica: 'Tópico frasal — retoma o 1º argumento.', targetLinhas: 2 },
+        { id: 'd2', conectivo: 'Segundo, (AUTOR)', cat: 'repertorio', dica: 'Repertório: uma frase de alguém relevante.', targetLinhas: 2 },
+        { id: 'd3', conectivo: 'Sob essa ótica,', cat: 'conectivo', dica: 'Retome e explique o repertório citado.', targetLinhas: 2.5 },
+        { id: 'd4', conectivo: 'Desse modo,', cat: 'conectivo', dica: 'Síntese com o texto-base, fechando o parágrafo.', targetLinhas: 5 },
       ]},
       { titulo: 'Desenvolvimento 2', metaLinhas: 8, periodos: [
-        { id: 'e1', conectivo: 'Ainda sobre esse prisma, verifica-se que', dica: 'Tópico frasal — retoma o 2º argumento.', targetLinhas: 2 },
-        { id: 'e2', conectivo: 'Nesse sentido, (AUTOR) ao afirmar que', dica: 'Repertório: uma frase de alguém relevante.', targetLinhas: 2 },
-        { id: 'e3', conectivo: 'Nessa direção,', dica: 'Retome e explique o repertório citado.', targetLinhas: 2 },
-        { id: 'e4', conectivo: 'Dessa forma,', dica: 'Síntese com o texto-base, fechando o parágrafo.', targetLinhas: 2 },
+        { id: 'e1', conectivo: 'Ainda sobre esse prisma, verifica-se que', cat: 'topico', dica: 'Tópico frasal — retoma o 2º argumento.', targetLinhas: 2 },
+        { id: 'e2', conectivo: 'Nesse sentido, (AUTOR) ao afirmar que', cat: 'repertorio', dica: 'Repertório: uma frase de alguém relevante.', targetLinhas: 2 },
+        { id: 'e3', conectivo: 'Nessa direção,', cat: 'conectivo', dica: 'Retome e explique o repertório citado.', targetLinhas: 2 },
+        { id: 'e4', conectivo: 'Dessa forma,', cat: 'conectivo', dica: 'Síntese com o texto-base, fechando o parágrafo.', targetLinhas: 2 },
       ]},
       { titulo: 'Conclusão', metaLinhas: 6, periodos: [
-        { id: 'c1', conectivo: 'Em síntese, verifica-se que', dica: 'Circularidade — retoma a introdução com um contraponto.', targetLinhas: 3 },
-        { id: 'c2', conectivo: 'Assim, conclui-se que', dica: '', targetLinhas: 3 },
+        { id: 'c1', conectivo: 'Em síntese, verifica-se que', cat: 'topico', dica: 'Circularidade — retoma a introdução com um contraponto.', targetLinhas: 3 },
+        { id: 'c2', conectivo: 'Assim, conclui-se que', cat: 'conectivo', dica: '', targetLinhas: 3 },
       ]},
     ];
 
@@ -646,14 +646,37 @@
 
     function onLinhaInput(idx, valor) {
       linhas[idx] = valor;
-      const transbordou = reflowFrom(idx);
-      renderPaperValues();
-      // mantém o foco na mesma linha, cursor no fim
-      const el = document.getElementById('linha-' + idx);
-      if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length); }
+
+      if (valor.length > CHARS_PER_LINE) {
+        // estourou o limite da linha: reflow de verdade, e o foco avança pra próxima linha
+        reflowFrom(idx);
+        renderPaperValues();
+        const proxima = idx + 1;
+        const el = document.getElementById('linha-' + proxima);
+        if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length); }
+      }
+      // dentro do limite: não mexe em mais nada do DOM, deixa o navegador cuidar do espaço normalmente
+
       atualizarContador();
       clearTimeout(saveTimer);
       saveTimer = setTimeout(salvarRascunho, 400);
+    }
+
+    function onLinhaKeydown(idx, e) {
+      const el = e.target;
+      // Backspace no início de uma linha: junta com o fim da linha anterior
+      if (e.key === 'Backspace' && el.selectionStart === 0 && el.selectionEnd === 0 && idx > 0) {
+        e.preventDefault();
+        const anterior = document.getElementById('linha-' + (idx - 1));
+        const posicaoJuncao = linhas[idx - 1].length;
+        linhas[idx - 1] = linhas[idx - 1] + (linhas[idx] ? ' ' + linhas[idx] : '');
+        reflowFrom(idx - 1);
+        renderPaperValues();
+        if (anterior) { anterior.focus(); anterior.setSelectionRange(posicaoJuncao, posicaoJuncao); }
+        atualizarContador();
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(salvarRascunho, 400);
+      }
     }
 
     function contarLinhasUsadas() {
@@ -692,6 +715,7 @@
         const el = document.getElementById('linha-' + i);
         el.addEventListener('input', (e) => onLinhaInput(i, e.target.value));
         el.addEventListener('focus', () => { linhaFocada = i; });
+        el.addEventListener('keydown', (e) => onLinhaKeydown(i, e));
       }
     }
 
@@ -719,6 +743,10 @@
                 </div>
                 ${p.conectivo ? `<div class="text-[13px] font-medium italic" style="color:#e05252;">${p.conectivo}</div>` : ''}
                 ${p.dica ? `<div class="text-[10px] text-slate-500 mt-1"><i class="fa-solid fa-lightbulb text-amber-500/70 mr-1"></i>${p.dica}</div>` : ''}
+                <div class="flex gap-1.5 mt-2 pt-2 border-t border-slate-800">
+                  <input id="nova-${p.id}" type="text" placeholder="Guardar uma frase nova pra esse período..." class="flex-1 h-7 rounded-md bg-slate-950 border border-slate-700 focus:border-navy-500 px-2 text-[11px] text-ink outline-none">
+                  <button type="button" onclick="salvarFraseDoPeriodo('${p.id}', '${p.cat}')" title="Guardar no banco de frases" class="w-7 h-7 flex-shrink-0 rounded-md bg-slate-800 border border-slate-700 hover:border-emerald-500 text-slate-400 hover:text-emerald-400 transition-colors"><i class="fa-solid fa-plus text-xs"></i></button>
+                </div>
               </div>
             `).join('')}
           </div>
@@ -749,6 +777,18 @@
       { id: 'conectivo', label: 'Conectivo', icon: 'fa-link' },
       { id: 'repertorio', label: 'Repertório', icon: 'fa-quote-right' },
     ];
+
+    function salvarFraseDoPeriodo(periodoId, categoria) {
+      const input = document.getElementById('nova-' + periodoId);
+      const texto = input.value.trim();
+      if (!texto) return;
+      const lista = carregarBanco();
+      lista.push({ id: Date.now().toString(36), categoria, texto });
+      salvarBanco(lista);
+      input.value = '';
+      input.placeholder = 'Guardado! Pode adicionar outra...';
+      setTimeout(() => { input.placeholder = "Guardar uma frase nova pra esse período..."; }, 1500);
+    }
 
     function carregarBanco() {
       try { return JSON.parse(localStorage.getItem(BANCO_FRASES_KEY) || '[]'); } catch (e) { return []; }
