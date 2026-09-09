@@ -504,7 +504,7 @@
       </div>
       <div class="p-4 border-b border-slate-700 flex flex-col gap-2">
         <select id="nova-frase-categoria" class="h-9 rounded-md bg-slate-950 border border-slate-700 px-2 text-sm text-ink outline-none">
-          <option value="topico">Tópico frasal (Introdução)</option>
+          <option value="introducao_contextualizacao">Introdução e Contextualização</option>
           <option value="topico_d1">Tópico frasal — Desenvolvimento 1</option>
           <option value="topico_d2">Tópico frasal — Desenvolvimento 2</option>
           <option value="topico_conclusao">Tópico frasal — Conclusão</option>
@@ -524,7 +524,7 @@
         <label class="block text-[10px] font-semibold text-slate-500 mb-1">FILTRAR POR CATEGORIA</label>
         <select id="filtro-categoria" onchange="renderBanco()" class="w-full h-9 rounded-md bg-slate-950 border border-slate-700 px-2 text-sm text-ink outline-none">
           <option value="">— selecione uma categoria —</option>
-          <option value="topico">Tópico frasal (Introdução)</option>
+          <option value="introducao_contextualizacao">Introdução e Contextualização</option>
           <option value="topico_d1">Tópico frasal — Desenvolvimento 1</option>
           <option value="topico_d2">Tópico frasal — Desenvolvimento 2</option>
           <option value="topico_conclusao">Tópico frasal — Conclusão</option>
@@ -554,7 +554,7 @@
 
     const STRUCTURE = [
       { titulo: 'Introdução', metaLinhas: 6, periodos: [
-        { id: 'i1', conectivo: '', cat: 'topico', dica: 'Frase de abertura, contextualizando o tema.', targetLinhas: 2.5 },
+        { id: 'i1', conectivo: '', cat: 'introducao_contextualizacao', dica: 'Frase de abertura, contextualizando o tema.', targetLinhas: 2.5 },
         { id: 'i2', conectivo: 'Nesse contexto,', cat: 'conectivo', dica: 'Continue desenvolvendo o contexto.', targetLinhas: 2 },
         { id: 'i3', conectivo: 'Desse modo,', cat: 'argumento', dica: 'Tese com os 2 argumentos (ex.: suporte à economia e apoio à defesa).', targetLinhas: 1.5 },
       ]},
@@ -828,7 +828,7 @@
 
     // ===== Banco de Frases =====
     const CATEGORIAS = [
-      { id: 'topico', label: 'Tópico frasal (Introdução)', icon: 'fa-signs-post' },
+      { id: 'introducao_contextualizacao', label: 'Introdução e Contextualização', icon: 'fa-signs-post' },
       { id: 'topico_d1', label: 'Tópico frasal — Desenvolvimento 1', icon: 'fa-signs-post' },
       { id: 'topico_d2', label: 'Tópico frasal — Desenvolvimento 2', icon: 'fa-signs-post' },
       { id: 'topico_conclusao', label: 'Tópico frasal — Conclusão', icon: 'fa-signs-post' },
@@ -860,6 +860,10 @@
         lista.forEach(f => {
           if (f.categoria === 'repertorio') {
             f.categoria = /nesse sentido/i.test(f.texto) ? 'repertorio_2p' : 'repertorio_1p';
+            mudou = true;
+          }
+          if (f.categoria === 'topico') {
+            f.categoria = 'introducao_contextualizacao';
             mudou = true;
           }
         });
