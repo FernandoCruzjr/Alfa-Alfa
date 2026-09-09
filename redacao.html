@@ -503,38 +503,20 @@
         <button onclick="fecharBanco()" class="text-slate-400 hover:text-ink"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="p-4 border-b border-slate-700 flex flex-col gap-2">
-        <select id="nova-frase-categoria" class="h-9 rounded-md bg-slate-950 border border-slate-700 px-2 text-sm text-ink outline-none">
-          <option value="introducao_contextualizacao">Introdução e Contextualização</option>
-          <option value="topico_d1">Tópico frasal — Desenvolvimento 1</option>
-          <option value="topico_d2">Tópico frasal — Desenvolvimento 2</option>
-          <option value="topico_conclusao">Tópico frasal — Conclusão</option>
-          <option value="argumento">Argumento</option>
-          <option value="conectivo">Conectivo</option>
-          <option value="conectivo_desse_modo">Síntese (Desse modo...)</option>
-          <option value="repertorio_1p">Repertório — 1º período (Segundo...)</option>
-          <option value="repertorio_2p">Repertório — 2º período (Nesse sentido...)</option>
-          <option value="retomada_repertorio">Retomada do Repertório (Sob essa ótica...)</option>
-        </select>
+        <div class="flex items-center justify-between">
+          <label class="block text-[10px] font-semibold text-slate-500">CATEGORIA</label>
+          <button type="button" onclick="toggleReordenar()" class="text-[10px] text-navy-400 hover:text-navy-300"><i class="fa-solid fa-arrow-up-arrow-down"></i> reordenar categorias</button>
+        </div>
+        <select id="nova-frase-categoria" class="h-9 rounded-md bg-slate-950 border border-slate-700 px-2 text-sm text-ink outline-none"></select>
         <div class="flex gap-2">
           <input id="nova-frase-texto" type="text" placeholder="Digite a frase pra guardar..." class="flex-1 h-9 rounded-md bg-slate-950 border border-slate-700 focus:border-navy-500 px-2 text-sm text-ink outline-none">
           <button onclick="adicionarFrase()" class="h-9 px-3 rounded-md bg-navy-600 hover:bg-navy-500 text-ink text-sm font-medium transition-colors">Guardar</button>
         </div>
       </div>
+      <div id="reordenar-painel" class="hidden px-4 py-3 border-b border-slate-700 bg-slate-950/40"></div>
       <div class="px-4 pt-3">
         <label class="block text-[10px] font-semibold text-slate-500 mb-1">FILTRAR POR CATEGORIA</label>
-        <select id="filtro-categoria" onchange="renderBanco()" class="w-full h-9 rounded-md bg-slate-950 border border-slate-700 px-2 text-sm text-ink outline-none">
-          <option value="">— selecione uma categoria —</option>
-          <option value="introducao_contextualizacao">Introdução e Contextualização</option>
-          <option value="topico_d1">Tópico frasal — Desenvolvimento 1</option>
-          <option value="topico_d2">Tópico frasal — Desenvolvimento 2</option>
-          <option value="topico_conclusao">Tópico frasal — Conclusão</option>
-          <option value="argumento">Argumento</option>
-          <option value="conectivo">Conectivo</option>
-          <option value="conectivo_desse_modo">Síntese (Desse modo...)</option>
-          <option value="repertorio_1p">Repertório — 1º período (Segundo...)</option>
-          <option value="repertorio_2p">Repertório — 2º período (Nesse sentido...)</option>
-          <option value="retomada_repertorio">Retomada do Repertório (Sob essa ótica...)</option>
-        </select>
+        <select id="filtro-categoria" onchange="renderBanco()" class="w-full h-9 rounded-md bg-slate-950 border border-slate-700 px-2 text-sm text-ink outline-none"></select>
       </div>
       <div id="banco-lista" class="p-4 overflow-y-auto flex-1"></div>
     </div>
@@ -554,7 +536,7 @@
 
     const STRUCTURE = [
       { titulo: 'Introdução', metaLinhas: 6, periodos: [
-        { id: 'i1', conectivo: '', cat: 'introducao_contextualizacao', dica: 'Frase de abertura, contextualizando o tema.', targetLinhas: 2.5 },
+        { id: 'i1', conectivo: '', cat: 'contextualizacao', dica: 'Frase de abertura, contextualizando o tema.', targetLinhas: 2.5 },
         { id: 'i2', conectivo: 'Nesse contexto,', cat: 'conectivo', dica: 'Continue desenvolvendo o contexto.', targetLinhas: 2 },
         { id: 'i3', conectivo: 'Desse modo,', cat: 'argumento', dica: 'Tese com os 2 argumentos (ex.: suporte à economia e apoio à defesa).', targetLinhas: 1.5 },
       ]},
@@ -828,7 +810,8 @@
 
     // ===== Banco de Frases =====
     const CATEGORIAS = [
-      { id: 'introducao_contextualizacao', label: 'Introdução e Contextualização', icon: 'fa-signs-post' },
+      { id: 'introducao', label: 'Introdução', icon: 'fa-signs-post' },
+      { id: 'contextualizacao', label: 'Contextualização', icon: 'fa-signs-post' },
       { id: 'topico_d1', label: 'Tópico frasal — Desenvolvimento 1', icon: 'fa-signs-post' },
       { id: 'topico_d2', label: 'Tópico frasal — Desenvolvimento 2', icon: 'fa-signs-post' },
       { id: 'topico_conclusao', label: 'Tópico frasal — Conclusão', icon: 'fa-signs-post' },
@@ -839,6 +822,60 @@
       { id: 'repertorio_2p', label: 'Repertório — 2º período (Nesse sentido...)', icon: 'fa-quote-right' },
       { id: 'retomada_repertorio', label: 'Retomada do Repertório (Sob essa ótica...)', icon: 'fa-rotate-left' },
     ];
+
+    const ORDEM_CATEGORIAS_KEY = 'redacao_ordem_categorias';
+
+    function ordemCategorias() {
+      let ordemSalva = [];
+      try { ordemSalva = JSON.parse(localStorage.getItem(ORDEM_CATEGORIAS_KEY) || '[]'); } catch (e) { ordemSalva = []; }
+      const porId = Object.fromEntries(CATEGORIAS.map(c => [c.id, c]));
+      const ordenadas = ordemSalva.filter(id => porId[id]).map(id => porId[id]);
+      const faltando = CATEGORIAS.filter(c => !ordemSalva.includes(c.id));
+      return ordenadas.concat(faltando);
+    }
+
+    function salvarOrdemCategorias(lista) {
+      localStorage.setItem(ORDEM_CATEGORIAS_KEY, JSON.stringify(lista.map(c => c.id)));
+    }
+
+    function renderSeletoresDeCategoria() {
+      const cats = ordemCategorias();
+      const optsHtml = cats.map(c => `<option value="${c.id}">${c.label}</option>`).join('');
+      document.getElementById('nova-frase-categoria').innerHTML = optsHtml;
+      document.getElementById('filtro-categoria').innerHTML = '<option value="">— selecione uma categoria —</option>' + optsHtml;
+    }
+
+    function toggleReordenar() {
+      const painel = document.getElementById('reordenar-painel');
+      const abrindo = painel.classList.contains('hidden');
+      painel.classList.toggle('hidden');
+      if (abrindo) renderReordenar();
+    }
+
+    function renderReordenar() {
+      const cats = ordemCategorias();
+      const painel = document.getElementById('reordenar-painel');
+      painel.innerHTML = `
+        <p class="text-[10px] text-slate-500 mb-2">Use as setas pra mudar a ordem em que as categorias aparecem nos menus.</p>
+        ${cats.map((c, i) => `
+          <div class="flex items-center gap-2 bg-slate-900/70 border border-slate-700 rounded-md px-2 py-1.5 mb-1 text-xs">
+            <span class="flex-1 text-slate-200">${c.label}</span>
+            <button type="button" onclick="moverCategoria(${i}, -1)" ${i === 0 ? 'disabled' : ''} class="text-slate-400 hover:text-navy-400 disabled:opacity-20 disabled:hover:text-slate-400"><i class="fa-solid fa-chevron-up"></i></button>
+            <button type="button" onclick="moverCategoria(${i}, 1)" ${i === cats.length - 1 ? 'disabled' : ''} class="text-slate-400 hover:text-navy-400 disabled:opacity-20 disabled:hover:text-slate-400"><i class="fa-solid fa-chevron-down"></i></button>
+          </div>
+        `).join('')}
+      `;
+    }
+
+    function moverCategoria(indice, direcao) {
+      const cats = ordemCategorias();
+      const alvo = indice + direcao;
+      if (alvo < 0 || alvo >= cats.length) return;
+      [cats[indice], cats[alvo]] = [cats[alvo], cats[indice]];
+      salvarOrdemCategorias(cats);
+      renderReordenar();
+      renderSeletoresDeCategoria();
+    }
 
     function salvarFraseDoPeriodo(periodoId, categoria) {
       const input = document.getElementById('nova-' + periodoId);
@@ -862,8 +899,8 @@
             f.categoria = /nesse sentido/i.test(f.texto) ? 'repertorio_2p' : 'repertorio_1p';
             mudou = true;
           }
-          if (f.categoria === 'topico') {
-            f.categoria = 'introducao_contextualizacao';
+          if (f.categoria === 'topico' || f.categoria === 'introducao_contextualizacao') {
+            f.categoria = 'contextualizacao';
             mudou = true;
           }
         });
@@ -1055,6 +1092,7 @@
       document.getElementById('user-email').textContent = currentUser.email;
 
       semearBancoPadrao();
+      renderSeletoresDeCategoria();
       renderPaperSkeleton();
       renderGuia();
       carregarRascunho();
