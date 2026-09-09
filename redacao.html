@@ -494,12 +494,29 @@
           <option value="topico_conclusao">Tópico frasal — Conclusão</option>
           <option value="argumento">Argumento</option>
           <option value="conectivo">Conectivo</option>
+          <option value="conectivo_desse_modo">Síntese (Desse modo...)</option>
           <option value="repertorio">Repertório</option>
+          <option value="retomada_repertorio">Retomada do Repertório (Sob essa ótica...)</option>
         </select>
         <div class="flex gap-2">
           <input id="nova-frase-texto" type="text" placeholder="Digite a frase pra guardar..." class="flex-1 h-9 rounded-md bg-slate-950 border border-slate-700 focus:border-navy-500 px-2 text-sm text-ink outline-none">
           <button onclick="adicionarFrase()" class="h-9 px-3 rounded-md bg-navy-600 hover:bg-navy-500 text-ink text-sm font-medium transition-colors">Guardar</button>
         </div>
+      </div>
+      <div class="px-4 pt-3">
+        <label class="block text-[10px] font-semibold text-slate-500 mb-1">FILTRAR POR CATEGORIA</label>
+        <select id="filtro-categoria" onchange="renderBanco()" class="w-full h-9 rounded-md bg-slate-950 border border-slate-700 px-2 text-sm text-ink outline-none">
+          <option value="">— selecione uma categoria —</option>
+          <option value="topico">Tópico frasal (Introdução)</option>
+          <option value="topico_d1">Tópico frasal — Desenvolvimento 1</option>
+          <option value="topico_d2">Tópico frasal — Desenvolvimento 2</option>
+          <option value="topico_conclusao">Tópico frasal — Conclusão</option>
+          <option value="argumento">Argumento</option>
+          <option value="conectivo">Conectivo</option>
+          <option value="conectivo_desse_modo">Síntese (Desse modo...)</option>
+          <option value="repertorio">Repertório</option>
+          <option value="retomada_repertorio">Retomada do Repertório (Sob essa ótica...)</option>
+        </select>
       </div>
       <div id="banco-lista" class="p-4 overflow-y-auto flex-1"></div>
     </div>
@@ -526,13 +543,13 @@
       { titulo: 'Desenvolvimento 1', metaLinhas: 9, periodos: [
         { id: 'd1', conectivo: 'Primordialmente,', cat: 'topico_d1', dica: 'Tópico frasal — retoma o 1º argumento.', targetLinhas: 2 },
         { id: 'd2', conectivo: 'Segundo, (AUTOR)', cat: 'repertorio', dica: 'Repertório: uma frase de alguém relevante.', targetLinhas: 2 },
-        { id: 'd3', conectivo: 'Sob essa ótica,', cat: 'conectivo', dica: 'Retome e explique o repertório citado.', targetLinhas: 2.5 },
+        { id: 'd3', conectivo: 'Sob essa ótica,', cat: 'retomada_repertorio', dica: 'Retome e explique o repertório citado.', targetLinhas: 2.5 },
         { id: 'd4', conectivo: 'Desse modo,', cat: 'conectivo', dica: 'Síntese com o texto-base, fechando o parágrafo.', targetLinhas: 5 },
       ]},
       { titulo: 'Desenvolvimento 2', metaLinhas: 8, periodos: [
         { id: 'e1', conectivo: 'Ainda sobre esse prisma, verifica-se que', cat: 'topico_d2', dica: 'Tópico frasal — retoma o 2º argumento.', targetLinhas: 2 },
         { id: 'e2', conectivo: 'Nesse sentido, (AUTOR) ao afirmar que', cat: 'repertorio', dica: 'Repertório: uma frase de alguém relevante.', targetLinhas: 2 },
-        { id: 'e3', conectivo: 'Nessa direção,', cat: 'conectivo', dica: 'Retome e explique o repertório citado.', targetLinhas: 2 },
+        { id: 'e3', conectivo: 'Nessa direção,', cat: 'retomada_repertorio', dica: 'Retome e explique o repertório citado.', targetLinhas: 2 },
         { id: 'e4', conectivo: 'Dessa forma,', cat: 'conectivo', dica: 'Síntese com o texto-base, fechando o parágrafo.', targetLinhas: 2 },
       ]},
       { titulo: 'Conclusão', metaLinhas: 6, periodos: [
@@ -799,7 +816,9 @@
       { id: 'topico_conclusao', label: 'Tópico frasal — Conclusão', icon: 'fa-signs-post' },
       { id: 'argumento', label: 'Argumento', icon: 'fa-scale-balanced' },
       { id: 'conectivo', label: 'Conectivo', icon: 'fa-link' },
+      { id: 'conectivo_desse_modo', label: 'Síntese (Desse modo...)', icon: 'fa-arrows-turn-to-dots' },
       { id: 'repertorio', label: 'Repertório', icon: 'fa-quote-right' },
+      { id: 'retomada_repertorio', label: 'Retomada do Repertório (Sob essa ótica...)', icon: 'fa-rotate-left' },
     ];
 
     function salvarFraseDoPeriodo(periodoId, categoria) {
@@ -820,6 +839,52 @@
     function salvarBanco(lista) {
       localStorage.setItem(BANCO_FRASES_KEY, JSON.stringify(lista));
     }
+
+    const SEED_KEY = 'redacao_banco_seeded_v1';
+    function semearBancoPadrao() {
+      if (localStorage.getItem(SEED_KEY)) return; // já rodou antes, não duplica
+      const sinteses = [
+        ['Amazônia Azul', 'Desse modo, a atuação da Marinha do Brasil (MB), mostra-se essencial tanto para impulsionar a economia quanto para proteger os recursos naturais brasileiros.'],
+        ['PEM 2040', 'Desse modo, o PEM 2040 evidencia a importância da Marinha do Brasil (MB) tanto para fortalecer a defesa quanto para promover o desenvolvimento nacional.'],
+        ['Poder Naval', 'Desse modo, o Poder Naval revela-se fundamental para a Marinha do Brasil (MB), tanto na garantia da soberania quanto na dissuasão de possíveis ameaças.'],
+        ['Programa Nuclear da Marinha', 'Desse modo, o Programa Nuclear da Marinha contribui tanto para o avanço tecnológico quanto para a autonomia estratégica do Brasil.'],
+        ['SisGAAz', 'Desse modo, o SisGAAz fortalece a atuação da Marinha do Brasil (MB) tanto no monitoramento das águas quanto na garantia da segurança marítima.'],
+        ['Mentalidade Marítima', 'Desse modo, o fortalecimento da mentalidade marítima favorece tanto a conscientização da sociedade quanto a valorização do mar brasileiro.'],
+        ['Atlântico Sul', 'Desse modo, a atuação da Marinha do Brasil (MB) no Atlântico Sul é essencial tanto para os interesses geopolíticos quanto para a segurança estratégica nacional.'],
+      ];
+      const repertorios = [
+        ['Amazônia Azul', 'Segundo o Almirante Álvaro Alberto, "O mar não é um obstáculo, é uma via de comunicação e uma fonte inesgotável de riqueza."'],
+        ['Amazônia Azul', 'Nesse sentido, Sir Walter Raleigh afirma que "Quem domina o mar, domina as riquezas do mundo."'],
+        ['PEM 2040', 'Segundo a instituição militar clássica Vegécio, "Se queres a paz, prepara para a guerra."'],
+        ['PEM 2040', 'Nesse sentido, o conceito alinhado ao pensamento de Celso Furtado sobre soberania econômica e industrial afirma que "Um país não é independente apenas por sua bandeira, mas pela capacidade de produzir e proteger seus próprios meios."'],
+        ['Poder Naval', 'Segundo Alfred Thayer Mahan, "A nação que negligencia o seu poder naval está à mercê da vontade de potências estrangeiras."'],
+        ['Poder Naval', 'Nesse sentido, o princípio da dissuasão integral afirma que "A melhor forma de evitar a guerra é possuir forças armadas tão fortes que nenhum adversário ouse desafiá-las."'],
+        ['Programa Nuclear da Marinha', 'Segundo a visão tecnológica alinhada ao pensamento de Darcy Ribeiro sobre autonomia científica, "A tecnologia não é neutra; ela liberta os povos que a dominam e escraviza os que dela dependem."'],
+        ['Programa Nuclear da Marinha', 'Nesse sentido, a ideia de consolidação da independência geopolítica do Brasil afirma que "A ciência e a tecnologia são o fundamento da soberania no século XXI."'],
+        ['SisGAAz', 'Segundo o adágio estratégico militar, "Não se pode defender o que não se conhece, nem controlar o que não se vê."'],
+        ['SisGAAz', 'Nesse sentido, o conceito geopolítico sobre proteção contra ilícitos (pirataria, pesca ilegal, tráfico) afirma que "A segurança das linhas de comunicação marítima é a artéria vital da economia global."'],
+        ['Mentalidade Marítima', 'Segundo o historiador e diplomata José Maria da Silva Paranhos (Barão do Rio Branco), "O Brasil é um país de costas para o mar."'],
+        ['Mentalidade Marítima', 'Nesse sentido, a ideia de patriotismo cívico-marítimo afirma que "Um povo que conhece o valor de seu mar aprende a defendê-lo como parte indissociável de sua identidade."'],
+        ['Atlântico Sul', 'Segundo a ideia baseada na Zona de Paz e Cooperação do Atlântico Sul (ZOPACAS), "O Atlântico Sul deve ser uma zona de paz e cooperação, mas garantida pela força legítima de quem o protege."'],
+        ['Atlântico Sul', 'Nesse sentido, a visão geoestratégica sobre o posicionamento atlântico brasileiro afirma que "Quem controla as rotas do Atlântico Sul controla o comércio e o destino do hemisfério sul."'],
+      ];
+      const retomadas = [
+        ['Economia e Desenvolvimento Nacional', 'Sob essa ótica, torna-se indispensável que a MB intensifique o fomento à Base Industrial de Defesa e a segurança das vias logísticas, garantindo o escoamento seguro de commodities, a expansão da cabotagem e a atração de investimentos de alta tecnologia para o setor naval.'],
+        ['Defesa da Soberania e Geopolítica', 'Sob essa ótica, torna-se indispensável que a MB mantenha uma esquadra de alta prontidão e capacidade de dissuasão integrada, capaz de assegurar a integridade territorial das águas jurisdicionais brasileiras e de projetar poder em cenários de instabilidade regional ou global.'],
+        ['Difusão da Mentalidade Marítima', 'Sob essa ótica, torna-se indispensável que a MB expanda parcerias educacionais e culturais para enraizar na sociedade a consciência de que o desenvolvimento nacional está indissociavelmente ligado ao mar, utilizando plataformas digitais, museus e projetos esportivos de base.'],
+        ['Proteção Ambiental e Sustentabilidade', 'Sob essa ótica, torna-se indispensável que a MB atue com rigor na fiscalização contra a poluição hídrica, na resposta rápida a desastres ecológicos (como vazamentos de óleo) e no apoio técnico a pesquisas oceanográficas e climáticas na Amazônia Azul e na Antártica.'],
+        ['Autonomia Tecnológica e Pesquisa', 'Sob essa ótica, torna-se indispensável que a MB acelere o desenvolvimento de tecnologias sensíveis e de duplo uso — a exemplo do Programa Nuclear da Marinha e de sistemas autônomos —, reduzindo a dependência externa e impulsionando a soberania científica do país.'],
+        ['Ajuda Humanitária e Assistência Médica', 'Sob essa ótica, torna-se indispensável que a MB utilize sua capilaridade logística e seus meios de grande deslocamento para prestar socorro imediato a populações atingidas por catástrofes naturais, além de levar assistência médica e odontológica a comunidades ribeirinhas isoladas.'],
+        ['Assuntos Atuais e Tendências Emergentes', 'Sob essa ótica, torna-se indispensável que a MB adapte suas doutrinas e capacidades para enfrentar ameaças híbridas e cibernéticas, garantir a segurança de cabos submarinos de comunicação de dados e monitorar novas rotas de navegação decorrentes das mudanças climáticas globais.'],
+      ];
+
+      const lista = carregarBanco();
+      sinteses.forEach(([tema, texto]) => lista.push({ id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), categoria: 'conectivo_desse_modo', texto: `[${tema}] ${texto}` }));
+      repertorios.forEach(([tema, texto]) => lista.push({ id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), categoria: 'repertorio', texto: `[${tema}] ${texto}` }));
+      retomadas.forEach(([tema, texto]) => lista.push({ id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), categoria: 'retomada_repertorio', texto: `[${tema}] ${texto}` }));
+      salvarBanco(lista);
+      localStorage.setItem(SEED_KEY, '1');
+    }
     function adicionarFrase() {
       const categoria = document.getElementById('nova-frase-categoria').value;
       const texto = document.getElementById('nova-frase-texto').value.trim();
@@ -837,23 +902,23 @@
     function renderBanco() {
       const lista = carregarBanco();
       const container = document.getElementById('banco-lista');
-      if (lista.length === 0) {
-        container.innerHTML = '<p class="text-xs text-slate-500 italic px-1">Nenhuma frase guardada ainda.</p>';
+      const filtro = document.getElementById('filtro-categoria')?.value || '';
+
+      if (!filtro) {
+        container.innerHTML = '<p class="text-xs text-slate-500 italic px-1">Selecione uma categoria acima pra ver as frases guardadas.</p>';
         return;
       }
-      container.innerHTML = CATEGORIAS.map(cat => {
-        const itens = lista.filter(f => f.categoria === cat.id);
-        if (itens.length === 0) return '';
-        return `<div class="mb-2">
-          <div class="text-[10px] font-semibold text-slate-500 mb-1"><i class="fa-solid ${cat.icon} mr-1"></i>${cat.label}</div>
-          ${itens.map(f => `
-            <div class="flex items-center gap-2 bg-slate-900/70 border border-slate-700 rounded-md px-2 py-1.5 mb-1 text-xs">
-              <span class="flex-1 text-slate-200 cursor-pointer hover:text-navy-400" onclick="inserirFraseNaLinha('${f.id}')">${f.texto.replace(/</g, '&lt;')}</span>
-              <button type="button" onclick="removerFrase('${f.id}')" class="text-rose-400/70 hover:text-rose-300 flex-shrink-0"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-          `).join('')}
-        </div>`;
-      }).join('');
+      const itens = lista.filter(f => f.categoria === filtro);
+      if (itens.length === 0) {
+        container.innerHTML = '<p class="text-xs text-slate-500 italic px-1">Nenhuma frase guardada nessa categoria ainda.</p>';
+        return;
+      }
+      container.innerHTML = itens.map(f => `
+        <div class="flex items-center gap-2 bg-slate-900/70 border border-slate-700 rounded-md px-2 py-1.5 mb-1 text-xs">
+          <span class="flex-1 text-slate-200 cursor-pointer hover:text-navy-400" onclick="inserirFraseNaLinha('${f.id}')">${f.texto.replace(/</g, '&lt;')}</span>
+          <button type="button" onclick="removerFrase('${f.id}')" class="text-rose-400/70 hover:text-rose-300 flex-shrink-0"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      `).join('');
     }
     function abrirBanco() {
       renderBanco();
@@ -951,6 +1016,7 @@
       bar.classList.add('flex');
       document.getElementById('user-email').textContent = currentUser.email;
 
+      semearBancoPadrao();
       renderPaperSkeleton();
       renderGuia();
       carregarRascunho();
