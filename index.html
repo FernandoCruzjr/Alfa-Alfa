@@ -332,8 +332,7 @@
       position: absolute;
       inset: 0;
       background-image: url('login-oficial-mesa.jpg');
-      background-size: contain;
-      background-repeat: no-repeat;
+      background-size: cover;
       background-position: center;
     }
     #storm-vignette {
@@ -360,7 +359,9 @@
       <div id="storm-vignette"></div>
     </div>
     <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border-2 border-[#c9a44c] bg-[#071a2d]/70 backdrop-blur-sm shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-8 flex flex-col items-center text-center opacity-0 translate-y-2 relative z-10" style="animation: access-in .5s ease-out .1s forwards;">
-      <div class="text-[46px] leading-none mb-2" aria-hidden="true">⚓</div>
+      <div class="w-14 h-14 mb-3 mx-auto flex items-center justify-center rotate-45 border-2 border-[#c9a44c] bg-[#c9a44c]/10" aria-hidden="true">
+        <i class="fa-solid fa-anchor text-[24px] text-[#c9a44c] -rotate-45"></i>
+      </div>
       <div class="font-script font-bold text-[32px] leading-tight text-ink">Fernando Cruz</div>
       <div class="text-[11px] text-[#91a9c3] mt-1 italic mb-5">"O sucesso é a soma de pequenos esforços repetidos dia após dia"</div>
       <div class="font-serif font-semibold text-[24px] text-ink tracking-tight">CA-AA/AFN</div>
@@ -374,7 +375,7 @@
       <form id="login-form" class="w-full flex flex-col gap-3" onsubmit="return handleLogin(event)">
         <input id="login-email" type="email" required autocomplete="email" placeholder="seu e-mail" class="w-full h-12 rounded-xl border border-[#c9a44c] bg-[#06172a] px-4 text-sm text-ink outline-none focus:ring-2 focus:ring-[#c9a44c] transition-shadow">
         <input id="login-password" type="password" required autocomplete="current-password" placeholder="senha" class="w-full h-12 rounded-xl border border-[#c9a44c] bg-[#06172a] px-4 text-sm text-ink outline-none focus:ring-2 focus:ring-[#c9a44c] transition-shadow">
-        <button type="submit" class="w-full h-12 rounded-xl bg-[#c9a44c] hover:bg-[#d9b968] active:scale-[.99] text-[#071a2d] text-sm font-bold transition-all shadow-lg">🔐 Entrar</button>
+        <button type="submit" class="w-full h-12 rounded-xl bg-[#c9a44c] hover:bg-[#d9b968] active:scale-[.99] text-white text-sm font-bold transition-all shadow-lg">Entrar</button>
         <button type="button" onclick="handleForgotPassword()" class="text-xs text-[#8fb3dd] hover:text-ink underline underline-offset-2 mt-1">Esqueci minha senha</button>
       </form>
 
