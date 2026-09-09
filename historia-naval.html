@@ -7378,16 +7378,19 @@ const questionsData = [
       card.classList.add('question-in');
     }
 
-    const PERSONAL_FLASHCARDS_KEY = 'fc_pessoal_HISTORIA_NAVAL';
+    function personalFlashcardsKey() {
+      // Namespaced pelo ID do usuário logado: cada aluno só enxerga seus próprios flashcards.
+      return 'fc_pessoal_HISTORIA_NAVAL_' + (currentUser && currentUser.id ? currentUser.id : 'anon');
+    }
 
     function loadPersonalFlashcards() {
       try {
-        return JSON.parse(localStorage.getItem(PERSONAL_FLASHCARDS_KEY) || '[]');
+        return JSON.parse(localStorage.getItem(personalFlashcardsKey()) || '[]');
       } catch (e) { return []; }
     }
 
     function savePersonalFlashcards(list) {
-      localStorage.setItem(PERSONAL_FLASHCARDS_KEY, JSON.stringify(list));
+      localStorage.setItem(personalFlashcardsKey(), JSON.stringify(list));
     }
 
     function updateFlashcardBtnState() {

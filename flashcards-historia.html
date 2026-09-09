@@ -474,11 +474,14 @@
 
     const FAVORITOS_LABEL = '⭐ Favoritos';
     const MINHAS_QUESTOES_LABEL = '📋 Minhas Questões (da Prova)';
-    const PERSONAL_FLASHCARDS_KEY = 'fc_pessoal_HISTORIA_NAVAL';
+    function personalFlashcardsKey() {
+      // Namespaced pelo ID do usuário logado: cada aluno só enxerga seus próprios flashcards.
+      return 'fc_pessoal_HISTORIA_NAVAL_' + (currentUser && currentUser.id ? currentUser.id : 'anon');
+    }
 
     function loadMinhasQuestoes() {
       try {
-        const raw = JSON.parse(localStorage.getItem(PERSONAL_FLASHCARDS_KEY) || '[]');
+        const raw = JSON.parse(localStorage.getItem(personalFlashcardsKey()) || '[]');
         return raw.map((c, i) => ({ front: c.front, back: c.back, explanation: c.subject || '', _id: `minhas::${c._qid ?? i}` }));
       } catch (e) { return []; }
     }

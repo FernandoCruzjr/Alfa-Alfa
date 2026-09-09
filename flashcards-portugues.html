@@ -473,6 +473,19 @@
     });
 
     const FAVORITOS_LABEL = '⭐ Favoritos';
+    const MINHAS_QUESTOES_LABEL = '📋 Minhas Questões (da Prova)';
+
+    function personalFlashcardsKey() {
+      // Namespaced pelo ID do usuário logado: cada aluno só enxerga seus próprios flashcards.
+      return 'fc_pessoal_PORTUGUES_' + (currentUser && currentUser.id ? currentUser.id : 'anon');
+    }
+
+    function loadMinhasQuestoes() {
+      try {
+        const raw = JSON.parse(localStorage.getItem(personalFlashcardsKey()) || '[]');
+        return raw.map((c, i) => ({ front: c.front, back: c.back, explanation: c.subject || '', _id: `minhas::${c._qid ?? i}` }));
+      } catch (e) { return []; }
+    }
 
     // ===== Supabase: sessão vem da página inicial (index.html) =====
     const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
@@ -603,12 +616,21 @@
       favOpt.value = FAVORITOS_LABEL;
       favOpt.textContent = `${FAVORITOS_LABEL} (${favorites.size})`;
       select.appendChild(favOpt);
+
+      const minhasOpt = document.createElement('option');
+      minhasOpt.value = MINHAS_QUESTOES_LABEL;
+      minhasOpt.textContent = `${MINHAS_QUESTOES_LABEL} (${loadMinhasQuestoes().length})`;
+      select.appendChild(minhasOpt);
+
       select.value = currentDeckName;
     }
 
     function getDeckByName(name) {
       if (name === FAVORITOS_LABEL) {
         return allCardsFlat().filter(c => favorites.has(c._id));
+      }
+      if (name === MINHAS_QUESTOES_LABEL) {
+        return loadMinhasQuestoes();
       }
       return DECKS[name].slice();
     }
@@ -629,10 +651,13 @@
     function renderEmptyState() {
       document.getElementById('progress-label').innerText = 'Nenhuma carta aqui ainda';
       document.getElementById('progress-bar').style.width = '0%';
-      document.getElementById('card-front-text').innerText = 'Você ainda não marcou nenhuma carta como favorita. Toque na estrela ⭐ enquanto estuda um baralho para adicioná-la aqui.';
+      const msg = currentDeckName === MINHAS_QUESTOES_LABEL
+        ? 'Você ainda não virou nenhuma questão em flashcard. No simulado dessa matéria, clique em "Virar Flashcard" embaixo de uma questão para adicioná-la aqui.'
+        : 'Você ainda não marcou nenhuma carta como favorita. Toque na estrela ⭐ enquanto estuda um baralho para adicioná-la aqui.';
+      document.getElementById('card-front-text').innerText = msg;
       document.getElementById('card-back-text').innerText = '';
       document.getElementById('card-explanation').innerText = '';
-      document.getElementById('choice-front-text').innerText = 'Você ainda não marcou nenhuma carta como favorita.';
+      document.getElementById('choice-front-text').innerText = msg;
       document.getElementById('choice-options').innerHTML = '';
       document.getElementById('choice-explanation-wrap').classList.add('hidden');
     }

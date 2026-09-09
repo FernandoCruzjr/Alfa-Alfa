@@ -525,6 +525,10 @@
           <div class="text-xs md:text-sm text-slate-300" id="explanation-text"></div>
         </div>
 
+        <button id="flashcard-btn" onclick="saveAsFlashcard()" class="mt-4 w-full h-11 rounded-xl border border-navy-700 bg-navy-800/60 hover:bg-navy-700/60 hover:border-navy-500 text-slate-200 text-sm font-medium transition-all flex items-center justify-center gap-2">
+          <i class="fa-solid fa-layer-group text-navy-500"></i> Virar Flashcard
+        </button>
+
         <!-- Question Navigation Buttons -->
         <div class="mt-8 pt-4 border-t border-navy-700/60 flex justify-between items-center gap-3">
           <button id="btn-prev" onclick="prevQuestion()" class="bg-navy-700 hover:bg-navy-600 text-ink text-sm px-4 py-2.5 rounded-lg transition-all flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed">
@@ -1122,11 +1126,51 @@ let questionsData = [];
 
       updateTrackers();
 
+      updateFlashcardBtnState();
+
       // Pequena transição ao trocar de questão
       const card = document.getElementById('question-card');
       card.classList.remove('question-in');
       void card.offsetWidth;
       card.classList.add('question-in');
+    }
+
+    function personalFlashcardsKey() {
+      // Namespaced pelo ID do usuário logado: cada aluno só enxerga seus próprios flashcards.
+      return 'fc_pessoal_PROVA_SIMULADA_' + (currentUser && currentUser.id ? currentUser.id : 'anon');
+    }
+
+    function loadPersonalFlashcards() {
+      try {
+        return JSON.parse(localStorage.getItem(personalFlashcardsKey()) || '[]');
+      } catch (e) { return []; }
+    }
+
+    function savePersonalFlashcards(list) {
+      localStorage.setItem(personalFlashcardsKey(), JSON.stringify(list));
+    }
+
+    function updateFlashcardBtnState() {
+      const q = questionsData[currentIndex];
+      const btn = document.getElementById('flashcard-btn');
+      if (!btn || !q) return;
+      const list = loadPersonalFlashcards();
+      const jaSalva = list.some(c => c._qid === q.id);
+      btn.innerHTML = jaSalva
+        ? '<i class="fa-solid fa-check text-emerald-400"></i> Salva como flashcard'
+        : '<i class="fa-solid fa-layer-group text-navy-500"></i> Virar Flashcard';
+      btn.classList.toggle('border-emerald-700', jaSalva);
+      btn.classList.toggle('bg-emerald-900/30', jaSalva);
+    }
+
+    function saveAsFlashcard() {
+      const q = questionsData[currentIndex];
+      const correctText = (q.options[q.correct] || '').replace(/^[A-E]\)\s*/, '');
+      const list = loadPersonalFlashcards();
+      if (list.some(c => c._qid === q.id)) return;
+      list.push({ _qid: q.id, front: q.text, back: correctText, subject: q.subject });
+      savePersonalFlashcards(list);
+      updateFlashcardBtnState();
     }
 
     function selectOption(optIndex) {

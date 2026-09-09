@@ -14,7 +14,7 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flashcards de OGSA · Plataforma de Estudos CA-AA/AFN</title>
+  <title>Flashcards da Prova Simulada · Plataforma de Estudos CA-AA/AFN</title>
   <meta name="description" content="Flashcards de revisão de História Naval: navios, comandantes, batalhas, guerras e tratados. Estude de forma rápida e visual para o CA-AA/AFN.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -482,7 +482,7 @@
     const MINHAS_QUESTOES_LABEL = '📋 Minhas Questões (da Prova)';
     function personalFlashcardsKey() {
       // Namespaced pelo ID do usuário logado: cada aluno só enxerga seus próprios flashcards.
-      return 'fc_pessoal_OGSA_' + (currentUser && currentUser.id ? currentUser.id : 'anon');
+      return 'fc_pessoal_PROVA_SIMULADA_' + (currentUser && currentUser.id ? currentUser.id : 'anon');
     }
 
     function loadMinhasQuestoes() {
@@ -496,13 +496,13 @@
     const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
     const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
     const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-    const QUIZ_ID = 'OGSA_FLASHCARDS';
+    const QUIZ_ID = 'PROVA_SIMULADA_FLASHCARDS';
     const FAV_STORAGE_KEY = `fc_favoritos_${QUIZ_ID}`;
 
     let currentUser = null;
     let deckNames = Object.keys(DECKS);
-    let currentDeckName = deckNames.length > 0 ? deckNames[0] : MINHAS_QUESTOES_LABEL;
-    let currentDeck = deckNames.length > 0 ? DECKS[currentDeckName].slice() : [];
+    let currentDeckName = deckNames[0];
+    let currentDeck = DECKS[currentDeckName].slice();
     let currentIndex = 0;
     let flipped = false;
     let shuffled = false;
