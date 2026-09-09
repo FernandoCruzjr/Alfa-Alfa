@@ -673,6 +673,16 @@
 
     function onLinhaKeydown(idx, e) {
       const el = e.target;
+
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        if (idx < 29) {
+          const proxima = document.getElementById('linha-' + (idx + 1));
+          if (proxima) { proxima.focus(); proxima.setSelectionRange(proxima.value.length, proxima.value.length); }
+        }
+        return;
+      }
+
       // Backspace no início de uma linha: junta com o fim da linha anterior
       if (e.key === 'Backspace' && el.selectionStart === 0 && el.selectionEnd === 0 && idx > 0) {
         e.preventDefault();
@@ -706,12 +716,14 @@
     function renderPaperSkeleton() {
       const titulo = document.getElementById('input-titulo')?.value || '';
       const marcadores = calcularMarcadores();
+      const iniciosDeParagrafo = new Set([1, ...marcadores.slice(0, -1).map(m => m.linha + 1)]);
       let html = `<div class="paper-title-box"><span class="text-[13px] font-normal text-[#555]">TÍTULO:</span> <span id="paper-title-display">${titulo.replace(/</g, '&lt;')}</span></div>`;
       for (let i = 1; i <= 30; i++) {
         const marker5 = i % 5 === 0;
+        const recuo = iniciosDeParagrafo.has(i);
         html += `<div class="paper-line-row${marker5 ? ' marker-5' : ''}">
           <span class="paper-line-num">${i}</span>
-          <input type="text" id="linha-${i - 1}" class="paper-line-input" autocomplete="off" spellcheck="false">
+          <input type="text" id="linha-${i - 1}" class="paper-line-input${recuo ? ' tem-recuo' : ''}" autocomplete="off" spellcheck="false">
         </div>`;
         const marcador = marcadores.find(m => m.linha === i);
         if (marcador) {
