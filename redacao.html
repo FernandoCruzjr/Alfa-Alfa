@@ -297,6 +297,9 @@
       box-shadow: 0 20px 50px rgba(0,0,0,.35);
       padding: 28px 22px 22px;
       font-family: 'Fraunces', Georgia, serif;
+      overflow-x: auto;
+      width: fit-content;
+      max-width: 100%;
     }
     #paper-sheet .paper-title-box {
       border: 1.5px solid #1a1a1a;
@@ -337,12 +340,15 @@
       word-break: break-word;
     }
     .paper-line-input {
-      flex: 1;
+      width: 95ch;
+      max-width: 95ch;
+      flex: none;
       border: none;
       outline: none;
       background: transparent;
-      font-family: 'Fraunces', Georgia, serif;
-      font-size: 14.5px;
+      font-family: 'Courier New', ui-monospace, monospace;
+      font-size: 13.5px;
+      letter-spacing: 0;
       color: #1a1a1a;
       padding-bottom: 2px;
     }
@@ -504,7 +510,7 @@
     const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
     const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     const QUIZ_ID = 'REDACAO';
-    const CHARS_PER_LINE = 92; // estimativa calibrada pra largura/fonte da folha
+    const CHARS_PER_LINE = 95; // padrão fixo — a 96ª letra empurra pra próxima linha
     const DRAFT_KEY = 'redacao_rascunho_v2';
     const BANCO_FRASES_KEY = 'redacao_banco_frases';
 
