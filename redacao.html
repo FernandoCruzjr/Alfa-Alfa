@@ -335,6 +335,28 @@
       white-space: pre-wrap;
       word-break: break-word;
     }
+    .paper-line-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 14.5px;
+      color: #1a1a1a;
+      padding-bottom: 2px;
+    }
+    .paper-line-input.tem-recuo { padding-left: 22px; }
+    .marcador-meta {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      color: #a0451f;
+      background: #fdf0e6;
+      text-align: center;
+      padding: 2px 0;
+      border-top: 1px dashed #d4a373;
+      border-bottom: 1px dashed #d4a373;
+      letter-spacing: .02em;
+    }
     .periodo-block { transition: box-shadow .2s; }
     .periodo-over { box-shadow: 0 0 0 1px rgba(244,63,94,.5) inset; }
     .linhas-badge-ok { color: #34d399; }
@@ -406,7 +428,7 @@
             <i class="fa-solid fa-right-from-bracket"></i>
           </button>
         </div>
-        <button onclick="abrirBancoPara(null)" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg transition-all flex items-center gap-1.5" title="Gerenciar banco de frases">
+        <button onclick="abrirBanco()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg transition-all flex items-center gap-1.5" title="Gerenciar banco de frases">
           <i class="fa-solid fa-inbox"></i> Banco de Frases
         </button>
         <button onclick="limparRascunho()" class="bg-rose-900/40 hover:bg-rose-800 text-rose-200 border border-rose-700/50 text-xs px-3 py-2 rounded-lg transition-all flex items-center gap-1.5" title="Limpar tudo">
@@ -417,31 +439,35 @@
   </header>
 
   <!-- Main -->
-  <main class="flex-1 max-w-[1400px] w-full mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+  <main class="flex-1 max-w-[1400px] w-full mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-6">
 
-    <!-- Coluna esquerda: formulário estruturado -->
-    <section class="flex flex-col gap-5 order-2 lg:order-1">
+    <!-- Coluna principal: a folha, com linhas independentes e editáveis -->
+    <section class="flex flex-col gap-3 order-1">
+      <div class="flex items-center justify-between px-1">
+        <div class="text-sm font-semibold text-slate-300">Sua redação — clique em qualquer linha pra escrever</div>
+        <div id="linhas-total-badge" class="text-xs font-mono px-2 py-1 rounded-md bg-slate-800 border border-slate-700 text-slate-300">0 / 30 linhas</div>
+      </div>
+      <div id="paper-sheet"></div>
+      <div class="bg-slate-800/40 border border-slate-700 rounded-xl p-4 text-xs text-slate-400 leading-relaxed">
+        <i class="fa-solid fa-circle-info text-navy-500 mr-1"></i>
+        Cada linha é independente. Se você digitar até o fim de uma linha, o texto continua automaticamente na próxima (quebrando a palavra com hífen quando necessário). Apagar também puxa o texto de volta.
+      </div>
+    </section>
+
+    <!-- Coluna lateral: guia da estrutura (referência, não afeta a folha) -->
+    <section class="flex flex-col gap-5 order-2 lg:sticky lg:top-20 lg:self-start">
 
       <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-4">
         <label class="block text-xs font-semibold text-slate-400 mb-2">TÍTULO <span class="font-normal text-slate-500">— inclua a palavra-chave do tema</span></label>
         <input id="input-titulo" type="text" placeholder="Ex.: A importância do Atlântico Sul para a defesa nacional" class="w-full h-11 rounded-lg bg-slate-900 border border-slate-600 focus:border-navy-500 focus:ring-1 focus:ring-navy-500 px-3 text-sm text-ink outline-none transition-colors">
       </div>
 
-      <div id="secoes-container" class="flex flex-col gap-5"></div>
-
-      <div class="bg-slate-800/40 border border-slate-700 rounded-xl p-4 text-xs text-slate-400 leading-relaxed">
-        <i class="fa-solid fa-circle-info text-navy-500 mr-1"></i>
-        A estimativa de linhas é aproximada (baseada no nº de caracteres) — serve de guia, não é uma medição exata da sua letra na prova real. A prova exige entre 15 e 30 linhas contínuas no total.
+      <div class="bg-navy-900/20 border border-navy-700/50 rounded-xl p-4">
+        <div class="text-xs font-semibold text-navy-400 mb-1"><i class="fa-solid fa-map-signs mr-1"></i>Guia da estrutura</div>
+        <p class="text-[11px] text-slate-500 leading-relaxed">Isso é só referência — mostra o que escrever e onde, mas não altera a folha sozinho. Copie pra folha com o botão 📥 ou digite direto.</p>
       </div>
-    </section>
 
-    <!-- Coluna direita: folha pautada -->
-    <section class="order-1 lg:order-2 lg:sticky lg:top-20 lg:self-start flex flex-col gap-3">
-      <div class="flex items-center justify-between px-1">
-        <div class="text-sm font-semibold text-slate-300">Pré-visualização</div>
-        <div id="linhas-total-badge" class="text-xs font-mono px-2 py-1 rounded-md bg-slate-800 border border-slate-700 text-slate-300">0 / 30 linhas</div>
-      </div>
-      <div id="paper-sheet"></div>
+      <div id="secoes-container" class="flex flex-col gap-5 max-h-[60vh] overflow-y-auto pr-1"></div>
     </section>
 
   </main>
@@ -475,34 +501,47 @@
     const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     const QUIZ_ID = 'REDACAO';
     const CHARS_PER_LINE = 92; // estimativa calibrada pra largura/fonte da folha
-    const DRAFT_KEY = 'redacao_rascunho';
+    const DRAFT_KEY = 'redacao_rascunho_v2';
     const BANCO_FRASES_KEY = 'redacao_banco_frases';
 
     let currentUser = null;
+    let linhaFocada = null; // índice (0-29) da última linha em foco, pra inserir frases do banco
 
     const STRUCTURE = [
       { titulo: 'Introdução', metaLinhas: 6, periodos: [
-        { id: 'i1', conectivo: '', placeholder: 'Frase de abertura, contextualizando o tema de forma geral...', targetLinhas: 2.5, dica: '' },
-        { id: 'i2', conectivo: 'Nesse contexto,', placeholder: 'Continue desenvolvendo o contexto...', targetLinhas: 2, dica: '' },
-        { id: 'i3', conectivo: 'Desse modo,', placeholder: 'Apresente a tese com os 2 argumentos que serão defendidos (ex.: suporte à economia e apoio à defesa)...', targetLinhas: 1.5, dica: 'Aqui entra a tese, com os 2 argumentos explícitos.' },
+        { id: 'i1', conectivo: '', dica: 'Frase de abertura, contextualizando o tema.', targetLinhas: 2.5 },
+        { id: 'i2', conectivo: 'Nesse contexto,', dica: 'Continue desenvolvendo o contexto.', targetLinhas: 2 },
+        { id: 'i3', conectivo: 'Desse modo,', dica: 'Tese com os 2 argumentos (ex.: suporte à economia e apoio à defesa).', targetLinhas: 1.5 },
       ]},
       { titulo: 'Desenvolvimento 1', metaLinhas: 9, periodos: [
-        { id: 'd1', conectivo: 'Primordialmente,', placeholder: 'Retome o 1º argumento da tese...', targetLinhas: 2, dica: 'Tópico frasal — retoma o 1º argumento.' },
-        { id: 'd2', conectivo: 'Segundo, (AUTOR)', placeholder: 'Traga uma citação/repertório relevante...', targetLinhas: 2, dica: 'Repertório: uma frase de alguém relevante sobre o tema.' },
-        { id: 'd3', conectivo: 'Sob essa ótica,', placeholder: 'Retome e explique o repertório citado...', targetLinhas: 2.5, dica: '' },
-        { id: 'd4', conectivo: 'Desse modo,', placeholder: 'Faça uma síntese conectando com o texto-base, fechando o parágrafo...', targetLinhas: 5, dica: 'Síntese com o texto-base, fechando o parágrafo.' },
+        { id: 'd1', conectivo: 'Primordialmente,', dica: 'Tópico frasal — retoma o 1º argumento.', targetLinhas: 2 },
+        { id: 'd2', conectivo: 'Segundo, (AUTOR)', dica: 'Repertório: uma frase de alguém relevante.', targetLinhas: 2 },
+        { id: 'd3', conectivo: 'Sob essa ótica,', dica: 'Retome e explique o repertório citado.', targetLinhas: 2.5 },
+        { id: 'd4', conectivo: 'Desse modo,', dica: 'Síntese com o texto-base, fechando o parágrafo.', targetLinhas: 5 },
       ]},
       { titulo: 'Desenvolvimento 2', metaLinhas: 8, periodos: [
-        { id: 'e1', conectivo: 'Ainda sobre esse prisma, verifica-se que', placeholder: 'Retome o 2º argumento da tese...', targetLinhas: 2, dica: 'Tópico frasal — retoma o 2º argumento.' },
-        { id: 'e2', conectivo: 'Nesse sentido, (AUTOR) ao afirmar que', placeholder: '"traga a frase do autor entre aspas"...', targetLinhas: 2, dica: 'Repertório: uma frase de alguém relevante sobre o tema.' },
-        { id: 'e3', conectivo: 'Nessa direção,', placeholder: 'Retome e explique o repertório citado...', targetLinhas: 2, dica: '' },
-        { id: 'e4', conectivo: 'Dessa forma,', placeholder: 'Faça uma síntese conectando com o texto-base, fechando o parágrafo...', targetLinhas: 2, dica: 'Síntese com o texto-base, fechando o parágrafo.' },
+        { id: 'e1', conectivo: 'Ainda sobre esse prisma, verifica-se que', dica: 'Tópico frasal — retoma o 2º argumento.', targetLinhas: 2 },
+        { id: 'e2', conectivo: 'Nesse sentido, (AUTOR) ao afirmar que', dica: 'Repertório: uma frase de alguém relevante.', targetLinhas: 2 },
+        { id: 'e3', conectivo: 'Nessa direção,', dica: 'Retome e explique o repertório citado.', targetLinhas: 2 },
+        { id: 'e4', conectivo: 'Dessa forma,', dica: 'Síntese com o texto-base, fechando o parágrafo.', targetLinhas: 2 },
       ]},
       { titulo: 'Conclusão', metaLinhas: 6, periodos: [
-        { id: 'c1', conectivo: 'Em síntese, verifica-se que', placeholder: 'Retome a introdução, fazendo um contraponto (circularidade)...', targetLinhas: 3, dica: 'Circularidade — retoma a introdução com um contraponto.' },
-        { id: 'c2', conectivo: 'Assim, conclui-se que', placeholder: 'Feche a redação...', targetLinhas: 3, dica: '' },
+        { id: 'c1', conectivo: 'Em síntese, verifica-se que', dica: 'Circularidade — retoma a introdução com um contraponto.', targetLinhas: 3 },
+        { id: 'c2', conectivo: 'Assim, conclui-se que', dica: '', targetLinhas: 3 },
       ]},
     ];
+
+    // marcadores de meta: linha (1-indexed) onde cada seção deveria terminar, arredondando pra cima
+    function calcularMarcadores() {
+      let linhaAtual = 0;
+      const marcadores = [];
+      STRUCTURE.forEach(secao => {
+        const totalLocal = secao.periodos.reduce((s, p) => s + p.targetLinhas, 0);
+        linhaAtual = Math.ceil(linhaAtual) + Math.ceil(totalLocal);
+        marcadores.push({ linha: linhaAtual, texto: `fim da meta: ${secao.titulo}` });
+      });
+      return marcadores;
+    }
 
     // ===== Hifenização (heurística de sílabas em português) =====
     const VOGAIS = 'aeiouáàâãéêíóôõúAEIOUÁÀÂÃÉÊÍÓÔÕÚ';
@@ -526,8 +565,7 @@
           if (consoantes.length === 0) {
             i = j - 1;
           } else if (semVogalDepois) {
-            atual += consoantes;
-            i = k - 1;
+            atual += consoantes; i = k - 1;
           } else if (consoantes.length === 1) {
             silabas.push(atual); atual = ''; i = j - 1;
           } else {
@@ -560,197 +598,157 @@
       return [null, palavra];
     }
 
-    // ===== Quebra de parágrafo em linhas, com tokens coloridos (conectivo em vermelho) =====
-    function construirTokens(periodosDoParagrafo) {
-      const tokens = [];
-      periodosDoParagrafo.forEach(p => {
-        const conectivo = (document.getElementById('conectivo-' + p.id)?.value || '').trim();
-        const texto = (document.getElementById('texto-' + p.id)?.value || '').trim();
-        if (conectivo) conectivo.split(/\s+/).filter(Boolean).forEach(w => tokens.push({ texto: w, cor: 'red', periodoId: p.id }));
-        if (texto) texto.split(/\s+/).filter(Boolean).forEach(w => tokens.push({ texto: w, cor: 'normal', periodoId: p.id }));
-      });
-      return tokens;
-    }
-
-    function quebrarParagrafoEmLinhas(tokens) {
+    // ===== Quebra de texto corrido em N linhas de até CHARS_PER_LINE, com hifenização =====
+    function quebrarEmLinhasFixas(texto, maxLinhas) {
+      const palavras = texto.split(/\s+/).filter(Boolean);
       const linhas = [];
-      let linhaAtual = [];
-      let compAtual = 0;
-      tokens.forEach(tok => {
-        let palavra = tok.texto;
+      let atual = '';
+      palavras.forEach(p => {
+        let palavra = p;
         let seguranca = 0;
         while (palavra.length > 0 && seguranca < 50) {
           seguranca++;
-          const precisaEspaco = linhaAtual.length > 0;
-          const espacoExtra = precisaEspaco ? 1 : 0;
-          const espacoRestante = CHARS_PER_LINE - compAtual - espacoExtra;
+          const precisaEspaco = atual.length > 0;
+          const espacoRestante = CHARS_PER_LINE - atual.length - (precisaEspaco ? 1 : 0);
           if (palavra.length <= espacoRestante) {
-            linhaAtual.push({ texto: palavra, cor: tok.cor, periodoId: tok.periodoId, espacoAntes: precisaEspaco });
-            compAtual += espacoExtra + palavra.length;
+            atual += (precisaEspaco ? ' ' : '') + palavra;
             palavra = '';
           } else if (espacoRestante >= 3) {
             const [parte, resto] = hifenizarPalavra(palavra, espacoRestante);
             if (parte) {
-              linhaAtual.push({ texto: parte, cor: tok.cor, periodoId: tok.periodoId, espacoAntes: precisaEspaco });
-              linhas.push(linhaAtual); linhaAtual = []; compAtual = 0;
+              atual += (precisaEspaco ? ' ' : '') + parte;
+              linhas.push(atual); atual = '';
               palavra = resto;
             } else {
-              if (linhaAtual.length > 0) { linhas.push(linhaAtual); linhaAtual = []; compAtual = 0; }
+              if (atual) { linhas.push(atual); atual = ''; }
             }
           } else {
-            if (linhaAtual.length > 0) { linhas.push(linhaAtual); linhaAtual = []; compAtual = 0; }
+            if (atual) { linhas.push(atual); atual = ''; }
           }
         }
       });
-      if (linhaAtual.length > 0) linhas.push(linhaAtual);
+      if (atual) linhas.push(atual);
       return linhas;
     }
 
-    function linhaParaHtml(linha) {
-      return linha.map(t => {
-        const espaco = t.espacoAntes ? ' ' : '';
-        const texto = espaco + t.texto.replace(/</g, '&lt;');
-        return t.cor === 'red' ? `<span style="color:#c0392b;font-weight:600;">${texto}</span>` : `<span>${texto}</span>`;
-      }).join('');
+    // ===== As 30 linhas independentes =====
+    let linhas = new Array(30).fill('');
+
+    function reflowFrom(idx) {
+      const textoCombinado = linhas.slice(idx).join(' ').replace(/\s+/g, ' ').trim();
+      const disponiveis = 30 - idx;
+      const novasLinhas = quebrarEmLinhasFixas(textoCombinado, disponiveis);
+      for (let i = 0; i < disponiveis; i++) {
+        linhas[idx + i] = novasLinhas[i] || '';
+      }
+      return novasLinhas.length > disponiveis; // true se transbordou da folha
     }
 
-    function estimarLinhas(texto) {
-      const t = texto.trim();
-      if (!t) return 0;
-      return t.length / CHARS_PER_LINE;
+    function onLinhaInput(idx, valor) {
+      linhas[idx] = valor;
+      const transbordou = reflowFrom(idx);
+      renderPaperValues();
+      // mantém o foco na mesma linha, cursor no fim
+      const el = document.getElementById('linha-' + idx);
+      if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length); }
+      atualizarContador();
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(salvarRascunho, 400);
     }
 
-    function textoCompletoPeriodo(p) {
-      const conectivo = (document.getElementById('conectivo-' + p.id)?.value || '').trim();
-      const texto = (document.getElementById('texto-' + p.id)?.value || '').trim();
-      if (!conectivo && !texto) return '';
-      return (conectivo ? conectivo + ' ' : '') + texto;
+    function contarLinhasUsadas() {
+      let ultima = -1;
+      linhas.forEach((l, i) => { if (l.trim()) ultima = i; });
+      return ultima + 1;
     }
 
-    function renderForm() {
+    function atualizarContador() {
+      const total = contarLinhasUsadas();
+      const badge = document.getElementById('linhas-total-badge');
+      badge.textContent = `${total} / 30 linhas`;
+      const fora = total > 30 || (total > 0 && total < 15);
+      badge.className = 'text-xs font-mono px-2 py-1 rounded-md border ' +
+        (fora ? 'bg-rose-950/40 border-rose-700 text-rose-300' : 'bg-slate-800 border-slate-700 text-slate-300');
+    }
+
+    function renderPaperSkeleton() {
+      const titulo = document.getElementById('input-titulo')?.value || '';
+      const marcadores = calcularMarcadores();
+      let html = `<div class="paper-title-box"><span class="text-[13px] font-normal text-[#555]">TÍTULO:</span> <span id="paper-title-display">${titulo.replace(/</g, '&lt;')}</span></div>`;
+      for (let i = 1; i <= 30; i++) {
+        const marker5 = i % 5 === 0;
+        html += `<div class="paper-line-row${marker5 ? ' marker-5' : ''}">
+          <span class="paper-line-num">${i}</span>
+          <input type="text" id="linha-${i - 1}" class="paper-line-input" autocomplete="off" spellcheck="false">
+        </div>`;
+        const marcador = marcadores.find(m => m.linha === i);
+        if (marcador) {
+          html += `<div class="marcador-meta">— ${marcador.texto} —</div>`;
+        }
+      }
+      document.getElementById('paper-sheet').innerHTML = html;
+
+      for (let i = 0; i < 30; i++) {
+        const el = document.getElementById('linha-' + i);
+        el.addEventListener('input', (e) => onLinhaInput(i, e.target.value));
+        el.addEventListener('focus', () => { linhaFocada = i; });
+      }
+    }
+
+    function renderPaperValues() {
+      for (let i = 0; i < 30; i++) {
+        const el = document.getElementById('linha-' + i);
+        if (el && el.value !== linhas[i]) el.value = linhas[i];
+      }
+    }
+
+    function renderGuia() {
       const container = document.getElementById('secoes-container');
       container.innerHTML = STRUCTURE.map(secao => `
         <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-4">
           <div class="flex items-center justify-between mb-3">
-            <h3 class="font-serif font-semibold text-[15px] text-ink">${secao.titulo}</h3>
-            <span class="text-[11px] font-mono text-slate-500">meta: ${secao.metaLinhas} linhas</span>
+            <h3 class="font-serif font-semibold text-[14px] text-ink">${secao.titulo}</h3>
+            <span class="text-[10px] font-mono text-slate-500">meta: ${secao.metaLinhas} linhas</span>
           </div>
-          <div class="flex flex-col gap-3">
+          <div class="flex flex-col gap-2.5">
             ${secao.periodos.map((p, idx) => `
-              <div class="periodo-block bg-slate-900/60 border border-slate-700 rounded-lg p-3" id="bloco-${p.id}">
-                <div class="flex items-center justify-between mb-1.5">
-                  <span class="text-[10px] font-semibold text-slate-500">${idx + 1}º período</span>
-                  <span class="text-[10px] font-mono" id="badge-${p.id}">0 / ${p.targetLinhas} linhas</span>
+              <div class="bg-slate-900/60 border border-slate-700 rounded-lg p-2.5">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-[10px] font-semibold text-slate-500">${idx + 1}º período · ${p.targetLinhas} linhas</span>
+                  ${p.conectivo ? `<button type="button" onclick="inserirNaLinhaFocada('${p.id}')" title="Inserir conectivo na linha em foco" class="text-[10px] text-navy-400 hover:text-navy-300"><i class="fa-solid fa-arrow-turn-down"></i> usar</button>` : ''}
                 </div>
-                <div class="flex gap-1.5 mb-1.5">
-                  <input id="conectivo-${p.id}" type="text" value="${p.conectivo}" placeholder="conectivo (opcional)" class="flex-1 h-8 rounded-md bg-slate-950 border border-slate-700 focus:border-red-500 px-2 text-xs text-red-400 font-medium italic outline-none transition-colors">
-                  <button type="button" onclick="abrirBancoPara('conectivo-${p.id}')" title="Inserir do banco de frases" class="w-8 h-8 flex-shrink-0 rounded-md bg-slate-800 border border-slate-700 hover:border-navy-500 text-slate-400 hover:text-navy-400 transition-colors"><i class="fa-solid fa-inbox text-xs"></i></button>
-                </div>
-                <div class="flex gap-1.5">
-                  <textarea id="texto-${p.id}" rows="2" placeholder="${p.placeholder}" class="flex-1 rounded-md bg-slate-950 border border-slate-700 focus:border-navy-500 px-2 py-1.5 text-sm text-ink outline-none resize-y transition-colors"></textarea>
-                  <button type="button" onclick="abrirBancoPara('texto-${p.id}')" title="Inserir do banco de frases" class="w-8 h-8 flex-shrink-0 self-start rounded-md bg-slate-800 border border-slate-700 hover:border-navy-500 text-slate-400 hover:text-navy-400 transition-colors"><i class="fa-solid fa-inbox text-xs"></i></button>
-                </div>
+                ${p.conectivo ? `<div class="text-[13px] font-medium italic" style="color:#e05252;">${p.conectivo}</div>` : ''}
                 ${p.dica ? `<div class="text-[10px] text-slate-500 mt-1"><i class="fa-solid fa-lightbulb text-amber-500/70 mr-1"></i>${p.dica}</div>` : ''}
               </div>
             `).join('')}
           </div>
         </div>
       `).join('');
+    }
 
-      STRUCTURE.forEach(secao => secao.periodos.forEach(p => {
-        document.getElementById('conectivo-' + p.id).addEventListener('input', onEdit);
-        document.getElementById('texto-' + p.id).addEventListener('input', onEdit);
-      }));
+    function inserirNaLinhaFocada(periodoId) {
+      const secao = STRUCTURE.flatMap(s => s.periodos).find(p => p.id === periodoId);
+      if (!secao) return;
+      const idx = linhaFocada !== null ? linhaFocada : contarLinhasUsadas();
+      const atual = linhas[idx];
+      linhas[idx] = atual ? atual + ' ' + secao.conectivo : secao.conectivo;
+      reflowFrom(idx);
+      renderPaperValues();
+      atualizarContador();
+      const el = document.getElementById('linha-' + idx);
+      if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length); linhaFocada = idx; }
+      salvarRascunho();
     }
 
     let saveTimer = null;
-    function onEdit() {
-      atualizarBadges();
-      renderPaper();
-      clearTimeout(saveTimer);
-      saveTimer = setTimeout(salvarRascunho, 400);
-    }
 
-    function atualizarBadges() {
-      STRUCTURE.forEach(secao => secao.periodos.forEach(p => {
-        const texto = textoCompletoPeriodo(p);
-        const linhas = estimarLinhas(texto);
-        const badge = document.getElementById('badge-' + p.id);
-        const bloco = document.getElementById('bloco-' + p.id);
-        const over = linhas > p.targetLinhas * 1.15;
-        badge.textContent = `${linhas.toFixed(1)} / ${p.targetLinhas} linhas`;
-        badge.className = 'text-[10px] font-mono ' + (over ? 'linhas-badge-over' : 'linhas-badge-ok');
-        bloco.classList.toggle('periodo-over', over);
-      }));
-    }
-
-    function irParaPeriodo(periodoId) {
-      if (!periodoId) return;
-      const el = document.getElementById('bloco-' + periodoId);
-      if (!el) return;
-      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      el.classList.add('periodo-highlight');
-      setTimeout(() => el.classList.remove('periodo-highlight'), 1200);
-      const textoEl = document.getElementById('texto-' + periodoId);
-      if (textoEl) textoEl.focus();
-    }
-
-    function renderPaper() {
-      const titulo = document.getElementById('input-titulo').value.trim();
-
-      let linhasRenderizadas = []; // array de { html, periodoId }
-      STRUCTURE.forEach(secao => {
-        const tokens = construirTokens(secao.periodos);
-        if (tokens.length === 0) return;
-        const linhasDoParagrafo = quebrarParagrafoEmLinhas(tokens);
-        linhasDoParagrafo.forEach((linha, idx) => {
-          linhasRenderizadas.push({
-            html: linhaParaHtml(linha),
-            periodoId: linha[0] ? linha[0].periodoId : null,
-            recuo: idx === 0,
-          });
-        });
-      });
-
-      const totalUsadas = linhasRenderizadas.length;
-      const badgeTotal = document.getElementById('linhas-total-badge');
-      badgeTotal.textContent = `${totalUsadas} / 30 linhas`;
-      const foraDoLimite = totalUsadas > 30 || (totalUsadas > 0 && totalUsadas < 15);
-      badgeTotal.className = 'text-xs font-mono px-2 py-1 rounded-md border ' +
-        (foraDoLimite ? 'bg-rose-950/40 border-rose-700 text-rose-300' : 'bg-slate-800 border-slate-700 text-slate-300');
-
-      let linhasHtml = '';
-      for (let i = 1; i <= 30; i++) {
-        const marker5 = i % 5 === 0;
-        const dados = linhasRenderizadas[i - 1];
-        const conteudo = dados ? dados.html : '';
-        const recuoClasse = dados && dados.recuo ? ' style="padding-left:22px;"' : '';
-        const clicavel = dados && dados.periodoId ? `onclick="irParaPeriodo('${dados.periodoId}')" role="button" tabindex="0"` : '';
-        linhasHtml += `<div class="paper-line-row${marker5 ? ' marker-5' : ''}${dados ? ' paper-line-clickable' : ''}" ${clicavel}>
-          <span class="paper-line-num">${i}</span>
-          <span class="paper-line-text"${recuoClasse}>${conteudo}</span>
-        </div>`;
-      }
-
-      document.getElementById('paper-sheet').innerHTML = `
-        <div class="paper-title-box"><span class="text-[13px] font-normal text-[#555]">TÍTULO:</span> ${titulo ? titulo.replace(/</g, '&lt;') : ''}</div>
-        ${linhasHtml}
-      `;
-
-      if (linhasRenderizadas.length > 30) {
-        document.getElementById('paper-sheet').insertAdjacentHTML('beforeend',
-          `<div class="mt-2 text-[11px] text-rose-600 font-sans font-medium">⚠ O texto ultrapassou as 30 linhas da folha (${linhasRenderizadas.length} linhas estimadas). Reduza algum trecho.</div>`);
-      }
-    }
-
-    // ===== Banco de Frases (tópicos frasais, argumentos, conectivos, repertórios) =====
+    // ===== Banco de Frases =====
     const CATEGORIAS = [
       { id: 'topico', label: 'Tópico frasal', icon: 'fa-signs-post' },
       { id: 'argumento', label: 'Argumento', icon: 'fa-scale-balanced' },
       { id: 'conectivo', label: 'Conectivo', icon: 'fa-link' },
       { id: 'repertorio', label: 'Repertório', icon: 'fa-quote-right' },
     ];
-    let campoAlvoBanco = null;
 
     function carregarBanco() {
       try { return JSON.parse(localStorage.getItem(BANCO_FRASES_KEY) || '[]'); } catch (e) { return []; }
@@ -758,7 +756,6 @@
     function salvarBanco(lista) {
       localStorage.setItem(BANCO_FRASES_KEY, JSON.stringify(lista));
     }
-
     function adicionarFrase() {
       const categoria = document.getElementById('nova-frase-categoria').value;
       const texto = document.getElementById('nova-frase-texto').value.trim();
@@ -769,12 +766,10 @@
       document.getElementById('nova-frase-texto').value = '';
       renderBanco();
     }
-
     function removerFrase(id) {
       salvarBanco(carregarBanco().filter(f => f.id !== id));
       renderBanco();
     }
-
     function renderBanco() {
       const lista = carregarBanco();
       const container = document.getElementById('banco-lista');
@@ -789,73 +784,66 @@
           <div class="text-[10px] font-semibold text-slate-500 mb-1"><i class="fa-solid ${cat.icon} mr-1"></i>${cat.label}</div>
           ${itens.map(f => `
             <div class="flex items-center gap-2 bg-slate-900/70 border border-slate-700 rounded-md px-2 py-1.5 mb-1 text-xs">
-              <span class="flex-1 text-slate-200 cursor-pointer hover:text-navy-400" onclick="inserirFraseNoBanco('${f.id}')">${f.texto.replace(/</g, '&lt;')}</span>
+              <span class="flex-1 text-slate-200 cursor-pointer hover:text-navy-400" onclick="inserirFraseNaLinha('${f.id}')">${f.texto.replace(/</g, '&lt;')}</span>
               <button type="button" onclick="removerFrase('${f.id}')" class="text-rose-400/70 hover:text-rose-300 flex-shrink-0"><i class="fa-solid fa-xmark"></i></button>
             </div>
           `).join('')}
         </div>`;
       }).join('');
     }
-
-    function abrirBancoPara(campoId) {
-      campoAlvoBanco = campoId;
+    function abrirBanco() {
       renderBanco();
       document.getElementById('banco-modal').classList.remove('hidden');
       document.getElementById('banco-modal').classList.add('flex');
     }
-
     function fecharBanco() {
       document.getElementById('banco-modal').classList.add('hidden');
       document.getElementById('banco-modal').classList.remove('flex');
-      campoAlvoBanco = null;
     }
-
-    function inserirFraseNoBanco(fraseId) {
+    function inserirFraseNaLinha(fraseId) {
       const frase = carregarBanco().find(f => f.id === fraseId);
       if (!frase) return;
-      if (!campoAlvoBanco) {
-        fecharBanco();
-        return; // aberto pelo botão do cabeçalho: só gerencia, não insere em lugar nenhum
-      }
-      const campo = document.getElementById(campoAlvoBanco);
-      if (campo.tagName === 'TEXTAREA') {
-        campo.value = campo.value ? campo.value + ' ' + frase.texto : frase.texto;
-      } else {
-        campo.value = frase.texto;
-      }
-      campo.dispatchEvent(new Event('input'));
+      const idx = linhaFocada !== null ? linhaFocada : contarLinhasUsadas();
+      const atual = linhas[idx];
+      linhas[idx] = atual ? atual + ' ' + frase.texto : frase.texto;
+      reflowFrom(idx);
+      renderPaperValues();
+      atualizarContador();
+      const el = document.getElementById('linha-' + idx);
+      if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length); linhaFocada = idx; }
+      salvarRascunho();
       fecharBanco();
     }
 
     function salvarRascunho() {
-      const dados = { titulo: document.getElementById('input-titulo').value };
-      STRUCTURE.forEach(secao => secao.periodos.forEach(p => {
-        dados['conectivo-' + p.id] = document.getElementById('conectivo-' + p.id).value;
-        dados['texto-' + p.id] = document.getElementById('texto-' + p.id).value;
-      }));
+      const dados = { titulo: document.getElementById('input-titulo').value, linhas };
       try { localStorage.setItem(DRAFT_KEY, JSON.stringify(dados)); } catch (e) { /* ignora */ }
     }
-
     function carregarRascunho() {
       let dados = {};
       try { dados = JSON.parse(localStorage.getItem(DRAFT_KEY) || '{}'); } catch (e) { dados = {}; }
       if (dados.titulo) document.getElementById('input-titulo').value = dados.titulo;
-      STRUCTURE.forEach(secao => secao.periodos.forEach(p => {
-        if (dados['conectivo-' + p.id] !== undefined) document.getElementById('conectivo-' + p.id).value = dados['conectivo-' + p.id];
-        if (dados['texto-' + p.id] !== undefined) document.getElementById('texto-' + p.id).value = dados['texto-' + p.id];
-      }));
+      if (Array.isArray(dados.linhas)) {
+        linhas = dados.linhas.concat(new Array(30).fill('')).slice(0, 30);
+      }
+      renderPaperValues();
+      atualizarContador();
     }
-
     function limparRascunho() {
       if (!confirm('Tem certeza que quer limpar tudo? Essa ação não pode ser desfeita.')) return;
       localStorage.removeItem(DRAFT_KEY);
       document.getElementById('input-titulo').value = '';
-      renderForm();
-      atualizarBadges();
-      renderPaper();
+      linhas = new Array(30).fill('');
+      renderPaperValues();
+      atualizarContador();
     }
 
-    document.getElementById('input-titulo')?.addEventListener('input', onEdit);
+    document.getElementById('input-titulo')?.addEventListener('input', (e) => {
+      const disp = document.getElementById('paper-title-display');
+      if (disp) disp.textContent = e.target.value;
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(salvarRascunho, 400);
+    });
 
     function showGate(panel) {
       ['gate-checking', 'gate-logged-out', 'gate-pending', 'gate-no-access'].forEach(id => {
@@ -874,7 +862,6 @@
       document.getElementById('theme-toggle-icon-moon').classList.toggle('hidden', theme === 'light');
       document.getElementById('theme-toggle-icon-sun').classList.toggle('hidden', theme !== 'light');
     }
-
     function toggleTheme() {
       const current = document.documentElement.getAttribute('data-theme') || 'dark';
       const next = current === 'light' ? 'dark' : 'light';
@@ -882,7 +869,6 @@
       try { localStorage.setItem('site_theme', next); } catch (e) { /* ignora */ }
       applyThemeIcon();
     }
-
     async function handleLogout() {
       await sb.auth.signOut();
     }
@@ -901,10 +887,9 @@
       bar.classList.add('flex');
       document.getElementById('user-email').textContent = currentUser.email;
 
-      renderForm();
+      renderPaperSkeleton();
+      renderGuia();
       carregarRascunho();
-      atualizarBadges();
-      renderPaper();
     }
 
     function showAccessScreen() {
