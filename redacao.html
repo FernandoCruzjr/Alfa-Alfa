@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>
+    // Aplica o tema salvo (ou escuro por padrão) antes de qualquer coisa renderizar,
+    // pra evitar um "flash" da cor errada ao carregar a página.
+    (function() {
+      try {
+        var saved = localStorage.getItem('site_theme');
+        var theme = saved === 'light' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redação · Ferramenta de Estrutura — Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Ferramenta interativa para montar a estrutura da redação (introdução, desenvolvimento e conclusão) e visualizar em folha pautada de 30 linhas.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Fraunces (títulos, caráter naval/editorial) + Inter (texto e interface) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: {
+              100: 'rgb(var(--tw-navy-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-navy-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-navy-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-navy-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-navy-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-navy-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-navy-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-navy-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-navy-900) / <alpha-value>)'
+            },
+            ink: 'rgb(var(--tw-ink) / <alpha-value>)',
+            slate: {
+              50: 'rgb(var(--tw-slate-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-slate-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-slate-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-slate-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-slate-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-slate-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-slate-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-slate-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-slate-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-slate-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-slate-950) / <alpha-value>)'
+            },
+            emerald: {
+              50: 'rgb(var(--tw-emerald-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-emerald-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-emerald-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-emerald-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-emerald-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-emerald-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-emerald-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-emerald-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-emerald-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-emerald-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-emerald-950) / <alpha-value>)'
+            },
+            rose: {
+              50: 'rgb(var(--tw-rose-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-rose-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-rose-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-rose-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-rose-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-rose-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-rose-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-rose-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-rose-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-rose-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-rose-950) / <alpha-value>)'
+            },
+            amber: {
+              50: 'rgb(var(--tw-amber-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-amber-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-amber-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-amber-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-amber-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-amber-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-amber-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-amber-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-amber-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-amber-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-amber-950) / <alpha-value>)'
+            },
+            cyan: {
+              50: 'rgb(var(--tw-cyan-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-cyan-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-cyan-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-cyan-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-cyan-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-cyan-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-cyan-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-cyan-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-cyan-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-cyan-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-cyan-950) / <alpha-value>)'
+            },
+            sky: { 400: 'rgb(var(--tw-sky-400) / <alpha-value>)' },
+            lime: { 400: 'rgb(var(--tw-lime-400) / <alpha-value>)' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+:root {
+  --tw-slate-50: 248 250 252;
+  --tw-slate-100: 241 245 249;
+  --tw-slate-200: 226 232 240;
+  --tw-slate-300: 203 213 225;
+  --tw-slate-400: 148 163 184;
+  --tw-slate-500: 100 116 139;
+  --tw-slate-600: 71 85 105;
+  --tw-slate-700: 51 65 85;
+  --tw-slate-800: 30 41 59;
+  --tw-slate-900: 15 23 42;
+  --tw-slate-950: 2 6 23;
+  --tw-emerald-50: 236 253 245;
+  --tw-emerald-100: 209 250 229;
+  --tw-emerald-200: 167 243 208;
+  --tw-emerald-300: 110 231 183;
+  --tw-emerald-400: 52 211 153;
+  --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 5 150 105;
+  --tw-emerald-700: 4 120 87;
+  --tw-emerald-800: 6 95 70;
+  --tw-emerald-900: 6 78 59;
+  --tw-emerald-950: 2 44 34;
+  --tw-rose-50: 255 241 242;
+  --tw-rose-100: 255 228 230;
+  --tw-rose-200: 254 205 211;
+  --tw-rose-300: 253 164 175;
+  --tw-rose-400: 251 113 133;
+  --tw-rose-500: 244 63 94;
+  --tw-rose-600: 225 29 72;
+  --tw-rose-700: 190 18 60;
+  --tw-rose-800: 159 18 57;
+  --tw-rose-900: 136 19 55;
+  --tw-rose-950: 76 5 25;
+  --tw-amber-50: 255 251 235;
+  --tw-amber-100: 254 243 199;
+  --tw-amber-200: 253 230 138;
+  --tw-amber-300: 252 211 77;
+  --tw-amber-400: 251 191 36;
+  --tw-amber-500: 245 158 11;
+  --tw-amber-600: 217 119 6;
+  --tw-amber-700: 180 83 9;
+  --tw-amber-800: 146 64 14;
+  --tw-amber-900: 120 53 15;
+  --tw-amber-950: 69 26 3;
+  --tw-cyan-50: 236 254 255;
+  --tw-cyan-100: 207 250 254;
+  --tw-cyan-200: 165 243 252;
+  --tw-cyan-300: 103 232 249;
+  --tw-cyan-400: 34 211 238;
+  --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 8 145 178;
+  --tw-cyan-700: 14 116 144;
+  --tw-cyan-800: 21 94 117;
+  --tw-cyan-900: 22 78 99;
+  --tw-cyan-950: 8 51 68;
+  --tw-sky-400: 56 189 248;
+  --tw-lime-400: 163 230 53;
+  --tw-navy-100: 230 240 250;
+  --tw-navy-200: 192 219 245;
+  --tw-navy-300: 143 193 238;
+  --tw-navy-400: 77 158 224;
+  --tw-navy-500: 0 102 204;
+  --tw-navy-600: 30 86 160;
+  --tw-navy-700: 30 62 98;
+  --tw-navy-800: 11 25 44;
+  --tw-navy-900: 0 15 38;
+  --tw-ink: 255 255 255;
+}
+
+[data-theme="light"] {
+  --tw-slate-50: 2 6 23;
+  --tw-slate-100: 15 23 42;
+  --tw-slate-200: 30 41 59;
+  --tw-slate-300: 51 65 85;
+  --tw-slate-400: 71 85 105;
+  --tw-slate-500: 100 116 139;
+  --tw-slate-600: 148 163 184;
+  --tw-slate-700: 203 213 225;
+  --tw-slate-800: 226 232 240;
+  --tw-slate-900: 241 245 249;
+  --tw-slate-950: 248 250 252;
+  --tw-emerald-50: 2 44 34;
+  --tw-emerald-100: 6 78 59;
+  --tw-emerald-200: 6 95 70;
+  --tw-emerald-300: 4 120 87;
+  --tw-emerald-400: 5 150 105;
+  --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 52 211 153;
+  --tw-emerald-700: 110 231 183;
+  --tw-emerald-800: 167 243 208;
+  --tw-emerald-900: 209 250 229;
+  --tw-emerald-950: 236 253 245;
+  --tw-rose-50: 76 5 25;
+  --tw-rose-100: 136 19 55;
+  --tw-rose-200: 159 18 57;
+  --tw-rose-300: 190 18 60;
+  --tw-rose-400: 225 29 72;
+  --tw-rose-500: 244 63 94;
+  --tw-rose-600: 251 113 133;
+  --tw-rose-700: 253 164 175;
+  --tw-rose-800: 254 205 211;
+  --tw-rose-900: 255 228 230;
+  --tw-rose-950: 255 241 242;
+  --tw-amber-50: 69 26 3;
+  --tw-amber-100: 120 53 15;
+  --tw-amber-200: 146 64 14;
+  --tw-amber-300: 180 83 9;
+  --tw-amber-400: 217 119 6;
+  --tw-amber-500: 245 158 11;
+  --tw-amber-600: 251 191 36;
+  --tw-amber-700: 252 211 77;
+  --tw-amber-800: 253 230 138;
+  --tw-amber-900: 254 243 199;
+  --tw-amber-950: 255 251 235;
+  --tw-cyan-50: 8 51 68;
+  --tw-cyan-100: 22 78 99;
+  --tw-cyan-200: 21 94 117;
+  --tw-cyan-300: 14 116 144;
+  --tw-cyan-400: 8 145 178;
+  --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 34 211 238;
+  --tw-cyan-700: 103 232 249;
+  --tw-cyan-800: 165 243 252;
+  --tw-cyan-900: 207 250 254;
+  --tw-cyan-950: 236 254 255;
+  --tw-sky-400: 56 189 248;
+  --tw-lime-400: 163 230 53;
+  --tw-navy-100: 0 15 38;
+  --tw-navy-200: 11 25 44;
+  --tw-navy-300: 30 62 98;
+  --tw-navy-400: 30 86 160;
+  --tw-navy-500: 0 102 204;
+  --tw-navy-600: 77 158 224;
+  --tw-navy-700: 143 193 238;
+  --tw-navy-800: 192 219 245;
+  --tw-navy-900: 230 240 250;
+  --tw-ink: 11 25 44;
+}
+
+    @keyframes access-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shake {
+      10%, 90% { transform: translateX(-1px); }
+      20%, 80% { transform: translateX(2px); }
+      30%, 50%, 70% { transform: translateX(-4px); }
+      40%, 60% { transform: translateX(4px); }
+    }
+    .shake { animation: shake .5s; }
+    @media (prefers-reduced-motion: reduce) {
+      #access-card, .shake { animation: none !important; }
+      .lightning-flash, .rain-drop, #vortex-swirl { animation: none !important; }
+      #access-screen.exiting { animation: none !important; opacity: 0; }
+    }
+
+    /* ===== "Chrome" do cabeçalho: fica sempre navy escuro, independente do tema ===== */
+    .chrome-bg-900 { background-color: #000F26 !important; }
+    .chrome-bg-800 { background-color: #0B192C !important; }
+    .chrome-bg-600 { background-color: #1E56A0 !important; }
+    .chrome-border-700 { border-color: #1E3E62 !important; }
+    .chrome-border-600 { border-color: #1E56A0 !important; }
+    .chrome-text-white { color: #FFFFFF !important; }
+    .chrome-text-slate-400 { color: #94A3B8 !important; }
+    .chrome-text-slate-200 { color: #E2E8F0 !important; }
+    .chrome-hover-border-500:hover { border-color: #0066CC !important; }
+    .chrome-hover-text-white:hover { color: #FFFFFF !important; }
+    /* ===== Ferramenta de Redação ===== */
+    #paper-sheet {
+      background: #fdfcf7;
+      color: #1a1a1a;
+      border-radius: 4px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.35);
+      padding: 28px 22px 22px;
+      font-family: 'Fraunces', Georgia, serif;
+    }
+    #paper-sheet .paper-title-box {
+      border: 1.5px solid #1a1a1a;
+      border-radius: 3px;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+      min-height: 40px;
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+    .paper-line-row {
+      display: flex;
+      align-items: baseline;
+      border-bottom: 1px solid #b9b3a0;
+      min-height: 26px;
+      padding-left: 4px;
+    }
+    .paper-line-row.marker-5 { border-bottom-color: #8f8768; }
+    .paper-line-num {
+      width: 24px;
+      flex-shrink: 0;
+      font-style: italic;
+      font-size: 13px;
+      color: #8a8368;
+      text-align: right;
+      padding-right: 8px;
+    }
+    .paper-line-row.marker-5 .paper-line-num { color: #6b6449; font-weight: 700; }
+    .paper-line-text {
+      font-size: 14.5px;
+      line-height: 1;
+      color: #1a1a1a;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .periodo-block { transition: box-shadow .2s; }
+    .periodo-over { box-shadow: 0 0 0 1px rgba(244,63,94,.5) inset; }
+    .linhas-badge-ok { color: #34d399; }
+    .linhas-badge-over { color: #fb7185; }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">✍️</div>
+      <div class="font-serif font-semibold text-[26px] text-ink tracking-tight">Redação</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial para acessar esta ferramenta.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-ink text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-ink underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+
+      <div id="gate-no-access" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-lock text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Você ainda não tem acesso liberado a esta matéria. Fale com o administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-ink underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+
+      <div class="text-[11px] text-[#7895b5] mt-6 pt-4 border-t border-[#1c3a5c] w-full">Redação para Concursos</div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="chrome-bg-900 border-b chrome-border-700 sticky top-0 z-30 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center gap-3 min-w-0">
+        <a href="index.html" class="chrome-bg-600 chrome-text-white p-2.5 rounded-lg shadow flex-shrink-0" title="Voltar para a página inicial">
+          <i class="fa-solid fa-pen-nib"></i>
+        </a>
+        <div class="min-w-0">
+          <div class="font-serif font-semibold text-[17px] chrome-text-white tracking-tight truncate">Estrutura da Redação</div>
+          <div class="text-[11px] chrome-text-slate-400 truncate">Monte parágrafo por parágrafo e veja na folha pautada</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 flex-shrink-0">
+        <button id="theme-toggle-btn" onclick="toggleTheme()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors" title="Alternar entre modo claro e escuro" aria-label="Alternar tema claro/escuro"><i class="fa-solid fa-moon text-sm" id="theme-toggle-icon-moon"></i><i class="fa-solid fa-sun text-sm hidden" id="theme-toggle-icon-sun"></i></button>
+        <div id="user-bar" class="hidden chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2" title="Conectado">
+          <i class="fa-solid fa-user text-navy-500"></i>
+          <span id="user-email" class="max-w-[140px] truncate"></span>
+          <button onclick="handleLogout()" class="ml-1 text-rose-300 hover:text-rose-200 transition-colors" title="Sair da conta">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
+        <button onclick="limparRascunho()" class="bg-rose-900/40 hover:bg-rose-800 text-rose-200 border border-rose-700/50 text-xs px-3 py-2 rounded-lg transition-all flex items-center gap-1.5" title="Limpar tudo">
+          <i class="fa-solid fa-trash"></i> Limpar
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-1 max-w-[1400px] w-full mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+    <!-- Coluna esquerda: formulário estruturado -->
+    <section class="flex flex-col gap-5 order-2 lg:order-1">
+
+      <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-4">
+        <label class="block text-xs font-semibold text-slate-400 mb-2">TÍTULO <span class="font-normal text-slate-500">— inclua a palavra-chave do tema</span></label>
+        <input id="input-titulo" type="text" placeholder="Ex.: A importância do Atlântico Sul para a defesa nacional" class="w-full h-11 rounded-lg bg-slate-900 border border-slate-600 focus:border-navy-500 focus:ring-1 focus:ring-navy-500 px-3 text-sm text-ink outline-none transition-colors">
+      </div>
+
+      <div id="secoes-container" class="flex flex-col gap-5"></div>
+
+      <div class="bg-slate-800/40 border border-slate-700 rounded-xl p-4 text-xs text-slate-400 leading-relaxed">
+        <i class="fa-solid fa-circle-info text-navy-500 mr-1"></i>
+        A estimativa de linhas é aproximada (baseada no nº de caracteres) — serve de guia, não é uma medição exata da sua letra na prova real. A prova exige entre 15 e 30 linhas contínuas no total.
+      </div>
+    </section>
+
+    <!-- Coluna direita: folha pautada -->
+    <section class="order-1 lg:order-2 lg:sticky lg:top-20 lg:self-start flex flex-col gap-3">
+      <div class="flex items-center justify-between px-1">
+        <div class="text-sm font-semibold text-slate-300">Pré-visualização</div>
+        <div id="linhas-total-badge" class="text-xs font-mono px-2 py-1 rounded-md bg-slate-800 border border-slate-700 text-slate-300">0 / 30 linhas</div>
+      </div>
+      <div id="paper-sheet"></div>
+    </section>
+
+  </main>
+
+  <script>
+    const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const QUIZ_ID = 'REDACAO';
+    const CHARS_PER_LINE = 92; // estimativa calibrada pra largura/fonte da folha
+    const DRAFT_KEY = 'redacao_rascunho';
+
+    let currentUser = null;
+
+    const STRUCTURE = [
+      { titulo: 'Introdução', metaLinhas: 6, periodos: [
+        { id: 'i1', conectivo: '', fixo: false, placeholder: 'Frase de abertura, contextualizando o tema de forma geral...', targetLinhas: 2.5, dica: '' },
+        { id: 'i2', conectivo: 'Nesse contexto,', fixo: false, placeholder: 'Continue desenvolvendo o contexto...', targetLinhas: 2, dica: '' },
+        { id: 'i3', conectivo: 'Desse modo,', fixo: false, placeholder: 'Apresente a tese com os 2 argumentos que serão defendidos (ex.: suporte à economia e apoio à defesa)...', targetLinhas: 1.5, dica: 'Aqui entra a tese, com os 2 argumentos explícitos.' },
+      ]},
+      { titulo: 'Desenvolvimento 1', metaLinhas: 9, periodos: [
+        { id: 'd1', conectivo: 'Primordialmente,', fixo: false, placeholder: 'Retome o 1º argumento da tese...', targetLinhas: 2, dica: 'Tópico frasal — retoma o 1º argumento.' },
+        { id: 'd2', conectivo: 'Segundo, (AUTOR)', fixo: false, placeholder: 'Traga uma citação/repertório relevante...', targetLinhas: 2, dica: 'Repertório: uma frase de alguém relevante sobre o tema.' },
+        { id: 'd3', conectivo: 'Sob essa ótica,', fixo: false, placeholder: 'Retome e explique o repertório citado...', targetLinhas: 2.5, dica: '' },
+        { id: 'd4', conectivo: 'Desse modo,', fixo: false, placeholder: 'Faça uma síntese conectando com o texto-base, fechando o parágrafo...', targetLinhas: 5, dica: 'Síntese com o texto-base, fechando o parágrafo.' },
+      ]},
+      { titulo: 'Desenvolvimento 2', metaLinhas: 8, periodos: [
+        { id: 'e1', conectivo: 'Ainda sobre esse prisma, verifica-se que', fixo: false, placeholder: 'Retome o 2º argumento da tese...', targetLinhas: 2, dica: 'Tópico frasal — retoma o 2º argumento.' },
+        { id: 'e2', conectivo: 'Nesse sentido, (AUTOR) ao afirmar que', fixo: false, placeholder: '"traga a frase do autor entre aspas"...', targetLinhas: 2, dica: 'Repertório: uma frase de alguém relevante sobre o tema.' },
+        { id: 'e3', conectivo: 'Nessa direção,', fixo: false, placeholder: 'Retome e explique o repertório citado...', targetLinhas: 2, dica: '' },
+        { id: 'e4', conectivo: 'Dessa forma,', fixo: false, placeholder: 'Faça uma síntese conectando com o texto-base, fechando o parágrafo...', targetLinhas: 2, dica: 'Síntese com o texto-base, fechando o parágrafo.' },
+      ]},
+      { titulo: 'Conclusão', metaLinhas: 6, periodos: [
+        { id: 'c1', conectivo: 'Em síntese, verifica-se que', fixo: false, placeholder: 'Retome a introdução, fazendo um contraponto (circularidade)...', targetLinhas: 3, dica: 'Circularidade — retoma a introdução com um contraponto.' },
+        { id: 'c2', conectivo: 'Assim, conclui-se que', fixo: false, placeholder: 'Feche a redação...', targetLinhas: 3, dica: '' },
+      ]},
+    ];
+
+    function estimarLinhas(texto) {
+      const t = texto.trim();
+      if (!t) return 0;
+      return t.length / CHARS_PER_LINE;
+    }
+
+    function textoCompletoPeriodo(p) {
+      const conectivo = (document.getElementById('conectivo-' + p.id)?.value || '').trim();
+      const texto = (document.getElementById('texto-' + p.id)?.value || '').trim();
+      if (!conectivo && !texto) return '';
+      return (conectivo ? conectivo + ' ' : '') + texto;
+    }
+
+    function renderForm() {
+      const container = document.getElementById('secoes-container');
+      container.innerHTML = STRUCTURE.map(secao => `
+        <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-4">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="font-serif font-semibold text-[15px] text-ink">${secao.titulo}</h3>
+            <span class="text-[11px] font-mono text-slate-500">meta: ${secao.metaLinhas} linhas</span>
+          </div>
+          <div class="flex flex-col gap-3">
+            ${secao.periodos.map((p, idx) => `
+              <div class="periodo-block bg-slate-900/60 border border-slate-700 rounded-lg p-3" id="bloco-${p.id}">
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-[10px] font-semibold text-slate-500">${idx + 1}º período</span>
+                  <span class="text-[10px] font-mono" id="badge-${p.id}">0 / ${p.targetLinhas} linhas</span>
+                </div>
+                <input id="conectivo-${p.id}" type="text" value="${p.conectivo}" placeholder="conectivo (opcional)" class="w-full h-8 mb-1.5 rounded-md bg-slate-950 border border-slate-700 focus:border-navy-500 px-2 text-xs text-navy-400 font-medium italic outline-none transition-colors">
+                <textarea id="texto-${p.id}" rows="2" placeholder="${p.placeholder}" class="w-full rounded-md bg-slate-950 border border-slate-700 focus:border-navy-500 px-2 py-1.5 text-sm text-ink outline-none resize-y transition-colors"></textarea>
+                ${p.dica ? `<div class="text-[10px] text-slate-500 mt-1"><i class="fa-solid fa-lightbulb text-amber-500/70 mr-1"></i>${p.dica}</div>` : ''}
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+
+      // liga os eventos de digitação
+      STRUCTURE.forEach(secao => secao.periodos.forEach(p => {
+        document.getElementById('conectivo-' + p.id).addEventListener('input', onEdit);
+        document.getElementById('texto-' + p.id).addEventListener('input', onEdit);
+      }));
+    }
+
+    let saveTimer = null;
+    function onEdit() {
+      atualizarBadges();
+      renderPaper();
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(salvarRascunho, 400);
+    }
+
+    function atualizarBadges() {
+      STRUCTURE.forEach(secao => secao.periodos.forEach(p => {
+        const texto = textoCompletoPeriodo(p);
+        const linhas = estimarLinhas(texto);
+        const badge = document.getElementById('badge-' + p.id);
+        const bloco = document.getElementById('bloco-' + p.id);
+        const over = linhas > p.targetLinhas * 1.15;
+        badge.textContent = `${linhas.toFixed(1)} / ${p.targetLinhas} linhas`;
+        badge.className = 'text-[10px] font-mono ' + (over ? 'linhas-badge-over' : 'linhas-badge-ok');
+        bloco.classList.toggle('periodo-over', over);
+      }));
+    }
+
+    function quebrarEmLinhas(texto, primeiraLinhaComRecuo) {
+      const linhas = [];
+      const palavras = texto.split(/\s+/).filter(Boolean);
+      let atual = primeiraLinhaComRecuo ? '     ' : ''; // recuo de parágrafo (5 espaços)
+      palavras.forEach(palavra => {
+        const tentativa = atual ? atual + ' ' + palavra : palavra;
+        if (tentativa.length > CHARS_PER_LINE && atual.trim()) {
+          linhas.push(atual);
+          atual = palavra;
+        } else {
+          atual = tentativa;
+        }
+      });
+      if (atual.trim()) linhas.push(atual);
+      return linhas;
+    }
+
+    function renderPaper() {
+      const titulo = document.getElementById('input-titulo').value.trim();
+
+      let todasLinhas = [];
+      STRUCTURE.forEach(secao => {
+        const textoParagrafo = secao.periodos.map(textoCompletoPeriodo).filter(Boolean).join(' ');
+        if (textoParagrafo) {
+          todasLinhas = todasLinhas.concat(quebrarEmLinhas(textoParagrafo, true));
+        }
+      });
+
+      const totalUsadas = todasLinhas.length;
+      const badgeTotal = document.getElementById('linhas-total-badge');
+      badgeTotal.textContent = `${totalUsadas} / 30 linhas`;
+      const foraDoLimite = totalUsadas > 30 || (totalUsadas > 0 && totalUsadas < 15);
+      badgeTotal.className = 'text-xs font-mono px-2 py-1 rounded-md border ' +
+        (foraDoLimite ? 'bg-rose-950/40 border-rose-700 text-rose-300' : 'bg-slate-800 border-slate-700 text-slate-300');
+
+      let linhasHtml = '';
+      for (let i = 1; i <= 30; i++) {
+        const marker5 = i % 5 === 0;
+        const texto = todasLinhas[i - 1] || '';
+        linhasHtml += `<div class="paper-line-row${marker5 ? ' marker-5' : ''}">
+          <span class="paper-line-num">${i}</span>
+          <span class="paper-line-text">${texto.replace(/</g, '&lt;')}</span>
+        </div>`;
+      }
+
+      document.getElementById('paper-sheet').innerHTML = `
+        <div class="paper-title-box"><span class="text-[13px] font-normal text-[#555]">TÍTULO:</span> ${titulo ? titulo.replace(/</g, '&lt;') : ''}</div>
+        ${linhasHtml}
+      `;
+
+      if (todasLinhas.length > 30) {
+        document.getElementById('paper-sheet').insertAdjacentHTML('beforeend',
+          `<div class="mt-2 text-[11px] text-rose-600 font-sans font-medium">⚠ O texto ultrapassou as 30 linhas da folha (${todasLinhas.length} linhas estimadas). Reduza algum trecho.</div>`);
+      }
+    }
+
+    function salvarRascunho() {
+      const dados = { titulo: document.getElementById('input-titulo').value };
+      STRUCTURE.forEach(secao => secao.periodos.forEach(p => {
+        dados['conectivo-' + p.id] = document.getElementById('conectivo-' + p.id).value;
+        dados['texto-' + p.id] = document.getElementById('texto-' + p.id).value;
+      }));
+      try { localStorage.setItem(DRAFT_KEY, JSON.stringify(dados)); } catch (e) { /* ignora */ }
+    }
+
+    function carregarRascunho() {
+      let dados = {};
+      try { dados = JSON.parse(localStorage.getItem(DRAFT_KEY) || '{}'); } catch (e) { dados = {}; }
+      if (dados.titulo) document.getElementById('input-titulo').value = dados.titulo;
+      STRUCTURE.forEach(secao => secao.periodos.forEach(p => {
+        if (dados['conectivo-' + p.id] !== undefined) document.getElementById('conectivo-' + p.id).value = dados['conectivo-' + p.id];
+        if (dados['texto-' + p.id] !== undefined) document.getElementById('texto-' + p.id).value = dados['texto-' + p.id];
+      }));
+    }
+
+    function limparRascunho() {
+      if (!confirm('Tem certeza que quer limpar tudo? Essa ação não pode ser desfeita.')) return;
+      localStorage.removeItem(DRAFT_KEY);
+      document.getElementById('input-titulo').value = '';
+      renderForm();
+      atualizarBadges();
+      renderPaper();
+    }
+
+    document.getElementById('input-titulo')?.addEventListener('input', onEdit);
+
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending', 'gate-no-access'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    function applyThemeIcon() {
+      const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+      document.getElementById('theme-toggle-icon-moon').classList.toggle('hidden', theme === 'light');
+      document.getElementById('theme-toggle-icon-sun').classList.toggle('hidden', theme !== 'light');
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('site_theme', next); } catch (e) { /* ignora */ }
+      applyThemeIcon();
+    }
+
+    async function handleLogout() {
+      await sb.auth.signOut();
+    }
+
+    async function onUserAuthenticated() {
+      const { data: perfil } = await sb.from('profiles').select('aprovado').eq('id', currentUser.id).maybeSingle();
+      const aprovado = perfil ? perfil.aprovado : false;
+      if (!aprovado) { showGate('gate-pending'); return; }
+
+      const { data: acesso } = await sb.from('acessos').select('quiz_id').eq('user_id', currentUser.id).eq('quiz_id', QUIZ_ID).maybeSingle();
+      if (!acesso) { showGate('gate-no-access'); return; }
+
+      document.getElementById('access-screen').classList.add('hidden');
+      const bar = document.getElementById('user-bar');
+      bar.classList.remove('hidden');
+      bar.classList.add('flex');
+      document.getElementById('user-email').textContent = currentUser.email;
+
+      renderForm();
+      carregarRascunho();
+      atualizarBadges();
+      renderPaper();
+    }
+
+    function showAccessScreen() {
+      document.getElementById('user-bar').classList.add('hidden');
+      document.getElementById('user-bar').classList.remove('flex');
+      showGate('gate-logged-out');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      applyThemeIcon();
+      sb.auth.onAuthStateChange((event, session) => {
+        if (session && session.user) {
+          currentUser = session.user;
+          onUserAuthenticated();
+        } else if (event === 'SIGNED_OUT' || event === 'INITIAL_SESSION') {
+          currentUser = null;
+          showAccessScreen();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
