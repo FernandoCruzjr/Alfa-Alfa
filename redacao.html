@@ -307,6 +307,7 @@
       font-size: 15px;
       font-weight: 600;
       display: flex;
+      justify-content: center;
       align-items: baseline;
       gap: 6px;
     }
@@ -481,7 +482,10 @@
       </div>
       <div class="p-4 border-b border-slate-700 flex flex-col gap-2">
         <select id="nova-frase-categoria" class="h-9 rounded-md bg-slate-950 border border-slate-700 px-2 text-sm text-ink outline-none">
-          <option value="topico">Tópico frasal</option>
+          <option value="topico">Tópico frasal (Introdução)</option>
+          <option value="topico_d1">Tópico frasal — Desenvolvimento 1</option>
+          <option value="topico_d2">Tópico frasal — Desenvolvimento 2</option>
+          <option value="topico_conclusao">Tópico frasal — Conclusão</option>
           <option value="argumento">Argumento</option>
           <option value="conectivo">Conectivo</option>
           <option value="repertorio">Repertório</option>
@@ -514,19 +518,19 @@
         { id: 'i3', conectivo: 'Desse modo,', cat: 'argumento', dica: 'Tese com os 2 argumentos (ex.: suporte à economia e apoio à defesa).', targetLinhas: 1.5 },
       ]},
       { titulo: 'Desenvolvimento 1', metaLinhas: 9, periodos: [
-        { id: 'd1', conectivo: 'Primordialmente,', cat: 'topico', dica: 'Tópico frasal — retoma o 1º argumento.', targetLinhas: 2 },
+        { id: 'd1', conectivo: 'Primordialmente,', cat: 'topico_d1', dica: 'Tópico frasal — retoma o 1º argumento.', targetLinhas: 2 },
         { id: 'd2', conectivo: 'Segundo, (AUTOR)', cat: 'repertorio', dica: 'Repertório: uma frase de alguém relevante.', targetLinhas: 2 },
         { id: 'd3', conectivo: 'Sob essa ótica,', cat: 'conectivo', dica: 'Retome e explique o repertório citado.', targetLinhas: 2.5 },
         { id: 'd4', conectivo: 'Desse modo,', cat: 'conectivo', dica: 'Síntese com o texto-base, fechando o parágrafo.', targetLinhas: 5 },
       ]},
       { titulo: 'Desenvolvimento 2', metaLinhas: 8, periodos: [
-        { id: 'e1', conectivo: 'Ainda sobre esse prisma, verifica-se que', cat: 'topico', dica: 'Tópico frasal — retoma o 2º argumento.', targetLinhas: 2 },
+        { id: 'e1', conectivo: 'Ainda sobre esse prisma, verifica-se que', cat: 'topico_d2', dica: 'Tópico frasal — retoma o 2º argumento.', targetLinhas: 2 },
         { id: 'e2', conectivo: 'Nesse sentido, (AUTOR) ao afirmar que', cat: 'repertorio', dica: 'Repertório: uma frase de alguém relevante.', targetLinhas: 2 },
         { id: 'e3', conectivo: 'Nessa direção,', cat: 'conectivo', dica: 'Retome e explique o repertório citado.', targetLinhas: 2 },
         { id: 'e4', conectivo: 'Dessa forma,', cat: 'conectivo', dica: 'Síntese com o texto-base, fechando o parágrafo.', targetLinhas: 2 },
       ]},
       { titulo: 'Conclusão', metaLinhas: 6, periodos: [
-        { id: 'c1', conectivo: 'Em síntese, verifica-se que', cat: 'topico', dica: 'Circularidade — retoma a introdução com um contraponto.', targetLinhas: 3 },
+        { id: 'c1', conectivo: 'Em síntese, verifica-se que', cat: 'topico_conclusao', dica: 'Circularidade — retoma a introdução com um contraponto.', targetLinhas: 3 },
         { id: 'c2', conectivo: 'Assim, conclui-se que', cat: 'conectivo', dica: '', targetLinhas: 3 },
       ]},
     ];
@@ -536,8 +540,7 @@
       let linhaAtual = 0;
       const marcadores = [];
       STRUCTURE.forEach(secao => {
-        const totalLocal = secao.periodos.reduce((s, p) => s + p.targetLinhas, 0);
-        linhaAtual = Math.ceil(linhaAtual) + Math.ceil(totalLocal);
+        linhaAtual += secao.metaLinhas;
         marcadores.push({ linha: linhaAtual, texto: `fim da meta: ${secao.titulo}` });
       });
       return marcadores;
@@ -772,7 +775,10 @@
 
     // ===== Banco de Frases =====
     const CATEGORIAS = [
-      { id: 'topico', label: 'Tópico frasal', icon: 'fa-signs-post' },
+      { id: 'topico', label: 'Tópico frasal (Introdução)', icon: 'fa-signs-post' },
+      { id: 'topico_d1', label: 'Tópico frasal — Desenvolvimento 1', icon: 'fa-signs-post' },
+      { id: 'topico_d2', label: 'Tópico frasal — Desenvolvimento 2', icon: 'fa-signs-post' },
+      { id: 'topico_conclusao', label: 'Tópico frasal — Conclusão', icon: 'fa-signs-post' },
       { id: 'argumento', label: 'Argumento', icon: 'fa-scale-balanced' },
       { id: 'conectivo', label: 'Conectivo', icon: 'fa-link' },
       { id: 'repertorio', label: 'Repertório', icon: 'fa-quote-right' },
