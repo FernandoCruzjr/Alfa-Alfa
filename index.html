@@ -332,7 +332,8 @@
       position: absolute;
       inset: 0;
       background-image: url('login-oficial-mesa.jpg');
-      background-size: cover;
+      background-size: contain;
+      background-repeat: no-repeat;
       background-position: center;
     }
     #storm-vignette {
@@ -358,7 +359,7 @@
       </div>
       <div id="storm-vignette"></div>
     </div>
-    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d]/70 backdrop-blur-sm shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-8 flex flex-col items-center text-center opacity-0 translate-y-2 relative z-10" style="animation: access-in .5s ease-out .1s forwards;">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border-2 border-[#c9a44c] bg-[#071a2d]/70 backdrop-blur-sm shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-8 flex flex-col items-center text-center opacity-0 translate-y-2 relative z-10" style="animation: access-in .5s ease-out .1s forwards;">
       <div class="text-[46px] leading-none mb-2" aria-hidden="true">⚓</div>
       <div class="font-script font-bold text-[32px] leading-tight text-ink">Fernando Cruz</div>
       <div class="text-[11px] text-[#91a9c3] mt-1 italic mb-5">"O sucesso é a soma de pequenos esforços repetidos dia após dia"</div>
@@ -366,28 +367,28 @@
       <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6 max-w-[300px]">Concurso de Admissão ao Curso de Formação de Oficiais Auxiliares</div>
 
       <div class="w-full bg-navy-900 p-1 rounded-lg flex text-xs mb-5" role="tablist">
-        <button type="button" id="tab-login" onclick="switchAuthTab('login')" class="flex-1 py-2 rounded-md font-semibold transition-all bg-navy-600 text-ink">Entrar</button>
+        <button type="button" id="tab-login" onclick="switchAuthTab('login')" class="flex-1 py-2 rounded-md font-semibold transition-all bg-[#c9a44c] text-[#071a2d]">Entrar</button>
         <button type="button" id="tab-signup" onclick="switchAuthTab('signup')" class="flex-1 py-2 rounded-md font-semibold transition-all text-slate-400 hover:text-ink">Criar conta</button>
       </div>
 
       <form id="login-form" class="w-full flex flex-col gap-3" onsubmit="return handleLogin(event)">
-        <input id="login-email" type="email" required autocomplete="email" placeholder="seu e-mail" class="w-full h-12 rounded-xl border border-[#2c73b5] bg-[#06172a] px-4 text-sm text-ink outline-none focus:ring-2 focus:ring-[#2384d6] transition-shadow">
-        <input id="login-password" type="password" required autocomplete="current-password" placeholder="senha" class="w-full h-12 rounded-xl border border-[#2c73b5] bg-[#06172a] px-4 text-sm text-ink outline-none focus:ring-2 focus:ring-[#2384d6] transition-shadow">
-        <button type="submit" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-ink text-sm font-bold transition-all shadow-lg">🔐 Entrar</button>
+        <input id="login-email" type="email" required autocomplete="email" placeholder="seu e-mail" class="w-full h-12 rounded-xl border border-[#c9a44c] bg-[#06172a] px-4 text-sm text-ink outline-none focus:ring-2 focus:ring-[#c9a44c] transition-shadow">
+        <input id="login-password" type="password" required autocomplete="current-password" placeholder="senha" class="w-full h-12 rounded-xl border border-[#c9a44c] bg-[#06172a] px-4 text-sm text-ink outline-none focus:ring-2 focus:ring-[#c9a44c] transition-shadow">
+        <button type="submit" class="w-full h-12 rounded-xl bg-[#c9a44c] hover:bg-[#d9b968] active:scale-[.99] text-[#071a2d] text-sm font-bold transition-all shadow-lg">🔐 Entrar</button>
         <button type="button" onclick="handleForgotPassword()" class="text-xs text-[#8fb3dd] hover:text-ink underline underline-offset-2 mt-1">Esqueci minha senha</button>
       </form>
 
       <form id="signup-form" class="w-full hidden flex-col gap-3" onsubmit="return handleSignup(event)">
-        <input id="signup-name" type="text" required autocomplete="name" placeholder="nome completo" class="w-full h-12 rounded-xl border border-[#2c73b5] bg-[#06172a] px-4 text-sm text-ink outline-none focus:ring-2 focus:ring-[#2384d6] transition-shadow">
-        <input id="signup-email" type="email" required autocomplete="email" placeholder="seu e-mail" class="w-full h-12 rounded-xl border border-[#2c73b5] bg-[#06172a] px-4 text-sm text-ink outline-none focus:ring-2 focus:ring-[#2384d6] transition-shadow">
-        <input id="signup-password" type="password" required minlength="6" autocomplete="new-password" placeholder="crie uma senha (mín. 6 caracteres)" class="w-full h-12 rounded-xl border border-[#2c73b5] bg-[#06172a] px-4 text-sm text-ink outline-none focus:ring-2 focus:ring-[#2384d6] transition-shadow">
+        <input id="signup-name" type="text" required autocomplete="name" placeholder="nome completo" class="w-full h-12 rounded-xl border border-[#c9a44c] bg-[#06172a] px-4 text-sm text-ink outline-none focus:ring-2 focus:ring-[#c9a44c] transition-shadow">
+        <input id="signup-email" type="email" required autocomplete="email" placeholder="seu e-mail" class="w-full h-12 rounded-xl border border-[#c9a44c] bg-[#06172a] px-4 text-sm text-ink outline-none focus:ring-2 focus:ring-[#c9a44c] transition-shadow">
+        <input id="signup-password" type="password" required minlength="6" autocomplete="new-password" placeholder="crie uma senha (mín. 6 caracteres)" class="w-full h-12 rounded-xl border border-[#c9a44c] bg-[#06172a] px-4 text-sm text-ink outline-none focus:ring-2 focus:ring-[#c9a44c] transition-shadow">
         <button type="submit" class="w-full h-12 rounded-xl bg-emerald-700 hover:bg-emerald-600 active:scale-[.99] text-ink text-sm font-bold transition-all shadow-lg">✉️ Criar conta</button>
       </form>
 
       <form id="recovery-form" class="w-full hidden flex-col gap-3" onsubmit="return handleSetNewPassword(event)">
         <p class="text-xs text-[#9bb5d2] mb-1">Defina sua nova senha de acesso.</p>
-        <input id="recovery-password" type="password" required minlength="6" autocomplete="new-password" placeholder="nova senha (mín. 6 caracteres)" class="w-full h-12 rounded-xl border border-[#2c73b5] bg-[#06172a] px-4 text-sm text-ink outline-none focus:ring-2 focus:ring-[#2384d6] transition-shadow">
-        <button type="submit" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] text-ink text-sm font-bold transition-all shadow-lg">Salvar nova senha</button>
+        <input id="recovery-password" type="password" required minlength="6" autocomplete="new-password" placeholder="nova senha (mín. 6 caracteres)" class="w-full h-12 rounded-xl border border-[#c9a44c] bg-[#06172a] px-4 text-sm text-ink outline-none focus:ring-2 focus:ring-[#c9a44c] transition-shadow">
+        <button type="submit" class="w-full h-12 rounded-xl bg-[#c9a44c] hover:bg-[#d9b968] text-[#071a2d] text-sm font-bold transition-all shadow-lg">Salvar nova senha</button>
       </form>
 
       <div id="pending-panel" class="w-full hidden flex-col items-center gap-3 py-2">
@@ -882,7 +883,7 @@
     function switchAuthTab(tab) {
       const tabLogin = document.getElementById('tab-login');
       const tabSignup = document.getElementById('tab-signup');
-      const activeCls = 'flex-1 py-2 rounded-md font-semibold transition-all bg-navy-600 text-ink';
+      const activeCls = 'flex-1 py-2 rounded-md font-semibold transition-all bg-[#c9a44c] text-[#071a2d]';
       const inactiveCls = 'flex-1 py-2 rounded-md font-semibold transition-all text-slate-400 hover:text-ink';
       showForm(tab === 'login' ? 'login-form' : 'signup-form');
       tabLogin.className = tab === 'login' ? activeCls : inactiveCls;
