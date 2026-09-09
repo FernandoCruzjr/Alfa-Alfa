@@ -17,7 +17,7 @@
   <title>Plataforma de Estudos · CA-AA/AFN</title>
   <meta name="description" content="Simulados gratuitos e interativos para o Concurso de Admissão ao Curso de Formação de Oficiais Auxiliares (CA-AA/AFN).">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
-  <link rel="preload" as="image" href="login-oficial-tempestade.jpg">
+  <link rel="preload" as="image" href="login-oficial-mesa.jpg">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -272,7 +272,6 @@
     .shake { animation: shake .5s; }
     @media (prefers-reduced-motion: reduce) {
       #access-card, .shake { animation: none !important; }
-      .lightning-flash, .rain-drop, #vortex-swirl { animation: none !important; }
       #access-screen.exiting { animation: none !important; opacity: 0; }
     }
 
@@ -328,49 +327,13 @@
     #storm-stage {
       position: absolute;
       inset: 0;
-      transform: scale(1.9) translateX(22%);
-      transform-origin: center;
     }
     #storm-photo {
       position: absolute;
       inset: 0;
-      background-image: url('login-oficial-tempestade.jpg');
+      background-image: url('login-oficial-mesa.jpg');
       background-size: cover;
       background-position: center;
-      filter: saturate(1.05) contrast(1.05);
-    }
-    @keyframes vortex-spin {
-      from { transform: translate(-50%, -50%) rotate(0deg); }
-      to { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-    #vortex-swirl {
-      position: absolute;
-      left: 59.4%;
-      top: 18.2%;
-      width: 30vmin;
-      height: 30vmin;
-      max-width: 300px;
-      max-height: 300px;
-      transform: translate(-50%, -50%);
-      animation: vortex-spin 14s linear infinite;
-      mix-blend-mode: screen;
-      opacity: .5;
-      background: conic-gradient(
-        from 0deg,
-        transparent 0deg,
-        rgba(210,235,255,.55) 18deg,
-        transparent 55deg,
-        transparent 110deg,
-        rgba(210,235,255,.4) 140deg,
-        transparent 170deg,
-        transparent 230deg,
-        rgba(210,235,255,.5) 255deg,
-        transparent 290deg,
-        transparent 340deg,
-        rgba(210,235,255,.35) 355deg,
-        transparent 360deg
-      );
-      border-radius: 50%;
     }
     #storm-vignette {
       position: absolute;
@@ -379,33 +342,6 @@
     }
     .wave-layer { display: none; }
 
-    @keyframes lightning-strike {
-      0%, 96%, 100% { opacity: 0; }
-      97% { opacity: .55; }
-      97.5% { opacity: .05; }
-      98% { opacity: .4; }
-      98.5% { opacity: 0; }
-    }
-    .lightning-flash {
-      position: absolute;
-      inset: 0;
-      background: #eaf3ff;
-      animation: lightning-strike 9s infinite;
-      animation-delay: 3s;
-    }
-    .lightning-flash.delay2 { animation-delay: 6.4s; animation-duration: 13s; }
-
-    @keyframes rain-fall {
-      from { transform: translateY(-10%); }
-      to { transform: translateY(110%); }
-    }
-    .rain-drop {
-      position: absolute;
-      top: -10%;
-      width: 1px;
-      background: linear-gradient(to bottom, transparent, rgba(180,210,255,.35), transparent);
-      animation: rain-fall linear infinite;
-    }
     button:focus-visible, input:focus-visible, a:focus-visible {
       outline: 2px solid #2384d6;
       outline-offset: 2px;
@@ -415,18 +351,14 @@
 <body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans" style="background:#0c1116">
 
   <!-- Tela de acesso: login / cadastro / recuperação de senha via Supabase Auth -->
-  <div id="access-screen" class="hidden fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+  <div id="access-screen" class="hidden fixed inset-0 z-[100] flex items-center justify-start px-5 md:px-16 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
     <div id="storm-bg" aria-hidden="true">
       <div id="storm-stage">
         <div id="storm-photo"></div>
-        <div id="vortex-swirl"></div>
       </div>
       <div id="storm-vignette"></div>
-      <div class="lightning-flash"></div>
-      <div class="lightning-flash delay2"></div>
-      <div id="rain-container"></div>
     </div>
-    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-8 flex flex-col items-center text-center opacity-0 translate-y-2 relative z-10" style="animation: access-in .5s ease-out .1s forwards;">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d]/70 backdrop-blur-sm shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-8 flex flex-col items-center text-center opacity-0 translate-y-2 relative z-10" style="animation: access-in .5s ease-out .1s forwards;">
       <div class="text-[46px] leading-none mb-2" aria-hidden="true">⚓</div>
       <div class="font-script font-bold text-[32px] leading-tight text-ink">Fernando Cruz</div>
       <div class="text-[11px] text-[#91a9c3] mt-1 italic mb-5">"O sucesso é a soma de pequenos esforços repetidos dia após dia"</div>
@@ -1103,21 +1035,6 @@
     window.addEventListener('DOMContentLoaded', () => {
       applyThemeIcon();
       sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-      // Chuva da tempestade (tela de login)
-      const rainContainer = document.getElementById('rain-container');
-      if (rainContainer && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        const totalDrops = 40;
-        for (let i = 0; i < totalDrops; i++) {
-          const drop = document.createElement('div');
-          drop.className = 'rain-drop';
-          drop.style.left = `${Math.random() * 100}%`;
-          drop.style.height = `${18 + Math.random() * 30}px`;
-          drop.style.animationDuration = `${0.5 + Math.random() * 0.6}s`;
-          drop.style.animationDelay = `${Math.random() * 2}s`;
-          rainContainer.appendChild(drop);
-        }
-      }
 
       const flashcardsToggle = document.getElementById('flashcards-toggle');
       const flashcardsPanel = document.getElementById('flashcards-panel');
