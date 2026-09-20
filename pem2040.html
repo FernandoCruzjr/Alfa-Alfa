@@ -27,6 +27,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Supabase JS Client -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="gamification.js"></script>
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Google Fonts: Fraunces (títulos, caráter naval/editorial) + Inter (texto e interface) -->
@@ -1468,27 +1469,15 @@ const questionsData = [
     }
 
     async function onUserAuthenticated() {
-      const { data: perfil } = await sb
-        .from('profiles')
-        .select('aprovado')
-        .eq('id', currentUser.id)
-        .maybeSingle();
-
-      const aprovado = perfil ? perfil.aprovado : false;
+      const aprovado = await AlfaGamification.fetchAprovado(sb, currentUser.id);
 
       if (!aprovado) {
         showGate('gate-pending');
         return;
       }
 
-      const { data: acesso } = await sb
-        .from('acessos')
-        .select('quiz_id')
-        .eq('user_id', currentUser.id)
-        .eq('quiz_id', QUIZ_ID)
-        .maybeSingle();
-
-      if (!acesso) {
+      const temAcesso = await AlfaGamification.fetchQuizAccess(sb, currentUser.id, QUIZ_ID);
+      if (!temAcesso) {
         showGate('gate-no-access');
         return;
       }

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('site_theme');
+        var theme = saved === 'light' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0b1b30">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="CA-AA/AFN">
+  <title>Caderno de Estudos · Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Resumos teóricos, caderno de erros automático e suas anotações livres, prontos pra imprimir.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: {
+              100: 'rgb(var(--tw-navy-100) / <alpha-value>)', 200: 'rgb(var(--tw-navy-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-navy-300) / <alpha-value>)', 400: 'rgb(var(--tw-navy-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-navy-500) / <alpha-value>)', 600: 'rgb(var(--tw-navy-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-navy-700) / <alpha-value>)', 800: 'rgb(var(--tw-navy-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-navy-900) / <alpha-value>)'
+            },
+            ink: 'rgb(var(--tw-ink) / <alpha-value>)',
+            slate: {
+              50: 'rgb(var(--tw-slate-50) / <alpha-value>)', 100: 'rgb(var(--tw-slate-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-slate-200) / <alpha-value>)', 300: 'rgb(var(--tw-slate-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-slate-400) / <alpha-value>)', 500: 'rgb(var(--tw-slate-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-slate-600) / <alpha-value>)', 700: 'rgb(var(--tw-slate-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-slate-800) / <alpha-value>)', 900: 'rgb(var(--tw-slate-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-slate-950) / <alpha-value>)'
+            },
+            emerald: {
+              50: 'rgb(var(--tw-emerald-50) / <alpha-value>)', 100: 'rgb(var(--tw-emerald-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-emerald-200) / <alpha-value>)', 300: 'rgb(var(--tw-emerald-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-emerald-400) / <alpha-value>)', 500: 'rgb(var(--tw-emerald-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-emerald-600) / <alpha-value>)', 700: 'rgb(var(--tw-emerald-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-emerald-800) / <alpha-value>)', 900: 'rgb(var(--tw-emerald-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-emerald-950) / <alpha-value>)'
+            },
+            rose: {
+              50: 'rgb(var(--tw-rose-50) / <alpha-value>)', 100: 'rgb(var(--tw-rose-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-rose-200) / <alpha-value>)', 300: 'rgb(var(--tw-rose-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-rose-400) / <alpha-value>)', 500: 'rgb(var(--tw-rose-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-rose-600) / <alpha-value>)', 700: 'rgb(var(--tw-rose-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-rose-800) / <alpha-value>)', 900: 'rgb(var(--tw-rose-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-rose-950) / <alpha-value>)'
+            },
+            amber: {
+              50: 'rgb(var(--tw-amber-50) / <alpha-value>)', 100: 'rgb(var(--tw-amber-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-amber-200) / <alpha-value>)', 300: 'rgb(var(--tw-amber-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-amber-400) / <alpha-value>)', 500: 'rgb(var(--tw-amber-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-amber-600) / <alpha-value>)', 700: 'rgb(var(--tw-amber-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-amber-800) / <alpha-value>)', 900: 'rgb(var(--tw-amber-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-amber-950) / <alpha-value>)'
+            },
+            cyan: {
+              50: 'rgb(var(--tw-cyan-50) / <alpha-value>)', 100: 'rgb(var(--tw-cyan-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-cyan-200) / <alpha-value>)', 300: 'rgb(var(--tw-cyan-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-cyan-400) / <alpha-value>)', 500: 'rgb(var(--tw-cyan-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-cyan-600) / <alpha-value>)', 700: 'rgb(var(--tw-cyan-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-cyan-800) / <alpha-value>)', 900: 'rgb(var(--tw-cyan-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-cyan-950) / <alpha-value>)'
+            },
+            sky: { 400: 'rgb(var(--tw-sky-400) / <alpha-value>)' },
+            lime: { 400: 'rgb(var(--tw-lime-400) / <alpha-value>)' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+:root {
+  --tw-slate-50: 248 250 252; --tw-slate-100: 241 245 249; --tw-slate-200: 226 232 240;
+  --tw-slate-300: 203 213 225; --tw-slate-400: 148 163 184; --tw-slate-500: 100 116 139;
+  --tw-slate-600: 71 85 105; --tw-slate-700: 51 65 85; --tw-slate-800: 30 41 59;
+  --tw-slate-900: 15 23 42; --tw-slate-950: 2 6 23;
+  --tw-emerald-50: 236 253 245; --tw-emerald-100: 209 250 229; --tw-emerald-200: 167 243 208;
+  --tw-emerald-300: 110 231 183; --tw-emerald-400: 52 211 153; --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 5 150 105; --tw-emerald-700: 4 120 87; --tw-emerald-800: 6 95 70;
+  --tw-emerald-900: 6 78 59; --tw-emerald-950: 2 44 34;
+  --tw-rose-50: 255 241 242; --tw-rose-100: 255 228 230; --tw-rose-200: 254 205 211;
+  --tw-rose-300: 253 164 175; --tw-rose-400: 251 113 133; --tw-rose-500: 244 63 94;
+  --tw-rose-600: 225 29 72; --tw-rose-700: 190 18 60; --tw-rose-800: 159 18 57;
+  --tw-rose-900: 136 19 55; --tw-rose-950: 76 5 25;
+  --tw-amber-50: 255 251 235; --tw-amber-100: 254 243 199; --tw-amber-200: 253 230 138;
+  --tw-amber-300: 252 211 77; --tw-amber-400: 251 191 36; --tw-amber-500: 245 158 11;
+  --tw-amber-600: 217 119 6; --tw-amber-700: 180 83 9; --tw-amber-800: 146 64 14;
+  --tw-amber-900: 120 53 15; --tw-amber-950: 69 26 3;
+  --tw-cyan-50: 236 254 255; --tw-cyan-100: 207 250 254; --tw-cyan-200: 165 243 252;
+  --tw-cyan-300: 103 232 249; --tw-cyan-400: 34 211 238; --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 8 145 178; --tw-cyan-700: 14 116 144; --tw-cyan-800: 21 94 117;
+  --tw-cyan-900: 22 78 99; --tw-cyan-950: 8 51 68;
+  --tw-sky-400: 56 189 248; --tw-lime-400: 163 230 53;
+  --tw-navy-100: 230 240 250; --tw-navy-200: 192 219 245; --tw-navy-300: 143 193 238;
+  --tw-navy-400: 77 158 224; --tw-navy-500: 0 102 204; --tw-navy-600: 30 86 160;
+  --tw-navy-700: 30 62 98; --tw-navy-800: 11 25 44; --tw-navy-900: 0 15 38;
+  --tw-ink: 255 255 255;
+}
+[data-theme="light"] {
+  --tw-slate-50: 2 6 23; --tw-slate-100: 15 23 42; --tw-slate-200: 30 41 59;
+  --tw-slate-300: 51 65 85; --tw-slate-400: 71 85 105; --tw-slate-500: 100 116 139;
+  --tw-slate-600: 148 163 184; --tw-slate-700: 203 213 225; --tw-slate-800: 226 232 240;
+  --tw-slate-900: 241 245 249; --tw-slate-950: 248 250 252;
+  --tw-emerald-50: 2 44 34; --tw-emerald-100: 6 78 59; --tw-emerald-200: 6 95 70;
+  --tw-emerald-300: 4 120 87; --tw-emerald-400: 5 150 105; --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 52 211 153; --tw-emerald-700: 110 231 183; --tw-emerald-800: 167 243 208;
+  --tw-emerald-900: 209 250 229; --tw-emerald-950: 236 253 245;
+  --tw-rose-50: 76 5 25; --tw-rose-100: 136 19 55; --tw-rose-200: 159 18 57;
+  --tw-rose-300: 190 18 60; --tw-rose-400: 225 29 72; --tw-rose-500: 244 63 94;
+  --tw-rose-600: 251 113 133; --tw-rose-700: 253 164 175; --tw-rose-800: 254 205 211;
+  --tw-rose-900: 255 228 230; --tw-rose-950: 255 241 242;
+  --tw-amber-50: 69 26 3; --tw-amber-100: 120 53 15; --tw-amber-200: 146 64 14;
+  --tw-amber-300: 180 83 9; --tw-amber-400: 217 119 6; --tw-amber-500: 245 158 11;
+  --tw-amber-600: 251 191 36; --tw-amber-700: 252 211 77; --tw-amber-800: 253 230 138;
+  --tw-amber-900: 254 243 199; --tw-amber-950: 255 251 235;
+  --tw-cyan-50: 8 51 68; --tw-cyan-100: 22 78 99; --tw-cyan-200: 21 94 117;
+  --tw-cyan-300: 14 116 144; --tw-cyan-400: 8 145 178; --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 34 211 238; --tw-cyan-700: 103 232 249; --tw-cyan-800: 165 243 252;
+  --tw-cyan-900: 207 250 254; --tw-cyan-950: 236 254 255;
+  --tw-sky-400: 56 189 248; --tw-lime-400: 163 230 53;
+  --tw-navy-100: 0 15 38; --tw-navy-200: 11 25 44; --tw-navy-300: 30 62 98;
+  --tw-navy-400: 30 86 160; --tw-navy-500: 0 102 204; --tw-navy-600: 77 158 224;
+  --tw-navy-700: 143 193 238; --tw-navy-800: 192 219 245; --tw-navy-900: 230 240 250;
+  --tw-ink: 11 25 44;
+}
+    @keyframes access-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    #access-card { animation: access-in .5s ease-out .1s forwards; }
+    .chrome-bg-900 { background-color: #000F26 !important; }
+    .chrome-bg-800 { background-color: #0B192C !important; }
+    .chrome-bg-600 { background-color: #1E56A0 !important; }
+    .chrome-border-700 { border-color: #1E3E62 !important; }
+    .chrome-border-600 { border-color: #1E56A0 !important; }
+    .chrome-text-white { color: #FFFFFF !important; }
+    .chrome-text-slate-400 { color: #94A3B8 !important; }
+    .chrome-text-slate-200 { color: #E2E8F0 !important; }
+    .chrome-hover-border-500:hover { border-color: #0066CC !important; }
+    button:focus-visible, select:focus-visible, a:focus-visible { outline: 2px solid #2384d6; outline-offset: 2px; }
+    .tab-btn.active { background: #1E56A0 !important; color: #fff !important; }
+    .topic-summary summary { cursor: pointer; }
+    .topic-summary summary::-webkit-details-marker { display: none; }
+
+    @media print {
+      body * { visibility: hidden; }
+      #printable-area, #printable-area * { visibility: visible; }
+      #printable-area { position: absolute; top: 0; left: 0; width: 100%; }
+      .no-print { display: none !important; }
+      details { display: block !important; }
+      details > *:not(summary) { display: block !important; }
+      .print-only { display: block !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">📓</div>
+      <div class="font-serif font-semibold text-[26px] text-ink tracking-tight">Caderno de Estudos</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial pra acessar seu caderno.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-ink text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-ink underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="chrome-bg-900 border-b chrome-border-700 sticky top-0 z-30 shadow-lg no-print">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="chrome-bg-600 chrome-text-white p-2.5 rounded-lg shadow">
+          <i class="fa-solid fa-book-bookmark text-2xl"></i>
+        </div>
+        <div>
+          <h1 class="font-serif text-xl font-semibold chrome-text-white tracking-wide">Caderno de Estudos</h1>
+          <p class="text-xs chrome-text-slate-400">Resumos, erros e anotações — tudo num só lugar</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 flex-shrink-0">
+        <button id="theme-toggle-btn" onclick="toggleTheme()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors" title="Alternar entre modo claro e escuro" aria-label="Alternar tema claro/escuro"><i class="fa-solid fa-moon text-sm" id="theme-toggle-icon-moon"></i><i class="fa-solid fa-sun text-sm hidden" id="theme-toggle-icon-sun"></i></button>
+        <button onclick="window.print()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg transition-all flex items-center gap-1.5" title="Imprimir ou exportar como PDF">
+          <i class="fa-solid fa-print"></i> Imprimir / PDF
+        </button>
+        <a href="index.html" class="chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 chrome-hover-border-500 transition-colors">
+          <i class="fa-solid fa-house"></i> Painel geral
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 md:px-6 py-6">
+
+    <!-- Tabs -->
+    <div class="flex gap-2 mb-5 bg-navy-800/60 border border-navy-700 rounded-xl p-1.5 no-print">
+      <button type="button" class="tab-btn active flex-1 text-sm font-medium py-2.5 rounded-lg transition-all" data-tab="resumo" onclick="switchTab('resumo')">
+        <i class="fa-solid fa-book-open mr-1.5"></i> Resumo Teórico
+      </button>
+      <button type="button" class="tab-btn flex-1 text-sm font-medium py-2.5 rounded-lg transition-all" data-tab="erros" onclick="switchTab('erros')">
+        <i class="fa-solid fa-circle-xmark mr-1.5"></i> Caderno de Erros
+      </button>
+      <button type="button" class="tab-btn flex-1 text-sm font-medium py-2.5 rounded-lg transition-all" data-tab="notas" onclick="switchTab('notas')">
+        <i class="fa-solid fa-pen mr-1.5"></i> Minhas Anotações
+      </button>
+    </div>
+
+    <div id="loading-state" class="text-center py-16 text-slate-400 no-print">
+      <i class="fa-solid fa-circle-notch fa-spin text-2xl"></i>
+    </div>
+
+    <div id="printable-area">
+
+      <!-- ===== Resumo Teórico ===== -->
+      <div id="tab-resumo" class="hidden space-y-4">
+        <div class="mb-2 no-print">
+          <label for="resumo-subject-select" class="text-xs font-medium text-slate-400 flex items-center gap-1.5 mb-1.5">
+            <i class="fa-solid fa-layer-group text-navy-500"></i> Matéria
+          </label>
+          <select id="resumo-subject-select" onchange="renderResumo()" class="w-full md:w-96 bg-navy-800 border border-navy-700 text-slate-200 text-sm rounded-lg px-3 py-2.5 outline-none focus:ring-2 focus:ring-navy-500"></select>
+        </div>
+        <div id="resumo-content"></div>
+      </div>
+
+      <!-- ===== Caderno de Erros ===== -->
+      <div id="tab-erros" class="hidden space-y-3">
+        <div id="erros-summary" class="text-sm text-slate-300 mb-1 no-print"></div>
+        <div id="erros-empty" class="hidden text-center py-16 text-slate-400">
+          <i class="fa-solid fa-face-smile text-4xl mb-4 text-emerald-500"></i>
+          <p class="text-sm">Nenhum erro registrado até agora — continue assim!</p>
+        </div>
+        <div id="erros-loading" class="text-center py-10 text-slate-400 no-print">
+          <i class="fa-solid fa-circle-notch fa-spin text-xl"></i>
+          <p class="text-xs mt-2">Cruzando suas respostas erradas com os bancos de questões...</p>
+        </div>
+        <div id="erros-list" class="space-y-3"></div>
+      </div>
+
+      <!-- ===== Minhas Anotações (por matéria) ===== -->
+      <div id="tab-notas" class="hidden space-y-3">
+        <p class="text-xs text-slate-400 mb-2 no-print">Um espaço livre por matéria — use pra resumos próprios, dúvidas ou lembretes. Fica salvo automaticamente na nuvem.</p>
+        <div id="notas-list" class="space-y-3"></div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="max-w-5xl w-full mx-auto px-4 md:px-6 pb-6 pt-2 text-center text-[11px] text-slate-500 no-print">
+    Plataforma de Estudos · CA-AA/AFN
+  </footer>
+
+  <script src="gamification.js"></script>
+  <script>
+    const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    applyThemeIcon();
+
+    const NOTA_GERAL_ID = '_notas_gerais';
+    let currentUser = null;
+    let errosLoaded = false, notasLoaded = false;
+    let notesCache = {}; // key `${quiz_id}::${question_id}` -> texto
+
+    function applyThemeIcon() {
+      const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+      document.getElementById('theme-toggle-icon-moon').classList.toggle('hidden', theme === 'light');
+      document.getElementById('theme-toggle-icon-sun').classList.toggle('hidden', theme !== 'light');
+    }
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('site_theme', next); } catch (e) { /* ignora */ }
+      applyThemeIcon();
+    }
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+    function switchTab(tab) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+      ['resumo', 'erros', 'notas'].forEach(t => document.getElementById('tab-' + t).classList.toggle('hidden', t !== tab));
+      if (tab === 'erros' && !errosLoaded) loadErros();
+      if (tab === 'notas' && !notasLoaded) loadNotasLivres();
+    }
+
+    // =================================================================
+    // RESUMO TEÓRICO
+    // =================================================================
+    // Conteúdo completo, por enquanto, só para Estatuto dos Militares & RDM
+    // (a matéria com a base legal mais estudada nesta plataforma). As demais
+    // aparecem como "em breve" — preferimos deixar isso claro a inventar
+    // um resumo raso.
+    const RESUMOS = {
+      ESTATUTO_RDM: {
+        titulo: 'Estatuto dos Militares & RDM — Resumo por Tópico',
+        fonte: 'Baseado na Lei nº 6.880/1980 (Estatuto dos Militares) e no Decreto nº 88.545/1983 (RDM da Marinha).',
+        topicos: [
+          ['Do Valor e da Ética Militar', 'Define os valores essenciais da profissão militar — patriotismo, civismo, disciplina consciente e culto às tradições — que orientam a conduta do militar dentro e fora do serviço.'],
+          ['Dos Deveres Militares', 'Trata do conjunto de vínculos racionais e morais que ligam o militar à Pátria e ao serviço, como dedicação, disciplina, probidade e espírito de corpo.'],
+          ['Do Comando e da Subordinação', 'Estabelece a hierarquia como base da organização militar: quem exerce comando, os limites da autoridade e o dever de obediência dentro da cadeia hierárquica.'],
+          ['Dos Conselhos de Justificação e de Disciplina', 'Descreve os colegiados que apuram fatos que possam comprometer a permanência do militar nas Forças Armadas, garantindo direito de defesa antes de qualquer exclusão.'],
+          ['Da Promoção', 'Trata dos critérios (antiguidade, merecimento, tempo de serviço) e das condições que habilitam um militar a subir de posto ou graduação.'],
+          ['Das Férias e Outros Afastamentos', 'Regula o período de descanso anual e outras formas de afastamento temporário do serviço, com seus direitos e limitações.'],
+          ['Das Licenças', 'Trata das licenças a que o militar tem direito (saúde, tratamento de interesse particular, entre outras) e as condições para concessão.'],
+          ['Definição de Contravenção Disciplinar', 'Conceitua o que é uma transgressão disciplinar dentro do RDM: toda ação ou omissão contrária aos preceitos éticos e disciplinares militares que não constitua crime.'],
+          ['Da Natureza das Contravenções e suas Circunstâncias', 'Classifica as contravenções (leves, médias, graves) e as circunstâncias atenuantes ou agravantes consideradas na avaliação de cada caso.'],
+          ['Das Penas Disciplinares', 'Lista as penas previstas no RDM (advertência, repreensão, detenção, prisão, entre outras) aplicáveis conforme a gravidade da transgressão.'],
+          ['Da Competência e Jurisdição para Imposição de Penas', 'Define quais autoridades têm competência para aplicar cada tipo de pena disciplinar, respeitando o nível hierárquico do transgressor.'],
+          ['Do Cumprimento das Penas Disciplinares', 'Trata de como e onde as penas disciplinares são cumpridas, incluindo prazos e condições específicas.'],
+          ['Das Normas para Imposição de Penas', 'Estabelece o procedimento formal que deve ser seguido antes de aplicar uma pena, incluindo apuração dos fatos e direito de manifestação do militar.'],
+          ['Do Compromisso Militar', 'Trata do ato solene em que o militar assume formalmente os deveres e responsabilidades da carreira das armas.'],
+          ['Da Violação das Obrigações e dos Deveres Militares', 'Aborda as consequências do descumprimento dos deveres estabelecidos no Estatuto, que podem envolver desde sanções disciplinares até processos mais graves.'],
+          ['Dos Crimes Militares e das Contravenções/Transgressões Disciplinares', 'Diferencia crime militar (tipificado no Código Penal Militar) de transgressão disciplinar (tratada administrativamente pelo RDM).'],
+          ['Dos Direitos dos Militares', 'Enumera direitos como remuneração, assistência à saúde, uso de uniforme, entre outros assegurados pelo Estatuto.'],
+          ['Da Remuneração', 'Trata da estrutura de soldo e demais vantagens pecuniárias devidas ao militar em atividade.'],
+          ['Da Pensão Militar', 'Regula o benefício devido aos dependentes do militar em caso de falecimento, garantindo amparo à família.'],
+          ['Das Prerrogativas dos Militares', 'Lista prerrogativas específicas da condição militar, como o uso do posto/graduação e certas garantias funcionais.'],
+          ['Do Uso dos Uniformes', 'Regula quando, como e por quem os uniformes militares devem ser usados, incluindo regras de apresentação pessoal.'],
+          ['Especificação das Contravenções Disciplinares', 'Detalha exemplos concretos de condutas que configuram transgressões disciplinares dentro da rotina militar.'],
+          ['Da Contagem do Tempo de Punição', 'Trata de como se computam os prazos das penas disciplinares aplicadas, incluindo eventuais suspensões de contagem.'],
+          ['Do Registro e da Transcrição', 'Aborda o registro formal das punições na ficha do militar e os efeitos desse registro na carreira.'],
+          ['Da Anulação, Atenuação, Agravamento, Relevamento e Cancelamento', 'Trata das formas de revisão de uma pena já aplicada — quando ela pode ser anulada, reduzida, aumentada ou até cancelada.'],
+          ['Da Parte e da Prisão Imediata', 'Regula o procedimento de comunicação formal ("parte") de uma transgressão e os casos em que cabe prisão disciplinar imediata.'],
+          ['Dos Recursos', 'Trata do direito do militar de recorrer contra uma punição disciplinar que considere injusta, e os trâmites desse recurso.']
+        ]
+      }
+    };
+
+    function populateResumoSelect() {
+      const select = document.getElementById('resumo-subject-select');
+      Object.keys(AlfaGamification.SUBJECTS).forEach(quizId => {
+        if (quizId === 'PROVA_SIMULADA') return;
+        const info = AlfaGamification.SUBJECTS[quizId];
+        const opt = document.createElement('option');
+        opt.value = quizId;
+        opt.textContent = info.label + (RESUMOS[quizId] ? '' : ' (em breve)');
+        select.appendChild(opt);
+      });
+      select.value = 'ESTATUTO_RDM';
+    }
+
+    function renderResumo() {
+      const quizId = document.getElementById('resumo-subject-select').value;
+      const container = document.getElementById('resumo-content');
+      const resumo = RESUMOS[quizId];
+      if (!resumo) {
+        container.innerHTML = `
+          <div class="text-center py-16 text-slate-400">
+            <i class="fa-solid fa-hourglass-half text-3xl mb-4 text-navy-600"></i>
+            <p class="text-sm">O resumo teórico de <strong class="text-slate-300">${AlfaGamification.labelFor(quizId)}</strong> ainda está em produção.</p>
+            <p class="text-xs mt-1 text-slate-500">Por enquanto, o resumo completo está disponível para Estatuto dos Militares & RDM.</p>
+          </div>`;
+        return;
+      }
+      container.innerHTML = `
+        <div class="bg-navy-800/60 border border-navy-700 rounded-xl p-5 mb-3">
+          <h2 class="font-serif text-lg font-semibold text-ink mb-1">${resumo.titulo}</h2>
+          <p class="text-xs text-slate-400">${resumo.fonte}</p>
+        </div>
+        ${resumo.topicos.map((t, i) => `
+          <details class="topic-summary bg-navy-800/60 border border-navy-700 rounded-xl overflow-hidden" ${i < 2 ? 'open' : ''}>
+            <summary class="px-4 py-3 flex items-center justify-between gap-2 hover:bg-navy-700/30 transition-colors">
+              <span class="text-sm font-medium text-ink"><span class="text-navy-400 font-mono text-xs mr-1.5">${i + 1}.</span>${t[0]}</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-500 no-print"></i>
+            </summary>
+            <div class="px-4 pb-4 text-sm text-slate-300 leading-relaxed border-t border-navy-700/60 pt-3">${t[1]}</div>
+          </details>
+        `).join('')}
+      `;
+    }
+
+    // =================================================================
+    // CADERNO DE ERROS
+    // =================================================================
+    async function loadErros() {
+      errosLoaded = true;
+      document.getElementById('erros-loading').classList.remove('hidden');
+
+      const { data: erros } = await sb
+        .from('respostas_detalhadas')
+        .select('quiz_id, subject, question_id, criado_em')
+        .eq('user_id', currentUser.id)
+        .eq('acertou', false)
+        .order('criado_em', { ascending: false })
+        .limit(300);
+
+      if (!erros || erros.length === 0) {
+        document.getElementById('erros-loading').classList.add('hidden');
+        document.getElementById('erros-empty').classList.remove('hidden');
+        return;
+      }
+
+      document.getElementById('erros-summary').textContent =
+        `${erros.length} questão${erros.length === 1 ? '' : 'ões'} errada${erros.length === 1 ? '' : 's'} registrada${erros.length === 1 ? '' : 's'}, agrupadas por matéria.`;
+
+      // Busca anotações já existentes pra pré-preencher os campos de nota.
+      const { data: notas } = await sb.from('anotacoes').select('quiz_id, question_id, texto').eq('user_id', currentUser.id);
+      (notas || []).forEach(n => { notesCache[`${n.quiz_id}::${n.question_id}`] = n.texto; });
+
+      // Agrupa por quiz_id e busca as questões completas de cada matéria (uma vez por matéria).
+      const porMateria = {};
+      erros.forEach(e => { (porMateria[e.quiz_id] = porMateria[e.quiz_id] || []).push(e); });
+
+      const list = document.getElementById('erros-list');
+      list.innerHTML = '';
+
+      for (const quizId of Object.keys(porMateria)) {
+        const linhas = porMateria[quizId];
+        const label = AlfaGamification.labelFor(quizId);
+        const info = AlfaGamification.SUBJECTS[quizId];
+
+        const section = document.createElement('div');
+        section.className = 'bg-navy-800/60 border border-navy-700 rounded-xl overflow-hidden';
+        section.innerHTML = `
+          <div class="px-4 py-3 bg-navy-800 flex items-center justify-between">
+            <span class="text-sm font-semibold text-ink">${label}</span>
+            <span class="text-xs text-slate-400">${linhas.length} erro${linhas.length === 1 ? '' : 's'}</span>
+          </div>
+          <div class="erros-materia-body divide-y divide-navy-700/60"></div>
+        `;
+        list.appendChild(section);
+        const body = section.querySelector('.erros-materia-body');
+
+        let questionsMap = null;
+        if (info && info.url && quizId !== 'PROVA_SIMULADA') {
+          const questions = await AlfaGamification.fetchSubjectQuestions(quizId);
+          if (questions) {
+            questionsMap = {};
+            questions.forEach(q => { questionsMap[String(q.id)] = q; });
+          }
+        }
+
+        linhas.forEach(row => {
+          const q = questionsMap ? questionsMap[String(row.question_id)] : null;
+          const d = row.criado_em ? new Date(row.criado_em) : null;
+          const dataStr = d ? d.toLocaleDateString('pt-BR') : '';
+          const notaExistente = notesCache[`${row.quiz_id}::${row.question_id}`] || '';
+          const noteKey = `${row.quiz_id}::${row.question_id}`;
+
+          const card = document.createElement('div');
+          card.className = 'p-4';
+          if (q) {
+            const respostaCorreta = Array.isArray(q.options) && typeof q.correct === 'number' ? q.options[q.correct] : '';
+            card.innerHTML = `
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="text-[11px] text-slate-500">${row.subject ? row.subject + ' · ' : ''}${dataStr}</span>
+                <a href="${info.url}" class="text-[11px] text-navy-400 hover:text-navy-300 font-medium"><i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Abrir matéria</a>
+              </div>
+              <p class="text-sm text-slate-200 mb-2">${(q.text || '').replace(/</g, '&lt;')}</p>
+              <p class="text-sm text-emerald-300 bg-emerald-900/20 border border-emerald-700/30 rounded-lg px-3 py-2 mb-3"><i class="fa-solid fa-check mr-1.5"></i>${(respostaCorreta || '').replace(/</g, '&lt;')}</p>
+              <textarea data-notekey="${noteKey}" placeholder="Escreva por que errou, ou uma dica pra não errar de novo..." class="w-full bg-navy-900/60 border border-navy-700 rounded-lg px-3 py-2 text-xs text-slate-200 outline-none focus:ring-2 focus:ring-navy-500 resize-none no-print" rows="2">${notaExistente.replace(/</g,'&lt;')}</textarea>
+              <div class="flex items-center justify-between mt-1.5 no-print">
+                <span class="text-[10px] text-slate-500 note-status" data-notekey-status="${noteKey}"></span>
+                <button onclick="salvarNotaErro('${row.quiz_id}', '${row.question_id}', this)" class="text-[11px] text-navy-400 hover:text-navy-300 font-medium">Salvar nota</button>
+              </div>
+              ${notaExistente ? `<p class="hidden print-only text-xs text-slate-400 italic mt-1">Nota: ${notaExistente.replace(/</g,'&lt;')}</p>` : ''}
+            `;
+          } else {
+            card.innerHTML = `
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-[11px] text-slate-500">${row.subject ? row.subject + ' · ' : ''}${dataStr}</span>
+                <span class="text-[11px] text-slate-500">Questão #${row.question_id}</span>
+              </div>
+              <p class="text-xs text-slate-500 mt-1.5">${quizId === 'PROVA_SIMULADA' ? 'Veio da Prova Simulada — abra-a novamente pra revisar essa questão.' : 'Não foi possível carregar o enunciado agora.'}</p>
+            `;
+          }
+          body.appendChild(card);
+        });
+      }
+
+      document.getElementById('erros-loading').classList.add('hidden');
+    }
+
+    async function salvarNotaErro(quizId, questionId, btn) {
+      const noteKey = `${quizId}::${questionId}`;
+      const textarea = document.querySelector(`textarea[data-notekey="${noteKey}"]`);
+      const statusEl = document.querySelector(`[data-notekey-status="${noteKey}"]`);
+      const texto = textarea.value;
+      statusEl.textContent = 'Salvando...';
+      try {
+        await sb.from('anotacoes').upsert({
+          user_id: currentUser.id,
+          quiz_id: quizId,
+          question_id: String(questionId),
+          texto: texto,
+          atualizado_em: new Date().toISOString()
+        }, { onConflict: 'user_id,quiz_id,question_id' });
+        notesCache[noteKey] = texto;
+        statusEl.textContent = 'Salvo ✓';
+        setTimeout(() => { statusEl.textContent = ''; }, 2000);
+      } catch (e) {
+        statusEl.textContent = 'Erro ao salvar';
+      }
+    }
+
+    // =================================================================
+    // MINHAS ANOTAÇÕES LIVRES (por matéria, texto solto)
+    // =================================================================
+    async function loadNotasLivres() {
+      notasLoaded = true;
+      const { data } = await sb
+        .from('anotacoes')
+        .select('quiz_id, texto, atualizado_em')
+        .eq('user_id', currentUser.id)
+        .eq('question_id', NOTA_GERAL_ID);
+
+      const porMateria = {};
+      (data || []).forEach(n => { porMateria[n.quiz_id] = n; });
+
+      const list = document.getElementById('notas-list');
+      list.innerHTML = Object.keys(AlfaGamification.SUBJECTS).filter(id => id !== 'PROVA_SIMULADA').map(quizId => {
+        const existente = porMateria[quizId];
+        const label = AlfaGamification.labelFor(quizId);
+        const d = existente && existente.atualizado_em ? new Date(existente.atualizado_em) : null;
+        const dataStr = d ? `Editado em ${d.toLocaleDateString('pt-BR')}` : '';
+        return `
+          <details class="bg-navy-800/60 border border-navy-700 rounded-xl overflow-hidden">
+            <summary class="px-4 py-3 flex items-center justify-between gap-2 hover:bg-navy-700/30 transition-colors">
+              <span class="text-sm font-medium text-ink">${label}</span>
+              <span class="text-[10px] text-slate-500">${dataStr}</span>
+            </summary>
+            <div class="px-4 pb-4 border-t border-navy-700/60 pt-3">
+              <textarea data-livre-quiz="${quizId}" placeholder="Suas anotações livres sobre ${label}..." class="w-full bg-navy-900/60 border border-navy-700 rounded-lg px-3 py-2.5 text-sm text-slate-200 outline-none focus:ring-2 focus:ring-navy-500 no-print" rows="5">${(existente ? existente.texto : '').replace(/</g,'&lt;')}</textarea>
+              <div class="flex items-center justify-between mt-2 no-print">
+                <span class="text-[11px] text-slate-500 livre-status" data-livre-status="${quizId}"></span>
+                <button onclick="salvarNotaLivre('${quizId}')" class="text-xs text-navy-400 hover:text-navy-300 font-medium">Salvar</button>
+              </div>
+              <p class="hidden print-only text-sm text-slate-300 whitespace-pre-line">${(existente ? existente.texto : '(sem anotações)').replace(/</g,'&lt;')}</p>
+            </div>
+          </details>
+        `;
+      }).join('');
+    }
+
+    async function salvarNotaLivre(quizId) {
+      const textarea = document.querySelector(`textarea[data-livre-quiz="${quizId}"]`);
+      const statusEl = document.querySelector(`[data-livre-status="${quizId}"]`);
+      const texto = textarea.value;
+      statusEl.textContent = 'Salvando...';
+      try {
+        await sb.from('anotacoes').upsert({
+          user_id: currentUser.id,
+          quiz_id: quizId,
+          question_id: NOTA_GERAL_ID,
+          texto: texto,
+          atualizado_em: new Date().toISOString()
+        }, { onConflict: 'user_id,quiz_id,question_id' });
+        statusEl.textContent = 'Salvo ✓';
+        setTimeout(() => { statusEl.textContent = ''; }, 2000);
+      } catch (e) {
+        statusEl.textContent = 'Erro ao salvar';
+      }
+    }
+
+    sb.auth.onAuthStateChange((event, session) => {
+      if (session && session.user) {
+        currentUser = session.user;
+        onUserAuthenticated();
+      } else {
+        currentUser = null;
+        showGate('gate-logged-out');
+      }
+    });
+
+    async function onUserAuthenticated() {
+      const aprovado = await AlfaGamification.fetchAprovado(sb, currentUser.id);
+      if (!aprovado) {
+        showGate('gate-pending');
+        return;
+      }
+      document.getElementById('access-screen').classList.add('hidden');
+      document.getElementById('loading-state').classList.add('hidden');
+      populateResumoSelect();
+      renderResumo();
+      document.getElementById('tab-resumo').classList.remove('hidden');
+    }
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch((err) => {
+          console.warn('Falha ao registrar o Service Worker:', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

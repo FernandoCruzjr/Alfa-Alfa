@@ -10,7 +10,7 @@
 //    Precisam de rede de verdade; se estiver offline elas simplesmente falham (o app já cai pro
 //    cache local via localStorage nesse caso).
 
-const CACHE_VERSION = 'v1';
+const CACHE_VERSION = 'v3';
 const CACHE_NAME = `caaa-afn-${CACHE_VERSION}`;
 
 // Páginas do site a pré-cachear na instalação (exclui páginas órfãs sem link ativo no menu).
@@ -18,8 +18,10 @@ const PRECACHE_URLS = [
   './',
   'index.html',
   'manifest.json',
+  'gamification.js',
   'anotacoes.html',
   'caaml-703.html',
+  'caderno.html',
   'camaal-cav.html',
   'cerimonial.html',
   'cobertura-banco.html',
@@ -27,6 +29,7 @@ const PRECACHE_URLS = [
   'desempenho.html',
   'doc-adm-mb.html',
   'estatuto-rdm.html',
+  'jogo-memoria.html',
   'flashcards-caaml-703.html',
   'flashcards-camaal-cav.html',
   'flashcards-cerimonial.html',
@@ -54,6 +57,7 @@ const PRECACHE_URLS = [
   'pem2040.html',
   'portugues.html',
   'prova-simulada.html',
+  'ranking.html',
   'redacao.html',
   'rosas-virtudes.html',
   'icons/icon-72.png',

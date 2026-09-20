@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('site_theme');
+        var theme = saved === 'light' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0b1b30">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="CA-AA/AFN">
+  <title>Jogo da Memória · Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Treine as questões das suas matérias em formato de jogo da memória.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: {
+              100: 'rgb(var(--tw-navy-100) / <alpha-value>)', 200: 'rgb(var(--tw-navy-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-navy-300) / <alpha-value>)', 400: 'rgb(var(--tw-navy-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-navy-500) / <alpha-value>)', 600: 'rgb(var(--tw-navy-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-navy-700) / <alpha-value>)', 800: 'rgb(var(--tw-navy-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-navy-900) / <alpha-value>)'
+            },
+            ink: 'rgb(var(--tw-ink) / <alpha-value>)',
+            slate: {
+              50: 'rgb(var(--tw-slate-50) / <alpha-value>)', 100: 'rgb(var(--tw-slate-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-slate-200) / <alpha-value>)', 300: 'rgb(var(--tw-slate-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-slate-400) / <alpha-value>)', 500: 'rgb(var(--tw-slate-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-slate-600) / <alpha-value>)', 700: 'rgb(var(--tw-slate-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-slate-800) / <alpha-value>)', 900: 'rgb(var(--tw-slate-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-slate-950) / <alpha-value>)'
+            },
+            emerald: {
+              50: 'rgb(var(--tw-emerald-50) / <alpha-value>)', 100: 'rgb(var(--tw-emerald-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-emerald-200) / <alpha-value>)', 300: 'rgb(var(--tw-emerald-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-emerald-400) / <alpha-value>)', 500: 'rgb(var(--tw-emerald-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-emerald-600) / <alpha-value>)', 700: 'rgb(var(--tw-emerald-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-emerald-800) / <alpha-value>)', 900: 'rgb(var(--tw-emerald-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-emerald-950) / <alpha-value>)'
+            },
+            rose: {
+              50: 'rgb(var(--tw-rose-50) / <alpha-value>)', 100: 'rgb(var(--tw-rose-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-rose-200) / <alpha-value>)', 300: 'rgb(var(--tw-rose-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-rose-400) / <alpha-value>)', 500: 'rgb(var(--tw-rose-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-rose-600) / <alpha-value>)', 700: 'rgb(var(--tw-rose-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-rose-800) / <alpha-value>)', 900: 'rgb(var(--tw-rose-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-rose-950) / <alpha-value>)'
+            },
+            amber: {
+              50: 'rgb(var(--tw-amber-50) / <alpha-value>)', 100: 'rgb(var(--tw-amber-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-amber-200) / <alpha-value>)', 300: 'rgb(var(--tw-amber-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-amber-400) / <alpha-value>)', 500: 'rgb(var(--tw-amber-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-amber-600) / <alpha-value>)', 700: 'rgb(var(--tw-amber-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-amber-800) / <alpha-value>)', 900: 'rgb(var(--tw-amber-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-amber-950) / <alpha-value>)'
+            },
+            cyan: {
+              50: 'rgb(var(--tw-cyan-50) / <alpha-value>)', 100: 'rgb(var(--tw-cyan-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-cyan-200) / <alpha-value>)', 300: 'rgb(var(--tw-cyan-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-cyan-400) / <alpha-value>)', 500: 'rgb(var(--tw-cyan-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-cyan-600) / <alpha-value>)', 700: 'rgb(var(--tw-cyan-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-cyan-800) / <alpha-value>)', 900: 'rgb(var(--tw-cyan-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-cyan-950) / <alpha-value>)'
+            },
+            sky: { 400: 'rgb(var(--tw-sky-400) / <alpha-value>)' },
+            lime: { 400: 'rgb(var(--tw-lime-400) / <alpha-value>)' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+:root {
+  --tw-slate-50: 248 250 252; --tw-slate-100: 241 245 249; --tw-slate-200: 226 232 240;
+  --tw-slate-300: 203 213 225; --tw-slate-400: 148 163 184; --tw-slate-500: 100 116 139;
+  --tw-slate-600: 71 85 105; --tw-slate-700: 51 65 85; --tw-slate-800: 30 41 59;
+  --tw-slate-900: 15 23 42; --tw-slate-950: 2 6 23;
+  --tw-emerald-50: 236 253 245; --tw-emerald-100: 209 250 229; --tw-emerald-200: 167 243 208;
+  --tw-emerald-300: 110 231 183; --tw-emerald-400: 52 211 153; --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 5 150 105; --tw-emerald-700: 4 120 87; --tw-emerald-800: 6 95 70;
+  --tw-emerald-900: 6 78 59; --tw-emerald-950: 2 44 34;
+  --tw-rose-50: 255 241 242; --tw-rose-100: 255 228 230; --tw-rose-200: 254 205 211;
+  --tw-rose-300: 253 164 175; --tw-rose-400: 251 113 133; --tw-rose-500: 244 63 94;
+  --tw-rose-600: 225 29 72; --tw-rose-700: 190 18 60; --tw-rose-800: 159 18 57;
+  --tw-rose-900: 136 19 55; --tw-rose-950: 76 5 25;
+  --tw-amber-50: 255 251 235; --tw-amber-100: 254 243 199; --tw-amber-200: 253 230 138;
+  --tw-amber-300: 252 211 77; --tw-amber-400: 251 191 36; --tw-amber-500: 245 158 11;
+  --tw-amber-600: 217 119 6; --tw-amber-700: 180 83 9; --tw-amber-800: 146 64 14;
+  --tw-amber-900: 120 53 15; --tw-amber-950: 69 26 3;
+  --tw-cyan-50: 236 254 255; --tw-cyan-100: 207 250 254; --tw-cyan-200: 165 243 252;
+  --tw-cyan-300: 103 232 249; --tw-cyan-400: 34 211 238; --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 8 145 178; --tw-cyan-700: 14 116 144; --tw-cyan-800: 21 94 117;
+  --tw-cyan-900: 22 78 99; --tw-cyan-950: 8 51 68;
+  --tw-sky-400: 56 189 248; --tw-lime-400: 163 230 53;
+  --tw-navy-100: 230 240 250; --tw-navy-200: 192 219 245; --tw-navy-300: 143 193 238;
+  --tw-navy-400: 77 158 224; --tw-navy-500: 0 102 204; --tw-navy-600: 30 86 160;
+  --tw-navy-700: 30 62 98; --tw-navy-800: 11 25 44; --tw-navy-900: 0 15 38;
+  --tw-ink: 255 255 255;
+}
+[data-theme="light"] {
+  --tw-slate-50: 2 6 23; --tw-slate-100: 15 23 42; --tw-slate-200: 30 41 59;
+  --tw-slate-300: 51 65 85; --tw-slate-400: 71 85 105; --tw-slate-500: 100 116 139;
+  --tw-slate-600: 148 163 184; --tw-slate-700: 203 213 225; --tw-slate-800: 226 232 240;
+  --tw-slate-900: 241 245 249; --tw-slate-950: 248 250 252;
+  --tw-emerald-50: 2 44 34; --tw-emerald-100: 6 78 59; --tw-emerald-200: 6 95 70;
+  --tw-emerald-300: 4 120 87; --tw-emerald-400: 5 150 105; --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 52 211 153; --tw-emerald-700: 110 231 183; --tw-emerald-800: 167 243 208;
+  --tw-emerald-900: 209 250 229; --tw-emerald-950: 236 253 245;
+  --tw-rose-50: 76 5 25; --tw-rose-100: 136 19 55; --tw-rose-200: 159 18 57;
+  --tw-rose-300: 190 18 60; --tw-rose-400: 225 29 72; --tw-rose-500: 244 63 94;
+  --tw-rose-600: 251 113 133; --tw-rose-700: 253 164 175; --tw-rose-800: 254 205 211;
+  --tw-rose-900: 255 228 230; --tw-rose-950: 255 241 242;
+  --tw-amber-50: 69 26 3; --tw-amber-100: 120 53 15; --tw-amber-200: 146 64 14;
+  --tw-amber-300: 180 83 9; --tw-amber-400: 217 119 6; --tw-amber-500: 245 158 11;
+  --tw-amber-600: 251 191 36; --tw-amber-700: 252 211 77; --tw-amber-800: 253 230 138;
+  --tw-amber-900: 254 243 199; --tw-amber-950: 255 251 235;
+  --tw-cyan-50: 8 51 68; --tw-cyan-100: 22 78 99; --tw-cyan-200: 21 94 117;
+  --tw-cyan-300: 14 116 144; --tw-cyan-400: 8 145 178; --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 34 211 238; --tw-cyan-700: 103 232 249; --tw-cyan-800: 165 243 252;
+  --tw-cyan-900: 207 250 254; --tw-cyan-950: 236 254 255;
+  --tw-sky-400: 56 189 248; --tw-lime-400: 163 230 53;
+  --tw-navy-100: 0 15 38; --tw-navy-200: 11 25 44; --tw-navy-300: 30 62 98;
+  --tw-navy-400: 30 86 160; --tw-navy-500: 0 102 204; --tw-navy-600: 77 158 224;
+  --tw-navy-700: 143 193 238; --tw-navy-800: 192 219 245; --tw-navy-900: 230 240 250;
+  --tw-ink: 11 25 44;
+}
+    @keyframes access-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    #access-card { animation: access-in .5s ease-out .1s forwards; }
+    .chrome-bg-900 { background-color: #000F26 !important; }
+    .chrome-bg-800 { background-color: #0B192C !important; }
+    .chrome-bg-600 { background-color: #1E56A0 !important; }
+    .chrome-border-700 { border-color: #1E3E62 !important; }
+    .chrome-border-600 { border-color: #1E56A0 !important; }
+    .chrome-text-white { color: #FFFFFF !important; }
+    .chrome-text-slate-400 { color: #94A3B8 !important; }
+    .chrome-text-slate-200 { color: #E2E8F0 !important; }
+    .chrome-hover-border-500:hover { border-color: #0066CC !important; }
+    button:focus-visible, select:focus-visible, a:focus-visible { outline: 2px solid #2384d6; outline-offset: 2px; }
+    .diff-btn.active { background: #1E56A0 !important; color: #fff !important; }
+
+    .memory-card { perspective: 800px; aspect-ratio: 3/4; cursor: pointer; }
+    .memory-card-inner {
+      position: relative; width: 100%; height: 100%; transition: transform .45s;
+      transform-style: preserve-3d;
+    }
+    .memory-card.flipped .memory-card-inner, .memory-card.matched .memory-card-inner { transform: rotateY(180deg); }
+    .memory-card-face {
+      position: absolute; inset: 0; backface-visibility: hidden; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; padding: 8px;
+      text-align: center; font-size: 11px; line-height: 1.3; overflow: hidden;
+    }
+    .memory-card-back {
+      background: linear-gradient(135deg, #1E56A0, #0B192C);
+      border: 1px solid #2b5c94;
+    }
+    .memory-card-back i { font-size: 22px; color: #e0c26f; opacity: .85; }
+    .memory-card-front {
+      background: #0f2a47; border: 1px solid #2b5c94; color: #E2E8F0; transform: rotateY(180deg);
+    }
+    .memory-card.matched .memory-card-front { background: #0c3d2e; border-color: #34d399; }
+    .memory-card.q-type .memory-card-front { font-weight: 600; }
+    .memory-card:not(.matched):hover .memory-card-inner { transform: translateY(-2px) rotateY(0); }
+    .memory-card.flipped:hover .memory-card-inner, .memory-card.matched:hover .memory-card-inner { transform: rotateY(180deg); }
+    @media (prefers-reduced-motion: reduce) { .memory-card-inner { transition: none; } }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">🧠</div>
+      <div class="font-serif font-semibold text-[26px] text-ink tracking-tight">Jogo da Memória</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial pra jogar.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-ink text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-ink underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="chrome-bg-900 border-b chrome-border-700 sticky top-0 z-30 shadow-lg">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="chrome-bg-600 chrome-text-white p-2.5 rounded-lg shadow">
+          <i class="fa-solid fa-brain text-2xl"></i>
+        </div>
+        <div>
+          <h1 class="font-serif text-xl font-semibold chrome-text-white tracking-wide">Jogo da Memória</h1>
+          <p class="text-xs chrome-text-slate-400">Combine a pergunta com a resposta certa</p>
+        </div>
+      </div>
+      <button id="theme-toggle-btn" onclick="toggleTheme()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors flex-shrink-0" title="Alternar entre modo claro e escuro" aria-label="Alternar tema claro/escuro"><i class="fa-solid fa-moon text-sm" id="theme-toggle-icon-moon"></i><i class="fa-solid fa-sun text-sm hidden" id="theme-toggle-icon-sun"></i></button>
+      <a href="index.html" class="chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 chrome-hover-border-500 transition-colors">
+        <i class="fa-solid fa-house"></i> Painel geral
+      </a>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 md:px-6 py-6">
+
+    <!-- Configuração da partida -->
+    <div id="setup-panel" class="bg-navy-800/60 border border-navy-700 rounded-xl p-5 space-y-4">
+      <div>
+        <label for="subject-select" class="text-xs font-medium text-slate-400 flex items-center gap-1.5 mb-1.5">
+          <i class="fa-solid fa-layer-group text-navy-500"></i> Escolha a matéria
+        </label>
+        <select id="subject-select" class="w-full bg-navy-800 border border-navy-700 text-slate-200 text-sm rounded-lg px-3 py-2.5 outline-none focus:ring-2 focus:ring-navy-500"></select>
+      </div>
+      <div>
+        <label class="text-xs font-medium text-slate-400 flex items-center gap-1.5 mb-1.5">
+          <i class="fa-solid fa-gauge-high text-navy-500"></i> Dificuldade (pares de cartas)
+        </label>
+        <div class="flex gap-2">
+          <button type="button" class="diff-btn active flex-1 text-sm font-medium py-2.5 rounded-lg bg-navy-800 border border-navy-700 transition-all" data-pairs="6">Fácil · 6</button>
+          <button type="button" class="diff-btn flex-1 text-sm font-medium py-2.5 rounded-lg bg-navy-800 border border-navy-700 transition-all" data-pairs="8">Médio · 8</button>
+          <button type="button" class="diff-btn flex-1 text-sm font-medium py-2.5 rounded-lg bg-navy-800 border border-navy-700 transition-all" data-pairs="10">Difícil · 10</button>
+        </div>
+      </div>
+      <button id="start-btn" onclick="startGame()" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-ink text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+        <i class="fa-solid fa-play"></i> Começar a jogar
+      </button>
+      <p id="setup-error" class="hidden text-sm text-rose-300 bg-rose-900/20 border border-rose-700/40 rounded-lg px-3 py-2"></p>
+    </div>
+
+    <!-- Carregando questões -->
+    <div id="game-loading" class="hidden text-center py-16 text-slate-400">
+      <i class="fa-solid fa-circle-notch fa-spin text-2xl"></i>
+      <p class="text-sm mt-3">Preparando as cartas...</p>
+    </div>
+
+    <!-- Tabuleiro -->
+    <div id="game-panel" class="hidden">
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+        <button onclick="backToSetup()" class="text-xs text-navy-400 hover:text-navy-300 font-medium inline-flex items-center gap-1.5">
+          <i class="fa-solid fa-arrow-left"></i> Trocar matéria/dificuldade
+        </button>
+        <div class="flex gap-3 text-sm">
+          <span class="bg-navy-800/80 border border-navy-700 rounded-lg px-3 py-1.5"><i class="fa-solid fa-stopwatch text-navy-400 mr-1.5"></i><span id="stat-time">00:00</span></span>
+          <span class="bg-navy-800/80 border border-navy-700 rounded-lg px-3 py-1.5"><i class="fa-solid fa-hand-pointer text-navy-400 mr-1.5"></i><span id="stat-moves">0</span> jogadas</span>
+          <span class="bg-navy-800/80 border border-navy-700 rounded-lg px-3 py-1.5"><i class="fa-solid fa-check text-emerald-400 mr-1.5"></i><span id="stat-pairs">0</span>/<span id="stat-total-pairs">0</span></span>
+        </div>
+      </div>
+      <div id="board" class="grid gap-2.5" style="grid-template-columns: repeat(4, minmax(0,1fr));"></div>
+    </div>
+
+    <!-- Tela de vitória -->
+    <div id="win-panel" class="hidden text-center py-10">
+      <div class="text-5xl mb-4">🏆</div>
+      <h2 class="font-serif text-2xl font-semibold text-ink mb-2">Parabéns, você completou o jogo!</h2>
+      <p class="text-sm text-slate-400 mb-6">Matéria: <span id="win-subject" class="text-slate-200 font-medium"></span></p>
+      <div class="flex justify-center gap-3 mb-8">
+        <div class="bg-navy-800/80 border border-navy-700 rounded-xl px-5 py-3 text-center">
+          <div class="text-xl font-bold text-ink font-serif" id="win-time">00:00</div>
+          <div class="text-[11px] text-slate-400">tempo</div>
+        </div>
+        <div class="bg-navy-800/80 border border-navy-700 rounded-xl px-5 py-3 text-center">
+          <div class="text-xl font-bold text-ink font-serif" id="win-moves">0</div>
+          <div class="text-[11px] text-slate-400">jogadas</div>
+        </div>
+      </div>
+      <div class="flex justify-center gap-3">
+        <button onclick="startGame()" class="bg-[#2869b7] hover:bg-[#3479ca] text-ink text-sm font-bold px-5 py-2.5 rounded-xl transition-all flex items-center gap-2">
+          <i class="fa-solid fa-rotate-right"></i> Jogar de novo
+        </button>
+        <button onclick="backToSetup()" class="chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-sm px-5 py-2.5 rounded-xl transition-all flex items-center gap-2">
+          <i class="fa-solid fa-sliders"></i> Trocar matéria
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="max-w-5xl w-full mx-auto px-4 md:px-6 pb-6 pt-2 text-center text-[11px] text-slate-500">
+    Plataforma de Estudos · CA-AA/AFN
+  </footer>
+
+  <script src="gamification.js"></script>
+  <script>
+    const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    applyThemeIcon();
+
+    let currentUser = null;
+    let selectedPairs = 6;
+    let gameState = null; // { cards, flipped, matchedCount, moves, startTime, timerHandle }
+
+    function applyThemeIcon() {
+      const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+      document.getElementById('theme-toggle-icon-moon').classList.toggle('hidden', theme === 'light');
+      document.getElementById('theme-toggle-icon-sun').classList.toggle('hidden', theme !== 'light');
+    }
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('site_theme', next); } catch (e) { /* ignora */ }
+      applyThemeIcon();
+    }
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    function populateSubjects() {
+      const select = document.getElementById('subject-select');
+      Object.keys(AlfaGamification.SUBJECTS).forEach(quizId => {
+        if (quizId === 'PROVA_SIMULADA') return; // banco misto, sem página própria de questionsData
+        const info = AlfaGamification.SUBJECTS[quizId];
+        const opt = document.createElement('option');
+        opt.value = quizId;
+        opt.textContent = info.label + (info.total ? ` (${info.total} questões)` : '');
+        select.appendChild(opt);
+      });
+    }
+
+    document.querySelectorAll('.diff-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedPairs = parseInt(btn.dataset.pairs, 10);
+      });
+    });
+
+    function truncate(text, max) {
+      if (!text) return '';
+      text = String(text).trim();
+      return text.length > max ? text.slice(0, max - 1).trim() + '…' : text;
+    }
+
+    function shuffle(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    async function startGame() {
+      const quizId = document.getElementById('subject-select').value;
+      const errEl = document.getElementById('setup-error');
+      errEl.classList.add('hidden');
+
+      document.getElementById('win-panel').classList.add('hidden');
+      document.getElementById('setup-panel').classList.add('hidden');
+      document.getElementById('game-panel').classList.add('hidden');
+      document.getElementById('game-loading').classList.remove('hidden');
+
+      const questions = await AlfaGamification.fetchSubjectQuestions(quizId);
+      document.getElementById('game-loading').classList.add('hidden');
+
+      if (!questions || questions.length === 0) {
+        document.getElementById('setup-panel').classList.remove('hidden');
+        errEl.textContent = 'Não foi possível carregar as questões dessa matéria agora. Verifique sua conexão e tente novamente, ou escolha outra matéria.';
+        errEl.classList.remove('hidden');
+        return;
+      }
+
+      const pairsNeeded = Math.min(selectedPairs, questions.length);
+      const chosen = shuffle(questions.slice()).slice(0, pairsNeeded);
+
+      const cards = [];
+      chosen.forEach((q, i) => {
+        const answerText = Array.isArray(q.options) && typeof q.correct === 'number' ? q.options[q.correct] : (q.answer || '');
+        cards.push({ pairId: i, type: 'q', text: truncate(q.text, 110) });
+        cards.push({ pairId: i, type: 'a', text: truncate(answerText, 90) });
+      });
+      shuffle(cards);
+
+      gameState = {
+        cards: cards,
+        flippedIndexes: [],
+        matchedCount: 0,
+        totalPairs: chosen.length,
+        moves: 0,
+        startTime: Date.now(),
+        timerHandle: null,
+        subjectLabel: AlfaGamification.labelFor(quizId),
+        lockBoard: false
+      };
+
+      document.getElementById('stat-total-pairs').textContent = chosen.length;
+      document.getElementById('stat-pairs').textContent = '0';
+      document.getElementById('stat-moves').textContent = '0';
+      document.getElementById('stat-time').textContent = '00:00';
+
+      renderBoard();
+      document.getElementById('game-panel').classList.remove('hidden');
+
+      const cols = cards.length <= 12 ? 4 : cards.length <= 16 ? 4 : 5;
+      document.getElementById('board').style.gridTemplateColumns = `repeat(${cols}, minmax(0,1fr))`;
+
+      if (gameState.timerHandle) clearInterval(gameState.timerHandle);
+      gameState.timerHandle = setInterval(updateTimer, 1000);
+    }
+
+    function updateTimer() {
+      if (!gameState) return;
+      const secs = Math.floor((Date.now() - gameState.startTime) / 1000);
+      const mm = String(Math.floor(secs / 60)).padStart(2, '0');
+      const ss = String(secs % 60).padStart(2, '0');
+      document.getElementById('stat-time').textContent = `${mm}:${ss}`;
+    }
+
+    function renderBoard() {
+      const board = document.getElementById('board');
+      board.innerHTML = gameState.cards.map((c, idx) => `
+        <div class="memory-card ${c.type === 'q' ? 'q-type' : ''}" data-index="${idx}" onclick="flipCard(${idx})">
+          <div class="memory-card-inner">
+            <div class="memory-card-face memory-card-back"><i class="fa-solid fa-anchor"></i></div>
+            <div class="memory-card-face memory-card-front">${c.text.replace(/</g, '&lt;')}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function flipCard(index) {
+      if (!gameState || gameState.lockBoard) return;
+      const cardEl = document.querySelector(`.memory-card[data-index="${index}"]`);
+      if (!cardEl || cardEl.classList.contains('flipped') || cardEl.classList.contains('matched')) return;
+      if (gameState.flippedIndexes.length >= 2) return;
+
+      cardEl.classList.add('flipped');
+      gameState.flippedIndexes.push(index);
+
+      if (gameState.flippedIndexes.length === 2) {
+        gameState.moves++;
+        document.getElementById('stat-moves').textContent = gameState.moves;
+        const [i1, i2] = gameState.flippedIndexes;
+        const c1 = gameState.cards[i1], c2 = gameState.cards[i2];
+        const isMatch = c1.pairId === c2.pairId && c1.type !== c2.type;
+
+        if (isMatch) {
+          gameState.lockBoard = true;
+          setTimeout(() => {
+            document.querySelector(`.memory-card[data-index="${i1}"]`).classList.add('matched');
+            document.querySelector(`.memory-card[data-index="${i2}"]`).classList.add('matched');
+            gameState.matchedCount++;
+            document.getElementById('stat-pairs').textContent = gameState.matchedCount;
+            gameState.flippedIndexes = [];
+            gameState.lockBoard = false;
+            if (gameState.matchedCount === gameState.totalPairs) finishGame();
+          }, 400);
+        } else {
+          gameState.lockBoard = true;
+          setTimeout(() => {
+            document.querySelector(`.memory-card[data-index="${i1}"]`).classList.remove('flipped');
+            document.querySelector(`.memory-card[data-index="${i2}"]`).classList.remove('flipped');
+            gameState.flippedIndexes = [];
+            gameState.lockBoard = false;
+          }, 900);
+        }
+      }
+    }
+
+    function finishGame() {
+      clearInterval(gameState.timerHandle);
+      const secs = Math.floor((Date.now() - gameState.startTime) / 1000);
+      const mm = String(Math.floor(secs / 60)).padStart(2, '0');
+      const ss = String(secs % 60).padStart(2, '0');
+
+      document.getElementById('win-time').textContent = `${mm}:${ss}`;
+      document.getElementById('win-moves').textContent = gameState.moves;
+      document.getElementById('win-subject').textContent = gameState.subjectLabel;
+
+      document.getElementById('game-panel').classList.add('hidden');
+      document.getElementById('win-panel').classList.remove('hidden');
+      AlfaGamification.celebrar();
+    }
+
+    function backToSetup() {
+      if (gameState && gameState.timerHandle) clearInterval(gameState.timerHandle);
+      gameState = null;
+      document.getElementById('win-panel').classList.add('hidden');
+      document.getElementById('game-panel').classList.add('hidden');
+      document.getElementById('setup-panel').classList.remove('hidden');
+    }
+
+    sb.auth.onAuthStateChange((event, session) => {
+      if (session && session.user) {
+        currentUser = session.user;
+        onUserAuthenticated();
+      } else {
+        currentUser = null;
+        showGate('gate-logged-out');
+      }
+    });
+
+    async function onUserAuthenticated() {
+      const aprovado = await AlfaGamification.fetchAprovado(sb, currentUser.id);
+      if (!aprovado) {
+        showGate('gate-pending');
+        return;
+      }
+      document.getElementById('access-screen').classList.add('hidden');
+      populateSubjects();
+    }
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch((err) => {
+          console.warn('Falha ao registrar o Service Worker:', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

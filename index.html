@@ -26,6 +26,7 @@
   <link rel="preload" as="image" href="login-oficial-mesa.jpg">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="gamification.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
@@ -352,6 +353,90 @@
       outline: 2px solid #2384d6;
       outline-offset: 2px;
     }
+
+    /* ===== Layout "cibernético" do painel: sidebar + topbar + hero ===== */
+    .sidebar-link {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 12px; border-radius: 10px;
+      font-size: 13px; font-weight: 500;
+      color: #94A3B8; border-left: 3px solid transparent;
+      transition: color .15s, background-color .15s, border-color .15s;
+    }
+    .sidebar-link:hover { color: #fff; background: rgba(255,255,255,.05); }
+    .sidebar-link.active {
+      color: #fff;
+      background: linear-gradient(90deg, rgba(224,194,111,.14), transparent);
+      border-left-color: #c9a44c;
+    }
+    .sidebar-link i { font-size: 14px; }
+    .cyber-sidebar {
+      background-color: #000F26;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(224,194,111,.035) 0px, rgba(224,194,111,.035) 1px, transparent 1px, transparent 26px),
+        repeating-linear-gradient(90deg, rgba(224,194,111,.035) 0px, rgba(224,194,111,.035) 1px, transparent 1px, transparent 26px);
+    }
+    .topbar { backdrop-filter: blur(6px); }
+    .cyber-hero {
+      background: linear-gradient(120deg, #050f1f 0%, #0B192C 55%, #08182b 100%);
+      border-color: #1E3E62 !important;
+    }
+    .cyber-hero-grid {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(224,194,111,.07) 0px, rgba(224,194,111,.07) 1px, transparent 1px, transparent 34px),
+        repeating-linear-gradient(90deg, rgba(224,194,111,.07) 0px, rgba(224,194,111,.07) 1px, transparent 1px, transparent 34px);
+      -webkit-mask-image: radial-gradient(ellipse at 70% 40%, black 0%, transparent 70%);
+      mask-image: radial-gradient(ellipse at 70% 40%, black 0%, transparent 70%);
+    }
+    .cyber-hero-circuit {
+      position: absolute; top: 0; right: 0; height: 100%; width: 55%;
+      opacity: .55; pointer-events: none;
+    }
+    .cyber-chip {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(11,25,44,.6); border: 1px solid #1E3E62;
+      padding: 8px 14px; border-radius: 10px;
+    }
+    .cyber-stat-card {
+      background: #0B192C; border: 1px solid #1E3E62; border-top: 2px solid #c9a44c;
+      border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 6px;
+    }
+    .cyber-stat-icon {
+      width: 32px; height: 32px; border-radius: 9px;
+      background: rgba(224,194,111,.12); color: #e0c26f;
+      display: flex; align-items: center; justify-content: center; font-size: 13px;
+    }
+    .cyber-stat-value { font-variant-numeric: tabular-nums; font-size: 22px; font-weight: 700; color: #fff; letter-spacing: .02em; }
+    .cyber-stat-label { font-size: 11px; color: #94A3B8; }
+    .cyber-section-title {
+      font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em;
+      color: #94A3B8; display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+    }
+    .cyber-section-title i { color: #e0c26f; }
+    .cyber-panel { background: #0B192C; border: 1px solid #1E3E62; border-radius: 14px; padding: 14px 16px; }
+    .cyber-resource-card {
+      display: flex; align-items: center; gap: 12px;
+      background: #0B192C; border: 1px solid #1E3E62; border-radius: 12px; padding: 12px 14px;
+      transition: border-color .15s, background-color .15s;
+    }
+    .cyber-resource-card:hover { border-color: #c9a44c; background: #0e2038; }
+    .cyber-resource-icon {
+      width: 34px; height: 34px; border-radius: 9px; flex-shrink: 0;
+      background: rgba(0,102,204,.18); color: #4d9ee0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cyber-badge {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(224,194,111,.22), rgba(224,194,111,.05));
+      border: 1px solid #c9a44c; color: #e0c26f;
+      display: flex; align-items: center; justify-content: center; font-size: 15px;
+      box-shadow: 0 0 12px rgba(224,194,111,.25);
+    }
+    .notice-row { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; font-size: 13px; color: #cbd5e1; }
+    .notice-row:first-child { padding-top: 0; }
+    .notice-row:last-child { padding-bottom: 0; }
+    .notice-row i { color: #e0c26f; margin-top: 2px; flex-shrink: 0; }
+    .search-hide { display: none !important; }
   </style>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans" style="background:#0c1116">
@@ -409,43 +494,159 @@
     </div>
   </div>
 
-  <header class="chrome-bg-900 border-b chrome-border-700">
-    <div class="max-w-5xl mx-auto px-6 py-5 flex items-center gap-3">
-      <div class="bg-navy-600 chrome-text-white p-2.5 rounded-lg shadow">
-        <i class="fa-solid fa-anchor text-2xl"></i>
-      </div>
-      <div class="flex-1">
-        <h1 class="font-serif text-xl font-semibold chrome-text-white tracking-wide">Plataforma de Estudos</h1>
-        <p class="text-xs chrome-text-slate-400">CA-AA/AFN — Concurso de Admissão ao Curso de Formação de Oficiais Auxiliares</p>
-      </div>
-      <button id="theme-toggle-btn" onclick="toggleTheme()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors flex-shrink-0" title="Alternar entre modo claro e escuro" aria-label="Alternar tema claro/escuro">
-        <i class="fa-solid fa-moon text-sm" id="theme-toggle-icon-moon"></i>
-        <i class="fa-solid fa-sun text-sm hidden" id="theme-toggle-icon-sun"></i>
-      </button>
-      <div id="user-bar" class="hidden chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2">
-        <a href="desempenho.html" class="flex items-center gap-1.5 pr-2 mr-1 border-r chrome-border-600 chrome-hover-text-white transition-colors" title="Meu Desempenho">
-          <i class="fa-solid fa-chart-simple text-navy-500"></i> <span class="hidden sm:inline">Meu Desempenho</span>
-        </a>
-        <i class="fa-solid fa-user text-navy-500"></i>
-        <span id="user-email" class="max-w-[160px] truncate"></span>
-        <button onclick="handleLogout()" class="ml-1 text-rose-300 hover:text-rose-200 transition-colors" title="Sair da conta">
-          <i class="fa-solid fa-right-from-bracket"></i>
+  <div id="app-shell" class="flex-1 w-full flex">
+    <div id="sidebar-overlay" class="hidden fixed inset-0 bg-black/60 z-40 md:hidden" onclick="closeSidebar()"></div>
+
+    <aside id="sidebar" class="cyber-sidebar fixed md:sticky top-0 left-0 h-screen w-[250px] -translate-x-full md:translate-x-0 transition-transform duration-300 ease-out z-50 flex flex-col flex-shrink-0 border-r chrome-border-700">
+      <div class="flex items-center gap-3 px-5 py-5 border-b chrome-border-700">
+        <div class="bg-navy-600 chrome-text-white p-2.5 rounded-lg shadow flex-shrink-0">
+          <i class="fa-solid fa-anchor text-lg"></i>
+        </div>
+        <div class="min-w-0">
+          <div class="font-serif text-sm font-semibold chrome-text-white leading-tight">CA-AA/AFN</div>
+          <div class="text-[10px] chrome-text-slate-400 leading-tight">Painel de Estudos</div>
+        </div>
+        <button type="button" onclick="closeSidebar()" class="md:hidden ml-auto chrome-text-slate-400 hover:text-white w-8 h-8 flex items-center justify-center flex-shrink-0" aria-label="Fechar menu">
+          <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
-    </div>
-  </header>
-
-  <main class="flex-1 max-w-5xl w-full mx-auto px-6 py-10 md:py-12">
-
-    <div class="flex flex-wrap items-start justify-between gap-3 mb-8">
-      <div>
-        <h2 class="font-serif text-2xl md:text-3xl font-semibold text-ink">Painel de Estudos</h2>
-        <p class="text-sm text-slate-400 mt-1 max-w-[54ch]">Seu progresso fica salvo automaticamente na sua conta.</p>
+      <nav class="flex-1 overflow-y-auto py-4 px-3 flex flex-col gap-1">
+        <a href="#dashboard-top" class="sidebar-link active"><i class="fa-solid fa-gauge-high w-5 text-center"></i><span>Dashboard</span></a>
+        <a href="#prova-simulada" class="sidebar-link"><i class="fa-solid fa-shuffle w-5 text-center"></i><span>Prova Simulada</span></a>
+        <a href="#banco-questoes" class="sidebar-link"><i class="fa-solid fa-bars w-5 text-center"></i><span>Banco de Questões</span></a>
+        <a href="#flashcards" class="sidebar-link"><i class="fa-solid fa-layer-group w-5 text-center"></i><span>Flashcards</span></a>
+        <div class="my-2 border-t chrome-border-700"></div>
+        <a href="ranking.html" class="sidebar-link"><i class="fa-solid fa-trophy w-5 text-center"></i><span>Ranking &amp; Conquistas</span></a>
+        <a href="jogo-memoria.html" class="sidebar-link"><i class="fa-solid fa-brain w-5 text-center"></i><span>Jogo da Memória</span></a>
+        <a href="caderno.html" class="sidebar-link"><i class="fa-solid fa-book-bookmark w-5 text-center"></i><span>Caderno de Estudos</span></a>
+        <a href="anotacoes.html" class="sidebar-link"><i class="fa-solid fa-pen-to-square w-5 text-center"></i><span>Minhas Anotações</span></a>
+        <a href="desempenho.html" class="sidebar-link"><i class="fa-solid fa-chart-simple w-5 text-center"></i><span>Meu Desempenho</span></a>
+      </nav>
+      <div class="px-3 pb-4 pt-2 border-t chrome-border-700">
+        <button type="button" onclick="handleLogout()" class="sidebar-link w-full text-rose-300 hover:text-rose-200">
+          <i class="fa-solid fa-right-from-bracket w-5 text-center"></i><span>Sair</span>
+        </button>
       </div>
-    </div>
+    </aside>
 
-    <!-- Prova Simulada: destaque isolado, fora do Banco de Questões -->
-    <a href="prova-simulada.html" data-quiz-id="PROVA_SIMULADA" class="hidden group relative block overflow-hidden rounded-2xl border border-cyan-500/30 bg-gradient-to-br from-navy-800 via-navy-800 to-navy-900 px-6 py-6 md:px-8 md:py-7 mb-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)] transition-colors hover:border-cyan-400/60">
+    <div class="flex-1 min-w-0 flex flex-col">
+      <header class="topbar chrome-bg-900 border-b chrome-border-700 sticky top-0 z-30">
+        <div class="px-4 md:px-8 py-4 flex items-center gap-3 md:gap-4">
+          <button type="button" onclick="openSidebar()" class="md:hidden chrome-bg-800 border chrome-border-700 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" aria-label="Abrir menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="hidden sm:flex flex-1 max-w-md relative">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-xs chrome-text-slate-400"></i>
+            <input id="dashboard-search" type="text" placeholder="Buscar matéria, baralho..." class="w-full h-10 pl-9 pr-3 rounded-lg chrome-bg-800 border chrome-border-700 chrome-text-white text-xs placeholder:chrome-text-slate-400 outline-none focus:border-[#c9a44c] transition-colors">
+          </div>
+          <div class="flex-1 sm:hidden"></div>
+          <button type="button" onclick="document.getElementById('avisos-section').scrollIntoView({behavior:'smooth'})" class="relative chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors flex-shrink-0" title="Avisos">
+            <i class="fa-solid fa-bell text-sm"></i>
+            <span id="notif-dot" class="hidden absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#e0c26f]"></span>
+          </button>
+          <button id="theme-toggle-btn" onclick="toggleTheme()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors flex-shrink-0" title="Alternar entre modo claro e escuro" aria-label="Alternar tema claro/escuro">
+            <i class="fa-solid fa-moon text-sm" id="theme-toggle-icon-moon"></i>
+            <i class="fa-solid fa-sun text-sm hidden" id="theme-toggle-icon-sun"></i>
+          </button>
+          <div id="user-bar" class="hidden chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2">
+            <i class="fa-solid fa-user text-navy-500"></i>
+            <span id="user-email" class="max-w-[110px] md:max-w-[160px] truncate"></span>
+          </div>
+        </div>
+      </header>
+
+      <main class="flex-1 w-full max-w-6xl mx-auto px-4 md:px-8 py-6 md:py-8">
+
+        <section id="dashboard-top" class="cyber-hero relative overflow-hidden rounded-2xl border chrome-border-700 mb-6 px-6 py-7 md:px-9 md:py-9 scroll-mt-24">
+          <div class="cyber-hero-grid" aria-hidden="true"></div>
+          <svg class="cyber-hero-circuit" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g stroke="#c9a44c" stroke-width="1" opacity="0.55">
+              <path d="M40 10 H140 V50 H260"/>
+              <path d="M20 60 H100 V110 H220 V150"/>
+              <path d="M60 170 H160 V130 H280"/>
+              <path d="M0 100 H60"/>
+              <path d="M180 20 V70 H240"/>
+            </g>
+            <g fill="#e0c26f">
+              <circle cx="140" cy="10" r="3"/>
+              <circle cx="260" cy="50" r="3"/>
+              <circle cx="100" cy="60" r="3"/>
+              <circle cx="220" cy="110" r="3"/>
+              <circle cx="220" cy="150" r="3"/>
+              <circle cx="160" cy="170" r="3"/>
+              <circle cx="280" cy="130" r="3"/>
+              <circle cx="180" cy="70" r="3"/>
+              <circle cx="240" cy="70" r="3"/>
+            </g>
+            <g stroke="#4d9ee0" stroke-width="1" opacity="0.4">
+              <circle cx="150" cy="100" r="55"/>
+              <circle cx="150" cy="100" r="80"/>
+            </g>
+          </svg>
+          <div class="relative z-10 flex flex-wrap items-end justify-between gap-6">
+            <div class="min-w-0">
+              <p id="hero-date" class="text-[11px] font-mono uppercase tracking-widest text-[#e0c26f] mb-2"></p>
+              <h2 class="font-serif text-2xl md:text-[28px] font-semibold text-white">Bem-vindo de volta, <span id="hero-nome">Aluno</span>!</h2>
+              <p id="hero-frase" class="text-sm text-slate-300 italic mt-2 max-w-[54ch]"></p>
+            </div>
+            <div class="flex items-center gap-3 flex-shrink-0">
+              <div class="cyber-chip">
+                <i class="fa-solid fa-fire text-[#e0c26f]"></i>
+                <span id="hero-streak" class="font-mono font-semibold text-white text-sm">0 dias</span>
+              </div>
+              <a href="ranking.html" class="cyber-chip hover:border-[#c9a44c] transition-colors">
+                <i class="fa-solid fa-trophy text-[#e0c26f]"></i>
+                <span class="font-mono font-semibold text-white text-sm">Ranking</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-8">
+          <div class="cyber-stat-card">
+            <span class="cyber-stat-icon"><i class="fa-solid fa-file-circle-check"></i></span>
+            <span class="cyber-stat-value" id="stat-simulados">0</span>
+            <span class="cyber-stat-label">Simulados feitos</span>
+          </div>
+          <div class="cyber-stat-card">
+            <span class="cyber-stat-icon"><i class="fa-solid fa-bullseye"></i></span>
+            <span class="cyber-stat-value" id="stat-percentual">0%</span>
+            <span class="cyber-stat-label">Aproveitamento médio</span>
+          </div>
+          <div class="cyber-stat-card">
+            <span class="cyber-stat-icon"><i class="fa-solid fa-check-double"></i></span>
+            <span class="cyber-stat-value" id="stat-acertos">0</span>
+            <span class="cyber-stat-label">Questões corretas</span>
+          </div>
+          <div class="cyber-stat-card">
+            <span class="cyber-stat-icon"><i class="fa-solid fa-compass"></i></span>
+            <span class="cyber-stat-value" id="stat-materias">0</span>
+            <span class="cyber-stat-label">Matérias estudadas</span>
+          </div>
+        </section>
+
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-8">
+          <div class="lg:col-span-2">
+            <h3 class="cyber-section-title"><i class="fa-solid fa-play"></i> Continue Estudando</h3>
+            <div id="continue-estudando-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <p id="continue-estudando-empty" class="hidden text-xs text-slate-400 sm:col-span-2">Assim que seu acesso for liberado, suas matérias aparecem aqui.</p>
+            </div>
+          </div>
+          <div>
+            <h3 class="cyber-section-title"><i class="fa-solid fa-medal"></i> Conquistas Recentes</h3>
+            <div id="badges-widget" class="cyber-panel flex flex-wrap gap-3 items-center min-h-[84px]">
+              <p id="badges-empty" class="text-xs text-slate-400">Complete simulados para desbloquear conquistas.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="avisos-section" class="mb-8 scroll-mt-24">
+          <h3 class="cyber-section-title"><i class="fa-solid fa-bullhorn"></i> Avisos</h3>
+          <div id="notices-list" class="cyber-panel flex flex-col divide-y chrome-border-700"></div>
+        </section>
+
+        <!-- Prova Simulada: destaque isolado, fora do Banco de Questões -->
+    <a id="prova-simulada" href="prova-simulada.html" data-quiz-id="PROVA_SIMULADA" class="hidden scroll-mt-24 group relative block overflow-hidden rounded-2xl border border-cyan-500/30 bg-gradient-to-br from-navy-800 via-navy-800 to-navy-900 px-6 py-6 md:px-8 md:py-7 mb-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)] transition-colors hover:border-cyan-400/60">
       <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, #fff 1px, transparent 0); background-size: 22px 22px;"></div>
       <div class="relative flex items-center gap-5">
         <div class="bg-navy-600 text-ink p-3.5 rounded-xl shadow-lg shadow-navy-900/40 flex-shrink-0 ring-1 ring-cyan-400/20">
@@ -463,7 +664,7 @@
     </a>
 
     <!-- Flashcards: agrupados atrás de um único toggle, mostrando permitidos e bloqueados -->
-    <section class="mb-6">
+    <section id="flashcards" class="mb-6 scroll-mt-24">
       <button type="button" id="flashcards-toggle" class="w-full flex items-center justify-between gap-3 bg-navy-800/80 border border-navy-700 hover:border-navy-500 rounded-xl px-5 py-4 transition-colors">
         <span class="flex items-center gap-3">
           <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -617,8 +818,8 @@
       <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3 flex items-center gap-2">
         <i class="fa-solid fa-compass text-navy-500"></i> Recursos de Estudo
       </h3>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-        <a href="linha-do-tempo-historia.html" data-quiz-id="LINHA_DO_TEMPO_HISTORIA" class="hidden bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+      <div id="recursos-grid" class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <a href="linha-do-tempo-historia.html" data-quiz-id="LINHA_DO_TEMPO_HISTORIA" class="resource-card hidden bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
           <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-map"></i></span>
           <span>
             <span class="block text-ink text-sm font-medium leading-tight">Linha do Tempo</span>
@@ -626,7 +827,7 @@
           </span>
         </a>
 
-        <a href="comandantes-navais.html" data-quiz-id="COMANDANTES_NAVAIS" class="hidden bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+        <a href="comandantes-navais.html" data-quiz-id="COMANDANTES_NAVAIS" class="resource-card hidden bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
           <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-compass"></i></span>
           <span>
             <span class="block text-ink text-sm font-medium leading-tight">Comandantes Navais</span>
@@ -634,7 +835,7 @@
           </span>
         </a>
 
-        <a href="mapas-mentais.html" data-quiz-id="MAPAS_MENTAIS" class="hidden bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+        <a href="mapas-mentais.html" data-quiz-id="MAPAS_MENTAIS" class="resource-card hidden bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
           <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-diagram-project"></i></span>
           <span>
             <span class="block text-ink text-sm font-medium leading-tight">Mapas Mentais</span>
@@ -642,7 +843,7 @@
           </span>
         </a>
 
-        <a href="anotacoes.html" class="bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+        <a href="anotacoes.html" class="resource-card bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
           <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-pen-to-square"></i></span>
           <span>
             <span class="block text-ink text-sm font-medium leading-tight">Minhas Anotações</span>
@@ -650,7 +851,31 @@
           </span>
         </a>
 
-        <a href="cobertura-banco.html" data-quiz-id="COBERTURA_BANCO" class="hidden bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+        <a href="ranking.html" class="resource-card bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+          <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-trophy"></i></span>
+          <span>
+            <span class="block text-ink text-sm font-medium leading-tight">Ranking & Conquistas</span>
+            <span class="block text-[11px] text-slate-400 mt-1 leading-snug">Sua evolução, streak e o ranking geral</span>
+          </span>
+        </a>
+
+        <a href="jogo-memoria.html" class="resource-card bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+          <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-brain"></i></span>
+          <span>
+            <span class="block text-ink text-sm font-medium leading-tight">Jogo da Memória</span>
+            <span class="block text-[11px] text-slate-400 mt-1 leading-snug">Combine pergunta e resposta, por matéria</span>
+          </span>
+        </a>
+
+        <a href="caderno.html" class="resource-card bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+          <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-book-bookmark"></i></span>
+          <span>
+            <span class="block text-ink text-sm font-medium leading-tight">Caderno de Estudos</span>
+            <span class="block text-[11px] text-slate-400 mt-1 leading-snug">Resumo, erros e anotações — pronto pra imprimir</span>
+          </span>
+        </a>
+
+        <a href="cobertura-banco.html" data-quiz-id="COBERTURA_BANCO" class="resource-card hidden bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
           <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-bullseye"></i></span>
           <span>
             <span class="block text-ink text-sm font-medium leading-tight">Cobertura do Banco</span>
@@ -658,7 +883,7 @@
           </span>
         </a>
 
-        <a href="redacao.html" data-quiz-id="REDACAO" class="hidden bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+        <a href="redacao.html" data-quiz-id="REDACAO" class="resource-card hidden bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
           <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-pen-nib"></i></span>
           <span>
             <span class="block text-ink text-sm font-medium leading-tight">Redação</span>
@@ -669,7 +894,7 @@
     </section>
 
     <!-- Banco de Questões: agrupado atrás de um único toggle -->
-    <section>
+    <section id="banco-questoes" class="scroll-mt-24">
       <button type="button" id="bank-toggle" class="w-full flex items-center justify-between gap-3 bg-navy-800/80 border border-navy-700 hover:border-navy-500 rounded-xl px-5 py-4 transition-colors">
         <span class="flex items-center gap-3">
           <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -805,9 +1030,11 @@
         </div>
       </div>
     </section>
-  </main>
+      </main>
+    </div>
+  </div>
 
-  <footer class="max-w-5xl w-full mx-auto px-6 pb-8 text-center text-[11px] text-slate-500">
+  <footer class="max-w-6xl w-full mx-auto px-6 pb-8 text-center text-[11px] text-slate-500">
     Plataforma de Estudos · CA-AA/AFN
   </footer>
 
@@ -992,22 +1219,45 @@
       await sb.auth.signOut();
     }
 
-    async function onUserAuthenticated() {
-      const { data: perfil } = await sb
-        .from('profiles')
-        .select('aprovado')
-        .eq('id', currentUser.id)
-        .maybeSingle();
-
-      const nome = currentUser.user_metadata && currentUser.user_metadata.nome;
-
-      if (!perfil) {
-        await sb.from('profiles').upsert({ id: currentUser.id, nome: nome || null });
-      } else if (nome) {
-        await sb.from('profiles').update({ nome }).eq('id', currentUser.id);
+    function showOfflineNoCacheIndex() {
+      document.getElementById('access-screen').classList.remove('hidden');
+      const panel = document.getElementById('pending-panel');
+      if (panel) {
+        const p = panel.querySelector('p');
+        if (p) p.textContent = 'Sem conexão com a internet, e ainda não há dados salvos neste aparelho. Conecte-se à internet e tente novamente.';
+        const icon = panel.querySelector('i');
+        if (icon) icon.className = 'fa-solid fa-wifi text-3xl text-amber-300';
       }
+      showForm('pending-panel');
+    }
 
-      const aprovado = perfil ? perfil.aprovado : false;
+    async function onUserAuthenticated() {
+      const nome = currentUser.user_metadata && currentUser.user_metadata.nome;
+      let aprovado;
+      try {
+        const { data: perfil, error } = await sb
+          .from('profiles')
+          .select('aprovado')
+          .eq('id', currentUser.id)
+          .maybeSingle();
+        if (error) throw error;
+
+        if (!perfil) {
+          await sb.from('profiles').upsert({ id: currentUser.id, nome: nome || null });
+        } else if (nome) {
+          await sb.from('profiles').update({ nome }).eq('id', currentUser.id);
+        }
+
+        aprovado = perfil ? perfil.aprovado : false;
+        AlfaGamification.setAccessCacheAprovado(currentUser.id, aprovado);
+      } catch (e) {
+        const cached = AlfaGamification.getAccessCache(currentUser.id);
+        if (!cached) {
+          showOfflineNoCacheIndex();
+          return;
+        }
+        aprovado = cached.aprovado;
+      }
 
       if (!aprovado) {
         document.getElementById('access-screen').classList.remove('hidden');
@@ -1023,12 +1273,139 @@
       bar.classList.add('flex');
       document.getElementById('user-email').textContent = currentUser.email;
 
-      await applyAccessLocks();
+      const liberadas = await applyAccessLocks();
+      renderDashboardData(liberadas);
+    }
+
+    // Painel cibernético: hero, cartões de estatísticas, "continue estudando",
+    // conquistas recentes e avisos — tudo a partir de uma única busca de
+    // `resultados` (evita repetir a mesma consulta em vários lugares).
+    async function renderDashboardData(liberadas) {
+      const nome = (currentUser.user_metadata && currentUser.user_metadata.nome) || currentUser.email.split('@')[0];
+      document.getElementById('hero-nome').textContent = nome;
+      document.getElementById('hero-date').textContent = new Date().toLocaleDateString('pt-BR', { weekday: 'long', day: '2-digit', month: 'long' });
+      document.getElementById('hero-frase').textContent = AlfaGamification.fraseDoDia();
+
+      let resultados = [];
+      try {
+        const { data, error } = await sb
+          .from('resultados')
+          .select('quiz_id, acertos, erros, percentual, criado_em')
+          .eq('user_id', currentUser.id);
+        if (error) throw error;
+        resultados = data || [];
+      } catch (e) {
+        console.warn('Falha ao carregar dados do painel:', e);
+      }
+
+      const streak = AlfaGamification.computeStreak(resultados);
+      document.getElementById('hero-streak').textContent =
+        streak.atual > 0 ? `${streak.atual} dia${streak.atual === 1 ? '' : 's'} seguidos` : 'Comece hoje';
+
+      const stats = AlfaGamification.personalStats(resultados);
+      document.getElementById('stat-simulados').textContent = stats.totalSimulados;
+      document.getElementById('stat-percentual').textContent = stats.percentualMedio + '%';
+      document.getElementById('stat-acertos').textContent = stats.totalAcertos;
+      document.getElementById('stat-materias').textContent = stats.materiasDistintas + '/' + AlfaGamification.TOTAL_SUBJECTS;
+
+      renderContinueEstudando(liberadas, stats);
+      renderBadgesWidget(resultados);
+      renderNotices(resultados, stats);
+    }
+
+    function renderContinueEstudando(liberadas, stats) {
+      const grid = document.getElementById('continue-estudando-grid');
+      const emptyMsg = document.getElementById('continue-estudando-empty');
+      grid.querySelectorAll('.cyber-resource-card').forEach(el => el.remove());
+
+      const ids = Object.keys(AlfaGamification.SUBJECTS).filter(id => id !== 'PROVA_SIMULADA' && liberadas.has(id));
+      // Prioriza matérias já iniciadas (aparecem em `resultados`), depois completa com as demais liberadas.
+      const iniciadas = ids.filter(id => stats.materiasFeitas[id]);
+      const restantes = ids.filter(id => !stats.materiasFeitas[id]);
+      const escolhidas = iniciadas.concat(restantes).slice(0, 4);
+
+      if (escolhidas.length === 0) {
+        emptyMsg.classList.remove('hidden');
+        return;
+      }
+      emptyMsg.classList.add('hidden');
+
+      escolhidas.forEach(id => {
+        const info = AlfaGamification.SUBJECTS[id];
+        if (!info) return;
+        const a = document.createElement('a');
+        a.href = info.url;
+        a.className = 'cyber-resource-card';
+        a.innerHTML =
+          '<span class="cyber-resource-icon"><i class="fa-solid fa-book"></i></span>' +
+          '<span class="flex-1 min-w-0">' +
+            '<span class="block text-ink text-sm font-medium truncate">' + info.label + '</span>' +
+            '<span class="block text-[11px] text-slate-400 mt-0.5">' + (stats.materiasFeitas[id] ? 'Continuar estudando' : 'Começar agora') + '</span>' +
+          '</span>' +
+          '<i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>';
+        grid.appendChild(a);
+      });
+    }
+
+    function renderBadgesWidget(resultados) {
+      const widget = document.getElementById('badges-widget');
+      const emptyMsg = document.getElementById('badges-empty');
+      const badges = AlfaGamification.computeBadges(resultados).filter(b => b.unlocked);
+      widget.querySelectorAll('.cyber-badge').forEach(el => el.remove());
+
+      if (badges.length === 0) {
+        emptyMsg.classList.remove('hidden');
+        return;
+      }
+      emptyMsg.classList.add('hidden');
+      badges.slice(-6).reverse().forEach(b => {
+        const el = document.createElement('div');
+        el.className = 'cyber-badge';
+        el.title = b.label + ': ' + b.desc;
+        el.innerHTML = '<i class="fa-solid ' + b.icon + '"></i>';
+        widget.appendChild(el);
+      });
+    }
+
+    function renderNotices(resultados, stats) {
+      const list = document.getElementById('notices-list');
+      const dot = document.getElementById('notif-dot');
+      const notices = [];
+
+      if (stats.totalSimulados === 0) {
+        notices.push({ icon: 'fa-flag-checkered', text: 'Você ainda não fez nenhum simulado — comece agora pelo Banco de Questões.', href: '#banco-questoes' });
+      } else {
+        const ultimo = resultados.slice().sort((a, b) => new Date(b.criado_em) - new Date(a.criado_em))[0];
+        if (ultimo) {
+          const dataFmt = new Date(ultimo.criado_em).toLocaleDateString('pt-BR');
+          notices.push({ icon: 'fa-clock-rotate-left', text: `Último estudo em ${dataFmt} — ${AlfaGamification.labelFor(ultimo.quiz_id)}.`, href: null });
+        }
+        if (stats.totalSimulados >= 3 && stats.percentualMedio < 60) {
+          notices.push({ icon: 'fa-triangle-exclamation', text: `Seu aproveitamento médio está em ${stats.percentualMedio}% — vale revisar os erros no Caderno de Estudos.`, href: 'caderno.html' });
+        }
+      }
+      notices.push({ icon: 'fa-book-bookmark', text: 'Resumos, caderno de erros e anotações organizados por matéria no Caderno de Estudos.', href: 'caderno.html' });
+
+      list.innerHTML = notices.map(n => {
+        const inner = '<i class="fa-solid ' + n.icon + '"></i><span>' + n.text + '</span>';
+        return n.href ? `<a href="${n.href}" class="notice-row hover:text-white transition-colors">${inner}</a>` : `<div class="notice-row">${inner}</div>`;
+      }).join('');
+
+      if (dot) dot.classList.toggle('hidden', notices.length === 0);
     }
 
     async function applyAccessLocks() {
-      const { data: acessos } = await sb.from('acessos').select('quiz_id').eq('user_id', currentUser.id);
-      const liberadas = new Set((acessos || []).map(a => a.quiz_id));
+      let quizIds;
+      try {
+        const { data: acessos, error } = await sb.from('acessos').select('quiz_id').eq('user_id', currentUser.id);
+        if (error) throw error;
+        quizIds = (acessos || []).map(a => a.quiz_id);
+        AlfaGamification.setAccessCacheFull(currentUser.id, true, quizIds);
+      } catch (e) {
+        const cached = AlfaGamification.getAccessCache(currentUser.id);
+        quizIds = cached ? (cached.quizIds || []) : [];
+      }
+      const liberadas = new Set(quizIds);
 
       document.querySelectorAll('[data-quiz-id]').forEach(card => {
         const quizId = card.getAttribute('data-quiz-id');
@@ -1037,6 +1414,18 @@
         }
         // Sem acesso: permanece com a classe "hidden" que já vem no HTML por padrão.
       });
+
+      return liberadas;
+    }
+
+    function openSidebar() {
+      document.getElementById('sidebar').classList.remove('-translate-x-full');
+      document.getElementById('sidebar-overlay').classList.remove('hidden');
+    }
+
+    function closeSidebar() {
+      document.getElementById('sidebar').classList.add('-translate-x-full');
+      document.getElementById('sidebar-overlay').classList.add('hidden');
     }
 
     function showAccessScreen() {
@@ -1088,6 +1477,54 @@
       });
 
       setSegment('geral');
+
+      // Fecha o menu lateral (mobile) ao navegar por qualquer link/ação dele.
+      document.querySelectorAll('.sidebar-link').forEach(el => el.addEventListener('click', closeSidebar));
+
+      // Realce do link ativo na barra lateral conforme a seção visível na tela.
+      const spySections = ['dashboard-top', 'prova-simulada', 'flashcards', 'banco-questoes']
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+      if (spySections.length && 'IntersectionObserver' in window) {
+        const spyObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            document.querySelectorAll('.sidebar-link[href^="#"]').forEach(l => l.classList.remove('active'));
+            const link = document.querySelector(`.sidebar-link[href="#${entry.target.id}"]`);
+            if (link) link.classList.add('active');
+          });
+        }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+        spySections.forEach(el => spyObserver.observe(el));
+      }
+
+      // Busca rápida por matéria/baralho: abre os acordeões e mostra os dois
+      // segmentos do Banco de Questões enquanto o usuário digita.
+      const searchInput = document.getElementById('dashboard-search');
+      if (searchInput) {
+        let segmentBeforeSearch = null;
+        searchInput.addEventListener('input', () => {
+          const q = searchInput.value.trim().toLowerCase();
+          const bankNaval = document.getElementById('bank-segment-naval');
+
+          if (q) {
+            if (!flashcardsPanel.classList.contains('open')) toggleAccordion(flashcardsPanel, flashcardsChevron, true);
+            if (!bankPanel.classList.contains('open')) toggleAccordion(bankPanel, bankChevron, true);
+            if (segmentBeforeSearch === null) {
+              segmentBeforeSearch = bankNaval.classList.contains('hidden') ? 'geral' : 'naval';
+            }
+            document.getElementById('bank-segment-geral').classList.remove('hidden');
+            bankNaval.classList.remove('hidden');
+          } else if (segmentBeforeSearch) {
+            setSegment(segmentBeforeSearch);
+            segmentBeforeSearch = null;
+          }
+
+          document.querySelectorAll('#flashcards-panel .flashcard-row, #bank-panel .topic-row, #recursos-grid .resource-card').forEach(row => {
+            const matches = !q || row.textContent.toLowerCase().indexOf(q) !== -1;
+            row.classList.toggle('search-hide', !matches);
+          });
+        });
+      }
 
       sb.auth.onAuthStateChange((event, session) => {
         if (event === 'PASSWORD_RECOVERY') {

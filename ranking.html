@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('site_theme');
+        var theme = saved === 'light' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0b1b30">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="CA-AA/AFN">
+  <title>Ranking & Conquistas · Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Sua evolução pessoal, conquistas e o ranking geral entre os alunos da plataforma.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: {
+              100: 'rgb(var(--tw-navy-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-navy-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-navy-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-navy-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-navy-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-navy-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-navy-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-navy-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-navy-900) / <alpha-value>)'
+            },
+            ink: 'rgb(var(--tw-ink) / <alpha-value>)',
+            slate: {
+              50: 'rgb(var(--tw-slate-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-slate-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-slate-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-slate-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-slate-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-slate-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-slate-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-slate-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-slate-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-slate-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-slate-950) / <alpha-value>)'
+            },
+            emerald: {
+              50: 'rgb(var(--tw-emerald-50) / <alpha-value>)', 100: 'rgb(var(--tw-emerald-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-emerald-200) / <alpha-value>)', 300: 'rgb(var(--tw-emerald-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-emerald-400) / <alpha-value>)', 500: 'rgb(var(--tw-emerald-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-emerald-600) / <alpha-value>)', 700: 'rgb(var(--tw-emerald-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-emerald-800) / <alpha-value>)', 900: 'rgb(var(--tw-emerald-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-emerald-950) / <alpha-value>)'
+            },
+            rose: {
+              50: 'rgb(var(--tw-rose-50) / <alpha-value>)', 100: 'rgb(var(--tw-rose-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-rose-200) / <alpha-value>)', 300: 'rgb(var(--tw-rose-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-rose-400) / <alpha-value>)', 500: 'rgb(var(--tw-rose-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-rose-600) / <alpha-value>)', 700: 'rgb(var(--tw-rose-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-rose-800) / <alpha-value>)', 900: 'rgb(var(--tw-rose-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-rose-950) / <alpha-value>)'
+            },
+            amber: {
+              50: 'rgb(var(--tw-amber-50) / <alpha-value>)', 100: 'rgb(var(--tw-amber-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-amber-200) / <alpha-value>)', 300: 'rgb(var(--tw-amber-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-amber-400) / <alpha-value>)', 500: 'rgb(var(--tw-amber-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-amber-600) / <alpha-value>)', 700: 'rgb(var(--tw-amber-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-amber-800) / <alpha-value>)', 900: 'rgb(var(--tw-amber-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-amber-950) / <alpha-value>)'
+            },
+            cyan: {
+              50: 'rgb(var(--tw-cyan-50) / <alpha-value>)', 100: 'rgb(var(--tw-cyan-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-cyan-200) / <alpha-value>)', 300: 'rgb(var(--tw-cyan-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-cyan-400) / <alpha-value>)', 500: 'rgb(var(--tw-cyan-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-cyan-600) / <alpha-value>)', 700: 'rgb(var(--tw-cyan-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-cyan-800) / <alpha-value>)', 900: 'rgb(var(--tw-cyan-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-cyan-950) / <alpha-value>)'
+            },
+            sky: { 400: 'rgb(var(--tw-sky-400) / <alpha-value>)' },
+            lime: { 400: 'rgb(var(--tw-lime-400) / <alpha-value>)' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+:root {
+  --tw-slate-50: 248 250 252; --tw-slate-100: 241 245 249; --tw-slate-200: 226 232 240;
+  --tw-slate-300: 203 213 225; --tw-slate-400: 148 163 184; --tw-slate-500: 100 116 139;
+  --tw-slate-600: 71 85 105; --tw-slate-700: 51 65 85; --tw-slate-800: 30 41 59;
+  --tw-slate-900: 15 23 42; --tw-slate-950: 2 6 23;
+  --tw-emerald-50: 236 253 245; --tw-emerald-100: 209 250 229; --tw-emerald-200: 167 243 208;
+  --tw-emerald-300: 110 231 183; --tw-emerald-400: 52 211 153; --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 5 150 105; --tw-emerald-700: 4 120 87; --tw-emerald-800: 6 95 70;
+  --tw-emerald-900: 6 78 59; --tw-emerald-950: 2 44 34;
+  --tw-rose-50: 255 241 242; --tw-rose-100: 255 228 230; --tw-rose-200: 254 205 211;
+  --tw-rose-300: 253 164 175; --tw-rose-400: 251 113 133; --tw-rose-500: 244 63 94;
+  --tw-rose-600: 225 29 72; --tw-rose-700: 190 18 60; --tw-rose-800: 159 18 57;
+  --tw-rose-900: 136 19 55; --tw-rose-950: 76 5 25;
+  --tw-amber-50: 255 251 235; --tw-amber-100: 254 243 199; --tw-amber-200: 253 230 138;
+  --tw-amber-300: 252 211 77; --tw-amber-400: 251 191 36; --tw-amber-500: 245 158 11;
+  --tw-amber-600: 217 119 6; --tw-amber-700: 180 83 9; --tw-amber-800: 146 64 14;
+  --tw-amber-900: 120 53 15; --tw-amber-950: 69 26 3;
+  --tw-cyan-50: 236 254 255; --tw-cyan-100: 207 250 254; --tw-cyan-200: 165 243 252;
+  --tw-cyan-300: 103 232 249; --tw-cyan-400: 34 211 238; --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 8 145 178; --tw-cyan-700: 14 116 144; --tw-cyan-800: 21 94 117;
+  --tw-cyan-900: 22 78 99; --tw-cyan-950: 8 51 68;
+  --tw-sky-400: 56 189 248; --tw-lime-400: 163 230 53;
+  --tw-navy-100: 230 240 250; --tw-navy-200: 192 219 245; --tw-navy-300: 143 193 238;
+  --tw-navy-400: 77 158 224; --tw-navy-500: 0 102 204; --tw-navy-600: 30 86 160;
+  --tw-navy-700: 30 62 98; --tw-navy-800: 11 25 44; --tw-navy-900: 0 15 38;
+  --tw-ink: 255 255 255;
+}
+[data-theme="light"] {
+  --tw-slate-50: 2 6 23; --tw-slate-100: 15 23 42; --tw-slate-200: 30 41 59;
+  --tw-slate-300: 51 65 85; --tw-slate-400: 71 85 105; --tw-slate-500: 100 116 139;
+  --tw-slate-600: 148 163 184; --tw-slate-700: 203 213 225; --tw-slate-800: 226 232 240;
+  --tw-slate-900: 241 245 249; --tw-slate-950: 248 250 252;
+  --tw-emerald-50: 2 44 34; --tw-emerald-100: 6 78 59; --tw-emerald-200: 6 95 70;
+  --tw-emerald-300: 4 120 87; --tw-emerald-400: 5 150 105; --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 52 211 153; --tw-emerald-700: 110 231 183; --tw-emerald-800: 167 243 208;
+  --tw-emerald-900: 209 250 229; --tw-emerald-950: 236 253 245;
+  --tw-rose-50: 76 5 25; --tw-rose-100: 136 19 55; --tw-rose-200: 159 18 57;
+  --tw-rose-300: 190 18 60; --tw-rose-400: 225 29 72; --tw-rose-500: 244 63 94;
+  --tw-rose-600: 251 113 133; --tw-rose-700: 253 164 175; --tw-rose-800: 254 205 211;
+  --tw-rose-900: 255 228 230; --tw-rose-950: 255 241 242;
+  --tw-amber-50: 69 26 3; --tw-amber-100: 120 53 15; --tw-amber-200: 146 64 14;
+  --tw-amber-300: 180 83 9; --tw-amber-400: 217 119 6; --tw-amber-500: 245 158 11;
+  --tw-amber-600: 251 191 36; --tw-amber-700: 252 211 77; --tw-amber-800: 253 230 138;
+  --tw-amber-900: 254 243 199; --tw-amber-950: 255 251 235;
+  --tw-cyan-50: 8 51 68; --tw-cyan-100: 22 78 99; --tw-cyan-200: 21 94 117;
+  --tw-cyan-300: 14 116 144; --tw-cyan-400: 8 145 178; --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 34 211 238; --tw-cyan-700: 103 232 249; --tw-cyan-800: 165 243 252;
+  --tw-cyan-900: 207 250 254; --tw-cyan-950: 236 254 255;
+  --tw-sky-400: 56 189 248; --tw-lime-400: 163 230 53;
+  --tw-navy-100: 0 15 38; --tw-navy-200: 11 25 44; --tw-navy-300: 30 62 98;
+  --tw-navy-400: 30 86 160; --tw-navy-500: 0 102 204; --tw-navy-600: 77 158 224;
+  --tw-navy-700: 143 193 238; --tw-navy-800: 192 219 245; --tw-navy-900: 230 240 250;
+  --tw-ink: 11 25 44;
+}
+    @keyframes access-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    #access-card { animation: access-in .5s ease-out .1s forwards; }
+    .chrome-bg-900 { background-color: #000F26 !important; }
+    .chrome-bg-800 { background-color: #0B192C !important; }
+    .chrome-bg-600 { background-color: #1E56A0 !important; }
+    .chrome-border-700 { border-color: #1E3E62 !important; }
+    .chrome-border-600 { border-color: #1E56A0 !important; }
+    .chrome-text-white { color: #FFFFFF !important; }
+    .chrome-text-slate-400 { color: #94A3B8 !important; }
+    .chrome-text-slate-200 { color: #E2E8F0 !important; }
+    .chrome-hover-border-500:hover { border-color: #0066CC !important; }
+    button:focus-visible, select:focus-visible, a:focus-visible { outline: 2px solid #2384d6; outline-offset: 2px; }
+    .tab-btn.active { background: #1E56A0 !important; color: #fff !important; }
+    .badge-card.locked { opacity: .35; filter: grayscale(1); }
+    .rank-row.me { background: rgba(224,194,111,.12) !important; border-color: #e0c26f !important; }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">🏆</div>
+      <div class="font-serif font-semibold text-[26px] text-ink tracking-tight">Ranking & Conquistas</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial pra ver seu ranking.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-ink text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-ink underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="chrome-bg-900 border-b chrome-border-700 sticky top-0 z-30 shadow-lg">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="chrome-bg-600 chrome-text-white p-2.5 rounded-lg shadow">
+          <i class="fa-solid fa-trophy text-2xl"></i>
+        </div>
+        <div>
+          <h1 class="font-serif text-xl font-semibold chrome-text-white tracking-wide">Ranking & Conquistas</h1>
+          <p class="text-xs chrome-text-slate-400">Sua evolução e a comparação com os demais alunos</p>
+        </div>
+      </div>
+      <button id="theme-toggle-btn" onclick="toggleTheme()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors flex-shrink-0" title="Alternar entre modo claro e escuro" aria-label="Alternar tema claro/escuro"><i class="fa-solid fa-moon text-sm" id="theme-toggle-icon-moon"></i><i class="fa-solid fa-sun text-sm hidden" id="theme-toggle-icon-sun"></i></button>
+      <a href="index.html" class="chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 chrome-hover-border-500 transition-colors">
+        <i class="fa-solid fa-house"></i> Painel geral
+      </a>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 md:px-6 py-6">
+
+    <!-- Frase do dia -->
+    <div class="mb-5 bg-gradient-to-r from-navy-800/80 to-navy-800/40 border border-navy-700 rounded-xl px-5 py-3.5 flex items-center gap-3">
+      <i class="fa-solid fa-quote-left text-navy-500 text-lg flex-shrink-0"></i>
+      <p id="frase-do-dia" class="text-sm text-slate-200 italic"></p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex gap-2 mb-5 bg-navy-800/60 border border-navy-700 rounded-xl p-1.5">
+      <button type="button" class="tab-btn active flex-1 text-sm font-medium py-2.5 rounded-lg transition-all" data-tab="pessoal" onclick="switchTab('pessoal')">
+        <i class="fa-solid fa-chart-line mr-1.5"></i> Meu Progresso
+      </button>
+      <button type="button" class="tab-btn flex-1 text-sm font-medium py-2.5 rounded-lg transition-all" data-tab="geral" onclick="switchTab('geral')">
+        <i class="fa-solid fa-ranking-star mr-1.5"></i> Ranking Geral
+      </button>
+    </div>
+
+    <!-- Carregando -->
+    <div id="loading-state" class="text-center py-16 text-slate-400">
+      <i class="fa-solid fa-circle-notch fa-spin text-2xl"></i>
+    </div>
+
+    <!-- ===== Aba: Meu Progresso ===== -->
+    <div id="tab-pessoal" class="hidden space-y-5">
+
+      <!-- Streak + resumo -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 text-center">
+          <div class="text-2xl mb-1"><i class="fa-solid fa-fire text-amber-400"></i></div>
+          <div id="stat-streak" class="text-2xl font-bold text-ink font-serif">0</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">dias seguidos</div>
+        </div>
+        <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 text-center">
+          <div class="text-2xl mb-1"><i class="fa-solid fa-list-check text-navy-400"></i></div>
+          <div id="stat-simulados" class="text-2xl font-bold text-ink font-serif">0</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">simulados feitos</div>
+        </div>
+        <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 text-center">
+          <div class="text-2xl mb-1"><i class="fa-solid fa-bullseye text-emerald-400"></i></div>
+          <div id="stat-percentual" class="text-2xl font-bold text-ink font-serif">0%</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">acerto médio</div>
+        </div>
+        <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 text-center">
+          <div class="text-2xl mb-1"><i class="fa-solid fa-layer-group text-cyan-400"></i></div>
+          <div id="stat-acertos" class="text-2xl font-bold text-ink font-serif">0</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">questões corretas</div>
+        </div>
+      </div>
+
+      <!-- Gráfico de evolução -->
+      <div class="bg-navy-800/60 border border-navy-700 rounded-xl p-4">
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3 flex items-center gap-2">
+          <i class="fa-solid fa-chart-area text-navy-500"></i> Evolução do % de acerto (últimos simulados)
+        </h3>
+        <div id="chart-container" class="w-full overflow-x-auto">
+          <svg id="evo-chart" viewBox="0 0 600 160" preserveAspectRatio="none" class="w-full h-40"></svg>
+        </div>
+        <p id="chart-empty" class="hidden text-sm text-slate-500 text-center py-8">Faça pelo menos 2 simulados pra ver seu gráfico de evolução aqui.</p>
+        <a href="desempenho.html" class="mt-3 text-xs text-navy-400 hover:text-navy-300 font-medium inline-flex items-center gap-1.5">
+          <i class="fa-solid fa-arrow-right"></i> Ver desempenho detalhado por matéria
+        </a>
+      </div>
+
+      <!-- Conquistas -->
+      <div class="bg-navy-800/60 border border-navy-700 rounded-xl p-4">
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3 flex items-center gap-2">
+          <i class="fa-solid fa-medal text-navy-500"></i> Conquistas
+        </h3>
+        <div id="badges-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3"></div>
+      </div>
+
+    </div>
+
+    <!-- ===== Aba: Ranking Geral ===== -->
+    <div id="tab-geral" class="hidden space-y-4">
+      <div id="ranking-loading" class="text-center py-10 text-slate-400">
+        <i class="fa-solid fa-circle-notch fa-spin text-xl"></i>
+      </div>
+
+      <div id="ranking-setup-needed" class="hidden bg-amber-900/20 border border-amber-700/50 rounded-xl p-5 text-sm text-amber-200">
+        <p class="font-semibold mb-2 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation"></i> Ranking geral ainda não configurado</p>
+        <p class="mb-2">Pra comparar sua evolução com a de outros alunos, é preciso rodar UMA VEZ um script SQL no seu projeto Supabase — ele cria uma função segura que só devolve estatísticas agregadas (nome + números gerais), nunca as respostas individuais de ninguém.</p>
+        <p class="text-xs text-amber-300/80">Arquivo: <code class="bg-black/20 px-1.5 py-0.5 rounded">supabase_ranking_global.sql</code> — cole no SQL Editor do Supabase e clique em "Run". Depois é só recarregar esta página.</p>
+      </div>
+
+      <div id="ranking-empty" class="hidden text-center py-10 text-slate-400">
+        <i class="fa-solid fa-users text-3xl mb-3 text-navy-600"></i>
+        <p class="text-sm">Ainda não há simulados suficientes pra montar um ranking.</p>
+      </div>
+
+      <div id="ranking-table-wrap" class="hidden bg-navy-800/60 border border-navy-700 rounded-xl overflow-hidden">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-navy-800 text-left text-[11px] uppercase tracking-wide text-slate-400">
+              <th class="px-4 py-3 w-14">#</th>
+              <th class="px-4 py-3">Aluno</th>
+              <th class="px-4 py-3 text-right">Simulados</th>
+              <th class="px-4 py-3 text-right">Acertos</th>
+              <th class="px-4 py-3 text-right">% Médio</th>
+            </tr>
+          </thead>
+          <tbody id="ranking-tbody"></tbody>
+        </table>
+      </div>
+      <p class="text-[11px] text-slate-500">O ranking considera apenas alunos com acesso liberado (aprovado) e é ordenado por total de questões corretas, com o % médio como critério de desempate.</p>
+    </div>
+
+  </main>
+
+  <footer class="max-w-5xl w-full mx-auto px-4 md:px-6 pb-6 pt-2 text-center text-[11px] text-slate-500">
+    Plataforma de Estudos · CA-AA/AFN
+  </footer>
+
+  <script src="gamification.js"></script>
+  <script>
+    const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    applyThemeIcon();
+    document.getElementById('frase-do-dia').textContent = AlfaGamification.fraseDoDia();
+
+    let currentUser = null;
+    let resultadosCache = [];
+
+    function applyThemeIcon() {
+      const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+      document.getElementById('theme-toggle-icon-moon').classList.toggle('hidden', theme === 'light');
+      document.getElementById('theme-toggle-icon-sun').classList.toggle('hidden', theme !== 'light');
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('site_theme', next); } catch (e) { /* ignora */ }
+      applyThemeIcon();
+    }
+
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    function switchTab(tab) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+      document.getElementById('tab-pessoal').classList.toggle('hidden', tab !== 'pessoal');
+      document.getElementById('tab-geral').classList.toggle('hidden', tab !== 'geral');
+      if (tab === 'geral' && !rankingLoaded) loadRankingGeral();
+    }
+
+    function renderPersonal(resultados) {
+      const streak = AlfaGamification.computeStreak(resultados);
+      const stats = AlfaGamification.personalStats(resultados);
+
+      document.getElementById('stat-streak').textContent = streak.atual;
+      document.getElementById('stat-simulados').textContent = stats.totalSimulados;
+      document.getElementById('stat-percentual').textContent = stats.percentualMedio + '%';
+      document.getElementById('stat-acertos').textContent = stats.totalAcertos;
+
+      // Gráfico simples de evolução (polyline em SVG), últimos 20 pontos.
+      const pontos = stats.evolucao.slice(-20);
+      const svg = document.getElementById('evo-chart');
+      if (pontos.length < 2) {
+        svg.innerHTML = '';
+        document.getElementById('chart-empty').classList.remove('hidden');
+      } else {
+        document.getElementById('chart-empty').classList.add('hidden');
+        const w = 600, h = 160, pad = 12;
+        const stepX = (w - pad * 2) / (pontos.length - 1);
+        const coords = pontos.map((p, i) => {
+          const x = pad + i * stepX;
+          const y = h - pad - (p.percentual / 100) * (h - pad * 2);
+          return [x, y];
+        });
+        const linePoints = coords.map(c => c.join(',')).join(' ');
+        const areaPoints = [`${coords[0][0]},${h - pad}`]
+          .concat(coords.map(c => c.join(',')))
+          .concat([`${coords[coords.length - 1][0]},${h - pad}`])
+          .join(' ');
+        svg.innerHTML = `
+          <polygon points="${areaPoints}" fill="rgba(0,102,204,.15)"></polygon>
+          <polyline points="${linePoints}" fill="none" stroke="#0066cc" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"></polyline>
+          ${coords.map(c => `<circle cx="${c[0]}" cy="${c[1]}" r="3.5" fill="#e0c26f"></circle>`).join('')}
+        `;
+      }
+
+      // Conquistas
+      const badges = AlfaGamification.computeBadges(resultados);
+      const grid = document.getElementById('badges-grid');
+      grid.innerHTML = badges.map(b => `
+        <div class="badge-card ${b.unlocked ? '' : 'locked'} bg-navy-800/80 border border-navy-700 rounded-xl p-3 flex flex-col items-center text-center gap-1.5" title="${b.desc}">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center ${b.unlocked ? 'bg-amber-500/20' : 'bg-slate-700/40'}">
+            <i class="fa-solid ${b.icon} ${b.unlocked ? 'text-amber-400' : 'text-slate-500'}"></i>
+          </div>
+          <div class="text-xs font-semibold text-ink leading-tight">${b.label}</div>
+          <div class="text-[10px] text-slate-400 leading-snug">${b.desc}</div>
+        </div>
+      `).join('');
+
+      // Celebra conquistas novas desde a última visita.
+      const novas = AlfaGamification.newlyUnlockedBadges(currentUser.id, badges);
+      if (novas.length > 0) {
+        AlfaGamification.celebrar();
+        novas.forEach((b, i) => setTimeout(() => AlfaGamification.toastConquista(b), i * 900));
+      }
+    }
+
+    let rankingLoaded = false;
+    async function loadRankingGeral() {
+      rankingLoaded = true;
+      document.getElementById('ranking-loading').classList.remove('hidden');
+      document.getElementById('ranking-setup-needed').classList.add('hidden');
+      document.getElementById('ranking-empty').classList.add('hidden');
+      document.getElementById('ranking-table-wrap').classList.add('hidden');
+
+      const { data, error } = await sb.rpc('get_ranking_geral');
+      document.getElementById('ranking-loading').classList.add('hidden');
+
+      if (error) {
+        console.warn('Erro ao buscar ranking geral:', error);
+        document.getElementById('ranking-setup-needed').classList.remove('hidden');
+        return;
+      }
+      if (!data || data.length === 0) {
+        document.getElementById('ranking-empty').classList.remove('hidden');
+        return;
+      }
+
+      const tbody = document.getElementById('ranking-tbody');
+      tbody.innerHTML = data.map(row => {
+        const isMe = row.user_id === currentUser.id;
+        const medalha = row.posicao === 1 ? '🥇' : row.posicao === 2 ? '🥈' : row.posicao === 3 ? '🥉' : row.posicao;
+        return `
+          <tr class="rank-row ${isMe ? 'me' : ''} border-t border-navy-700/60">
+            <td class="px-4 py-3 font-bold text-ink">${medalha}</td>
+            <td class="px-4 py-3 text-slate-200">${(row.nome || 'Aluno').replace(/</g,'&lt;')} ${isMe ? '<span class="text-[10px] text-amber-400 font-semibold ml-1">(você)</span>' : ''}</td>
+            <td class="px-4 py-3 text-right text-slate-300">${row.total_simulados}</td>
+            <td class="px-4 py-3 text-right text-slate-300">${row.total_acertos}</td>
+            <td class="px-4 py-3 text-right font-semibold text-ink">${row.percentual_medio}%</td>
+          </tr>
+        `;
+      }).join('');
+      document.getElementById('ranking-table-wrap').classList.remove('hidden');
+    }
+
+    sb.auth.onAuthStateChange((event, session) => {
+      if (session && session.user) {
+        currentUser = session.user;
+        onUserAuthenticated();
+      } else {
+        currentUser = null;
+        showGate('gate-logged-out');
+      }
+    });
+
+    async function onUserAuthenticated() {
+      const aprovado = await AlfaGamification.fetchAprovado(sb, currentUser.id);
+      if (!aprovado) {
+        showGate('gate-pending');
+        return;
+      }
+      document.getElementById('access-screen').classList.add('hidden');
+
+      const { data: resultados } = await sb
+        .from('resultados')
+        .select('quiz_id, acertos, erros, percentual, criado_em')
+        .eq('user_id', currentUser.id);
+
+      resultadosCache = resultados || [];
+      document.getElementById('loading-state').classList.add('hidden');
+      document.getElementById('tab-pessoal').classList.remove('hidden');
+      renderPersonal(resultadosCache);
+    }
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch((err) => {
+          console.warn('Falha ao registrar o Service Worker:', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
