@@ -437,6 +437,74 @@
     .notice-row:last-child { padding-bottom: 0; }
     .notice-row i { color: #e0c26f; margin-top: 2px; flex-shrink: 0; }
     .search-hide { display: none !important; }
+
+    /* ===== Avatar circular (foto de perfil) ===== */
+    .cyber-avatar {
+      position: relative; width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+      border: 1.5px solid #c9a44c; background: rgba(224,194,111,.12);
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+      color: #e0c26f; font-size: 12px; font-weight: 700; cursor: pointer;
+      transition: box-shadow .15s, border-color .15s;
+    }
+    .cyber-avatar:hover { box-shadow: 0 0 0 3px rgba(224,194,111,.18); border-color: #e0c26f; }
+    .cyber-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .cyber-avatar-lg { width: 64px; height: 64px; font-size: 22px; border-width: 2px; }
+    .cyber-avatar-lg::after {
+      content: '\f030'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+      position: absolute; bottom: -2px; right: -2px; width: 20px; height: 20px; border-radius: 50%;
+      background: #c9a44c; color: #071a2d; font-size: 9px; display: flex; align-items: center; justify-content: center;
+      border: 2px solid #050f1f;
+    }
+
+    /* ===== Sidebar agrupada em seções com cabeçalho dourado (referência: app oficial Marinha do Brasil) ===== */
+    .sidebar-section-title {
+      display: flex; align-items: center; gap: 10px;
+      padding: 4px 12px 8px; margin-top: 14px;
+      font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em;
+      color: #e0c26f;
+    }
+    .sidebar-section-title:first-child { margin-top: 0; }
+    .sidebar-section-title::after { content: ''; flex: 1; height: 1px; background: rgba(224,194,111,.35); }
+    .sidebar-icon-badge {
+      width: 30px; height: 30px; border-radius: 9px; flex-shrink: 0;
+      border: 1px solid rgba(224,194,111,.4); background: rgba(224,194,111,.06);
+      display: flex; align-items: center; justify-content: center;
+      color: #e0c26f; transition: border-color .15s, background-color .15s;
+    }
+    .sidebar-link:hover .sidebar-icon-badge, .sidebar-link.active .sidebar-icon-badge {
+      border-color: #e0c26f; background: rgba(224,194,111,.18);
+    }
+    .sidebar-link.text-rose-300 .sidebar-icon-badge { border-color: rgba(253,164,175,.4); color: #fda4af; background: rgba(253,164,175,.07); }
+    .sidebar-link .fa-chevron-right { margin-left: auto; font-size: 10px; color: #7f96b3; opacity: .6; }
+
+    /* ===== Barra de navegação inferior no mobile (referência: app oficial) ===== */
+    #bottom-tabbar {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+      background: #000F26; border-top: 1px solid #1E3E62;
+      display: flex; align-items: stretch;
+      padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+    .tabbar-link {
+      flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 3px; padding: 8px 2px 7px; color: #7f96b3; font-size: 10px; font-weight: 600;
+      transition: color .15s; background: transparent; border: none;
+    }
+    .tabbar-link i { font-size: 15px; }
+    .tabbar-link.active { color: #e0c26f; }
+
+    /* ===== Cabeçalho de cartão com barra dourada à esquerda (referência: "Acesso Rápido" / "Rádio Marinha") ===== */
+    .cyber-card-header {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      margin-bottom: 12px; padding-left: 12px; border-left: 3px solid #c9a44c;
+    }
+    .cyber-card-header-title { font-size: 12px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: .06em; display: flex; align-items: center; gap: 8px; }
+    .cyber-card-header-title i { color: #e0c26f; }
+    .cyber-card-header-sub { font-size: 11px; color: #94A3B8; margin-top: 2px; }
+    .cyber-card-pill {
+      display: flex; align-items: center; gap: 6px; flex-shrink: 0;
+      background: rgba(224,194,111,.1); border: 1px solid rgba(224,194,111,.35);
+      color: #e0c26f; font-size: 11px; font-weight: 600; padding: 5px 12px; border-radius: 999px;
+    }
   </style>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans" style="background:#0c1116">
@@ -511,20 +579,24 @@
         </button>
       </div>
       <nav class="flex-1 overflow-y-auto py-4 px-3 flex flex-col gap-1">
-        <a href="#dashboard-top" class="sidebar-link active"><i class="fa-solid fa-gauge-high w-5 text-center"></i><span>Dashboard</span></a>
-        <a href="#prova-simulada" class="sidebar-link"><i class="fa-solid fa-shuffle w-5 text-center"></i><span>Prova Simulada</span></a>
-        <a href="#banco-questoes" class="sidebar-link"><i class="fa-solid fa-bars w-5 text-center"></i><span>Banco de Questões</span></a>
-        <a href="#flashcards" class="sidebar-link"><i class="fa-solid fa-layer-group w-5 text-center"></i><span>Flashcards</span></a>
-        <div class="my-2 border-t chrome-border-700"></div>
-        <a href="ranking.html" class="sidebar-link"><i class="fa-solid fa-trophy w-5 text-center"></i><span>Ranking &amp; Conquistas</span></a>
-        <a href="jogo-memoria.html" class="sidebar-link"><i class="fa-solid fa-brain w-5 text-center"></i><span>Jogo da Memória</span></a>
-        <a href="caderno.html" class="sidebar-link"><i class="fa-solid fa-book-bookmark w-5 text-center"></i><span>Caderno de Estudos</span></a>
-        <a href="anotacoes.html" class="sidebar-link"><i class="fa-solid fa-pen-to-square w-5 text-center"></i><span>Minhas Anotações</span></a>
-        <a href="desempenho.html" class="sidebar-link"><i class="fa-solid fa-chart-simple w-5 text-center"></i><span>Meu Desempenho</span></a>
+        <p class="sidebar-section-title">Principal</p>
+        <a href="#dashboard-top" class="sidebar-link active"><span class="sidebar-icon-badge"><i class="fa-solid fa-gauge-high"></i></span><span>Dashboard</span><i class="fa-solid fa-chevron-right"></i></a>
+        <a href="#prova-simulada" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-shuffle"></i></span><span>Prova Simulada</span><i class="fa-solid fa-chevron-right"></i></a>
+        <a href="#banco-questoes" onclick="openBankPanel()" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-bars"></i></span><span>Banco de Questões</span><i class="fa-solid fa-chevron-right"></i></a>
+        <a href="#flashcards" onclick="openFlashcardsPanel()" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-layer-group"></i></span><span>Flashcards</span><i class="fa-solid fa-chevron-right"></i></a>
+
+        <p class="sidebar-section-title">Desempenho</p>
+        <a href="ranking.html" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-trophy"></i></span><span>Ranking &amp; Conquistas</span><i class="fa-solid fa-chevron-right"></i></a>
+        <a href="desempenho.html" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-chart-simple"></i></span><span>Meu Desempenho</span><i class="fa-solid fa-chevron-right"></i></a>
+        <a href="jogo-memoria.html" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-brain"></i></span><span>Jogo da Memória</span><i class="fa-solid fa-chevron-right"></i></a>
+
+        <p class="sidebar-section-title">Estudos</p>
+        <a href="caderno.html" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-book-bookmark"></i></span><span>Caderno de Estudos</span><i class="fa-solid fa-chevron-right"></i></a>
+        <a href="anotacoes.html" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-pen-to-square"></i></span><span>Minhas Anotações</span><i class="fa-solid fa-chevron-right"></i></a>
       </nav>
       <div class="px-3 pb-4 pt-2 border-t chrome-border-700">
         <button type="button" onclick="handleLogout()" class="sidebar-link w-full text-rose-300 hover:text-rose-200">
-          <i class="fa-solid fa-right-from-bracket w-5 text-center"></i><span>Sair</span>
+          <span class="sidebar-icon-badge"><i class="fa-solid fa-right-from-bracket"></i></span><span>Sair</span>
         </button>
       </div>
     </aside>
@@ -548,14 +620,18 @@
             <i class="fa-solid fa-moon text-sm" id="theme-toggle-icon-moon"></i>
             <i class="fa-solid fa-sun text-sm hidden" id="theme-toggle-icon-sun"></i>
           </button>
-          <div id="user-bar" class="hidden chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2">
-            <i class="fa-solid fa-user text-navy-500"></i>
-            <span id="user-email" class="max-w-[110px] md:max-w-[160px] truncate"></span>
+          <div id="user-bar" class="hidden chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs pl-1.5 pr-3 py-1.5 rounded-full items-center gap-2">
+            <button type="button" onclick="triggerAvatarPicker()" class="cyber-avatar" id="avatar-btn" title="Trocar foto de perfil">
+              <img id="avatar-img" src="" alt="" class="hidden">
+              <span id="avatar-initial">?</span>
+            </button>
+            <input type="file" id="avatar-input" accept="image/*" class="hidden" onchange="handleAvatarChange(event)">
+            <span id="user-email" class="max-w-[90px] md:max-w-[150px] truncate"></span>
           </div>
         </div>
       </header>
 
-      <main class="flex-1 w-full max-w-6xl mx-auto px-4 md:px-8 py-6 md:py-8">
+      <main class="flex-1 w-full max-w-6xl mx-auto px-4 md:px-8 py-6 md:py-8 pb-24 md:pb-8">
 
         <section id="dashboard-top" class="cyber-hero relative overflow-hidden rounded-2xl border chrome-border-700 mb-6 px-6 py-7 md:px-9 md:py-9 scroll-mt-24">
           <div class="cyber-hero-grid" aria-hidden="true"></div>
@@ -584,12 +660,26 @@
             </g>
           </svg>
           <div class="relative z-10 flex flex-wrap items-end justify-between gap-6">
-            <div class="min-w-0">
-              <p id="hero-date" class="text-[11px] font-mono uppercase tracking-widest text-[#e0c26f] mb-2"></p>
-              <h2 class="font-serif text-2xl md:text-[28px] font-semibold text-white">Bem-vindo de volta, <span id="hero-nome">Aluno</span>!</h2>
-              <p id="hero-frase" class="text-sm text-slate-300 italic mt-2 max-w-[54ch]"></p>
+            <div class="flex items-center gap-4 min-w-0">
+              <button type="button" onclick="triggerAvatarPicker()" class="cyber-avatar cyber-avatar-lg hidden sm:flex" id="avatar-btn-lg" title="Trocar foto de perfil">
+                <img id="avatar-img-lg" src="" alt="" class="hidden">
+                <span id="avatar-initial-lg">?</span>
+              </button>
+              <div class="min-w-0">
+                <p id="hero-date" class="text-[11px] font-mono uppercase tracking-widest text-[#e0c26f] mb-2"></p>
+                <h2 class="font-serif text-2xl md:text-[28px] font-semibold text-white">Bem-vindo de volta, <span id="hero-nome">Aluno</span>!</h2>
+                <p id="hero-frase" class="text-sm text-slate-300 italic mt-2 max-w-[54ch]"></p>
+              </div>
             </div>
-            <div class="flex items-center gap-3 flex-shrink-0">
+            <div class="flex items-center flex-wrap gap-3 flex-shrink-0">
+              <div id="hero-patente-chip" class="cyber-chip">
+                <i id="hero-patente-icon" class="fa-solid fa-user text-[#e0c26f]"></i>
+                <span id="hero-patente" class="font-mono font-semibold text-white text-sm">Recruta</span>
+              </div>
+              <div id="hero-countdown-chip" class="hidden cyber-chip">
+                <i class="fa-solid fa-calendar-days text-[#e0c26f]"></i>
+                <span id="hero-countdown" class="font-mono font-semibold text-white text-sm"></span>
+              </div>
               <div class="cyber-chip">
                 <i class="fa-solid fa-fire text-[#e0c26f]"></i>
                 <span id="hero-streak" class="font-mono font-semibold text-white text-sm">0 dias</span>
@@ -627,13 +717,21 @@
 
         <section class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-8">
           <div class="lg:col-span-2">
-            <h3 class="cyber-section-title"><i class="fa-solid fa-play"></i> Continue Estudando</h3>
+            <div class="cyber-card-header">
+              <div>
+                <p class="cyber-card-header-title"><i class="fa-solid fa-play"></i> Continue Estudando</p>
+                <p class="cyber-card-header-sub">Suas matérias mais relevantes agora</p>
+              </div>
+              <span class="cyber-card-pill"><i class="fa-solid fa-wand-magic-sparkles"></i> Inteligente</span>
+            </div>
             <div id="continue-estudando-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <p id="continue-estudando-empty" class="hidden text-xs text-slate-400 sm:col-span-2">Assim que seu acesso for liberado, suas matérias aparecem aqui.</p>
             </div>
           </div>
           <div>
-            <h3 class="cyber-section-title"><i class="fa-solid fa-medal"></i> Conquistas Recentes</h3>
+            <div class="cyber-card-header">
+              <p class="cyber-card-header-title"><i class="fa-solid fa-medal"></i> Conquistas Recentes</p>
+            </div>
             <div id="badges-widget" class="cyber-panel flex flex-wrap gap-3 items-center min-h-[84px]">
               <p id="badges-empty" class="text-xs text-slate-400">Complete simulados para desbloquear conquistas.</p>
             </div>
@@ -641,7 +739,10 @@
         </section>
 
         <section id="avisos-section" class="mb-8 scroll-mt-24">
-          <h3 class="cyber-section-title"><i class="fa-solid fa-bullhorn"></i> Avisos</h3>
+          <div class="cyber-card-header">
+            <p class="cyber-card-header-title"><i class="fa-solid fa-bullhorn"></i> Avisos</p>
+            <span class="cyber-card-pill"><i class="fa-solid fa-circle text-[7px]"></i> Ao vivo</span>
+          </div>
           <div id="notices-list" class="cyber-panel flex flex-col divide-y chrome-border-700"></div>
         </section>
 
@@ -1032,6 +1133,14 @@
     </section>
       </main>
     </div>
+
+    <nav id="bottom-tabbar" class="md:hidden" aria-label="Navegação principal">
+      <a href="#dashboard-top" class="tabbar-link active" data-tabbar="inicio"><i class="fa-solid fa-house"></i><span>Início</span></a>
+      <a href="#banco-questoes" onclick="openBankPanel()" class="tabbar-link" data-tabbar="questoes"><i class="fa-solid fa-bars"></i><span>Questões</span></a>
+      <a href="ranking.html" class="tabbar-link" data-tabbar="ranking"><i class="fa-solid fa-trophy"></i><span>Ranking</span></a>
+      <a href="caderno.html" class="tabbar-link" data-tabbar="caderno"><i class="fa-solid fa-book-bookmark"></i><span>Caderno</span></a>
+      <button type="button" onclick="openSidebar()" class="tabbar-link" data-tabbar="mais"><i class="fa-solid fa-ellipsis"></i><span>Mais</span></button>
+    </nav>
   </div>
 
   <footer class="max-w-6xl w-full mx-auto px-6 pb-8 text-center text-[11px] text-slate-500">
@@ -1285,6 +1394,16 @@
       document.getElementById('hero-nome').textContent = nome;
       document.getElementById('hero-date').textContent = new Date().toLocaleDateString('pt-BR', { weekday: 'long', day: '2-digit', month: 'long' });
       document.getElementById('hero-frase').textContent = AlfaGamification.fraseDoDia();
+      renderAvatarPlaceholder(nome);
+      renderCountdown();
+
+      // Busca a foto de perfil à parte, sem bloquear o resto do painel caso
+      // o admin ainda não tenha rodado o supabase_avatar_setup.sql (a coluna
+      // avatar_url só existe depois disso).
+      try {
+        const { data: perfil, error } = await sb.from('profiles').select('avatar_url').eq('id', currentUser.id).maybeSingle();
+        if (!error && perfil && perfil.avatar_url) renderAvatarImage(perfil.avatar_url);
+      } catch (e) { /* coluna/bucket ainda não configurados — mantém a inicial */ }
 
       let resultados = [];
       try {
@@ -1308,9 +1427,84 @@
       document.getElementById('stat-acertos').textContent = stats.totalAcertos;
       document.getElementById('stat-materias').textContent = stats.materiasDistintas + '/' + AlfaGamification.TOTAL_SUBJECTS;
 
+      const patente = AlfaGamification.patenteFor(stats.totalAcertos);
+      document.getElementById('hero-patente').textContent = patente.nome;
+      document.getElementById('hero-patente-icon').className = 'fa-solid ' + patente.icon + ' text-[#e0c26f]';
+
       renderContinueEstudando(liberadas, stats);
       renderBadgesWidget(resultados);
       renderNotices(resultados, stats);
+    }
+
+    function renderCountdown() {
+      const info = AlfaGamification.diasParaProva();
+      const chip = document.getElementById('hero-countdown-chip');
+      if (!info) { chip.classList.add('hidden'); return; }
+      const el = document.getElementById('hero-countdown');
+      if (info.dias > 1) el.textContent = info.dias + ' dias para a prova';
+      else if (info.dias === 1) el.textContent = '1 dia para a prova';
+      else if (info.dias === 0) el.textContent = 'A prova é hoje!';
+      else el.textContent = 'Prova realizada';
+      chip.classList.remove('hidden');
+    }
+
+    // ---- Avatar (foto de perfil) ----
+    let currentAvatarUrl = null;
+
+    function renderAvatarPlaceholder(nomeOuEmail) {
+      const inicial = AlfaGamification.initialFor(nomeOuEmail);
+      ['avatar-initial', 'avatar-initial-lg'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = inicial;
+      });
+      ['avatar-img', 'avatar-img-lg'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.add('hidden');
+      });
+    }
+
+    function renderAvatarImage(url) {
+      currentAvatarUrl = url;
+      ['avatar-img', 'avatar-img-lg'].forEach(id => {
+        const img = document.getElementById(id);
+        if (!img) return;
+        img.src = url;
+        img.classList.remove('hidden');
+      });
+      ['avatar-initial', 'avatar-initial-lg'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.add('hidden');
+      });
+    }
+
+    function triggerAvatarPicker() {
+      document.getElementById('avatar-input').click();
+    }
+
+    async function handleAvatarChange(event) {
+      const file = event.target.files && event.target.files[0];
+      event.target.value = ''; // permite escolher o mesmo arquivo de novo depois
+      if (!file || !currentUser) return;
+      try {
+        const url = await AlfaGamification.uploadAvatar(sb, currentUser.id, file);
+        renderAvatarImage(url);
+      } catch (e) {
+        console.warn('Falha ao enviar foto de perfil:', e);
+        alert('Não foi possível enviar a foto: ' + (e && e.message ? e.message : 'tente novamente.') +
+          '\n\nSe for a primeira vez, confirme se o script supabase_avatar_setup.sql já foi rodado no Supabase.');
+      }
+    }
+
+    function openBankPanel() {
+      const panel = document.getElementById('bank-panel');
+      const chevron = document.getElementById('bank-chevron');
+      if (panel && !panel.classList.contains('open')) toggleAccordion(panel, chevron, true);
+    }
+
+    function openFlashcardsPanel() {
+      const panel = document.getElementById('flashcards-panel');
+      const chevron = document.getElementById('flashcards-chevron');
+      if (panel && !panel.classList.contains('open')) toggleAccordion(panel, chevron, true);
     }
 
     function renderContinueEstudando(liberadas, stats) {
@@ -1486,12 +1680,19 @@
         .map(id => document.getElementById(id))
         .filter(Boolean);
       if (spySections.length && 'IntersectionObserver' in window) {
+        const tabbarMap = { 'dashboard-top': 'inicio', 'banco-questoes': 'questoes' };
         const spyObserver = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (!entry.isIntersecting) return;
             document.querySelectorAll('.sidebar-link[href^="#"]').forEach(l => l.classList.remove('active'));
             const link = document.querySelector(`.sidebar-link[href="#${entry.target.id}"]`);
             if (link) link.classList.add('active');
+            const tabbarKey = tabbarMap[entry.target.id];
+            if (tabbarKey) {
+              document.querySelectorAll('.tabbar-link').forEach(l => l.classList.remove('active'));
+              const tab = document.querySelector(`.tabbar-link[data-tabbar="${tabbarKey}"]`);
+              if (tab) tab.classList.add('active');
+            }
           });
         }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
         spySections.forEach(el => spyObserver.observe(el));

@@ -240,6 +240,9 @@
       <button type="button" class="tab-btn flex-1 text-sm font-medium py-2.5 rounded-lg transition-all" data-tab="notas" onclick="switchTab('notas')">
         <i class="fa-solid fa-pen mr-1.5"></i> Minhas Anotações
       </button>
+      <button type="button" class="tab-btn flex-1 text-sm font-medium py-2.5 rounded-lg transition-all" data-tab="apostilas" onclick="switchTab('apostilas')">
+        <i class="fa-solid fa-folder-open mr-1.5"></i> Apostilas
+      </button>
     </div>
 
     <div id="loading-state" class="text-center py-16 text-slate-400 no-print">
@@ -250,12 +253,32 @@
 
       <!-- ===== Resumo Teórico ===== -->
       <div id="tab-resumo" class="hidden space-y-4">
-        <div class="mb-2 no-print">
-          <label for="resumo-subject-select" class="text-xs font-medium text-slate-400 flex items-center gap-1.5 mb-1.5">
-            <i class="fa-solid fa-layer-group text-navy-500"></i> Matéria
-          </label>
-          <select id="resumo-subject-select" onchange="renderResumo()" class="w-full md:w-96 bg-navy-800 border border-navy-700 text-slate-200 text-sm rounded-lg px-3 py-2.5 outline-none focus:ring-2 focus:ring-navy-500"></select>
+        <div class="mb-2 no-print flex flex-wrap items-end gap-3">
+          <div class="flex-1 min-w-[220px]">
+            <label for="resumo-subject-select" class="text-xs font-medium text-slate-400 flex items-center gap-1.5 mb-1.5">
+              <i class="fa-solid fa-layer-group text-navy-500"></i> Matéria
+            </label>
+            <select id="resumo-subject-select" onchange="renderResumo()" class="w-full md:w-96 bg-navy-800 border border-navy-700 text-slate-200 text-sm rounded-lg px-3 py-2.5 outline-none focus:ring-2 focus:ring-navy-500"></select>
+          </div>
+          <button type="button" onclick="toggleNovaMateriaForm()" class="flex-shrink-0 text-xs font-medium text-navy-300 hover:text-navy-200 bg-navy-800 border border-navy-700 hover:border-navy-500 rounded-lg px-3 py-2.5 transition-colors">
+            <i class="fa-solid fa-plus mr-1"></i> Nova matéria
+          </button>
         </div>
+
+        <form id="nova-materia-form" onsubmit="return criarMateriaCustom(event)" class="hidden no-print bg-navy-800/60 border border-navy-700 rounded-xl p-4 flex flex-wrap items-end gap-3">
+          <div class="flex-1 min-w-[220px]">
+            <label class="text-xs font-medium text-slate-400 block mb-1">Nome da nova matéria</label>
+            <input id="nova-materia-nome" required placeholder="Ex: Direito Administrativo" class="w-full bg-navy-900/60 border border-navy-700 rounded-lg px-3 py-2 text-sm text-slate-200 outline-none focus:ring-2 focus:ring-navy-500">
+          </div>
+          <button type="submit" class="text-xs font-semibold bg-navy-600 hover:bg-navy-500 text-white rounded-lg px-4 py-2.5 transition-colors">Criar</button>
+          <span id="nova-materia-status" class="text-xs text-slate-400"></span>
+        </form>
+
+        <div id="resumos-setup-needed" class="hidden bg-amber-900/20 border border-amber-700/50 rounded-xl p-5 text-sm text-amber-200">
+          <p class="font-semibold mb-2 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation"></i> Matérias personalizadas ainda não configuradas</p>
+          <p>Pra adicionar suas próprias matérias, rode UMA VEZ o script SQL <code class="bg-black/20 px-1.5 py-0.5 rounded">supabase_conteudo_extra.sql</code> no SQL Editor do seu projeto Supabase.</p>
+        </div>
+
         <div id="resumo-content"></div>
       </div>
 
@@ -279,6 +302,52 @@
         <div id="notas-list" class="space-y-3"></div>
       </div>
 
+      <!-- ===== Apostilas (arquivos por matéria) ===== -->
+      <div id="tab-apostilas" class="hidden space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-1 no-print">
+          <p class="text-xs text-slate-400 max-w-[52ch]">Arquivos de apoio (PDF, Word...) organizados por matéria. Só alunos com acesso aprovado conseguem ver ou baixar.</p>
+          <button type="button" onclick="toggleApostilaForm()" class="flex-shrink-0 text-xs font-medium text-navy-300 hover:text-navy-200 bg-navy-800 border border-navy-700 hover:border-navy-500 rounded-lg px-3 py-2 transition-colors">
+            <i class="fa-solid fa-cloud-arrow-up mr-1"></i> Enviar apostila
+          </button>
+        </div>
+
+        <form id="apostila-form" onsubmit="return enviarApostila(event)" class="hidden no-print bg-navy-800/60 border border-navy-700 rounded-xl p-4 space-y-2.5">
+          <div>
+            <label class="text-xs font-medium text-slate-400 block mb-1">Matéria</label>
+            <input id="apostila-materia" list="apostila-materias-sugestoes" required placeholder="Ex: Estatuto dos Militares & RDM" class="w-full bg-navy-900/60 border border-navy-700 rounded-lg px-3 py-2 text-sm text-slate-200 outline-none focus:ring-2 focus:ring-navy-500">
+            <datalist id="apostila-materias-sugestoes"></datalist>
+          </div>
+          <div>
+            <label class="text-xs font-medium text-slate-400 block mb-1">Título do arquivo (opcional)</label>
+            <input id="apostila-titulo" placeholder="Deixe em branco pra usar o nome do arquivo" class="w-full bg-navy-900/60 border border-navy-700 rounded-lg px-3 py-2 text-sm text-slate-200 outline-none focus:ring-2 focus:ring-navy-500">
+          </div>
+          <div>
+            <label class="text-xs font-medium text-slate-400 block mb-1">Arquivo (PDF, Word... até 20 MB)</label>
+            <input id="apostila-arquivo" type="file" accept=".pdf,.doc,.docx,.odt,.txt" required class="w-full text-xs text-slate-300 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:bg-navy-700 file:text-ink file:text-xs">
+          </div>
+          <div class="flex items-center gap-3 pt-1">
+            <button type="submit" class="text-xs font-semibold bg-navy-600 hover:bg-navy-500 text-white rounded-lg px-4 py-2 transition-colors">Enviar</button>
+            <span id="apostila-form-status" class="text-xs text-slate-400"></span>
+          </div>
+        </form>
+
+        <div id="apostilas-setup-needed" class="hidden bg-amber-900/20 border border-amber-700/50 rounded-xl p-5 text-sm text-amber-200">
+          <p class="font-semibold mb-2 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation"></i> Apostilas ainda não configuradas</p>
+          <p class="mb-2">Pra usar esta aba, rode UMA VEZ o script SQL <code class="bg-black/20 px-1.5 py-0.5 rounded">supabase_conteudo_extra.sql</code> no SQL Editor do seu projeto Supabase.</p>
+        </div>
+
+        <div id="apostilas-loading" class="text-center py-10 text-slate-400 no-print">
+          <i class="fa-solid fa-circle-notch fa-spin text-xl"></i>
+        </div>
+
+        <div id="apostilas-empty" class="hidden text-center py-16 text-slate-400">
+          <i class="fa-solid fa-box-open text-3xl mb-3 text-navy-600"></i>
+          <p class="text-sm">Nenhuma apostila enviada ainda.</p>
+        </div>
+
+        <div id="apostilas-list" class="space-y-3"></div>
+      </div>
+
     </div>
 
   </main>
@@ -296,8 +365,12 @@
 
     const NOTA_GERAL_ID = '_notas_gerais';
     let currentUser = null;
-    let errosLoaded = false, notasLoaded = false;
+    let errosLoaded = false, notasLoaded = false, apostilasLoaded = false;
     let notesCache = {}; // key `${quiz_id}::${question_id}` -> texto
+    let resumosCustomCache = []; // linhas de resumos_custom já carregadas
+    let resumosCustomSetupOk = true; // vira false se a tabela ainda não existir
+    let apostilasCache = []; // linhas de apostilas já carregadas
+    let apostilasSetupOk = true; // vira false se a tabela/bucket ainda não existirem
 
     function applyThemeIcon() {
       const theme = document.documentElement.getAttribute('data-theme') || 'dark';
@@ -324,9 +397,10 @@
     }
     function switchTab(tab) {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
-      ['resumo', 'erros', 'notas'].forEach(t => document.getElementById('tab-' + t).classList.toggle('hidden', t !== tab));
+      ['resumo', 'erros', 'notas', 'apostilas'].forEach(t => document.getElementById('tab-' + t).classList.toggle('hidden', t !== tab));
       if (tab === 'erros' && !errosLoaded) loadErros();
       if (tab === 'notas' && !notasLoaded) loadNotasLivres();
+      if (tab === 'apostilas' && !apostilasLoaded) loadApostilas();
     }
 
     // =================================================================
@@ -372,8 +446,24 @@
       }
     };
 
+    function slugMateria(nome) {
+      return 'CUSTOM:' + nome.trim().toLowerCase();
+    }
+
+    function materiasCustomDistintas() {
+      const vistas = {};
+      const lista = [];
+      resumosCustomCache.forEach(r => {
+        const key = r.materia.trim().toLowerCase();
+        if (!vistas[key]) { vistas[key] = true; lista.push(r.materia); }
+      });
+      return lista.sort((a, b) => a.localeCompare(b, 'pt-BR'));
+    }
+
     function populateResumoSelect() {
       const select = document.getElementById('resumo-subject-select');
+      const valorAtual = select.value;
+      select.innerHTML = '';
       Object.keys(AlfaGamification.SUBJECTS).forEach(quizId => {
         if (quizId === 'PROVA_SIMULADA') return;
         const info = AlfaGamification.SUBJECTS[quizId];
@@ -382,19 +472,155 @@
         opt.textContent = info.label + (RESUMOS[quizId] ? '' : ' (em breve)');
         select.appendChild(opt);
       });
-      select.value = 'ESTATUTO_RDM';
+      const custom = materiasCustomDistintas();
+      if (custom.length) {
+        const grupo = document.createElement('optgroup');
+        grupo.label = 'Minhas matérias';
+        custom.forEach(nome => {
+          const opt = document.createElement('option');
+          opt.value = slugMateria(nome);
+          opt.textContent = nome;
+          grupo.appendChild(opt);
+        });
+        select.appendChild(grupo);
+      }
+      const opcoes = Array.from(select.options).map(o => o.value);
+      if (valorAtual && opcoes.includes(valorAtual)) select.value = valorAtual;
+      else select.value = 'ESTATUTO_RDM';
+    }
+
+    async function loadResumosCustom() {
+      try {
+        const { data, error } = await sb.from('resumos_custom').select('id, materia, titulo, conteudo, ordem, criado_em').order('materia').order('ordem');
+        if (error) throw error;
+        resumosCustomCache = data || [];
+        resumosCustomSetupOk = true;
+        document.getElementById('resumos-setup-needed').classList.add('hidden');
+      } catch (e) {
+        resumosCustomCache = [];
+        resumosCustomSetupOk = false;
+      }
+    }
+
+    function toggleNovaMateriaForm() {
+      if (!resumosCustomSetupOk) {
+        document.getElementById('resumos-setup-needed').classList.remove('hidden');
+        document.getElementById('resumos-setup-needed').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      document.getElementById('nova-materia-form').classList.toggle('hidden');
+      const input = document.getElementById('nova-materia-nome');
+      if (!document.getElementById('nova-materia-form').classList.contains('hidden')) input.focus();
+    }
+
+    async function criarMateriaCustom(event) {
+      event.preventDefault();
+      const input = document.getElementById('nova-materia-nome');
+      const status = document.getElementById('nova-materia-status');
+      const nome = input.value.trim();
+      if (!nome) return false;
+
+      // Se já existir uma matéria personalizada com esse nome (comparação sem
+      // diferenciar maiúsculas/acentos de caixa), só seleciona ela em vez de duplicar.
+      const existente = materiasCustomDistintas().find(m => m.toLowerCase() === nome.toLowerCase());
+      if (existente) {
+        selecionarResumo(slugMateria(existente));
+        input.value = '';
+        document.getElementById('nova-materia-form').classList.add('hidden');
+        return false;
+      }
+
+      status.textContent = 'Criando...';
+      try {
+        // Cria a matéria com um primeiro tópico placeholder, já que o grupo só
+        // existe (aparece no seletor) quando há pelo menos uma linha salva.
+        const { error } = await sb.from('resumos_custom').insert({
+          materia: nome,
+          titulo: 'Visão geral',
+          conteudo: 'Clique em "Adicionar tópico" pra começar a preencher o resumo desta matéria.',
+          ordem: 0,
+          criado_por: currentUser.id
+        });
+        if (error) throw error;
+        await loadResumosCustom();
+        populateResumoSelect();
+        selecionarResumo(slugMateria(nome));
+        input.value = '';
+        status.textContent = '';
+        document.getElementById('nova-materia-form').classList.add('hidden');
+      } catch (e) {
+        console.warn('Falha ao criar matéria personalizada:', e);
+        status.textContent = 'Erro ao criar — tente novamente.';
+      }
+      return false;
+    }
+
+    function selecionarResumo(valor) {
+      document.getElementById('resumo-subject-select').value = valor;
+      renderResumo();
     }
 
     function renderResumo() {
-      const quizId = document.getElementById('resumo-subject-select').value;
+      const valor = document.getElementById('resumo-subject-select').value;
       const container = document.getElementById('resumo-content');
+
+      if (valor.startsWith('CUSTOM:')) {
+        const nomeMateria = valor.slice('CUSTOM:'.length);
+        const topicos = resumosCustomCache
+          .filter(r => r.materia.trim().toLowerCase() === nomeMateria)
+          .sort((a, b) => (a.ordem - b.ordem) || a.titulo.localeCompare(b.titulo, 'pt-BR'));
+        const nomeExibicao = topicos.length ? topicos[0].materia : nomeMateria;
+        container.innerHTML = `
+          <div class="bg-navy-800/60 border border-navy-700 rounded-xl p-5 mb-3 flex items-center justify-between gap-3">
+            <div>
+              <h2 class="font-serif text-lg font-semibold text-ink mb-1">${nomeExibicao.replace(/</g,'&lt;')}</h2>
+              <p class="text-xs text-slate-400">Matéria personalizada — adicionada por você.</p>
+            </div>
+            <button type="button" onclick="excluirMateriaCustom('${nomeExibicao.replace(/'/g, "\\'")}')" class="no-print flex-shrink-0 text-[11px] text-rose-400 hover:text-rose-300 font-medium">
+              <i class="fa-solid fa-trash-can mr-1"></i> Excluir matéria
+            </button>
+          </div>
+          ${topicos.map((t, i) => `
+            <details class="topic-summary bg-navy-800/60 border border-navy-700 rounded-xl overflow-hidden" ${i < 2 ? 'open' : ''}>
+              <summary class="px-4 py-3 flex items-center justify-between gap-2 hover:bg-navy-700/30 transition-colors">
+                <span class="text-sm font-medium text-ink"><span class="text-navy-400 font-mono text-xs mr-1.5">${i + 1}.</span>${t.titulo.replace(/</g,'&lt;')}</span>
+                <span class="flex items-center gap-3 flex-shrink-0">
+                  <i class="fa-solid fa-trash-can text-xs text-rose-400/80 hover:text-rose-300 no-print" title="Excluir tópico" onclick="event.preventDefault(); excluirTopicoCustom('${t.id}')"></i>
+                  <i class="fa-solid fa-chevron-down text-xs text-slate-500 no-print"></i>
+                </span>
+              </summary>
+              <div class="px-4 pb-4 text-sm text-slate-300 leading-relaxed border-t border-navy-700/60 pt-3 whitespace-pre-line">${t.conteudo.replace(/</g,'&lt;')}</div>
+            </details>
+          `).join('')}
+          <button type="button" onclick="toggleNovoTopicoForm()" class="no-print w-full text-xs font-medium text-navy-300 hover:text-navy-200 bg-navy-800/60 border border-dashed border-navy-700 hover:border-navy-500 rounded-xl py-3 transition-colors">
+            <i class="fa-solid fa-plus mr-1"></i> Adicionar tópico
+          </button>
+          <form id="novo-topico-form" onsubmit="return salvarTopicoCustom(event, '${nomeExibicao.replace(/'/g, "\\'")}')" class="hidden no-print bg-navy-800/60 border border-navy-700 rounded-xl p-4 space-y-2.5">
+            <div>
+              <label class="text-xs font-medium text-slate-400 block mb-1">Título do tópico</label>
+              <input id="novo-topico-titulo" required placeholder="Ex: Dos Princípios Gerais" class="w-full bg-navy-900/60 border border-navy-700 rounded-lg px-3 py-2 text-sm text-slate-200 outline-none focus:ring-2 focus:ring-navy-500">
+            </div>
+            <div>
+              <label class="text-xs font-medium text-slate-400 block mb-1">Conteúdo</label>
+              <textarea id="novo-topico-conteudo" required rows="5" placeholder="Escreva o resumo desse tópico..." class="w-full bg-navy-900/60 border border-navy-700 rounded-lg px-3 py-2 text-sm text-slate-200 outline-none focus:ring-2 focus:ring-navy-500"></textarea>
+            </div>
+            <div class="flex items-center gap-3">
+              <button type="submit" class="text-xs font-semibold bg-navy-600 hover:bg-navy-500 text-white rounded-lg px-4 py-2 transition-colors">Salvar tópico</button>
+              <span id="novo-topico-status" class="text-xs text-slate-400"></span>
+            </div>
+          </form>
+        `;
+        return;
+      }
+
+      const quizId = valor;
       const resumo = RESUMOS[quizId];
       if (!resumo) {
         container.innerHTML = `
           <div class="text-center py-16 text-slate-400">
             <i class="fa-solid fa-hourglass-half text-3xl mb-4 text-navy-600"></i>
             <p class="text-sm">O resumo teórico de <strong class="text-slate-300">${AlfaGamification.labelFor(quizId)}</strong> ainda está em produção.</p>
-            <p class="text-xs mt-1 text-slate-500">Por enquanto, o resumo completo está disponível para Estatuto dos Militares & RDM.</p>
+            <p class="text-xs mt-1 text-slate-500">Por enquanto, o resumo completo está disponível para Estatuto dos Militares & RDM — mas você já pode criar sua própria matéria personalizada com o botão acima.</p>
           </div>`;
         return;
       }
@@ -413,6 +639,72 @@
           </details>
         `).join('')}
       `;
+    }
+
+    function toggleNovoTopicoForm() {
+      const form = document.getElementById('novo-topico-form');
+      if (!form) return;
+      form.classList.toggle('hidden');
+      if (!form.classList.contains('hidden')) document.getElementById('novo-topico-titulo').focus();
+    }
+
+    async function salvarTopicoCustom(event, nomeMateria) {
+      event.preventDefault();
+      const titulo = document.getElementById('novo-topico-titulo').value.trim();
+      const conteudo = document.getElementById('novo-topico-conteudo').value.trim();
+      const status = document.getElementById('novo-topico-status');
+      if (!titulo || !conteudo) return false;
+      status.textContent = 'Salvando...';
+      try {
+        const ordemAtual = resumosCustomCache.filter(r => r.materia.trim().toLowerCase() === nomeMateria.trim().toLowerCase()).length;
+        const { error } = await sb.from('resumos_custom').insert({
+          materia: nomeMateria,
+          titulo,
+          conteudo,
+          ordem: ordemAtual,
+          criado_por: currentUser.id
+        });
+        if (error) throw error;
+        await loadResumosCustom();
+        populateResumoSelect();
+        selecionarResumo(slugMateria(nomeMateria));
+      } catch (e) {
+        console.warn('Falha ao salvar tópico personalizado:', e);
+        status.textContent = 'Erro ao salvar — tente novamente.';
+      }
+      return false;
+    }
+
+    async function excluirTopicoCustom(id) {
+      if (!confirm('Excluir este tópico? Essa ação não pode ser desfeita.')) return;
+      try {
+        const { error } = await sb.from('resumos_custom').delete().eq('id', id);
+        if (error) throw error;
+        const materiaDoTopico = (resumosCustomCache.find(r => r.id === id) || {}).materia;
+        await loadResumosCustom();
+        populateResumoSelect();
+        if (materiaDoTopico && materiasCustomDistintas().some(m => m.toLowerCase() === materiaDoTopico.toLowerCase())) {
+          selecionarResumo(slugMateria(materiaDoTopico));
+        } else {
+          selecionarResumo('ESTATUTO_RDM');
+        }
+      } catch (e) {
+        alert('Não foi possível excluir o tópico agora. Tente novamente.');
+      }
+    }
+
+    async function excluirMateriaCustom(nomeMateria) {
+      const qtd = resumosCustomCache.filter(r => r.materia.trim().toLowerCase() === nomeMateria.trim().toLowerCase()).length;
+      if (!confirm(`Excluir a matéria "${nomeMateria}" e ${qtd} tópico${qtd === 1 ? '' : 's'}? Essa ação não pode ser desfeita.`)) return;
+      try {
+        const { error } = await sb.from('resumos_custom').delete().ilike('materia', nomeMateria);
+        if (error) throw error;
+        await loadResumosCustom();
+        populateResumoSelect();
+        selecionarResumo('ESTATUTO_RDM');
+      } catch (e) {
+        alert('Não foi possível excluir a matéria agora. Tente novamente.');
+      }
     }
 
     // =================================================================
@@ -598,6 +890,172 @@
       }
     }
 
+    // =================================================================
+    // APOSTILAS (arquivos por matéria, no Storage do Supabase)
+    // =================================================================
+    function materiasSugeridas() {
+      const doCatalogo = Object.keys(AlfaGamification.SUBJECTS)
+        .filter(id => id !== 'PROVA_SIMULADA')
+        .map(id => AlfaGamification.labelFor(id));
+      const doCustom = materiasCustomDistintas();
+      const dasApostilas = apostilasCache.map(a => a.materia);
+      const vistas = {};
+      const lista = [];
+      [...doCatalogo, ...doCustom, ...dasApostilas].forEach(nome => {
+        const key = nome.trim().toLowerCase();
+        if (!vistas[key]) { vistas[key] = true; lista.push(nome); }
+      });
+      return lista.sort((a, b) => a.localeCompare(b, 'pt-BR'));
+    }
+
+    function popularSugestoesApostilas() {
+      const datalist = document.getElementById('apostila-materias-sugestoes');
+      datalist.innerHTML = materiasSugeridas().map(nome => `<option value="${nome.replace(/"/g,'&quot;')}"></option>`).join('');
+    }
+
+    function toggleApostilaForm() {
+      if (!apostilasSetupOk) {
+        document.getElementById('apostilas-setup-needed').classList.remove('hidden');
+        document.getElementById('apostilas-setup-needed').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      popularSugestoesApostilas();
+      const form = document.getElementById('apostila-form');
+      form.classList.toggle('hidden');
+      if (!form.classList.contains('hidden')) document.getElementById('apostila-materia').focus();
+    }
+
+    async function loadApostilas() {
+      apostilasLoaded = true;
+      document.getElementById('apostilas-loading').classList.remove('hidden');
+      document.getElementById('apostilas-empty').classList.add('hidden');
+      document.getElementById('apostilas-setup-needed').classList.add('hidden');
+      try {
+        const { data, error } = await sb.from('apostilas').select('id, materia, titulo, storage_path, tamanho_bytes, criado_em').order('materia').order('criado_em');
+        if (error) throw error;
+        apostilasCache = data || [];
+        apostilasSetupOk = true;
+        renderApostilas();
+      } catch (e) {
+        apostilasCache = [];
+        apostilasSetupOk = false;
+        document.getElementById('apostilas-setup-needed').classList.remove('hidden');
+      }
+      document.getElementById('apostilas-loading').classList.add('hidden');
+    }
+
+    function formatBytes(n) {
+      if (!n && n !== 0) return '';
+      if (n < 1024) return n + ' B';
+      if (n < 1024 * 1024) return Math.round(n / 1024) + ' KB';
+      return (n / (1024 * 1024)).toFixed(1) + ' MB';
+    }
+
+    function renderApostilas() {
+      const list = document.getElementById('apostilas-list');
+      if (!apostilasSetupOk) { list.innerHTML = ''; return; }
+      if (apostilasCache.length === 0) {
+        list.innerHTML = '';
+        document.getElementById('apostilas-empty').classList.remove('hidden');
+        return;
+      }
+      document.getElementById('apostilas-empty').classList.add('hidden');
+
+      const porMateria = {};
+      apostilasCache.forEach(a => { (porMateria[a.materia] = porMateria[a.materia] || []).push(a); });
+
+      list.innerHTML = Object.keys(porMateria).sort((a, b) => a.localeCompare(b, 'pt-BR')).map(materia => `
+        <details class="bg-navy-800/60 border border-navy-700 rounded-xl overflow-hidden" open>
+          <summary class="px-4 py-3 flex items-center justify-between gap-2 hover:bg-navy-700/30 transition-colors">
+            <span class="text-sm font-medium text-ink">${materia.replace(/</g,'&lt;')}</span>
+            <span class="text-[11px] text-slate-500">${porMateria[materia].length} arquivo${porMateria[materia].length === 1 ? '' : 's'}</span>
+          </summary>
+          <div class="divide-y divide-navy-700/60">
+            ${porMateria[materia].map(a => `
+              <div class="px-4 py-3 flex items-center justify-between gap-3">
+                <div class="min-w-0 flex items-center gap-3">
+                  <i class="fa-solid fa-file-lines text-navy-400 flex-shrink-0"></i>
+                  <div class="min-w-0">
+                    <div class="text-sm text-slate-200 truncate">${a.titulo.replace(/</g,'&lt;')}</div>
+                    <div class="text-[11px] text-slate-500">${formatBytes(a.tamanho_bytes)}</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 flex-shrink-0">
+                  <button type="button" onclick="baixarApostila('${a.storage_path.replace(/'/g,"\\'")}')" class="text-[11px] text-navy-400 hover:text-navy-300 font-medium"><i class="fa-solid fa-download mr-1"></i>Baixar</button>
+                  <button type="button" onclick="excluirApostila('${a.id}', '${a.storage_path.replace(/'/g,"\\'")}')" class="text-[11px] text-rose-400 hover:text-rose-300 font-medium"><i class="fa-solid fa-trash-can"></i></button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </details>
+      `).join('');
+    }
+
+    async function enviarApostila(event) {
+      event.preventDefault();
+      const materia = document.getElementById('apostila-materia').value.trim();
+      const tituloInput = document.getElementById('apostila-titulo').value.trim();
+      const fileInput = document.getElementById('apostila-arquivo');
+      const status = document.getElementById('apostila-form-status');
+      const file = fileInput.files && fileInput.files[0];
+      if (!materia || !file) return false;
+
+      const LIMITE = 20 * 1024 * 1024;
+      if (file.size > LIMITE) {
+        status.textContent = 'Arquivo muito grande (máx. 20 MB).';
+        return false;
+      }
+
+      const titulo = tituloInput || file.name;
+      status.textContent = 'Enviando...';
+      try {
+        const slug = materia.trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+        const path = `${slug || 'geral'}/${Date.now()}-${file.name}`;
+        const upload = await sb.storage.from('apostilas').upload(path, file, { upsert: false, cacheControl: '3600' });
+        if (upload.error) throw upload.error;
+
+        const { error } = await sb.from('apostilas').insert({
+          materia,
+          titulo,
+          storage_path: path,
+          tamanho_bytes: file.size,
+          enviado_por: currentUser.id
+        });
+        if (error) throw error;
+
+        await loadApostilas();
+        document.getElementById('apostila-form').reset();
+        document.getElementById('apostila-form').classList.add('hidden');
+        status.textContent = '';
+      } catch (e) {
+        console.warn('Falha ao enviar apostila:', e);
+        status.textContent = 'Erro ao enviar — confirme se o supabase_conteudo_extra.sql já foi rodado.';
+      }
+      return false;
+    }
+
+    async function baixarApostila(path) {
+      try {
+        const { data, error } = await sb.storage.from('apostilas').createSignedUrl(path, 3600);
+        if (error) throw error;
+        window.open(data.signedUrl, '_blank');
+      } catch (e) {
+        alert('Não foi possível gerar o link de download agora. Tente novamente.');
+      }
+    }
+
+    async function excluirApostila(id, path) {
+      if (!confirm('Excluir esta apostila? Essa ação não pode ser desfeita.')) return;
+      try {
+        await sb.storage.from('apostilas').remove([path]);
+        const { error } = await sb.from('apostilas').delete().eq('id', id);
+        if (error) throw error;
+        await loadApostilas();
+      } catch (e) {
+        alert('Não foi possível excluir a apostila agora. Tente novamente.');
+      }
+    }
+
     sb.auth.onAuthStateChange((event, session) => {
       if (session && session.user) {
         currentUser = session.user;
@@ -616,6 +1074,7 @@
       }
       document.getElementById('access-screen').classList.add('hidden');
       document.getElementById('loading-state').classList.add('hidden');
+      await loadResumosCustom();
       populateResumoSelect();
       renderResumo();
       document.getElementById('tab-resumo').classList.remove('hidden');

@@ -45,6 +45,57 @@
   }
 
   // ===================================================================
+  // Data da prova — ALTERE a linha abaixo pra data oficial assim que for
+  // divulgada pela Marinha (formato 'AAAA-MM-DD'). Deixe como null pra
+  // esconder a contagem regressiva em todas as páginas até lá.
+  // ===================================================================
+  var DATA_PROVA = '2027-01-17';
+
+  function diasParaProva() {
+    if (!DATA_PROVA) return null;
+    var partes = DATA_PROVA.split('-').map(Number);
+    var alvo = new Date(partes[0], partes[1] - 1, partes[2]);
+    alvo.setHours(0, 0, 0, 0);
+    var hoje = new Date();
+    hoje.setHours(0, 0, 0, 0);
+    var dias = Math.round((alvo - hoje) / (24 * 60 * 60 * 1000));
+    return { dias: dias, data: DATA_PROVA };
+  }
+
+  // ===================================================================
+  // Patentes navais — título exibido conforme o total de questões
+  // corretas acumuladas (mesmo critério usado pra ordenar o ranking
+  // geral), do "Recruta" até "Almirante". Puramente cosmético/motivacional,
+  // não interfere em nenhuma trava de acesso.
+  // ===================================================================
+  var PATENTES = [
+    { min: 0, nome: 'Recruta', icon: 'fa-user' },
+    { min: 50, nome: 'Marinheiro', icon: 'fa-anchor' },
+    { min: 150, nome: 'Cabo', icon: 'fa-shield-halved' },
+    { min: 300, nome: 'Terceiro-Sargento', icon: 'fa-star' },
+    { min: 500, nome: 'Segundo-Sargento', icon: 'fa-star' },
+    { min: 800, nome: 'Primeiro-Sargento', icon: 'fa-star' },
+    { min: 1200, nome: 'Suboficial', icon: 'fa-star-half-stroke' },
+    { min: 1800, nome: 'Guarda-Marinha', icon: 'fa-award' },
+    { min: 2500, nome: 'Segundo-Tenente', icon: 'fa-medal' },
+    { min: 3500, nome: 'Primeiro-Tenente', icon: 'fa-medal' },
+    { min: 5000, nome: 'Capitão-Tenente', icon: 'fa-shield' },
+    { min: 7000, nome: 'Capitão de Corveta', icon: 'fa-shield' },
+    { min: 9000, nome: 'Capitão de Fragata', icon: 'fa-shield' },
+    { min: 12000, nome: 'Capitão de Mar e Guerra', icon: 'fa-shield' },
+    { min: 16000, nome: 'Almirante', icon: 'fa-crown' }
+  ];
+
+  function patenteFor(totalAcertos) {
+    var atual = PATENTES[0];
+    for (var i = 0; i < PATENTES.length; i++) {
+      if ((totalAcertos || 0) >= PATENTES[i].min) atual = PATENTES[i];
+      else break;
+    }
+    return atual;
+  }
+
+  // ===================================================================
   // Sequência de estudo (streak) — calculada a partir das datas em que o
   // aluno tem pelo menos um resultado salvo (tabela `resultados`).
   // Não depende de nenhuma coluna nova nem de localStorage: funciona em
@@ -491,10 +542,48 @@
     }
   }
 
+  // ===================================================================
+  // Foto de perfil — upload pro bucket "avatars" do Supabase Storage e
+  // atualização da coluna profiles.avatar_url. Requer que o usuário rode
+  // o supabase_avatar_setup.sql uma vez (cria a coluna + o bucket + as
+  // políticas de acesso).
+  // ===================================================================
+  var AVATAR_MAX_BYTES = 3 * 1024 * 1024; // 3 MB
+
+  function initialFor(nomeOuEmail) {
+    var base = (nomeOuEmail || '?').trim();
+    return base ? base.charAt(0).toUpperCase() : '?';
+  }
+
+  async function uploadAvatar(sb, userId, file) {
+    if (!file) throw new Error('Nenhum arquivo selecionado.');
+    if (!/^image\//.test(file.type)) throw new Error('Escolha um arquivo de imagem (JPG, PNG ou WEBP).');
+    if (file.size > AVATAR_MAX_BYTES) throw new Error('Imagem muito grande (máx. 3 MB).');
+
+    var ext = (file.name && file.name.includes('.')) ? file.name.split('.').pop().toLowerCase() : 'jpg';
+    var path = userId + '/avatar.' + ext;
+
+    var upload = await sb.storage.from('avatars').upload(path, file, { upsert: true, cacheControl: '3600' });
+    if (upload.error) throw upload.error;
+
+    var pub = sb.storage.from('avatars').getPublicUrl(path);
+    var publicUrl = pub.data.publicUrl + '?v=' + Date.now(); // cache-bust pra trocar de foto na hora
+
+    var update = await sb.from('profiles').update({ avatar_url: publicUrl }).eq('id', userId);
+    if (update.error) throw update.error;
+
+    return publicUrl;
+  }
+
   global.AlfaGamification = {
     SUBJECTS: SUBJECTS,
     TOTAL_SUBJECTS: TOTAL_SUBJECTS,
     labelFor: labelFor,
+    diasParaProva: diasParaProva,
+    PATENTES: PATENTES,
+    patenteFor: patenteFor,
+    initialFor: initialFor,
+    uploadAvatar: uploadAvatar,
     computeStreak: computeStreak,
     personalStats: personalStats,
     computeBadges: computeBadges,

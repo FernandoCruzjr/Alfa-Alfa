@@ -247,6 +247,18 @@
     <!-- ===== Aba: Meu Progresso ===== -->
     <div id="tab-pessoal" class="hidden space-y-5">
 
+      <!-- Patente naval atual -->
+      <div class="bg-gradient-to-r from-navy-800/80 to-navy-800/30 border border-navy-700 rounded-xl px-5 py-4 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center bg-amber-500/15 text-amber-400 text-xl flex-shrink-0">
+          <i id="patente-icon" class="fa-solid fa-user"></i>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="text-[11px] uppercase tracking-wider text-slate-400">Sua patente atual</div>
+          <div id="patente-nome" class="font-serif text-lg font-semibold text-ink">Recruta</div>
+          <div id="patente-proxima" class="text-xs text-slate-400 mt-0.5"></div>
+        </div>
+      </div>
+
       <!-- Streak + resumo -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
         <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 text-center">
@@ -388,6 +400,15 @@
       document.getElementById('stat-percentual').textContent = stats.percentualMedio + '%';
       document.getElementById('stat-acertos').textContent = stats.totalAcertos;
 
+      const patente = AlfaGamification.patenteFor(stats.totalAcertos);
+      document.getElementById('patente-nome').textContent = patente.nome;
+      document.getElementById('patente-icon').className = 'fa-solid ' + patente.icon;
+      const patenteIdx = AlfaGamification.PATENTES.indexOf(patente);
+      const proximaPatente = AlfaGamification.PATENTES[patenteIdx + 1];
+      document.getElementById('patente-proxima').textContent = proximaPatente
+        ? `Faltam ${proximaPatente.min - stats.totalAcertos} acertos para virar ${proximaPatente.nome}`
+        : 'Patente máxima alcançada — Almirante!';
+
       // Gráfico simples de evolução (polyline em SVG), últimos 20 pontos.
       const pontos = stats.evolucao.slice(-20);
       const svg = document.getElementById('evo-chart');
@@ -464,7 +485,10 @@
         return `
           <tr class="rank-row ${isMe ? 'me' : ''} border-t border-navy-700/60">
             <td class="px-4 py-3 font-bold text-ink">${medalha}</td>
-            <td class="px-4 py-3 text-slate-200">${(row.nome || 'Aluno').replace(/</g,'&lt;')} ${isMe ? '<span class="text-[10px] text-amber-400 font-semibold ml-1">(você)</span>' : ''}</td>
+            <td class="px-4 py-3 text-slate-200">
+              <div>${(row.nome || 'Aluno').replace(/</g,'&lt;')} ${isMe ? '<span class="text-[10px] text-amber-400 font-semibold ml-1">(você)</span>' : ''}</div>
+              <div class="text-[10px] text-amber-400/80 font-medium mt-0.5">${AlfaGamification.patenteFor(row.total_acertos).nome}</div>
+            </td>
             <td class="px-4 py-3 text-right text-slate-300">${row.total_simulados}</td>
             <td class="px-4 py-3 text-right text-slate-300">${row.total_acertos}</td>
             <td class="px-4 py-3 text-right font-semibold text-ink">${row.percentual_medio}%</td>
