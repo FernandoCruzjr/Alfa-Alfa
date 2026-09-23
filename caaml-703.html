@@ -28,6 +28,7 @@
   <!-- Supabase JS Client -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="gamification.js"></script>
+  <script src="study-room.js"></script>
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Google Fonts: Fraunces (títulos, caráter naval/editorial) + Inter (texto e interface) -->
@@ -1550,6 +1551,20 @@
       renderGrid();
       updateTrackers();
 
+      if (window.StudyRoom) {
+        StudyRoom.init({
+          sb, quizId: QUIZ_ID,
+          getUser: () => currentUser,
+          getDraw: () => questionsData,
+          setDraw: (arr) => { questionsData = arr; },
+          getCurrentIndex: () => currentIndex,
+          setCurrentIndex: (i) => { currentIndex = i; },
+          getTotalQuestions: () => questionsData.length,
+          isCorrectOption: (qIndex, optIndex) => questionsData[qIndex] && questionsData[qIndex].correct === optIndex,
+          onQuestionChanged: () => { renderQuestion(); renderGrid(); },
+        });
+      }
+
       if (!localStorage.getItem(STORAGE_KEY_START)) {
         localStorage.setItem(STORAGE_KEY_START, String(Date.now()));
       }
@@ -1873,8 +1888,9 @@
       updateFlashcardBtnState();
 
       // Nav buttons state
-      document.getElementById('btn-prev').disabled = currentIndex === 0;
-      document.getElementById('btn-next').disabled = currentIndex === questionsData.length - 1;
+      const navLocked = srNavLocked();
+      document.getElementById('btn-prev').disabled = currentIndex === 0 || navLocked;
+      document.getElementById('btn-next').disabled = currentIndex === questionsData.length - 1 || navLocked;
 
       updateTrackers();
 
@@ -1995,9 +2011,18 @@
           acertou: optIndex === q.correct
         }).then(() => {});
       }
+      if (window.StudyRoom) StudyRoom.reportAnswer(currentIndex, optIndex);
+    }
+
+    // Sala de estudo sincronizada: enquanto uma sala estiver "em_andamento" e o
+    // aluno não for o anfitrião, só o anfitrião pode avançar a questão pra
+    // manter todo mundo na mesma pergunta (estilo Kahoot).
+    function srNavLocked() {
+      return !!(window.StudyRoom && StudyRoom.isActive() && !StudyRoom.isHost());
     }
 
     function prevQuestion() {
+      if (srNavLocked()) return;
       if (currentIndex > 0) {
         currentIndex--;
         localStorage.setItem(STORAGE_KEY_CURRENT, String(currentIndex));
@@ -2007,6 +2032,7 @@
     }
 
     function nextQuestion() {
+      if (srNavLocked()) return;
       if (currentIndex < questionsData.length - 1) {
         currentIndex++;
         localStorage.setItem(STORAGE_KEY_CURRENT, String(currentIndex));
@@ -2036,6 +2062,7 @@
 
         const btn = document.createElement('button');
         btn.onclick = () => {
+          if (srNavLocked()) return;
           currentIndex = idx;
           localStorage.setItem(STORAGE_KEY_CURRENT, String(currentIndex));
           renderQuestion();
