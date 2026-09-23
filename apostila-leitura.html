@@ -175,6 +175,27 @@
     table.ap-table { width: 100%; border-collapse: collapse; font-size: .88em; border: 1px solid rgb(var(--tw-navy-700)); border-radius: .5rem; overflow: hidden; }
     table.ap-table td { border: 1px solid rgb(var(--tw-navy-700)); padding: .5rem .65rem; vertical-align: top; white-space: pre-line; }
     table.ap-table tr:first-child td { background: rgb(var(--tw-navy-700)/.55); font-weight: 700; }
+
+    /* ===== Folhas A4 paginadas ===== */
+    .a4-stage { position: relative; background: radial-gradient(ellipse at top, #3c4552, #22282f 65%); border-radius: 1rem; overflow-x: auto; overflow-y: hidden; }
+    #a4-scale-wrap { position: absolute; top: 34px; left: 50%; transform-origin: top center; transition: transform .15s ease-out; }
+    .a4-page { width: 794px; min-height: 1123px; max-width: 794px; background: #fbfaf6; color: #202632; position: relative; margin: 0 auto 30px; padding: 100px 70px 92px; border-radius: 3px; box-shadow: 0 18px 46px rgba(0,0,0,.5), 0 3px 10px rgba(0,0,0,.3); box-sizing: border-box; }
+    .a4-page:last-child { margin-bottom: 0; }
+    .a4-page-footer { position: absolute; left: 0; right: 0; bottom: 30px; text-align: center; font-family: 'Inter', ui-sans-serif, system-ui; }
+    .a4-page-footer .a4pf-num { font-size: 11.5px; font-weight: 600; letter-spacing: .03em; color: #4b5563; }
+    .a4-page-footer .a4pf-title { display: block; margin-top: 3px; font-size: 8.5px; text-transform: uppercase; letter-spacing: .12em; color: #9aa2b1; }
+    .a4-page .ap-h1 { color: #16202e; border-bottom-color: #c9a227; }
+    .a4-page .ap-h2 { color: #1d3a5f; }
+    .a4-page .ap-h3 { color: #33404f; }
+    .a4-page .ap-p strong { color: #0f2540; }
+    .a4-page .ap-box { background: #fbf3d9; border-color: #d8b74a; color: #4a3c10; }
+    .a4-page table.ap-table { border-color: #c7ccd6; }
+    .a4-page table.ap-table td { border-color: #dde1e8; }
+    .a4-page table.ap-table tr:first-child td { background: #eef1f6; }
+    @media (max-width: 640px) {
+      .a4-stage { padding: 18px 0 30px; border-radius: 0; }
+      .a4-page { box-shadow: 0 10px 26px rgba(0,0,0,.45); }
+    }
     mark.hl-amarelo { background: #fde68a; color: #1a1a1a; border-radius: 2px; padding: 0 1px; }
     mark.hl-verde { background: #86efac; color: #1a1a1a; border-radius: 2px; padding: 0 1px; }
     mark.hl-azul { background: #93c5fd; color: #1a1a1a; border-radius: 2px; padding: 0 1px; }
@@ -279,7 +300,11 @@
           </button>
         </div>
 
-        <article id="ap-content" class="ap-content"></article>
+        <div id="a4-stage" class="a4-stage">
+          <div id="a4-scale-wrap">
+            <div id="a4-pages"></div>
+          </div>
+        </div>
 
         <section id="resumo-section" class="mt-10 hidden">
           <div class="flex items-center gap-2 mb-4">
@@ -371,11 +396,12 @@
       document.title = apData.titulo + ' · Plataforma de Estudos CA-AA/AFN';
       document.getElementById('page-title').textContent = apData.titulo;
       document.getElementById('header-title').textContent = apData.titulo;
-      renderContent();
+      await renderContent();
       await loadHighlights();
       applyAllHighlights();
       document.getElementById('loading-state').classList.add('hidden');
       document.getElementById('reader-wrap').classList.remove('hidden');
+      setupA4Scaling();
     }
 
     function escapeHtml(s) {
@@ -395,8 +421,7 @@
       return (block.runs || []).map(r => r.t).join('');
     }
 
-    function renderContent() {
-      const root = document.getElementById('ap-content');
+    async function renderContent() {
       const toc = document.getElementById('toc-panel');
       let html = '';
       let tocHtml = '';
@@ -428,9 +453,85 @@
         const indent = b.indent || 0;
         html += `<p class="${cls.join(' ')}" data-block="${i}" data-indent="${indent}">${renderRuns(b.runs)}</p>`;
       });
-      root.innerHTML = html;
       toc.innerHTML = tocHtml || '<p class="text-xs text-slate-500 px-1">Sem seções.</p>';
+      try { await Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 700))]); } catch (e) {}
+      paginateIntoA4(html);
       renderResumo();
+    }
+
+    // ================= Paginação em folhas A4 =================
+    const A4_PAGE_W = 794;      // ~210mm a 96dpi
+    const A4_PAGE_H = 1123;     // ~297mm a 96dpi
+    const A4_PAD_TOP = 100, A4_PAD_BOTTOM = 92, A4_PAD_SIDE = 70;
+    const A4_CONTENT_W = A4_PAGE_W - A4_PAD_SIDE * 2;
+    const A4_CONTENT_H = A4_PAGE_H - A4_PAD_TOP - A4_PAD_BOTTOM;
+
+    function paginateIntoA4(bodyHtml) {
+      const pagesRoot = document.getElementById('a4-pages');
+      pagesRoot.innerHTML = '';
+
+      // mede o conteúdo fora da tela, na mesma largura útil de uma página,
+      // pra saber exatamente onde cada bloco cai antes de distribuir.
+      const probe = document.createElement('div');
+      probe.className = 'ap-content';
+      probe.style.cssText = 'position:absolute; visibility:hidden; left:-9999px; top:0; width:' + A4_CONTENT_W + 'px;';
+      probe.innerHTML = bodyHtml;
+      document.body.appendChild(probe);
+
+      const children = Array.from(probe.children);
+      const groups = [];
+      let current = [];
+      let pageStartTop = 0;
+      children.forEach(child => {
+        const top = child.offsetTop;
+        const bottom = top + child.offsetHeight;
+        if ((bottom - pageStartTop) > A4_CONTENT_H && current.length > 0) {
+          groups.push(current);
+          current = [];
+          pageStartTop = top;
+        }
+        current.push(child);
+      });
+      if (current.length) groups.push(current);
+      if (!groups.length) groups.push([]);
+
+      const total = groups.length;
+      groups.forEach((group, idx) => {
+        const page = document.createElement('div');
+        page.className = 'a4-page';
+        const contentEl = document.createElement('div');
+        contentEl.className = 'ap-content a4-page-content';
+        group.forEach(el => contentEl.appendChild(el)); // move os nós já medidos
+        page.appendChild(contentEl);
+        const footer = document.createElement('div');
+        footer.className = 'a4-page-footer';
+        footer.innerHTML = '<span class="a4pf-num">Página ' + (idx + 1) + ' de ' + total + '</span>' +
+          '<span class="a4pf-title">' + escapeHtml(apData.titulo || '') + '</span>';
+        page.appendChild(footer);
+        pagesRoot.appendChild(page);
+      });
+
+      document.body.removeChild(probe);
+    }
+
+    function setupA4Scaling() {
+      const stage = document.getElementById('a4-stage');
+      const wrap = document.getElementById('a4-scale-wrap');
+      if (!stage || !wrap) return;
+      function rescale() {
+        const available = stage.clientWidth - 24; // pequena folga lateral
+        const scale = Math.min(1, Math.max(.62, available / A4_PAGE_W));
+        wrap.style.transform = 'translateX(-50%) scale(' + scale + ')';
+        // wrap está fora do fluxo (position:absolute), então a altura do
+        // palco precisa ser calculada manualmente a partir do tamanho real.
+        const totalH = wrap.scrollHeight * scale;
+        stage.style.height = (34 + totalH + 40) + 'px';
+      }
+      rescale();
+      window.addEventListener('resize', () => {
+        clearTimeout(window.__a4ResizeT);
+        window.__a4ResizeT = setTimeout(rescale, 120);
+      });
     }
 
     function renderResumo() {
