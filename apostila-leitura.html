@@ -196,10 +196,21 @@
       .a4-stage { padding: 18px 0 30px; border-radius: 0; }
       .a4-page { box-shadow: 0 10px 26px rgba(0,0,0,.45); }
     }
+    mark { background: transparent; color: inherit; }
     mark.hl-amarelo { background: #fde68a; color: #1a1a1a; border-radius: 2px; padding: 0 1px; }
     mark.hl-verde { background: #86efac; color: #1a1a1a; border-radius: 2px; padding: 0 1px; }
     mark.hl-azul { background: #93c5fd; color: #1a1a1a; border-radius: 2px; padding: 0 1px; }
     mark.hl-rosa { background: #f9a8d4; color: #1a1a1a; border-radius: 2px; padding: 0 1px; }
+    mark.search-hit { outline: 2px solid #f59e0b; outline-offset: -1px; border-radius: 2px; }
+    mark.search-current { outline-color: #dc2626; background: rgba(220,38,38,.22) !important; color: #1a1a1a; }
+
+    /* ===== Modo leitura (só a apostila) ===== */
+    body.focus-mode header,
+    body.focus-mode footer,
+    body.focus-mode #toc-sidebar,
+    body.focus-mode .no-print { display: none !important; }
+    body.focus-mode main { padding-top: 14px; }
+    body.focus-mode #focus-exit-btn { display: flex; }
     #hl-toolbar { position: absolute; z-index: 60; display: none; }
     #toc-panel { max-height: calc(100vh - 130px); overflow-y: auto; }
     #toc-panel a { display: block; padding: .3rem .55rem; border-radius: .4rem; font-size: .78rem; line-height: 1.3; color: rgb(var(--tw-slate-400)); }
@@ -263,6 +274,8 @@
         </div>
       </div>
       <div class="flex items-center gap-2 flex-shrink-0">
+        <button id="search-toggle-btn" onclick="toggleSearch()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors" title="Buscar nesta apostila (/)" aria-label="Buscar nesta apostila"><i class="fa-solid fa-magnifying-glass text-sm"></i></button>
+        <button id="focus-toggle-btn" onclick="toggleFocusMode()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors" title="Modo leitura (só a apostila na tela)" aria-label="Ativar modo leitura"><i class="fa-solid fa-expand text-sm"></i></button>
         <button id="theme-toggle-btn" onclick="toggleTheme()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors" title="Alternar tema" aria-label="Alternar tema claro/escuro"><i class="fa-solid fa-moon text-sm" id="theme-toggle-icon-moon"></i><i class="fa-solid fa-sun text-sm hidden" id="theme-toggle-icon-sun"></i></button>
         <a href="caderno.html#apostilas" class="chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 chrome-hover-border-500 transition-colors">
           <i class="fa-solid fa-arrow-left"></i> <span class="hidden sm:inline">Apostilas</span>
@@ -270,6 +283,19 @@
       </div>
     </div>
   </header>
+
+  <!-- Barra de busca -->
+  <div id="search-bar" class="hidden sticky top-[57px] z-20 chrome-bg-800 border-b chrome-border-700 shadow-lg">
+    <div class="max-w-6xl mx-auto px-4 py-2.5 flex items-center gap-2">
+      <i class="fa-solid fa-magnifying-glass chrome-text-slate-400 text-sm flex-shrink-0"></i>
+      <input id="search-input" type="text" placeholder="Buscar nesta apostila..." autocomplete="off"
+        class="flex-1 min-w-0 bg-[#050f1f] border chrome-border-700 rounded-lg px-3 py-1.5 text-sm chrome-text-white focus:outline-none focus:border-[#2384d6]">
+      <span id="search-count" class="text-xs chrome-text-slate-400 whitespace-nowrap min-w-[52px] text-center flex-shrink-0">0/0</span>
+      <button onclick="searchPrev()" class="chrome-bg-900 border chrome-border-700 w-8 h-8 rounded-lg chrome-text-slate-200 hover:text-white flex-shrink-0 flex items-center justify-center" title="Ocorrência anterior" aria-label="Ocorrência anterior"><i class="fa-solid fa-chevron-up text-xs"></i></button>
+      <button onclick="searchNext()" class="chrome-bg-900 border chrome-border-700 w-8 h-8 rounded-lg chrome-text-slate-200 hover:text-white flex-shrink-0 flex items-center justify-center" title="Próxima ocorrência" aria-label="Próxima ocorrência"><i class="fa-solid fa-chevron-down text-xs"></i></button>
+      <button onclick="closeSearch()" class="chrome-bg-900 border chrome-border-700 w-8 h-8 rounded-lg chrome-text-slate-200 hover:text-white flex-shrink-0 flex items-center justify-center" title="Fechar busca" aria-label="Fechar busca"><i class="fa-solid fa-xmark text-xs"></i></button>
+    </div>
+  </div>
 
   <main class="flex-1 max-w-6xl w-full mx-auto px-4 md:px-6 py-6 flex gap-6 items-start">
 
@@ -322,6 +348,11 @@
     </div>
   </main>
 
+  <!-- Botão flutuante de saída do modo leitura -->
+  <button id="focus-exit-btn" onclick="toggleFocusMode()" class="hidden fixed top-3 right-3 z-40 w-11 h-11 rounded-full bg-[#0b1b30]/90 border border-[#284b6d] text-slate-200 hover:text-white items-center justify-center shadow-2xl backdrop-blur transition-colors" title="Sair do modo leitura (Esc)" aria-label="Sair do modo leitura">
+    <i class="fa-solid fa-compress text-sm"></i>
+  </button>
+
   <!-- Toolbar flutuante de marca-texto -->
   <div id="hl-toolbar" class="bg-navy-900 border border-navy-600 rounded-full shadow-2xl px-2 py-1.5 flex items-center gap-1.5">
     <button type="button" onclick="applyHighlight('amarelo')" class="w-6 h-6 rounded-full border border-white/20" style="background:#fde68a" title="Amarelo" aria-label="Marcar em amarelo"></button>
@@ -348,6 +379,9 @@
     let apData = null; // { slug, titulo, blocks, resumo }
     let highlights = {}; // blockIndex -> [{id, start, end, color}]
     let highlightsSetupOk = true; // vira false se a tabela ainda não existir no Supabase
+    let searchMatches = {}; // blockIndex -> [{start, end, current}]
+    let searchFlatMatches = []; // [{blockIndex, start, end}] na ordem do documento
+    let searchActiveIdx = -1;
 
     function showGate(panel) {
       ['gate-checking', 'gate-logged-out', 'gate-pending'].forEach(id => {
@@ -418,6 +452,7 @@
     }
 
     function blockPlainText(block) {
+      if (block.type === 'h1' || block.type === 'h2' || block.type === 'h3') return block.text || '';
       return (block.runs || []).map(r => r.t).join('');
     }
 
@@ -429,7 +464,7 @@
       (apData.blocks || []).forEach((b, i) => {
         if (b.type === 'h1' || b.type === 'h2' || b.type === 'h3') {
           const id = 'sec-' + (hIdx++);
-          html += `<h${b.type[1]} id="${id}" class="ap-${b.type}">${escapeHtml(b.text)}</h${b.type[1]}>`;
+          html += `<h${b.type[1]} id="${id}" data-block="${i}" class="ap-${b.type}">${escapeHtml(b.text)}</h${b.type[1]}>`;
           tocHtml += `<a href="#${id}" class="toc-${b.type}">${escapeHtml(b.text)}</a>`;
           return;
         }
@@ -653,41 +688,53 @@
       for (const h of toRemove) await removeHighlightRow(h.id);
     }
 
-    function rerenderBlock(blockIndex) {
-      const blockEl = document.querySelector('.ap-p[data-block="' + blockIndex + '"]');
-      if (!blockEl) return;
-      const block = apData.blocks[blockIndex];
-      const text = blockPlainText(block);
-      const ranges = (highlights[blockIndex] || []).slice().sort((a, b) => a.start - b.start);
-      // reconstrói o HTML original (com bold/itálico) fatiado pelos pontos de marcação
-      const runs = block.runs || [];
-      // gera um índice de estilo por caractere pra permitir recombinar com marks
-      let charStyles = [];
-      runs.forEach(r => { for (let i = 0; i < r.t.length; i++) charStyles.push({ b: r.b, i: r.i }); });
-      function styledSlice(a, z) {
-        let out = '';
-        let i = a;
-        while (i < z) {
-          const st = charStyles[i] || {};
-          let j = i;
-          while (j < z && charStyles[j] && charStyles[j].b === st.b && charStyles[j].i === st.i) j++;
-          let piece = escapeHtml(text.slice(i, j));
-          if (st.b) piece = '<strong>' + piece + '</strong>';
-          if (st.i) piece = '<em>' + piece + '</em>';
-          out += piece;
-          i = j;
-        }
-        return out;
+    function sameCharStyle(a, b) {
+      return a.b === b.b && a.i === b.i && a.color === b.color && a.hit === b.hit && a.cur === b.cur;
+    }
+
+    function styledSlice(text, charStyles, a, z) {
+      let out = '';
+      let i = a;
+      while (i < z) {
+        const st = charStyles[i] || {};
+        let j = i;
+        while (j < z && charStyles[j] && sameCharStyle(charStyles[j], st)) j++;
+        let piece = escapeHtml(text.slice(i, j));
+        if (st.b) piece = '<strong>' + piece + '</strong>';
+        if (st.i) piece = '<em>' + piece + '</em>';
+        const cls = [];
+        if (st.color) cls.push('hl-' + st.color);
+        if (st.hit) cls.push('search-hit');
+        if (st.cur) cls.push('search-current');
+        if (cls.length) piece = `<mark class="${cls.join(' ')}">${piece}</mark>`;
+        out += piece;
+        i = j;
       }
-      let html = '';
-      let cursor = 0;
-      ranges.forEach(r => {
-        if (r.start > cursor) html += styledSlice(cursor, r.start);
-        html += `<mark class="hl-${r.color}">${styledSlice(r.start, r.end)}</mark>`;
-        cursor = Math.max(cursor, r.end);
+      return out;
+    }
+
+    // Funciona tanto pra parágrafos (com marca-texto do usuário) quanto pra
+    // títulos (só recebem o destaque temporário de busca).
+    function rerenderBlock(blockIndex) {
+      const block = apData.blocks[blockIndex];
+      if (!block) return;
+      const isHeading = block.type === 'h1' || block.type === 'h2' || block.type === 'h3';
+      const blockEl = document.querySelector((isHeading ? '' : '.ap-p') + '[data-block="' + blockIndex + '"]');
+      if (!blockEl) return;
+      const text = blockPlainText(block);
+      let charStyles = [];
+      if (isHeading) {
+        for (let k = 0; k < text.length; k++) charStyles.push({ b: false, i: false, color: null, hit: false, cur: false });
+      } else {
+        (block.runs || []).forEach(r => { for (let k = 0; k < r.t.length; k++) charStyles.push({ b: r.b, i: r.i, color: null, hit: false, cur: false }); });
+        (highlights[blockIndex] || []).forEach(h => {
+          for (let k = h.start; k < h.end && k < charStyles.length; k++) charStyles[k].color = h.color;
+        });
+      }
+      (searchMatches[blockIndex] || []).forEach(m => {
+        for (let k = m.start; k < m.end && k < charStyles.length; k++) { charStyles[k].hit = true; if (m.current) charStyles[k].cur = true; }
       });
-      if (cursor < text.length) html += styledSlice(cursor, text.length);
-      blockEl.innerHTML = html;
+      blockEl.innerHTML = styledSlice(text, charStyles, 0, text.length);
     }
 
     function applyAllHighlights() {
@@ -741,6 +788,116 @@
       try { await sb.from('apostila_highlights').delete().eq('id', id); } catch (e) {}
     }
 
+    // ================= Busca dentro da apostila =================
+    function stripDiacritics(str) {
+      // remove acentos caractere a caractere, preservando o índice 1:1 com o
+      // texto original (importante pra bater com os offsets do marca-texto)
+      let out = '';
+      for (const ch of str) {
+        const norm = ch.normalize('NFD').replace(/[̀-ͯ]/g, '');
+        out += norm.length ? norm[0] : ch;
+      }
+      return out;
+    }
+
+    function toggleSearch() {
+      const bar = document.getElementById('search-bar');
+      const opening = bar.classList.contains('hidden');
+      if (opening) {
+        bar.classList.remove('hidden');
+        document.getElementById('search-input').focus();
+        document.getElementById('search-input').select();
+      } else {
+        closeSearch();
+      }
+    }
+
+    function closeSearch() {
+      document.getElementById('search-bar').classList.add('hidden');
+      document.getElementById('search-input').value = '';
+      clearSearchMatches();
+    }
+
+    function clearSearchMatches() {
+      const affected = Object.keys(searchMatches).map(k => parseInt(k, 10));
+      searchMatches = {};
+      searchFlatMatches = [];
+      searchActiveIdx = -1;
+      affected.forEach(rerenderBlock);
+      updateSearchCount();
+    }
+
+    function runSearch(query) {
+      const affectedBefore = Object.keys(searchMatches).map(k => parseInt(k, 10));
+      searchMatches = {};
+      searchFlatMatches = [];
+      searchActiveIdx = -1;
+      const q = stripDiacritics(query.trim().toLowerCase());
+      if (q) {
+        (apData.blocks || []).forEach((b, idx) => {
+          if (b.type !== 'p' && b.type !== 'h1' && b.type !== 'h2' && b.type !== 'h3') return;
+          const text = blockPlainText(b);
+          const norm = stripDiacritics(text.toLowerCase());
+          let pos = 0;
+          while (true) {
+            const found = norm.indexOf(q, pos);
+            if (found === -1) break;
+            const m = { start: found, end: found + q.length, current: false };
+            searchMatches[idx] = searchMatches[idx] || [];
+            searchMatches[idx].push(m);
+            searchFlatMatches.push({ blockIndex: idx, start: found, end: found + q.length });
+            pos = found + q.length;
+          }
+        });
+      }
+      const affectedAfter = Object.keys(searchMatches).map(k => parseInt(k, 10));
+      const toRerender = new Set([...affectedBefore, ...affectedAfter]);
+      toRerender.forEach(rerenderBlock);
+      if (searchFlatMatches.length) { searchActiveIdx = 0; focusSearchMatch(); }
+      updateSearchCount();
+    }
+
+    function updateSearchCount() {
+      const el = document.getElementById('search-count');
+      el.textContent = searchFlatMatches.length ? (searchActiveIdx + 1) + '/' + searchFlatMatches.length : '0/0';
+    }
+
+    function focusSearchMatch() {
+      if (searchActiveIdx < 0 || !searchFlatMatches.length) return;
+      const touched = new Set();
+      Object.entries(searchMatches).forEach(([idx, list]) => {
+        list.forEach(m => { if (m.current) touched.add(parseInt(idx, 10)); m.current = false; });
+      });
+      const target = searchFlatMatches[searchActiveIdx];
+      (searchMatches[target.blockIndex] || []).forEach(m => {
+        if (m.start === target.start && m.end === target.end) m.current = true;
+      });
+      touched.add(target.blockIndex);
+      touched.forEach(rerenderBlock);
+      const el = document.querySelector('[data-block="' + target.blockIndex + '"] mark.search-current');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      updateSearchCount();
+    }
+
+    function searchNext() {
+      if (!searchFlatMatches.length) return;
+      searchActiveIdx = (searchActiveIdx + 1) % searchFlatMatches.length;
+      focusSearchMatch();
+    }
+
+    function searchPrev() {
+      if (!searchFlatMatches.length) return;
+      searchActiveIdx = (searchActiveIdx - 1 + searchFlatMatches.length) % searchFlatMatches.length;
+      focusSearchMatch();
+    }
+
+    // ================= Modo leitura (só a apostila na tela) =================
+    function toggleFocusMode() {
+      const active = document.body.classList.toggle('focus-mode');
+      try { localStorage.setItem('ap_focus_mode', active ? '1' : '0'); } catch (e) {}
+      setTimeout(() => window.dispatchEvent(new Event('resize')), 60);
+    }
+
     // ================= Autenticação =================
     async function onUserAuthenticated() {
       const aprovado = await AlfaGamification.fetchAprovado(sb, currentUser.id);
@@ -754,6 +911,31 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       applyThemeIcon();
+      try { if (localStorage.getItem('ap_focus_mode') === '1') document.body.classList.add('focus-mode'); } catch (e) {}
+
+      const searchInput = document.getElementById('search-input');
+      let searchDebounceT = null;
+      searchInput.addEventListener('input', () => {
+        clearTimeout(searchDebounceT);
+        searchDebounceT = setTimeout(() => runSearch(searchInput.value), 150);
+      });
+      searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') { e.preventDefault(); e.shiftKey ? searchPrev() : searchNext(); }
+        else if (e.key === 'Escape') { e.preventDefault(); closeSearch(); }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        const tag = (document.activeElement && document.activeElement.tagName) || '';
+        const typing = tag === 'INPUT' || tag === 'TEXTAREA';
+        if (e.key === 'Escape') {
+          if (!document.getElementById('search-bar').classList.contains('hidden')) { closeSearch(); return; }
+          if (document.body.classList.contains('focus-mode')) { toggleFocusMode(); return; }
+        } else if (e.key === '/' && !typing) {
+          e.preventDefault();
+          toggleSearch();
+        }
+      });
+
       sb.auth.onAuthStateChange((event, session) => {
         if (session && session.user) {
           currentUser = session.user;
