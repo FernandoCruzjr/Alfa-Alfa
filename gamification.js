@@ -49,7 +49,7 @@
   // divulgada pela Marinha (formato 'AAAA-MM-DD'). Deixe como null pra
   // esconder a contagem regressiva em todas as páginas até lá.
   // ===================================================================
-  var DATA_PROVA = '2027-01-17';
+  var DATA_PROVA = '2027-10-18';
 
   function diasParaProva() {
     if (!DATA_PROVA) return null;
