@@ -70,7 +70,7 @@
   // ================= UI: injeta estilos e markup =================
   function injectStyles() {
     const css = `
-      #sr-fab { position: fixed; right: 18px; bottom: 18px; z-index: 55; display: flex; align-items: center; gap: 8px;
+      #sr-fab { position: fixed; left: 18px; bottom: 18px; z-index: 55; display: flex; align-items: center; gap: 8px;
         background: linear-gradient(135deg, #1E56A0, #123a73); color: #fff; border: 1px solid rgba(255,255,255,.18);
         padding: 11px 16px; border-radius: 999px; box-shadow: 0 12px 30px rgba(0,0,0,.4); font: 600 13px 'Inter', ui-sans-serif, sans-serif;
         cursor: pointer; transition: transform .15s ease; }
@@ -120,14 +120,29 @@
       .sr-mini-btn { font-size: 11.5px; font-weight: 700; padding: 6px 11px; border-radius: 8px; cursor: pointer; border: none; white-space: nowrap; }
       .sr-mini-btn.primary { background: #2869b7; color: #fff; }
       .sr-mini-btn.danger { background: transparent; color: #f87171; border: 1px solid #7f1d1d; }
+      .sr-mini-btn.ghost-mini { background: transparent; color: #93a5c2; border: 1px solid #284b6d; padding: 6px 9px; }
+      .sr-mini-btn.ghost-mini:hover { color: #fff; border-color: #2384d6; }
       #sr-results-list { display: flex; flex-direction: column; gap: 6px; margin: 10px 0 4px; max-height: 260px; overflow-y: auto; }
       .sr-result-row { display: flex; align-items: center; gap: 10px; background: #050f1f; border: 1px solid #1c3352; border-radius: 10px; padding: 8px 11px; font-size: 13px; }
       .sr-result-row .sr-pos { width: 20px; text-align: center; font-weight: 800; color: #fbbf24; font-size: 12px; }
       .sr-result-row .sr-name { flex: 1; }
       .sr-result-row .sr-score { font-weight: 700; color: #34d399; font-size: 12.5px; }
+      .sr-video-btn { display: inline-flex; align-items: center; gap: 6px; }
+      #sr-video-panel { position: fixed; left: 18px; bottom: 84px; z-index: 95; width: 320px; max-width: 92vw;
+        background: #0b1b30; border: 1px solid #284b6d; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,.5);
+        overflow: hidden; display: none; flex-direction: column; }
+      #sr-video-panel.open { display: flex; }
+      .sr-video-header { display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: #050f1f;
+        border-bottom: 1px solid #1c3352; }
+      .sr-video-header span { flex: 1; font-size: 12px; font-weight: 700; color: #e2e8f0; }
+      .sr-video-header button { background: transparent; border: none; color: #93a5c2; cursor: pointer; font-size: 13px; padding: 4px 6px; }
+      .sr-video-header button:hover { color: #fff; }
+      .sr-video-frame-wrap { width: 100%; height: 240px; background: #000; }
+      .sr-video-frame-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
       @media (max-width: 640px) {
         #sr-fab span.sr-fab-text { display: none; }
         #sr-fab { padding: 12px; }
+        #sr-video-panel { left: 8px; right: 8px; width: auto; bottom: 78px; }
       }
     `;
     const styleEl = document.createElement('style');
@@ -171,11 +186,76 @@
     if (header && header.parentNode) header.parentNode.insertBefore(els.banner, header.nextSibling);
     else document.body.insertBefore(els.banner, document.body.firstChild);
 
+    els.videoPanel = el(`
+      <div id="sr-video-panel">
+        <div class="sr-video-header">
+          <i class="fa-solid fa-video" style="color:#93a5c2"></i>
+          <span>Áudio/vídeo da sala</span>
+          <button type="button" id="sr-video-minimize" title="Minimizar (a chamada continua)"><i class="fa-solid fa-minus"></i></button>
+          <button type="button" id="sr-video-hangup" title="Encerrar chamada"><i class="fa-solid fa-phone-slash"></i></button>
+        </div>
+        <div class="sr-video-frame-wrap" id="sr-video-frame-wrap"></div>
+      </div>
+    `);
+    document.body.appendChild(els.videoPanel);
+    els.videoPanel.querySelector('#sr-video-minimize').addEventListener('click', closeVideoPanel);
+    els.videoPanel.querySelector('#sr-video-hangup').addEventListener('click', hangUpVideoCall);
+
     els.fab.addEventListener('click', () => {
       if (state.status === 'idle') openLobbyChooser();
       else openRoomPanel();
     });
     els.overlay.addEventListener('click', (e) => { if (e.target === els.overlay) closeOverlay(); });
+  }
+
+  // ================= Chamada de áudio/vídeo (Jitsi Meet embutido) =================
+  function jitsiRoomName() {
+    // Nome de sala derivado do UUID da sala (não do código de 5 letras) — assim
+    // ninguém entra na videochamada só adivinhando o código curto.
+    return 'AlfaAlfaSalaEstudo' + String(state.roomId || '').replace(/[^a-zA-Z0-9]/g, '');
+  }
+
+  function currentDisplayName() {
+    const user = hooks.getUser && hooks.getUser();
+    if (!user) return 'Aluno';
+    const me = state.participants.find(p => p.id === user.id);
+    return (me && me.nome) || (user.email ? user.email.split('@')[0] : 'Aluno');
+  }
+
+  function openVideoCall() {
+    if (!state.roomId) return;
+    const wrap = els.videoPanel.querySelector('#sr-video-frame-wrap');
+    if (!wrap.querySelector('iframe')) {
+      const room = jitsiRoomName();
+      const displayName = encodeURIComponent(currentDisplayName());
+      const src = 'https://meet.jit.si/' + room +
+        '#config.prejoinPageEnabled=false' +
+        '&config.startWithAudioMuted=true' +
+        '&config.startWithVideoMuted=true' +
+        '&config.disableDeepLinking=true' +
+        '&userInfo.displayName=%22' + displayName + '%22';
+      const iframe = document.createElement('iframe');
+      iframe.src = src;
+      iframe.allow = 'camera; microphone; fullscreen; display-capture; autoplay; clipboard-write';
+      wrap.appendChild(iframe);
+    }
+    els.videoPanel.classList.add('open');
+  }
+
+  function closeVideoPanel() {
+    // Só esconde — a chamada continua rolando (iframe não é removido).
+    els.videoPanel.classList.remove('open');
+  }
+
+  function hangUpVideoCall() {
+    const wrap = els.videoPanel.querySelector('#sr-video-frame-wrap');
+    wrap.innerHTML = '';
+    els.videoPanel.classList.remove('open');
+  }
+
+  function toggleVideoPanel() {
+    if (els.videoPanel.classList.contains('open')) closeVideoPanel();
+    else openVideoCall();
   }
 
   function closeOverlay() { els.overlay.classList.remove('open'); }
@@ -261,6 +341,7 @@
       </div>
       <div class="sr-participants" id="sr-participants-list"></div>
       <div id="sr-error"></div>
+      <button class="sr-btn ghost sr-video-btn" id="sr-video-btn"><i class="fa-solid fa-video"></i> Ativar áudio/vídeo</button>
       ${state.isHost ? '<button class="sr-btn primary" id="sr-start-btn"><i class="fa-solid fa-play"></i> Começar pra todo mundo</button>' : ''}
       <button class="sr-btn ghost" id="sr-leave-btn">Sair da sala</button>
     `;
@@ -268,6 +349,7 @@
     if (state.isHost) {
       els.modal.querySelector('#sr-start-btn').addEventListener('click', startRoom);
     }
+    els.modal.querySelector('#sr-video-btn').addEventListener('click', openVideoCall);
     els.modal.querySelector('#sr-leave-btn').addEventListener('click', leaveRoom);
     openOverlay();
   }
@@ -347,9 +429,11 @@
       return tag;
     }).join('');
     const actionsEl = els.banner.querySelector('#sr-banner-actions');
+    const videoBtnHtml = '<button class="sr-mini-btn ghost-mini" id="sr-banner-video" title="Áudio/vídeo"><i class="fa-solid fa-video"></i></button>';
     if (state.isHost) {
       const isLast = hooks.getTotalQuestions && (hooks.getCurrentIndex() >= hooks.getTotalQuestions() - 1);
       actionsEl.innerHTML = `
+        ${videoBtnHtml}
         ${isLast ? '<button class="sr-mini-btn primary" id="sr-banner-finish">Finalizar sala</button>'
                   : '<button class="sr-mini-btn primary" id="sr-banner-next">Próxima <i class="fa-solid fa-arrow-right"></i></button>'}
         <button class="sr-mini-btn danger" id="sr-banner-leave">Sair</button>
@@ -360,9 +444,10 @@
       if (finishBtn) finishBtn.addEventListener('click', hostFinish);
       actionsEl.querySelector('#sr-banner-leave').addEventListener('click', leaveRoom);
     } else {
-      actionsEl.innerHTML = `<button class="sr-mini-btn danger" id="sr-banner-leave">Sair</button>`;
+      actionsEl.innerHTML = `${videoBtnHtml}<button class="sr-mini-btn danger" id="sr-banner-leave">Sair</button>`;
       actionsEl.querySelector('#sr-banner-leave').addEventListener('click', leaveRoom);
     }
+    actionsEl.querySelector('#sr-banner-video').addEventListener('click', toggleVideoPanel);
   }
 
   // ================= Ações =================
@@ -540,6 +625,7 @@
     state.roomId = null; state.codigo = null; state.isHost = false; state.status = 'idle';
     state.participants = []; state.answeredCurrent = new Set();
     clearStorage();
+    hangUpVideoCall();
     renderBanner();
   }
 
