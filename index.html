@@ -565,6 +565,21 @@
   <div id="app-shell" class="flex-1 w-full flex">
     <div id="sidebar-overlay" class="hidden fixed inset-0 bg-black/60 z-40 md:hidden" onclick="closeSidebar()"></div>
 
+    <!-- ===== Modal: entrar em sala de estudo com o código de alguém ===== -->
+    <div id="join-room-overlay" class="hidden fixed inset-0 z-[80] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4" onclick="if (event.target === this) closeJoinRoomPrompt();">
+      <div class="w-full max-w-[380px] bg-navy-900 border border-navy-700 rounded-2xl shadow-2xl p-6">
+        <h3 class="font-serif text-lg font-bold text-ink mb-1"><i class="fa-solid fa-people-group text-amber-400 mr-1"></i> Entrar em sala de estudo</h3>
+        <p class="text-xs text-slate-400 mb-4">Digite o código de 5 letras que a pessoa que criou a sala te passou.</p>
+        <input id="join-room-code-input" type="text" maxlength="5" placeholder="CÓDIGO" autocomplete="off"
+          class="w-full bg-navy-950 border border-navy-700 focus:border-navy-400 outline-none rounded-lg px-3 py-2.5 text-center text-lg font-bold tracking-[.2em] uppercase text-ink mb-2">
+        <p id="join-room-error" class="text-xs text-rose-400 min-h-[16px] mb-2"></p>
+        <button type="button" id="join-room-submit-btn" onclick="submitJoinRoomCode()" class="w-full bg-navy-600 hover:bg-navy-500 text-ink font-semibold text-sm rounded-lg py-2.5 mb-2 transition-colors">
+          <i class="fa-solid fa-right-to-bracket"></i> Entrar na sala
+        </button>
+        <button type="button" onclick="closeJoinRoomPrompt()" class="w-full text-slate-400 hover:text-ink text-sm py-1.5">Cancelar</button>
+      </div>
+    </div>
+
     <aside id="sidebar" class="cyber-sidebar fixed md:sticky top-0 left-0 h-screen w-[250px] -translate-x-full md:translate-x-0 transition-transform duration-300 ease-out z-50 flex flex-col flex-shrink-0 border-r chrome-border-700">
       <div class="flex items-center gap-3 px-5 py-5 border-b chrome-border-700">
         <div class="bg-navy-600 chrome-text-white p-2.5 rounded-lg shadow flex-shrink-0">
@@ -582,6 +597,7 @@
         <p class="sidebar-section-title">Principal</p>
         <a href="#dashboard-top" class="sidebar-link active"><span class="sidebar-icon-badge"><i class="fa-solid fa-gauge-high"></i></span><span>Dashboard</span><i class="fa-solid fa-chevron-right"></i></a>
         <a href="#prova-simulada" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-shuffle"></i></span><span>Prova Simulada</span><i class="fa-solid fa-chevron-right"></i></a>
+        <a href="#" onclick="openJoinRoomPrompt(); return false;" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-people-group"></i></span><span>Entrar em sala de estudo</span><i class="fa-solid fa-chevron-right"></i></a>
         <a href="#banco-questoes" onclick="openBankPanel()" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-bars"></i></span><span>Banco de Questões</span><i class="fa-solid fa-chevron-right"></i></a>
         <a href="#flashcards" onclick="openFlashcardsPanel()" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-layer-group"></i></span><span>Flashcards</span><i class="fa-solid fa-chevron-right"></i></a>
 
@@ -1494,6 +1510,84 @@
           '\n\nSe for a primeira vez, confirme se o script supabase_avatar_setup.sql já foi rodado no Supabase.');
       }
     }
+
+    // ===== Entrar em sala de estudo com o código de alguém (menu principal) =====
+    // Mapeia o quiz_id salvo em salas_estudo pra qual página abrir.
+    const QUIZ_PAGES = {
+      PROVA_SIMULADA: 'prova-simulada.html',
+      'CAAML-703': 'caaml-703.html',
+      CAMAAL_CAV: 'camaal-cav.html',
+      CERIMONIAL: 'cerimonial.html',
+      DOC_ADM_MB: 'doc-adm-mb.html',
+      ESTATUTO_RDM: 'estatuto-rdm.html',
+      GEOGRAFIA: 'geografia.html',
+      HISTORIA_NAVAL_FATOS_1: 'historia-naval-fatos-1.html',
+      HISTORIA_NAVAL: 'historia-naval.html',
+      JUSTICA_DISCIPLINA: 'justica-disciplina.html',
+      LIDERANCA_ATRIBUTOS: 'lideranca-atributos.html',
+      LIDERANCA: 'lideranca.html',
+      MATEMATICA: 'matematica.html',
+      OGSA: 'ogsa.html',
+      PEM2040: 'pem2040.html',
+      PORTUGUES: 'portugues.html',
+      ROSAS_VIRTUDES: 'rosas-virtudes.html',
+    };
+
+    function openJoinRoomPrompt() {
+      const overlay = document.getElementById('join-room-overlay');
+      const input = document.getElementById('join-room-code-input');
+      const errEl = document.getElementById('join-room-error');
+      errEl.textContent = '';
+      input.value = '';
+      overlay.classList.remove('hidden');
+      setTimeout(() => input.focus(), 50);
+    }
+
+    function closeJoinRoomPrompt() {
+      document.getElementById('join-room-overlay').classList.add('hidden');
+    }
+
+    async function submitJoinRoomCode() {
+      const input = document.getElementById('join-room-code-input');
+      const errEl = document.getElementById('join-room-error');
+      const btn = document.getElementById('join-room-submit-btn');
+      const codigo = (input.value || '').trim().toUpperCase();
+      errEl.textContent = '';
+      if (codigo.length < 4) { errEl.textContent = 'Digite o código da sala.'; return; }
+      if (!currentUser) { errEl.textContent = 'Você precisa estar logado.'; return; }
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Procurando...';
+      try {
+        const { data: sala, error } = await sb.from('salas_estudo').select('quiz_id, status').eq('codigo', codigo).maybeSingle();
+        if (error || !sala) {
+          errEl.textContent = 'Não achei essa sala. Confere o código com quem te chamou.';
+          return;
+        }
+        if (sala.status === 'finalizada') {
+          errEl.textContent = 'Essa sala já foi encerrada.';
+          return;
+        }
+        const page = QUIZ_PAGES[sala.quiz_id];
+        if (!page) {
+          errEl.textContent = 'Essa sala é de um quiz que não reconheço.';
+          return;
+        }
+        window.location.href = page + '?sala=' + encodeURIComponent(codigo);
+      } catch (e) {
+        errEl.textContent = 'Não deu pra procurar a sala agora. Tenta de novo.';
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i> Entrar na sala';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const input = document.getElementById('join-room-code-input');
+      if (input) {
+        input.addEventListener('input', () => { input.value = input.value.toUpperCase().replace(/[^A-Z0-9]/g, ''); });
+        input.addEventListener('keydown', (e) => { if (e.key === 'Enter') submitJoinRoomCode(); });
+      }
+    });
 
     function openBankPanel() {
       const panel = document.getElementById('bank-panel');

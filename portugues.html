@@ -5572,6 +5572,21 @@ const questionsData = [
           isCorrectOption: (qIndex, optIndex) => questionsData[qIndex] && questionsData[qIndex].correct === optIndex,
           onQuestionChanged: () => { renderQuestion(); renderGrid(); },
         });
+
+        // Veio de um link "?sala=CODIGO" (ex: menu "Entrar em sala de estudo"
+        // da página principal) — entra na sala automaticamente.
+        try {
+          const urlParams = new URLSearchParams(window.location.search);
+          const salaCodeFromUrl = urlParams.get('sala');
+          if (salaCodeFromUrl && !StudyRoom.isInRoom()) {
+            StudyRoom.joinWithCode(salaCodeFromUrl);
+          }
+          if (salaCodeFromUrl) {
+            urlParams.delete('sala');
+            const qs = urlParams.toString();
+            window.history.replaceState({}, '', window.location.pathname + (qs ? '?' + qs : ''));
+          }
+        } catch (e) {}
       }
 
       if (!localStorage.getItem(STORAGE_KEY_START)) {

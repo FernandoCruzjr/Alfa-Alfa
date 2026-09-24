@@ -712,9 +712,19 @@
     });
   }
 
+  // Entra numa sala já sabendo o código (usado quando a pessoa veio de um
+  // link "?sala=CODIGO", por exemplo a partir do menu da página principal),
+  // e já abre o painel da sala pra mostrar que deu certo.
+  async function joinWithCode(codigo) {
+    const ok = await joinRoom(codigo);
+    if (ok) openRoomPanel();
+    return ok;
+  }
+
   window.StudyRoom = {
     init,
     reportAnswer,
+    joinWithCode,
     isInRoom: () => state.status === 'em_andamento' || state.status === 'lobby',
     isActive: () => state.status === 'em_andamento',
     isHost: () => state.isHost,
