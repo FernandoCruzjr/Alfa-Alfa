@@ -128,12 +128,14 @@
       .sr-result-row .sr-name { flex: 1; }
       .sr-result-row .sr-score { font-weight: 700; color: #34d399; font-size: 12.5px; }
       .sr-video-btn { display: inline-flex; align-items: center; gap: 6px; }
-      #sr-video-panel { position: fixed; left: 18px; bottom: 84px; z-index: 95; width: 320px; max-width: 92vw;
+      #sr-video-panel { position: fixed; left: 18px; bottom: 84px; z-index: 95; width: min(320px, 92vw);
         background: #0b1b30; border: 1px solid #284b6d; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,.5);
         overflow: hidden; display: none; flex-direction: column; }
       #sr-video-panel.open { display: flex; }
+      #sr-video-panel.sr-dragging { opacity: .92; box-shadow: 0 24px 70px rgba(0,0,0,.65); transition: none; }
       .sr-video-header { display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: #050f1f;
-        border-bottom: 1px solid #1c3352; }
+        border-bottom: 1px solid #1c3352; cursor: move; touch-action: none; user-select: none; }
+      .sr-video-header .sr-drag-handle { color: #4b6280; font-size: 12px; }
       .sr-video-header span { flex: 1; font-size: 12px; font-weight: 700; color: #e2e8f0; }
       .sr-video-header button { background: transparent; border: none; color: #93a5c2; cursor: pointer; font-size: 13px; padding: 4px 6px; }
       .sr-video-header button:hover { color: #fff; }
@@ -142,7 +144,6 @@
       @media (max-width: 640px) {
         #sr-fab span.sr-fab-text { display: none; }
         #sr-fab { padding: 12px; }
-        #sr-video-panel { left: 8px; right: 8px; width: auto; bottom: 78px; }
       }
     `;
     const styleEl = document.createElement('style');
@@ -188,7 +189,8 @@
 
     els.videoPanel = el(`
       <div id="sr-video-panel">
-        <div class="sr-video-header">
+        <div class="sr-video-header" id="sr-video-header">
+          <i class="fa-solid fa-grip-vertical sr-drag-handle"></i>
           <i class="fa-solid fa-video" style="color:#93a5c2"></i>
           <span>Áudio/vídeo da sala</span>
           <button type="button" id="sr-video-minimize" title="Minimizar (a chamada continua)"><i class="fa-solid fa-minus"></i></button>
@@ -200,6 +202,7 @@
     document.body.appendChild(els.videoPanel);
     els.videoPanel.querySelector('#sr-video-minimize').addEventListener('click', closeVideoPanel);
     els.videoPanel.querySelector('#sr-video-hangup').addEventListener('click', hangUpVideoCall);
+    makeVideoPanelDraggable();
 
     els.fab.addEventListener('click', () => {
       if (state.status === 'idle') openLobbyChooser();
@@ -256,6 +259,53 @@
   function toggleVideoPanel() {
     if (els.videoPanel.classList.contains('open')) closeVideoPanel();
     else openVideoCall();
+  }
+
+  // Arrastar a caixa de vídeo pra qualquer lugar da tela (mouse ou toque),
+  // segurando pela barra de título. A posição escolhida fica valendo
+  // enquanto a página estiver aberta (mesmo minimizando e reabrindo).
+  function makeVideoPanelDraggable() {
+    const panel = els.videoPanel;
+    const header = panel.querySelector('#sr-video-header');
+    let dragging = false;
+    let startX = 0, startY = 0, startLeft = 0, startTop = 0;
+
+    function clamp(val, min, max) { return Math.min(Math.max(val, min), max); }
+
+    header.addEventListener('pointerdown', (e) => {
+      if (e.target.closest('button')) return; // não arrasta ao clicar em minimizar/encerrar
+      dragging = true;
+      panel.classList.add('sr-dragging');
+      try { header.setPointerCapture(e.pointerId); } catch (err) {}
+      const rect = panel.getBoundingClientRect();
+      startX = e.clientX; startY = e.clientY;
+      startLeft = rect.left; startTop = rect.top;
+      // Trava a posição atual em left/top absolutos e solta o bottom do CSS,
+      // assim o arrasto passa a controlar a posição livremente.
+      panel.style.left = startLeft + 'px';
+      panel.style.top = startTop + 'px';
+      panel.style.bottom = 'auto';
+      panel.style.right = 'auto';
+    });
+
+    header.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      const maxLeft = Math.max(4, window.innerWidth - panel.offsetWidth - 4);
+      const maxTop = Math.max(4, window.innerHeight - panel.offsetHeight - 4);
+      panel.style.left = clamp(startLeft + dx, 4, maxLeft) + 'px';
+      panel.style.top = clamp(startTop + dy, 4, maxTop) + 'px';
+    });
+
+    function endDrag(e) {
+      if (!dragging) return;
+      dragging = false;
+      panel.classList.remove('sr-dragging');
+      try { header.releasePointerCapture(e.pointerId); } catch (err) {}
+    }
+    header.addEventListener('pointerup', endDrag);
+    header.addEventListener('pointercancel', endDrag);
   }
 
   function closeOverlay() { els.overlay.classList.remove('open'); }
