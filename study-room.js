@@ -141,6 +141,8 @@
       .sr-video-header button:hover { color: #fff; }
       .sr-video-frame-wrap { width: 100%; height: 240px; background: #000; }
       .sr-video-frame-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
+      .sr-video-fallback-hint { font-size: 10.5px; color: #6b84a8; text-align: center; padding: 6px 8px; border-top: 1px solid #1c3352; }
+      .sr-video-fallback-hint a { color: #6db4ff; text-decoration: underline; cursor: pointer; }
       @media (max-width: 640px) {
         #sr-fab span.sr-fab-text { display: none; }
         #sr-fab { padding: 12px; }
@@ -193,15 +195,19 @@
           <i class="fa-solid fa-grip-vertical sr-drag-handle"></i>
           <i class="fa-solid fa-video" style="color:#93a5c2"></i>
           <span>Áudio/vídeo da sala</span>
+          <button type="button" id="sr-video-newtab" title="Não está aparecendo? Abrir em nova aba"><i class="fa-solid fa-up-right-from-square"></i></button>
           <button type="button" id="sr-video-minimize" title="Minimizar (a chamada continua)"><i class="fa-solid fa-minus"></i></button>
           <button type="button" id="sr-video-hangup" title="Encerrar chamada"><i class="fa-solid fa-phone-slash"></i></button>
         </div>
         <div class="sr-video-frame-wrap" id="sr-video-frame-wrap"></div>
+        <div class="sr-video-fallback-hint">Vídeo não aparece? <a href="#" id="sr-video-newtab-link">Abrir a chamada numa aba nova</a>.</div>
       </div>
     `);
     document.body.appendChild(els.videoPanel);
     els.videoPanel.querySelector('#sr-video-minimize').addEventListener('click', closeVideoPanel);
     els.videoPanel.querySelector('#sr-video-hangup').addEventListener('click', hangUpVideoCall);
+    els.videoPanel.querySelector('#sr-video-newtab').addEventListener('click', openVideoInNewTab);
+    els.videoPanel.querySelector('#sr-video-newtab-link').addEventListener('click', (e) => { e.preventDefault(); openVideoInNewTab(); });
     makeVideoPanelDraggable();
 
     els.fab.addEventListener('click', () => {
@@ -225,24 +231,36 @@
     return (me && me.nome) || (user.email ? user.email.split('@')[0] : 'Aluno');
   }
 
+  function buildJitsiUrl() {
+    const room = jitsiRoomName();
+    const displayName = encodeURIComponent(currentDisplayName());
+    return 'https://meet.jit.si/' + room +
+      '#config.prejoinPageEnabled=false' +
+      '&config.startWithAudioMuted=true' +
+      '&config.startWithVideoMuted=true' +
+      '&config.disableDeepLinking=true' +
+      '&userInfo.displayName=%22' + displayName + '%22';
+  }
+
   function openVideoCall() {
     if (!state.roomId) return;
     const wrap = els.videoPanel.querySelector('#sr-video-frame-wrap');
     if (!wrap.querySelector('iframe')) {
-      const room = jitsiRoomName();
-      const displayName = encodeURIComponent(currentDisplayName());
-      const src = 'https://meet.jit.si/' + room +
-        '#config.prejoinPageEnabled=false' +
-        '&config.startWithAudioMuted=true' +
-        '&config.startWithVideoMuted=true' +
-        '&config.disableDeepLinking=true' +
-        '&userInfo.displayName=%22' + displayName + '%22';
       const iframe = document.createElement('iframe');
-      iframe.src = src;
+      iframe.src = buildJitsiUrl();
       iframe.allow = 'camera; microphone; fullscreen; display-capture; autoplay; clipboard-write';
       wrap.appendChild(iframe);
     }
     els.videoPanel.classList.add('open');
+  }
+
+  // Abre a chamada direto numa aba nova do navegador, sem passar pelo iframe
+  // embutido. Serve de saída pra quando o navegador (extensões de bloqueio,
+  // proteção contra rastreamento etc.) impede o Jitsi de funcionar dentro do
+  // iframe — em aba própria ele roda como qualquer site normal.
+  function openVideoInNewTab() {
+    if (!state.roomId) return;
+    window.open(buildJitsiUrl(), '_blank');
   }
 
   function closeVideoPanel() {
