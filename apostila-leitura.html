@@ -164,13 +164,21 @@
     .ap-h1 { font-family: 'Fraunces', ui-serif, Georgia, serif; font-weight: 700; font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: .5rem; border-bottom: 2px solid rgb(var(--tw-amber-500)/.55); scroll-margin-top: 90px; }
     .ap-h2 { font-family: 'Fraunces', ui-serif, Georgia, serif; font-weight: 600; font-size: 1.2rem; margin-top: 2rem; margin-bottom: .75rem; color: rgb(var(--tw-navy-300)); scroll-margin-top: 90px; }
     .ap-h3 { font-family: 'Fraunces', ui-serif, Georgia, serif; font-weight: 600; font-size: 1.02rem; margin-top: 1.4rem; margin-bottom: .5rem; color: rgb(var(--tw-slate-200)); scroll-margin-top: 90px; }
-    .ap-p { margin-bottom: .85rem; }
+    .ap-p { margin-bottom: .85rem; scroll-margin-top: 90px; }
     .ap-p[data-indent="1"] { padding-left: 1.25rem; }
     .ap-p[data-indent="2"] { padding-left: 2.35rem; }
     .ap-p[data-indent="3"] { padding-left: 3.4rem; }
     .ap-p.center { text-align: center; }
     .ap-p strong { color: rgb(var(--tw-navy-200)); font-weight: 700; }
-    .ap-table-wrap { margin: 1rem 0 1.4rem; }
+    .ap-table-wrap { margin: 1rem 0 1.4rem; scroll-margin-top: 90px; }
+    /* Trecho apontado por um link "Ver na apostila" (vindo de uma questão) —
+       um destaque temporário pra chamar a atenção assim que a página abre. */
+    @keyframes ap-arrived-pulse {
+      0% { background: rgb(var(--tw-amber-500)/.32); box-shadow: 0 0 0 3px rgb(var(--tw-amber-500)/.32); }
+      100% { background: transparent; box-shadow: 0 0 0 0 rgb(var(--tw-amber-500)/0); }
+    }
+    .ap-arrived { border-radius: .4rem; animation: ap-arrived-pulse 2.6s ease-out 1; }
+    @media (prefers-reduced-motion: reduce) { .ap-arrived { animation: none; background: rgb(var(--tw-amber-500)/.22); } }
     .ap-box { background: rgb(var(--tw-amber-500)/.08); border: 1px solid rgb(var(--tw-amber-500)/.35); border-radius: .65rem; padding: .85rem 1rem; white-space: pre-line; font-size: .93em; }
     table.ap-table { width: 100%; border-collapse: collapse; font-size: .88em; border: 1px solid rgb(var(--tw-navy-700)); border-radius: .5rem; overflow: hidden; }
     table.ap-table td { border: 1px solid rgb(var(--tw-navy-700)); padding: .5rem .65rem; vertical-align: top; white-space: pre-line; }
@@ -436,7 +444,24 @@
       document.getElementById('loading-state').classList.add('hidden');
       document.getElementById('reader-wrap').classList.remove('hidden');
       setupA4Scaling();
+      scrollToHashTarget();
     }
+
+    // ================= Deep link (vindo de uma questão do banco) =================
+    function scrollToHashTarget() {
+      const hash = (location.hash || '').replace('#', '');
+      if (!hash || !/^blk-\d+$/.test(hash)) return;
+      // espera o layout/paginação assentar antes de rolar e medir posições.
+      setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (!el) return;
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.classList.add('ap-arrived');
+        setTimeout(() => el.classList.remove('ap-arrived'), 2700);
+      }, 350);
+    }
+
+    window.addEventListener('hashchange', scrollToHashTarget);
 
     function escapeHtml(s) {
       return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -460,10 +485,9 @@
       const toc = document.getElementById('toc-panel');
       let html = '';
       let tocHtml = '';
-      let hIdx = 0;
       (apData.blocks || []).forEach((b, i) => {
+        const id = 'blk-' + i;
         if (b.type === 'h1' || b.type === 'h2' || b.type === 'h3') {
-          const id = 'sec-' + (hIdx++);
           html += `<h${b.type[1]} id="${id}" data-block="${i}" class="ap-${b.type}">${escapeHtml(b.text)}</h${b.type[1]}>`;
           tocHtml += `<a href="#${id}" class="toc-${b.type}">${escapeHtml(b.text)}</a>`;
           return;
@@ -471,9 +495,9 @@
         if (b.type === 'table') {
           const rows = b.rows || [];
           if (rows.length === 1 && rows[0].length === 1) {
-            html += `<div class="ap-table-wrap"><div class="ap-box">${escapeHtml(rows[0][0])}</div></div>`;
+            html += `<div id="${id}" class="ap-table-wrap" data-block="${i}"><div class="ap-box">${escapeHtml(rows[0][0])}</div></div>`;
           } else {
-            let t = '<div class="ap-table-wrap"><table class="ap-table"><tbody>';
+            let t = `<div id="${id}" class="ap-table-wrap" data-block="${i}"><table class="ap-table"><tbody>`;
             rows.forEach(row => {
               t += '<tr>' + row.map(c => `<td>${escapeHtml(c)}</td>`).join('') + '</tr>';
             });
@@ -486,7 +510,7 @@
         const cls = ['ap-p'];
         if (b.align === 'center') cls.push('center');
         const indent = b.indent || 0;
-        html += `<p class="${cls.join(' ')}" data-block="${i}" data-indent="${indent}">${renderRuns(b.runs)}</p>`;
+        html += `<p id="${id}" class="${cls.join(' ')}" data-block="${i}" data-indent="${indent}">${renderRuns(b.runs)}</p>`;
       });
       toc.innerHTML = tocHtml || '<p class="text-xs text-slate-500 px-1">Sem seções.</p>';
       try { await Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 700))]); } catch (e) {}

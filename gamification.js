@@ -575,6 +575,35 @@
     return publicUrl;
   }
 
+  // ===================================================================
+  // Apostila — link "Ver na apostila" a partir de uma questão do banco.
+  // Cada quiz tem (quando existe apostila correspondente) um arquivo
+  // content/apostila-links-{quizFile}.json mapeando o id da questão pra
+  // {slug, block}, gerado offline cruzando o texto da questão com o
+  // conteúdo da apostila. Nem toda questão tem mapeamento (cobertura
+  // varia por matéria); quando não tem, o link simplesmente não aparece.
+  // ===================================================================
+  var apostilaLinksCache = {};
+
+  function fetchApostilaLinks(quizFile) {
+    if (apostilaLinksCache[quizFile]) return apostilaLinksCache[quizFile];
+    var p = fetch('content/apostila-links-' + quizFile + '.json', { cache: 'no-store' })
+      .then(function (res) { if (!res.ok) throw new Error('not found'); return res.json(); })
+      .catch(function () { return {}; });
+    apostilaLinksCache[quizFile] = p;
+    return p;
+  }
+
+  function apostilaLinkHtml(linksMap, questionId) {
+    var entry = linksMap && linksMap[String(questionId)];
+    if (!entry || !entry.slug) return '';
+    var href = 'apostila-leitura.html?slug=' + encodeURIComponent(entry.slug) +
+      (typeof entry.block === 'number' ? '#blk-' + entry.block : '');
+    return '<a href="' + href + '" target="_blank" rel="noopener" ' +
+      'class="inline-flex items-center gap-1.5 mt-2 text-xs font-semibold text-amber-300 hover:text-amber-200 hover:underline">' +
+      '<i class="fa-solid fa-book-open"></i> Ver na apostila</a>';
+  }
+
   global.AlfaGamification = {
     SUBJECTS: SUBJECTS,
     TOTAL_SUBJECTS: TOTAL_SUBJECTS,
@@ -600,6 +629,8 @@
     showOfflineGate: showOfflineGate,
     fetchAprovado: fetchAprovado,
     fetchQuizAccess: fetchQuizAccess,
-    fetchAllAccess: fetchAllAccess
+    fetchAllAccess: fetchAllAccess,
+    fetchApostilaLinks: fetchApostilaLinks,
+    apostilaLinkHtml: apostilaLinkHtml
   };
 })(window);

@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('site_theme');
+        var theme = saved === 'light' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0b1b30">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="CA-AA/AFN">
+  <title>Ofensiva de Estudos · Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Sua sequência de dias estudados, meta diária e o calendário de atividade — construa o hábito de estudar todo dia.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: {
+              100: 'rgb(var(--tw-navy-100) / <alpha-value>)', 200: 'rgb(var(--tw-navy-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-navy-300) / <alpha-value>)', 400: 'rgb(var(--tw-navy-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-navy-500) / <alpha-value>)', 600: 'rgb(var(--tw-navy-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-navy-700) / <alpha-value>)', 800: 'rgb(var(--tw-navy-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-navy-900) / <alpha-value>)'
+            },
+            ink: 'rgb(var(--tw-ink) / <alpha-value>)',
+            slate: {
+              50: 'rgb(var(--tw-slate-50) / <alpha-value>)', 100: 'rgb(var(--tw-slate-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-slate-200) / <alpha-value>)', 300: 'rgb(var(--tw-slate-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-slate-400) / <alpha-value>)', 500: 'rgb(var(--tw-slate-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-slate-600) / <alpha-value>)', 700: 'rgb(var(--tw-slate-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-slate-800) / <alpha-value>)', 900: 'rgb(var(--tw-slate-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-slate-950) / <alpha-value>)'
+            },
+            emerald: {
+              50: 'rgb(var(--tw-emerald-50) / <alpha-value>)', 100: 'rgb(var(--tw-emerald-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-emerald-200) / <alpha-value>)', 300: 'rgb(var(--tw-emerald-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-emerald-400) / <alpha-value>)', 500: 'rgb(var(--tw-emerald-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-emerald-600) / <alpha-value>)', 700: 'rgb(var(--tw-emerald-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-emerald-800) / <alpha-value>)', 900: 'rgb(var(--tw-emerald-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-emerald-950) / <alpha-value>)'
+            },
+            rose: {
+              50: 'rgb(var(--tw-rose-50) / <alpha-value>)', 100: 'rgb(var(--tw-rose-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-rose-200) / <alpha-value>)', 300: 'rgb(var(--tw-rose-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-rose-400) / <alpha-value>)', 500: 'rgb(var(--tw-rose-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-rose-600) / <alpha-value>)', 700: 'rgb(var(--tw-rose-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-rose-800) / <alpha-value>)', 900: 'rgb(var(--tw-rose-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-rose-950) / <alpha-value>)'
+            },
+            amber: {
+              50: 'rgb(var(--tw-amber-50) / <alpha-value>)', 100: 'rgb(var(--tw-amber-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-amber-200) / <alpha-value>)', 300: 'rgb(var(--tw-amber-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-amber-400) / <alpha-value>)', 500: 'rgb(var(--tw-amber-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-amber-600) / <alpha-value>)', 700: 'rgb(var(--tw-amber-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-amber-800) / <alpha-value>)', 900: 'rgb(var(--tw-amber-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-amber-950) / <alpha-value>)'
+            },
+            cyan: {
+              50: 'rgb(var(--tw-cyan-50) / <alpha-value>)', 100: 'rgb(var(--tw-cyan-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-cyan-200) / <alpha-value>)', 300: 'rgb(var(--tw-cyan-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-cyan-400) / <alpha-value>)', 500: 'rgb(var(--tw-cyan-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-cyan-600) / <alpha-value>)', 700: 'rgb(var(--tw-cyan-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-cyan-800) / <alpha-value>)', 900: 'rgb(var(--tw-cyan-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-cyan-950) / <alpha-value>)'
+            },
+            sky: { 400: 'rgb(var(--tw-sky-400) / <alpha-value>)' },
+            lime: { 400: 'rgb(var(--tw-lime-400) / <alpha-value>)' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+:root {
+  --tw-slate-50: 248 250 252; --tw-slate-100: 241 245 249; --tw-slate-200: 226 232 240;
+  --tw-slate-300: 203 213 225; --tw-slate-400: 148 163 184; --tw-slate-500: 100 116 139;
+  --tw-slate-600: 71 85 105; --tw-slate-700: 51 65 85; --tw-slate-800: 30 41 59;
+  --tw-slate-900: 15 23 42; --tw-slate-950: 2 6 23;
+  --tw-emerald-50: 236 253 245; --tw-emerald-100: 209 250 229; --tw-emerald-200: 167 243 208;
+  --tw-emerald-300: 110 231 183; --tw-emerald-400: 52 211 153; --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 5 150 105; --tw-emerald-700: 4 120 87; --tw-emerald-800: 6 95 70;
+  --tw-emerald-900: 6 78 59; --tw-emerald-950: 2 44 34;
+  --tw-rose-50: 255 241 242; --tw-rose-100: 255 228 230; --tw-rose-200: 254 205 211;
+  --tw-rose-300: 253 164 175; --tw-rose-400: 251 113 133; --tw-rose-500: 244 63 94;
+  --tw-rose-600: 225 29 72; --tw-rose-700: 190 18 60; --tw-rose-800: 159 18 57;
+  --tw-rose-900: 136 19 55; --tw-rose-950: 76 5 25;
+  --tw-amber-50: 255 251 235; --tw-amber-100: 254 243 199; --tw-amber-200: 253 230 138;
+  --tw-amber-300: 252 211 77; --tw-amber-400: 251 191 36; --tw-amber-500: 245 158 11;
+  --tw-amber-600: 217 119 6; --tw-amber-700: 180 83 9; --tw-amber-800: 146 64 14;
+  --tw-amber-900: 120 53 15; --tw-amber-950: 69 26 3;
+  --tw-cyan-50: 236 254 255; --tw-cyan-100: 207 250 254; --tw-cyan-200: 165 243 252;
+  --tw-cyan-300: 103 232 249; --tw-cyan-400: 34 211 238; --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 8 145 178; --tw-cyan-700: 14 116 144; --tw-cyan-800: 21 94 117;
+  --tw-cyan-900: 22 78 99; --tw-cyan-950: 8 51 68;
+  --tw-sky-400: 56 189 248; --tw-lime-400: 163 230 53;
+  --tw-navy-100: 230 240 250; --tw-navy-200: 192 219 245; --tw-navy-300: 143 193 238;
+  --tw-navy-400: 77 158 224; --tw-navy-500: 0 102 204; --tw-navy-600: 30 86 160;
+  --tw-navy-700: 30 62 98; --tw-navy-800: 11 25 44; --tw-navy-900: 0 15 38;
+  --tw-ink: 255 255 255;
+}
+[data-theme="light"] {
+  --tw-slate-50: 2 6 23; --tw-slate-100: 15 23 42; --tw-slate-200: 30 41 59;
+  --tw-slate-300: 51 65 85; --tw-slate-400: 71 85 105; --tw-slate-500: 100 116 139;
+  --tw-slate-600: 148 163 184; --tw-slate-700: 203 213 225; --tw-slate-800: 226 232 240;
+  --tw-slate-900: 241 245 249; --tw-slate-950: 248 250 252;
+  --tw-emerald-50: 2 44 34; --tw-emerald-100: 6 78 59; --tw-emerald-200: 6 95 70;
+  --tw-emerald-300: 4 120 87; --tw-emerald-400: 5 150 105; --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 52 211 153; --tw-emerald-700: 110 231 183; --tw-emerald-800: 167 243 208;
+  --tw-emerald-900: 209 250 229; --tw-emerald-950: 236 253 245;
+  --tw-rose-50: 76 5 25; --tw-rose-100: 136 19 55; --tw-rose-200: 159 18 57;
+  --tw-rose-300: 190 18 60; --tw-rose-400: 225 29 72; --tw-rose-500: 244 63 94;
+  --tw-rose-600: 251 113 133; --tw-rose-700: 253 164 175; --tw-rose-800: 254 205 211;
+  --tw-rose-900: 255 228 230; --tw-rose-950: 255 241 242;
+  --tw-amber-50: 69 26 3; --tw-amber-100: 120 53 15; --tw-amber-200: 146 64 14;
+  --tw-amber-300: 180 83 9; --tw-amber-400: 217 119 6; --tw-amber-500: 245 158 11;
+  --tw-amber-600: 251 191 36; --tw-amber-700: 252 211 77; --tw-amber-800: 253 230 138;
+  --tw-amber-900: 254 243 199; --tw-amber-950: 255 251 235;
+  --tw-cyan-50: 8 51 68; --tw-cyan-100: 22 78 99; --tw-cyan-200: 21 94 117;
+  --tw-cyan-300: 14 116 144; --tw-cyan-400: 8 145 178; --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 34 211 238; --tw-cyan-700: 103 232 249; --tw-cyan-800: 165 243 252;
+  --tw-cyan-900: 207 250 254; --tw-cyan-950: 236 254 255;
+  --tw-sky-400: 56 189 248; --tw-lime-400: 163 230 53;
+  --tw-navy-100: 0 15 38; --tw-navy-200: 11 25 44; --tw-navy-300: 30 62 98;
+  --tw-navy-400: 30 86 160; --tw-navy-500: 0 102 204; --tw-navy-600: 77 158 224;
+  --tw-navy-700: 143 193 238; --tw-navy-800: 192 219 245; --tw-navy-900: 230 240 250;
+  --tw-ink: 11 25 44;
+}
+    @keyframes access-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    #access-card { animation: access-in .5s ease-out .1s forwards; }
+    .chrome-bg-900 { background-color: #000F26 !important; }
+    .chrome-bg-800 { background-color: #0B192C !important; }
+    .chrome-bg-600 { background-color: #1E56A0 !important; }
+    .chrome-border-700 { border-color: #1E3E62 !important; }
+    .chrome-border-600 { border-color: #1E56A0 !important; }
+    .chrome-text-white { color: #FFFFFF !important; }
+    .chrome-text-slate-400 { color: #94A3B8 !important; }
+    .chrome-text-slate-200 { color: #E2E8F0 !important; }
+    .chrome-hover-border-500:hover { border-color: #0066CC !important; }
+    button:focus-visible, select:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid #2384d6; outline-offset: 2px; }
+
+    /* ===== Calendário de atividade (estilo "contribuições") ===== */
+    #heatmap-scroll { overflow-x: auto; padding-bottom: 4px; }
+    #heatmap-scroll::-webkit-scrollbar { height: 6px; }
+    #heatmap-scroll::-webkit-scrollbar-thumb { background: #284b6d; border-radius: 999px; }
+    .heat-grid { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 13px); gap: 3px; }
+    .heat-cell {
+      width: 13px; height: 13px; border-radius: 3px; background: #0f2a47; border: 1px solid #1c3352;
+      cursor: default; transition: transform .1s ease;
+    }
+    .heat-cell:hover { transform: scale(1.35); }
+    .heat-cell.lvl-1 { background: #0d3d31; border-color: #0f4a3c; }
+    .heat-cell.lvl-2 { background: #0f6b4f; border-color: #0f6b4f; }
+    .heat-cell.lvl-3 { background: #16a06e; border-color: #16a06e; }
+    .heat-cell.lvl-4 { background: #34d399; border-color: #34d399; }
+    .heat-cell.future { background: transparent; border-color: transparent; }
+    .heat-months { display: grid; grid-auto-flow: column; font-size: 10px; color: #7f96b3; margin-bottom: 4px; }
+
+    .goal-ring { transform: rotate(-90deg); }
+    .goal-ring circle { transition: stroke-dashoffset .6s ease-out; }
+
+    .streak-flame { font-size: 44px; line-height: 1; filter: drop-shadow(0 4px 10px rgba(251,191,36,.35)); }
+    @media (prefers-reduced-motion: reduce) { .goal-ring circle { transition: none; } }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">🔥</div>
+      <div class="font-serif font-semibold text-[26px] text-ink tracking-tight">Ofensiva de Estudos</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial pra ver sua ofensiva.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-ink text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-ink underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="chrome-bg-900 border-b chrome-border-700 sticky top-0 z-30 shadow-lg">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="chrome-bg-600 chrome-text-white p-2.5 rounded-lg shadow">
+          <i class="fa-solid fa-fire text-2xl"></i>
+        </div>
+        <div>
+          <h1 class="font-serif text-xl font-semibold chrome-text-white tracking-wide">Ofensiva de Estudos</h1>
+          <p class="text-xs chrome-text-slate-400">Sua sequência de dias, sua meta e seu calendário</p>
+        </div>
+      </div>
+      <button id="theme-toggle-btn" onclick="toggleTheme()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors flex-shrink-0" title="Alternar entre modo claro e escuro" aria-label="Alternar tema claro/escuro"><i class="fa-solid fa-moon text-sm" id="theme-toggle-icon-moon"></i><i class="fa-solid fa-sun text-sm hidden" id="theme-toggle-icon-sun"></i></button>
+      <a href="index.html" class="chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 chrome-hover-border-500 transition-colors">
+        <i class="fa-solid fa-house"></i> Painel geral
+      </a>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 md:px-6 py-6 space-y-5">
+
+    <div id="loading-panel" class="text-center py-16 text-slate-400">
+      <i class="fa-solid fa-circle-notch fa-spin text-2xl"></i>
+      <p class="text-sm mt-3">Carregando sua ofensiva...</p>
+    </div>
+
+    <div id="content-panel" class="hidden space-y-5">
+
+      <!-- Streak hero -->
+      <div class="bg-navy-800/60 border border-navy-700 rounded-xl p-6 flex flex-wrap items-center gap-6">
+        <div class="flex items-center gap-4">
+          <div class="streak-flame" id="streak-flame">🔥</div>
+          <div>
+            <div class="text-4xl font-serif font-bold text-ink leading-none" id="streak-atual">0</div>
+            <div class="text-xs text-slate-400 mt-1" id="streak-atual-label">dias seguidos</div>
+          </div>
+        </div>
+        <div class="flex-1 min-w-[180px]">
+          <p class="text-sm text-slate-200 font-medium" id="streak-mensagem">Bora começar sua ofensiva hoje.</p>
+          <p class="text-xs text-slate-400 mt-1" id="streak-frase"></p>
+        </div>
+        <div class="flex gap-3 text-center flex-shrink-0">
+          <div class="bg-navy-900/60 border border-navy-700 rounded-lg px-4 py-2.5">
+            <div class="text-lg font-bold text-ink font-serif" id="streak-recorde">0</div>
+            <div class="text-[10px] text-slate-400 uppercase tracking-wide">Recorde</div>
+          </div>
+          <div class="bg-navy-900/60 border border-navy-700 rounded-lg px-4 py-2.5">
+            <div class="text-lg font-bold text-ink font-serif" id="streak-total-dias">0</div>
+            <div class="text-[10px] text-slate-400 uppercase tracking-wide">Dias estudados</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Meta diária -->
+      <div class="bg-navy-800/60 border border-navy-700 rounded-xl p-5 flex flex-wrap items-center gap-6">
+        <svg class="goal-ring flex-shrink-0" width="88" height="88" viewBox="0 0 88 88">
+          <circle cx="44" cy="44" r="38" fill="none" stroke="#1E3E62" stroke-width="8" />
+          <circle id="goal-ring-fg" cx="44" cy="44" r="38" fill="none" stroke="#34d399" stroke-width="8"
+            stroke-dasharray="238.76" stroke-dashoffset="238.76" stroke-linecap="round" />
+        </svg>
+        <div class="flex-1 min-w-[200px]">
+          <p class="text-xs font-medium text-slate-400 mb-1">Meta de hoje</p>
+          <p class="text-lg font-semibold text-ink"><span id="goal-respondidas">0</span> / <span id="goal-alvo">20</span> questões</p>
+          <p class="text-xs mt-1" id="goal-status">Responda questões em qualquer matéria pra avançar.</p>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <label for="goal-input" class="text-xs text-slate-400">Meta diária:</label>
+          <input id="goal-input" type="number" min="1" max="500" value="20"
+            class="w-20 bg-navy-900 border border-navy-700 text-slate-200 text-sm rounded-lg px-2.5 py-1.5 outline-none focus:ring-2 focus:ring-navy-500 text-center">
+          <button id="goal-save-btn" class="chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg chrome-hover-border-500 transition-colors">
+            Salvar
+          </button>
+        </div>
+      </div>
+
+      <!-- Calendário de atividade -->
+      <div class="bg-navy-800/60 border border-navy-700 rounded-xl p-5">
+        <div class="flex items-center justify-between mb-3">
+          <p class="text-sm font-semibold text-ink"><i class="fa-solid fa-calendar-days text-navy-500 mr-1.5"></i> Seu calendário de atividade</p>
+          <div class="flex items-center gap-1.5 text-[10px] text-slate-400">
+            <span>menos</span>
+            <span class="heat-cell" style="cursor:default"></span>
+            <span class="heat-cell lvl-1" style="cursor:default"></span>
+            <span class="heat-cell lvl-2" style="cursor:default"></span>
+            <span class="heat-cell lvl-3" style="cursor:default"></span>
+            <span class="heat-cell lvl-4" style="cursor:default"></span>
+            <span>mais</span>
+          </div>
+        </div>
+        <div id="heatmap-scroll">
+          <div class="heat-months" id="heat-months"></div>
+          <div class="heat-grid" id="heat-grid"></div>
+        </div>
+        <p class="text-xs text-slate-400 mt-3" id="heatmap-empty" style="display:none">
+          Ainda não temos questões respondidas registradas — assim que você começar a estudar, os dias vão aparecer coloridos aqui.
+        </p>
+      </div>
+
+      <!-- Conquistas de sequência -->
+      <div class="bg-navy-800/60 border border-navy-700 rounded-xl p-5">
+        <p class="text-sm font-semibold text-ink mb-3"><i class="fa-solid fa-medal text-amber-400 mr-1.5"></i> Conquistas de sequência</p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="streak-badges"></div>
+      </div>
+
+      <div class="text-center">
+        <a href="index.html" class="inline-flex items-center gap-2 bg-[#2869b7] hover:bg-[#3479ca] text-ink text-sm font-bold px-6 py-3 rounded-xl transition-all shadow-lg">
+          <i class="fa-solid fa-play"></i> Ir estudar agora
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="max-w-5xl w-full mx-auto px-4 md:px-6 pb-6 pt-2 text-center text-[11px] text-slate-500">
+    Plataforma de Estudos · CA-AA/AFN
+  </footer>
+
+  <script src="gamification.js"></script>
+  <script>
+    const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    applyThemeIcon();
+
+    let currentUser = null;
+
+    function applyThemeIcon() {
+      const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+      document.getElementById('theme-toggle-icon-moon').classList.toggle('hidden', theme === 'light');
+      document.getElementById('theme-toggle-icon-sun').classList.toggle('hidden', theme !== 'light');
+    }
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('site_theme', next); } catch (e) { /* ignora */ }
+      applyThemeIcon();
+    }
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    function toDayKey(dateLike) {
+      const d = new Date(dateLike);
+      return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+    }
+
+    // ---- Meta diária: guardada por usuário no localStorage (sem precisar
+    // de nenhuma tabela/coluna nova no Supabase). ----
+    function goalStorageKey(userId) { return 'alfa_meta_diaria_' + userId; }
+    function loadDailyGoal(userId) {
+      try {
+        const raw = localStorage.getItem(goalStorageKey(userId));
+        const n = parseInt(raw, 10);
+        if (n && n > 0) return n;
+      } catch (e) {}
+      return 20;
+    }
+    function saveDailyGoal(userId, valor) {
+      try { localStorage.setItem(goalStorageKey(userId), String(valor)); } catch (e) {}
+    }
+
+    const MESES_ABREV = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+
+    // Constrói a grade de 26 semanas (~6 meses) terminando hoje, estilo
+    // "calendário de contribuições": uma coluna por semana, domingo em cima.
+    function renderHeatmap(countsByDay) {
+      const grid = document.getElementById('heat-grid');
+      const monthsRow = document.getElementById('heat-months');
+      grid.innerHTML = '';
+      monthsRow.innerHTML = '';
+
+      const APPROX_WEEKS = 26;
+      const oneDay = 24 * 60 * 60 * 1000;
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      // Volta até o domingo da semana mais antiga a mostrar. Em duas etapas
+      // de propósito: primeiro recua os dias, DEPOIS alinha ao domingo
+      // daquela semana (o domingo da semana de "hoje menos N dias" quase
+      // nunca é o mesmo dia-da-semana que hoje — alinhar pode empurrar o
+      // início ainda mais pra trás, então o número de semanas é recalculado
+      // depois, pra garantir que a grade sempre alcance o dia de hoje).
+      const start = new Date(today);
+      start.setDate(start.getDate() - (APPROX_WEEKS * 7 - 1));
+      start.setDate(start.getDate() - start.getDay());
+      const totalDays = Math.round((today.getTime() - start.getTime()) / oneDay) + 1;
+      const weeks = Math.ceil(totalDays / 7);
+
+      let cursor = new Date(start);
+      let lastMonth = -1;
+      let anyActivity = false;
+
+      for (let w = 0; w < weeks; w++) {
+        const monthLabelEl = document.createElement('div');
+        const weekFirstDay = new Date(cursor);
+        if (weekFirstDay.getMonth() !== lastMonth) {
+          monthLabelEl.textContent = MESES_ABREV[weekFirstDay.getMonth()];
+          lastMonth = weekFirstDay.getMonth();
+        } else {
+          monthLabelEl.textContent = '';
+        }
+        monthsRow.appendChild(monthLabelEl);
+
+        for (let d = 0; d < 7; d++) {
+          const cell = document.createElement('div');
+          const isFuture = cursor.getTime() > today.getTime();
+          if (isFuture) {
+            cell.className = 'heat-cell future';
+          } else {
+            const key = toDayKey(cursor);
+            const count = countsByDay[key] || 0;
+            if (count > 0) anyActivity = true;
+            let lvl = 0;
+            if (count >= 40) lvl = 4;
+            else if (count >= 20) lvl = 3;
+            else if (count >= 8) lvl = 2;
+            else if (count >= 1) lvl = 1;
+            cell.className = 'heat-cell' + (lvl > 0 ? ' lvl-' + lvl : '');
+            const dataStr = cursor.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
+            cell.title = (count > 0 ? count + ' questão' + (count === 1 ? '' : 'ões') + ' respondida' + (count === 1 ? '' : 's') : 'Sem atividade') + ' — ' + dataStr;
+          }
+          grid.appendChild(cell);
+          cursor.setDate(cursor.getDate() + 1);
+        }
+      }
+
+      document.getElementById('heatmap-empty').style.display = anyActivity ? 'none' : 'block';
+    }
+
+    function renderStreakBadges(resultados) {
+      const wrap = document.getElementById('streak-badges');
+      const badges = AlfaGamification.computeBadges(resultados).filter(b => b.id.indexOf('sequencia-') === 0);
+      wrap.innerHTML = badges.map(b => `
+        <div class="rounded-lg border px-4 py-3 flex items-center gap-3 ${b.unlocked ? 'border-amber-500/40 bg-amber-500/10' : 'border-navy-700 bg-navy-900/40 opacity-60'}">
+          <i class="fa-solid ${b.icon} text-xl ${b.unlocked ? 'text-amber-400' : 'text-slate-500'}"></i>
+          <div>
+            <div class="text-xs font-semibold ${b.unlocked ? 'text-ink' : 'text-slate-400'}">${b.label}</div>
+            <div class="text-[11px] text-slate-400">${b.desc}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    async function carregarOfensiva() {
+      // `respostas_detalhadas` tem uma linha por questão respondida (em
+      // qualquer matéria, modo estudo ou prova), então dá um retrato mais
+      // fiel do dia a dia do que `resultados` (que só grava simulados
+      // inteiros finalizados).
+      const [{ data: respostas }, { data: resultados }] = await Promise.all([
+        sb.from('respostas_detalhadas').select('criado_em').eq('user_id', currentUser.id),
+        sb.from('resultados').select('criado_em, quiz_id, acertos, erros, percentual').eq('user_id', currentUser.id)
+      ]);
+
+      const listaRespostas = respostas || [];
+      const listaResultados = resultados || [];
+
+      // Contagem de questões por dia (chave "ano-mes-dia") pro calendário e
+      // pra meta diária.
+      const countsByDay = {};
+      listaRespostas.forEach(r => {
+        if (!r.criado_em) return;
+        const key = toDayKey(r.criado_em);
+        countsByDay[key] = (countsByDay[key] || 0) + 1;
+      });
+
+      // Sequência calculada em cima da atividade de questões (mais generosa
+      // e mais fiel ao "estudei hoje" do que exigir um simulado inteiro).
+      const streak = AlfaGamification.computeStreak(listaRespostas);
+      document.getElementById('streak-atual').textContent = streak.atual;
+      document.getElementById('streak-recorde').textContent = streak.recorde;
+      document.getElementById('streak-total-dias').textContent = streak.diasEstudados;
+      document.getElementById('streak-frase').textContent = AlfaGamification.fraseDoDia();
+
+      const flameEl = document.getElementById('streak-flame');
+      const msgEl = document.getElementById('streak-mensagem');
+      const estudouHoje = countsByDay[toDayKey(new Date())] > 0;
+      if (streak.atual === 0) {
+        flameEl.style.opacity = '.35';
+        msgEl.textContent = 'Você ainda não começou sua ofensiva. Responda uma questão hoje pra abrir o dia 1!';
+      } else if (estudouHoje) {
+        flameEl.style.opacity = '1';
+        msgEl.textContent = `Mandou bem — dia ${streak.atual} garantido! Continue amanhã pra não perder a sequência.`;
+      } else {
+        flameEl.style.opacity = '1';
+        msgEl.textContent = `Sua sequência de ${streak.atual} dia${streak.atual === 1 ? '' : 's'} ainda está de pé — responda algo hoje antes da meia-noite pra manter!`;
+      }
+
+      renderHeatmap(countsByDay);
+      renderStreakBadges(listaResultados);
+
+      // ---- Meta diária ----
+      const meta = loadDailyGoal(currentUser.id);
+      document.getElementById('goal-input').value = meta;
+      atualizarMetaUI(countsByDay, meta);
+    }
+
+    let confettiDisparado = false;
+    function atualizarMetaUI(countsByDay, meta) {
+      const hoje = countsByDay[toDayKey(new Date())] || 0;
+      document.getElementById('goal-respondidas').textContent = hoje;
+      document.getElementById('goal-alvo').textContent = meta;
+
+      const pct = Math.max(0, Math.min(1, meta > 0 ? hoje / meta : 0));
+      const circumference = 238.76;
+      const ring = document.getElementById('goal-ring-fg');
+      ring.setAttribute('stroke-dashoffset', String(circumference * (1 - pct)));
+
+      const statusEl = document.getElementById('goal-status');
+      if (hoje === 0) {
+        statusEl.textContent = 'Responda questões em qualquer matéria pra avançar.';
+        statusEl.className = 'text-xs mt-1 text-slate-400';
+      } else if (hoje < meta) {
+        statusEl.textContent = `Faltam ${meta - hoje} questões pra bater a meta de hoje.`;
+        statusEl.className = 'text-xs mt-1 text-amber-300';
+      } else {
+        statusEl.textContent = 'Meta de hoje batida! 🎉';
+        statusEl.className = 'text-xs mt-1 text-emerald-400 font-medium';
+        if (!confettiDisparado) {
+          confettiDisparado = true;
+          if (AlfaGamification.celebrar) AlfaGamification.celebrar();
+        }
+      }
+    }
+
+    document.getElementById('goal-save-btn').addEventListener('click', async () => {
+      let valor = parseInt(document.getElementById('goal-input').value, 10);
+      if (!valor || valor < 1) valor = 1;
+      if (valor > 500) valor = 500;
+      document.getElementById('goal-input').value = valor;
+      saveDailyGoal(currentUser.id, valor);
+      confettiDisparado = false;
+      const { data: respostas } = await sb.from('respostas_detalhadas').select('criado_em').eq('user_id', currentUser.id);
+      const countsByDay = {};
+      (respostas || []).forEach(r => {
+        if (!r.criado_em) return;
+        const key = toDayKey(r.criado_em);
+        countsByDay[key] = (countsByDay[key] || 0) + 1;
+      });
+      atualizarMetaUI(countsByDay, valor);
+    });
+    document.getElementById('goal-input').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') document.getElementById('goal-save-btn').click();
+    });
+
+    sb.auth.onAuthStateChange((event, session) => {
+      if (session && session.user) {
+        currentUser = session.user;
+        onUserAuthenticated();
+      } else {
+        currentUser = null;
+        showGate('gate-logged-out');
+      }
+    });
+
+    async function onUserAuthenticated() {
+      const aprovado = await AlfaGamification.fetchAprovado(sb, currentUser.id);
+      if (!aprovado) {
+        showGate('gate-pending');
+        return;
+      }
+      document.getElementById('access-screen').classList.add('hidden');
+      document.getElementById('loading-panel').classList.add('hidden');
+      document.getElementById('content-panel').classList.remove('hidden');
+      carregarOfensiva();
+    }
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch((err) => {
+          console.warn('Falha ao registrar o Service Worker:', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
