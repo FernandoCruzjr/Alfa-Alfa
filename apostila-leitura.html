@@ -175,9 +175,11 @@
        um destaque temporário pra chamar a atenção assim que a página abre. */
     @keyframes ap-arrived-pulse {
       0% { background: rgb(var(--tw-amber-500)/.32); box-shadow: 0 0 0 3px rgb(var(--tw-amber-500)/.32); }
+      15% { background: rgb(var(--tw-amber-500)/.32); box-shadow: 0 0 0 3px rgb(var(--tw-amber-500)/.32); }
+      70% { background: rgb(var(--tw-amber-500)/.32); box-shadow: 0 0 0 3px rgb(var(--tw-amber-500)/.28); }
       100% { background: transparent; box-shadow: 0 0 0 0 rgb(var(--tw-amber-500)/0); }
     }
-    .ap-arrived { border-radius: .4rem; animation: ap-arrived-pulse 2.6s ease-out 1; }
+    .ap-arrived { border-radius: .4rem; animation: ap-arrived-pulse 8s ease-out 1; }
     @media (prefers-reduced-motion: reduce) { .ap-arrived { animation: none; background: rgb(var(--tw-amber-500)/.22); } }
     .ap-box { background: rgb(var(--tw-amber-500)/.08); border: 1px solid rgb(var(--tw-amber-500)/.35); border-radius: .65rem; padding: .85rem 1rem; white-space: pre-line; font-size: .93em; }
     table.ap-table { width: 100%; border-collapse: collapse; font-size: .88em; border: 1px solid rgb(var(--tw-navy-700)); border-radius: .5rem; overflow: hidden; }
@@ -282,6 +284,9 @@
         </div>
       </div>
       <div class="flex items-center gap-2 flex-shrink-0">
+        <button id="voltar-questionario-btn" onclick="voltarQuestionario()" class="hidden bg-amber-500 hover:bg-amber-400 text-navy-950 text-xs font-semibold px-3 py-2 rounded-lg flex items-center gap-1.5 transition-colors" title="Voltar para a questão de onde você veio">
+          <i class="fa-solid fa-arrow-left"></i> <span class="hidden sm:inline">Voltar ao questionário</span>
+        </button>
         <button id="search-toggle-btn" onclick="toggleSearch()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors" title="Buscar nesta apostila (/)" aria-label="Buscar nesta apostila"><i class="fa-solid fa-magnifying-glass text-sm"></i></button>
         <button id="focus-toggle-btn" onclick="toggleFocusMode()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors" title="Modo leitura (só a apostila na tela)" aria-label="Ativar modo leitura"><i class="fa-solid fa-expand text-sm"></i></button>
         <button id="theme-toggle-btn" onclick="toggleTheme()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors" title="Alternar tema" aria-label="Alternar tema claro/escuro"><i class="fa-solid fa-moon text-sm" id="theme-toggle-icon-moon"></i><i class="fa-solid fa-sun text-sm hidden" id="theme-toggle-icon-sun"></i></button>
@@ -451,17 +456,42 @@
     function scrollToHashTarget() {
       const hash = (location.hash || '').replace('#', '');
       if (!hash || !/^blk-\d+$/.test(hash)) return;
+      showVoltarQuestionarioBtn();
       // espera o layout/paginação assentar antes de rolar e medir posições.
       setTimeout(() => {
         const el = document.getElementById(hash);
         if (!el) return;
         el.scrollIntoView({ behavior: 'smooth', block: 'center' });
         el.classList.add('ap-arrived');
-        setTimeout(() => el.classList.remove('ap-arrived'), 2700);
+        setTimeout(() => el.classList.remove('ap-arrived'), 8200);
       }, 350);
     }
 
     window.addEventListener('hashchange', scrollToHashTarget);
+
+    // Botão "Voltar ao questionário": só aparece quando a página foi aberta
+    // a partir de um link "Ver na apostila" (hash #blk-N). Cobre os dois
+    // jeitos que isso pode ter acontecido: (1) abriu numa aba nova (o normal)
+    // — aí é só focar/fechar essa aba e voltar pra aba do questionário, que
+    // continua exatamente como estava; (2) o navegador tratou como
+    // navegação na MESMA aba — aí "voltar" usa o histórico, o que também
+    // preserva o questionário (o navegador guarda a página anterior).
+    function showVoltarQuestionarioBtn() {
+      const btn = document.getElementById('voltar-questionario-btn');
+      if (btn) btn.classList.remove('hidden');
+    }
+    function voltarQuestionario() {
+      if (window.opener && !window.opener.closed) {
+        try { window.opener.focus(); } catch (e) {}
+        window.close();
+        return;
+      }
+      if (window.history.length > 1) {
+        window.history.back();
+        return;
+      }
+      window.close();
+    }
 
     function escapeHtml(s) {
       return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');

@@ -599,7 +599,7 @@
     if (!entry || !entry.slug) return '';
     var href = 'apostila-leitura.html?slug=' + encodeURIComponent(entry.slug) +
       (typeof entry.block === 'number' ? '#blk-' + entry.block : '');
-    return '<a href="' + href + '" target="_blank" rel="noopener" ' +
+    return '<a href="' + href + '" target="_blank" rel="opener" ' +
       'class="inline-flex items-center gap-1.5 mt-2 text-xs font-semibold text-amber-300 hover:text-amber-200 hover:underline">' +
       '<i class="fa-solid fa-book-open"></i> Ver na apostila</a>';
   }
