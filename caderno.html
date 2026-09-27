@@ -19,7 +19,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="CA-AA/AFN">
   <title>Caderno de Estudos · Plataforma de Estudos CA-AA/AFN</title>
-  <meta name="description" content="Resumos teóricos, caderno de erros automático e suas anotações livres, prontos pra imprimir.">
+  <meta name="description" content="Apostilas do curso, caderno de erros automático dividido por matéria e suas anotações livres, prontos pra imprimir.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -212,7 +212,7 @@
         </div>
         <div>
           <h1 class="font-serif text-xl font-semibold chrome-text-white tracking-wide">Caderno de Estudos</h1>
-          <p class="text-xs chrome-text-slate-400">Resumos, erros e anotações — tudo num só lugar</p>
+          <p class="text-xs chrome-text-slate-400">Apostilas, erros e anotações — tudo num só lugar</p>
         </div>
       </div>
       <div class="flex items-center gap-2 flex-shrink-0">
@@ -231,17 +231,14 @@
 
     <!-- Tabs -->
     <div class="flex gap-2 mb-5 bg-navy-800/60 border border-navy-700 rounded-xl p-1.5 no-print">
-      <button type="button" class="tab-btn active flex-1 text-sm font-medium py-2.5 rounded-lg transition-all" data-tab="resumo" onclick="switchTab('resumo')">
-        <i class="fa-solid fa-book-open mr-1.5"></i> Resumo Teórico
+      <button type="button" class="tab-btn active flex-1 text-sm font-medium py-2.5 rounded-lg transition-all" data-tab="apostilas" onclick="switchTab('apostilas')">
+        <i class="fa-solid fa-folder-open mr-1.5"></i> Apostilas
       </button>
       <button type="button" class="tab-btn flex-1 text-sm font-medium py-2.5 rounded-lg transition-all" data-tab="erros" onclick="switchTab('erros')">
         <i class="fa-solid fa-circle-xmark mr-1.5"></i> Caderno de Erros
       </button>
       <button type="button" class="tab-btn flex-1 text-sm font-medium py-2.5 rounded-lg transition-all" data-tab="notas" onclick="switchTab('notas')">
         <i class="fa-solid fa-pen mr-1.5"></i> Minhas Anotações
-      </button>
-      <button type="button" class="tab-btn flex-1 text-sm font-medium py-2.5 rounded-lg transition-all" data-tab="apostilas" onclick="switchTab('apostilas')">
-        <i class="fa-solid fa-folder-open mr-1.5"></i> Apostilas
       </button>
     </div>
 
@@ -251,59 +248,8 @@
 
     <div id="printable-area">
 
-      <!-- ===== Resumo Teórico ===== -->
-      <div id="tab-resumo" class="hidden space-y-4">
-        <div class="mb-2 no-print flex flex-wrap items-end gap-3">
-          <div class="flex-1 min-w-[220px]">
-            <label for="resumo-subject-select" class="text-xs font-medium text-slate-400 flex items-center gap-1.5 mb-1.5">
-              <i class="fa-solid fa-layer-group text-navy-500"></i> Matéria
-            </label>
-            <select id="resumo-subject-select" onchange="renderResumo()" class="w-full md:w-96 bg-navy-800 border border-navy-700 text-slate-200 text-sm rounded-lg px-3 py-2.5 outline-none focus:ring-2 focus:ring-navy-500"></select>
-          </div>
-          <button type="button" onclick="toggleNovaMateriaForm()" class="flex-shrink-0 text-xs font-medium text-navy-300 hover:text-navy-200 bg-navy-800 border border-navy-700 hover:border-navy-500 rounded-lg px-3 py-2.5 transition-colors">
-            <i class="fa-solid fa-plus mr-1"></i> Nova matéria
-          </button>
-        </div>
-
-        <form id="nova-materia-form" onsubmit="return criarMateriaCustom(event)" class="hidden no-print bg-navy-800/60 border border-navy-700 rounded-xl p-4 flex flex-wrap items-end gap-3">
-          <div class="flex-1 min-w-[220px]">
-            <label class="text-xs font-medium text-slate-400 block mb-1">Nome da nova matéria</label>
-            <input id="nova-materia-nome" required placeholder="Ex: Direito Administrativo" class="w-full bg-navy-900/60 border border-navy-700 rounded-lg px-3 py-2 text-sm text-slate-200 outline-none focus:ring-2 focus:ring-navy-500">
-          </div>
-          <button type="submit" class="text-xs font-semibold bg-navy-600 hover:bg-navy-500 text-white rounded-lg px-4 py-2.5 transition-colors">Criar</button>
-          <span id="nova-materia-status" class="text-xs text-slate-400"></span>
-        </form>
-
-        <div id="resumos-setup-needed" class="hidden bg-amber-900/20 border border-amber-700/50 rounded-xl p-5 text-sm text-amber-200">
-          <p class="font-semibold mb-2 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation"></i> Matérias personalizadas ainda não configuradas</p>
-          <p>Pra adicionar suas próprias matérias, rode UMA VEZ o script SQL <code class="bg-black/20 px-1.5 py-0.5 rounded">supabase_conteudo_extra.sql</code> no SQL Editor do seu projeto Supabase.</p>
-        </div>
-
-        <div id="resumo-content"></div>
-      </div>
-
-      <!-- ===== Caderno de Erros ===== -->
-      <div id="tab-erros" class="hidden space-y-3">
-        <div id="erros-summary" class="text-sm text-slate-300 mb-1 no-print"></div>
-        <div id="erros-empty" class="hidden text-center py-16 text-slate-400">
-          <i class="fa-solid fa-face-smile text-4xl mb-4 text-emerald-500"></i>
-          <p class="text-sm">Nenhum erro registrado até agora — continue assim!</p>
-        </div>
-        <div id="erros-loading" class="text-center py-10 text-slate-400 no-print">
-          <i class="fa-solid fa-circle-notch fa-spin text-xl"></i>
-          <p class="text-xs mt-2">Cruzando suas respostas erradas com os bancos de questões...</p>
-        </div>
-        <div id="erros-list" class="space-y-3"></div>
-      </div>
-
-      <!-- ===== Minhas Anotações (por matéria) ===== -->
-      <div id="tab-notas" class="hidden space-y-3">
-        <p class="text-xs text-slate-400 mb-2 no-print">Um espaço livre por matéria — use pra resumos próprios, dúvidas ou lembretes. Fica salvo automaticamente na nuvem.</p>
-        <div id="notas-list" class="space-y-3"></div>
-      </div>
-
       <!-- ===== Apostilas (arquivos por matéria) ===== -->
-      <div id="tab-apostilas" class="hidden space-y-3">
+      <div id="tab-apostilas" class="space-y-3">
 
         <!-- ===== Apostilas do curso (leitura + marca-texto + resumo) ===== -->
         <div class="mb-6">
@@ -449,6 +395,26 @@
         <div id="apostilas-list" class="space-y-3"></div>
       </div>
 
+      <!-- ===== Caderno de Erros (dividido por matéria) ===== -->
+      <div id="tab-erros" class="hidden space-y-3">
+        <div id="erros-summary" class="text-sm text-slate-300 mb-1 no-print"></div>
+        <div id="erros-empty" class="hidden text-center py-16 text-slate-400">
+          <i class="fa-solid fa-face-smile text-4xl mb-4 text-emerald-500"></i>
+          <p class="text-sm">Nenhum erro registrado até agora — continue assim!</p>
+        </div>
+        <div id="erros-loading" class="text-center py-10 text-slate-400 no-print">
+          <i class="fa-solid fa-circle-notch fa-spin text-xl"></i>
+          <p class="text-xs mt-2">Cruzando suas respostas erradas com os bancos de questões...</p>
+        </div>
+        <div id="erros-list" class="space-y-3"></div>
+      </div>
+
+      <!-- ===== Minhas Anotações (por matéria) ===== -->
+      <div id="tab-notas" class="hidden space-y-3">
+        <p class="text-xs text-slate-400 mb-2 no-print">Um espaço livre por matéria — use pra resumos próprios, dúvidas ou lembretes. Fica salvo automaticamente na nuvem.</p>
+        <div id="notas-list" class="space-y-3"></div>
+      </div>
+
     </div>
 
   </main>
@@ -468,8 +434,6 @@
     let currentUser = null;
     let errosLoaded = false, notasLoaded = false, apostilasLoaded = false;
     let notesCache = {}; // key `${quiz_id}::${question_id}` -> texto
-    let resumosCustomCache = []; // linhas de resumos_custom já carregadas
-    let resumosCustomSetupOk = true; // vira false se a tabela ainda não existir
     let apostilasCache = []; // linhas de apostilas já carregadas
     let apostilasSetupOk = true; // vira false se a tabela/bucket ainda não existirem
 
@@ -498,314 +462,10 @@
     }
     function switchTab(tab) {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
-      ['resumo', 'erros', 'notas', 'apostilas'].forEach(t => document.getElementById('tab-' + t).classList.toggle('hidden', t !== tab));
+      ['apostilas', 'erros', 'notas'].forEach(t => document.getElementById('tab-' + t).classList.toggle('hidden', t !== tab));
       if (tab === 'erros' && !errosLoaded) loadErros();
       if (tab === 'notas' && !notasLoaded) loadNotasLivres();
       if (tab === 'apostilas' && !apostilasLoaded) loadApostilas();
-    }
-
-    // =================================================================
-    // RESUMO TEÓRICO
-    // =================================================================
-    // Conteúdo completo, por enquanto, só para Estatuto dos Militares & RDM
-    // (a matéria com a base legal mais estudada nesta plataforma). As demais
-    // aparecem como "em breve" — preferimos deixar isso claro a inventar
-    // um resumo raso.
-    const RESUMOS = {
-      ESTATUTO_RDM: {
-        titulo: 'Estatuto dos Militares & RDM — Resumo por Tópico',
-        fonte: 'Baseado na Lei nº 6.880/1980 (Estatuto dos Militares) e no Decreto nº 88.545/1983 (RDM da Marinha).',
-        topicos: [
-          ['Do Valor e da Ética Militar', 'Define os valores essenciais da profissão militar — patriotismo, civismo, disciplina consciente e culto às tradições — que orientam a conduta do militar dentro e fora do serviço.'],
-          ['Dos Deveres Militares', 'Trata do conjunto de vínculos racionais e morais que ligam o militar à Pátria e ao serviço, como dedicação, disciplina, probidade e espírito de corpo.'],
-          ['Do Comando e da Subordinação', 'Estabelece a hierarquia como base da organização militar: quem exerce comando, os limites da autoridade e o dever de obediência dentro da cadeia hierárquica.'],
-          ['Dos Conselhos de Justificação e de Disciplina', 'Descreve os colegiados que apuram fatos que possam comprometer a permanência do militar nas Forças Armadas, garantindo direito de defesa antes de qualquer exclusão.'],
-          ['Da Promoção', 'Trata dos critérios (antiguidade, merecimento, tempo de serviço) e das condições que habilitam um militar a subir de posto ou graduação.'],
-          ['Das Férias e Outros Afastamentos', 'Regula o período de descanso anual e outras formas de afastamento temporário do serviço, com seus direitos e limitações.'],
-          ['Das Licenças', 'Trata das licenças a que o militar tem direito (saúde, tratamento de interesse particular, entre outras) e as condições para concessão.'],
-          ['Definição de Contravenção Disciplinar', 'Conceitua o que é uma transgressão disciplinar dentro do RDM: toda ação ou omissão contrária aos preceitos éticos e disciplinares militares que não constitua crime.'],
-          ['Da Natureza das Contravenções e suas Circunstâncias', 'Classifica as contravenções (leves, médias, graves) e as circunstâncias atenuantes ou agravantes consideradas na avaliação de cada caso.'],
-          ['Das Penas Disciplinares', 'Lista as penas previstas no RDM (advertência, repreensão, detenção, prisão, entre outras) aplicáveis conforme a gravidade da transgressão.'],
-          ['Da Competência e Jurisdição para Imposição de Penas', 'Define quais autoridades têm competência para aplicar cada tipo de pena disciplinar, respeitando o nível hierárquico do transgressor.'],
-          ['Do Cumprimento das Penas Disciplinares', 'Trata de como e onde as penas disciplinares são cumpridas, incluindo prazos e condições específicas.'],
-          ['Das Normas para Imposição de Penas', 'Estabelece o procedimento formal que deve ser seguido antes de aplicar uma pena, incluindo apuração dos fatos e direito de manifestação do militar.'],
-          ['Do Compromisso Militar', 'Trata do ato solene em que o militar assume formalmente os deveres e responsabilidades da carreira das armas.'],
-          ['Da Violação das Obrigações e dos Deveres Militares', 'Aborda as consequências do descumprimento dos deveres estabelecidos no Estatuto, que podem envolver desde sanções disciplinares até processos mais graves.'],
-          ['Dos Crimes Militares e das Contravenções/Transgressões Disciplinares', 'Diferencia crime militar (tipificado no Código Penal Militar) de transgressão disciplinar (tratada administrativamente pelo RDM).'],
-          ['Dos Direitos dos Militares', 'Enumera direitos como remuneração, assistência à saúde, uso de uniforme, entre outros assegurados pelo Estatuto.'],
-          ['Da Remuneração', 'Trata da estrutura de soldo e demais vantagens pecuniárias devidas ao militar em atividade.'],
-          ['Da Pensão Militar', 'Regula o benefício devido aos dependentes do militar em caso de falecimento, garantindo amparo à família.'],
-          ['Das Prerrogativas dos Militares', 'Lista prerrogativas específicas da condição militar, como o uso do posto/graduação e certas garantias funcionais.'],
-          ['Do Uso dos Uniformes', 'Regula quando, como e por quem os uniformes militares devem ser usados, incluindo regras de apresentação pessoal.'],
-          ['Especificação das Contravenções Disciplinares', 'Detalha exemplos concretos de condutas que configuram transgressões disciplinares dentro da rotina militar.'],
-          ['Da Contagem do Tempo de Punição', 'Trata de como se computam os prazos das penas disciplinares aplicadas, incluindo eventuais suspensões de contagem.'],
-          ['Do Registro e da Transcrição', 'Aborda o registro formal das punições na ficha do militar e os efeitos desse registro na carreira.'],
-          ['Da Anulação, Atenuação, Agravamento, Relevamento e Cancelamento', 'Trata das formas de revisão de uma pena já aplicada — quando ela pode ser anulada, reduzida, aumentada ou até cancelada.'],
-          ['Da Parte e da Prisão Imediata', 'Regula o procedimento de comunicação formal ("parte") de uma transgressão e os casos em que cabe prisão disciplinar imediata.'],
-          ['Dos Recursos', 'Trata do direito do militar de recorrer contra uma punição disciplinar que considere injusta, e os trâmites desse recurso.']
-        ]
-      }
-    };
-
-    function slugMateria(nome) {
-      return 'CUSTOM:' + nome.trim().toLowerCase();
-    }
-
-    function materiasCustomDistintas() {
-      const vistas = {};
-      const lista = [];
-      resumosCustomCache.forEach(r => {
-        const key = r.materia.trim().toLowerCase();
-        if (!vistas[key]) { vistas[key] = true; lista.push(r.materia); }
-      });
-      return lista.sort((a, b) => a.localeCompare(b, 'pt-BR'));
-    }
-
-    function populateResumoSelect() {
-      const select = document.getElementById('resumo-subject-select');
-      const valorAtual = select.value;
-      select.innerHTML = '';
-      Object.keys(AlfaGamification.SUBJECTS).forEach(quizId => {
-        if (quizId === 'PROVA_SIMULADA') return;
-        const info = AlfaGamification.SUBJECTS[quizId];
-        const opt = document.createElement('option');
-        opt.value = quizId;
-        opt.textContent = info.label + (RESUMOS[quizId] ? '' : ' (em breve)');
-        select.appendChild(opt);
-      });
-      const custom = materiasCustomDistintas();
-      if (custom.length) {
-        const grupo = document.createElement('optgroup');
-        grupo.label = 'Minhas matérias';
-        custom.forEach(nome => {
-          const opt = document.createElement('option');
-          opt.value = slugMateria(nome);
-          opt.textContent = nome;
-          grupo.appendChild(opt);
-        });
-        select.appendChild(grupo);
-      }
-      const opcoes = Array.from(select.options).map(o => o.value);
-      if (valorAtual && opcoes.includes(valorAtual)) select.value = valorAtual;
-      else select.value = 'ESTATUTO_RDM';
-    }
-
-    async function loadResumosCustom() {
-      try {
-        const { data, error } = await sb.from('resumos_custom').select('id, materia, titulo, conteudo, ordem, criado_em').order('materia').order('ordem');
-        if (error) throw error;
-        resumosCustomCache = data || [];
-        resumosCustomSetupOk = true;
-        document.getElementById('resumos-setup-needed').classList.add('hidden');
-      } catch (e) {
-        resumosCustomCache = [];
-        resumosCustomSetupOk = false;
-      }
-    }
-
-    function toggleNovaMateriaForm() {
-      if (!resumosCustomSetupOk) {
-        document.getElementById('resumos-setup-needed').classList.remove('hidden');
-        document.getElementById('resumos-setup-needed').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
-      }
-      document.getElementById('nova-materia-form').classList.toggle('hidden');
-      const input = document.getElementById('nova-materia-nome');
-      if (!document.getElementById('nova-materia-form').classList.contains('hidden')) input.focus();
-    }
-
-    async function criarMateriaCustom(event) {
-      event.preventDefault();
-      const input = document.getElementById('nova-materia-nome');
-      const status = document.getElementById('nova-materia-status');
-      const nome = input.value.trim();
-      if (!nome) return false;
-
-      // Se já existir uma matéria personalizada com esse nome (comparação sem
-      // diferenciar maiúsculas/acentos de caixa), só seleciona ela em vez de duplicar.
-      const existente = materiasCustomDistintas().find(m => m.toLowerCase() === nome.toLowerCase());
-      if (existente) {
-        selecionarResumo(slugMateria(existente));
-        input.value = '';
-        document.getElementById('nova-materia-form').classList.add('hidden');
-        return false;
-      }
-
-      status.textContent = 'Criando...';
-      try {
-        // Cria a matéria com um primeiro tópico placeholder, já que o grupo só
-        // existe (aparece no seletor) quando há pelo menos uma linha salva.
-        const { error } = await sb.from('resumos_custom').insert({
-          materia: nome,
-          titulo: 'Visão geral',
-          conteudo: 'Clique em "Adicionar tópico" pra começar a preencher o resumo desta matéria.',
-          ordem: 0,
-          criado_por: currentUser.id
-        });
-        if (error) throw error;
-        await loadResumosCustom();
-        populateResumoSelect();
-        selecionarResumo(slugMateria(nome));
-        input.value = '';
-        status.textContent = '';
-        document.getElementById('nova-materia-form').classList.add('hidden');
-      } catch (e) {
-        console.warn('Falha ao criar matéria personalizada:', e);
-        status.textContent = 'Erro ao criar — tente novamente.';
-      }
-      return false;
-    }
-
-    function selecionarResumo(valor) {
-      document.getElementById('resumo-subject-select').value = valor;
-      renderResumo();
-    }
-
-    function renderResumo() {
-      const valor = document.getElementById('resumo-subject-select').value;
-      const container = document.getElementById('resumo-content');
-
-      if (valor.startsWith('CUSTOM:')) {
-        const nomeMateria = valor.slice('CUSTOM:'.length);
-        const topicos = resumosCustomCache
-          .filter(r => r.materia.trim().toLowerCase() === nomeMateria)
-          .sort((a, b) => (a.ordem - b.ordem) || a.titulo.localeCompare(b.titulo, 'pt-BR'));
-        const nomeExibicao = topicos.length ? topicos[0].materia : nomeMateria;
-        container.innerHTML = `
-          <div class="bg-navy-800/60 border border-navy-700 rounded-xl p-5 mb-3 flex items-center justify-between gap-3">
-            <div>
-              <h2 class="font-serif text-lg font-semibold text-ink mb-1">${nomeExibicao.replace(/</g,'&lt;')}</h2>
-              <p class="text-xs text-slate-400">Matéria personalizada — adicionada por você.</p>
-            </div>
-            <button type="button" onclick="excluirMateriaCustom('${nomeExibicao.replace(/'/g, "\\'")}')" class="no-print flex-shrink-0 text-[11px] text-rose-400 hover:text-rose-300 font-medium">
-              <i class="fa-solid fa-trash-can mr-1"></i> Excluir matéria
-            </button>
-          </div>
-          ${topicos.map((t, i) => `
-            <details class="topic-summary bg-navy-800/60 border border-navy-700 rounded-xl overflow-hidden" ${i < 2 ? 'open' : ''}>
-              <summary class="px-4 py-3 flex items-center justify-between gap-2 hover:bg-navy-700/30 transition-colors">
-                <span class="text-sm font-medium text-ink"><span class="text-navy-400 font-mono text-xs mr-1.5">${i + 1}.</span>${t.titulo.replace(/</g,'&lt;')}</span>
-                <span class="flex items-center gap-3 flex-shrink-0">
-                  <i class="fa-solid fa-trash-can text-xs text-rose-400/80 hover:text-rose-300 no-print" title="Excluir tópico" onclick="event.preventDefault(); excluirTopicoCustom('${t.id}')"></i>
-                  <i class="fa-solid fa-chevron-down text-xs text-slate-500 no-print"></i>
-                </span>
-              </summary>
-              <div class="px-4 pb-4 text-sm text-slate-300 leading-relaxed border-t border-navy-700/60 pt-3 whitespace-pre-line">${t.conteudo.replace(/</g,'&lt;')}</div>
-            </details>
-          `).join('')}
-          <button type="button" onclick="toggleNovoTopicoForm()" class="no-print w-full text-xs font-medium text-navy-300 hover:text-navy-200 bg-navy-800/60 border border-dashed border-navy-700 hover:border-navy-500 rounded-xl py-3 transition-colors">
-            <i class="fa-solid fa-plus mr-1"></i> Adicionar tópico
-          </button>
-          <form id="novo-topico-form" onsubmit="return salvarTopicoCustom(event, '${nomeExibicao.replace(/'/g, "\\'")}')" class="hidden no-print bg-navy-800/60 border border-navy-700 rounded-xl p-4 space-y-2.5">
-            <div>
-              <label class="text-xs font-medium text-slate-400 block mb-1">Título do tópico</label>
-              <input id="novo-topico-titulo" required placeholder="Ex: Dos Princípios Gerais" class="w-full bg-navy-900/60 border border-navy-700 rounded-lg px-3 py-2 text-sm text-slate-200 outline-none focus:ring-2 focus:ring-navy-500">
-            </div>
-            <div>
-              <label class="text-xs font-medium text-slate-400 block mb-1">Conteúdo</label>
-              <textarea id="novo-topico-conteudo" required rows="5" placeholder="Escreva o resumo desse tópico..." class="w-full bg-navy-900/60 border border-navy-700 rounded-lg px-3 py-2 text-sm text-slate-200 outline-none focus:ring-2 focus:ring-navy-500"></textarea>
-            </div>
-            <div class="flex items-center gap-3">
-              <button type="submit" class="text-xs font-semibold bg-navy-600 hover:bg-navy-500 text-white rounded-lg px-4 py-2 transition-colors">Salvar tópico</button>
-              <span id="novo-topico-status" class="text-xs text-slate-400"></span>
-            </div>
-          </form>
-        `;
-        return;
-      }
-
-      const quizId = valor;
-      const resumo = RESUMOS[quizId];
-      if (!resumo) {
-        container.innerHTML = `
-          <div class="text-center py-16 text-slate-400">
-            <i class="fa-solid fa-hourglass-half text-3xl mb-4 text-navy-600"></i>
-            <p class="text-sm">O resumo teórico de <strong class="text-slate-300">${AlfaGamification.labelFor(quizId)}</strong> ainda está em produção.</p>
-            <p class="text-xs mt-1 text-slate-500">Por enquanto, o resumo completo está disponível para Estatuto dos Militares & RDM — mas você já pode criar sua própria matéria personalizada com o botão acima.</p>
-          </div>`;
-        return;
-      }
-      container.innerHTML = `
-        <div class="bg-navy-800/60 border border-navy-700 rounded-xl p-5 mb-3">
-          <h2 class="font-serif text-lg font-semibold text-ink mb-1">${resumo.titulo}</h2>
-          <p class="text-xs text-slate-400">${resumo.fonte}</p>
-        </div>
-        ${resumo.topicos.map((t, i) => `
-          <details class="topic-summary bg-navy-800/60 border border-navy-700 rounded-xl overflow-hidden" ${i < 2 ? 'open' : ''}>
-            <summary class="px-4 py-3 flex items-center justify-between gap-2 hover:bg-navy-700/30 transition-colors">
-              <span class="text-sm font-medium text-ink"><span class="text-navy-400 font-mono text-xs mr-1.5">${i + 1}.</span>${t[0]}</span>
-              <i class="fa-solid fa-chevron-down text-xs text-slate-500 no-print"></i>
-            </summary>
-            <div class="px-4 pb-4 text-sm text-slate-300 leading-relaxed border-t border-navy-700/60 pt-3">${t[1]}</div>
-          </details>
-        `).join('')}
-      `;
-    }
-
-    function toggleNovoTopicoForm() {
-      const form = document.getElementById('novo-topico-form');
-      if (!form) return;
-      form.classList.toggle('hidden');
-      if (!form.classList.contains('hidden')) document.getElementById('novo-topico-titulo').focus();
-    }
-
-    async function salvarTopicoCustom(event, nomeMateria) {
-      event.preventDefault();
-      const titulo = document.getElementById('novo-topico-titulo').value.trim();
-      const conteudo = document.getElementById('novo-topico-conteudo').value.trim();
-      const status = document.getElementById('novo-topico-status');
-      if (!titulo || !conteudo) return false;
-      status.textContent = 'Salvando...';
-      try {
-        const ordemAtual = resumosCustomCache.filter(r => r.materia.trim().toLowerCase() === nomeMateria.trim().toLowerCase()).length;
-        const { error } = await sb.from('resumos_custom').insert({
-          materia: nomeMateria,
-          titulo,
-          conteudo,
-          ordem: ordemAtual,
-          criado_por: currentUser.id
-        });
-        if (error) throw error;
-        await loadResumosCustom();
-        populateResumoSelect();
-        selecionarResumo(slugMateria(nomeMateria));
-      } catch (e) {
-        console.warn('Falha ao salvar tópico personalizado:', e);
-        status.textContent = 'Erro ao salvar — tente novamente.';
-      }
-      return false;
-    }
-
-    async function excluirTopicoCustom(id) {
-      if (!confirm('Excluir este tópico? Essa ação não pode ser desfeita.')) return;
-      try {
-        const { error } = await sb.from('resumos_custom').delete().eq('id', id);
-        if (error) throw error;
-        const materiaDoTopico = (resumosCustomCache.find(r => r.id === id) || {}).materia;
-        await loadResumosCustom();
-        populateResumoSelect();
-        if (materiaDoTopico && materiasCustomDistintas().some(m => m.toLowerCase() === materiaDoTopico.toLowerCase())) {
-          selecionarResumo(slugMateria(materiaDoTopico));
-        } else {
-          selecionarResumo('ESTATUTO_RDM');
-        }
-      } catch (e) {
-        alert('Não foi possível excluir o tópico agora. Tente novamente.');
-      }
-    }
-
-    async function excluirMateriaCustom(nomeMateria) {
-      const qtd = resumosCustomCache.filter(r => r.materia.trim().toLowerCase() === nomeMateria.trim().toLowerCase()).length;
-      if (!confirm(`Excluir a matéria "${nomeMateria}" e ${qtd} tópico${qtd === 1 ? '' : 's'}? Essa ação não pode ser desfeita.`)) return;
-      try {
-        const { error } = await sb.from('resumos_custom').delete().ilike('materia', nomeMateria);
-        if (error) throw error;
-        await loadResumosCustom();
-        populateResumoSelect();
-        selecionarResumo('ESTATUTO_RDM');
-      } catch (e) {
-        alert('Não foi possível excluir a matéria agora. Tente novamente.');
-      }
     }
 
     // =================================================================
@@ -998,11 +658,10 @@
       const doCatalogo = Object.keys(AlfaGamification.SUBJECTS)
         .filter(id => id !== 'PROVA_SIMULADA')
         .map(id => AlfaGamification.labelFor(id));
-      const doCustom = materiasCustomDistintas();
       const dasApostilas = apostilasCache.map(a => a.materia);
       const vistas = {};
       const lista = [];
-      [...doCatalogo, ...doCustom, ...dasApostilas].forEach(nome => {
+      [...doCatalogo, ...dasApostilas].forEach(nome => {
         const key = nome.trim().toLowerCase();
         if (!vistas[key]) { vistas[key] = true; lista.push(nome); }
       });
@@ -1175,10 +834,8 @@
       }
       document.getElementById('access-screen').classList.add('hidden');
       document.getElementById('loading-state').classList.add('hidden');
-      await loadResumosCustom();
-      populateResumoSelect();
-      renderResumo();
-      document.getElementById('tab-resumo').classList.remove('hidden');
+      document.getElementById('tab-apostilas').classList.remove('hidden');
+      if (!apostilasLoaded) loadApostilas();
     }
   </script>
   <script>
