@@ -530,6 +530,7 @@
           <div class="text-xs md:text-sm text-slate-300 mt-3 pt-3 border-t border-slate-700/60 hidden" id="explanation-detail">
             <span class="text-navy-400 font-semibold">Como resolver: </span><span id="explanation-detail-text"></span>
           </div>
+          <div id="apostila-link-wrap" class="mt-2"></div>
         </div>
 
         <button id="flashcard-btn" onclick="saveAsFlashcard()" class="mt-4 w-full h-11 rounded-xl border border-navy-700 bg-navy-800/60 hover:bg-navy-700/60 hover:border-navy-500 text-slate-200 text-sm font-medium transition-all flex items-center justify-center gap-2">
@@ -1934,9 +1935,14 @@ const questionsData = [
       showGate('gate-logged-out');
     }
 
+    let apostilaLinksMap = {};
     // Init App
     window.addEventListener('DOMContentLoaded', () => {
       applyThemeIcon();
+      AlfaGamification.fetchApostilaLinks('matematica').then((m) => {
+        apostilaLinksMap = m || {};
+        try { if (typeof renderQuestion === 'function' && typeof currentIndex !== 'undefined') renderQuestion(); } catch (e) {}
+      });
       populateSubjectFilter();
       sb.auth.onAuthStateChange((event, session) => {
         if (session && session.user) {
@@ -2231,6 +2237,9 @@ const questionsData = [
         } else {
           expDetail.classList.add('hidden');
         }
+
+        var apLinkWrap = document.getElementById('apostila-link-wrap');
+        if (apLinkWrap) { apLinkWrap.innerHTML = AlfaGamification.apostilaLinkHtml(apostilaLinksMap, q.id); }
       } else {
         expBox.classList.add('hidden');
       }
