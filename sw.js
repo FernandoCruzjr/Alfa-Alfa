@@ -1,16 +1,21 @@
 // Service Worker — Plataforma de Estudos CA-AA/AFN
 // Estratégia:
-//  - Páginas e assets do próprio site (mesma origem): cache-first, com atualização em segundo
-//    plano (stale-while-revalidate), pra funcionar offline e ainda pegar conteúdo novo na
-//    próxima visita online.
-//  - Bibliotecas externas (Tailwind CDN, FontAwesome, Google Fonts, Supabase JS): cache-first
-//    depois da primeira visita online — não dá pra "compilar localmente" essas libs aqui, então
-//    cachear a resposta da CDN é a forma de deixar o site utilizável offline mesmo assim.
+//  - Páginas e assets do próprio site (mesma origem): network-first — busca sempre a rede
+//    primeiro (e atualiza o cache com a resposta), só caindo pro cache se a rede falhar
+//    (offline). Isso garante que conteúdo novo (apostilas, questões, links, o próprio
+//    caderno.html etc.) apareça JÁ NA PRIMEIRA visita depois de publicado, sem precisar
+//    recarregar cada matéria uma segunda vez pra "pegar" a atualização — que era o
+//    comportamento antigo com stale-while-revalidate (sempre mostrava a versão em cache
+//    primeiro e só atualizava o cache em segundo plano, pra próxima visita).
+//  - Bibliotecas externas (Tailwind CDN, FontAwesome, Google Fonts, Supabase JS): continuam
+//    stale-while-revalidate (cache-first com atualização em segundo plano) — essas praticamente
+//    não mudam, então não há motivo pra pagar uma requisição de rede a cada vez, e isso mantém
+//    o site utilizável offline mesmo assim.
 //  - Chamadas à API do Supabase (autenticação, leitura/gravação de progresso): NUNCA cacheadas.
 //    Precisam de rede de verdade; se estiver offline elas simplesmente falham (o app já cai pro
 //    cache local via localStorage nesse caso).
 
-const CACHE_VERSION = 'v5';
+const CACHE_VERSION = 'v6';
 const CACHE_NAME = `caaa-afn-${CACHE_VERSION}`;
 
 // Páginas do site a pré-cachear na instalação (exclui páginas órfãs sem link ativo no menu).
@@ -118,8 +123,9 @@ function isRuntimeCacheHost(url) {
   return RUNTIME_CACHE_HOSTS.some((host) => url.hostname === host);
 }
 
-// Estratégia stale-while-revalidate: responde do cache na hora (se existir) e, em paralelo,
-// busca na rede pra atualizar o cache pra próxima vez. Se não houver cache, espera a rede.
+// Estratégia stale-while-revalidate (usada só pras libs externas): responde do cache na
+// hora (se existir) e, em paralelo, busca na rede pra atualizar o cache pra próxima vez.
+// Se não houver cache, espera a rede.
 function staleWhileRevalidate(request) {
   return caches.open(CACHE_NAME).then((cache) =>
     cache.match(request).then((cached) => {
@@ -137,6 +143,22 @@ function staleWhileRevalidate(request) {
   );
 }
 
+// Estratégia network-first (usada pro próprio site): busca a rede primeiro; se der certo,
+// atualiza o cache e responde com o que veio de lá — sempre a versão mais nova. Só usa o
+// cache se a rede falhar (sem internet) ou não houver nada em cache ainda.
+function networkFirst(request) {
+  return caches.open(CACHE_NAME).then((cache) =>
+    fetch(request)
+      .then((response) => {
+        if (response && response.ok) {
+          cache.put(request, response.clone());
+        }
+        return response;
+      })
+      .catch(() => cache.match(request))
+  );
+}
+
 self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return; // nunca intercepta POST/PATCH/etc (ex: gravações no Supabase)
@@ -148,7 +170,9 @@ self.addEventListener('fetch', (event) => {
   if (url.hostname === SUPABASE_HOST) return;
 
   const sameOrigin = url.origin === self.location.origin;
-  if (sameOrigin || isRuntimeCacheHost(url)) {
+  if (sameOrigin) {
+    event.respondWith(networkFirst(req));
+  } else if (isRuntimeCacheHost(url)) {
     event.respondWith(staleWhileRevalidate(req));
   }
   // Qualquer outra origem (não listada) segue o comportamento padrão do navegador, sem SW.
