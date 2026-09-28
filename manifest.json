@@ -1,6 +1,6 @@
 {
-  "name": "Plataforma de Estudos CA-AA/AFN",
-  "short_name": "CA-AA/AFN",
+  "name": "Aprovação Oficial",
+  "short_name": "Aprovação Oficial",
   "description": "Simulados, flashcards e recursos de estudo para o Concurso de Admissão ao Curso de Formação de Oficiais Auxiliares (CA-AA/AFN) da Marinha.",
   "id": "/index.html",
   "start_url": "/index.html",

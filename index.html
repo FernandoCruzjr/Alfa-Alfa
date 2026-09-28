@@ -19,10 +19,10 @@
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="CA-AA/AFN">
-  <title>Plataforma de Estudos · CA-AA/AFN</title>
+  <meta name="apple-mobile-web-app-title" content="Aprovação Oficial">
+  <title>Aprovação Oficial · Plataforma de Estudos CA-AA/AFN</title>
   <meta name="description" content="Simulados gratuitos e interativos para o Concurso de Admissão ao Curso de Formação de Oficiais Auxiliares (CA-AA/AFN).">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%93%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" href="icons/favicon-32.png">
   <link rel="preload" as="image" href="login-oficial-mesa.jpg">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
@@ -280,6 +280,75 @@
     @media (prefers-reduced-motion: reduce) {
       #access-card, .shake { animation: none !important; }
       #access-screen.exiting { animation: none !important; opacity: 0; }
+      #splash-logo, #splash-ring, #splash-dots span { animation: none !important; }
+    }
+
+    /* ===== Tela de abertura (splash) — logo animando por ~3s antes do login ===== */
+    #splash-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      background: linear-gradient(135deg, #061326, #08182b 55%, #0b1b30);
+      transition: opacity .6s ease;
+    }
+    #splash-screen.splash-hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+    #splash-logo-wrap {
+      position: relative;
+      width: 112px;
+      height: 112px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #splash-ring {
+      position: absolute;
+      inset: -11px;
+      border-radius: 30px;
+      border: 2px solid rgba(201, 164, 76, .18);
+      border-top-color: #c9a44c;
+      border-right-color: #c9a44c;
+      animation: splash-spin 1.15s linear infinite;
+    }
+    #splash-logo {
+      width: 100%;
+      height: 100%;
+      border-radius: 22px;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, .45), 0 0 0 1px rgba(201, 164, 76, .35);
+      animation: splash-pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes splash-spin {
+      to { transform: rotate(360deg); }
+    }
+    @keyframes splash-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.045); }
+    }
+    #splash-dots {
+      display: inline-flex;
+      gap: 4px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    #splash-dots span {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #c9a44c;
+      animation: splash-dot-bounce 1.2s ease-in-out infinite;
+    }
+    #splash-dots span:nth-child(2) { animation-delay: .15s; }
+    #splash-dots span:nth-child(3) { animation-delay: .3s; }
+    @keyframes splash-dot-bounce {
+      0%, 80%, 100% { opacity: .25; transform: translateY(0); }
+      40% { opacity: 1; transform: translateY(-2px); }
     }
 
     /* ===== "Chrome" do cabeçalho: fica sempre navy escuro, independente do tema ===== */
@@ -508,6 +577,34 @@
   </style>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans" style="background:#0c1116">
+
+  <!-- Tela de abertura (splash): logo animando por ~3s antes de mostrar o login -->
+  <div id="splash-screen" aria-hidden="true">
+    <div id="splash-logo-wrap">
+      <div id="splash-ring"></div>
+      <img id="splash-logo" src="icons/icon-192.png" alt="" width="112" height="112">
+    </div>
+    <div class="text-center">
+      <div class="font-serif font-semibold text-[22px] text-ink tracking-wide">Aprovação Oficial</div>
+      <div class="text-[11px] text-[#9bb5d2] mt-1.5 tracking-[0.2em] uppercase flex items-center justify-center">
+        Carregando
+        <span id="splash-dots"><span></span><span></span><span></span></span>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Mostra a tela de abertura por ~3s (mínimo), independente de quanto tempo o resto da
+    // página leva pra carregar, e some com um fade suave — roda assim que o parser chega
+    // aqui, antes do resto do body, pra contar o tempo certo desde o início real da visita.
+    (function () {
+      setTimeout(function () {
+        var splash = document.getElementById('splash-screen');
+        if (!splash) return;
+        splash.classList.add('splash-hide');
+        setTimeout(function () { splash.style.display = 'none'; }, 650);
+      }, 3000);
+    })();
+  </script>
 
   <!-- Tela de acesso: login / cadastro / recuperação de senha via Supabase Auth -->
   <div id="access-screen" class="hidden fixed inset-0 z-[100] flex items-center justify-start px-5 md:px-16 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
