@@ -173,13 +173,24 @@
     .ap-table-wrap { margin: 1rem 0 1.4rem; scroll-margin-top: 90px; }
     /* Trecho apontado por um link "Ver na apostila" (vindo de uma questão) —
        um destaque temporário pra chamar a atenção assim que a página abre. */
+    /* Piscada de aviso (4x, com intervalo de 1s) que roda ANTES do destaque
+       fixo, pra chamar atenção assim que a página chega no trecho certo. */
+    @keyframes ap-blink-flash {
+      0% { background: rgb(var(--tw-amber-400)/.55); box-shadow: 0 0 0 3px rgb(var(--tw-amber-400)/.55); }
+      35% { background: rgb(var(--tw-amber-400)/.55); box-shadow: 0 0 0 3px rgb(var(--tw-amber-400)/.55); }
+      55% { background: transparent; box-shadow: 0 0 0 0 rgb(var(--tw-amber-400)/0); }
+      100% { background: transparent; box-shadow: 0 0 0 0 rgb(var(--tw-amber-400)/0); }
+    }
+    .ap-blink { border-radius: .4rem; animation: ap-blink-flash 1s ease-in-out 4; }
+    @media (prefers-reduced-motion: reduce) { .ap-blink { animation: none; background: rgb(var(--tw-amber-500)/.22); } }
+
     @keyframes ap-arrived-pulse {
       0% { background: rgb(var(--tw-amber-500)/.32); box-shadow: 0 0 0 3px rgb(var(--tw-amber-500)/.32); }
-      15% { background: rgb(var(--tw-amber-500)/.32); box-shadow: 0 0 0 3px rgb(var(--tw-amber-500)/.32); }
-      70% { background: rgb(var(--tw-amber-500)/.32); box-shadow: 0 0 0 3px rgb(var(--tw-amber-500)/.28); }
+      8% { background: rgb(var(--tw-amber-500)/.32); box-shadow: 0 0 0 3px rgb(var(--tw-amber-500)/.32); }
+      92% { background: rgb(var(--tw-amber-500)/.32); box-shadow: 0 0 0 3px rgb(var(--tw-amber-500)/.28); }
       100% { background: transparent; box-shadow: 0 0 0 0 rgb(var(--tw-amber-500)/0); }
     }
-    .ap-arrived { border-radius: .4rem; animation: ap-arrived-pulse 8s ease-out 1; }
+    .ap-arrived { border-radius: .4rem; animation: ap-arrived-pulse 40s ease-out 1; }
     @media (prefers-reduced-motion: reduce) { .ap-arrived { animation: none; background: rgb(var(--tw-amber-500)/.22); } }
     .ap-box { background: rgb(var(--tw-amber-500)/.08); border: 1px solid rgb(var(--tw-amber-500)/.35); border-radius: .65rem; padding: .85rem 1rem; white-space: pre-line; font-size: .93em; }
     table.ap-table { width: 100%; border-collapse: collapse; font-size: .88em; border: 1px solid rgb(var(--tw-navy-700)); border-radius: .5rem; overflow: hidden; }
@@ -462,8 +473,14 @@
         const el = document.getElementById(hash);
         if (!el) return;
         el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        el.classList.add('ap-arrived');
-        setTimeout(() => el.classList.remove('ap-arrived'), 8200);
+        // Primeiro pisca 4x (1s cada, ~4s no total) pra chamar atenção,
+        // depois mantém o trecho destacado por ~40s.
+        el.classList.add('ap-blink');
+        setTimeout(() => {
+          el.classList.remove('ap-blink');
+          el.classList.add('ap-arrived');
+          setTimeout(() => el.classList.remove('ap-arrived'), 40000);
+        }, 4000);
       }, 350);
     }
 

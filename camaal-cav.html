@@ -528,6 +528,7 @@
           <div class="flex items-center gap-2 text-sm font-bold mb-1" id="explanation-title"></div>
           <div class="text-xs md:text-sm text-slate-300" id="explanation-text"></div>
           <div id="apostila-link-wrap" class="mt-2"></div>
+          <div class="text-xs md:text-sm text-slate-300 mt-3 pt-3 border-t border-slate-700/60 hidden" id="explanation-detail"><span class="text-navy-400 font-semibold">Por que é essa alternativa: </span><span id="explanation-detail-text"></span></div>
         </div>
 
         <button id="flashcard-btn" onclick="saveAsFlashcard()" class="mt-4 w-full h-11 rounded-xl border border-navy-700 bg-navy-800/60 hover:bg-navy-700/60 hover:border-navy-500 text-slate-200 text-sm font-medium transition-all flex items-center justify-center gap-2">
@@ -680,7 +681,8 @@ const questionsData = [
           "E) líder do reparo."
         ],
         correct: 4,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"O Líder da Cena de Ação é o Líder do Reparo, responsável pelas ações na área do sinistro, já em Postos de Combate. O Curso do CAAML que capacita os militares a exercerem esta função é o C-EXP-CBINC.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 2,
@@ -693,7 +695,8 @@ const questionsData = [
           "E) anti-hidroscópico"
         ],
         correct: 2,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Aplicação: Os pós químicos secos são substâncias constituídas de bicarbonato de sódio, bicarbonato de potássio ou cloreto de potássio, que, pulverizadas, formam uma nuvem de pó sobre o fogo, extinguindo-o. O pó químico extingue o fogo através do método de extinção química, pois faz a quebra da reação em cadeia,...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 3,
@@ -706,7 +709,8 @@ const questionsData = [
           "E) 7 litros"
         ],
         correct: 3,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Capacidade | Aplicação | Alcance mínimo do jato | Tempo mínimo de descarga // 10 litros | Incêndios Classe \"A\" | 4 metros* | 50 segundos*\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 4,
@@ -719,7 +723,8 @@ const questionsData = [
           "E) 6 metros"
         ],
         correct: 0,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Capacidade | Aplicação | Alcance mínimo do jato | Tempo mínimo de descarga // 10 litros | Incêndios Classe \"A\" | 4 metros* | 50 segundos*\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 5,
@@ -732,7 +737,8 @@ const questionsData = [
           "E) 20 segundos"
         ],
         correct: 3,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Capacidade | Aplicação | Alcance mínimo do jato | Tempo mínimo de descarga // 10 litros | Incêndios Classe \"A\" | 4 metros* | 50 segundos*\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 6,
@@ -745,7 +751,8 @@ const questionsData = [
           "E) máximo quatro anos"
         ],
         correct: 1,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Manutenção – Os extintores à base de água devem sofrer recarga em um intervalo máximo de cinco anos. A água utilizada na recarga deve ser potável.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 7,
@@ -758,7 +765,8 @@ const questionsData = [
           "E) 1 a 2 kg e 3 a 6 kg"
         ],
         correct: 2,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Capacidade | Aplicação | Alcance mínimo do jato | Tempo mínimo de descarga // 1 a 2 kg / 4 a 6 kg | Incêndios classes \"B\" e \"C\" | Não aplicável* | 1 a 2 kg – 8 segundos* / 4 a 6 kg – 13 segundos*\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 8,
@@ -771,7 +779,8 @@ const questionsData = [
           "E) 8 segundos e 13 segundos"
         ],
         correct: 4,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Capacidade | Aplicação | Alcance mínimo do jato | Tempo mínimo de descarga // 1 a 2 kg / 4 a 6 kg | Incêndios classes \"B\" e \"C\" | Não aplicável* | 1 a 2 kg – 8 segundos* / 4 a 6 kg – 13 segundos*\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 9,
@@ -784,7 +793,8 @@ const questionsData = [
           "E) 2 a 4 kg e 10 a 12 kg"
         ],
         correct: 0,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Capacidade | Aplicação | Alcance mínimo do jato | Tempo mínimo de descarga // De 1 a 4 kg, de 4 a 12 kg | Incêndios classes \"B\" e \"C\". Classe \"D\", utilizando pó químico seco especial | Não aplicável* | 1 a 4 kg – 08 segundos / 4 a 12 kg – 08 segundos\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 10,
@@ -797,7 +807,8 @@ const questionsData = [
           "E) nove segundos"
         ],
         correct: 1,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Capacidade | Aplicação | Alcance mínimo do jato | Tempo mínimo de descarga // De 1 a 4 kg, de 4 a 12 kg | Incêndios classes \"B\" e \"C\". Classe \"D\", utilizando pó químico seco especial | Não aplicável* | 1 a 4 kg – 08 segundos / 4 a 12 kg – 08 segundos\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 11,
@@ -810,7 +821,8 @@ const questionsData = [
           "E) cinco litros"
         ],
         correct: 1,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Capacidade | Aplicação | Tempo de descarga // 06 Litros | Incêndios classes \"K\" | 90 segundos\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 12,
@@ -823,7 +835,8 @@ const questionsData = [
           "E) 70 segundos"
         ],
         correct: 2,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Capacidade | Aplicação | Tempo de descarga // 06 Litros | Incêndios classes \"K\" | 90 segundos\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 13,
@@ -836,7 +849,8 @@ const questionsData = [
           "E) 25 a 50 L"
         ],
         correct: 0,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Capacidade | Aplicação | Alcance médio do jato | Tempo de descarga para 75 litros // 75 a 150 litros | Incêndio classe \"A\" | 13 metros | 180 segundos\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 14,
@@ -849,7 +863,8 @@ const questionsData = [
           "E) 13 metros"
         ],
         correct: 4,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Capacidade | Aplicação | Alcance médio do jato | Tempo de descarga para 75 litros // 75 a 150 litros | Incêndio classe \"A\" | 13 metros | 180 segundos\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 15,
@@ -862,7 +877,8 @@ const questionsData = [
           "E) 75 L e 360 segundos"
         ],
         correct: 2,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Capacidade | Aplicação | Alcance médio do jato | Tempo de descarga para 75 litros // 75 a 150 litros | Incêndio classe \"A\" | 13 metros | 180 segundos\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 16,
@@ -875,7 +891,8 @@ const questionsData = [
           "E) 75 a 100 L"
         ],
         correct: 0,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Capacidade | Aplicação | Alcance médio do jato | Tempo de descarga para 75 litros // 75 a 150 litros (mistura de água e LGE) | Incêndios classes \"A\" e \"B\" | 7,5 metros | 180 segundos\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 17,
@@ -888,7 +905,8 @@ const questionsData = [
           "E) 7 metros"
         ],
         correct: 0,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Capacidade | Aplicação | Alcance médio do jato | Tempo de descarga para 75 litros // 75 a 150 litros (mistura de água e LGE) | Incêndios classes \"A\" e \"B\" | 7,5 metros | 180 segundos\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 18,
@@ -901,7 +919,8 @@ const questionsData = [
           "E) 70 litros e 100 segundos"
         ],
         correct: 0,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Capacidade | Aplicação | Alcance médio do jato | Tempo de descarga para 75 litros // 75 a 150 litros (mistura de água e LGE) | Incêndios classes \"A\" e \"B\" | 7,5 metros | 180 segundos\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 19,
@@ -914,7 +933,8 @@ const questionsData = [
           "E) 50 a 100 kg"
         ],
         correct: 2,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Capacidade | Aplicação | Tempo de descarga para 20 kg // 20 kg a 100 kg | Incêndios classes \"B\" e \"C\". Classe \"D\", utilizando PQS especial | 120 segundos\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 20,
@@ -927,7 +947,8 @@ const questionsData = [
           "E) 20 kg e 60 segundos"
         ],
         correct: 1,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Capacidade | Aplicação | Tempo de descarga para 20 kg // 20 kg a 100 kg | Incêndios classes \"B\" e \"C\". Classe \"D\", utilizando PQS especial | 120 segundos\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 21,
@@ -940,7 +961,8 @@ const questionsData = [
           "E) 20 a 80 kg"
         ],
         correct: 3,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Capacidade | Aplicação | Alcance médio do jato | Tempo de descarga para 30 kg // 25 kg a 50 kg | Incêndios classes \"B\" e \"C\" | 3 metros | 60 segundos\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 22,
@@ -953,7 +975,8 @@ const questionsData = [
           "E) 3 metros"
         ],
         correct: 4,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Capacidade | Aplicação | Alcance médio do jato | Tempo de descarga para 30 kg // 25 kg a 50 kg | Incêndios classes \"B\" e \"C\" | 3 metros | 60 segundos\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 23,
@@ -966,7 +989,8 @@ const questionsData = [
           "E) 30 kg e 60 segundos"
         ],
         correct: 4,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Capacidade | Aplicação | Alcance médio do jato | Tempo de descarga para 30 kg // 25 kg a 50 kg | Incêndios classes \"B\" e \"C\" | 3 metros | 60 segundos\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 24,
@@ -979,7 +1003,8 @@ const questionsData = [
           "E) semanal"
         ],
         correct: 4,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Semanais: Verificar acesso, visibilidade e sinalização.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 25,
@@ -992,7 +1017,8 @@ const questionsData = [
           "E) quinquenal"
         ],
         correct: 1,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Mensais: Verificar se o bico ou a mangueira estão obstruídos ou em mal estado de conservação, verificar a pressão indicada no manômetro (se houver), o lacre, o pino de segurança, a existência do cartão de controle de verificação de pesagem e o peso do extintor.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 26,
@@ -1005,7 +1031,8 @@ const questionsData = [
           "E) mensal"
         ],
         correct: 0,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Semestrais: Instalações de terra e sistemas fixos, verificar se o bico ou a mangueira estão obstruídos ou em mal estado, observar a pressão do manômetro (se houver), o lacre, o pino de segurança, existência do cartão de controle de verificação de pesagem e se o peso do extintor estiver com perda superior a 10% da...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 27,
@@ -1018,7 +1045,8 @@ const questionsData = [
           "E) quinquenal"
         ],
         correct: 3,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Manutenção – O agente extintor deve ser substituído no período máximo definido pelo fabricante.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 28,
@@ -1031,7 +1059,8 @@ const questionsData = [
           "E) semanal"
         ],
         correct: 2,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Os extintores portáteis de dióxido de carbono devem passar por teste hidrostático a cada cinco anos; ou quando for inelegível ou não existir a data da fabricação ou último teste realizado; ou ainda, quando houver corrosão no recipiente ou em partes que possam ser submetidas à pressão.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 29,
@@ -1044,7 +1073,8 @@ const questionsData = [
           "E) gás carbônico"
         ],
         correct: 3,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Aplicação: Os pós químicos secos são substâncias constituídas de bicarbonato de sódio, bicarbonato de potássio ou cloreto de potássio, que, pulverizadas, formam uma nuvem de pó sobre o fogo, extinguindo-o. O pó químico extingue o fogo através do método de extinção química, pois faz a quebra da reação em cadeia,...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 30,
@@ -1057,7 +1087,8 @@ const questionsData = [
           "E) pó químico especial (MET-L-X)"
         ],
         correct: 0,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"É um agente extintor à base de bicarbonato de potássio, muito eficiente na extinção de incêndios inflamáveis em forma pulverizada e em gases inflamáveis, atacando a reação em cadeia necessária para sustentar a combustão. A substância química seca é codificada com a cor violeta, com o propósito de identificação. É...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 31,
@@ -1070,7 +1101,8 @@ const questionsData = [
           "E) Plus Fifty (PQS)"
         ],
         correct: 4,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"A base da substância química seca é o bicarbonato de sódio, contendo aditivos químicos secos, que o mantém com uma vazão livre e não higroscópico. A substância química seca é codificada com a cor azul clara, com o propósito de identificação. É capaz de extinguir incêndios da classe \"B\" e é obrigatório para a classe...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 32,
@@ -1083,7 +1115,8 @@ const questionsData = [
           "E) Plus Fifty (PQS)"
         ],
         correct: 0,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"Fosfato de monoamônia + sulfato de amônia. A substância química seca é codificada com a cor amarela, com o propósito de identificação. Pode ser usado em alguns tipos de incêndios da classe \"A\" e \"B\" e é obrigatório para a classe \"C\".\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 33,
@@ -1096,7 +1129,8 @@ const questionsData = [
           "E) 300 °C - 149°F"
         ],
         correct: 0,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"O fosfato de monoamônia é ligeiramente ácido na presença de umidade, o que resulta em propriedades corrosivas moderadas. O fosfato de monoamônia derrete quando aquecido a uma temperatura de 149ºC (300°F), formando uma camada que adere a uma superfície. A camada permanecerá aderente até mesmo depois que a superfície se...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 34,
@@ -1109,7 +1143,8 @@ const questionsData = [
           "E) solução aquosa de pó químico (APC)"
         ],
         correct: 2,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"É empregado exclusivamente no combate a incêndios em metais combustíveis (classe \"D\").\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 35,
@@ -1122,7 +1157,8 @@ const questionsData = [
           "E) solução aquosa de pó químico (APC)"
         ],
         correct: 4,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Questão fundamentada no CAAML-1202, conforme o trecho correspondente do manual."
       },
       {
         id: 36,
@@ -1135,7 +1171,8 @@ const questionsData = [
           "E) queda de intensidade"
         ],
         correct: 3,
-        subject: "Fases e Fenômenos do Incêndio"
+        subject: "Fases e Fenômenos do Incêndio",
+        explanation: "Conforme o CAAML-1202: \"É a fase de transição entre a fase inicial e a do incêndio totalmente desenvolvido. Ocorre em um período relativamente curto de tempo e pode ser considerada um evento do incêndio (combustão súbita generalizada). Trata-se do momento no qual a temperatura da camada superior de fumaça atinge temperaturas em torno de...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 37,
@@ -1148,7 +1185,8 @@ const questionsData = [
           "E) fase de queda de intensidade"
         ],
         correct: 1,
-        subject: "Fases e Fenômenos do Incêndio"
+        subject: "Fases e Fenômenos do Incêndio",
+        explanation: "Conforme o CAAML-1202: \"A característica principal desta fase é o repentino espalhamento das chamas a todo o material combustível existente no compartimento. Este fenômeno, conhecido pelo nome de \"flashover\", é um dos principais causadores de acidentes graves com o pessoal envolvido no combate ao incêndio.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 38,
@@ -1161,7 +1199,8 @@ const questionsData = [
           "E) fase de queda de intensidade"
         ],
         correct: 1,
-        subject: "Fases e Fenômenos do Incêndio"
+        subject: "Fases e Fenômenos do Incêndio",
+        explanation: "Conforme o CAAML-1202: \"A partir do aparecimento do \"flashover\", entra-se na fase de incêndio desenvolvido. Todo o material do compartimento está em combustão, sendo a taxa de queima limitada pela quantidade de oxigênio remanescente. A sobrevivência do pessoal que estiver no local é improvável.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 39,
@@ -1174,7 +1213,8 @@ const questionsData = [
           "E) encarregado do CAv"
         ],
         correct: 4,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1202: \"Algumas dessas providências fazem parte das próprias normas de construção naval, enquanto outras se fazem intimamente ligadas à doutrina do Controle de Avarias – CAv, cabendo ao pessoal de bordo zelar pelo seu cumprimento. A manutenção da doutrina do CAv, inclusive a detecção e correção de irregularidades observadas...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 40,
@@ -1187,7 +1227,8 @@ const questionsData = [
           "E) pó químico"
         ],
         correct: 0,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"1) Sendo condutora de eletricidade, pode causar acidentes se utilizada contra equipamentos elétricos energizados.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 41,
@@ -1200,7 +1241,8 @@ const questionsData = [
           "E) 15%"
         ],
         correct: 1,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "O trecho do CAAML-1202 relacionado a essa questão traz: \"Aplicação: O gás carbônico é um gás inerte que não alimenta a combustão, agindo na redução do comburente (oxigênio) a níveis abaixo de 16%, sendo empregado como agente extintor por abafamento, criando, ao redor do corpo em chamas, uma atmosfera pobre em oxigênio.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele (ou o inverte), sendo por isso a exceção pedida."
       },
       {
         id: 42,
@@ -1213,7 +1255,8 @@ const questionsData = [
           "E) até 5 min desmaio e possível morte"
         ],
         correct: 0,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"1) O halon 1301, numa concentração entre 5 e 7%, não causa efeito danoso caso a exposição seja de até cinco minutos. Em uma concentração entre 7 e 10%, em caso de exposição por um período de um minuto, alguns sintomas se fazem notar, como perda da coordenação motora e redução da acuidade mental, sem, contudo, ocorrer...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 43,
@@ -1226,7 +1269,8 @@ const questionsData = [
           "E) em 1 min. evitar qualquer contato"
         ],
         correct: 3,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"1) O halon 1301, numa concentração entre 5 e 7%, não causa efeito danoso caso a exposição seja de até cinco minutos. Em uma concentração entre 7 e 10%, em caso de exposição por um período de um minuto, alguns sintomas se fazem notar, como perda da coordenação motora e redução da acuidade mental, sem, contudo, ocorrer...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 44,
@@ -1239,7 +1283,8 @@ const questionsData = [
           "E) em 1 min totalmente incapacitado, desmaio e possível morte"
         ],
         correct: 4,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"1) O halon 1301, numa concentração entre 5 e 7%, não causa efeito danoso caso a exposição seja de até cinco minutos. Em uma concentração entre 7 e 10%, em caso de exposição por um período de um minuto, alguns sintomas se fazem notar, como perda da coordenação motora e redução da acuidade mental, sem, contudo, ocorrer...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 45,
@@ -1252,7 +1297,8 @@ const questionsData = [
           "E) aceitável até 6 min"
         ],
         correct: 3,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"2) Para o halon 1211, em uma concentração de até 4%, é aceitável a permanência no ambiente por cinco minutos, no máximo. Em concentração de 4 a 5%, o máximo aceitável é um minuto de permanência. Acima de 5%, é recomendável evitar qualquer contato ou exposição ao agente. Se alguma pessoa sofrer os efeitos de ter...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 46,
@@ -1265,7 +1311,8 @@ const questionsData = [
           "E) aceitável até 4 min"
         ],
         correct: 0,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"2) Para o halon 1211, em uma concentração de até 4%, é aceitável a permanência no ambiente por cinco minutos, no máximo. Em concentração de 4 a 5%, o máximo aceitável é um minuto de permanência. Acima de 5%, é recomendável evitar qualquer contato ou exposição ao agente. Se alguma pessoa sofrer os efeitos de ter...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 47,
@@ -1278,7 +1325,8 @@ const questionsData = [
           "E) aceitável até 5 min"
         ],
         correct: 0,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"2) Para o halon 1211, em uma concentração de até 4%, é aceitável a permanência no ambiente por cinco minutos, no máximo. Em concentração de 4 a 5%, o máximo aceitável é um minuto de permanência. Acima de 5%, é recomendável evitar qualquer contato ou exposição ao agente. Se alguma pessoa sofrer os efeitos de ter...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 48,
@@ -1291,7 +1339,8 @@ const questionsData = [
           "E) 14 minutos"
         ],
         correct: 3,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"3) Quando um incêndio for extinto por um agente qualquer derivado de hidrocarbonetos halogenados, alguns cuidados deverão ser tomados, pois, além dos subprodutos comuns oriundos da combustão, o halon se decompõe a 500º C (900º F), formando diversos elementos tóxicos que podem causar a morte quase instantânea....\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 49,
@@ -1304,7 +1353,8 @@ const questionsData = [
           "E) 300°C - 700°F"
         ],
         correct: 2,
-        subject: "Extintores e Agentes Extintores"
+        subject: "Extintores e Agentes Extintores",
+        explanation: "Conforme o CAAML-1202: \"3) Quando um incêndio for extinto por um agente qualquer derivado de hidrocarbonetos halogenados, alguns cuidados deverão ser tomados, pois, além dos subprodutos comuns oriundos da combustão, o halon se decompõe a 500º C (900º F), formando diversos elementos tóxicos que podem causar a morte quase instantânea....\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 50,
@@ -1317,7 +1367,8 @@ const questionsData = [
           "E) encarregado do reparo"
         ],
         correct: 3,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"O Encarregado do CAv é o responsável perante o Comandante pelas atribuições de planejar, preparar, e executar as fainas específicas do CAv antes e após a ocorrência do sinistro.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 51,
@@ -1330,7 +1381,8 @@ const questionsData = [
           "E) líder da turma de incêndio"
         ],
         correct: 2,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"I) receber dos reparos as avarias e informar ao Comando. A Estação de Comando deve receber as seguintes informações:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 52,
@@ -1343,7 +1395,8 @@ const questionsData = [
           "E) Fiel de CAv"
         ],
         correct: 0,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"1) alteração na condição de fechamento do material;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 53,
@@ -1356,7 +1409,8 @@ const questionsData = [
           "E) 200"
         ],
         correct: 0,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"As Enfermarias de Combate são ativadas por ocasião do guarnecimento em Postos de Combate. A estação primária continua sendo a enfermaria e a secundária é normalmente um local de refeição a bordo (Praça D’Armas, por exemplo). Os navios com tripulação acima de 300 militares devem possuir um mínimo de duas Enfermarias de...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 54,
@@ -1369,7 +1423,8 @@ const questionsData = [
           "E) líder do reparo"
         ],
         correct: 3,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"Função exercida por um oficial, suboficial ou sargento, o qual supervisiona a atuação do Reparo, sendo o responsável por todo pessoal e material designado para a área do Reparo e armário de CAv. Deve estar qualificado a assumir, com o seu Reparo, as funções da Central de CAv em caso de necessidade. O curso do CAAML...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 55,
@@ -1382,7 +1437,8 @@ const questionsData = [
           "E) encarregado do reparo"
         ],
         correct: 0,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"1) manter atualizadas as normas e os procedimentos para os serviços relacionados ao Controle de Avarias;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 56,
@@ -1395,7 +1451,8 @@ const questionsData = [
           "E) Fiel de CAv"
         ],
         correct: 2,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"2) elaborar ou manter atualizado um programa de adestramentos, incluindo avaliação, para ser ministrado para toda a tripulação assim como preparar instrutores para pôr em prática estes adestramentos;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 57,
@@ -1408,7 +1465,8 @@ const questionsData = [
           "E) encarregado do reparo"
         ],
         correct: 0,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"3) conduzir inspeções periódicas no material de CAv dos reparos do navio;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 58,
@@ -1421,7 +1479,8 @@ const questionsData = [
           "E) líder da turma de incêndio"
         ],
         correct: 0,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"4) manter atualizado o livro de CAv conforme as alterações feitas no navio;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 59,
@@ -1434,7 +1493,8 @@ const questionsData = [
           "E) Fiel de CAv"
         ],
         correct: 0,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"5) manter todas as listas de verificação atualizadas;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 60,
@@ -1447,7 +1507,8 @@ const questionsData = [
           "E) encarregado do CAv"
         ],
         correct: 4,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"6) manter informado o Chefe do Departamento de Máquinas de qualquer situação ou prática que diminua o grau de prontidão do Controle de Avarias do navio;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 61,
@@ -1460,7 +1521,8 @@ const questionsData = [
           "E) Fiel de CAv"
         ],
         correct: 1,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"7) fiscalizar a adoção das medidas de segurança necessárias à entrada de pessoal em compartimentos fechados ou espaços vazios; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 62,
@@ -1473,7 +1535,8 @@ const questionsData = [
           "E) encarregado do CAv"
         ],
         correct: 4,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"8) autorizar os trabalhos de corte e solda a bordo e, como responsável pelos testes de atmosfera, pela liberação de compartimentos ou tanques com gases tóxicos ou explosivos, após serem desgaseificados.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 63,
@@ -1486,7 +1549,8 @@ const questionsData = [
           "E) Fiel de CAv"
         ],
         correct: 3,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"1) manter o Comandante informado do estado de prontidão do CAv do navio, tanto em termos de material quanto em termos de pessoal;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 64,
@@ -1499,7 +1563,8 @@ const questionsData = [
           "E) imediato"
         ],
         correct: 4,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"2) fazer cumprir as decisões do Comandante, no que diz respeito à instrução e ao adestramento;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 65,
@@ -1512,7 +1577,8 @@ const questionsData = [
           "E) imediato"
         ],
         correct: 4,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"3) estar familiarizado com os procedimentos do CAv no porto e no mar;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 66,
@@ -1525,7 +1591,8 @@ const questionsData = [
           "E) encarregado do reparo"
         ],
         correct: 0,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"4) manter a supervisão geral de todas as ações relacionadas ao CAv, incluindo os exercícios, sob um ponto de vista específico e discriminado;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 67,
@@ -1538,7 +1605,8 @@ const questionsData = [
           "E) encarregado do reparo"
         ],
         correct: 1,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"5) prover material e pessoal de outros controles para o auxílio do CAv, nos casos de grandes avarias, obedecendo as prioridades do Comando; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 68,
@@ -1551,7 +1619,8 @@ const questionsData = [
           "E) encarregado do reparo"
         ],
         correct: 1,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"6) em casos mais graves e, se a situação tática assim permitir, se posicionar no CCM ou o mais próximo das avarias para assessorar o Comandante em tempo real.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 69,
@@ -1564,7 +1633,8 @@ const questionsData = [
           "E) líder do reparo"
         ],
         correct: 0,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"O Imediato deve atentar para uma necessidade de prover suplementos alimentares e água para o pessoal envolvido em ações de emergência. Em caso de grandes sinistros, pelo risco potencial de indisponibilidade de água potável e dificuldade de acesso às cobertas de rancho e cozinha, isso pode exigir um elevado esforço de...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 70,
@@ -1577,7 +1647,8 @@ const questionsData = [
           "E) imediato"
         ],
         correct: 2,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"3) prover apoio logístico (pessoal e material) para a cena de ação, se necessário com coordenação através da ECCAv;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 71,
@@ -1590,7 +1661,8 @@ const questionsData = [
           "E) encarregado do CAv"
         ],
         correct: 2,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"7) ter um papel ativo no adestramento do pessoal, bem como conhecer profundamente as deficiências logísticas (pessoal e material) na área de responsabilidade do seu Reparo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 72,
@@ -1603,7 +1675,8 @@ const questionsData = [
           "E) Fiel de CAv"
         ],
         correct: 2,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"2) certificar-se de que os isolamentos mecânico e elétrico estão estabelecidos para a situação;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 73,
@@ -1616,7 +1689,8 @@ const questionsData = [
           "E) encarregado do reparo"
         ],
         correct: 4,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"4) certificar-se de que o pessoal da turma de incêndio está com a roupa de proteção corretamente vestida;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 74,
@@ -1629,7 +1703,8 @@ const questionsData = [
           "E) Fiel de CAv"
         ],
         correct: 4,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"O fiel de CAv do navio deve conduzir inspeções diárias pelo navio, devendo dar atenção especial a:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 75,
@@ -1642,7 +1717,8 @@ const questionsData = [
           "E) imediato"
         ],
         correct: 2,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"É atribuição dos Encarregados de Divisão a adoção de medidas preventivas, em suas áreas de responsabilidade, tais como a manutenção da estanqueidade à água e aos gases, a prevenção de incêndios, a peiação do material e a manutenção dos equipamentos de emergência.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 76,
@@ -1655,7 +1731,8 @@ const questionsData = [
           "E) encarregado do CAv"
         ],
         correct: 2,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"Para alcançar esses propósitos, os Encarregados de Divisão deverão assegurar-se de que todos os equipamentos, acessórios, marcações e listas de verificação sob sua responsabilidade sejam mantidos nas melhores condições possíveis. Isto deve ser feito por meio de inspeções periódicas, do cumprimento das rotinas de...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 77,
@@ -1668,7 +1745,8 @@ const questionsData = [
           "E) Navegar, combater e flutuar."
         ],
         correct: 2,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"O propósito do CAv, em uma organização de combate, é manter ao máximo o poder combatente do navio. Com as definições já apresentadas neste capítulo, podemos dizer que cada militar de bordo possui uma função estabelecida pela respectiva Organização de Combate (OC), na qual são definidas algumas atribuições, que se...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 78,
@@ -1681,7 +1759,8 @@ const questionsData = [
           "E) ComImSup"
         ],
         correct: 0,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"O propósito do CAv, em uma organização de combate, é manter ao máximo o poder combatente do navio. Com as definições já apresentadas neste capítulo, podemos dizer que cada militar de bordo possui uma função estabelecida pela respectiva Organização de Combate (OC), na qual são definidas algumas atribuições, que se...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 79,
@@ -1694,7 +1773,8 @@ const questionsData = [
           "E) CHEMAQ"
         ],
         correct: 2,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"O Encarregado do CAv é o responsável perante o Comandante pelas atribuições de planejar, preparar, e executar as fainas específicas do CAv antes e após a ocorrência do sinistro.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 80,
@@ -1707,7 +1787,8 @@ const questionsData = [
           "E) Fiscalizar o cumprimento da condição de fechamento do material em todo navio, bem como zelar pela sua manutenção."
         ],
         correct: 3,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "O trecho do CAAML-1201 relacionado a essa questão traz: \"4) manter operando os equipamentos elétricos vitais, através do sistema de força em avaria;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele (ou o inverte), sendo por isso a exceção pedida."
       },
       {
         id: 81,
@@ -1720,7 +1801,8 @@ const questionsData = [
           "E) Estação de comando e central do CAv"
         ],
         correct: 0,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"O Controle de Avarias é, basicamente, subdividido em Estação Central e Estação de Reparo. Dependendo do tamanho e tipo de navio, podem existir variações. Em uma fragata, o CAv é composto pela Estação Central do CAv (ECCAV), Estações de Reparo, Enfermaria de Combate e CICE, visando permitir uma melhor distribuição do...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 82,
@@ -1733,7 +1815,8 @@ const questionsData = [
           "E) Estações de reparo"
         ],
         correct: 0,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "O trecho do CAAML-1201 relacionado a essa questão traz: \"O Controle de Avarias é, basicamente, subdividido em Estação Central e Estação de Reparo. Dependendo do tamanho e tipo de navio, podem existir variações. Em uma fragata, o CAv é composto pela Estação Central do CAv (ECCAV), Estações de Reparo, Enfermaria de Combate e CICE, visando permitir uma melhor distribuição do...\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele (ou o inverte), sendo por isso a exceção pedida."
       },
       {
         id: 83,
@@ -1746,7 +1829,8 @@ const questionsData = [
           "E) Incêndios, tipo, localização e sob ou fora de controle."
         ],
         correct: 1,
-        subject: "Reparos e Áreas de Responsabilidade"
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "O trecho do CAAML-1201 relacionado a essa questão traz: \"I) receber dos reparos as avarias e informar ao Comando. A Estação de Comando deve receber as seguintes informações:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele (ou o inverte), sendo por isso a exceção pedida."
       },
       {
         id: 84,
@@ -1759,7 +1843,8 @@ const questionsData = [
           "E) Descentralizar a organização em unidades autossuficientes, com comunicação entre elas."
         ],
         correct: 2,
-        subject: "Reparos e Áreas de Responsabilidade"
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "O trecho do CAAML-1201 relacionado a essa questão traz: \"A Figura 2.1 a seguir representa, de uma maneira bem simplificada, como se encontra organizado em combate o CAv de uma classe de navios da Esquadra. Esta organização pode variar, dependendo do tamanho, do tipo e da missão do navio. Entretanto, princípios básicos se aplicam a todas as organizações de combate de CAv....\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele (ou o inverte), sendo por isso a exceção pedida."
       },
       {
         id: 85,
@@ -1772,7 +1857,8 @@ const questionsData = [
           "E) Munir os reparos com pessoal necessário e dar autonomia para que eles avaliem a necessidade de militares de outros reparos, realizando uma coordenação independente."
         ],
         correct: 4,
-        subject: "Reparos e Áreas de Responsabilidade"
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "O trecho do CAAML-1201 relacionado a essa questão traz: \"O Encarregado do Controle de Avarias coordena os militares da ECCAv para o cumprimento das seguintes atribuições:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele (ou o inverte), sendo por isso a exceção pedida."
       },
       {
         id: 86,
@@ -1785,7 +1871,8 @@ const questionsData = [
           "E) Planos e diagramas isométricos que apresentem a compartimentagem e os diversos sistemas do navio."
         ],
         correct: 3,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"3) utilização de sistemas fixos de agentes extintores (HALON, CO2);\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 87,
@@ -1798,7 +1885,8 @@ const questionsData = [
           "E) CAAML-1202"
         ],
         correct: 1,
-        subject: "Reparos e Áreas de Responsabilidade"
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "Conforme o CAAML-1201: \"As áreas de responsabilidade dos Reparos são estabelecidas em função de sua localização e dos recursos disponíveis para o combate e são definidas pela Organização Administrativa (OA) dos navios. Os Reparos permitem ao Controle de Avarias atender aos requisitos de descentralização, rapidez e continuidade no combate às...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 88,
@@ -1811,7 +1899,8 @@ const questionsData = [
           "E) VVV"
         ],
         correct: 1,
-        subject: "Reparos e Áreas de Responsabilidade"
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "Conforme o CAAML-1201: \"As áreas de responsabilidade dos Reparos são estabelecidas em função de sua localização e dos recursos disponíveis para o combate e são definidas pela Organização Administrativa (OA) dos navios. Os Reparos permitem ao Controle de Avarias atender aos requisitos de descentralização, rapidez e continuidade no combate às...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 89,
@@ -1824,7 +1913,8 @@ const questionsData = [
           "E) Com o desenvolvimento de espírito de equipe."
         ],
         correct: 0,
-        subject: "Reparos e Áreas de Responsabilidade"
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "O trecho do CAAML-1201 relacionado a essa questão traz: \"O pessoal que guarnecerá as diversas estações do CAv deverá ser selecionado em função das atribuições de cada estação e dentro da disponibilidade de lotação e efetivo do navio. As limitações quantitativas e qualitativas de pessoal, apesar de indesejáveis, poderão ocorrer, devendo ser contornadas com o adestramento,...\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele (ou o inverte), sendo por isso a exceção pedida."
       },
       {
         id: 90,
@@ -1837,7 +1927,8 @@ const questionsData = [
           "E) Apenas II, III e IV estão corretas"
         ],
         correct: 3,
-        subject: "Reparos e Áreas de Responsabilidade"
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "Conforme o CAAML-1201: \"Da mesma forma, é recomendável também a existência de eletricistas, os quais, entre outras tarefas, terão por encargo alimentar ou desalimentar ventilações e extrações, conduzir reparos elétricos de emergência no local da avaria, dirigir a passagem dos cabos elétricos de força em avaria, restabelecer circuitos...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 91,
@@ -1850,7 +1941,8 @@ const questionsData = [
           "E) Alterar a condição de fechamento do material assim que julgar necessário para o combate às avarias"
         ],
         correct: 4,
-        subject: "Reparos e Áreas de Responsabilidade"
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "O trecho do CAAML-1201 relacionado a essa questão traz: \"As seguintes atribuições são comuns a todos os Reparos:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele (ou o inverte), sendo por isso a exceção pedida."
       },
       {
         id: 92,
@@ -1863,7 +1955,8 @@ const questionsData = [
           "E) Manutenção da flutuabilidade"
         ],
         correct: 3,
-        subject: "Reparos e Áreas de Responsabilidade"
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "O trecho do CAAML-1201 relacionado a essa questão traz: \"Os Reparos devem possuir a capacidade de executar as seguintes tarefas:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele (ou o inverte), sendo por isso a exceção pedida."
       },
       {
         id: 93,
@@ -1876,7 +1969,8 @@ const questionsData = [
           "E) Quadro de estabilidade (ou diagrama de efeito de alagamento) e diagrama de carga líquida"
         ],
         correct: 4,
-        subject: "Reparos e Áreas de Responsabilidade"
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "Conforme o CAAML-1201: \"Para a avaliação precisa das avarias abaixo da linha d’água, devem ser mantidos dois quadros. Um quadro de estabilidade (ou diagrama de efeito de alagamento), onde são plotados todos os alagamentos, limites de alagamentos, medidas adotadas e efeitos de banda e trim. O outro é o diagrama de carga líquida, que é mantido...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 94,
@@ -1889,7 +1983,8 @@ const questionsData = [
           "E) Reparar avarias de estruturas e acessório designados para manter a estanqueidade através de bujonamento, tamponamento, escoramento, solda, cimento em anteparas e conveses, reparos em válvulas e percentagem ou bujonamento em redes em todos os compartimentos estanques do navio na sua área de responsabilidade."
         ],
         correct: 2,
-        subject: "Reparos e Áreas de Responsabilidade"
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "Conforme o CAAML-1201: \"6) recolher sobreviventes do mar e auxiliar outros navios;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 95,
@@ -1902,7 +1997,8 @@ const questionsData = [
           "E) Operar, reparar, isolar e alterar a segregação de sistemas vitais"
         ],
         correct: 1,
-        subject: "Reparos e Áreas de Responsabilidade"
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "O trecho do CAAML-1201 relacionado a essa questão traz: \"1) reparar os sistemas primários e secundários de governo;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele (ou o inverte), sendo por isso a exceção pedida."
       },
       {
         id: 96,
@@ -1915,7 +2011,8 @@ const questionsData = [
           "E) 400"
         ],
         correct: 2,
-        subject: "Reparos e Áreas de Responsabilidade"
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "Conforme o CAAML-1201: \"As Enfermarias de Combate são ativadas por ocasião do guarnecimento em Postos de Combate. A estação primária continua sendo a enfermaria e a secundária é normalmente um local de refeição a bordo (Praça D’Armas, por exemplo). Os navios com tripulação acima de 300 militares devem possuir um mínimo de duas Enfermarias de...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 97,
@@ -1928,7 +2025,8 @@ const questionsData = [
           "E) Socorrista do reparo"
         ],
         correct: 3,
-        subject: "Reparos e Áreas de Responsabilidade"
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "Conforme o CAAML-1201: \"Além das enfermarias de combate, deverão existir caixas de primeiros socorros para o pessoal nas estações de combate, cabendo à Divisão de Saúde prover o material necessário a elas, assim como sua manutenção.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 98,
@@ -1941,7 +2039,8 @@ const questionsData = [
           "E) Encarregado de divisão"
         ],
         correct: 1,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"3) prover apoio logístico (pessoal e material) para a cena de ação, se necessário com coordenação através da ECCAv;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 99,
@@ -1954,7 +2053,8 @@ const questionsData = [
           "E) Encarregado do reparo"
         ],
         correct: 4,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"Função exercida por um oficial, suboficial ou sargento, o qual supervisiona a atuação do Reparo, sendo o responsável por todo pessoal e material designado para a área do Reparo e armário de CAv. Deve estar qualificado a assumir, com o seu Reparo, as funções da Central de CAv em caso de necessidade. O curso do CAAML...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 100,
@@ -1967,7 +2067,8 @@ const questionsData = [
           "E) Líder da cena de ação e Encarregado do reparo"
         ],
         correct: 4,
-        subject: "Turmas de Incêndio"
+        subject: "Turmas de Incêndio",
+        explanation: "Conforme o CAAML-1201: \"d) Líder do Reparo ou Líder da Cena de Ação\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 101,
@@ -1980,7 +2081,8 @@ const questionsData = [
           "E) Encarregado do Reparo"
         ],
         correct: 2,
-        subject: "Turmas de Incêndio"
+        subject: "Turmas de Incêndio",
+        explanation: "Conforme o CAAML-1201: \"1) se no local do incêndio, determinar qual o agente extintor recomendado e o método e a direção do ataque ao fogo;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 102,
@@ -1993,7 +2095,8 @@ const questionsData = [
           "E) Encarregado do Reparo"
         ],
         correct: 1,
-        subject: "Turmas de Incêndio"
+        subject: "Turmas de Incêndio",
+        explanation: "Conforme o CAAML-1201: \"O líder da turma de incêndio citado na composição das turmas de incêndio não deve ser confundido com o Líder da Cena de Ação (Líder do Reparo). Sua função é melhor entendida nos navios que possuem Câmara de Imagem Térmica, pois é o militar encarregado de sua operação. O Curso do CAAML que capacita os militares a...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 103,
@@ -2006,7 +2109,8 @@ const questionsData = [
           "E) O mais antigo da turma de incêndio"
         ],
         correct: 3,
-        subject: "Turmas de Incêndio"
+        subject: "Turmas de Incêndio",
+        explanation: "O trecho do CAAML-1201 relacionado a essa questão traz: \"Ele deve orientar as ações da turma no local, dirigindo o emprego do agente extintor sobre o fogo ou os pontos quentes, através da utilização da Câmara de Imagem Térmica. Nos navios que não possuem tal equipamento, será o militar que possuir mais experiência em Controle de Avarias, ou o que melhor conhecer a área...\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele (ou o inverte), sendo por isso a exceção pedida."
       },
       {
         id: 104,
@@ -2019,7 +2123,8 @@ const questionsData = [
           "E) FVVF"
         ],
         correct: 1,
-        subject: "Turmas de Incêndio"
+        subject: "Turmas de Incêndio",
+        explanation: "Conforme o CAAML-1201: \"Em condição normal de viagem ou no porto, deve chegar à área da avaria, no menor tempo, vestido de EPI básico (capuz e luva antiexposição), portando extintores, em caso de incêndio e adequados ao combate a classe do mesmo, tendo a responsabilidade de investigar a origem e a natureza do sinistro, tomando as ações...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 105,
@@ -2032,7 +2137,8 @@ const questionsData = [
           "E) Apenas I e III são verdadeiras"
         ],
         correct: 2,
-        subject: "Turmas de Incêndio"
+        subject: "Turmas de Incêndio",
+        explanation: "Conforme o CAAML-1201: \"São as turmas que efetivamente dão o combate ao incêndio. O Curso do CAAML que capacita os militares a exercerem esta função é o C-EXP-CBINC. Nos navios que possuem roupas apropriadas para o combate a incêndio, do tipo Fearnought (Marinha Inglesa) ou Firefighting Coverall (Marinha Norte-Americana), quando em Condição...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 106,
@@ -2045,7 +2151,8 @@ const questionsData = [
           "E) 3 minutos"
         ],
         correct: 4,
-        subject: "Turmas de Incêndio"
+        subject: "Turmas de Incêndio",
+        explanation: "Conforme o CAAML-1201: \"Na sequência normal das ações, evoluindo para Condição I ou IA, a Turma de Suporte \"A\" rende a Turma de Ataque no local do incêndio, em até três minutos. Nessa situação, é possível manter um ataque contínuo com uso das linhas de mangueira, montadas pela Turma de Ataque, mesmo na presença de fumaça excessiva, pois...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 107,
@@ -2058,7 +2165,8 @@ const questionsData = [
           "E) 8 minutos"
         ],
         correct: 4,
-        subject: "Turmas de Incêndio"
+        subject: "Turmas de Incêndio",
+        explanation: "Conforme o CAAML-1201: \"Na sequência normal das ações, evoluindo para Condição I ou IA, a Turma de Suporte \"A\" rende a Turma de Ataque no local do incêndio, em até três minutos. Nessa situação, é possível manter um ataque contínuo com uso das linhas de mangueira, montadas pela Turma de Ataque, mesmo na presença de fumaça excessiva, pois...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 108,
@@ -2071,7 +2179,8 @@ const questionsData = [
           "E) Dois militares, já contando com o militar do esguicho"
         ],
         correct: 1,
-        subject: "Turmas de Incêndio"
+        subject: "Turmas de Incêndio",
+        explanation: "Conforme o CAAML-1201: \"A determinação do número de militares para compor as turmas de incêndio vai depender da quantidade de militares necessários para o guarnecimento dos esguichos e manuseio das linhas de mangueira. Geralmente, cada seção de mangueira vai necessitar de dois militares, além do militar no esguicho, se estiver no visual dos...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 109,
@@ -2084,7 +2193,8 @@ const questionsData = [
           "E) Coordenar as atividades dos militares das contenções, controlando a situação dos compartimentos adjacentes ao avariado e estabelecendo os Limites de Incêndio conforme ordenado."
         ],
         correct: 1,
-        subject: "Turmas de Incêndio"
+        subject: "Turmas de Incêndio",
+        explanation: "O trecho do CAAML-1201 relacionado a essa questão traz: \"3) remover/reposicionar os inflamáveis como requerido.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele (ou o inverte), sendo por isso a exceção pedida."
       },
       {
         id: 110,
@@ -2097,7 +2207,8 @@ const questionsData = [
           "E) 2, sendo 1 controlador e 1 assistente."
         ],
         correct: 1,
-        subject: "Turmas de Incêndio"
+        subject: "Turmas de Incêndio",
+        explanation: "Conforme o CAAML-1201: \"São as turmas que efetivamente dão o combate ao incêndio. O Curso do CAAML que capacita os militares a exercerem esta função é o C-EXP-CBINC. Nos navios que possuem roupas apropriadas para o combate a incêndio, do tipo Fearnought (Marinha Inglesa) ou Firefighting Coverall (Marinha Norte-Americana), quando em Condição...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 111,
@@ -2110,7 +2221,8 @@ const questionsData = [
           "E) 5 militares"
         ],
         correct: 0,
-        subject: "Turmas de Incêndio"
+        subject: "Turmas de Incêndio",
+        explanation: "Conforme o CAAML-1201: \"Constituída por, pelo menos, três militares, o Controlador de Máscaras e mais dois ajudantes. O Controlador controla o tempo de uso das máscaras de seu Reparo, com a limitação de controlar no máximo oito militares, para a segurança dos utilizadores.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 112,
@@ -2123,7 +2235,8 @@ const questionsData = [
           "E) FFFF"
         ],
         correct: 4,
-        subject: "Turmas de Incêndio"
+        subject: "Turmas de Incêndio",
+        explanation: "Conforme o CAAML-1201: \"No caso de um incêndio em Condição III, o controlador lança a hora do início da faina (hora do alarme de incêndio) como a hora do início da utilização das máscaras pelos militares da Turma de Suporte \"A\". Para as máscaras de ar comprimido, considera ainda a pressão de suas máscaras como 90% da normalmente utilizada,...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 113,
@@ -2136,7 +2249,8 @@ const questionsData = [
           "E) Estação Central do CAv."
         ],
         correct: 1,
-        subject: "Turmas de Incêndio"
+        subject: "Turmas de Incêndio",
+        explanation: "Conforme o CAAML-1201: \"As fainas de Controle de Fumaça, que incluem a limitação do espalhamento da fumaça e sua remoção, são de responsabilidade dos eletricistas, sob coordenação da Central de CAv El. O fechamento de tampas de ventilação e flaps de extrações, a parada de motores de Sistemas de Ventilação ou de ares-condicionados (CRASH...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 114,
@@ -2149,7 +2263,8 @@ const questionsData = [
           "E) Fechamento de flaps de extração."
         ],
         correct: 1,
-        subject: "Turmas de Incêndio"
+        subject: "Turmas de Incêndio",
+        explanation: "O trecho do CAAML-1201 relacionado a essa questão traz: \"4) determinar os limites de fumaça e seu estabelecimento;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele (ou o inverte), sendo por isso a exceção pedida."
       },
       {
         id: 115,
@@ -2162,7 +2277,8 @@ const questionsData = [
           "E) Realizar percentagens."
         ],
         correct: 3,
-        subject: "Turmas de Incêndio"
+        subject: "Turmas de Incêndio",
+        explanation: "O trecho do CAAML-1201 relacionado a essa questão traz: \"Para a realização de faina de controle de alagamento, os componentes da Turma de Serviços Gerais devem portar botas de borracha de cano longo, capacetes de aba total, luvas de raspa e óculos de proteção. Devem estar qualificados para realizar fainas de percintagem, escoramento e tamponamento/bujonamento.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele (ou o inverte), sendo por isso a exceção pedida."
       },
       {
         id: 116,
@@ -2175,7 +2291,8 @@ const questionsData = [
           "E) 30"
         ],
         correct: 3,
-        subject: "Reparos e Áreas de Responsabilidade"
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "Questão fundamentada no CAAML-1201, conforme o trecho correspondente do manual."
       },
       {
         id: 117,
@@ -2188,7 +2305,8 @@ const questionsData = [
           "E) Turma de Contenção"
         ],
         correct: 2,
-        subject: "TAR — Turma de Ataque Rápido"
+        subject: "TAR — Turma de Ataque Rápido",
+        explanation: "Conforme o CAAML-1201: \"Na fase inicial de um sinistro, estando o navio em regime de viagem, o combate inicial poderá ser realizado por uma \"Turma de Ataque Rápido no Mar\", enquanto não for julgado necessário, de acordo com a evolução da situação, o guarnecimento de Postos de Combate ou Postos de CAv. O propósito da TAR é dar ao navio a...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 118,
@@ -2201,7 +2319,8 @@ const questionsData = [
           "E) Comandante de Operações Navais"
         ],
         correct: 2,
-        subject: "TAR — Turma de Ataque Rápido"
+        subject: "TAR — Turma de Ataque Rápido",
+        explanation: "Conforme o CAAML-1201: \"Na fase inicial de um sinistro, estando o navio em regime de viagem, o combate inicial poderá ser realizado por uma \"Turma de Ataque Rápido no Mar\", enquanto não for julgado necessário, de acordo com a evolução da situação, o guarnecimento de Postos de Combate ou Postos de CAv. O propósito da TAR é dar ao navio a...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 119,
@@ -2214,7 +2333,8 @@ const questionsData = [
           "E) Imediato do Navio"
         ],
         correct: 3,
-        subject: "TAR — Turma de Ataque Rápido"
+        subject: "TAR — Turma de Ataque Rápido",
+        explanation: "Conforme o CAAML-1201: \"A TAR será composta pelo pessoal citado na tabela abaixo. Os Comandantes de Força / Esquadrões, poderão autorizar alterações, de acordo com as necessidades de cada classe de navio. O Encarregado do CAv é o responsável pela organização da TAR e pela qualificação e adestramento do pessoal que a compõe.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 120,
@@ -2227,7 +2347,8 @@ const questionsData = [
           "E) Comandante de Força/Esquadrão"
         ],
         correct: 0,
-        subject: "TAR — Turma de Ataque Rápido"
+        subject: "TAR — Turma de Ataque Rápido",
+        explanation: "Conforme o CAAML-1201: \"A TAR será composta pelo pessoal citado na tabela abaixo. Os Comandantes de Força / Esquadrões, poderão autorizar alterações, de acordo com as necessidades de cada classe de navio. O Encarregado do CAv é o responsável pela organização da TAR e pela qualificação e adestramento do pessoal que a compõe.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 121,
@@ -2240,7 +2361,8 @@ const questionsData = [
           "E) A proteção dos equipamentos elétricos e eletrônicos do navio"
         ],
         correct: 4,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "O trecho do CAAML-1201 relacionado a essa questão traz: \"Considerando a Organização Administrativa, o Controle de Avarias possui como tarefas a instrução e o adestramento dos militares do navio, a manutenção do material e a execução de serviços de manutenção corretiva.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele (ou o inverte), sendo por isso a exceção pedida."
       },
       {
         id: 122,
@@ -2253,7 +2375,1100 @@ const questionsData = [
           "E) Chefe do Departamento de Máquinas"
         ],
         correct: 4,
-        subject: "Organização e Funções do CAv"
+        subject: "Organização e Funções do CAv",
+        explanation: "Conforme o CAAML-1201: \"O Encarregado do CAv, administrativamente subordinado ao Chefe do Departamento de Máquinas, é o responsável no porto pela coordenação da manutenção do material, realizada pelos Encarregados de Divisões, e pela instrução e o adestramento de toda a tripulação.\" — esse é o trecho que fundamenta a alternativa correta."
+      },
+      {
+        id: 123,
+        text: "CAAML-1201 – Segundo o item 2.3.2, as atribuições do CAv classificam-se em medidas preliminares e medidas após sofrer avarias. É uma medida preliminar:",
+        options: [
+          "A) combater incêndios",
+          "B) manter a estabilidade e a reserva de flutuabilidade do navio",
+          "C) controlar alagamentos",
+          "D) socorrer o pessoal ferido",
+          "E) coordenar a faina de abandono"
+        ],
+        correct: 1,
+        subject: "Organização e Funções do CAv",
+        explanation: "O item 2.3.2-a lista as medidas preliminares (adotadas no porto, antes de suspender, antes de mau tempo e antes do combate), entre elas \"manter a estabilidade e a reserva de flutuabilidade do navio\". As demais opções são medidas adotadas após sofrer avarias."
+      },
+      {
+        id: 124,
+        text: "CAAML-1202 – A água extingue incêndios principalmente por resfriamento e, secundariamente, por:",
+        options: [
+          "A) isolamento",
+          "B) abafamento",
+          "C) quebra da reação em cadeia",
+          "D) diluição química",
+          "E) saponificação"
+        ],
+        correct: 1,
+        subject: "Extintores e Agentes Extintores",
+        explanation: "O item 3.2 conclui: \"a água extingue incêndios principalmente por resfriamento e, secundariamente, por abafamento\", já que parte da água se transforma em vapor ao ser lançada sobre a substância em combustão."
+      },
+      {
+        id: 125,
+        text: "CAAML-1202 – Na Fase Inicial do incêndio (item 2.2.1), caso não ocorra a extinção, pode ocorrer o fenômeno chamado \"rollover\" ou:",
+        options: [
+          "A) backdraft",
+          "B) lean flashover",
+          "C) flashover total",
+          "D) combustão espontânea",
+          "E) efeito chaminé"
+        ],
+        correct: 1,
+        subject: "Fases e Fenômenos do Incêndio",
+        explanation: "O item 2.2.1 descreve: \"poderá ocorrer o 'rollover', também conhecido como lean flashover, que é o fenômeno no qual os gases da combustão não queimados [...] se inflamam na parte superior do compartimento\"."
+      },
+      {
+        id: 126,
+        text: "CAAML-1201 – É recomendável haver em cada grupo de Reparo em cuja área existam paióis, ao menos:",
+        options: [
+          "A) dois eletricistas exclusivos para o paiol",
+          "B) um oficial de segurança dedicado ao paiol",
+          "C) um telefonista adicional só para o paiol",
+          "D) um paioleiro familiarizado com o conteúdo desses paióis",
+          "E) um sistema de câmeras dedicado ao paiol"
+        ],
+        correct: 3,
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "O item 2.3.3-B-II determina: \"é ainda recomendável haver, em cada grupo de Reparo em cuja área existam paióis, ao menos um paioleiro familiarizado com o conteúdo destes paióis\"."
+      },
+      {
+        id: 127,
+        text: "CAAML-1201 – Os mensageiros podem guarnecer qualquer circuito livre, telefone ou transceptor UHF/VHF, e devem utilizar bloco de mensagens para:",
+        options: [
+          "A) registrar exclusivamente as baixas de pessoal",
+          "B) substituir o quadro de plotagem de avarias",
+          "C) autorizar fainas de corte e solda",
+          "D) manter as comunicações requeridas, quando necessário",
+          "E) controlar o tempo de uso das máscaras"
+        ],
+        correct: 3,
+        subject: "Turmas de Incêndio",
+        explanation: "O item 2.3.4-c-2 determina que os mensageiros usem bloco de mensagens \"para manter as comunicações requeridas, quando necessário\"."
+      },
+      {
+        id: 128,
+        text: "CAAML-1201 – A TAR pode ser detalhada em quartos de serviço ou como parte de um detalhe organizado para manobras especiais, tais como fainas de transferência de carga, transferência de óleo no mar, operações aéreas ou:",
+        options: [
+          "A) fainas de docagem",
+          "B) fainas de pintura geral",
+          "C) fainas de baldeação semanal",
+          "D) fainas de reboque",
+          "E) fainas de inspeção de armamento"
+        ],
+        correct: 3,
+        subject: "TAR — Turma de Ataque Rápido",
+        explanation: "O item 2.3.6 lista, entre as manobras especiais associadas à TAR, \"fainas de transferência de carga leve ou pesada, fainas de transferência de óleo no mar, operações aéreas, manobras restritas ou fainas de reboque\"."
+      },
+      {
+        id: 129,
+        text: "CAAML-1201 – É uma medida adotada após o navio sofrer avarias, segundo o item 2.3.2-b:",
+        options: [
+          "A) reduzir os riscos de incêndio",
+          "B) manter o adestramento das equipes",
+          "C) recuperar a estanqueidade e a flutuabilidade por meio de reparos de emergência",
+          "D) fiscalizar a condição de fechamento do material",
+          "E) conservar e distribuir os equipamentos de emergência"
+        ],
+        correct: 2,
+        subject: "Organização e Funções do CAv",
+        explanation: "O item 2.3.2-b lista as medidas após sofrer avarias, entre elas \"recuperar a estanqueidade e a flutuabilidade por meios de reparos de emergência na estrutura e/ou nos sistemas avariados\". As demais opções são medidas preliminares."
+      },
+      {
+        id: 130,
+        text: "CAAML-1202 – Na neblina de alta velocidade aplicada excepcionalmente sobre equipamentos energizados, na ausência de agente adequado, deve-se manter uma distância mínima de:",
+        options: [
+          "A) meio metro",
+          "B) um metro",
+          "C) dois metros",
+          "D) cinco metros",
+          "E) dez metros"
+        ],
+        correct: 2,
+        subject: "Extintores e Agentes Extintores",
+        explanation: "O item 3.2 (Cuidados) orienta que, nessa situação excepcional, \"deve[-se] ser mantida pelo utilizador uma distância de, pelo menos, dois metros dos equipamentos energizados, a fim de diminuir o risco de choque elétrico\"."
+      },
+      {
+        id: 131,
+        text: "CAAML-1202 – O rollover (lean flashover) ocorre devido à alta temperatura na parte superior do compartimento, formando:",
+        options: [
+          "A) uma camada fria de gases no piso do compartimento",
+          "B) um vácuo momentâneo de oxigênio no centro do compartimento",
+          "C) bolas de fogo que se formam na parte superior do compartimento",
+          "D) uma névoa espessa sem qualquer combustão visível",
+          "E) um resfriamento súbito das anteparas adjacentes"
+        ],
+        correct: 2,
+        subject: "Fases e Fenômenos do Incêndio",
+        explanation: "O item 2.2.1 descreve o rollover como fenômeno em que se formam \"bolas de fogo\" na parte superior do compartimento, devido à alta temperatura naquela área."
+      },
+      {
+        id: 132,
+        text: "CAAML-1201 – Para exercer a função de manutenção da flutuabilidade (item 2.3.3-B), os reparos devem estar completamente familiarizados com a localização e uso de todos os equipamentos, incluindo saber:",
+        options: [
+          "A) reparar exclusivamente sistemas de comunicação",
+          "B) operar somente o sistema de guiagem de mísseis",
+          "C) realizar apenas fainas de pintura preventiva",
+          "D) manter unicamente o adestramento de pessoal",
+          "E) sondar, drenar, esgotar com bombas, lastrar ou transferir líquidos em tanques e compartimentos"
+        ],
+        correct: 4,
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "O item 2.3.3-B-i determina que os reparos devem \"sondar, drenar, esgotar com bombas, lastrar ou transferir líquidos em tanques, espaços vazios e outros compartimentos\", estando familiarizados com sua localização e uso."
+      },
+      {
+        id: 133,
+        text: "CAAML-1201 – Após ser rendido pela Turma de Incêndio (Suporte A), o Líder da Cena de Ação deve recuar para uma posição de controle, de preferência:",
+        options: [
+          "A) dentro do compartimento sinistrado",
+          "B) junto à Estação Central de CAv",
+          "C) no convés de voo do navio",
+          "D) na enfermaria de combate",
+          "E) fora dos limites primários de fumaça"
+        ],
+        correct: 4,
+        subject: "Turmas de Incêndio",
+        explanation: "O item 2.3.4-d determina que o Líder da Cena de Ação recue \"para uma posição de controle, de preferência fora dos limites primários de fumaça\"."
+      },
+      {
+        id: 134,
+        text: "CAAML-1201 – Uma das vantagens de possuir turmas fixas para o ataque inicial (TAR) é não causar atrasos no ataque a uma avaria devido:",
+        options: [
+          "A) à falta de material de combate a incêndio",
+          "B) ao tamanho reduzido da tripulação",
+          "C) à ausência de comunicações internas",
+          "D) à distância entre reparos",
+          "E) às rendições de serviço"
+        ],
+        correct: 4,
+        subject: "TAR — Turma de Ataque Rápido",
+        explanation: "O item 2.3.6 lista, entre as vantagens da TAR, \"não causar atrasos no ataque inicial a uma avaria, devido às rendições de serviço\"."
+      },
+      {
+        id: 135,
+        text: "CAAML-1201 – A organização básica do CAv em combate compreende tipicamente a Estação Central de CAv, o CICE, os Reparos e:",
+        options: [
+          "A) o Grupo de Socorro Externo",
+          "B) a Turma de Ataque Rápido",
+          "C) o Centro de Operações de Combate",
+          "D) a Enfermaria de Combate",
+          "E) a Estação de Comando"
+        ],
+        correct: 3,
+        subject: "Organização e Funções do CAv",
+        explanation: "O item 2.3.2 descreve que a organização básica do CAv em combate compreende, tipicamente, \"a Estação Central de CAv [...], o Centro de Inventário e Controle de Estoque — CICE, os Reparos [...] e a Enfermaria de Combate, todos subordinados ao Comando\"."
+      },
+      {
+        id: 136,
+        text: "CAAML-1202 – A espuma mecânica é produzida pelo batimento de água, líquido gerador de espuma (LGE) e ar, através do princípio de:",
+        options: [
+          "A) Bernoulli",
+          "B) Pascal",
+          "C) Arquimedes",
+          "D) Venturi",
+          "E) Coriolis"
+        ],
+        correct: 3,
+        subject: "Extintores e Agentes Extintores",
+        explanation: "O item 3.3 descreve que a espuma mecânica é \"produzida pelo batimento da água, LGE (líquido gerador de espuma) e ar, através do princípio de Venturi\"."
+      },
+      {
+        id: 137,
+        text: "CAAML-1202 – Na Fase de Desenvolvimento (item 2.2.2), a temperatura da camada superior de fumaça atinge valores em torno de:",
+        options: [
+          "A) 200ºC",
+          "B) 350ºC",
+          "C) 800ºC",
+          "D) 600ºC",
+          "E) 1000ºC"
+        ],
+        correct: 3,
+        subject: "Fases e Fenômenos do Incêndio",
+        explanation: "O item 2.2.2 é textual: \"trata-se do momento no qual a temperatura da camada superior de fumaça atinge temperaturas em torno de 600ºC\"."
+      },
+      {
+        id: 138,
+        text: "CAAML-1201 – Para a manutenção da integridade estrutural e manobrabilidade do navio, os reparos devem, entre outras tarefas, reparar os sistemas primários e secundários de:",
+        options: [
+          "A) governo",
+          "B) comunicações externas apenas",
+          "C) climatização dos paióis",
+          "D) abastecimento de água potável",
+          "E) iluminação de emergência do convés"
+        ],
+        correct: 0,
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "O item 2.3.3-B-ii lista, entre as tarefas para manutenção da integridade estrutural: \"reparar os sistemas primários e secundários de governo\"."
+      },
+      {
+        id: 139,
+        text: "CAAML-1201 – Ao escolher a posição de controle da faina, o Líder na Cena de Ação deve considerar a presença da fumaça, a facilidade de acesso do pessoal do Reparo e:",
+        options: [
+          "A) a existência de comunicações com o Reparo",
+          "B) a proximidade do refeitório de bordo",
+          "C) a distância até o portaló do navio",
+          "D) a disponibilidade de energia elétrica de terra",
+          "E) a proximidade do paiol de munição"
+        ],
+        correct: 0,
+        subject: "Turmas de Incêndio",
+        explanation: "O item 2.3.4-d-2 lista, entre os fatores a considerar, \"existência de comunicações com o Reparo\"."
+      },
+      {
+        id: 140,
+        text: "CAAML-1201 – A TAR oferece maior rapidez na chegada ao local do alarme por não sofrer atrasos devido ao estabelecimento de qual condição de fechamento, por ocasião dos Postos de Combate?",
+        options: [
+          "A) condição ZULU",
+          "B) condição YANKEE",
+          "C) condição XRAY",
+          "D) condição WILLIAM",
+          "E) condição BRAVO"
+        ],
+        correct: 0,
+        subject: "TAR — Turma de Ataque Rápido",
+        explanation: "O item 2.3.6 lista, entre as vantagens da TAR, \"maior rapidez na chegada ao local do alarme, por não sofrerem atrasos devido ao estabelecimento da condição ZULU de fechamento por ocasião dos Postos de Combate ou Postos de CAv\"."
+      },
+      {
+        id: 141,
+        text: "CAAML-1201 – Entre as atribuições da ECCAv (item 2.3.3-A), ao receber dos reparos as avarias, a Estação de Comando deve receber informações sobre incêndios, alagamento, avarias estruturais, perda de energia e:",
+        options: [
+          "A) situação meteorológica externa",
+          "B) posição geográfica do navio",
+          "C) consumo de combustível do navio",
+          "D) estado de conservação da pintura do costado",
+          "E) acidentes com pessoal"
+        ],
+        correct: 4,
+        subject: "Organização e Funções do CAv",
+        explanation: "O item 2.3.3-A-I lista as informações a serem recebidas pela Estação de Comando, incluindo \"acidentes com pessoal\"."
+      },
+      {
+        id: 142,
+        text: "CAAML-1202 – A água representa, em peso, aproximadamente que percentual da composição da espuma mecânica?",
+        options: [
+          "A) 50%",
+          "B) 65%",
+          "C) 95%",
+          "D) 40%",
+          "E) 85%"
+        ],
+        correct: 4,
+        subject: "Extintores e Agentes Extintores",
+        explanation: "O item 3.3 informa: \"a água representa aproximadamente 85% (em peso) da composição da espuma, tendo um efeito secundário na extinção do incêndio\"."
+      },
+      {
+        id: 143,
+        text: "CAAML-1202 – A teoria do \"flashover\" foi elaborada, nos anos 60, pelo cientista britânico:",
+        options: [
+          "A) Michael Faraday",
+          "B) James Clerk Maxwell",
+          "C) John Dalton",
+          "D) Isaac Newton",
+          "E) P.H. Thomas"
+        ],
+        correct: 4,
+        subject: "Fases e Fenômenos do Incêndio",
+        explanation: "O item 2.2.2 atribui a teoria do flashover ao \"cientista britânico P.H. Thomas, nos anos 60\"."
+      },
+      {
+        id: 144,
+        text: "CAAML-1201 – Ainda quanto à manutenção da integridade estrutural, os reparos devem clarear conveses de escombros que interfiram com a operação do armamento, do navio ou do CAv, ou que prejudiquem:",
+        options: [
+          "A) apenas a pintura externa do navio",
+          "B) o leme, os hélices ou o costado do navio",
+          "C) somente os sistemas de comunicação",
+          "D) unicamente os paióis de munição",
+          "E) apenas o convés de voo"
+        ],
+        correct: 1,
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "O item 2.3.3-B-ii-2 determina clarear escombros que prejudiquem \"o leme, os hélices ou o costado do navio\"."
+      },
+      {
+        id: 145,
+        text: "CAAML-1201 – A Turma de Ataque, em condição normal de viagem ou no porto, deve chegar à área da avaria vestida de EPI básico composto por:",
+        options: [
+          "A) capacete de aba total e botas de cano longo",
+          "B) capuz e luva antiexposição",
+          "C) roupa completa tipo Fearnought e máscara autônoma",
+          "D) apenas óculos de proteção e luvas de raspa",
+          "E) colete salva-vidas e capacete branco"
+        ],
+        correct: 1,
+        subject: "Turmas de Incêndio",
+        explanation: "O item 2.3.4-f descreve que a Turma de Ataque chega \"vestido de EPI básico (capuz e luva antiexposição)\"."
+      },
+      {
+        id: 146,
+        text: "CAAML-1201 – Se organizada apenas como parte de um detalhe para manobras especiais (por insuficiência de pessoal), a TAR, quando formada, permanecerá no local da avaria até:",
+        options: [
+          "A) o navio atracar no porto mais próximo",
+          "B) ser rendida pelo pessoal do Reparo, guarnecido em Condição I/IA",
+          "C) o término total do período de manutenção",
+          "D) a chegada do Grupo de Socorro Externo de outro navio",
+          "E) a autorização do Comando-em-Chefe da Esquadra"
+        ],
+        correct: 1,
+        subject: "TAR — Turma de Ataque Rápido",
+        explanation: "O item 2.3.6 determina que, nesse caso, a TAR \"permanecerá no local da avaria até ser rendida pelo pessoal Reparo, guarnecido em Condição I/IA\"."
+      },
+      {
+        id: 147,
+        text: "CAAML-1201 – A ECCAv deve solicitar ao Comando autorização para executar, entre outras, a faina de:",
+        options: [
+          "A) utilização de sistemas fixos de agentes extintores (HALON, CO2)",
+          "B) reparo elétrico de emergência no local da avaria",
+          "C) combate a incêndios de classe A",
+          "D) prestação de primeiros socorros a feridos",
+          "E) avaliação da extensão das avarias na área do reparo"
+        ],
+        correct: 0,
+        subject: "Organização e Funções do CAv",
+        explanation: "O item 2.3.3-A-II lista as fainas que exigem autorização do Comando, entre elas \"utilização de sistemas fixos de agentes extintores (HALON, CO2)\"."
+      },
+      {
+        id: 148,
+        text: "CAAML-1202 – O vapor de água como agente extintor atua por abafamento, sendo empregado principalmente para extinguir incêndios classe B em porões de praças de caldeiras, tanques de carga e praças de máquinas de navios a vapor, exigindo:",
+        options: [
+          "A) o isolamento do compartimento, que fica inoperante",
+          "B) a retirada apenas dos equipamentos elétricos do local",
+          "C) o resfriamento prévio do compartimento com água salgada",
+          "D) a ventilação forçada contínua do compartimento",
+          "E) a presença de, no mínimo, dois enfermeiros na área"
+        ],
+        correct: 0,
+        subject: "Extintores e Agentes Extintores",
+        explanation: "O item 3.4 esclarece que \"o uso de vapor obriga ao isolamento do compartimento, que fica inoperante\"."
+      },
+      {
+        id: 149,
+        text: "CAAML-1202 – Na fase de incêndio totalmente desenvolvido, a taxa de queima é limitada pela quantidade de oxigênio remanescente, sendo a sobrevivência do pessoal no local:",
+        options: [
+          "A) improvável",
+          "B) garantida com uso de máscara autônoma",
+          "C) possível sem qualquer equipamento",
+          "D) provável, se afastado 1 metro do foco",
+          "E) certa, desde que abaixado ao piso"
+        ],
+        correct: 0,
+        subject: "Fases e Fenômenos do Incêndio",
+        explanation: "O item 2.2.2 afirma que, nessa fase, \"a sobrevivência do pessoal que estiver no local é improvável\"."
+      },
+      {
+        id: 150,
+        text: "CAAML-1201 – Para atender à função de manutenção da propulsão do navio, o reparo deve auxiliar na manutenção e reparo dos sistemas de comunicação e:",
+        options: [
+          "A) assumir integralmente o comando da manobra do navio",
+          "B) substituir a Estação Central de CAv em qualquer situação",
+          "C) auxiliar na operação e no reparo dos sistemas de controle de governo",
+          "D) coordenar diretamente as operações aéreas do navio",
+          "E) gerenciar o abastecimento de combustível em alto-mar"
+        ],
+        correct: 2,
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "O item 2.3.3-B-iii-3 determina \"auxiliar na operação e no reparo dos sistemas de controle de governo\", entre as tarefas de manutenção da propulsão."
+      },
+      {
+        id: 151,
+        text: "CAAML-1201 – O eletricista da Turma de Ataque é o encarregado de providenciar o isolamento dos circuitos elétricos, inicialmente de 440V, e a parada dos Sistemas de Ventilação da área em caso de:",
+        options: [
+          "A) apenas alagamento",
+          "B) apenas avaria estrutural",
+          "C) incêndio",
+          "D) apenas baixas de pessoal",
+          "E) apenas falha de comunicações"
+        ],
+        correct: 2,
+        subject: "Turmas de Incêndio",
+        explanation: "O item 2.3.4-f determina que o eletricista providencie \"o isolamento dos circuitos elétricos, 440V inicialmente, a parada dos Sistemas de Ventilação da área, em caso de incêndio\"."
+      },
+      {
+        id: 152,
+        text: "CAAML-1201 – Se organizada em serviço permanente ou por quartos, a TAR responderá por todas as avarias no mar quando o navio estiver:",
+        options: [
+          "A) exclusivamente atracado no porto-sede",
+          "B) apenas durante exercícios programados",
+          "C) numa condição diferente da Condição I/IA",
+          "D) somente em Condição I/IA",
+          "E) unicamente durante operações de reboque"
+        ],
+        correct: 2,
+        subject: "TAR — Turma de Ataque Rápido",
+        explanation: "O item 2.3.6 determina que, nesse caso, a TAR \"responderá por todas as avarias no mar quando o navio estiver numa condição diferente da Condição I/IA\"."
+      },
+      {
+        id: 153,
+        text: "CAAML-1201 – A ECCAv deve manter atualizado, entre outros recursos, um quadro de estabilidade apresentando a carga líquida, os limites de alagamento e:",
+        options: [
+          "A) a lista de militares qualificados no C-EXP-CBINC",
+          "B) os efeitos de banda e trim causados por compartimentos alagados",
+          "C) o cronograma de manutenção dos extintores portáteis",
+          "D) a tabela de inflamáveis do navio",
+          "E) o mapa de rotas de fumaça do convés principal"
+        ],
+        correct: 1,
+        subject: "Organização e Funções do CAv",
+        explanation: "O item 2.3.3-A-III-3 descreve o quadro de estabilidade, apresentando \"a carga líquida, os limites de alagamento, os efeitos de banda e trim causados por compartimentos alagados e a ação corretiva adotada\"."
+      },
+      {
+        id: 154,
+        text: "CAAML-1202 – O gás carbônico (CO2) age reduzindo o comburente (oxigênio) a níveis abaixo de:",
+        options: [
+          "A) 8%",
+          "B) 16%",
+          "C) 13%",
+          "D) 21%",
+          "E) 25%"
+        ],
+        correct: 1,
+        subject: "Extintores e Agentes Extintores",
+        explanation: "O item 3.5 descreve que o CO2 \"não alimenta a combustão, agindo na redução do comburente (oxigênio) a níveis abaixo de 16%\"."
+      },
+      {
+        id: 155,
+        text: "CAAML-1202 – No incêndio totalmente desenvolvido, o acesso é praticamente impossível, sendo necessário:",
+        options: [
+          "A) o abandono definitivo da área sem qualquer ação",
+          "B) um ataque indireto ao incêndio",
+          "C) o uso exclusivo de água em jato sólido",
+          "D) aguardar a fase de queda de intensidade",
+          "E) acionar apenas o sistema de vapor"
+        ],
+        correct: 1,
+        subject: "Fases e Fenômenos do Incêndio",
+        explanation: "O item 2.2.2 indica que \"o acesso a esse incêndio é praticamente impossível, sendo necessário um ataque indireto ao mesmo\"."
+      },
+      {
+        id: 156,
+        text: "CAAML-1201 – O reparo, para manter a função de propulsão do navio, deve manter um quadro de plotagem de avarias de máquinas mostrando:",
+        options: [
+          "A) apenas o consumo diário de óleo diesel",
+          "B) somente a temperatura do compartimento de máquinas",
+          "C) unicamente o histórico de manutenção preventiva anual",
+          "D) a condição de prontidão das máquinas principais e auxiliares",
+          "E) apenas o nome dos militares escalados no reparo"
+        ],
+        correct: 3,
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "O item 2.3.3-B-iii-4 determina manter \"um quadro de plotagem de avarias de máquinas, mostrando a condição de prontidão das máquinas principais e auxiliares\"."
+      },
+      {
+        id: 157,
+        text: "CAAML-1201 – A Turma de Suporte \"A\" é composta por, pelo menos, três militares vestidos apenas com macação, capuz e luvas antiexposição e:",
+        options: [
+          "A) roupa completa Fearnought e botas de borracha",
+          "B) capacete branco e cinto de segurança",
+          "C) óculos de proteção e avental de couro",
+          "D) máscara de combate a incêndio, portando extintores da classe adequada",
+          "E) colete salva-vidas e apito de emergência"
+        ],
+        correct: 3,
+        subject: "Turmas de Incêndio",
+        explanation: "O item 2.3.4-g descreve a Turma de Suporte A: três militares com macação, capuz, luvas antiexposição \"e máscara de combate a incêndio, portando extintores de incêndio da classe adequada para combater o sinistro\"."
+      },
+      {
+        id: 158,
+        text: "CAAML-1201 – A TAR poderá ser incorporada inteira na organização do CAv durante a Condição I/IA, em:",
+        options: [
+          "A) apenas na Estação Central de CAv",
+          "B) exclusivamente no Grupo de Socorro Externo",
+          "C) somente na Enfermaria de Combate",
+          "D) um ou mais Grupos de Reparo",
+          "E) apenas no CICE"
+        ],
+        correct: 3,
+        subject: "TAR — Turma de Ataque Rápido",
+        explanation: "O item 2.3.6 determina que a TAR \"poderá ser incorporada inteira na organização do CAv durante a Condição I/IA, em um ou mais Grupos de Reparo\"."
+      },
+      {
+        id: 159,
+        text: "CAAML-1201 – Cabe à ECCAv sugerir o abandono e coordenar qual grupo, segundo o item 2.3.3-A-IV?",
+        options: [
+          "A) o Grupo de Socorro Externo (GSE)",
+          "B) a Turma de Ataque Rápido (TAR)",
+          "C) o Grupo de Salvamento e Destruição (GSD)",
+          "D) o Grupo de CAv de Serviço",
+          "E) a Equipe de Crache"
+        ],
+        correct: 2,
+        subject: "Organização e Funções do CAv",
+        explanation: "O item 2.3.3-A-IV atribui à ECCAv \"sugerir o abandono e coordenar o Grupo de Salvamento e Destruição (GSD)\"."
+      },
+      {
+        id: 160,
+        text: "CAAML-1202 – A descarga das ampolas de CO2 pode dar origem à formação de:",
+        options: [
+          "A) compostos halogenados residuais",
+          "B) vapores tóxicos de berílio",
+          "C) cargas de eletricidade estática",
+          "D) gases explosivos secundários",
+          "E) resíduos alcalinos corrosivos"
+        ],
+        correct: 2,
+        subject: "Extintores e Agentes Extintores",
+        explanation: "O item 3.5 (Cuidados) alerta que \"a descarga das ampolas de CO2 pode dar origem à formação de cargas de eletricidade estática\", não sendo indicada para saturação de ambientes com misturas inflamáveis."
+      },
+      {
+        id: 161,
+        text: "CAAML-1202 – O fenômeno do \"backdraft\" (item 2.2.3) ocorre quando ar fresco é admitido em uma atmosfera rica em vapores combustíveis, com temperatura próxima à ignição, em um incêndio que se extinguiu por:",
+        options: [
+          "A) excesso de água aplicada por longo período",
+          "B) resfriamento artificial do compartimento",
+          "C) ausência de oxigênio, em compartimento estanque isolado",
+          "D) atuação da turma de rescaldo",
+          "E) abertura prolongada de escotilhas"
+        ],
+        correct: 2,
+        subject: "Fases e Fenômenos do Incêndio",
+        explanation: "O item 2.2.3 descreve o backdraft como ocorrendo \"em um incêndio que tenha se extinguido por ausência de oxigênio, como por exemplo, em um compartimento estanque que tenha sido completamente isolado\"."
+      },
+      {
+        id: 162,
+        text: "CAAML-1201 – Além das enfermarias de combate, deverão existir nas estações de combate:",
+        options: [
+          "A) armários de CAv exclusivos para material médico",
+          "B) extintores classe D dedicados ao pessoal ferido",
+          "C) postos de rádio reserva para a enfermaria",
+          "D) estoques próprios de agentes halogenados",
+          "E) caixas de primeiros socorros para o pessoal"
+        ],
+        correct: 4,
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "O item 2.3.3-C determina que, além das enfermarias de combate, \"deverão existir caixas de primeiros socorros para o pessoal nas estações de combate\"."
+      },
+      {
+        id: 163,
+        text: "CAAML-1201 – A Turma de Suporte \"B\" é composta por, pelo menos, quatro militares com roupa para combate a incêndio, botas, capuz antiexposição, luvas para CBINC, capacete, lanterna de combate e:",
+        options: [
+          "A) colete salva-vidas inflável",
+          "B) cinto de segurança amarrado ao convés",
+          "C) amplificador de voz portátil",
+          "D) detector de gases portátil",
+          "E) máscara de combate a incêndio"
+        ],
+        correct: 4,
+        subject: "Turmas de Incêndio",
+        explanation: "O item 2.3.4-g descreve a Turma de Suporte B com roupa completa, botas, capuz, luvas, capacete, lanterna \"e máscara de combate a incêndio\"."
+      },
+      {
+        id: 164,
+        text: "CAAML-1201 – Segundo o item 2.3.3-B, deverá constar da Organização de Combate uma Estação de Reparo estabelecida como:",
+        options: [
+          "A) a Estação de CAv Reserva",
+          "B) o Posto de Comando Alternativo",
+          "C) a Central de Controle de Fumaça",
+          "D) a Estação de CAv Secundária",
+          "E) o Reparo Coordenador"
+        ],
+        correct: 3,
+        subject: "Organização e Funções do CAv",
+        explanation: "O item 2.3.3-B-I determina que \"deverá constar da OC uma Estação de Reparo como sendo a Estação de CAv Secundária\", capacitada a comunicar-se com todos os reparos."
+      },
+      {
+        id: 165,
+        text: "CAAML-1202 – Na Marinha do Brasil, são utilizados dois tipos de halon como agente extintor por quebra da reação em cadeia:",
+        options: [
+          "A) halon 1011 e halon 1201",
+          "B) halon 1301 e halon 1401",
+          "C) halon 1105 e halon 1302",
+          "D) halon 1211 e halon 1301",
+          "E) halon 1211 e halon 1401"
+        ],
+        correct: 3,
+        subject: "Extintores e Agentes Extintores",
+        explanation: "O item 3.6 informa: \"na Marinha do Brasil são utilizados dois tipos: o halon 1211 e o 1301\"."
+      },
+      {
+        id: 166,
+        text: "CAAML-1202 – São condições que podem indicar uma situação de \"Backdraft\", EXCETO:",
+        options: [
+          "A) fumaça sob pressão, num ambiente fechado",
+          "B) calor excessivo, notado pela temperatura na porta",
+          "C) pequenas chamas ou inexistência destas em ambientes fechados onde houve incêndio",
+          "D) chamas altas e visíveis saindo continuamente pelas frestas",
+          "E) resíduos da fumaça impregnando o vidro das janelas"
+        ],
+        correct: 3,
+        subject: "Fases e Fenômenos do Incêndio",
+        explanation: "O item 2.2.3 lista como indicadores de backdraft a fumaça sob pressão, o calor excessivo na porta, chamas pequenas ou inexistentes e resíduos nos vidros — mas não \"chamas altas e visíveis saindo continuamente\", que é o oposto do padrão descrito (pequenas chamas ou ausência delas)."
+      },
+      {
+        id: 167,
+        text: "CAAML-1201 – Cabe à Divisão de Saúde prover o material necessário às caixas de primeiros socorros nas estações de combate, bem como:",
+        options: [
+          "A) sua manutenção",
+          "B) sua guarda exclusiva no CICE",
+          "C) sua substituição por extintores portáteis",
+          "D) seu transporte para o Grupo de Socorro Externo",
+          "E) sua fiscalização pelo Encarregado do CAv"
+        ],
+        correct: 0,
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "O item 2.3.3-C determina que cabe à Divisão de Saúde \"prover o material necessário a elas, assim como sua manutenção\"."
+      },
+      {
+        id: 168,
+        text: "CAAML-1201 – O investigador guarnece equipamento autônomo de respiração e EPI, cabendo a ele coordenar as atividades dos militares das contenções e:",
+        options: [
+          "A) supervisionar o cumprimento do fechamento do material",
+          "B) substituir o Encarregado do Reparo em sua ausência",
+          "C) operar diretamente as linhas de mangueira",
+          "D) controlar o tempo de uso das máscaras da turma",
+          "E) autorizar a faina de corte e solda no compartimento"
+        ],
+        correct: 0,
+        subject: "Turmas de Incêndio",
+        explanation: "O item 2.3.4-h-2 atribui ao investigador \"supervisionar o cumprimento do fechamento do material\", entre outras tarefas."
+      },
+      {
+        id: 169,
+        text: "CAAML-1201 – O item 2.3.3-D define que, em Condição I, a tarefa da Estação CICE é:",
+        options: [
+          "A) coordenar diretamente o combate a incêndio nos reparos",
+          "B) substituir a Enfermaria de Combate quando necessário",
+          "C) autorizar as fainas de corte e solda a bordo",
+          "D) controlar a condição de fechamento do material do navio",
+          "E) prover os sobressalentes necessários para reparos dos equipamentos avariados durante o combate"
+        ],
+        correct: 4,
+        subject: "Organização e Funções do CAv",
+        explanation: "O item 2.3.3-D estabelece que, em Condição I, \"a tarefa da Estação CICE é prover os sobressalentes necessários para reparos dos equipamentos de bordo avariados durante o combate, de forma a restabelecer as capacidades do navio\"."
+      },
+      {
+        id: 170,
+        text: "CAAML-1202 – O halon 1211 (BCF), ideal para extinção de incêndios em módulos de motores e turbinas, é mais tóxico que o halon 1301, não podendo ser usado:",
+        options: [
+          "A) em sistemas fixos de baixa pressão",
+          "B) em incêndios classe B em áreas abertas",
+          "C) acima de 500 metros de altitude",
+          "D) em temperaturas abaixo de 0°C",
+          "E) em um compartimento ainda guarnecido"
+        ],
+        correct: 4,
+        subject: "Extintores e Agentes Extintores",
+        explanation: "O item 3.6 é direto: \"o BCF é mais tóxico que o halon 1301, não podendo ser usado em um compartimento ainda guarnecido\"."
+      },
+      {
+        id: 171,
+        text: "CAAML-1202 – É uma condição que pode indicar uma situação de Backdraft, segundo o item 2.2.3:",
+        options: [
+          "A) ausência total de fumaça no compartimento",
+          "B) temperatura estável e amena na porta do compartimento",
+          "C) ruído intenso e constante vindo do interior do compartimento",
+          "D) vidros das janelas completamente limpos e transparentes",
+          "E) fumaça escura, tornando-se densa, mudando de cor e saindo em forma de lufadas"
+        ],
+        correct: 4,
+        subject: "Fases e Fenômenos do Incêndio",
+        explanation: "O item 2.2.3 lista, entre as condições indicativas de backdraft, \"fumaça escura, tornando-se densa, mudando de cor (cinza e amarelada) e saindo do ambiente em forma de lufadas\"."
+      },
+      {
+        id: 172,
+        text: "CAAML-1201 – Segundo o item 2.3.5, o acúmulo de funções em um Reparo de CAv, assim como o pedido de apoio de pessoal de outros reparos, deve ser avaliado pelo Encarregado do Reparo:",
+        options: [
+          "A) exclusivamente pelo Comandante do navio",
+          "B) de acordo com a evolução do sinistro, com conhecimento do Enc. CAv",
+          "C) sem necessidade de comunicação a qualquer superior",
+          "D) apenas ao final do combate ao sinistro",
+          "E) somente pelo Imediato, com anuência do CICE"
+        ],
+        correct: 1,
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "O item 2.3.5 determina que essa avaliação seja feita pelo Encarregado do Reparo \"de acordo com a evolução do sinistro, com conhecimento do Enc. CAv\"."
+      },
+      {
+        id: 173,
+        text: "CAAML-1201 – A Turma de Contenção deve, sob as ordens do investigador, resfriar os limites primários de incêndio e proteger equipamentos elétricos e eletrônicos, entre outras ações:",
+        options: [
+          "A) assumir o comando da faina em caso de baixa do líder",
+          "B) remover/reposicionar os inflamáveis conforme requerido",
+          "C) substituir a Turma de Rescaldo ao final do combate",
+          "D) operar exclusivamente as bombas portáteis do reparo",
+          "E) coordenar a evacuação geral do navio"
+        ],
+        correct: 1,
+        subject: "Turmas de Incêndio",
+        explanation: "O item 2.3.4-i-3 atribui à Turma de Contenção \"remover/reposicionar os inflamáveis como requerido\"."
+      },
+      {
+        id: 174,
+        text: "CAAML-1201 – Para o cumprimento de sua tarefa, o CICE deverá possuir comunicações confiáveis com a ECCAv/ECCAv-ET, controle de chaves dos paióis e:",
+        options: [
+          "A) um banco de dados de sobressalentes (tipo e localização) devidamente atualizado",
+          "B) um estoque próprio de agentes extintores portáteis",
+          "C) autonomia para autorizar o abandono do navio",
+          "D) um plano de adestramento independente da ECCAv",
+          "E) a responsabilidade pela plotagem do quadro de estabilidade"
+        ],
+        correct: 0,
+        subject: "Organização e Funções do CAv",
+        explanation: "O item 2.3.3-D determina que o CICE possua \"um banco de dados de sobressalentes (tipo e localização) devidamente atualizado\", além das comunicações confiáveis e do controle de chaves dos paióis."
+      },
+      {
+        id: 175,
+        text: "CAAML-1202 – O halon foi identificado pelo Protocolo de Montreal como substância que requer limitações de uso e produção devido à sua implicação na destruição:",
+        options: [
+          "A) da camada de ozônio",
+          "B) dos recifes de coral",
+          "C) da biodiversidade marinha",
+          "D) da qualidade do ar urbano",
+          "E) do lençol freático"
+        ],
+        correct: 0,
+        subject: "Extintores e Agentes Extintores",
+        explanation: "O item 3.6 explica que o Protocolo de Montreal identificou o halon \"devido a sua implicação na destruição da camada de ozônio\"."
+      },
+      {
+        id: 176,
+        text: "CAAML-1202 – Excetuados os incêndios originados por danos em combate, a grande maioria das ocorrências de incêndio a bordo é derivada de:",
+        options: [
+          "A) falhas humanas, manutenção deficiente e desconhecimento das precauções de segurança",
+          "B) defeitos exclusivos de fabricação dos equipamentos",
+          "C) condições climáticas adversas em alto-mar",
+          "D) sabotagem por parte de pessoal estranho a bordo",
+          "E) variações extremas de temperatura do casco"
+        ],
+        correct: 0,
+        subject: "Fases e Fenômenos do Incêndio",
+        explanation: "O item 2.3 afirma que \"a grande maioria de ocorrências de incêndios é derivada de falhas humanas, pela não observância dos cuidados na utilização do material, pela manutenção deficiente dos equipamentos e pelo desconhecimento das precauções de segurança\"."
+      },
+      {
+        id: 177,
+        text: "CAAML-1201 – Caso um navio não conte com militares em quantidade suficiente para guarnecer todas as funções de um Reparo (ex.: Reparo#1 das FCN), deve-se priorizar o guarnecimento das Turmas de Incêndio em detrimento das Turmas de:",
+        options: [
+          "A) Contenção e Primeiros Socorros",
+          "B) Investigação e Telefonia",
+          "C) Serviços Gerais e Bombas",
+          "D) Ataque e Escoramento",
+          "E) Sondagem e Percintagem"
+        ],
+        correct: 2,
+        subject: "Reparos e Áreas de Responsabilidade",
+        explanation: "O item 2.3.5 (nota 4 da Tabela 2.1) determina priorizar \"o guarnecimento das Turmas de Incêndio em detrimento das Turmas de Serviços Gerais e Turmas de Bombas\"."
+      },
+      {
+        id: 178,
+        text: "CAAML-1201 – A Turma de Sondagem tem como tarefas a sondagem de tanques e compartimentos, a transferência de carga líquida e:",
+        options: [
+          "A) a operação exclusiva das bombas de incêndio",
+          "B) o combate direto a incêndios classe D",
+          "C) manobras de sistema de esgoto e lastro",
+          "D) a montagem de linhas de mangueira na cena de ação",
+          "E) o controle do tempo de uso das máscaras autônomas"
+        ],
+        correct: 2,
+        subject: "Turmas de Incêndio",
+        explanation: "O item 2.3.4-o descreve as tarefas da Turma de Sondagem: sondagem de tanques, transferência de carga líquida \"e manobras de sistema de esgoto e lastro\"."
+      },
+      {
+        id: 179,
+        text: "CAAML-1201 – O Fiel de CAv do Navio é auxiliar direto do Encarregado do CAv e possui como tarefas principais a coordenação dos Fiéis de Avarias das Divisões, o treinamento do pessoal de bordo em CAv e:",
+        options: [
+          "A) a autorização de trabalhos de corte e solda a bordo",
+          "B) a prevenção e o combate a incêndios e alagamentos",
+          "C) a elaboração da Organização de Combate do navio",
+          "D) a coordenação direta do Grupo de Socorro Externo",
+          "E) a supervisão exclusiva da Enfermaria de Combate"
+        ],
+        correct: 1,
+        subject: "Organização e Funções do CAv",
+        explanation: "O item 2.4.3 lista as tarefas principais do Fiel de CAv do Navio: coordenação dos Fiéis de Avarias das Divisões, treinamento do pessoal e \"a prevenção e o combate a incêndios e alagamentos\"."
+      },
+      {
+        id: 180,
+        text: "CAAML-1202 – Sabendo que o halon se decompõe a 500ºC formando elementos tóxicos, para a reentrada em um compartimento onde ele foi usado é obrigatório o uso de equipamento autônomo de respiração, observando-se um tempo mínimo de:",
+        options: [
+          "A) cinco minutos após o acionamento do sistema",
+          "B) quinze minutos após comprovada a extinção pela redução de temperatura",
+          "C) trinta segundos após o alarme cessar",
+          "D) uma hora, independentemente da temperatura",
+          "E) dois minutos após a ventilação forçada"
+        ],
+        correct: 1,
+        subject: "Extintores e Agentes Extintores",
+        explanation: "O item 3.6 exige \"o uso de um equipamento autônomo de respiração, observando-se um tempo mínimo de quinze minutos após ter sido comprovada a extinção do incêndio pela redução da temperatura no compartimento\"."
+      },
+      {
+        id: 181,
+        text: "CAAML-1202 – São causas de incêndio a bordo listadas no item 2.3, EXCETO:",
+        options: [
+          "A) cigarros e fósforos atirados em locais impróprios",
+          "B) uso exclusivo de lâmpadas de LED certificadas para ambiente naval",
+          "C) acúmulo de gordura nas telas e dutos de extração da cozinha",
+          "D) vasilhames destampados contendo combustíveis voláteis",
+          "E) lâmpadas sem proteção"
+        ],
+        correct: 1,
+        subject: "Fases e Fenômenos do Incêndio",
+        explanation: "O item 2.3 lista causas reais de incêndio (cigarros mal apagados, gordura acumulada, vasilhames abertos, lâmpadas sem proteção, entre outras); \"lâmpadas de LED certificadas\" não consta dessa lista — pelo contrário, lâmpadas sem proteção é que constam como risco."
+      },
+      {
+        id: 182,
+        text: "CAAML-1201 – Nas inspeções diárias pelo navio, o Fiel de CAv do Navio deve dar atenção especial, entre outros pontos, à redução dos riscos de incêndio e à(ao):",
+        options: [
+          "A) cronograma de manutenção da rede de esgoto sanitário",
+          "B) controle de estoque de gêneros alimentícios",
+          "C) armazenagem e proteção adequada de líquidos inflamáveis (CO2, PKP)",
+          "D) programa de adestramento físico da tripulação",
+          "E) plano de pintura externa do casco"
+        ],
+        correct: 2,
+        subject: "Organização e Funções do CAv",
+        explanation: "O item 2.4.3 lista, entre os pontos de atenção especial do Fiel de CAv do Navio, \"líquidos inflamáveis – armazenagem e proteção adequada (CO2, PKP)\"."
+      },
+      {
+        id: 183,
+        text: "CAAML-1202 – Os compostos halocarbonados são considerados gases limpos porque:",
+        options: [
+          "A) são fabricados exclusivamente a partir de água do mar",
+          "B) extinguem apenas incêndios classe A",
+          "C) não deixam resíduo após a evaporação e não são condutores elétricos",
+          "D) não exigem qualquer cuidado no manuseio",
+          "E) podem ser lançados diretamente sobre o pessoal"
+        ],
+        correct: 2,
+        subject: "Extintores e Agentes Extintores",
+        explanation: "O item 3.7 descreve os halocarbonados como \"gases limpos, pois não deixam resíduo após a evaporação quando na supressão do incêndio e são não condutores elétricos\"."
+      },
+      {
+        id: 184,
+        text: "CAAML-1202 – O método de extinção por abafamento consiste em reduzir a quantidade de oxigênio para abaixo do limite de:",
+        options: [
+          "A) 8%",
+          "B) 16%",
+          "C) 13%",
+          "D) 21%",
+          "E) 25%"
+        ],
+        correct: 2,
+        subject: "Fases e Fenômenos do Incêndio",
+        explanation: "O item 2.4.1 define: \"o primeiro método básico de extinção de incêndios é o abafamento, que consiste em reduzir a quantidade de oxigênio para abaixo do limite de 13%\"."
+      },
+      {
+        id: 185,
+        text: "CAAML-1201 – É atribuição do Encarregado de Divisão (item 2.4.4) adotar medidas preventivas em sua área de responsabilidade, tais como manutenção da estanqueidade, prevenção de incêndios, peiação do material e:",
+        options: [
+          "A) a autorização de fainas de corte e solda",
+          "B) a coordenação do Grupo de Socorro Externo",
+          "C) a plotagem do quadro de avarias na ECCAv",
+          "D) a manutenção dos equipamentos de emergência",
+          "E) a homologação de escadas de prático"
+        ],
+        correct: 3,
+        subject: "Organização e Funções do CAv",
+        explanation: "O item 2.4.4 atribui ao Encarregado de Divisão a adoção de medidas preventivas, incluindo \"a manutenção da estanqueidade à água e aos gases, a prevenção de incêndios, a peiação do material e a manutenção dos equipamentos de emergência\"."
+      },
+      {
+        id: 186,
+        text: "CAAML-1202 – O Heptafluoropropano (HFC227ea/FM-200) é considerado o substituto mais eficiente do:",
+        options: [
+          "A) Halon 1211",
+          "B) CO2 sólido",
+          "C) Pó Químico ABC",
+          "D) Halon 1301",
+          "E) APC"
+        ],
+        correct: 3,
+        subject: "Extintores e Agentes Extintores",
+        explanation: "O item 3.7-a define o Heptafluoropropano como \"o substituto mais eficiente do Halon 1301\", resfriando a nível molecular e reduzindo o espaço de armazenamento."
+      },
+      {
+        id: 187,
+        text: "CAAML-1201 – O Fiel de CAv da Divisão deve pesar os extintores portáteis de CO2, inspecionar e testar o equipamento de CAv e combate a incêndio, prestando informações ao Encarregado de Divisão de acordo com o estabelecido:",
+        options: [
+          "A) apenas nas normas internas do CICE",
+          "B) exclusivamente nas ordens verbais do Comandante",
+          "C) no regulamento de uniformes da tripulação",
+          "D) no plano de dia do Imediato",
+          "E) no SMP do navio ou normas do Encarregado do CAv"
+        ],
+        correct: 4,
+        subject: "Organização e Funções do CAv",
+        explanation: "O item 2.4.5-5 determina que o Fiel de CAv da Divisão preste as informações \"de acordo com o estabelecido no SMP do navio ou normas do Encarregado do CAv\"."
+      },
+      {
+        id: 188,
+        text: "CAAML-1202 – O pó químico extingue o fogo por quebra da reação em cadeia e também por:",
+        options: [
+          "A) resfriamento exclusivo",
+          "B) isolamento térmico",
+          "C) diluição do combustível",
+          "D) saponificação total",
+          "E) abafamento"
+        ],
+        correct: 4,
+        subject: "Extintores e Agentes Extintores",
+        explanation: "O item 3.8.1 explica que o pó químico \"extingue o fogo através do método de extinção química, pois faz a quebra da reação em cadeia, atuando a nível molecular e também por abafamento\"."
+      },
+      {
+        id: 189,
+        text: "CAAML-1201 – Nos navios em que não haja oficial de serviço no Departamento de Máquinas, o Oficial de Serviço deve atuar, quanto ao CAv, como:",
+        options: [
+          "A) encarregado do controle de avarias nas fainas, supervisionando o grupo de CAv de serviço",
+          "B) substituto direto do Imediato em todas as funções",
+          "C) coordenador exclusivo do Grupo de Socorro Externo",
+          "D) responsável apenas pela segurança do portaló",
+          "E) auxiliar do Fiel de CAv da Divisão de Máquinas"
+        ],
+        correct: 0,
+        subject: "Organização e Funções do CAv",
+        explanation: "O item 2.4.6 determina que, nesses navios, o Oficial de Serviço \"será o responsável pela segurança do navio e deverá atuar como se fosse o encarregado do controle de avarias nas fainas, supervisionando o grupo de CAv de serviço\"."
+      },
+      {
+        id: 190,
+        text: "CAAML-1202 – O Pó Químico Seco Especial MET-L-X é empregado exclusivamente no combate a incêndios em:",
+        options: [
+          "A) metais combustíveis (classe D)",
+          "B) líquidos inflamáveis (classe B)",
+          "C) equipamentos energizados (classe C)",
+          "D) gorduras de cozinha (classe K)",
+          "E) materiais fibrosos (classe A)"
+        ],
+        correct: 0,
+        subject: "Extintores e Agentes Extintores",
+        explanation: "O item 3.8.1-c é direto: o Pó Químico Seco Especial (MET-L-X) \"é empregado exclusivamente no combate a incêndios em metais combustíveis (classe 'D')\"."
+      },
+      {
+        id: 191,
+        text: "CAAML-1201 – O Grupo de CAv de Serviço deve ter suas turmas detalhadas em número e composição semelhante a:",
+        options: [
+          "A) o Grupo de Socorro Externo completo",
+          "B) um Reparo em Postos de Combate",
+          "C) a Turma de Ataque Rápido no mar",
+          "D) a Enfermaria de Combate primária",
+          "E) o CICE em Condição I"
+        ],
+        correct: 1,
+        subject: "Organização e Funções do CAv",
+        explanation: "O item 2.4.7 determina que o Grupo de CAv de Serviço \"deve ter suas turmas detalhadas em número e composição semelhante a um Reparo em Postos de Combate\"."
+      },
+      {
+        id: 192,
+        text: "CAAML-1202 – A solução aquosa de pó químico (APC), agente extintor da classe K, gera em contato com a superfície em chamas uma espuma parecida com a do sabão, contendo vapor e causando bolhas de:",
+        options: [
+          "A) nitrogênio e enxofre",
+          "B) CO2 e glicerina",
+          "C) oxigênio puro e metano",
+          "D) hidrogênio e amônia",
+          "E) argônio e cloro"
+        ],
+        correct: 1,
+        subject: "Extintores e Agentes Extintores",
+        explanation: "O item 3.8.2 descreve que essa espuma \"contém vapor e causa bolhas de CO2 e glicerina que flutuam na superfície do óleo em chamas\"."
+      },
+      {
+        id: 193,
+        text: "CAAML-1201 – O Patrulha de CAv é um serviço designado para detecção e prevenção de incêndios, alagamento ou outras irregularidades, devendo, entre suas atribuições:",
+        options: [
+          "A) autorizar sozinho as fainas de corte e solda a bordo",
+          "B) substituir o Oficial de Serviço em suas ausências",
+          "C) manter uma patrulha contínua e irregular em todo o navio, de acordo com uma lista de verificação",
+          "D) coordenar diretamente o Grupo de Salvamento e Destruição",
+          "E) elaborar o programa de adestramento anual da tripulação"
+        ],
+        correct: 2,
+        subject: "Organização e Funções do CAv",
+        explanation: "O item 2.4.6 (Patrulha de CAv) lista suas atribuições, entre elas \"manter uma patrulha contínua e irregular em todo o navio de acordo com uma lista de verificação\"."
+      },
+      {
+        id: 194,
+        text: "CAAML-1202 – Os extintores portáteis de CO2 devem ser pesados:",
+        options: [
+          "A) semanalmente, sem exceção",
+          "B) apenas uma vez por comissão",
+          "C) mensalmente e logo após a recarga",
+          "D) a cada dois anos",
+          "E) somente antes de exercícios de combate a incêndio"
+        ],
+        correct: 2,
+        subject: "Extintores e Agentes Extintores",
+        explanation: "O item 4.4 (Manutenção) determina: \"os extintores portáteis de CO2 devem ser pesados mensalmente e logo após a recarga\"."
+      },
+      {
+        id: 195,
+        text: "CAAML-1201 – O Grupo de Socorro Externo (GSE, item 8.13) tem por propósito prestar auxílio de pessoal e/ou material para o combate a avarias em outros navios, no porto ou no mar, e em:",
+        options: [
+          "A) exercícios de tiro real",
+          "B) operações de reabastecimento no mar",
+          "C) manobras de fundeio",
+          "D) instalações de terra",
+          "E) cerimoniais militares"
+        ],
+        correct: 3,
+        subject: "Organização e Funções do CAv",
+        explanation: "O item 8.13 define que o GSE presta auxílio \"para o combate a quaisquer avarias em outros navios, no porto ou no mar e em instalações de terra\"."
+      },
+      {
+        id: 196,
+        text: "CAAML-1202 – Segundo o item 4.4, o agente extintor de CO2 deve ser recarregado a cada 12 meses, ao final da garantia do fabricante, ou ainda quando houver perda superior a:",
+        options: [
+          "A) 5% da carga nominal declarada",
+          "B) 20% da carga nominal declarada",
+          "C) 25% da carga nominal declarada",
+          "D) 10% da carga nominal declarada",
+          "E) 50% da carga nominal declarada"
+        ],
+        correct: 3,
+        subject: "Extintores e Agentes Extintores",
+        explanation: "O item 4.4 estabelece a recarga \"quando houver perda superior a 10% da carga nominal declarada\"."
+      },
+      {
+        id: 197,
+        text: "CAAML-1201 – O GSE só deve subir a bordo de um navio sinistrado após:",
+        options: [
+          "A) a chegada do Comandante do navio sinistrado ao portaló",
+          "B) o término completo do combate ao incêndio pelo Reparo local",
+          "C) a autorização direta do Comando-em-Chefe da Esquadra",
+          "D) a formação de todos os GSE das unidades presentes",
+          "E) o mais antigo do grupo haver se apresentado naquele navio e recebido permissão para tal"
+        ],
+        correct: 4,
+        subject: "Organização e Funções do CAv",
+        explanation: "O item 8.13-b determina: \"o GSE só deve subir a bordo de um navio sinistrado após o mais antigo do grupo haver se apresentado naquele navio e recebido permissão para tal\"."
+      },
+      {
+        id: 198,
+        text: "CAAML-1202 – Os extintores utilizados em incêndios classe D são identificados por meio de:",
+        options: [
+          "A) um triângulo verde contendo a letra D",
+          "B) um quadrado vermelho contendo a letra D",
+          "C) um círculo azul contendo a letra D",
+          "D) um quadrado preto contendo a letra D",
+          "E) uma estrela amarela de cinco pontas contendo a letra D"
+        ],
+        correct: 4,
+        subject: "Extintores e Agentes Extintores",
+        explanation: "O item 4.12 determina: \"extintores utilizados em incêndios classe 'D' são identificados por meio de uma estrela amarela de cinco pontas contendo a letra D\"."
+      },
+      {
+        id: 199,
+        text: "CAAML-1201 – A Papeleta de Autorização de Corte e Solda deve conter, entre outros campos essenciais, o nome do navio, a data, a divisão requisitante, o horário da faina, o EPI exigido, os recursos de combate a incêndio e:",
+        options: [
+          "A) a existência de contenção e os compartimentos adjacentes com contenção",
+          "B) o histórico de manutenção do equipamento de solda",
+          "C) a lista de qualificações do Encarregado do CAv",
+          "D) o consumo estimado de energia elétrica da faina",
+          "E) a data prevista para a próxima docagem do navio"
+        ],
+        correct: 0,
+        subject: "Organização e Funções do CAv",
+        explanation: "O item sobre a Papeleta de Autorização de Corte e Solda lista seus campos essenciais, incluindo \"contenção (sim ou não) e compartimentos adjacentes com contenção\"."
+      },
+      {
+        id: 200,
+        text: "CAAML-1202 – Segundo a classificação de risco de incêndio da DGMM-0602 Rev. 1 (item 4.13), prédios residenciais, refeitórios e similares são classificados como:",
+        options: [
+          "A) pequeno risco",
+          "B) médio risco",
+          "C) grande risco",
+          "D) risco especial",
+          "E) risco indefinido"
+        ],
+        correct: 0,
+        subject: "Extintores e Agentes Extintores",
+        explanation: "O item 4.13 classifica como \"pequeno risco – prédios ou ocupações com baixa carga de combustível [...] tais como: prédios residenciais, refeitórios e similares\"."
       }
     ];
 
@@ -2363,6 +3578,9 @@ const questionsData = [
       await applySwitchMenuLocks();
 
       await loadSavedState();
+      if (currentUser) {
+        AlfaGamification.reconcileRespostasDetalhadas(sb, currentUser.id, QUIZ_ID, questionsData, userAnswers).then(() => {});
+      }
       const savedIndex = parseInt(localStorage.getItem(STORAGE_KEY_CURRENT), 10);
       currentIndex = (!isNaN(savedIndex) && savedIndex >= 0 && savedIndex < questionsData.length) ? savedIndex : 0;
       renderQuestion();
@@ -2708,6 +3926,17 @@ const questionsData = [
 
         var apLinkWrap = document.getElementById('apostila-link-wrap');
         if (apLinkWrap) { apLinkWrap.innerHTML = AlfaGamification.apostilaLinkHtml(apostilaLinksMap, q.id); }
+
+        const expDetail = document.getElementById('explanation-detail');
+        const expDetailText = document.getElementById('explanation-detail-text');
+        if (expDetail && expDetailText) {
+          if (q.explanation) {
+            expDetail.classList.remove('hidden');
+            expDetailText.innerText = q.explanation;
+          } else {
+            expDetail.classList.add('hidden');
+          }
+        }
       } else {
         expBox.classList.add('hidden');
       }
@@ -2837,22 +4066,25 @@ const questionsData = [
 
     function selectOption(optIndex) {
       if (isDiscarded(currentIndex, optIndex)) return;
-      const jaTinhaResposta = userAnswers[currentIndex] !== undefined;
       userAnswers[currentIndex] = optIndex;
       saveState();
       renderQuestion();
       renderGrid();
 
-      // Salva o resultado dessa questão em tempo real, sem esperar finalizar o simulado
-      if (currentUser && !jaTinhaResposta) {
+      // Salva o resultado dessa questão em tempo real, sem esperar finalizar o simulado.
+      // upsert (não insert): o aluno pode voltar numa questão já respondida pra
+      // reconferir, e nesse caso só atualizamos o acerto/erro mais recente, sem
+      // duplicar linha nem depender de um estado local pra saber "já respondi essa
+      // antes" (é esse estado local que fazia a cobertura ficar presa abaixo do real).
+      if (currentUser) {
         const q = questionsData[currentIndex];
-        sb.from('respostas_detalhadas').insert({
+        sb.from('respostas_detalhadas').upsert({
           user_id: currentUser.id,
           quiz_id: QUIZ_ID,
           subject: q.subject,
           question_id: q.id,
           acertou: optIndex === q.correct
-        }).then(() => {});
+        }, { onConflict: 'user_id,quiz_id,question_id' }).then(() => {});
       }
       if (window.StudyRoom) StudyRoom.reportAnswer(currentIndex, optIndex);
     }

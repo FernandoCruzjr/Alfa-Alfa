@@ -531,6 +531,7 @@
           <div class="flex items-center gap-2 text-sm font-bold mb-1" id="explanation-title"></div>
           <div class="text-xs md:text-sm text-slate-300" id="explanation-text"></div>
           <div id="apostila-link-wrap" class="mt-2"></div>
+          <div class="text-xs md:text-sm text-slate-300 mt-3 pt-3 border-t border-slate-700/60 hidden" id="explanation-detail"><span class="text-navy-400 font-semibold">Por que é essa alternativa: </span><span id="explanation-detail-text"></span></div>
         </div>
 
         <button id="flashcard-btn" onclick="saveAsFlashcard()" class="mt-4 w-full h-11 rounded-xl border border-navy-700 bg-navy-800/60 hover:bg-navy-700/60 hover:border-navy-500 text-slate-200 text-sm font-medium transition-all flex items-center justify-center gap-2">
@@ -683,7 +684,8 @@ const questionsData = [
           "E) Estabelecer normas administrativas para as OM da MB, segundo o disposto no Cerimonial."
         ],
         correct: 1,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-1 Propósito - Estabelecer os procedimentos relativos ao cerimonial naval, a serem observados pela Marinha do Brasil (MB).\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 2,
@@ -696,7 +698,8 @@ const questionsData = [
           "E) Fazer cumprir o Cerimonial e fiscalizar como seus subordinados o cumprem."
         ],
         correct: 4,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-2 Responsabilidade pelo cumprimento - É dever de todo o militar da Marinha que estiver investido de autoridade fazer cumprir este Cerimonial e exercer fiscalização quanto ao modo pelo qual seus subordinados o cumprem.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 3,
@@ -709,7 +712,8 @@ const questionsData = [
           "E) O oficial de serviço considerar necessário, respeitando a tradição naval."
         ],
         correct: 2,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-3 Não-observância do Cerimonial - As prescrições deste Cerimonial somente podem ser modificadas nas seguintes circunstâncias:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 4,
@@ -722,7 +726,8 @@ const questionsData = [
           "E) Somente em situações de emergência."
         ],
         correct: 0,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - quando aquele a quem forem devidas honras dispensá-las em atendimento às conveniências do serviço; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 5,
@@ -735,7 +740,8 @@ const questionsData = [
           "E) O comandante desejar adaptar a cerimônia, tal como estabelecido pelas normas da MB."
         ],
         correct: 2,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"III - quando, no estrangeiro, o Comandante de Força ou de navio determinar sua alteração, de acordo com os costumes locais, e desde que não haja grave prejuízo ao serviço.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 6,
@@ -748,7 +754,8 @@ const questionsData = [
           "E) À relação entre o Comandante e o Imediato, conforme as praxes da Marinha do Brasil, conforme o entendimento consolidado no âmbito da MB."
         ],
         correct: 2,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-4 Cadeia de comando - Cadeia de comando é a sucessão de comandos vinculados a um comando superior, por subordinação militar, em ordem imediata e direta.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 7,
@@ -761,7 +768,8 @@ const questionsData = [
           "E) Aos oficiais-generais da Marinha e do Exército, conforme as praxes da Marinha do Brasil, de forma a atender ao previsto no regulamento."
         ],
         correct: 3,
-        subject: "Honras a Almirantes e Generais"
+        subject: "Honras a Almirantes e Generais",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-5 Almirante - Neste Cerimonial, a denominação Almirante refere-se ao círculo de oficiais-generais em tempo de paz, compreendendo os postos de Almirante de Esquadra, Vice-Almirante e Contra-Almirante, a menos que especificamente aplicado ao posto de Almirante.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 8,
@@ -774,7 +782,8 @@ const questionsData = [
           "E) O Comandante da Marinha exclusivamente, nos termos estabelecidos."
         ],
         correct: 2,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-6 Comandante - Neste Cerimonial, a denominação Comandante significa o oficial de Marinha investido no cargo de comando ou direção.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 9,
@@ -787,7 +796,8 @@ const questionsData = [
           "E) Durante uma cerimônia de transmissão de comando, respeitando a tradição naval."
         ],
         correct: 3,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - em faina geral, de emergência ou de evolução decorrente de manobra ou exercício;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 10,
@@ -800,7 +810,8 @@ const questionsData = [
           "E) Toda atividade realizada a bordo, tal como estabelecido pelas normas da MB, conforme o entendimento consolidado no âmbito da MB."
         ],
         correct: 3,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - durante qualquer atividade cuja paralisação, mesmo que momentânea, possa afetar a segurança de pessoal ou material; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 11,
@@ -813,7 +824,8 @@ const questionsData = [
           "E) São prestadas somente continências individuais."
         ],
         correct: 3,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 8-3-10 Visitas de demais autoridades - Às demais autoridades civis e militares de nação estrangeira, quando em visita oficial a OM da MB são prestadas as honras devidas às autoridades brasileiras de mesmo posto ou que exercem funções equivalentes; caso o visitante, por sua precedência, faça jus a salva, é hasteada na verga de boreste ou à direita do mastro a bandeira de guerra ou nacional da respectiva nação, que permanecerá içada durante o transcorrer da visita ou duran...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 12,
@@ -826,7 +838,8 @@ const questionsData = [
           "E) Durante visitas anunciadas, conforme as praxes da Marinha do Brasil, de acordo com o que dispõe o cerimonial em vigor."
         ],
         correct: 2,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - a qualquer autoridade, na presença de outra a quem caibam honras superiores, exceto durante transmissão de Comando;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 13,
@@ -839,7 +852,8 @@ const questionsData = [
           "E) São prestadas somente honras de portaló, segundo o disposto no Cerimonial."
         ],
         correct: 1,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - no período compreendido entre o arriar e o hastear da Bandeira Nacional; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 14,
@@ -852,7 +866,8 @@ const questionsData = [
           "E) São substituídos por tiros de festim, conforme as praxes da Marinha do Brasil, de acordo com o que dispõe o cerimonial em vigor."
         ],
         correct: 2,
-        subject: "Honras Fúnebres"
+        subject: "Honras Fúnebres",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"III - durante funeral ou em dias de luto oficial, por motivos que não os previstos como honras fúnebres, a menos que especificamente autorizado pelos Comandantes de Distrito Naval.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 15,
@@ -865,7 +880,8 @@ const questionsData = [
           "E) No Cerimonial da Marinha exclusivamente, conforme o Cerimonial."
         ],
         correct: 0,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-9 Toques de corneta - Os toques de corneta são os previstos no \"Manual de Toques, Marchas e Hinos das Forças Armadas\".\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 16,
@@ -878,7 +894,8 @@ const questionsData = [
           "E) Os toques de apito também serão cancelados, conforme os preceitos do cerimonial naval, respeitando o que estabelece a autoridade competente."
         ],
         correct: 1,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-10 Ausência de corneteiro ou bandas - Nas OM em que não existir ou não estiver disponível corneteiro ou banda, são cancelados os toques, exórdios e hinos previstos ao longo deste Cerimonial, para serem por eles executados, mantidos os toques de apito.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 17,
@@ -891,7 +908,8 @@ const questionsData = [
           "E) Deve ser instaurado automaticamente procedimento disciplinar, nos termos estabelecidos."
         ],
         correct: 1,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-11 Justificativa por honras não prestadas - Quando, por qualquer circunstância, deixarem de ser prestadas a qualquer autoridade honras a que tenha direito, deve ser-lhe apresentada, antecipadamente ou sem demora após o evento, a devida justificativa.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 18,
@@ -904,7 +922,8 @@ const questionsData = [
           "E) 200 jardas."
         ],
         correct: 4,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-12 Amarra - Neste Cerimonial, denomina-se amarra à unidade de distância cujo valor é de duzentas jardas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 19,
@@ -917,7 +936,8 @@ const questionsData = [
           "E) Ao horário de Brasília."
         ],
         correct: 2,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-13 Horário - O horário citado neste Cerimonial refere-se à hora local.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 20,
@@ -930,7 +950,8 @@ const questionsData = [
           "E) A terminologia usada no Cerimonial."
         ],
         correct: 4,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-14 Correspondência oficial - A correspondência oficial da MB emprega a terminologia usada neste Cerimonial.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 21,
@@ -943,7 +964,8 @@ const questionsData = [
           "E) Apenas às OM subordinadas ao CM, conforme as praxes da Marinha do Brasil, conforme o entendimento consolidado no âmbito da MB."
         ],
         correct: 3,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-15 Aplicação às unidades aéreas, de fuzileiros navais e Forças - As disposições deste Cerimonial referentes às OM de terra aplicam-se às unidades aéreas e de fuzileiros navais, aos respectivos Comandos de Força e às instalações terrestres da Esquadra e Forças Navais, exceto quando determinado em contrário.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 22,
@@ -956,7 +978,8 @@ const questionsData = [
           "E) Não se aplica a eles, segundo as determinações do Comando da Marinha, de forma a atender ao previsto no regulamento."
         ],
         correct: 0,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-16 Navios-museu - As disposições deste Cerimonial aplicam-se aos navios-museu, no que for praticável e quando as circunstâncias o indicarem, como se estes fossem navios incorporados à Armada.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 23,
@@ -969,7 +992,8 @@ const questionsData = [
           "E) A representação das Forças Armadas."
         ],
         correct: 0,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-17 Comandante da Marinha - As honras e o pavilhão previstos para o CM são estabelecidos em decorrência de exercer o comando, a direção e a gestão da Marinha.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 24,
@@ -982,7 +1006,8 @@ const questionsData = [
           "E) Do Comandante de Distrito Naval."
         ],
         correct: 3,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-18 Honras de posto acima - É privativo do Presidente da República conceder, em casos excepcionais, como reconhecimento a relevantes serviços prestados à Marinha e ao País, honras de posto acima, a militares da reserva ou reformados.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 25,
@@ -995,7 +1020,8 @@ const questionsData = [
           "E) Uma formação exclusiva de oficiais, tal como estabelecido pelas normas da MB, de acordo com o que dispõe o cerimonial em vigor."
         ],
         correct: 1,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-19 Guarda de Honra - Guarda de Honra é a tropa armada postada para prestar homenagem às autoridades militares e civis que a ela tenham direito. Para as Guardas de Honra serão cumpridas as disposições do Regulamento de Continências, Honras, Sinais de Respeito e Cerimonial das Forças Armadas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 26,
@@ -1008,7 +1034,8 @@ const questionsData = [
           "E) Somente ao CEMA, conforme os preceitos do cerimonial naval, em linha com o costume adotado nas Organizações Militares."
         ],
         correct: 2,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-2-1 Comandante em partida ou regresso de comissão - O Comandante de OM, ao partir ou regressar de comissão, apresenta-se à autoridade a quem estiver diretamente subordinado e à autoridade de quem tiver recebido instruções especiais, exceto se dispensado de fazê-lo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 27,
@@ -1021,7 +1048,8 @@ const questionsData = [
           "E) Ao CEMA, conforme as praxes da Marinha do Brasil, de acordo com o que dispõe o cerimonial em vigor."
         ],
         correct: 1,
-        subject: "Posse, Transmissão e Apresentação de Autoridades"
+        subject: "Posse, Transmissão e Apresentação de Autoridades",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-2-2 Apresentação após a posse - Na primeira oportunidade após a posse, o Titular de OM apresentar-se-á à autoridade a quem estiver diretamente subordinado, caso não tenha sido essa a lhe investir no cargo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 28,
@@ -1034,7 +1062,8 @@ const questionsData = [
           "E) Fornecer apenas um oficial, nos termos estabelecidos."
         ],
         correct: 3,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-2-3 Auxílio à manobra do navio - O navio atracado próximo ao local onde for atracar ou desatracar outro navio fornece pessoal para auxiliá-lo nessa manobra.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 29,
@@ -1047,7 +1076,8 @@ const questionsData = [
           "E) Pelo Imediato, conforme o Cerimonial."
         ],
         correct: 1,
-        subject: "Honras a Almirantes e Generais"
+        subject: "Honras a Almirantes e Generais",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-2-4 Embarcação à disposição de Almirante - A embarcação da MB colocada à disposição de Almirante lhe é apresentada por oficial designado para tal.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 30,
@@ -1060,7 +1090,8 @@ const questionsData = [
           "E) “Com licença.”"
         ],
         correct: 4,
-        subject: "Honras de Passagem e Embarcações Miúdas"
+        subject: "Honras de Passagem e Embarcações Miúdas",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-2-5 Permissão para largar - O militar mais antigo a bordo de embarcação miúda ou viatura, qualquer que seja seu nível hierárquico, pede licença para largar a quem lhe tiver prestado as honras de despedida, por meio da expressão \"Com licença\", recebendo em troca a resposta \"Está quem manda\".\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 31,
@@ -1073,7 +1104,8 @@ const questionsData = [
           "E) “Boa viagem.”, respeitando a tradição naval."
         ],
         correct: 2,
-        subject: "Honras de Passagem e Embarcações Miúdas"
+        subject: "Honras de Passagem e Embarcações Miúdas",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-2-5 Permissão para largar - O militar mais antigo a bordo de embarcação miúda ou viatura, qualquer que seja seu nível hierárquico, pede licença para largar a quem lhe tiver prestado as honras de despedida, por meio da expressão \"Com licença\", recebendo em troca a resposta \"Está quem manda\".\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 32,
@@ -1086,7 +1118,8 @@ const questionsData = [
           "E) Honras prestadas somente em portos, conforme as praxes da Marinha do Brasil, conforme o entendimento consolidado no âmbito da MB."
         ],
         correct: 0,
-        subject: "Honras de Passagem e Embarcações Miúdas"
+        subject: "Honras de Passagem e Embarcações Miúdas",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-4-1 Definição - Denominam-se honras de passagem as honras, que não as de salva, prestadas quando navios e embarcações, estas arvorando bandeira-insígnia, passam ou são ultrapassados à distância de reconhecimento.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 33,
@@ -1099,7 +1132,8 @@ const questionsData = [
           "E) 2 amarras para navios e 3 para embarcações miúdas."
         ],
         correct: 1,
-        subject: "Honras de Passagem e Embarcações Miúdas"
+        subject: "Honras de Passagem e Embarcações Miúdas",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-4-2 Distância de reconhecimento - A distância de reconhecimento é de aproximadamente três amarras para navios e de duas amarras para embarcações miúdas, devendo ser considerada com razoável largueza, de modo a permitir que sejam prestadas as honras devidas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 34,
@@ -1112,7 +1146,8 @@ const questionsData = [
           "E) Rigidamente, sem qualquer tolerância, conforme os preceitos do cerimonial naval."
         ],
         correct: 2,
-        subject: "Honras de Passagem e Embarcações Miúdas"
+        subject: "Honras de Passagem e Embarcações Miúdas",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-4-2 Distância de reconhecimento - A distância de reconhecimento é de aproximadamente três amarras para navios e de duas amarras para embarcações miúdas, devendo ser considerada com razoável largueza, de modo a permitir que sejam prestadas as honras devidas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 35,
@@ -1125,7 +1160,8 @@ const questionsData = [
           "E) Apenas o patrão presta continência, segundo o disposto no Cerimonial."
         ],
         correct: 1,
-        subject: "Honras a Almirantes e Generais"
+        subject: "Honras a Almirantes e Generais",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - a Almirantes e autoridades de precedência igual ou maior, são levados os remos ao alto, arriadas as velas ou parada a máquina;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 36,
@@ -1138,7 +1174,8 @@ const questionsData = [
           "E) A embarcação deve fundear, tal como estabelecido pelas normas da MB."
         ],
         correct: 3,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - a oficiais superiores e oficiais no exercício do comando, são arvorados os remos, folgadas as escotas ou reduzidas as rotações da máquina;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 37,
@@ -1151,7 +1188,8 @@ const questionsData = [
           "E) Faz continência somente se for oficial, conforme os preceitos do cerimonial naval."
         ],
         correct: 3,
-        subject: "Honras de Passagem e Embarcações Miúdas"
+        subject: "Honras de Passagem e Embarcações Miúdas",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"III - o patrão, de pé, faz continência individual, enquanto que os demais militares a bordo permanecem em suas posições; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 38,
@@ -1164,7 +1202,8 @@ const questionsData = [
           "E) Após a autoridade lá embarcada retribuir a continência prestada."
         ],
         correct: 4,
-        subject: "Honras de Passagem e Embarcações Miúdas"
+        subject: "Honras de Passagem e Embarcações Miúdas",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"a) passar para vante da outra após a autoridade lá embarcada retribuir a continência prestada; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 39,
@@ -1177,7 +1216,8 @@ const questionsData = [
           "E) Do oficial de serviço, segundo o disposto no Cerimonial."
         ],
         correct: 0,
-        subject: "Honras de Passagem e Embarcações Miúdas"
+        subject: "Honras de Passagem e Embarcações Miúdas",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. A-29 Comandante Mais Antigo Presente Embarcado – COMAPEM - O pavilhão de COMAPEM é:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 40,
@@ -1190,7 +1230,8 @@ const questionsData = [
           "E) Por ocasião do desengajamento."
         ],
         correct: 4,
-        subject: "Honras de Passagem e Embarcações Miúdas"
+        subject: "Honras de Passagem e Embarcações Miúdas",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-4-6 Navios em operações - Os navios quando em operações, integrando Forças-Tarefa ou Grupos-Tarefa, cumprem as instruções do Comandante Mais Antigo Presente Embarcado (COMAPEM) quanto às honras de passagem, por ocasião de manobras táticas ou em fainas que impliquem passagem de cabos entre os navios. Neste último caso, as honras de passagem, quando determinadas, serão sempre prestadas por ocasião do desengajamento.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 41,
@@ -1203,7 +1244,8 @@ const questionsData = [
           "E) Pelo tratamento “Senhor”, segundo o disposto no Cerimonial."
         ],
         correct: 0,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - atingindo a autoridade o patim superior da escada do portaló, extremidade superior da prancha, ou local de despedida nas OM de terra, o oficial a quem caiba despedir proclama, a viva voz, o vocativo a que tem direito a autoridade e comanda \"Abre o toque\", sendo então executado por corneta e apito o toque de presença e iniciados, independentemente de outro comando, os toques correspondentes; nesta ocasião, os oficiais presentes prestam a continência individual e a guarda,...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 42,
@@ -1216,7 +1258,8 @@ const questionsData = [
           "E) “Apresentar armas”."
         ],
         correct: 3,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - atingindo a autoridade o patim superior da escada do portaló, extremidade superior da prancha, ou local de despedida nas OM de terra, o oficial a quem caiba despedir proclama, a viva voz, o vocativo a que tem direito a autoridade e comanda \"Abre o toque\", sendo então executado por corneta e apito o toque de presença e iniciados, independentemente de outro comando, os toques correspondentes; nesta ocasião, os oficiais presentes prestam a continência individual e a guarda,...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 43,
@@ -1229,7 +1272,8 @@ const questionsData = [
           "E) Os oficiais permanecem descobertos, tal como estabelecido pelas normas da MB."
         ],
         correct: 3,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-3-1 Honras de portaló - São denominadas honras de portaló a continência da guarda, \"boys\" e toques de corneta e apito, devidas na recepção ou despedida à autoridade.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 44,
@@ -1242,7 +1286,8 @@ const questionsData = [
           "E) Dirige-se ao portaló e permanece até a autoridade afastar-se."
         ],
         correct: 4,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - terminados os toques e continências, o oficial a quem caiba despedir dirige-se para o patim superior do portaló, ali permanecendo até a autoridade afastar-se.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 45,
@@ -1255,7 +1300,8 @@ const questionsData = [
           "E) Pelo oficial mais antigo presente, conforme o Cerimonial."
         ],
         correct: 3,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-3-7 Honras entre o toque de silêncio e o hasteamento da Bandeira Nacional - As autoridades de qualquer precedência, que entrarem ou saírem de OM da MB no período entre o toque de silêncio e o hasteamento da Bandeira Nacional no dia seguinte, são recebidas ou despedidas pelo oficial de serviço ou por quem o estiver substituindo, conforme dispuser a organização da OM.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 46,
@@ -1268,7 +1314,8 @@ const questionsData = [
           "E) Não são prestadas honras, segundo as determinações do Comando da Marinha, de forma a atender ao previsto no regulamento."
         ],
         correct: 3,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - em OM de terra ou navio-aeródromo, um oficial designado acompanha a autoridade entre a aeronave e o local onde são prestadas as honras; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 47,
@@ -1281,7 +1328,8 @@ const questionsData = [
           "E) Ser obrigatoriamente suspensas, conforme praticado nas OM da Marinha."
         ],
         correct: 0,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - nos demais navios, as honras são prestadas de forma e em local que não afetem a segurança de aviação, podendo a autoridade anfitriã, dependendo da situação, dispensar das honras a salva, a guarda e a banda, mantendo sempre os \"boys\" e o toque de apito.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 48,
@@ -1294,7 +1342,8 @@ const questionsData = [
           "E) Apenas a guarda, conforme as praxes da Marinha do Brasil."
         ],
         correct: 1,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - nos demais navios, as honras são prestadas de forma e em local que não afetem a segurança de aviação, podendo a autoridade anfitriã, dependendo da situação, dispensar das honras a salva, a guarda e a banda, mantendo sempre os \"boys\" e o toque de apito.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 49,
@@ -1307,7 +1356,8 @@ const questionsData = [
           "E) De posto inferior, conforme o Cerimonial."
         ],
         correct: 3,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-3-9 A quem cabe prestar - Cabe ao Titular da OM, ou quem lhe seguir em antiguidade na cadeia de comando, se houver impedimento para sua presença, prestar as honras de portaló às autoridades de maior ou igual posto.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 50,
@@ -1320,7 +1370,8 @@ const questionsData = [
           "E) Solicitar autorização ao COMAPEM, conforme os preceitos do cerimonial naval."
         ],
         correct: 0,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-3-10 Ausência de quem de direito - Quando, por circunstâncias inevitáveis, a autoridade não for recebida por quem de direito, quem dirigir as honras de portaló apresenta escusas pelo sucedido e a acompanha à presença do Comandante ou Imediato da OM.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 51,
@@ -1333,7 +1384,8 @@ const questionsData = [
           "E) Uma visita de caráter formal ou protocolar feita por uma autoridade a uma OM da MB ou a outra autoridade."
         ],
         correct: 4,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 4-1-1 Visita oficial ou anunciada - Visita oficial, também referida como anunciada, é a visita de caráter formal feita por uma autoridade à OM da MB ou a outra autoridade. Quando realizada à OM da MB, pode ser:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 52,
@@ -1346,7 +1398,8 @@ const questionsData = [
           "E) Somente em visitas internacionais, nos termos estabelecidos."
         ],
         correct: 1,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - entre Almirantes, independentemente da antiguidade relativa; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 53,
@@ -1359,7 +1412,8 @@ const questionsData = [
           "E) Ambos forem da mesma OM, tal como estabelecido pelas normas da MB."
         ],
         correct: 3,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "O trecho da apostila de Cerimonial da Marinha relacionado a essa questão traz: \"II - entre oficiais dos demais postos, quando o visitante for de posto igual ou superior ao do oficial visitado.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 54,
@@ -1372,7 +1426,8 @@ const questionsData = [
           "E) Previsto pelo Regulamento Disciplinar, conforme praticado nas OM da Marinha."
         ],
         correct: 3,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 4-1-9 Uniforme para visita - Nas visitas oficiais são usados os uniformes determinados para tal fim pelo Regulamento de Uniformes da Marinha do Brasil.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 55,
@@ -1385,7 +1440,8 @@ const questionsData = [
           "E) O uniforme determinado pelo patrão, tal como estabelecido pelas normas da MB."
         ],
         correct: 2,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 4-1-10 Uniforme em embarcações - Em visita oficial, a guarnição da embarcação miúda usa uniforme correspondente ao que for usado pelo oficial que está sendo conduzido.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 56,
@@ -1398,7 +1454,8 @@ const questionsData = [
           "E) Feita obrigatoriamente sem conhecimento do Comandante, segundo as determinações do Comando da Marinha."
         ],
         correct: 1,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 4-2-1 Visita não anunciada - Visita não anunciada é a visita feita informalmente por autoridade militar ou civil, em virtude de necessidades administrativas ou por simples cortesia individual.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 57,
@@ -1411,7 +1468,8 @@ const questionsData = [
           "E) Honras de portaló, banda e guarda."
         ],
         correct: 1,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 4-2-2 Honras em visita não anunciada - A visita não anunciada requer apenas a prestação de honras de portaló.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 58,
@@ -1424,7 +1482,8 @@ const questionsData = [
           "E) Apresentar-se ao Imediato, segundo o disposto no Cerimonial."
         ],
         correct: 1,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "O trecho da apostila de Cerimonial da Marinha relacionado a essa questão traz: \"I - apresentar votos de boas-vindas ao Comandante de Força ou de navio da MB, assim que este chegar a porto que não sua sede; e\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 59,
@@ -1437,7 +1496,8 @@ const questionsData = [
           "E) Igual ou superior a 60 dias."
         ],
         correct: 3,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - cumprir o mesmo procedimento para Força ou navio sediado no mesmo porto, se a ausência for igual ou superior a três meses.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 60,
@@ -1450,7 +1510,8 @@ const questionsData = [
           "E) Sempre, segundo as determinações do Comando da Marinha."
         ],
         correct: 2,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 4-2-4 Retribuição - As visitas não anunciadas de oficiais mais modernos a oficiais mais antigos são retribuídas, caso as circunstâncias permitam e assim aconselhem as normas de cortesia.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 61,
@@ -1463,7 +1524,8 @@ const questionsData = [
           "E) Têm direito às honras de portaló."
         ],
         correct: 4,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-1-1 Direito às honras de portaló - Todos os oficiais, ao entrarem ou saírem de OM da MB, têm direito às honras de portaló.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 62,
@@ -1476,7 +1538,8 @@ const questionsData = [
           "E) Restringem-se às honras de portaló."
         ],
         correct: 4,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-1-2 Presença do Presidente da República no mar - As honras aos oficiais de marinha, quando o Presidente da República estiver no mar, dentro da distância máxima de salva, restringem-se às honras de portaló.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 63,
@@ -1489,7 +1552,8 @@ const questionsData = [
           "E) Restringem-se às honras de portaló."
         ],
         correct: 4,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-1-3 Presença a bordo de autoridade de maior precedência - As honras aos oficiais de marinha, quando se encontrar na OM visitada autoridade de maior precedência, restringem-se às honras de portaló; caso a autoridade de maior precedência se encontre nas proximidades do local das honras, essas limitar-se-ão às continências de guarda e \"boys\", não sendo dados toques.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 64,
@@ -1502,7 +1566,8 @@ const questionsData = [
           "E) A banda toca o Hino Nacional, conforme os preceitos do cerimonial naval."
         ],
         correct: 2,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-1-3 Presença a bordo de autoridade de maior precedência - As honras aos oficiais de marinha, quando se encontrar na OM visitada autoridade de maior precedência, restringem-se às honras de portaló; caso a autoridade de maior precedência se encontre nas proximidades do local das honras, essas limitar-se-ão às continências de guarda e \"boys\", não sendo dados toques.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 65,
@@ -1515,7 +1580,8 @@ const questionsData = [
           "E) Apenas o CM e CEMA, conforme os preceitos do cerimonial naval."
         ],
         correct: 2,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-1-4 Toques de apito - Há toques de apito e corneta específicos para cada círculo hierárquico de oficiais e para as seguintes autoridades:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 66,
@@ -1528,7 +1594,8 @@ const questionsData = [
           "E) CM, CEMA, Comandante de Operações Navais, Comandante-Geral do CFN e Comandante-emChefe da Esquadra, entre outras previstas."
         ],
         correct: 4,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 6-1-7 Toques de apito - Há toques de apito específicos para as seguintes autoridades:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 67,
@@ -1541,7 +1608,8 @@ const questionsData = [
           "E) Em qualquer OM da MB, segundo as determinações do Comando da Marinha."
         ],
         correct: 1,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-1-5 Toque de Comandante ou Comandante de Força - O oficial no exercício do Comando só tem direito ao toque de Comandante no navio, unidade ou estabelecimento em que exerce tal cargo; os Comandantes de Força podem receber toques de Comandante de Força em OM não subordinadas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 68,
@@ -1554,7 +1622,8 @@ const questionsData = [
           "E) Somente em suas próprias OM."
         ],
         correct: 1,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-1-5 Toque de Comandante ou Comandante de Força - O oficial no exercício do Comando só tem direito ao toque de Comandante no navio, unidade ou estabelecimento em que exerce tal cargo; os Comandantes de Força podem receber toques de Comandante de Força em OM não subordinadas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 69,
@@ -1567,7 +1636,8 @@ const questionsData = [
           "E) 10 “boys”."
         ],
         correct: 0,
-        subject: "Honras a Almirantes e Generais"
+        subject: "Honras a Almirantes e Generais",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - oito \"boys\": Almirante, Almirante de Esquadra e Vice-Almirante;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 70,
@@ -1580,7 +1650,8 @@ const questionsData = [
           "E) 4 “boys”."
         ],
         correct: 2,
-        subject: "Honras a Almirantes e Generais"
+        subject: "Honras a Almirantes e Generais",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - seis \"boys\": Contra-Almirante;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 71,
@@ -1593,7 +1664,8 @@ const questionsData = [
           "E) 4 “boys”."
         ],
         correct: 4,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"III - quatro \"boys\": oficial superior; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 72,
@@ -1606,7 +1678,8 @@ const questionsData = [
           "E) 6 “boys”."
         ],
         correct: 0,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"IV - dois \"boys\": demais oficiais.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 73,
@@ -1619,7 +1692,8 @@ const questionsData = [
           "E) Substituí-los por militares armados, conforme o Cerimonial."
         ],
         correct: 2,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - reduzir a quantidade de \"boys\", mantendo-a em número par.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 74,
@@ -1632,7 +1706,8 @@ const questionsData = [
           "E) Para aqueles que tomarem parte nas honras, ressalvada a hipótese prevista para honraria de postos."
         ],
         correct: 4,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-1-10 Uniforme - O uniforme determinado para as honras de portaló, quando diferente do uniforme do dia, é de uso obrigatório apenas para aqueles que nelas tomarem parte, exceto se for devida à autoridade visitante a honraria de postos, quando o uniforme determinado para as honras é geral para toda a tripulação visitada.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 75,
@@ -1645,7 +1720,8 @@ const questionsData = [
           "E) Com a tripulação formada em postos de Parada."
         ],
         correct: 4,
-        subject: "Honras de Passagem e Embarcações Miúdas"
+        subject: "Honras de Passagem e Embarcações Miúdas",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-1-11 Honras de passagem ao Comandante da Marinha e ao Almirantado - As honras de passagem ao Comandante da Marinha e ao Almirantado são prestadas com a tripulação formada em postos de Parada.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 76,
@@ -1658,7 +1734,8 @@ const questionsData = [
           "E) Pelo posto, conforme o Cerimonial."
         ],
         correct: 0,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - o Comandante da Marinha, o Chefe do Estado-Maior da Armada, o Comandante de Operações Navais, o Comandante-Geral do Corpo de Fuzileiros Navais e o Comandante em Chefe da Esquadra são anunciados pelos cargos que exercem;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 77,
@@ -1671,7 +1748,8 @@ const questionsData = [
           "E) Pelo nome e posto, segundo as determinações do Comando da Marinha, em linha com o costume adotado nas Organizações Militares."
         ],
         correct: 3,
-        subject: "Honras a Almirantes e Generais"
+        subject: "Honras a Almirantes e Generais",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - os demais Almirantes são anunciados pelo posto, seguido, quando for o caso, em suas OM e nas subordinadas, da expressão \"Comandante de Força\" ou \"Comandante\"; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 78,
@@ -1684,7 +1762,8 @@ const questionsData = [
           "E) Pelo nome completo, conforme os preceitos do cerimonial naval, de acordo com o que dispõe o cerimonial em vigor."
         ],
         correct: 3,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"III - os oficiais superiores, intermediários ou subalternos são anunciados pelo respectivo círculo hierárquico, seguido da expressão \"Comandante de Força\" ou \"Comandante\", em suas OM, quando for o caso.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 79,
@@ -1697,7 +1776,8 @@ const questionsData = [
           "E) Apenas a guarda assume posição, nos termos estabelecidos."
         ],
         correct: 1,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"1. quando a OM visitada for um navio, a guarnição em postos de continência, ao ser avistada a lancha ou veículo conduzindo a autoridade (ALTERAÇÃO 7JAN2022);\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 80,
@@ -1710,7 +1790,8 @@ const questionsData = [
           "E) Em descanso, respeitando a tradição naval."
         ],
         correct: 0,
-        subject: "Posse, Transmissão e Apresentação de Autoridades"
+        subject: "Posse, Transmissão e Apresentação de Autoridades",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-4-1 Apresentação de oficial nomeado - Ao oficial nomeado para assumir cargo de Comando, Direção ou Chefia de Estado-Maior são prestadas, quando da sua apresentação, as seguintes honras:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 81,
@@ -1723,7 +1804,8 @@ const questionsData = [
           "E) Em descanso, respeitando a tradição naval."
         ],
         correct: 0,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"1. quando a OM visitada for um navio, a guarnição em postos de continência, ao ser avistada a lancha ou veículo conduzindo a autoridade (ALTERAÇÃO 7JAN2022);\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 82,
@@ -1736,7 +1818,8 @@ const questionsData = [
           "E) Em formatura geral."
         ],
         correct: 2,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-2-2 Visita de Almirante a OM não subordinada - Quando Almirante fizer visita oficial a OM não subordinada, deve ser observado o seguinte cerimonial:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 83,
@@ -1749,7 +1832,8 @@ const questionsData = [
           "E) Pelo oficial de serviço, segundo o disposto no Cerimonial."
         ],
         correct: 1,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"5. a autoridade de maior precedência da cadeia de comando acompanha o visitante durante a permanência a bordo;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 84,
@@ -1762,7 +1846,8 @@ const questionsData = [
           "E) No interior do navio, conforme os preceitos do cerimonial naval."
         ],
         correct: 3,
-        subject: "Honras a Almirantes e Generais"
+        subject: "Honras a Almirantes e Generais",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"3. honras de portaló e de banda de música presididas pela autoridade de maior precedência da cadeia de comando, ocupando o Titular da OM posição logo atrás, junto com os demais titulares de OM subordinados presentes;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 85,
@@ -1775,7 +1860,8 @@ const questionsData = [
           "E) O oficial de serviço, segundo o disposto no Cerimonial."
         ],
         correct: 3,
-        subject: "Honras a Almirantes e Generais"
+        subject: "Honras a Almirantes e Generais",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"5. a autoridade de maior precedência da cadeia de comando acompanha o visitante durante a permanência a bordo;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 86,
@@ -1788,7 +1874,8 @@ const questionsData = [
           "E) São dados sete vivas, conforme o Cerimonial."
         ],
         correct: 3,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"5. honras de portaló e de banda de música; após, execução da salva de partida; após, o pavilhão é arriado;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 87,
@@ -1801,7 +1888,8 @@ const questionsData = [
           "E) É substituído pelo Estandarte Presidencial."
         ],
         correct: 1,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"5. honras de portaló e de banda de música; após, execução da salva de partida; após, o pavilhão é arriado;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 88,
@@ -1814,7 +1902,8 @@ const questionsData = [
           "E) Não há alteração alguma, conforme o Cerimonial."
         ],
         correct: 3,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"a) a guarnição não forma em postos de continência,\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 89,
@@ -1827,7 +1916,8 @@ const questionsData = [
           "E) A banda é substituída por salva."
         ],
         correct: 0,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"d) honras de portaló, de bandas marcial e de música como na recepção;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 90,
@@ -1840,7 +1930,8 @@ const questionsData = [
           "E) É dada salva de partida."
         ],
         correct: 0,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-2-1 Visita de Almirante a OM subordinada - Quando Almirante fizer visita à OM subordinada, deve ser observado o seguinte cerimonial:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 91,
@@ -1853,7 +1944,8 @@ const questionsData = [
           "E) A guarda não presta honras, nos termos estabelecidos."
         ],
         correct: 0,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"e) estando o Almirante em trajes civis, a oficialidade não forma no portaló.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 92,
@@ -1866,7 +1958,8 @@ const questionsData = [
           "E) Pelo oficial de serviço."
         ],
         correct: 3,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-2-2 Visita de Almirante a OM não subordinada - Quando Almirante fizer visita oficial a OM não subordinada, deve ser observado o seguinte cerimonial:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 93,
@@ -1879,7 +1972,8 @@ const questionsData = [
           "E) Uma unidade aérea."
         ],
         correct: 2,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"1. quando a OM visitada for um navio, a guarnição em postos de continência(ALTERAÇÃO 7JAN2022);\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 94,
@@ -1892,7 +1986,8 @@ const questionsData = [
           "E) Pelo Titular da OM e pelo Imediato, nos termos estabelecidos."
         ],
         correct: 1,
-        subject: "Honras a Almirantes e Generais"
+        subject: "Honras a Almirantes e Generais",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"a) é recebido pelo Titular da OM, salvo se for em navio capitânia, quando é recebido pelo respectivo Comandante de Força e seu Estado-Maior;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 95,
@@ -1905,7 +2000,8 @@ const questionsData = [
           "E) Há somente postos de Parada, nos termos estabelecidos."
         ],
         correct: 3,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-2-2 Visita de Almirante a OM não subordinada - Quando Almirante fizer visita oficial a OM não subordinada, deve ser observado o seguinte cerimonial:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 96,
@@ -1918,7 +2014,8 @@ const questionsData = [
           "E) Da recepção, segundo o costume adotado a bordo."
         ],
         correct: 1,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"c) na despedida, a bandeira-insígnia do Almirante visitante é hasteada no mastro principal, por ocasião da salva de partida, caso esteja prevista, desde que seja de precedência igual ou superior à da autoridade de maior precedência que já se encontrar içada;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 97,
@@ -1931,7 +2028,8 @@ const questionsData = [
           "E) Sempre superior à do Comandante da OM, conforme os preceitos do cerimonial naval."
         ],
         correct: 0,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"c) na despedida, a bandeira-insígnia do Almirante visitante é hasteada no mastro principal, por ocasião da salva de partida, caso esteja prevista, desde que seja de precedência igual ou superior à da autoridade de maior precedência que já se encontrar içada;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 98,
@@ -1944,7 +2042,8 @@ const questionsData = [
           "E) Apenas os oficiais superiores, segundo o disposto no Cerimonial."
         ],
         correct: 3,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"b) apenas os oficiais que se encontram nas proximidades do portaló formam;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 99,
@@ -1957,7 +2056,8 @@ const questionsData = [
           "E) É dada salva de 19 tiros."
         ],
         correct: 2,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-2-1 Visita de Almirante a OM subordinada - Quando Almirante fizer visita à OM subordinada, deve ser observado o seguinte cerimonial:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 100,
@@ -1970,7 +2070,8 @@ const questionsData = [
           "E) O Comandante da Força, se do mesmo posto ou mais moderno, e seu Estado-Maior."
         ],
         correct: 4,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"d) no caso de o navio visitado ser capitânia de Força, das honras participam também o Comandante da Força, se do mesmo posto ou mais moderno, e respectivo Estado-Maior.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 101,
@@ -1983,7 +2084,8 @@ const questionsData = [
           "E) Ao Almirante em visita oficial a OM subordinada."
         ],
         correct: 4,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-2-3 Comandante da Marinha, Almirantado e CEMA - Ao Comandante da Marinha, Almirantado e CEMA são prestadas honras equivalentes às devidas na visita de Almirante a OM subordinada.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 102,
@@ -1996,7 +2098,8 @@ const questionsData = [
           "E) Honras de autoridade estrangeira, tal como estabelecido pelas normas da MB."
         ],
         correct: 1,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - são prestadas as honras devidas a Almirante em visita oficial a OM subordinada, com as seguintes alterações:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 103,
@@ -2009,7 +2112,8 @@ const questionsData = [
           "E) Somente na primeira chegada do mês, nos termos estabelecidos."
         ],
         correct: 1,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - ao chegar pela primeira vez no dia a bordo, e ao retirar-se de bordo pela última vez, nesse mesmo período, são prestadas honras de portaló pelo Chefe da Divisão de Serviço e oficial de serviço; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 104,
@@ -2022,7 +2126,8 @@ const questionsData = [
           "E) Recebe salva, tal como estabelecido pelas normas da MB."
         ],
         correct: 0,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - nas demais vezes, ao chegar e sair de bordo, é saudado pelo oficial de serviço, não havendo continência de guarda, toques e \"boys\".\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 105,
@@ -2035,7 +2140,8 @@ const questionsData = [
           "E) Somente na saída, conforme os preceitos do cerimonial naval."
         ],
         correct: 3,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-2-6 Outros oficiais - Aos demais oficiais de Marinha, ao fazerem visitas a OM, são prestadas honras de portaló.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 106,
@@ -2048,7 +2154,8 @@ const questionsData = [
           "E) São saudados pelo oficial de serviço, sem honras."
         ],
         correct: 4,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - nas demais vezes que entrar e ao sair, saudado pelo oficial de serviço, não havendo honras.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 107,
@@ -2061,7 +2168,8 @@ const questionsData = [
           "E) Sempre em mostra geral, conforme os preceitos do cerimonial naval."
         ],
         correct: 1,
-        subject: "Posse, Transmissão e Apresentação de Autoridades"
+        subject: "Posse, Transmissão e Apresentação de Autoridades",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-4-1 Apresentação de oficial nomeado - Ao oficial nomeado para assumir cargo de Comando, Direção ou Chefia de Estado-Maior são prestadas, quando da sua apresentação, as seguintes honras:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 108,
@@ -2074,7 +2182,8 @@ const questionsData = [
           "E) Em postos de continência, conforme a prática consagrada na MB."
         ],
         correct: 3,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - oficialidade formada, por antiguidade, próximo ao portaló ou local designado; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 109,
@@ -2087,7 +2196,8 @@ const questionsData = [
           "E) Apenas quando for Almirante, conforme o Cerimonial."
         ],
         correct: 3,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"III - recepção pelo Comandante ou Diretor em exercício, independentemente da antiguidade relativa entre os dois, com honras de portaló e de banda de música como se já houvesse assumido o cargo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 110,
@@ -2100,7 +2210,8 @@ const questionsData = [
           "E) Apenas como oficial visitante, conforme o Cerimonial."
         ],
         correct: 2,
-        subject: "Posse, Transmissão e Apresentação de Autoridades"
+        subject: "Posse, Transmissão e Apresentação de Autoridades",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-4-1 Apresentação de oficial nomeado - Ao oficial nomeado para assumir cargo de Comando, Direção ou Chefia de Estado-Maior são prestadas, quando da sua apresentação, as seguintes honras:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 111,
@@ -2113,7 +2224,8 @@ const questionsData = [
           "E) Pelo Imediato, conforme as praxes da Marinha do Brasil."
         ],
         correct: 0,
-        subject: "Posse, Transmissão e Apresentação de Autoridades"
+        subject: "Posse, Transmissão e Apresentação de Autoridades",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-4-2 Autoridade que preside a investidura - A cerimônia de posse de oficial no cargo para o qual foi nomeado ou designado é presidida pela autoridade da cadeia de comando a quem fica diretamente subordinado, na impossibilidade dessa, por autoridade para tal designada, mais antiga do que os oficiais que passam e recebem o cargo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 112,
@@ -2126,7 +2238,8 @@ const questionsData = [
           "E) É designada autoridade mais antiga do que os oficiais que passam e recebem o cargo."
         ],
         correct: 4,
-        subject: "Posse, Transmissão e Apresentação de Autoridades"
+        subject: "Posse, Transmissão e Apresentação de Autoridades",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-4-2 Autoridade que preside a investidura - A cerimônia de posse de oficial no cargo para o qual foi nomeado ou designado é presidida pela autoridade da cadeia de comando a quem fica diretamente subordinado, na impossibilidade dessa, por autoridade para tal designada, mais antiga do que os oficiais que passam e recebem o cargo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 113,
@@ -2139,7 +2252,8 @@ const questionsData = [
           "E) Apenas salva, respeitando a tradição naval."
         ],
         correct: 1,
-        subject: "Posse, Transmissão e Apresentação de Autoridades"
+        subject: "Posse, Transmissão e Apresentação de Autoridades",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"d) honras de portaló, de bandas marcial e de música como na recepção;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 114,
@@ -2152,7 +2266,8 @@ const questionsData = [
           "E) Depois da cerimônia, tal como estabelecido pelas normas da MB, de acordo com o que dispõe o cerimonial em vigor."
         ],
         correct: 3,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - honras de portaló e de banda de música, no local da cerimônia, na recepção da autoridade que preside, a qual chega acompanhada da autoridade que assume e antes dos convidados com maior precedência, aos quais não são prestadas honras;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 115,
@@ -2165,7 +2280,8 @@ const questionsData = [
           "E) Formam no portaló, respeitando a tradição naval."
         ],
         correct: 3,
-        subject: "Posse, Transmissão e Apresentação de Autoridades"
+        subject: "Posse, Transmissão e Apresentação de Autoridades",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"b) terminada a cerimônia, a guarnição do Comando e as representações das unidades subordinadas desfilam em continência à autoridade empossada; antes do desfile, as autoridades superiores ao novo titular podem retirar-se do local.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 116,
@@ -2178,7 +2294,8 @@ const questionsData = [
           "E) O Comandante da Força deve permanecer, nos termos estabelecidos."
         ],
         correct: 2,
-        subject: "Posse, Transmissão e Apresentação de Autoridades"
+        subject: "Posse, Transmissão e Apresentação de Autoridades",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"b) terminada a cerimônia, a guarnição do Comando e as representações das unidades subordinadas desfilam em continência à autoridade empossada; antes do desfile, as autoridades superiores ao novo titular podem retirar-se do local.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 117,
@@ -2191,7 +2308,8 @@ const questionsData = [
           "E) Às mesmas normas estabelecidas para a transmissão de cargo de Almirante Comandante de Força, no que couber."
         ],
         correct: 4,
-        subject: "Posse, Transmissão e Apresentação de Autoridades"
+        subject: "Posse, Transmissão e Apresentação de Autoridades",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-4-7 Almirantes Comandantes e Diretores - A cerimônia de transmissão de cargo de Almirante nomeado Comandante ou Diretor de OM obedece, no que couber e conforme as peculiaridades da respectiva OM, às mesmas normas estabelecidas para a cerimônia de transmissão de cargo de Almirante Comandante de Força.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 118,
@@ -2204,7 +2322,8 @@ const questionsData = [
           "E) Durante a Parada, respeitando a tradição naval."
         ],
         correct: 2,
-        subject: "Posse, Transmissão e Apresentação de Autoridades"
+        subject: "Posse, Transmissão e Apresentação de Autoridades",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-4-8 Oficial Superior ou Intermediário Comandante ou Diretor - A transmissão de cargo de oficial superior ou intermediário nomeado Comandante ou Diretor é feita perante a tripulação em formatura geral e obedece, no que couber, às mesmas normas da transmissão de cargo de Almirante Comandante de Força.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 119,
@@ -2217,7 +2336,8 @@ const questionsData = [
           "E) Pelo Imediato anterior, conforme os preceitos do cerimonial naval."
         ],
         correct: 0,
-        subject: "Posse, Transmissão e Apresentação de Autoridades"
+        subject: "Posse, Transmissão e Apresentação de Autoridades",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-4-9 Imediato e Vice-Diretor - O oficial nomeado para assumir o cargo de Imediato ou Vice-Diretor de OM é empossado pelo Comandante ou Diretor perante a tripulação, em formatura geral.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 120,
@@ -2230,7 +2350,8 @@ const questionsData = [
           "E) Pelo Comandante da Marinha, segundo as determinações do Comando da Marinha, conforme o entendimento consolidado no âmbito da MB."
         ],
         correct: 1,
-        subject: "Posse, Transmissão e Apresentação de Autoridades"
+        subject: "Posse, Transmissão e Apresentação de Autoridades",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-4-10 Demais oficiais - Os demais oficiais são empossados, por ocasião da Parada, pelo seu superior imediato, na presença dos oficiais que exerçam cargo correspondente e da parcela da tripulação que lhe será subordinada.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 121,
@@ -2243,7 +2364,8 @@ const questionsData = [
           "E) Permanecer em descanso, conforme o Cerimonial."
         ],
         correct: 3,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 6-2-6 Presença do Presidente da República nas proximidades de OM - Estando o Presidente da República no mar, próximo a OM da MB, dentro da distância de reconhecimento, é observado o seguinte:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 122,
@@ -2256,7 +2378,8 @@ const questionsData = [
           "E) Salva de 13 tiros."
         ],
         correct: 3,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 6-2-2 Salva de chegada - Ao ser avistado navio ou embarcação conduzindo o Presidente da República, durante o período compreendido entre 8h e o pôr do sol, a estação de salva ou navio designado presta as honras de Salva de chegada de vinte e um tiros.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 123,
@@ -2269,7 +2392,8 @@ const questionsData = [
           "E) O navio avista qualquer autoridade civil, respeitando a tradição naval."
         ],
         correct: 3,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - avistarem embarcação ou navio ostentando o Estandarte Presidencial; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 124,
@@ -2282,7 +2406,8 @@ const questionsData = [
           "E) Não participa da visita, respeitando a tradição naval."
         ],
         correct: 0,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"f) a autoridade naval de maior precedência acompanha o Presidente da República durante a permanência a bordo;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 125,
@@ -2295,7 +2420,8 @@ const questionsData = [
           "E) Cisne Branco."
         ],
         correct: 2,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"d) exórdio de marcha de continência tocado pela banda de música; no caso de Embaixador no país em que é acreditado ou Ministro de Estado representando o Presidente da República em missão no exterior, é tocado o Hino Nacional;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 126,
@@ -2308,7 +2434,8 @@ const questionsData = [
           "E) No mastro principal."
         ],
         correct: 4,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. A-7 Presidente da República - O Estandarte Presidencial, aprovado pelo Decreto nº 6.310, de 3 de janeiro de 1907, alterado pelo Decreto nº 23.599, de 2 de setembro de 1947, é retangular, da cor verde da Bandeira Nacional, com as Armas Nacionais no centro.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 127,
@@ -2321,7 +2448,8 @@ const questionsData = [
           "E) São arriadas a Bandeira Nacional e as bandeiras-insígnias que se encontrarem hasteadas, exceto o pavilhão do Patrono da Marinha."
         ],
         correct: 4,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"e) hasteamento, nessa ocasião, do Estandarte Presidencial no mastro principal, sendo arriadas a Bandeira Nacional içada no tope do mastro principal por motivo do embandeiramento nos topes e as bandeiras-insígnias que se encontrarem hasteadas, exceto o pavilhão do Patrono da Marinha; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 128,
@@ -2334,7 +2462,8 @@ const questionsData = [
           "E) Sua comitiva permanece junto dele, conforme o Cerimonial."
         ],
         correct: 3,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"4. quando a autoridade que se despede dirigir-se para o portaló, todas as pessoas de sua comitiva devem retirar-se; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 129,
@@ -2347,7 +2476,8 @@ const questionsData = [
           "E) O Estandarte Presidencial é arriado."
         ],
         correct: 4,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"5. honras de portaló e de banda de música; após, execução da salva de partida; após, o pavilhão é arriado;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 130,
@@ -2360,7 +2490,8 @@ const questionsData = [
           "E) É dada nova salva."
         ],
         correct: 0,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"e) execução da salva de partida; ao término, o Estandarte Presidencial é arriado, sendo hasteadas a Bandeira Nacional no tope do mastro e as bandeiras-insígnias antes arriadas;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 131,
@@ -2373,7 +2504,8 @@ const questionsData = [
           "E) Quando o Presidente chegar em terra ou quando for perdido de vista o meio que o transporta."
         ],
         correct: 4,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"g) quando o Presidente chegar em terra, ou perdido de vista o meio que o transporta, o embandeiramento nos topes é arriado.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 132,
@@ -2386,7 +2518,8 @@ const questionsData = [
           "E) O embandeiramento correspondente nos topes é arriado junto com a Bandeira Nacional."
         ],
         correct: 4,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 6-2-7 Arriamento do embandeiramento - Se o Presidente da República encontrar-se no mar ao pôr do sol, o correspondente embandeiramento nos topes é arriado junto com a Bandeira Nacional.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 133,
@@ -2399,7 +2532,8 @@ const questionsData = [
           "E) As honras devidas, exceto as relativas às salvas, vivas e formaturas do pessoal."
         ],
         correct: 4,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 6-2-8 Honras durante o crepúsculo - Durante o crepúsculo vespertino, continuam sendo prestadas as honras devidas ao Presidente da República, exceto as relativas às salvas, aos vivas e às formaturas do pessoal.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 134,
@@ -2412,7 +2546,8 @@ const questionsData = [
           "E) A guarnição em descanso, conforme o Cerimonial."
         ],
         correct: 3,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 6-3-4 Honras de passagem ao Vice-Presidente da República e ao Ministro da Defesa - As honras de passagem ao Vice-Presidente da República e ao Ministro da Defesa são prestadas com a guarnição em postos de continência.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 135,
@@ -2425,7 +2560,8 @@ const questionsData = [
           "E) Sete vivas."
         ],
         correct: 4,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 6-2-9 Honras de passagem - As honras de passagem ao Presidente da República são prestadas com a guarnição em postos de continência, devendo ser dados sete vivas entre os toques de presença e de volta.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 136,
@@ -2438,7 +2574,8 @@ const questionsData = [
           "E) Remos ao alto, velas arriadas ou máquina parada."
         ],
         correct: 4,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - a Almirantes e autoridades de precedência igual ou maior, são levados os remos ao alto, arriadas as velas ou parada a máquina;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 137,
@@ -2451,7 +2588,8 @@ const questionsData = [
           "E) Levantam-se e fazem continência."
         ],
         correct: 4,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - quando as condições da embarcação permitirem, os que estiverem no paneiro levantar-se-ão, fazendo continência os que estiverem uniformizados e descobrindo-se os que se encontrarem em traje civil.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 138,
@@ -2464,7 +2602,8 @@ const questionsData = [
           "E) Recebe honras de Vice-Presidente, segundo o costume adotado a bordo."
         ],
         correct: 2,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 6-2-11 Honras ao substituto eventual - Ao substituto eventual do Presidente da República, quando no exercício da Presidência, são devidas as mesmas honras a que tem direito aquela autoridade.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 139,
@@ -2477,7 +2616,8 @@ const questionsData = [
           "E) Em postos de continência."
         ],
         correct: 4,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 6-3-1 Autoridades com direito a salvas de dezenove tiros - Às autoridades que fazem jus a salvas de 19 tiros são prestadas as seguintes honras quando em visita oficial, de caráter protocolar ou para participar de cerimônias, à OM da MB:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 140,
@@ -2490,7 +2630,8 @@ const questionsData = [
           "E) Em descanso, conforme o Cerimonial."
         ],
         correct: 1,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"3. autoridades que receberam o visitante formadas como na recepção;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 141,
@@ -2503,7 +2644,8 @@ const questionsData = [
           "E) Apenas salva e banda, segundo as determinações do Comando da Marinha."
         ],
         correct: 2,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"c) honras de portaló, de banda marcial e de música e guarda de honra presididas:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 142,
@@ -2516,7 +2658,8 @@ const questionsData = [
           "E) Pelo oficial de serviço, conforme as praxes da Marinha do Brasil, respeitando o que estabelece a autoridade competente."
         ],
         correct: 3,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"1. pelo Comandante da Marinha ou Chefe do Estado-Maior da Armada ou, na ausência de ambos, autoridade naval de maior precedência da cadeia de comando a que pertencer a OM visitada, ficando o Titular da OM logo atrás dessa autoridade na recepção ao Vice-Presidente da República ou Presidentes do Congresso Nacional, do Senado Federal, da Câmara dos Deputados e do Supremo Tribunal Federal; e Ministros de Estado da Defesa; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 143,
@@ -2529,7 +2672,8 @@ const questionsData = [
           "E) Pelo Titular da OM, conforme os preceitos do cerimonial naval, respeitando o que estabelece a autoridade competente."
         ],
         correct: 2,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"c) honras de portaló, de banda marcial e de música presididas pelo Comandante da Marinha ou Chefe do Estado-Maior da Armada ou, na ausência de ambos, pela autoridade naval de maior precedência da cadeia de comando a que pertencer a OM visitada, ficando o Titular da OM logo atrás dessa autoridade;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 144,
@@ -2542,7 +2686,8 @@ const questionsData = [
           "E) No portaló, nos termos estabelecidos."
         ],
         correct: 1,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"2. pela autoridade naval de maior precedência da cadeia de comando a que pertencer a OM visitada, ficando o Titular da OM logo atrás dessa autoridade na recepção aos Ministros de Estado, Comandante do Exército, Comandante da Aeronáutica, Chefe do Estado-Maior Conjunto das Forças Armadas, Governadores e Embaixadores;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 145,
@@ -2555,7 +2700,8 @@ const questionsData = [
           "E) É tocado o Hino Nacional."
         ],
         correct: 4,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"d) exórdio de marcha de continência tocado pela banda de música; no caso de Embaixador no país em que é acreditado ou Ministro de Estado representando o Presidente da República em missão no exterior, é tocado o Hino Nacional;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 146,
@@ -2568,7 +2714,8 @@ const questionsData = [
           "E) Não é executado hino, conforme o Cerimonial."
         ],
         correct: 3,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"d) exórdio de marcha de continência tocado pela banda de música; no caso de Embaixador no país em que é acreditado ou Ministro de Estado representando o Presidente da República em missão no exterior, é tocado o Hino Nacional;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 147,
@@ -2581,7 +2728,8 @@ const questionsData = [
           "E) No tope do mastro."
         ],
         correct: 4,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"1. da bandeira-insígnia da autoridade, no tope do mastro, no caso do Vice-Presidente da República, Embaixador ou Ministro de Estado;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 148,
@@ -2594,7 +2742,8 @@ const questionsData = [
           "E) A bandeira da Unidade da Federação."
         ],
         correct: 2,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 8-1-4 Hasteamento de bandeira nacional estrangeira - A bandeira de nação estrangeira é hasteada no tope do mastro principal:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 149,
@@ -2607,7 +2756,8 @@ const questionsData = [
           "E) A bandeira do município, segundo o disposto no Cerimonial."
         ],
         correct: 2,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"3. da bandeira da Unidade da Federação, na adriça de boreste, no caso de Governadores;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 150,
@@ -2620,7 +2770,8 @@ const questionsData = [
           "E) Sete vivas somente."
         ],
         correct: 2,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"5. honras de portaló e de banda de música; após, execução da salva de partida; após, o pavilhão é arriado;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 151,
@@ -2633,7 +2784,8 @@ const questionsData = [
           "E) As mesmas honras de Vice-Almirante, conforme os preceitos do cerimonial naval."
         ],
         correct: 0,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 6-3-2 General ou Brigadeiro - A General ou Brigadeiro em visita oficial a OM são prestadas as honras devidas aos Almirantes de postos correspondentes em visita a OM não subordinada, com a seguinte alteração:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 152,
@@ -2646,7 +2798,8 @@ const questionsData = [
           "E) Na adriça de bombordo, respeitando a tradição naval."
         ],
         correct: 3,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - na salva de partida, a bandeira-insígnia da autoridade visitante é hasteada no lais da verga de boreste ou da direita do mastro, sendo substituída pela Bandeira Nacional no tope do mastro, caso a autoridade não disponha de bandeira-insígnia própria ou esta não esteja disponível.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 153,
@@ -2659,7 +2812,8 @@ const questionsData = [
           "E) A bandeira da Unidade da Federação."
         ],
         correct: 0,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 8-1-4 Hasteamento de bandeira nacional estrangeira - A bandeira de nação estrangeira é hasteada no tope do mastro principal:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 154,
@@ -2672,7 +2826,8 @@ const questionsData = [
           "E) Honras de Presidente da República, segundo as determinações do Comando da Marinha."
         ],
         correct: 3,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - Encarregado de Negócios e Cônsul-Geral, Vice-Cônsul Geral e Cônsul honras devidas às autoridades navais de mesma precedência que os Encarregados de Negócios, Cônsules-Gerais, Vice-Cônsules Gerais e Cônsules estrangeiros acreditados no Brasil, conforme equivalência estabelecida nas \"Normas de Cerimonial Público e Ordem Geral de Precedência\", inclusive salva quando devida; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 155,
@@ -2685,7 +2840,8 @@ const questionsData = [
           "E) As honras de Contra-Almirante, de acordo com o Cerimonial da Marinha."
         ],
         correct: 3,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "O trecho da apostila de Cerimonial da Marinha relacionado a essa questão traz: \"II - demais autoridades diplomáticas e consulares - as previstas para os oficiais de Marinha de mesma precedência que a autoridade, exceto salva.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 156,
@@ -2698,7 +2854,8 @@ const questionsData = [
           "E) Honras de Governador, conforme os preceitos do cerimonial naval."
         ],
         correct: 1,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 8-3-8 Visita de Chefe de Nação - Ao Chefe de Estado ou de Governo de nação estrangeira, quando em visita oficial, são prestadas honras semelhantes às devidas ao Presidente da República do Brasil, com as seguintes alterações:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 157,
@@ -2711,7 +2868,8 @@ const questionsData = [
           "E) O Estandarte Presidencial brasileiro, conforme as praxes da Marinha do Brasil."
         ],
         correct: 1,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - no mastro principal é hasteada a bandeira-insígnia da autoridade visitante ou a bandeira da respectiva nação, sem prejuízo de qualquer bandeira-insígnia de comando que se encontrar hasteada;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 158,
@@ -2724,7 +2882,8 @@ const questionsData = [
           "E) Não é executado nenhum hino, conforme o Cerimonial."
         ],
         correct: 2,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"III - em vez do Hino Nacional, é executado o hino da respectiva nação.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 159,
@@ -2737,7 +2896,8 @@ const questionsData = [
           "E) É dada somente salva de partida."
         ],
         correct: 3,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 8-3-9 Visita de membro de família real - Em nação estrangeira, quando membro de família real reinante fizer visita oficial a OM da MB, são prestadas honras semelhantes às devidas ao Presidente da República, com as seguintes alterações:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 160,
@@ -2750,7 +2910,8 @@ const questionsData = [
           "E) Sempre honras de Almirante, segundo as determinações do Comando da Marinha, em linha com o costume adotado nas Organizações Militares."
         ],
         correct: 0,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 8-3-10 Visitas de demais autoridades - Às demais autoridades civis e militares de nação estrangeira, quando em visita oficial a OM da MB são prestadas as honras devidas às autoridades brasileiras de mesmo posto ou que exercem funções equivalentes; caso o visitante, por sua precedência, faça jus a salva, é hasteada na verga de boreste ou à direita do mastro a bandeira de guerra ou nacional da respectiva nação, que permanecerá içada durante o transcorrer da visita ou duran...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 161,
@@ -2763,7 +2924,8 @@ const questionsData = [
           "E) Às 09:00h."
         ],
         correct: 1,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 2-2-1 Hasteamento - A Bandeira Nacional é hasteada diariamente, às 8h, mediante cerimonial específico.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 162,
@@ -2776,7 +2938,8 @@ const questionsData = [
           "E) Às 18:00h, observadas as disposições em vigor."
         ],
         correct: 1,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - ao pôr do sol, mediante cerimonial específico, em todas as OM que mantenham serviço ininterrupto; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 163,
@@ -2789,7 +2952,8 @@ const questionsData = [
           "E) Ao pôr-do-Sol, obrigatoriamente com cerimonial, conforme o Cerimonial."
         ],
         correct: 2,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "O trecho da apostila de Cerimonial da Marinha relacionado a essa questão traz: \"II - cinco minutos antes de encerrar-se o expediente, sem cerimonial, nas demais OM.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 164,
@@ -2802,7 +2966,8 @@ const questionsData = [
           "E) Na carangueja, respeitando a tradição naval."
         ],
         correct: 1,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - o pau da bandeira, disposto à popa, nos navios no dique, fundeados, atracados ou amarrados;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 165,
@@ -2815,7 +2980,8 @@ const questionsData = [
           "E) No mastro de combate ou no penol da carangueja do mastro principal."
         ],
         correct: 4,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - o mastro de combate ou o penol da carangueja do mastro principal, nos navios em movimento; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 166,
@@ -2828,7 +2994,8 @@ const questionsData = [
           "E) No tope do edifício mais alto, conforme as praxes da Marinha do Brasil, conforme o entendimento consolidado no âmbito da MB."
         ],
         correct: 0,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - aquele em que é hasteada a Bandeira Nacional, nas OM de terra.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 167,
@@ -2841,7 +3008,8 @@ const questionsData = [
           "E) Cinco minutos antes do expediente."
         ],
         correct: 2,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - às 7h55, por ocasião do hasteamento, ou cinco minutos antes do pôr do sol, no arriamento, é içado o galhardete \"Prep\" na adriça de bombordo ou da esquerda e anunciado, por voz, o \"Sinal para Bandeira\", sendo então dado por corneta o toque de Bandeira;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 168,
@@ -2854,7 +3022,8 @@ const questionsData = [
           "E) Cinco minutos antes do pôr-do-Sol."
         ],
         correct: 4,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - às 7h55, por ocasião do hasteamento, ou cinco minutos antes do pôr do sol, no arriamento, é içado o galhardete \"Prep\" na adriça de bombordo ou da esquerda e anunciado, por voz, o \"Sinal para Bandeira\", sendo então dado por corneta o toque de Bandeira;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 169,
@@ -2867,7 +3036,8 @@ const questionsData = [
           "E) Na carangueja, respeitando a tradição naval."
         ],
         correct: 2,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - às 7h55, por ocasião do hasteamento, ou cinco minutos antes do pôr do sol, no arriamento, é içado o galhardete \"Prep\" na adriça de bombordo ou da esquerda e anunciado, por voz, o \"Sinal para Bandeira\", sendo então dado por corneta o toque de Bandeira;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 170,
@@ -2880,7 +3050,8 @@ const questionsData = [
           "E) Toda a tripulação obrigatoriamente, tal como estabelecido pelas normas da MB."
         ],
         correct: 1,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - ao sinal, formam nas proximidades do mastro, com a frente voltada para a Bandeira, a guarda e, quando determinado, a banda de música e a tripulação, obedecendo, sempre que possível, à seguinte disposição, a partir do mastro:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 171,
@@ -2893,7 +3064,8 @@ const questionsData = [
           "E) Sem chapéu."
         ],
         correct: 4,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"b) uma praça, sem chapéu, guarnecendo a adriça da Bandeira Nacional;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 172,
@@ -2906,7 +3078,8 @@ const questionsData = [
           "E) Um oficial, conforme o Cerimonial."
         ],
         correct: 0,
-        subject: "Cerimonial à Bandeira Nacional"
+        subject: "Cerimonial à Bandeira Nacional",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"c) a guarda, tendo à sua frente, se no arriamento, três sargentos;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 173,
@@ -2919,7 +3092,8 @@ const questionsData = [
           "E) Apenas o timoneiro, conforme as praxes da Marinha do Brasil, em linha com o costume adotado nas Organizações Militares."
         ],
         correct: 3,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 2-2-5 Não participam do Cerimonial à Bandeira - O oficial de serviço no passadiço, timoneiro, sota-timoneiro, vigias e pessoal envolvido em fainas e manobras, cuja interrupção possa afetar a segurança, não participam do Cerimonial à Bandeira, estando dispensados de prestar a continência durante o arriar e hastear.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 174,
@@ -2932,7 +3106,8 @@ const questionsData = [
           "E) Retornar ao navio, tal como estabelecido pelas normas da MB, de acordo com o que dispõe o cerimonial em vigor."
         ],
         correct: 0,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - de acordo com o meio de propulsão da embarcação, são executadas as manobras de levar remos ao alto; arriar as velas; ou parar a máquina; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 175,
@@ -2945,7 +3120,8 @@ const questionsData = [
           "E) Prestam continência apenas se forem oficiais, em conformidade com as normas vigentes."
         ],
         correct: 2,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - dependendo do estado do mar, todos se levantam e, se uniformizados, prestam continência à Bandeira, exceto o patrão, que permanece atento à segurança da embarcação e do pessoal embarcado.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 176,
@@ -2958,7 +3134,8 @@ const questionsData = [
           "E) Permanecem no veículo, tal como estabelecido pelas normas da MB."
         ],
         correct: 1,
-        subject: "Cerimonial à Bandeira Nacional"
+        subject: "Cerimonial à Bandeira Nacional",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 2-2-7 Procedimentos em veículos - Os ocupantes de veículos transitando dentro de OM, próximos ao local do hasteamento ou arriamento da Bandeira Nacional, desembarcam e, se uniformizados, prestam continência à Bandeira, mantendo-se em sentido se em trajes civis.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 177,
@@ -2971,7 +3148,8 @@ const questionsData = [
           "E) Em todos os navios incorporados à MB quando estiverem no dique, fundeados, amarrados ou atracados."
         ],
         correct: 4,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - hasteada e arriada diariamente, no \"pau do jeque\", simultaneamente com a Bandeira Nacional, em todos os navios incorporados à MB, quando estes estiverem no dique, fundeados, amarrados ou atracados; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 178,
@@ -2984,7 +3162,8 @@ const questionsData = [
           "E) É substituída pelo estandarte, respeitando a tradição naval."
         ],
         correct: 2,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - são hasteadas à meia adriça a Bandeira Nacional e a do Cruzeiro;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 179,
@@ -2997,7 +3176,8 @@ const questionsData = [
           "E) Somente após um ano, segundo o disposto no Cerimonial."
         ],
         correct: 2,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 2-3-3 Flâmula de Fim de Comissão - A Flâmula de Fim de Comissão é hasteada no tope do mastro principal nos navios incorporados à MB, substituindo a Flâmula de Comando, ao término de comissão igual ou superior a seis meses, quando o navio iniciar a aterragem ao porto final da comissão, sendo arriada no pôr do sol que se seguir.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 180,
@@ -3010,7 +3190,8 @@ const questionsData = [
           "E) Fundeia pela primeira vez, conforme o Cerimonial."
         ],
         correct: 3,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 2-3-3 Flâmula de Fim de Comissão - A Flâmula de Fim de Comissão é hasteada no tope do mastro principal nos navios incorporados à MB, substituindo a Flâmula de Comando, ao término de comissão igual ou superior a seis meses, quando o navio iniciar a aterragem ao porto final da comissão, sendo arriada no pôr do sol que se seguir.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 181,
@@ -3023,7 +3204,8 @@ const questionsData = [
           "E) Ao atracar, conforme o Cerimonial."
         ],
         correct: 0,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 2-3-3 Flâmula de Fim de Comissão - A Flâmula de Fim de Comissão é hasteada no tope do mastro principal nos navios incorporados à MB, substituindo a Flâmula de Comando, ao término de comissão igual ou superior a seis meses, quando o navio iniciar a aterragem ao porto final da comissão, sendo arriada no pôr do sol que se seguir.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 182,
@@ -3036,7 +3218,8 @@ const questionsData = [
           "E) Por tropa armada da MB, sempre acompanhando a Bandeira Nacional."
         ],
         correct: 4,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - o estandarte da Marinha é ostentado por tropa armada da MB, sempre acompanhando a Bandeira Nacional;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 183,
@@ -3049,7 +3232,8 @@ const questionsData = [
           "E) Apenas batalhões, conforme os preceitos do cerimonial naval, em linha com o costume adotado nas Organizações Militares."
         ],
         correct: 0,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - o estandarte do Corpo de Fuzileiros Navais pode ser usado por todas as unidades de Fuzileiros Navais de escalão igual ou superior a uma companhia, sempre acompanhando a Bandeira Nacional;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 184,
@@ -3062,7 +3246,8 @@ const questionsData = [
           "E) Somente pelo Comandante, segundo as determinações do Comando da Marinha."
         ],
         correct: 3,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"III - os demais estandartes são conduzidos ou exibidos exclusivamente por sua tropa, sempre acompanhando a Bandeira Nacional; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 185,
@@ -3075,7 +3260,8 @@ const questionsData = [
           "E) No paiol, conforme os preceitos do cerimonial naval."
         ],
         correct: 0,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"IV - os estandartes devem ser guardados no gabinete do Comandante ou em outro lugar de destaque da OM.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 186,
@@ -3088,7 +3274,8 @@ const questionsData = [
           "E) Substituir a Bandeira Nacional, conforme os preceitos do cerimonial naval, de acordo com o que dispõe o cerimonial em vigor."
         ],
         correct: 1,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 2-4-1 Bandeiras-insígnias - São denominadas bandeiras-insígnias as bandeiras constantes do Apêndice I a este Cerimonial destinadas a assinalar a presença de determinada autoridade em OM da MB, bem como distinguir os cargos de autoridades militares ou civis, a saber:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 187,
@@ -3101,7 +3288,8 @@ const questionsData = [
           "E) Pavilhão do Comandante da Marinha."
         ],
         correct: 0,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "O trecho da apostila de Cerimonial da Marinha relacionado a essa questão traz: \"Art. 2-4-11 Demais autoridades visitantes - A bandeira-insígnia das demais autoridades não pertencentes à cadeia de comando somente é hasteada, na forma prevista neste Cerimonial, quando a autoridade for a de maior precedência presente na OM.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 188,
@@ -3114,7 +3302,8 @@ const questionsData = [
           "E) Senador e Deputado, conforme as praxes da Marinha do Brasil, de forma a atender ao previsto no regulamento."
         ],
         correct: 2,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"III - Bandeiras-insígnias de autoridades civis:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 189,
@@ -3127,7 +3316,8 @@ const questionsData = [
           "E) De uso obrigatório em qualquer embarcação, tal como estabelecido pelas normas da MB."
         ],
         correct: 0,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 2-4-2 Flâmula de Comando - A Flâmula de Comando é a insígnia privativa dos oficiais de marinha quando no exercício do cargo de comando, vedado seu uso em navio não incorporado à Armada.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 190,
@@ -3140,7 +3330,8 @@ const questionsData = [
           "E) Em navio capitânia, nos termos estabelecidos."
         ],
         correct: 0,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 2-4-2 Flâmula de Comando - A Flâmula de Comando é a insígnia privativa dos oficiais de marinha quando no exercício do cargo de comando, vedado seu uso em navio não incorporado à Armada.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 191,
@@ -3153,7 +3344,8 @@ const questionsData = [
           "E) Somente em OM de terra, conforme os preceitos do cerimonial naval."
         ],
         correct: 0,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 2-4-3 Flâmula de Oficial Superior - A Flâmula de Oficial Superior é hasteada nas embarcações miúdas que conduzam oficial superior uniformizado, sendo arriada tão logo o oficial desembarque.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 192,
@@ -3166,7 +3358,8 @@ const questionsData = [
           "E) Tão logo o oficial desembarque."
         ],
         correct: 4,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 2-4-3 Flâmula de Oficial Superior - A Flâmula de Oficial Superior é hasteada nas embarcações miúdas que conduzam oficial superior uniformizado, sendo arriada tão logo o oficial desembarque.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 193,
@@ -3179,7 +3372,8 @@ const questionsData = [
           "E) No tope do mastro principal."
         ],
         correct: 4,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"1. a Bandeira Nacional, hasteada em OM de terra ou no penol da carangueja de navios no mar;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 194,
@@ -3192,7 +3386,8 @@ const questionsData = [
           "E) No bordo de boreste, segundo o costume adotado a bordo."
         ],
         correct: 3,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"III - em haste apropriada, denominada pau da flâmula, na proa das embarcações miúdas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 195,
@@ -3205,7 +3400,8 @@ const questionsData = [
           "E) Somente o pavilhão do Almirantado permanece, tal como estabelecido pelas normas da MB, em linha com o costume adotado nas Organizações Militares."
         ],
         correct: 2,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 2-4-8 Estandarte Presidencial - Estando içado o Estandarte Presidencial, nenhuma bandeira representativa de qualquer outra autoridade, com exceção do pavilhão do Patrono da Marinha, pode permanecer içada.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 196,
@@ -3218,7 +3414,8 @@ const questionsData = [
           "E) Pela Bandeira Nacional, conforme os preceitos do cerimonial naval, de acordo com o que dispõe o cerimonial em vigor."
         ],
         correct: 0,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 2-4-7 Quando podem ser substituídas - A bandeira-insígnia de autoridade no exercício de cargo de comando, salvo por ocasião da transmissão do cargo, quando obedece a regras próprias, somente é substituída:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 197,
@@ -3231,7 +3428,8 @@ const questionsData = [
           "E) Imediatamente antes do primeiro tiro."
         ],
         correct: 4,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 2-4-12 Hasteamento durante salva - Quando, na forma prevista neste Cerimonial, a bandeira-insígnia de autoridade visitante for içada durante a salva de partida, ela será hasteada imediatamente antes do primeiro tiro e arriada após o último tiro.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 198,
@@ -3244,7 +3442,8 @@ const questionsData = [
           "E) Após o último tiro."
         ],
         correct: 4,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"c) logo após a execução do último tiro, são atopetadas a Bandeira Nacional e a do Cruzeiro e arriada a bandeira-insígnia, quando terminam as honras fúnebres; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 199,
@@ -3257,7 +3456,8 @@ const questionsData = [
           "E) Nos dias de grande gala ou em ocasiões especialmente determinadas."
         ],
         correct: 4,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - em arco, nos dias de grande gala ou em ocasiões especialmente determinadas;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 200,
@@ -3270,7 +3470,8 @@ const questionsData = [
           "E) Apenas durante o período noturno, respeitando a tradição naval."
         ],
         correct: 1,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - nos topes, nos dias de pequena gala e nas honras ao Presidente da República; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 201,
@@ -3283,7 +3484,8 @@ const questionsData = [
           "E) Uma luz encarnada no mastro em que estiver a bandeira-insígnia."
         ],
         correct: 4,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 2-7-1 Sinal luminoso - O navio da MB em que se encontrar embarcada autoridade com direito a nele hastear sua bandeira-insígnia exibe, quando fundeado, no período entre o pôr e o nascer do sol, no mastro em que se achar hasteada a bandeira-insígnia, os seguintes sinais luminosos:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 202,
@@ -3296,7 +3498,8 @@ const questionsData = [
           "E) Somente durante salvas, conforme o Cerimonial."
         ],
         correct: 0,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 2-7-1 Sinal luminoso - O navio da MB em que se encontrar embarcada autoridade com direito a nele hastear sua bandeira-insígnia exibe, quando fundeado, no período entre o pôr e o nascer do sol, no mastro em que se achar hasteada a bandeira-insígnia, os seguintes sinais luminosos:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 203,
@@ -3309,7 +3512,8 @@ const questionsData = [
           "E) Uma única bandeira, conforme o Cerimonial."
         ],
         correct: 1,
-        subject: "Sinais de Barroso"
+        subject: "Sinais de Barroso",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 2-5-1 Sinais de Barroso - São denominados Sinais de Barroso o conjunto de bandeiras do sinal \"O Brasil espera que cada um cumpra o seu dever\" e do sinal \"Sustentar o fogo que a vitória é nossa\".\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 204,
@@ -3322,7 +3526,8 @@ const questionsData = [
           "E) Uma Bandeira Nacional e duas estrangeiras."
         ],
         correct: 3,
-        subject: "Sinais de Barroso"
+        subject: "Sinais de Barroso",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - o sinal \"O Brasil espera que cada um cumpra o seu dever\" é representado por três bandeiras retangulares içadas numa só adriça, sendo a de cima vermelha, a do meio vermelha e branca, em duas faixas verticais iguais, e a de baixo branca, tendo no centro um retângulo azul; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 205,
@@ -3335,7 +3540,8 @@ const questionsData = [
           "E) Vermelha."
         ],
         correct: 4,
-        subject: "Sinais de Barroso"
+        subject: "Sinais de Barroso",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 2-5-1 Sinais de Barroso - São denominados Sinais de Barroso o conjunto de bandeiras do sinal \"O Brasil espera que cada um cumpra o seu dever\" e do sinal \"Sustentar o fogo que a vitória é nossa\".\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 206,
@@ -3348,7 +3554,8 @@ const questionsData = [
           "E) Vermelha, respeitando a tradição naval."
         ],
         correct: 0,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - o sinal \"O Brasil espera que cada um cumpra o seu dever\" é representado por três bandeiras retangulares içadas numa só adriça, sendo a de cima vermelha, a do meio vermelha e branca, em duas faixas verticais iguais, e a de baixo branca, tendo no centro um retângulo azul; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 207,
@@ -3361,7 +3568,8 @@ const questionsData = [
           "E) Quatro bandeiras, conforme o Cerimonial."
         ],
         correct: 3,
-        subject: "Sinais de Barroso"
+        subject: "Sinais de Barroso",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - o sinal \"Sustentar o fogo que a vitória é nossa\" é representado por duas bandeiras retangulares içadas numa só adriça, sendo a de cima vermelha, dividida em quatro retângulos iguais por uma cruz branca, e a de baixo vermelha e branca, em quinze retângulos iguais alternados, sendo vermelho o retângulo superior junto à tralha.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 208,
@@ -3374,7 +3582,8 @@ const questionsData = [
           "E) Verde e amarela, conforme os preceitos do cerimonial naval."
         ],
         correct: 1,
-        subject: "Sinais de Barroso"
+        subject: "Sinais de Barroso",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - o sinal \"Sustentar o fogo que a vitória é nossa\" é representado por duas bandeiras retangulares içadas numa só adriça, sendo a de cima vermelha, dividida em quatro retângulos iguais por uma cruz branca, e a de baixo vermelha e branca, em quinze retângulos iguais alternados, sendo vermelho o retângulo superior junto à tralha.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 209,
@@ -3387,7 +3596,8 @@ const questionsData = [
           "E) 19 de novembro e 25 de dezembro."
         ],
         correct: 3,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 7-1-2 Dias de grande gala - Os dias de grande gala são as datas festivas em que se comemora o aniversário da Independência (7 de setembro) e da Proclamação da República (15 de novembro).\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 210,
@@ -3400,7 +3610,8 @@ const questionsData = [
           "E) Apenas feriados nacionais, tal como estabelecido pelas normas da MB, respeitando o que estabelece a autoridade competente."
         ],
         correct: 1,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 7-1-3 Dias de pequena gala - Os dias de pequena gala são as datas festivas em que se comemora o Dia da Confraternização Universal (1º de Janeiro), o Dia de Tiradentes (21 de abril), o Dia do Trabalho (1º de maio), o Aniversário da Batalha Naval do Riachuelo – Data Magna da Marinha (11 de junho), o Dia da Bandeira (19 de novembro) e o Dia do Marinheiro (13 de dezembro) e o Natal (25 de dezembro).\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 211,
@@ -3413,7 +3624,8 @@ const questionsData = [
           "E) Embandeiramento nos topes."
         ],
         correct: 0,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - nos dias de grande gala do país estrangeiro, em cujo porto se encontrar navio da MB.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 212,
@@ -3426,7 +3638,8 @@ const questionsData = [
           "E) Do nascer ao pôr-do-Sol."
         ],
         correct: 1,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - em arco, nos dias de grande gala ou em ocasiões especialmente determinadas;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 213,
@@ -3439,7 +3652,8 @@ const questionsData = [
           "E) O Hino à Bandeira, conforme as praxes da Marinha do Brasil."
         ],
         correct: 2,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - após o cerimonial de hasteamento ou arriamento da Bandeira Nacional, e depois de executar o Hino Nacional, a banda de música toca o Hino da Independência ou da Proclamação da República, conforme a data, cantado por todos; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 214,
@@ -3452,7 +3666,8 @@ const questionsData = [
           "E) Ao pôr-do-Sol."
         ],
         correct: 2,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 7-2-1 Honras nos dias de grande gala - Nos dias de grande gala, é observado o seguinte cerimonial:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 215,
@@ -3465,7 +3680,8 @@ const questionsData = [
           "E) Por qualquer navio presente."
         ],
         correct: 2,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"III - execução de salva de vinte e um tiros, às 12h, por estação para tal designada, nas cidades sedes de Distrito Naval e Comando Naval.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 216,
@@ -3478,7 +3694,8 @@ const questionsData = [
           "E) Grupo azul, nos termos estabelecidos."
         ],
         correct: 0,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - o uniforme do dia é do grupo alexandrino;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 217,
@@ -3491,7 +3708,8 @@ const questionsData = [
           "E) Nos topes."
         ],
         correct: 4,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - os navios embandeiram nos topes das 8h até o pôr do sol;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 218,
@@ -3504,7 +3722,8 @@ const questionsData = [
           "E) A Bandeira do Cruzeiro isoladamente."
         ],
         correct: 0,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"III - às 8h, logo após o Cerimonial à Bandeira, os navios dos COMAPEM e as OM de terra hasteiam os Sinais de Barroso, exceto onde ocorrer a cerimônia de entrega de condecorações da \"Ordem do Mérito Naval\", sendo o sinal \"O Brasil espera que cada um cumpra o seu dever\" içado na adriça de boreste ou da direita e o sinal \"Sustentar o fogo que a vitória é nossa\" na adriça de bombordo ou da esquerda;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 219,
@@ -3517,7 +3736,8 @@ const questionsData = [
           "E) Ao meio-dia, observadas as disposições em vigor."
         ],
         correct: 2,
-        subject: "Sinais de Barroso"
+        subject: "Sinais de Barroso",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"V - quando houver a participação de convidados civis ou militares de outras Forças, inclusive estrangeiros, os Sinais de Barroso são hasteados sequencialmente e precedidos de anúncio explicativo;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 220,
@@ -3530,7 +3750,8 @@ const questionsData = [
           "E) Substitui a visita oficial, nos termos estabelecidos."
         ],
         correct: 2,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 8-3-4 Visita de boas-vindas - A visita de boas-vindas não se reveste de caráter de visita oficial, mas apenas de um ato de cortesia, independentemente da antiguidade relativa, e que antecede a visita oficial.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 221,
@@ -3543,7 +3764,8 @@ const questionsData = [
           "E) Da função, segundo o disposto no Cerimonial."
         ],
         correct: 2,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 8-3-4 Visita de boas-vindas - A visita de boas-vindas não se reveste de caráter de visita oficial, mas apenas de um ato de cortesia, independentemente da antiguidade relativa, e que antecede a visita oficial.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 222,
@@ -3556,7 +3778,8 @@ const questionsData = [
           "E) Troca de visitas não anunciadas."
         ],
         correct: 4,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 8-3-5 Visita de Praça d'Armas - É observada a tradição de troca de visitas não anunciadas entre os oficiais das praças d'armas de navios da MB e estrangeiros, observada a mesma ordem das visitas oficiais trocadas entre o COMAPEM da MB e dos navios estrangeiros.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 223,
@@ -3569,7 +3792,8 @@ const questionsData = [
           "E) Deixar uma fotografia oficial."
         ],
         correct: 1,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 8-3-6 Cartão de visita - Nas visitas às autoridades civis e militares estrangeiras, a autoridade visitante da Marinha deve deixar o seu cartão de visita; nas visitas a navios estrangeiros, deve deixar cartão de visita para o Comandante e para a praça d'armas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 224,
@@ -3582,7 +3806,8 @@ const questionsData = [
           "E) Para todos os oficiais, observadas as disposições em vigor."
         ],
         correct: 3,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 8-3-6 Cartão de visita - Nas visitas às autoridades civis e militares estrangeiras, a autoridade visitante da Marinha deve deixar o seu cartão de visita; nas visitas a navios estrangeiros, deve deixar cartão de visita para o Comandante e para a praça d'armas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 225,
@@ -3595,7 +3820,8 @@ const questionsData = [
           "E) Fazer apenas visitas não anunciadas, tal como estabelecido pelas normas da MB."
         ],
         correct: 0,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 8-3-7 Assunção como COMAPEM - Quando um Oficial de Marinha em porto estrangeiro se tornar COMAPEM, deve fazer ou aguardar as devidas visitas oficiais ou anunciadas aos demais COMAPEM estrangeiros.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 226,
@@ -3608,7 +3834,8 @@ const questionsData = [
           "E) Aguardar a visita oficial, segundo as determinações do Comando da Marinha, em linha com o costume adotado nas Organizações Militares."
         ],
         correct: 1,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - mandar, imediatamente, um oficial cumprimentar e apresentar boas-vindas ao COMAPEM estrangeiro;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 227,
@@ -3621,7 +3848,8 @@ const questionsData = [
           "E) Enviar cartão, nos termos estabelecidos."
         ],
         correct: 1,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"III - dentro de vinte e quatro horas, a partir da chegada, fazer visita oficial aos COMAPEM estrangeiros de posto igual ou superior ao seu, ou aguardar suas visitas, se forem mais modernos, desde que tenham apresentado as boas-vindas; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 228,
@@ -3634,7 +3862,8 @@ const questionsData = [
           "E) Em até 6 horas, conforme o Cerimonial."
         ],
         correct: 1,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"III - dentro do prazo de vinte e quatro horas, a partir da chegada, fazer visita oficial ou anunciada ao COMAPEM estrangeiro, se este for de posto igual ou superior ao seu, ou aguardar sua visita, se for mais moderno; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 229,
@@ -3647,7 +3876,8 @@ const questionsData = [
           "E) É feita apenas visita de boas-vindas."
         ],
         correct: 1,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"III - dentro do prazo de vinte e quatro horas, a partir da chegada, fazer visita oficial ao COMAPEM estrangeiro, se este for de posto igual ou superior ao seu, ou aguardar sua visita, se for mais moderno; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 230,
@@ -3660,7 +3890,8 @@ const questionsData = [
           "E) Manda o oficial de serviço, observadas as disposições em vigor."
         ],
         correct: 2,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - o Almirante, Comandante de Força ou não, sempre que as circunstâncias permitirem, retribui pessoalmente a visita oficial ou anunciada que lhe for feita por autoridade estrangeira, civil ou militar, de precedência igual ou superior a Capitão de Mar e Guerra;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 231,
@@ -3673,7 +3904,8 @@ const questionsData = [
           "E) O Imediato retribui, conforme os preceitos do cerimonial naval."
         ],
         correct: 3,
-        subject: "Honras a Almirantes e Generais"
+        subject: "Honras a Almirantes e Generais",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - sendo a autoridade visitante de menor posto ou precedência, o Almirante manda o Chefe de seu Estado-Maior ou oficial de posto correspondente ao oficial ou autoridade que o houver visitado; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 232,
@@ -3686,7 +3918,8 @@ const questionsData = [
           "E) Envia apenas cartão."
         ],
         correct: 3,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"III - o oficial superior, intermediário ou subalterno retribui pessoalmente a visita oficial ou anunciada que lhe for feita por oficial ou autoridade estrangeira.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 233,
@@ -3699,7 +3932,8 @@ const questionsData = [
           "E) Cerimônias realizadas somente em funerais militares, tal como estabelecido pelas normas da MB, de forma a atender ao previsto no regulamento."
         ],
         correct: 1,
-        subject: "Honras Fúnebres"
+        subject: "Honras Fúnebres",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 9-1-1 Conceituação - Honras fúnebres são homenagens póstumas prestadas aos despojos mortais de militar ou de autoridade civil, de acordo com a posição hierárquica que ocupava.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 234,
@@ -3712,7 +3946,8 @@ const questionsData = [
           "E) Somente Comandante da Marinha, segundo as determinações do Comando da Marinha, de forma a atender ao previsto no regulamento."
         ],
         correct: 1,
-        subject: "Honras Fúnebres"
+        subject: "Honras Fúnebres",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - pelo Presidente da República, Ministro da Defesa, Comandante da Marinha, Comandante de Distrito Naval ou Titular da OM à qual pertencia o militar falecido;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 235,
@@ -3725,7 +3960,8 @@ const questionsData = [
           "E) A escolta naval, conforme as praxes da Marinha do Brasil, conforme o entendimento consolidado no âmbito da MB."
         ],
         correct: 1,
-        subject: "Honras Fúnebres"
+        subject: "Honras Fúnebres",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 9-1-4 Guarda fúnebre - Guarda fúnebre é a tropa armada postada para render honras aos despojos mortais de militares e autoridades civis que a elas tenham direito.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 236,
@@ -3738,7 +3974,8 @@ const questionsData = [
           "E) A guarda do portaló, conforme as praxes da Marinha do Brasil, conforme o entendimento consolidado no âmbito da MB."
         ],
         correct: 2,
-        subject: "Honras Fúnebres"
+        subject: "Honras Fúnebres",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 9-1-5 Escolta fúnebre - Escolta fúnebre é a tropa destinada ao acompanhamento dos despojos mortais de autoridades civis e de militares falecidos quando em serviço ativo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 237,
@@ -3751,7 +3988,8 @@ const questionsData = [
           "E) Pelo pavilhão da autoridade."
         ],
         correct: 2,
-        subject: "Honras Fúnebres"
+        subject: "Honras Fúnebres",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 9-1-6 Cobertura do féretro - Até o ato de inumação, o féretro de militar ativo ou inativo da MB é coberto com a Bandeira Nacional.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 238,
@@ -3764,7 +4002,8 @@ const questionsData = [
           "E) Em um laço de fita de crepe preta junto à esfera armilar ou lança."
         ],
         correct: 4,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - na Bandeira Nacional e nos estandartes, de laço atado junto à esfera armilar ou lança;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 239,
@@ -3777,7 +4016,8 @@ const questionsData = [
           "E) Sete descargas, em conformidade com as normas vigentes."
         ],
         correct: 2,
-        subject: "Honras Fúnebres"
+        subject: "Honras Fúnebres",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - são executadas as honras de portaló, seguidas de três descargas de fuzilaria, antes de ser lançado ao mar o féretro;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 240,
@@ -3790,7 +4030,8 @@ const questionsData = [
           "E) É dada nova salva de chegada, tal como estabelecido pelas normas da MB, de acordo com o que dispõe o cerimonial em vigor."
         ],
         correct: 1,
-        subject: "Honras Fúnebres"
+        subject: "Honras Fúnebres",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"III - logo após, inicia-se a salva final, quando devida, ocasião em que a bandeira-insígnia a que tinha direito o morto é atopetada, sendo arriada ao término da salva; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 241,
@@ -3803,7 +4044,8 @@ const questionsData = [
           "E) Somente quando houver autoridade a bordo, tal como estabelecido pelas normas da MB, de forma a atender ao previsto no regulamento."
         ],
         correct: 0,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-16 Navios-museu - As disposições deste Cerimonial aplicam-se aos navios-museu, no que for praticável e quando as circunstâncias o indicarem, como se estes fossem navios incorporados à Armada.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 242,
@@ -3816,7 +4058,8 @@ const questionsData = [
           "E) Apenas o posto de Almirante, segundo as determinações do Comando da Marinha, conforme o entendimento consolidado no âmbito da MB."
         ],
         correct: 1,
-        subject: "Honras a Almirantes e Generais"
+        subject: "Honras a Almirantes e Generais",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-5 Almirante - Neste Cerimonial, a denominação Almirante refere-se ao círculo de oficiais-generais em tempo de paz, compreendendo os postos de Almirante de Esquadra, Vice-Almirante e Contra-Almirante, a menos que especificamente aplicado ao posto de Almirante.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 243,
@@ -3829,7 +4072,8 @@ const questionsData = [
           "E) Qualquer oficial superior, nos termos estabelecidos."
         ],
         correct: 3,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-6 Comandante - Neste Cerimonial, a denominação Comandante significa o oficial de Marinha investido no cargo de comando ou direção.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 244,
@@ -3842,7 +4086,8 @@ const questionsData = [
           "E) Durante qualquer visita oficial, segundo as determinações do Comando da Marinha."
         ],
         correct: 2,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - em faina geral, de emergência ou de evolução decorrente de manobra ou exercício;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 245,
@@ -3855,7 +4100,8 @@ const questionsData = [
           "E) Durante o período noturno, tal como estabelecido pelas normas da MB."
         ],
         correct: 1,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - durante qualquer atividade cuja paralisação, mesmo que momentânea, possa afetar a segurança de pessoal ou material; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 246,
@@ -3868,7 +4114,8 @@ const questionsData = [
           "E) São prestadas somente salvas, conforme o Cerimonial."
         ],
         correct: 2,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 8-3-10 Visitas de demais autoridades - Às demais autoridades civis e militares de nação estrangeira, quando em visita oficial a OM da MB são prestadas as honras devidas às autoridades brasileiras de mesmo posto ou que exercem funções equivalentes; caso o visitante, por sua precedência, faça jus a salva, é hasteada na verga de boreste ou à direita do mastro a bandeira de guerra ou nacional da respectiva nação, que permanecerá içada durante o transcorrer da visita ou duran...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 247,
@@ -3881,7 +4128,8 @@ const questionsData = [
           "E) Apenas durante o período noturno, conforme as praxes da Marinha do Brasil, respeitando o que estabelece a autoridade competente."
         ],
         correct: 3,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-8 Não são prestados toques, continências e salvas - Não são prestados toques, continência de guarda e salva:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 248,
@@ -3894,7 +4142,8 @@ const questionsData = [
           "E) Não são prestados toques, continência de guarda e salvas."
         ],
         correct: 4,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-8 Não são prestados toques, continências e salvas - Não são prestados toques, continência de guarda e salva:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 249,
@@ -3907,7 +4156,8 @@ const questionsData = [
           "E) A guarda executa os toques, tal como estabelecido pelas normas da MB, de forma a atender ao previsto no regulamento."
         ],
         correct: 0,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-10 Ausência de corneteiro ou bandas - Nas OM em que não existir ou não estiver disponível corneteiro ou banda, são cancelados os toques, exórdios e hinos previstos ao longo deste Cerimonial, para serem por eles executados, mantidos os toques de apito.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 250,
@@ -3920,7 +4170,8 @@ const questionsData = [
           "E) Deve ser dada uma salva posteriormente, tal como estabelecido pelas normas da MB."
         ],
         correct: 3,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-1-11 Justificativa por honras não prestadas - Quando, por qualquer circunstância, deixarem de ser prestadas a qualquer autoridade honras a que tenha direito, deve ser-lhe apresentada, antecipadamente ou sem demora após o evento, a devida justificativa.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 251,
@@ -3933,7 +4184,8 @@ const questionsData = [
           "E) Apenas ao Comandante da Marinha, segundo as determinações do Comando da Marinha, em linha com o costume adotado nas Organizações Militares."
         ],
         correct: 2,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-2-1 Comandante em partida ou regresso de comissão - O Comandante de OM, ao partir ou regressar de comissão, apresenta-se à autoridade a quem estiver diretamente subordinado e à autoridade de quem tiver recebido instruções especiais, exceto se dispensado de fazê-lo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 252,
@@ -3946,7 +4198,8 @@ const questionsData = [
           "E) Somente ao Comandante da Marinha, conforme os preceitos do cerimonial naval, de forma a atender ao previsto no regulamento."
         ],
         correct: 2,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-2-2 Apresentação após a posse - Na primeira oportunidade após a posse, o Titular de OM apresentar-se-á à autoridade a quem estiver diretamente subordinado, caso não tenha sido essa a lhe investir no cargo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 253,
@@ -3959,7 +4212,8 @@ const questionsData = [
           "E) Fornece pessoal para auxiliá-lo na manobra."
         ],
         correct: 4,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-2-3 Auxílio à manobra do navio - O navio atracado próximo ao local onde for atracar ou desatracar outro navio fornece pessoal para auxiliá-lo nessa manobra.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 254,
@@ -3972,7 +4226,8 @@ const questionsData = [
           "E) Pelo Comandante da Força."
         ],
         correct: 3,
-        subject: "Honras a Almirantes e Generais"
+        subject: "Honras a Almirantes e Generais",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-2-4 Embarcação à disposição de Almirante - A embarcação da MB colocada à disposição de Almirante lhe é apresentada por oficial designado para tal.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 255,
@@ -3985,7 +4240,8 @@ const questionsData = [
           "E) “Com sua licença, senhor”."
         ],
         correct: 0,
-        subject: "Honras de Passagem e Embarcações Miúdas"
+        subject: "Honras de Passagem e Embarcações Miúdas",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-2-5 Permissão para largar - O militar mais antigo a bordo de embarcação miúda ou viatura, qualquer que seja seu nível hierárquico, pede licença para largar a quem lhe tiver prestado as honras de despedida, por meio da expressão \"Com licença\", recebendo em troca a resposta \"Está quem manda\".\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 256,
@@ -3998,7 +4254,8 @@ const questionsData = [
           "E) “Está autorizado”."
         ],
         correct: 3,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 1-2-5 Permissão para largar - O militar mais antigo a bordo de embarcação miúda ou viatura, qualquer que seja seu nível hierárquico, pede licença para largar a quem lhe tiver prestado as honras de despedida, por meio da expressão \"Com licença\", recebendo em troca a resposta \"Está quem manda\".\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 257,
@@ -4011,7 +4268,8 @@ const questionsData = [
           "E) Uniformes escolhidos pelo visitante, conforme os preceitos do cerimonial naval."
         ],
         correct: 2,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 4-1-9 Uniforme para visita - Nas visitas oficiais são usados os uniformes determinados para tal fim pelo Regulamento de Uniformes da Marinha do Brasil.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 258,
@@ -4024,7 +4282,8 @@ const questionsData = [
           "E) Uniforme escolhido pelo patrão, tal como estabelecido pelas normas da MB."
         ],
         correct: 0,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 4-1-10 Uniforme em embarcações - Em visita oficial, a guarnição da embarcação miúda usa uniforme correspondente ao que for usado pelo oficial que está sendo conduzido.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 259,
@@ -4037,7 +4296,8 @@ const questionsData = [
           "E) Sempre uma visita formal, segundo as determinações do Comando da Marinha, de acordo com o que dispõe o cerimonial em vigor."
         ],
         correct: 2,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 4-2-1 Visita não anunciada - Visita não anunciada é a visita feita informalmente por autoridade militar ou civil, em virtude de necessidades administrativas ou por simples cortesia individual.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 260,
@@ -4050,7 +4310,8 @@ const questionsData = [
           "E) Salva de partida."
         ],
         correct: 0,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 4-2-2 Honras em visita não anunciada - A visita não anunciada requer apenas a prestação de honras de portaló.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 261,
@@ -4063,7 +4324,8 @@ const questionsData = [
           "E) Assim que este chegar a porto que não seja sua sede."
         ],
         correct: 4,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - apresentar votos de boas-vindas ao Comandante de Força ou de navio da MB, assim que este chegar a porto que não sua sede; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 262,
@@ -4076,7 +4338,8 @@ const questionsData = [
           "E) Igual ou superior a dois meses."
         ],
         correct: 2,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - cumprir o mesmo procedimento para Força ou navio sediado no mesmo porto, se a ausência for igual ou superior a três meses.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 263,
@@ -4089,7 +4352,8 @@ const questionsData = [
           "E) Apenas se houver salva, tal como estabelecido pelas normas da MB."
         ],
         correct: 3,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 4-2-4 Retribuição - As visitas não anunciadas de oficiais mais modernos a oficiais mais antigos são retribuídas, caso as circunstâncias permitam e assim aconselhem as normas de cortesia.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 264,
@@ -4102,7 +4366,8 @@ const questionsData = [
           "E) Têm direito às honras de portaló."
         ],
         correct: 4,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-1-1 Direito às honras de portaló - Todos os oficiais, ao entrarem ou saírem de OM da MB, têm direito às honras de portaló.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 265,
@@ -4115,7 +4380,8 @@ const questionsData = [
           "E) Passam a ser de 19 tiros, respeitando a tradição naval."
         ],
         correct: 1,
-        subject: "Presidente e Autoridades de Estado"
+        subject: "Presidente e Autoridades de Estado",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-1-2 Presença do Presidente da República no mar - As honras aos oficiais de marinha, quando o Presidente da República estiver no mar, dentro da distância máxima de salva, restringem-se às honras de portaló.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 266,
@@ -4128,7 +4394,8 @@ const questionsData = [
           "E) São prestadas somente honras de portaló."
         ],
         correct: 3,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-2-2 Visita de Almirante a OM não subordinada - Quando Almirante fizer visita oficial a OM não subordinada, deve ser observado o seguinte cerimonial:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 267,
@@ -4141,7 +4408,8 @@ const questionsData = [
           "E) Apenas os oficiais nas proximidades do portaló formam."
         ],
         correct: 4,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"b) apenas os oficiais que se encontram nas proximidades do portaló formam;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 268,
@@ -4154,7 +4422,8 @@ const questionsData = [
           "E) Não há honras de banda marcial e música."
         ],
         correct: 4,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"d) honras de portaló, de bandas marcial e de música como na recepção;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 269,
@@ -4167,7 +4436,8 @@ const questionsData = [
           "E) É dada salva de 21 tiros."
         ],
         correct: 1,
-        subject: "Visitas Oficiais e Protocolares"
+        subject: "Visitas Oficiais e Protocolares",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - quando Almirante fizer visita não anunciada, as honras são as de quando a visita for oficial, com as seguintes alterações:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 270,
@@ -4180,7 +4450,8 @@ const questionsData = [
           "E) Honras equivalentes às devidas na visita de Almirante a OM subordinada."
         ],
         correct: 4,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-2-3 Comandante da Marinha, Almirantado e CEMA - Ao Comandante da Marinha, Almirantado e CEMA são prestadas honras equivalentes às devidas na visita de Almirante a OM subordinada.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 271,
@@ -4193,7 +4464,8 @@ const questionsData = [
           "E) Honras presidenciais, tal como estabelecido pelas normas da MB, de acordo com o que dispõe o cerimonial em vigor."
         ],
         correct: 3,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-2-4 Oficial Superior Comandante de Força - Ao Oficial Superior Comandante de Força, quando em visita a OM subordinada, são prestadas honras equivalentes às devidas aos Almirantes, sendo os postos de continência, nas visitas oficiais, substituídos por postos de mostra; quando fizer visita a navio de outra Força, são prestadas apenas as honras de portaló.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 272,
@@ -4206,7 +4478,8 @@ const questionsData = [
           "E) Recebe guarda de honra, respeitando a tradição naval."
         ],
         correct: 1,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 5-2-4 Oficial Superior Comandante de Força - Ao Oficial Superior Comandante de Força, quando em visita a OM subordinada, são prestadas honras equivalentes às devidas aos Almirantes, sendo os postos de continência, nas visitas oficiais, substituídos por postos de mostra; quando fizer visita a navio de outra Força, são prestadas apenas as honras de portaló.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 273,
@@ -4219,7 +4492,8 @@ const questionsData = [
           "E) Não, sempre recebe nova salva."
         ],
         correct: 0,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"I - a autoridade civil ou militar que já tiver sido honrada por salva por uma vez, no período de um ano, por parte de um mesmo navio ou estação de salvas da MB, excetuando-se aquela:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 274,
@@ -4232,7 +4506,8 @@ const questionsData = [
           "E) 17 tiros ou mais."
         ],
         correct: 1,
-        subject: "Honras de Portaló, Toques e Guarda"
+        subject: "Honras de Portaló, Toques e Guarda",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"a) com direito à salva de dezenove tiros ou mais;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 275,
@@ -4245,7 +4520,8 @@ const questionsData = [
           "E) Não tem direito à salva, salvo se estiver investido de cargo civil que lhe dê direito a tal honra."
         ],
         correct: 4,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - o oficial em trajes civis, exceto se estiver investido de cargo civil que lhe dê direito a tal honra.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 276,
@@ -4258,7 +4534,8 @@ const questionsData = [
           "E) Permanecem em descanso, conforme os preceitos do cerimonial naval."
         ],
         correct: 1,
-        subject: "Disposições Gerais do Cerimonial"
+        subject: "Disposições Gerais do Cerimonial",
+        explanation: "O trecho da apostila de Cerimonial da Marinha relacionado a essa questão traz: \"Art. 3-2-11 Militares participantes das honras - Os oficiais e as praças que não estiverem formadas ou guarnecendo postos de continência, cobertas acima ou próximos ao local de despedida em terra, prestam continência individual enquanto perdurar a salva de partida.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 277,
@@ -4271,7 +4548,8 @@ const questionsData = [
           "E) Autorização do Comandante de Distrito Naval."
         ],
         correct: 4,
-        subject: "Honras Fúnebres"
+        subject: "Honras Fúnebres",
+        explanation: "O trecho da apostila de Cerimonial da Marinha relacionado a essa questão traz: \"VII - mediante autorização do Comandante do Distrito Naval da área, as cerimônias militares, tais como formaturas e graduações, cujas datas de realização, por serem especiais, não devam ser alteradas, podem ser realizadas por completo, observado o inciso I deste artigo.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 278,
@@ -4284,7 +4562,8 @@ const questionsData = [
           "E) É substituída pela Bandeira do Cruzeiro."
         ],
         correct: 1,
-        subject: "Bandeiras e Insígnias"
+        subject: "Bandeiras e Insígnias",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"II - a Bandeira Nacional é hasteada à meia adriça, sendo observado o cerimonial completo, com todas as honras e toques de continência; durante postos de combate ou por ocasião de fotografias ou filmagem é atopetada; quando conduzida por tropa, ostenta o sinal de luto. Enquanto perdurar o luto oficial, permanecerá à meia adriça, também, após o pôr do sol e até às 23h59 do último dia estabelecido;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 279,
@@ -4297,7 +4576,8 @@ const questionsData = [
           "E) Embandeiram somente após o pôr-do-Sol. 1. 2. 3. 4. 5. 6. 7. 8. 9. 10."
         ],
         correct: 1,
-        subject: "Honras Fúnebres"
+        subject: "Honras Fúnebres",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 9-1-15 No Dia dos Mortos - No dia 2 de novembro, data consagrada ao culto aos mortos:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 280,
@@ -4310,7 +4590,8 @@ const questionsData = [
           "E) Devem seguir rigorosamente apenas o Cerimonial brasileiro."
         ],
         correct: 3,
-        subject: "Honras Fúnebres"
+        subject: "Honras Fúnebres",
+        explanation: "Conforme a apostila de Cerimonial da Marinha: \"Art. 9-1-17 Em países estrangeiros - Não obstante o disposto neste Cerimonial, as honras fúnebres em países estrangeiros devem pautar-se ao que for neles de uso.\" — esse é o trecho que fundamenta a alternativa correta."
       }
     ];
 
@@ -4420,6 +4701,9 @@ const questionsData = [
       await applySwitchMenuLocks();
 
       await loadSavedState();
+      if (currentUser) {
+        AlfaGamification.reconcileRespostasDetalhadas(sb, currentUser.id, QUIZ_ID, questionsData, userAnswers).then(() => {});
+      }
       const savedIndex = parseInt(localStorage.getItem(STORAGE_KEY_CURRENT), 10);
       currentIndex = (!isNaN(savedIndex) && savedIndex >= 0 && savedIndex < questionsData.length) ? savedIndex : 0;
       renderQuestion();
@@ -4765,6 +5049,17 @@ const questionsData = [
 
         var apLinkWrap = document.getElementById('apostila-link-wrap');
         if (apLinkWrap) { apLinkWrap.innerHTML = AlfaGamification.apostilaLinkHtml(apostilaLinksMap, q.id); }
+
+        const expDetail = document.getElementById('explanation-detail');
+        const expDetailText = document.getElementById('explanation-detail-text');
+        if (expDetail && expDetailText) {
+          if (q.explanation) {
+            expDetail.classList.remove('hidden');
+            expDetailText.innerText = q.explanation;
+          } else {
+            expDetail.classList.add('hidden');
+          }
+        }
       } else {
         expBox.classList.add('hidden');
       }
@@ -4894,22 +5189,25 @@ const questionsData = [
 
     function selectOption(optIndex) {
       if (isDiscarded(currentIndex, optIndex)) return;
-      const jaTinhaResposta = userAnswers[currentIndex] !== undefined;
       userAnswers[currentIndex] = optIndex;
       saveState();
       renderQuestion();
       renderGrid();
 
-      // Salva o resultado dessa questão em tempo real, sem esperar finalizar o simulado
-      if (currentUser && !jaTinhaResposta) {
+      // Salva o resultado dessa questão em tempo real, sem esperar finalizar o simulado.
+      // upsert (não insert): o aluno pode voltar numa questão já respondida pra
+      // reconferir, e nesse caso só atualizamos o acerto/erro mais recente, sem
+      // duplicar linha nem depender de um estado local pra saber "já respondi essa
+      // antes" (é esse estado local que fazia a cobertura ficar presa abaixo do real).
+      if (currentUser) {
         const q = questionsData[currentIndex];
-        sb.from('respostas_detalhadas').insert({
+        sb.from('respostas_detalhadas').upsert({
           user_id: currentUser.id,
           quiz_id: QUIZ_ID,
           subject: q.subject,
           question_id: q.id,
           acertou: optIndex === q.correct
-        }).then(() => {});
+        }, { onConflict: 'user_id,quiz_id,question_id' }).then(() => {});
       }
       if (window.StudyRoom) StudyRoom.reportAnswer(currentIndex, optIndex);
     }

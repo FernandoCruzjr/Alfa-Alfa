@@ -370,18 +370,20 @@
     const TOTAL_QUESTOES = {
       'PORTUGUES': { label: 'Língua Portuguesa', total: 372 },
       'HISTORIA_NAVAL': { label: 'História Militar Naval', total: 583 },
-      'GEOGRAFIA': { label: 'Geografia', total: 164 },
-      'MATEMATICA': { label: 'Matemática', total: 79 },
-      'CAAML-703': { label: 'CAAML-703 — Embarcações Miúdas', total: 65 },
+      'HISTORIA_NAVAL_FATOS_1': { label: 'Fatos da História Naval', total: 217 },
+      'GEOGRAFIA': { label: 'Geografia', total: 200 },
+      'MATEMATICA': { label: 'Matemática', total: 200 },
+      'CAAML-703': { label: 'CAAML-703 — Embarcações Miúdas', total: 200 },
       'CERIMONIAL': { label: 'Cerimonial da Marinha', total: 280 },
-      'ROSAS_VIRTUDES': { label: 'Rosas das Virtudes', total: 30 },
-      'JUSTICA_DISCIPLINA': { label: 'Justiça e Disciplina', total: 147 },
+      'ROSAS_VIRTUDES': { label: 'Rosas das Virtudes', total: 200 },
+      'JUSTICA_DISCIPLINA': { label: 'Justiça e Disciplina', total: 200 },
       'LIDERANCA': { label: 'Liderança', total: 210 },
+      'LIDERANCA_ATRIBUTOS': { label: 'Atributos de Liderança', total: 200 },
       'OGSA': { label: 'OGSA', total: 211 },
-      'CAMAAL_CAV': { label: 'CAMAAL 1202 (CAV)', total: 122 },
-      'ESTATUTO_RDM': { label: 'Estatuto dos Militares & RDM', total: 176 },
+      'CAMAAL_CAV': { label: 'CAMAAL 1202 (CAV)', total: 200 },
+      'ESTATUTO_RDM': { label: 'Estatuto dos Militares & RDM', total: 200 },
       'DOC_ADM_MB': { label: 'Documentação Administrativa na MB', total: 200 },
-      'PEM2040': { label: 'PEM-2040', total: 55 },
+      'PEM2040': { label: 'PEM-2040', total: 200 },
     };
 
     function showGate(panel) {
@@ -460,7 +462,7 @@
         uniquePorMateria[d.quiz_id].add(String(d.question_id));
       });
 
-      // Resumo geral (soma sobre as 14 matérias reais do banco)
+      // Resumo geral (soma sobre as 16 matérias reais do banco)
       let totalRespondidasGeral = 0;
       let totalBancoGeral = 0;
       Object.keys(TOTAL_QUESTOES).forEach(quizId => {

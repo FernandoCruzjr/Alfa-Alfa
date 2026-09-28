@@ -528,6 +528,9 @@
           <div class="flex items-center gap-2 text-sm font-bold mb-1" id="explanation-title"></div>
           <div class="text-xs md:text-sm text-slate-300" id="explanation-text"></div>
           <div id="apostila-link-wrap" class="mt-2"></div>
+          <div class="text-xs md:text-sm text-slate-300 mt-3 pt-3 border-t border-slate-700/60 hidden" id="explanation-detail">
+            <span class="text-navy-400 font-semibold">Por que é essa alternativa: </span><span id="explanation-detail-text"></span>
+          </div>
         </div>
 
         <button id="flashcard-btn" onclick="saveAsFlashcard()" class="mt-4 w-full h-11 rounded-xl border border-navy-700 bg-navy-800/60 hover:bg-navy-700/60 hover:border-navy-500 text-slate-200 text-sm font-medium transition-all flex items-center justify-center gap-2">
@@ -669,7 +672,9 @@
           "D) Balsa salva-vidas",
           "E) Baleeira"
         ],
-        correct: 4
+        correct: 4,
+        subject: "Embarcações Miúdas",
+        explanation: "A baleeira é um dos seis tipos de embarcação miúda classificados no item 1.2 do CAAML-703. Seu desenho tradicional, com proa e popa semelhantes, finas e elevadas (complementado pelo Arte Naval, cap. 4, seção B), confere-lhe grande segurança em mar bruto — daí ser historicamente a embarcação preferida para fainas de salvamento."
       },
       {
         id: 600,
@@ -681,7 +686,9 @@
           "D) Bota inflável",
           "E) Jet ski"
         ],
-        correct: 4
+        correct: 4,
+        subject: "Embarcações Miúdas",
+        explanation: "A classificação das embarcações miúdas por tipo de construção (item 1.2) lista: lanchas, baleeiras, botes infláveis, embarcações de casco semi-rígido, chalanas e balsas salva-vidas. \"Jet ski\" não é uma categoria de classificação — o item 1.3 apenas cita a propulsão a jato de água (empregada em jet skis) como um tipo de propulsão pouco usado, não como um tipo de embarcação."
       },
       {
         id: 601,
@@ -693,7 +700,9 @@
           "D) Hovercraft",
           "E) Balsa salva-vidas"
         ],
-        correct: 2
+        correct: 2,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.2 é explícito: \"das citadas, as embarcações de casco semi-rígido são de introdução mais recente na MB\", adotadas para reduzir pesos altos a bordo."
       },
       {
         id: 602,
@@ -705,7 +714,9 @@
           "D) Casco de fibra e flutuadores auto infláveis",
           "E) Casco de fibra de vidro e flutuadores de borracha"
         ],
-        correct: 2
+        correct: 2,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.2 descreve a embarcação de casco semi-rígido como tendo \"casco em fibra de vidro e flutuadores de borracha infláveis\"."
       },
       {
         id: 603,
@@ -717,7 +728,9 @@
           "D) Lanchas",
           "E) Balsa salva vidas"
         ],
-        correct: 0
+        correct: 0,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.2 afirma que o casco semi-rígido foi adotado \"com o propósito de contribuir para reduzir pesos altos a bordo e permitir o emprego de aparelhos de carga menos robustos e mais leves\"."
       },
       {
         id: 604,
@@ -729,7 +742,9 @@
           "D) Desenvolvem velocidade superior à maioria das lanchas tradicionais",
           "E) Apresentam boa manobrabilidade, além de conferirem ao patrão um amplo campo de visão"
         ],
-        correct: 2
+        correct: 2,
+        subject: "Embarcações Miúdas",
+        explanation: "As quatro vantagens do casco semi-rígido listadas no item 1.2 são: manuseio mais rápido e fácil, operação em piores condições de mar, velocidades superiores e boa manobrabilidade com amplo campo de visão ao patrão. A maior \"resistência estrutural a impactos no costado do navio\" não consta dessa lista — é uma afirmação não sustentada pelo manual."
       },
       {
         id: 605,
@@ -741,7 +756,9 @@
           "D) Motor removível",
           "E) Remos"
         ],
-        correct: 0
+        correct: 0,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.3 estabelece que a propulsão da embarcação miúda pode ser a motor, a vela ou a remos. \"Pás laterais\" (rodas propulsoras) não figura entre os tipos de propulsão descritos para as embarcações miúdas da MB."
       },
       {
         id: 606,
@@ -753,7 +770,9 @@
           "D) Motor fixo central",
           "E) Motor de rabeta"
         ],
-        correct: 3
+        correct: 3,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.3 explica que os motores fixos \"podem ser centrais, caso em que se acoplam ao hélice através de um eixo longo\"."
       },
       {
         id: 607,
@@ -765,7 +784,9 @@
           "D) Motor fixo",
           "E) Motor fixo central"
         ],
-        correct: 1
+        correct: 1,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.3 descreve o motor \"de rabeta\", instalado no interior do casco, na popa: nesse caso \"a embarcação não possui leme, e as mudanças de rumo são obtidas mediante o giro do conjunto do hélice em torno de um eixo vertical\"."
       },
       {
         id: 608,
@@ -777,7 +798,9 @@
           "D) Embarcações com propulsão a jato d’água ou com rodas de pás laterais",
           "E) Jet skis e hovercraft"
         ],
-        correct: 0
+        correct: 0,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.3 cita como tipos de propulsão de pouco uso \"a propulsão a jato de água (idêntico ao utilizado em jet ski) ou com o hélice sobre a embarcação, girando no ar\", como nos hovercraft."
       },
       {
         id: 609,
@@ -789,7 +812,9 @@
           "D) Somente as embarcações infláveis de casco rígido",
           "E) Baleeiras"
         ],
-        correct: 2
+        correct: 2,
+        subject: "Embarcações Miúdas",
+        explanation: "O quadro de atenção do item 1.3 alerta: \"as embarcações infláveis de casco rígido ou semi-rígido não são projetadas para abarrancar ou abicar e podem ser esperados danos à embarcação em caso de encalhe\"."
       },
       {
         id: 610,
@@ -801,7 +826,9 @@
           "D) A tripulação da embarcação",
           "E) O Imediato"
         ],
-        correct: 2
+        correct: 2,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.5 é direto: \"a guarnição da embarcação miúda é responsável pelo seu equipamento\"."
       },
       {
         id: 611,
@@ -813,7 +840,9 @@
           "D) Ao patrão da embarcação e ao oficial de serviço",
           "E) Ao mestre e ao imediato"
         ],
-        correct: 3
+        correct: 3,
+        subject: "Embarcações Miúdas",
+        explanation: "Ainda no item 1.5: \"perdas ou danos ao material devem ser informados imediatamente ao patrão da embarcação e ao oficial de serviço\"."
       },
       {
         id: 612,
@@ -825,7 +854,9 @@
           "D) Picadeiros",
           "E) Berços e turcos"
         ],
-        correct: 0
+        correct: 0,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.6 informa que \"as embarcações são conduzidas nos picadeiros ou nos turcos, de modo a serem arriadas rapidamente\"."
       },
       {
         id: 613,
@@ -837,7 +868,9 @@
           "D) Guindastes",
           "E) Turco singelo"
         ],
-        correct: 1
+        correct: 1,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.6 define: \"os turcos são aparelhos montados aos pares, servindo apenas às embarcações por eles sustentadas\"."
       },
       {
         id: 614,
@@ -849,7 +882,9 @@
           "D) Chalanas e botes",
           "E) Baleeiras e balsa salva-vidas"
         ],
-        correct: 3
+        correct: 3,
+        subject: "Embarcações Miúdas",
+        explanation: "Ainda no item 1.6: \"as chalanas e botes podem ser manobrados por um turco singelo, ou mesmo sem o auxílio destes\"."
       },
       {
         id: 615,
@@ -861,7 +896,9 @@
           "D) Apenas os guindastes",
           "E) Turco comum"
         ],
-        correct: 1
+        correct: 1,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.6 completa: \"as lanças e os guindastes podem servir às diversas embarcações que moram em picadeiros próximos\"."
       },
       {
         id: 616,
@@ -873,7 +910,9 @@
           "D) de rebater",
           "E) Removível"
         ],
-        correct: 4
+        correct: 4,
+        subject: "Embarcações Miúdas",
+        explanation: "Os quatro tipos de turco descritos no item 1.6.1 são: comum, de rebater, quadrantal e rolante ou deslizante. \"Removível\" é uma característica de tipo de motor (item 1.3), não um tipo de turco."
       },
       {
         id: 617,
@@ -885,7 +924,9 @@
           "D) 4 – 3 – 2 – 1",
           "E) 4 – 3 – 1 – 2"
         ],
-        correct: 0
+        correct: 0,
+        subject: "Embarcações Miúdas",
+        explanation: "Conforme o item 1.6.1: o turco quadrantal recolhe/dispara sobre um setor dentado (3); o rolante desce sobre calhas por gravidade (4); o comum gira em ferro redondo/perfis retangulares (1); e o de rebater gira em eixo horizontal na base, paralelo ao costado (2) — sequência 3-4-1-2."
       },
       {
         id: 618,
@@ -897,7 +938,9 @@
           "D) VFVF",
           "E) FVFV"
         ],
-        correct: 2
+        correct: 2,
+        subject: "Embarcações Miúdas",
+        explanation: "As quatro afirmações descrevem corretamente, em sequência, o funcionamento do turco rolante/deslizante conforme o item 1.6.1: acionamento pela alavanca do freio do sarilho, descida sobre a calha, posicionamento a meia talha e arriamento final até a água — todas verdadeiras."
       },
       {
         id: 619,
@@ -909,7 +952,9 @@
           "D) 1 – Estropo de mau tempo / 2 – Estropo de segurança / 3 – Cabo guia / 4 – Cabo de contrabalanço",
           "E) 1 – Estropo de mau tempo / 2 – Estropo de segurança / 3 – Cabo de contrabalanço / 4 – Sea Jackstay"
         ],
-        correct: 0
+        correct: 0,
+        subject: "Embarcações Miúdas",
+        explanation: "A figura do item 1.10 (Observações Complementares) mostra o estropo de segurança e o estropo de mau tempo junto ao aparelho de força (catarina), enquanto o cabo de contrabalanço e o cabo guia (\"sea jackstay\", descrito no item 1.6.1) atuam na estabilização lateral da embarcação — sequência 1-2-3-4."
       },
       {
         id: 620,
@@ -921,7 +966,9 @@
           "D) Cabo guia (“sea jackstay”)",
           "E) Cabo de contrabalanço"
         ],
-        correct: 3
+        correct: 3,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.6.1 descreve o cabo guia (\"sea jackstay\"): \"o chicote superior é fixado em olhal na base do turco e sua outra extremidade no costado do navio, junto à linha d'água\"."
       },
       {
         id: 621,
@@ -933,7 +980,9 @@
           "D) Cabo guia (sea jackstay)",
           "E) Estropo de segurança"
         ],
-        correct: 3
+        correct: 3,
+        subject: "Embarcações Miúdas",
+        explanation: "Ainda no item 1.6.1, essa é a finalidade do cabo guia: \"atenuar o movimento pendular da embarcação durante a faina, reduzindo a intensidade de eventuais choques com o navio\"."
       },
       {
         id: 622,
@@ -945,7 +994,9 @@
           "D) Fragatas classe Tamandaré",
           "E) Navio doca"
         ],
-        correct: 0
+        correct: 0,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.6.1 cita expressamente: \"as Fragatas da Classe Niterói dispõem de pontos para a fixação desses cabos guia no costado\"."
       },
       {
         id: 623,
@@ -957,7 +1008,9 @@
           "D) Quando ela atinge a superfície do mar e ainda está presa ou sendo liberada dos cabos dos turcos",
           "E) Quando está no meio do procedimento para arriar a embarcação, tendo em vista o possível movimento pendular ocasionado pelo navio"
         ],
-        correct: 3
+        correct: 3,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.7 esclarece: \"o instante crítico da faina de arriar uma embarcação, normalmente, ocorre quando ela atinge a superfície do mar e ainda está presa ou sendo liberada dos cabos dos turcos\"."
       },
       {
         id: 624,
@@ -969,7 +1022,9 @@
           "D) Motorista",
           "E) Contramestre"
         ],
-        correct: 0
+        correct: 0,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.7-a (atribuições do contramestre) mostra que é ele quem \"verifica se foi cumprida a lista de verificação da embarcação pelo patrão da lancha\" — ou seja, é o patrão quem efetivamente cumpre a lista, cabendo ao contramestre apenas conferir."
       },
       {
         id: 625,
@@ -981,7 +1036,9 @@
           "D) Verifica se os equipamentos a serem utilizados na manobra foram alimentados, tais como motores, guinchos, etc.",
           "E) Verifica se o pessoal envolvido na faina está utilizando o equipamento de proteção individual"
         ],
-        correct: 1
+        correct: 1,
+        subject: "Embarcações Miúdas",
+        explanation: "As nove atribuições do contramestre (item 1.7-a) incluem solicitar reunião de pessoal, verificar a lista de verificação, os equipamentos alimentados, o EPI, o pau de surriola/escada de portaló, os andorinhos, a boça de viagem, as boças/catarinas e coordenar o embarque — mas \"providenciar a palamenta completa da embarcação\" é atribuição do patrão (item 1.7-b)."
       },
       {
         id: 626,
@@ -993,7 +1050,9 @@
           "D) Verifica os andorinhos e a boça de viagem",
           "E) Tampona os bueiros com bujões de rosca"
         ],
-        correct: 4
+        correct: 4,
+        subject: "Embarcações Miúdas",
+        explanation: "Entre as nove atribuições do contramestre (item 1.7-a) não está \"tamponar os bueiros com bujões de rosca\" — essa é a segunda atribuição do patrão, listada no item 1.7-b."
       },
       {
         id: 627,
@@ -1005,7 +1064,9 @@
           "D) Exige correção de atitudes e apresentação pessoal da guarnição.",
           "E) Providenciar a palamenta completa da embarcação, tamponar os bueiros com os bujões de rosca, verificar a cana do leme (operação em emergência) e testar as comunicações (transceptor portátil)"
         ],
-        correct: 2
+        correct: 2,
+        subject: "Embarcações Miúdas",
+        explanation: "As sete atribuições do patrão (item 1.7-b) tratam de palamenta, bujões, apresentação marinheira, precauções de segurança, cana do leme, comunicações e correção de atitudes da guarnição; \"coordenar o embarque de pessoal e material\" é a nona atribuição do contramestre (item 1.7-a)."
       },
       {
         id: 628,
@@ -1017,7 +1078,9 @@
           "D) I, II e III estão corretas",
           "E) I e II estão corretas"
         ],
-        correct: 0
+        correct: 0,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.7-c mostra que a afirmativa I está correta (verificar as boças reservas a bordo). Já as afirmativas II e III invertem a ordem real: o texto diz que é o popeiro quem larga as boças primeiro (não o proeiro, como diz II) e é o proeiro quem larga a boça de viagem (não o popeiro, como diz III) — por isso apenas a I está correta."
       },
       {
         id: 629,
@@ -1029,7 +1092,9 @@
           "D) Cumprir as recomendações do patrão da lancha em relação ao regime de máquinas",
           "E) Verificar o kit de ferramentas e partir o motor da lancha"
         ],
-        correct: 0
+        correct: 0,
+        subject: "Embarcações Miúdas",
+        explanation: "As cinco atribuições do motorista (item 1.7-d) são: verificar óleo/combustível, verificar equipamentos de combate a incêndio, verificar o kit de ferramentas, partir o motor e cumprir as determinações do patrão quanto ao regime de máquinas. \"Cumprir a lista de verificação da lancha\" não é atribuição do motorista."
       },
       {
         id: 630,
@@ -1041,7 +1106,9 @@
           "D) 6 nós",
           "E) 4 nós"
         ],
-        correct: 0
+        correct: 0,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.7 estabelece: \"nos casos das baleeiras, a velocidade limite para essa faina é de 5 nós\"."
       },
       {
         id: 631,
@@ -1053,7 +1120,9 @@
           "D) VVF",
           "E) VFV"
         ],
-        correct: 3
+        correct: 3,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.7 confirma: a boça de viagem pode ser dispensada se o navio estiver fundeado/atracado sem corrente expressiva (V); as boças de proa/popa devem ser passadas/recolhidas pelo navio na atracação a contrabordo (V); mas as boças reservas servem \"para atracação em outros atracadores ou como cabos de reboque\" — e não especificamente para substituir boças de proa/popa com problema (F) — sequência VVF."
       },
       {
         id: 632,
@@ -1065,7 +1134,9 @@
           "D) direito - sinistrogiro",
           "E) direito - dextrogiro"
         ],
-        correct: 0
+        correct: 0,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.8 define: \"o passo é direito quando a rotação é no sentido horário, com o hélice visto da parte de ré, e é esquerdo quando, nas mesmas condições, esse sentido é anti-horário\"."
       },
       {
         id: 633,
@@ -1077,7 +1148,9 @@
           "D) 30º",
           "E) 25º"
         ],
-        correct: 0
+        correct: 0,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.8.1 é claro: \"o ângulo de leme de uma embarcação é limitado a 35º\", pois além desse valor o efeito de freamento aumenta rapidamente e o de guinada decresce."
       },
       {
         id: 634,
@@ -1089,7 +1162,9 @@
           "D) Ponto médio da embarcação",
           "E) Cana do leme"
         ],
-        correct: 1
+        correct: 1,
+        subject: "Embarcações Miúdas",
+        explanation: "Ainda no item 1.8.1: \"quando o barco guina por efeito do seu leme, ele gira em torno de um ponto, denominado pivô\"."
       },
       {
         id: 635,
@@ -1101,7 +1176,9 @@
           "D) Pivô",
           "E) Cana do leme"
         ],
-        correct: 3
+        correct: 3,
+        subject: "Embarcações Miúdas",
+        explanation: "O mesmo item 1.8.1 localiza o pivô \"normalmente, acerca de um terço do comprimento, a partir da proa\"."
       },
       {
         id: 636,
@@ -1113,7 +1190,9 @@
           "D) A boça de viagem",
           "E) As catarinas"
         ],
-        correct: 2
+        correct: 2,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.10 registra: \"durante a faina de arriar e içar todo o pessoal na embarcação guarnece os andorinhos\"."
       },
       {
         id: 637,
@@ -1125,7 +1204,9 @@
           "D) Içar, baldear e limpar a embarcação, logo que terminado seu serviço, como exercícios e conduções",
           "E) Manter sempre uma equipe de prontidão para guarnecimento da embarcação miúda em qualquer situação."
         ],
-        correct: 4
+        correct: 4,
+        subject: "Apresentação Marinheira",
+        explanation: "As recomendações do item 1.10 sobre apresentação das embarcações são: içar/baldear/limpar após o serviço, içar a chalana ao término do serviço, evitar longos períodos atracadas ao portaló/escadas, e manter a guarnição completa a bordo quando afastadas do navio. Não há menção a \"manter sempre uma equipe de prontidão\" — essa opção não consta do manual."
       },
       {
         id: 638,
@@ -1137,7 +1218,9 @@
           "D) Croques e demais palamentas sujos e sem verniz",
           "E) suportes para a palamenta faltando ou com a fixação folgada"
         ],
-        correct: 1
+        correct: 1,
+        subject: "Apresentação Marinheira",
+        explanation: "As falhas mais frequentes nas lanchas, segundo o item 1.10, são: capas sujas e mal arrumadas, paineiros sujos, croques sem verniz, suportes de palamenta faltando/folgados e guarnição displicente. \"Pavilhão nacional grande demais\" não figura nessa lista."
       },
       {
         id: 639,
@@ -1149,7 +1232,9 @@
           "D) 4 – 2 – 1 – 3",
           "E) 2 – 1 – 4 – 3"
         ],
-        correct: 0
+        correct: 0,
+        subject: "Apresentação Marinheira",
+        explanation: "A tabela de sinalização do item 1.11 (arriando uma embarcação) segue a sequência: bandeira encarnada na manobra → preparar para arriar; encarnada na estação → preparando; verde na estação → pronta para ser arriada; verde na manobra → arriar — ou seja, para a pergunta (arriar / preparando / preparar / pronta) a resposta é 4-2-1-3."
       },
       {
         id: 640,
@@ -1161,7 +1246,9 @@
           "D) 1 – 2 – 3 – 4",
           "E) 2 – 1 – 4 – 3"
         ],
-        correct: 3
+        correct: 3,
+        subject: "Apresentação Marinheira",
+        explanation: "A tabela do item 1.11 para recebimento/içamento segue: encarnada na manobra → receber a contrabordo; encarnada na estação → preparando para içar; verde na estação → pronta para ser içada; verde na manobra → içar — daí a sequência 1-2-3-4 para (receber / a contrabordo preparando / pronta / içar)."
       },
       {
         id: 641,
@@ -1173,7 +1260,9 @@
           "D) Encarregado de divisão e o Mestre",
           "E) Oficial de serviço e contramestre"
         ],
-        correct: 1
+        correct: 1,
+        subject: "Apresentação Marinheira",
+        explanation: "O Anexo A, item 2-a, atribui essa inspeção frequente no porto a \"os Encarregados de Divisão, o Mestre e o Sargento-Polícia\"."
       },
       {
         id: 642,
@@ -1185,7 +1274,9 @@
           "D) Contramestre",
           "E) Contramestre e o Sargento-Polícia"
         ],
-        correct: 1
+        correct: 1,
+        subject: "Apresentação Marinheira",
+        explanation: "Ainda no item 2-a: \"após o expediente, o Oficial de Serviço e o Sargento-Polícia inspecionarão o navio\"."
       },
       {
         id: 643,
@@ -1197,7 +1288,9 @@
           "D) Os cônicos",
           "E) O quarto de serviço e os crônicos"
         ],
-        correct: 1
+        correct: 1,
+        subject: "Apresentação Marinheira",
+        explanation: "O item 2-a completa que essa inspeção pós-expediente ocorre \"empregando o quarto de serviço para mantê-lo limpo e com boa apresentação marinheira\"."
       },
       {
         id: 644,
@@ -1209,7 +1302,9 @@
           "D) Mestre e Contramestre de quarto",
           "E) Mestre, Contramestre de quarto e o Sargento-Polícia"
         ],
-        correct: 4
+        correct: 4,
+        subject: "Apresentação Marinheira",
+        explanation: "O item 2-b atribui essas atribuições, em viagem, a \"o Mestre, o Contramestre de Quarto e o Sargento-Polícia\"."
       },
       {
         id: 645,
@@ -1221,7 +1316,9 @@
           "D) Faxina do Mestre",
           "E) Os CB/MN destacados"
         ],
-        correct: 0
+        correct: 0,
+        subject: "Apresentação Marinheira",
+        explanation: "Ainda no item 2-b, esses militares mantêm a limpeza \"empregando o Grupo de Limpeza e Fainas Marinheiras\"."
       },
       {
         id: 646,
@@ -1233,7 +1330,9 @@
           "D) Os sinais de rotina, como os de rancho, uniforme, etc., entre a alvorada e o silêncio, serão executados por apito e os quartos marcados pelo sino de bordo",
           "E) Todos sinais de bordo, entre a alvorada e o silêncio, serão executados por apito, com correção e os quartos marcados pelo sino de bordo"
         ],
-        correct: 1
+        correct: 1,
+        subject: "Apresentação Marinheira",
+        explanation: "O item 2-c estabelece que os sinais de rotina, entre a alvorada e o silêncio, \"deverão ser executados por apito, com correção e os quartos marcados pelo sino de bordo\"."
       },
       {
         id: 647,
@@ -1245,7 +1344,9 @@
           "D) O não cumprimento, por ocasião do quarto d’alva/pôr do sol do regime de luzes",
           "E) Vergueiros e balaustradas solecados"
         ],
-        correct: 0
+        correct: 0,
+        subject: "Apresentação Marinheira",
+        explanation: "O item sobre falhas comuns (letra d) afirma o oposto do enunciado: \"parafusos, porcas, grampos, orelhas de portas, válvulas e vigias de combate EMPERRADOS pela tinta indevidamente aplicada\" é a falha — a alternativa que diz \"não emperrados\" inverte o sentido do texto, sendo por isso a incorreta."
       },
       {
         id: 648,
@@ -1257,7 +1358,9 @@
           "D) Enfermaria, estação central do CAv e passadiço",
           "E) Enfermaria de combate, portaló e passadiço"
         ],
-        correct: 2
+        correct: 2,
+        subject: "Apresentação Marinheira",
+        explanation: "O item 1 do Anexo B determina que essa relação de materiais perigosos seja mantida atualizada \"na enfermaria, na estação Central do CAv e no Portaló\"."
       },
       {
         id: 649,
@@ -1269,7 +1372,9 @@
           "D) Do colete de paina ou colete flutuante",
           "E) Do colete auto-inflável"
         ],
-        correct: 2
+        correct: 2,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2 do Anexo B exige, nas fainas em conveses abertos, \"o uso do colete de flutuabilidade permanente (tradicionalmente conhecido como colete de paina) ou auto-inflável\"."
       },
       {
         id: 650,
@@ -1281,7 +1386,9 @@
           "D) 6 – 9 – 2 – 3 – 7 – 8 – 10 – 4 – 5 – 11 – 1",
           "E) 5 – 3 – 8 – 7 – 4 – 10 – 11 – 1 – 9 – 6 – 2"
         ],
-        correct: 1
+        correct: 1,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "A tabela de cores de capacete do item 2 (Anexo B) associa: vermelho ao lançador de rebolo/fuzil lança-retinida (6), azul aos laboradores de cabos/faxina do Mestre (9), branco com cruz vermelha ao enfermeiro (3), branco com cruz verde ao oficial de segurança (2), púrpura ao reparador (8), marrom ao operador de cabrestante/guincho/CAv (7), amarelo ao Sr. Mestre (4), laranja ao verificador/inspetor (10), branco aos oficiais (1), cinza a outros (11) e verde ao raqueteiro/telefonista (5) — sequência 6-9-3-2-8-7-4-10-1-11-5."
       },
       {
         id: 651,
@@ -1293,7 +1400,9 @@
           "D) Usar luvas do tipo “raspa de coco” ou de vaqueta quando laborando cabos",
           "E) Não exercer muito esforço em um cabo que já teha trabalhado próximo a sua carga de ruptura ou em serviço contínuo"
         ],
-        correct: 1
+        correct: 1,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.1 estabelece que o primeiro homem que guarnece um cabo sob tensão deve manter \"um socairo seguro\" de cabrestante, cabeço, buzina, rodete etc. — a distância específica de 1,8 m referida na opção pertence a outra regra (item 2.2, fainas de transferência no mar), não a essa recomendação geral sobre cabos e espias."
       },
       {
         id: 652,
@@ -1305,7 +1414,9 @@
           "D) Apenas I e II estão corretas",
           "E) Apenas a I, II e IV estão corretas"
         ],
-        correct: 4
+        correct: 4,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "As quatro regras de segurança do item 2.1 confirmam I (observador de segurança obrigatório), II (socairo mínimo de 2 metros) e IV (não aumentar a carga após travar) como corretas. Já a III, no texto original, determina não ficar \"por dentro\" do cabo laborando — a afirmativa III inverte isso para \"por fora\", tornando-se falsa; por isso apenas I, II e IV estão corretas."
       },
       {
         id: 653,
@@ -1317,7 +1428,9 @@
           "D) É imperativo a presença de um observador de segurança em todos os casos em que se laboram cabos.",
           "E) Manter um socairo mínimo de 2 metros"
         ],
-        correct: 1
+        correct: 1,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "As quatro regras de segurança do item 2.1 são: não ficar por dentro do cabo/na direção tracionada, não aumentar a carga após travar, observador de segurança obrigatório e socairo mínimo de 2 metros. \"Manter um enfermeiro com kit de primeiros socorros na área\" é uma exigência das fainas de transferência no mar (item 2.2-a), não das quatro regras gerais de cabos e espias."
       },
       {
         id: 654,
@@ -1329,7 +1442,9 @@
           "D) Manter um enfermeiro disponível na estação, bem como um oficial com a função de Oficial de Segurança.",
           "E) Usar cabo de recolhimento de flutuabilidade positiva (polipropileno)"
         ],
-        correct: 4
+        correct: 4,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.2 lista extensas precauções para a transferência no mar (enfermeiro/oficial de segurança na estação, atenção ao movimento da carga, balaustrada, distância de segurança de 1,8 m etc.). \"Usar cabo de recolhimento de flutuabilidade positiva (polipropileno)\" é uma precaução específica das fainas de recolhimento de homem ao mar (item 2.4-g), não da transferência no mar."
       },
       {
         id: 655,
@@ -1341,7 +1456,9 @@
           "D) VFV",
           "E) FFF"
         ],
-        correct: 3
+        correct: 3,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.4 confirma que os homens da estação devem portar coletes e luvas (I, verdadeira) e que, em situação de guerra, mantêm-se homens armados postados para prevenção (III, verdadeira). Já o cyalume e a lanterna estroboscópica são exigidos especificamente \"por ocasião do recolhimento noturno\" — não sempre, como afirma II — tornando-a falsa; sequência VFV."
       },
       {
         id: 656,
@@ -1353,7 +1470,9 @@
           "D) DIM",
           "E) BNIC"
         ],
-        correct: 0
+        correct: 0,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.5.8 informa que \"as escadas de prático homologadas pela DPC constam do Catálogo de Material Homologado\" — ou seja, a Diretoria de Portos e Costas é o órgão homologador."
       },
       {
         id: "656b",
@@ -1365,7 +1484,9 @@
           "D) Quando a altura a ser escalada pelo Prático for superior a 9 m, a subida a bordo, a partir da escada de prático, deve ser efetuada com o auxílio da escada de portaló.",
           "E) Se o navio estiver em movimento, o embarque ou desembarque do prático deve ser feito com máquinas adiante e velocidade máxima de 5 a 6 nós."
         ],
-        correct: 0
+        correct: 0,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.5.3-a determina que, para receber o prático, \"a escada deverá ser lançada a SOTAVENTO\" — a opção A inverte isso ao afirmar \"a barlavento\", sendo por isso a alternativa incorreta."
       },
       {
         id: 657,
@@ -1377,7 +1498,9 @@
           "D) Apenas a III está incorreta.",
           "E) Apenas IV está incorreta."
         ],
-        correct: 3
+        correct: 3,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "As especificações técnicas do item 2.5 (subida entre 1,50 m e 9 m, boças de 32 mm, montagem sob supervisão de Oficial etc.) e as figuras complementares do item 2.5.8, que ilustram a montagem combinada da escada de prático com a escada de portaló para bordas-livres superiores a 9 m, sustentam as afirmativas I, II e IV; a III inverte parâmetros dessa configuração combinada, sendo a única incorreta."
       },
       {
         id: 658,
@@ -1389,7 +1512,9 @@
           "D) Sistema de guiagem de mísseis.",
           "E) Aeronave engrazada no convoo."
         ],
-        correct: 3
+        correct: 3,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 6.2 do Anexo B lista como fontes de energia eletromagnética a bordo: \"transmissores e transceptores de comunicações, radares, radares de direção de tiro e sistemas de guiagem de mísseis\". A aeronave engrazada no convés de voo não é uma fonte dessa energia, e sim um equipamento potencialmente afetado por ela, como mostram os relatos de interferência nos instrumentos do item 6.6."
       },
       {
         id: 659,
@@ -1401,7 +1526,9 @@
           "D) não coloque tanques portáteis de combustível perto de antenas.",
           "E) nunca dirija o feixe radar na direção de aeronave ou veiculo sendo abastecido;"
         ],
-        correct: 2
+        correct: 2,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "As precauções reais de HERF (item 6.3) tratam de distância mínima de transmissores (15 m), aterramento correto e posicionamento de tanques portáteis — não há qualquer menção a \"pressão de abastecimento de 5 bar\" no manual; essa opção é uma informação não prevista no texto."
       },
       {
         id: 660,
@@ -1413,7 +1540,9 @@
           "D) Acetileno no compartimento de refrigeração",
           "E) Oxigênio na enfermaria"
         ],
-        correct: 4
+        correct: 4,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 4 (Anexo B) é textual: \"é proibido o posicionamento de ampolas de oxigênio e/ou acetileno no interior de espaços confinados, exceção feita à ampola de oxigênio da Enfermaria\"."
       },
       {
         id: 661,
@@ -1425,7 +1554,9 @@
           "D) CHEMAQ",
           "E) Comandante"
         ],
-        correct: 4
+        correct: 4,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 14.1-b (Anexo B) define a comissão de segurança e prevenção de acidentes como \"integrada pelo Imediato, CHEMAQ, CHEOP, CHEARM, ENCAv e Oficial Médico\" — o Comandante não é listado como integrante dessa comissão específica."
       },
       {
         id: 662,
@@ -1437,8 +1568,1900 @@
           "D) Limitar o uso de óculos escuros aos conveses abertos.",
           "E) Fumar apenas nos locais permitidos."
         ],
-        correct: 1
-      }
+        correct: 1,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 15-t (Anexo B) trata de \"não se inclinar pela borda apoiado na balaustrada ou vergueiros\" — a opção fala em \"não se apoiar sobre os cabeços\", o que distorce o texto original e não consta do rol de precauções gerais de segurança do pessoal."
+      },
+      {
+        id: 663,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do contramestre durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) providencia a palamenta completa da embarcação",
+          "B) solicita ao oficial de serviço permissão para reunir o pessoal para a manobra da lancha, quando necessário",
+          "C) tampona os bueiros com os bujões de rosca",
+          "D) verifica a apresentação marinheira da lancha, corrigindo as discrepâncias",
+          "E) verifica o cumprimento das precauções de segurança pela guarnição (coletes de flutuabilidade, capacetes e luvas)"
+        ],
+        correct: 1,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"solicita ao oficial de serviço permissão para reunir o pessoal para a manobra da lancha, quando necessário\" é atribuição do contramestre. As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 664,
+        text: "CAAML-703 – \"Constituído por ferro redondo (maciço ou oco) ou por perfis retangulares, podendo ser recurvado na parte superior ou possuir ângulo de 90°; gira em torno de seu eixo vertical ou pode ser fixo, dependendo de sua base.\" Essa descrição do item 1.6.1 corresponde a qual tipo de turco?",
+        options: [
+          "A) Turco comum",
+          "B) Turco de rebater",
+          "C) Turco quadrantal",
+          "D) Turco rolante ou deslizante",
+          "E) Turco de lança fixa"
+        ],
+        correct: 0,
+        subject: "Embarcações Miúdas",
+        explanation: "A descrição corresponde ao turco comum (item 1.6.1). Os demais tipos de turco (comum, de rebater, quadrantal e rolante/deslizante) têm mecanismos de giro e disparo distintos, descritos no mesmo item; \"turco de lança fixa\" não é um tipo de turco previsto no manual."
+      },
+      {
+        id: 665,
+        text: "CAAML-703 – Qual embarcação miúda tem casco em fibra de vidro e flutuadores de borracha infláveis, tendo sido adotada para reduzir pesos altos a bordo?",
+        options: [
+          "A) Chalana",
+          "B) Baleeira",
+          "C) Bote inflável",
+          "D) Balsa salva-vidas",
+          "E) Embarcação de casco semi-rígido"
+        ],
+        correct: 4,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.2 descreve exatamente essas características (casco em fibra de vidro, flutuadores de borracha infláveis, redução de pesos altos) como próprias da embarcação de casco semi-rígido."
+      },
+      {
+        id: 666,
+        text: "CAAML-703 – Assinale a alternativa que representa uma vantagem real da embarcação de casco semi-rígido, conforme o item 1.2 do manual:",
+        options: [
+          "A) Possuem maior resistência estrutural a impactos no costado do navio",
+          "B) Desenvolvem velocidades superiores à maioria das lanchas tradicionais",
+          "C) Necessitam de tripulação reduzida em comparação às lanchas tradicionais",
+          "D) Dispensam manutenção periódica do casco",
+          "E) Operam exclusivamente em águas calmas e abrigadas"
+        ],
+        correct: 1,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.2 lista quatro vantagens do casco semi-rígido: manuseio rápido/fácil, operação em piores condições de mar, velocidades superiores e boa manobrabilidade/campo de visão. As demais opções são afirmações não sustentadas pelo texto."
+      },
+      {
+        id: 667,
+        text: "CAAML-703 – Conforme a propulsão empregada, uma embarcação miúda pode ser a motor, a vela ou a ______:",
+        options: [
+          "A) hélice de popa duplo",
+          "B) jato de ar comprimido",
+          "C) turbina a gás",
+          "D) propulsão nuclear",
+          "E) remos"
+        ],
+        correct: 4,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.3 estabelece que, conforme a propulsão, as embarcações miúdas podem ser a motor, a vela ou a remos."
+      },
+      {
+        id: 668,
+        text: "CAAML-703 – São cuidados apresentados no item 1.5 do manual para a manutenção do material da embarcação miúda, EXCETO:",
+        options: [
+          "A) verificar constantemente o estado e a validade da palamenta da embarcação",
+          "B) substituir mensalmente toda a palamenta da embarcação, independentemente do seu estado de conservação",
+          "C) reparar ou informar pequenos danos imediatamente, o que economiza tempo em futuros reparos",
+          "D) arejar os coletes salva-vidas após tempo úmido, ou quando forem molhados",
+          "E) manter o motor de popa em base segura, peiado de maneira que o jogo do navio não ocasione danos, verificando o cumprimento do SMP"
+        ],
+        correct: 1,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.5 lista cinco cuidados (verificar a palamenta, reparar/informar danos, arejar coletes, manter o motor de popa peiado com o SMP em dia e manter o material livre de sujeira/corrosão/ferrugem). A substituição mensal indiscriminada da palamenta não consta do texto."
+      },
+      {
+        id: 669,
+        text: "CAAML-703 – O trim de uma embarcação exerce grande efeito em seu governo; tanto de proa quanto de popa dificulta a manobra, devendo pessoas e carga ser distribuídas, tanto quanto possível, ______:",
+        options: [
+          "A) uniformemente a meia-nau",
+          "B) concentradas a vante",
+          "C) concentradas a ré",
+          "D) junto ao costado de boreste",
+          "E) junto ao costado de bombordo"
+        ],
+        correct: 0,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.8.1 conclui: \"o trim de uma embarcação exerce grande efeito em seu governo [...] e as pessoas e a carga devem ser, tanto quanto possível, distribuídas uniformemente a meia nau\"."
+      },
+      {
+        id: 670,
+        text: "CAAML-703 – Na figura de erros de atracação a contrabordo em escada de portaló (item 1.8.3), quando o proeiro não apanha a boça de vante e o popeiro segura a embarcação junto à escada com o croque, a corrente abre a proa. Qual é o corretivo indicado?",
+        options: [
+          "A) Cair a ré com as máquinas e reinvestir para nova atracação",
+          "B) Carregar o leme para boreste até a proa girar para fora e dirigir a embarcação paralela ao costado",
+          "C) Cair a ré, carregando o leme para bombordo até a embarcação adquirir seguimento contra a corrente",
+          "D) Aumentar a velocidade e forçar a aproximação direta à escada",
+          "E) Deixar a embarcação cair avante e depois a ré, dar adiante e vir a contrabordo outra vez"
+        ],
+        correct: 4,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.8.3 (figura 5.1-a) indica esse corretivo para o erro em que a proa se abre por falta da boça de vante."
+      },
+      {
+        id: 671,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do contramestre durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) verifica o cumprimento das precauções de segurança pela guarnição (coletes de flutuabilidade, capacetes e luvas)",
+          "B) verifica a cana do leme, para operação em emergência",
+          "C) verifica se foi cumprida a lista de verificação da embarcação pelo patrão da lancha",
+          "D) testa as comunicações pelo transceptor portátil",
+          "E) exige correção de atitudes e apresentação pessoal da guarnição"
+        ],
+        correct: 2,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"verifica se foi cumprida a lista de verificação da embarcação pelo patrão da lancha\" é atribuição do contramestre. As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 672,
+        text: "CAAML-703 – \"Semelhante em construção ao tipo comum, mas em vez de girar em torno do eixo vertical, é rebatido para dentro, movendo-se em torno de um eixo horizontal na base, paralelo ao costado.\" Essa descrição do item 1.6.1 corresponde a qual tipo de turco?",
+        options: [
+          "A) Turco comum",
+          "B) Turco de rebater",
+          "C) Turco quadrantal",
+          "D) Turco rolante ou deslizante",
+          "E) Turco de lança fixa"
+        ],
+        correct: 1,
+        subject: "Embarcações Miúdas",
+        explanation: "A descrição corresponde ao turco de rebater (item 1.6.1). Os demais tipos de turco (comum, de rebater, quadrantal e rolante/deslizante) têm mecanismos de giro e disparo distintos, descritos no mesmo item; \"turco de lança fixa\" não é um tipo de turco previsto no manual."
+      },
+      {
+        id: 673,
+        text: "CAAML-703 – São classificadas, de acordo com o tipo de construção, como embarcações miúdas existentes a bordo, EXCETO:",
+        options: [
+          "A) Hovercraft",
+          "B) Lanchas",
+          "C) Chalanas",
+          "D) Balsas salva-vidas",
+          "E) Botes infláveis"
+        ],
+        correct: 0,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.2 lista como categorias de classificação: lanchas, baleeiras, botes infláveis, embarcações de casco semi-rígido, chalanas e balsas salva-vidas. \"Hovercraft\" é citado no item 1.3 apenas como exemplo de sistema de propulsão pouco usado (hélice girando no ar), não como categoria de embarcação miúda."
+      },
+      {
+        id: 674,
+        text: "CAAML-703 – É uma vantagem da embarcação de casco semi-rígido, segundo o item 1.2:",
+        options: [
+          "A) Reduzem em até 50% o consumo de combustível em relação às lanchas tradicionais",
+          "B) Não necessitam de guarnição mínima para operação segura",
+          "C) Apresentam boa manobrabilidade, além de conferirem ao patrão amplo campo de visão",
+          "D) Possuem autonomia de navegação superior às lanchas tradicionais",
+          "E) Dispensam o uso de turcos para içamento"
+        ],
+        correct: 2,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.2 é literal: as embarcações de casco semi-rígido \"apresentam boa manobrabilidade, além de conferirem ao patrão amplo campo de visão\"."
+      },
+      {
+        id: 675,
+        text: "CAAML-703 – O motor removível, localizado fora da embarcação, é exemplificado no CAAML-703 por qual equipamento?",
+        options: [
+          "A) Motor de popa dos botes",
+          "B) Motor central de eixo longo",
+          "C) Motor de rabeta instalado na popa",
+          "D) Motor a jato de água tipo jet ski",
+          "E) Hélice giratório tipo hovercraft"
+        ],
+        correct: 0,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.3 cita como exemplo de motor removível \"o motor de popa dos botes\", localizado fora da embarcação, em oposição ao motor fixo (central ou de rabeta), instalado em seu interior."
+      },
+      {
+        id: 676,
+        text: "CAAML-703 – É um dos cuidados recomendados pelo item 1.5 do manual para a manutenção do equipamento da embarcação:",
+        options: [
+          "A) verificar constantemente o estado e a validade da palamenta da embarcação",
+          "B) arejar os coletes salva-vidas após tempo úmido, ou quando forem molhados",
+          "C) reparar ou informar pequenos danos imediatamente, o que economiza tempo em futuros reparos",
+          "D) manter o motor de popa em base segura, peiado de maneira que o jogo do navio não ocasione danos, verificando o cumprimento do SMP",
+          "E) manter o material livre de sujeira, corrosão e ferrugem"
+        ],
+        correct: 2,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.5 recomenda expressamente: \"reparar ou informar pequenos danos imediatamente, o que economiza tempo em futuros reparos\"."
+      },
+      {
+        id: 677,
+        text: "CAAML-703 – Quando correndo com o mar ou rebocando, a embarcação miúda deve ter trim de ______ a fim de manter o hélice imerso e melhorar seu governo:",
+        options: [
+          "A) proa",
+          "B) popa",
+          "C) bombordo",
+          "D) boreste",
+          "E) meia-nau"
+        ],
+        correct: 1,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.8.2 orienta: \"quando correndo com o mar, ou rebocando, a EM deve ter trim de popa a fim de manter seu hélice imerso, e assim melhorar seu governo\"."
+      },
+      {
+        id: 678,
+        text: "CAAML-703 – Se a embarcação ultrapassar a escada de portaló e a corrente, agindo pela bochecha externa, impedir o popeiro de trazê-la para junto da escada, qual é o corretivo?",
+        options: [
+          "A) Cair a ré com as máquinas e reinvestir para nova atracação",
+          "B) Deixar a embarcação cair avante e depois a ré, dar adiante e vir a contrabordo outra vez",
+          "C) Carregar o leme para bombordo até a embarcação adquirir seguimento contra a corrente e afastada da escada",
+          "D) Manter a máquina adiante até a corrente estabilizar a embarcação junto à escada",
+          "E) Aguardar a mudança de maré antes de tentar nova atracação"
+        ],
+        correct: 0,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.8.3 (figura 5.1-b) indica esse corretivo para o erro em que a embarcação ultrapassa a escada e a corrente a empurra para baixo dela."
+      },
+      {
+        id: 679,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do contramestre durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) exige correção de atitudes e apresentação pessoal da guarnição",
+          "B) verificam se estão a bordo as boças reservas",
+          "C) retiram os gatos das catarinas dos arganéis e largam as boças de proa e de popa quando a embarcação estiver tocando a água (o popeiro o faz em primeiro lugar)",
+          "D) verifica se os equipamentos a serem utilizados na manobra foram alimentados, tais como motores e guinchos",
+          "E) o proeiro larga a boça de viagem, que fica pendurada por um cabo em altura safa para ser recolhida quando a lancha se aproximar para atracar"
+        ],
+        correct: 3,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"verifica se os equipamentos a serem utilizados na manobra foram alimentados, tais como motores e guinchos\" é atribuição do contramestre. As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 680,
+        text: "CAAML-703 – \"É recolhido ou disparado inclinando-se sobre um setor dentado que constitui seu pé e engraza numa cremalheira sobre o convés.\" Essa descrição do item 1.6.1 corresponde a qual tipo de turco?",
+        options: [
+          "A) Turco comum",
+          "B) Turco de rebater",
+          "C) Turco quadrantal",
+          "D) Turco rolante ou deslizante",
+          "E) Turco de lança fixa"
+        ],
+        correct: 2,
+        subject: "Embarcações Miúdas",
+        explanation: "A descrição corresponde ao turco quadrantal (item 1.6.1). Os demais tipos de turco (comum, de rebater, quadrantal e rolante/deslizante) têm mecanismos de giro e disparo distintos, descritos no mesmo item; \"turco de lança fixa\" não é um tipo de turco previsto no manual."
+      },
+      {
+        id: 681,
+        text: "CAAML-703 – Comparadas às embarcações tradicionais, as de casco semi-rígido:",
+        options: [
+          "A) Possuem casco mais pesado, exigindo aparelhos de carga mais robustos",
+          "B) São recomendadas apenas para uso em águas internas e portuárias",
+          "C) Têm menor velocidade máxima que as lanchas tradicionais",
+          "D) Podem operar em condições piores de mar",
+          "E) Exigem manutenção mais frequente que as lanchas tradicionais"
+        ],
+        correct: 3,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.2 lista, entre as vantagens do casco semi-rígido, que essas embarcações \"podem operar em condições piores de mar\"."
+      },
+      {
+        id: 682,
+        text: "CAAML-703 – É um dos cuidados recomendados pelo item 1.5 do manual para a manutenção do equipamento da embarcação:",
+        options: [
+          "A) verificar constantemente o estado e a validade da palamenta da embarcação",
+          "B) reparar ou informar pequenos danos imediatamente, o que economiza tempo em futuros reparos",
+          "C) manter o motor de popa em base segura, peiado de maneira que o jogo do navio não ocasione danos, verificando o cumprimento do SMP",
+          "D) arejar os coletes salva-vidas após tempo úmido, ou quando forem molhados",
+          "E) manter o material livre de sujeira, corrosão e ferrugem"
+        ],
+        correct: 3,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.5 recomenda expressamente: \"arejar os coletes salva-vidas após tempo úmido, ou quando forem molhados\"."
+      },
+      {
+        id: 683,
+        text: "CAAML-703 – Uma corrente de 1 nó equivale, aproximadamente, a um vento de força:",
+        options: [
+          "A) 1 a 2",
+          "B) 5 a 6",
+          "C) 3 a 4",
+          "D) 7 a 8",
+          "E) 8 a 9"
+        ],
+        correct: 2,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.8.3 (atracação no cais) informa: \"uma corrente de 1 nó equivale, aproximadamente, a um vento de força 3 a 4 e uma corrente de 2 nós a um vento de força 5 ou 6\"."
+      },
+      {
+        id: 684,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do contramestre durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) o proeiro larga a boça de viagem, que fica pendurada por um cabo em altura safa para ser recolhida quando a lancha se aproximar para atracar",
+          "B) verifica o nível de óleo e combustível a bordo",
+          "C) verifica os equipamentos de combate a incêndio",
+          "D) verifica o kit de ferramentas",
+          "E) verifica se o pessoal envolvido na faina está utilizando o equipamento de proteção individual (EPI) adequado"
+        ],
+        correct: 4,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"verifica se o pessoal envolvido na faina está utilizando o equipamento de proteção individual (EPI) adequado\" é atribuição do contramestre. As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 685,
+        text: "CAAML-703 – \"É constituído por dois braços montados com rodetes sobre duas calhas paralelas, dispostas num plano perpendicular ao costado; é disparado por gravidade, sob a ação do peso da embarcação.\" Essa descrição do item 1.6.1 corresponde a qual tipo de turco?",
+        options: [
+          "A) Turco comum",
+          "B) Turco de rebater",
+          "C) Turco quadrantal",
+          "D) Turco rolante ou deslizante",
+          "E) Turco de lança fixa"
+        ],
+        correct: 3,
+        subject: "Embarcações Miúdas",
+        explanation: "A descrição corresponde ao turco rolante ou deslizante (item 1.6.1). Os demais tipos de turco (comum, de rebater, quadrantal e rolante/deslizante) têm mecanismos de giro e disparo distintos, descritos no mesmo item; \"turco de lança fixa\" não é um tipo de turco previsto no manual."
+      },
+      {
+        id: 686,
+        text: "CAAML-703 – É um dos cuidados recomendados pelo item 1.5 do manual para a manutenção do equipamento da embarcação:",
+        options: [
+          "A) verificar constantemente o estado e a validade da palamenta da embarcação",
+          "B) reparar ou informar pequenos danos imediatamente, o que economiza tempo em futuros reparos",
+          "C) arejar os coletes salva-vidas após tempo úmido, ou quando forem molhados",
+          "D) manter o material livre de sujeira, corrosão e ferrugem",
+          "E) manter o motor de popa em base segura, peiado de maneira que o jogo do navio não ocasione danos, verificando o cumprimento do SMP"
+        ],
+        correct: 4,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.5 recomenda expressamente: \"manter o motor de popa em base segura, peiado de maneira que o jogo do navio não ocasione danos, verificando o cumprimento do SMP\"."
+      },
+      {
+        id: 687,
+        text: "CAAML-703 – Ao aproximar-se de um cais ou local de atracação desconhecidos, deve-se proceder em baixa velocidade e, com o auxílio do croque, ______:",
+        options: [
+          "A) verificar a força do vento pela popa",
+          "B) içar a bandeira de atracação",
+          "C) testar a comunicação por rádio com a manobra",
+          "D) sondar os fundos pela proa",
+          "E) aferir a profundidade apenas visualmente"
+        ],
+        correct: 3,
+        subject: "Embarcações Miúdas",
+        explanation: "O item 1.8.3 orienta: \"ao aproximar-se de um cais ou local de atracação desconhecidos, proceda em baixa velocidade e, utilizando o croque, sonde os fundos pela proa\"."
+      },
+      {
+        id: 688,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do contramestre durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) providencia, caso determinado, o disparo do pau de surriola e manda arriar a escada de portaló",
+          "B) verifica o kit de ferramentas",
+          "C) parte o motor da lancha em relação ao regime de máquinas",
+          "D) cumpre as determinações do patrão da lancha em relação ao regime de máquinas",
+          "E) providencia a palamenta completa da embarcação"
+        ],
+        correct: 0,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"providencia, caso determinado, o disparo do pau de surriola e manda arriar a escada de portaló\" é atribuição do contramestre. As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 689,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do contramestre durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) providencia a palamenta completa da embarcação",
+          "B) verifica os andorinhos",
+          "C) tampona os bueiros com os bujões de rosca",
+          "D) verifica a apresentação marinheira da lancha, corrigindo as discrepâncias",
+          "E) verifica o cumprimento das precauções de segurança pela guarnição (coletes de flutuabilidade, capacetes e luvas)"
+        ],
+        correct: 1,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"verifica os andorinhos\" é atribuição do contramestre. As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 690,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do contramestre durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) verifica o cumprimento das precauções de segurança pela guarnição (coletes de flutuabilidade, capacetes e luvas)",
+          "B) verifica a cana do leme, para operação em emergência",
+          "C) verifica a boça de viagem",
+          "D) testa as comunicações pelo transceptor portátil",
+          "E) exige correção de atitudes e apresentação pessoal da guarnição"
+        ],
+        correct: 2,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"verifica a boça de viagem\" é atribuição do contramestre. As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 691,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do contramestre durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) exige correção de atitudes e apresentação pessoal da guarnição",
+          "B) verificam se estão a bordo as boças reservas",
+          "C) retiram os gatos das catarinas dos arganéis e largam as boças de proa e de popa quando a embarcação estiver tocando a água (o popeiro o faz em primeiro lugar)",
+          "D) verifica as boças de proa e popa e das catarinas, quando aplicável",
+          "E) o proeiro larga a boça de viagem, que fica pendurada por um cabo em altura safa para ser recolhida quando a lancha se aproximar para atracar"
+        ],
+        correct: 3,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"verifica as boças de proa e popa e das catarinas, quando aplicável\" é atribuição do contramestre. As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 692,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do contramestre durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) o proeiro larga a boça de viagem, que fica pendurada por um cabo em altura safa para ser recolhida quando a lancha se aproximar para atracar",
+          "B) verifica o nível de óleo e combustível a bordo",
+          "C) verifica os equipamentos de combate a incêndio",
+          "D) verifica o kit de ferramentas",
+          "E) coordena o embarque de pessoal e material na embarcação"
+        ],
+        correct: 4,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"coordena o embarque de pessoal e material na embarcação\" é atribuição do contramestre. As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 693,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do patrão da embarcação durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) providencia a palamenta completa da embarcação",
+          "B) solicita ao oficial de serviço permissão para reunir o pessoal para a manobra da lancha, quando necessário",
+          "C) verifica se foi cumprida a lista de verificação da embarcação pelo patrão da lancha",
+          "D) verifica se os equipamentos a serem utilizados na manobra foram alimentados, tais como motores e guinchos",
+          "E) verifica se o pessoal envolvido na faina está utilizando o equipamento de proteção individual (EPI) adequado"
+        ],
+        correct: 0,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"providencia a palamenta completa da embarcação\" é atribuição do patrão da embarcação. As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 694,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do patrão da embarcação durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) verifica se o pessoal envolvido na faina está utilizando o equipamento de proteção individual (EPI) adequado",
+          "B) tampona os bueiros com os bujões de rosca",
+          "C) providencia, caso determinado, o disparo do pau de surriola e manda arriar a escada de portaló",
+          "D) verifica os andorinhos",
+          "E) verifica a boça de viagem"
+        ],
+        correct: 1,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"tampona os bueiros com os bujões de rosca\" é atribuição do patrão da embarcação. As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 695,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do patrão da embarcação durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) verifica a boça de viagem",
+          "B) verifica as boças de proa e popa e das catarinas, quando aplicável",
+          "C) verifica a apresentação marinheira da lancha, corrigindo as discrepâncias",
+          "D) coordena o embarque de pessoal e material na embarcação",
+          "E) verificam se estão a bordo as boças reservas"
+        ],
+        correct: 2,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"verifica a apresentação marinheira da lancha, corrigindo as discrepâncias\" é atribuição do patrão da embarcação. As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 696,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do patrão da embarcação durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) verificam se estão a bordo as boças reservas",
+          "B) retiram os gatos das catarinas dos arganéis e largam as boças de proa e de popa quando a embarcação estiver tocando a água (o popeiro o faz em primeiro lugar)",
+          "C) o proeiro larga a boça de viagem, que fica pendurada por um cabo em altura safa para ser recolhida quando a lancha se aproximar para atracar",
+          "D) verifica o cumprimento das precauções de segurança pela guarnição (coletes de flutuabilidade, capacetes e luvas)",
+          "E) verifica o nível de óleo e combustível a bordo"
+        ],
+        correct: 3,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"verifica o cumprimento das precauções de segurança pela guarnição (coletes de flutuabilidade, capacetes e luvas)\" é atribuição do patrão da embarcação. As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 697,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do patrão da embarcação durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) verifica o nível de óleo e combustível a bordo",
+          "B) verifica os equipamentos de combate a incêndio",
+          "C) verifica o kit de ferramentas",
+          "D) parte o motor da lancha em relação ao regime de máquinas",
+          "E) verifica a cana do leme, para operação em emergência"
+        ],
+        correct: 4,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"verifica a cana do leme, para operação em emergência\" é atribuição do patrão da embarcação. As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 698,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do patrão da embarcação durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) testa as comunicações pelo transceptor portátil",
+          "B) parte o motor da lancha em relação ao regime de máquinas",
+          "C) cumpre as determinações do patrão da lancha em relação ao regime de máquinas",
+          "D) solicita ao oficial de serviço permissão para reunir o pessoal para a manobra da lancha, quando necessário",
+          "E) verifica se foi cumprida a lista de verificação da embarcação pelo patrão da lancha"
+        ],
+        correct: 0,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"testa as comunicações pelo transceptor portátil\" é atribuição do patrão da embarcação. As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 699,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do patrão da embarcação durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) verifica se foi cumprida a lista de verificação da embarcação pelo patrão da lancha",
+          "B) exige correção de atitudes e apresentação pessoal da guarnição",
+          "C) verifica se os equipamentos a serem utilizados na manobra foram alimentados, tais como motores e guinchos",
+          "D) verifica se o pessoal envolvido na faina está utilizando o equipamento de proteção individual (EPI) adequado",
+          "E) providencia, caso determinado, o disparo do pau de surriola e manda arriar a escada de portaló"
+        ],
+        correct: 1,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"exige correção de atitudes e apresentação pessoal da guarnição\" é atribuição do patrão da embarcação. As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 700,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do proeiro/popeiro durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) solicita ao oficial de serviço permissão para reunir o pessoal para a manobra da lancha, quando necessário",
+          "B) verifica se foi cumprida a lista de verificação da embarcação pelo patrão da lancha",
+          "C) verificam se estão a bordo as boças reservas",
+          "D) verifica se os equipamentos a serem utilizados na manobra foram alimentados, tais como motores e guinchos",
+          "E) verifica se o pessoal envolvido na faina está utilizando o equipamento de proteção individual (EPI) adequado"
+        ],
+        correct: 2,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"verificam se estão a bordo as boças reservas\" é atribuição do proeiro/popeiro. As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 701,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do proeiro/popeiro durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) verifica se o pessoal envolvido na faina está utilizando o equipamento de proteção individual (EPI) adequado",
+          "B) providencia, caso determinado, o disparo do pau de surriola e manda arriar a escada de portaló",
+          "C) verifica os andorinhos",
+          "D) retiram os gatos das catarinas dos arganéis e largam as boças de proa e de popa quando a embarcação estiver tocando a água (o popeiro o faz em primeiro lugar)",
+          "E) verifica a boça de viagem"
+        ],
+        correct: 3,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"retiram os gatos das catarinas dos arganéis e largam as boças de proa e de popa quando a embarcação estiver tocando a água (o popeiro o faz em primeiro lugar)\" é atribuição do proeiro/popeiro. As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 702,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do proeiro/popeiro durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) verifica a boça de viagem",
+          "B) verifica as boças de proa e popa e das catarinas, quando aplicável",
+          "C) coordena o embarque de pessoal e material na embarcação",
+          "D) providencia a palamenta completa da embarcação",
+          "E) o proeiro larga a boça de viagem, que fica pendurada por um cabo em altura safa para ser recolhida quando a lancha se aproximar para atracar"
+        ],
+        correct: 4,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"o proeiro larga a boça de viagem, que fica pendurada por um cabo em altura safa para ser recolhida quando a lancha se aproximar para atracar\" é atribuição do proeiro/popeiro. As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 703,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do motorista (MO) durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) verifica o nível de óleo e combustível a bordo",
+          "B) solicita ao oficial de serviço permissão para reunir o pessoal para a manobra da lancha, quando necessário",
+          "C) verifica se foi cumprida a lista de verificação da embarcação pelo patrão da lancha",
+          "D) verifica se os equipamentos a serem utilizados na manobra foram alimentados, tais como motores e guinchos",
+          "E) verifica se o pessoal envolvido na faina está utilizando o equipamento de proteção individual (EPI) adequado"
+        ],
+        correct: 0,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"verifica o nível de óleo e combustível a bordo\" é atribuição do motorista (MO). As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 704,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do motorista (MO) durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) verifica se o pessoal envolvido na faina está utilizando o equipamento de proteção individual (EPI) adequado",
+          "B) verifica os equipamentos de combate a incêndio",
+          "C) providencia, caso determinado, o disparo do pau de surriola e manda arriar a escada de portaló",
+          "D) verifica os andorinhos",
+          "E) verifica a boça de viagem"
+        ],
+        correct: 1,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"verifica os equipamentos de combate a incêndio\" é atribuição do motorista (MO). As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 705,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do motorista (MO) durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) verifica a boça de viagem",
+          "B) verifica as boças de proa e popa e das catarinas, quando aplicável",
+          "C) verifica o kit de ferramentas",
+          "D) coordena o embarque de pessoal e material na embarcação",
+          "E) providencia a palamenta completa da embarcação"
+        ],
+        correct: 2,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"verifica o kit de ferramentas\" é atribuição do motorista (MO). As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 706,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do motorista (MO) durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) providencia a palamenta completa da embarcação",
+          "B) tampona os bueiros com os bujões de rosca",
+          "C) verifica a apresentação marinheira da lancha, corrigindo as discrepâncias",
+          "D) parte o motor da lancha em relação ao regime de máquinas",
+          "E) verifica o cumprimento das precauções de segurança pela guarnição (coletes de flutuabilidade, capacetes e luvas)"
+        ],
+        correct: 3,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"parte o motor da lancha em relação ao regime de máquinas\" é atribuição do motorista (MO). As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 707,
+        text: "CAAML-703 – Assinale a alternativa que representa uma atribuição do motorista (MO) durante a faina de arriar/içar a embarcação:",
+        options: [
+          "A) verifica o cumprimento das precauções de segurança pela guarnição (coletes de flutuabilidade, capacetes e luvas)",
+          "B) verifica a cana do leme, para operação em emergência",
+          "C) testa as comunicações pelo transceptor portátil",
+          "D) exige correção de atitudes e apresentação pessoal da guarnição",
+          "E) cumpre as determinações do patrão da lancha em relação ao regime de máquinas"
+        ],
+        correct: 4,
+        subject: "Embarcações Miúdas",
+        explanation: "Segundo o item 1.7 do CAAML-703, \"cumpre as determinações do patrão da lancha em relação ao regime de máquinas\" é atribuição do motorista (MO). As demais opções são atribuições de outras funções da guarnição (contramestre, patrão, proeiro/popeiro ou motorista), listadas no mesmo item do manual."
+      },
+      {
+        id: 708,
+        text: "CAAML-703 – Segundo as orientações básicas do Anexo A, não se admite que um tripulante suje o navio ou deixe de colaborar com sua limpeza. Nesse contexto, o manual afirma que:",
+        options: [
+          "A) apenas os militares mais modernos devem recolher detritos encontrados no convés",
+          "B) não é demérito para nenhum militar de bordo, qualquer que seja a sua antiguidade, abaixar-se para recolher um detrito e levá-lo à lixeira",
+          "C) essa tarefa é de responsabilidade exclusiva da faxina do Mestre",
+          "D) recolher detritos é atribuição apenas do pessoal do quarto de serviço",
+          "E) essa orientação se aplica somente durante inspeções formais"
+        ],
+        correct: 1,
+        subject: "Apresentação Marinheira",
+        explanation: "O item 2-d do Anexo A afirma: \"não é demérito para nenhum militar de bordo, qualquer que seja a sua antigüidade, abaixar-se para recolher um trapo [...] e levá-lo à lixeira\"."
+      },
+      {
+        id: 709,
+        text: "CAAML-703 – São falhas comuns quanto à apresentação marinheira, apontadas no sumário do Anexo A do manual, EXCETO:",
+        options: [
+          "A) marcações, vidros, partes envernizadas, borrachas de portas, vigias e cabos elétricos borrados pela tinta das anteparas",
+          "B) amarelos limpos, porém com a pintura adjacente borrada, devido ao extravasamento do preparado de limpeza (kaol ou similar)",
+          "C) graxa em excesso nas graxeiras e outros locais, sujando a pintura",
+          "D) trocar diariamente o guarnecimento completo da lancha, mesmo sem uso",
+          "E) cabos jogados em desalinho pelo navio, chicotes sem falcaça ou esfiapados, boças descochadas ou desforradas"
+        ],
+        correct: 3,
+        subject: "Apresentação Marinheira",
+        explanation: "As demais opções são falhas efetivamente listadas no sumário de falhas mais comuns do Anexo A. A opção \"trocar diariamente o guarnecimento completo da lancha, mesmo sem uso\" não consta do rol de falhas do manual."
+      },
+      {
+        id: 710,
+        text: "CAAML-703 – Assinale, entre as opções abaixo, a que representa uma falha relacionada a serviços de pintura e ao cuidado com a pintura do navio, conforme o sumário do Anexo A:",
+        options: [
+          "A) marcações, vidros, partes envernizadas, borrachas de portas, vigias e cabos elétricos borrados pela tinta das anteparas",
+          "B) cabos jogados em desalinho pelo navio, chicotes sem falcaça ou esfiapados, boças descochadas ou desforradas",
+          "C) talhas, aparelhos de laborar e acessórios semelhantes dependurados em vez de colhidos ou guardados nos lugares apropriados",
+          "D) defensas esquecidas dependuradas no costado",
+          "E) cosedura das uniões de seções de toldos malfeita, parecendo espinha de peixe"
+        ],
+        correct: 0,
+        subject: "Apresentação Marinheira",
+        explanation: "O Anexo A lista, no sumário de falhas mais comuns, a falha: \"marcações, vidros, partes envernizadas, borrachas de portas, vigias e cabos elétricos borrados pela tinta das anteparas\". As demais opções, embora também sejam falhas reais listadas no manual, pertencem a outra categoria."
+      },
+      {
+        id: 711,
+        text: "CAAML-703 – O fato de o navio se encontrar em Período de Manutenção Geral (PMG):",
+        options: [
+          "A) dispensa integralmente a manutenção da apresentação marinheira",
+          "B) autoriza a suspensão das inspeções de limpeza pelo Oficial de Serviço",
+          "C) não justifica a degradação da apresentação marinheira a um nível indesejável",
+          "D) permite a remoção de todos os toldos e capas das embarcações miúdas",
+          "E) isenta a tripulação da responsabilidade pela limpeza dos compartimentos"
+        ],
+        correct: 2,
+        subject: "Apresentação Marinheira",
+        explanation: "O item 2-e do Anexo A afirma: \"nem mesmo o fato de o navio encontrar-se em PMG justifica a degradação na sua apresentação a um nível indesejável\"."
+      },
+      {
+        id: 712,
+        text: "CAAML-703 – São falhas comuns quanto à apresentação marinheira, apontadas no sumário do Anexo A do manual, EXCETO:",
+        options: [
+          "A) talhas, aparelhos de laborar e acessórios semelhantes dependurados em vez de colhidos ou guardados nos lugares apropriados",
+          "B) defensas esquecidas dependuradas no costado",
+          "C) tampas de tomadas fora do lugar ou dependuradas, com fiéis e contrapinos inexistentes",
+          "D) cosedura das uniões de seções de toldos malfeita, parecendo espinha de peixe",
+          "E) substituir toda a pintura do navio semanalmente como rotina preventiva padrão"
+        ],
+        correct: 4,
+        subject: "Apresentação Marinheira",
+        explanation: "As demais opções são falhas efetivamente listadas no sumário de falhas mais comuns do Anexo A. A opção \"substituir toda a pintura do navio semanalmente como rotina preventiva padrão\" não consta do rol de falhas do manual."
+      },
+      {
+        id: 713,
+        text: "CAAML-703 – Assinale, entre as opções abaixo, a que representa uma falha relacionada a cabos, cordoalha, amarração e boças, conforme o sumário do Anexo A:",
+        options: [
+          "A) costado com pintura avariada, revelando o lançamento de restos de comida pela borda",
+          "B) cabos jogados em desalinho pelo navio, chicotes sem falcaça ou esfiapados, boças descochadas ou desforradas",
+          "C) pontos de lágrimas de ferrugem nas proximidades dos amarelos, causados pela utilização de palha de aço (bombril) no polimento de metais",
+          "D) Bandeira Nacional, do Cruzeiro, Pavilhões e Flâmula de Comando não-atopetados ou enroscados nos mastros e adriças",
+          "E) Bandeira Nacional amarfanhada na base do mastro aguardando o içamento, ou tocando o convés no Cerimonial"
+        ],
+        correct: 1,
+        subject: "Apresentação Marinheira",
+        explanation: "O Anexo A lista, no sumário de falhas mais comuns, a falha: \"cabos jogados em desalinho pelo navio, chicotes sem falcaça ou esfiapados, boças descochadas ou desforradas\". As demais opções, embora também sejam falhas reais listadas no manual, pertencem a outra categoria."
+      },
+      {
+        id: 714,
+        text: "CAAML-703 – São falhas comuns quanto à apresentação marinheira, apontadas no sumário do Anexo A do manual, EXCETO:",
+        options: [
+          "A) vedar permanentemente todas as vigias do navio para evitar sujeira externa",
+          "B) amarração folgada, tocando na água em casos extremos, por falta de ajuste às variações de maré",
+          "C) folga nos trincafios das espias e rateiras abertas por causa das variações das marés",
+          "D) lágrimas de ferrugem escorrendo pelos escovéns, anteparas e costado",
+          "E) pintura do costado manchada pela água de baldeação ou da chuva, por esquecimento dos bicos de pato rebatidos"
+        ],
+        correct: 0,
+        subject: "Apresentação Marinheira",
+        explanation: "As demais opções são falhas efetivamente listadas no sumário de falhas mais comuns do Anexo A. A opção \"vedar permanentemente todas as vigias do navio para evitar sujeira externa\" não consta do rol de falhas do manual."
+      },
+      {
+        id: 715,
+        text: "CAAML-703 – Assinale, entre as opções abaixo, a que representa uma falha relacionada a bandeiras, galhardetes ou instalações elétricas provisórias, conforme o sumário do Anexo A:",
+        options: [
+          "A) cosedura das uniões de seções de toldos malfeita, parecendo espinha de peixe",
+          "B) amarração folgada, tocando na água em casos extremos, por falta de ajuste às variações de maré",
+          "C) Bandeira Nacional, do Cruzeiro, Pavilhões e Flâmula de Comando não-atopetados ou enroscados nos mastros e adriças",
+          "D) folga nos trincafios das espias e rateiras abertas por causa das variações das marés",
+          "E) tampas de tomadas fora do lugar ou dependuradas, com fiéis e contrapinos inexistentes"
+        ],
+        correct: 2,
+        subject: "Apresentação Marinheira",
+        explanation: "O Anexo A lista, no sumário de falhas mais comuns, a falha: \"Bandeira Nacional, do Cruzeiro, Pavilhões e Flâmula de Comando não-atopetados ou enroscados nos mastros e adriças\". As demais opções, embora também sejam falhas reais listadas no manual, pertencem a outra categoria."
+      },
+      {
+        id: 716,
+        text: "CAAML-703 – São falhas comuns quanto à apresentação marinheira, apontadas no sumário do Anexo A do manual, EXCETO:",
+        options: [
+          "A) costado com a linha d'água marcada por uma camada de limo, por falta de limpeza diária",
+          "B) eliminar todos os toldos do navio para reduzir a necessidade de limpeza",
+          "C) costado com pintura avariada, revelando o lançamento de restos de comida pela borda",
+          "D) partes altas do navio desarrumadas, roupas e trapos estendidos nas bordas e lugares semelhantes",
+          "E) Bandeira Nacional, do Cruzeiro, Pavilhões e Flâmula de Comando não-atopetados ou enroscados nos mastros e adriças"
+        ],
+        correct: 1,
+        subject: "Apresentação Marinheira",
+        explanation: "As demais opções são falhas efetivamente listadas no sumário de falhas mais comuns do Anexo A. A opção \"eliminar todos os toldos do navio para reduzir a necessidade de limpeza\" não consta do rol de falhas do manual."
+      },
+      {
+        id: 717,
+        text: "CAAML-703 – Assinale, entre as opções abaixo, a que representa uma falha de caráter geral, ligada a arrumação, convés, pessoal ou pequenos acessórios, conforme o sumário do Anexo A:",
+        options: [
+          "A) galhardetes e Bandeiras-Insígnias enrascados em adriças quando içados",
+          "B) torneiras e chuveiros pingando e mangueiras e tomadas de recebimento de água vazando",
+          "C) cabos elétricos e afins passados sem cuidado, não respeitando as rotas do navio",
+          "D) tampas de tomadas fora do lugar ou dependuradas, com fiéis e contrapinos inexistentes",
+          "E) marcações, vidros, partes envernizadas, borrachas de portas, vigias e cabos elétricos borrados pela tinta das anteparas"
+        ],
+        correct: 3,
+        subject: "Apresentação Marinheira",
+        explanation: "O Anexo A lista, no sumário de falhas mais comuns, a falha: \"tampas de tomadas fora do lugar ou dependuradas, com fiéis e contrapinos inexistentes\". As demais opções, embora também sejam falhas reais listadas no manual, pertencem a outra categoria."
+      },
+      {
+        id: 718,
+        text: "CAAML-703 – São falhas comuns quanto à apresentação marinheira, apontadas no sumário do Anexo A do manual, EXCETO:",
+        options: [
+          "A) Bandeira Nacional amarfanhada na base do mastro aguardando o içamento, ou tocando o convés no Cerimonial",
+          "B) galhardetes e Bandeiras-Insígnias enrascados em adriças quando içados",
+          "C) pintar as âncoras com cor diferenciada para facilitar a inspeção visual",
+          "D) torneiras e chuveiros pingando e mangueiras e tomadas de recebimento de água vazando",
+          "E) cabos elétricos e afins passados sem cuidado, não respeitando as rotas do navio"
+        ],
+        correct: 2,
+        subject: "Apresentação Marinheira",
+        explanation: "As demais opções são falhas efetivamente listadas no sumário de falhas mais comuns do Anexo A. A opção \"pintar as âncoras com cor diferenciada para facilitar a inspeção visual\" não consta do rol de falhas do manual."
+      },
+      {
+        id: 719,
+        text: "CAAML-703 – Assinale, entre as opções abaixo, a que representa uma falha relacionada a serviços de pintura e ao cuidado com a pintura do navio, conforme o sumário do Anexo A:",
+        options: [
+          "A) toldos sujos, mal enxugados, com excesso de água, perdendo resistência e podendo furar",
+          "B) navios com banda e trim",
+          "C) cais defronte ao navio sem estar limpo e arrumado, com objetos fora do lugar",
+          "D) portaló — o \"cartão de visita\" do navio — sem estar rigorosamente limpo, arrumado e guarnecido por militares impecavelmente uniformizados",
+          "E) amarelos limpos, porém com a pintura adjacente borrada, devido ao extravasamento do preparado de limpeza (kaol ou similar)"
+        ],
+        correct: 4,
+        subject: "Apresentação Marinheira",
+        explanation: "O Anexo A lista, no sumário de falhas mais comuns, a falha: \"amarelos limpos, porém com a pintura adjacente borrada, devido ao extravasamento do preparado de limpeza (kaol ou similar)\". As demais opções, embora também sejam falhas reais listadas no manual, pertencem a outra categoria."
+      },
+      {
+        id: 720,
+        text: "CAAML-703 – São falhas comuns quanto à apresentação marinheira, apontadas no sumário do Anexo A do manual, EXCETO:",
+        options: [
+          "A) serviços que sujam ou machucam o convés (faina de óleo, recebimento de gêneros) sem proteção de plásticos, lonas ou tábuas",
+          "B) costado não protegido na atracação de batelão, chatas e outras embarcações que utilizam pneus como defensas",
+          "C) trapos utilizados como tapetes improvisados em locais que precisam ser protegidos",
+          "D) proibir totalmente o uso de cabos elétricos provisórios durante qualquer manutenção",
+          "E) etiquetas, marcações de equipamentos e placas de advertência confeccionadas com desleixo"
+        ],
+        correct: 3,
+        subject: "Apresentação Marinheira",
+        explanation: "As demais opções são falhas efetivamente listadas no sumário de falhas mais comuns do Anexo A. A opção \"proibir totalmente o uso de cabos elétricos provisórios durante qualquer manutenção\" não consta do rol de falhas do manual."
+      },
+      {
+        id: 721,
+        text: "CAAML-703 – Assinale, entre as opções abaixo, a que representa uma falha relacionada a cabos, cordoalha, amarração e boças, conforme o sumário do Anexo A:",
+        options: [
+          "A) talhas, aparelhos de laborar e acessórios semelhantes dependurados em vez de colhidos ou guardados nos lugares apropriados",
+          "B) marcações, vidros, partes envernizadas, borrachas de portas, vigias e cabos elétricos borrados pela tinta das anteparas",
+          "C) amarelos limpos, porém com a pintura adjacente borrada, devido ao extravasamento do preparado de limpeza (kaol ou similar)",
+          "D) graxa em excesso nas graxeiras e outros locais, sujando a pintura",
+          "E) pintura do costado manchada pela água de baldeação ou da chuva, por esquecimento dos bicos de pato rebatidos"
+        ],
+        correct: 0,
+        subject: "Apresentação Marinheira",
+        explanation: "O Anexo A lista, no sumário de falhas mais comuns, a falha: \"talhas, aparelhos de laborar e acessórios semelhantes dependurados em vez de colhidos ou guardados nos lugares apropriados\". As demais opções, embora também sejam falhas reais listadas no manual, pertencem a outra categoria."
+      },
+      {
+        id: 722,
+        text: "CAAML-703 – São falhas comuns quanto à apresentação marinheira, apontadas no sumário do Anexo A do manual, EXCETO:",
+        options: [
+          "A) continência aos navios ou embarcações que passam sem a devida correção, sem o apito respectivo",
+          "B) militares debruçados nas balaustradas e/ou sentados nos acessórios do convés",
+          "C) vergueiros da balaustrada solecados",
+          "D) pontos de lágrimas de ferrugem nas proximidades dos amarelos, causados pela utilização de palha de aço (bombril) no polimento de metais",
+          "E) aplicar verniz em toda a pintura externa do casco semanalmente, independentemente do estado"
+        ],
+        correct: 4,
+        subject: "Apresentação Marinheira",
+        explanation: "As demais opções são falhas efetivamente listadas no sumário de falhas mais comuns do Anexo A. A opção \"aplicar verniz em toda a pintura externa do casco semanalmente, independentemente do estado\" não consta do rol de falhas do manual."
+      },
+      {
+        id: 723,
+        text: "CAAML-703 – Assinale, entre as opções abaixo, a que representa uma falha relacionada a bandeiras, galhardetes ou instalações elétricas provisórias, conforme o sumário do Anexo A:",
+        options: [
+          "A) costado com a linha d'água marcada por uma camada de limo, por falta de limpeza diária",
+          "B) Bandeira Nacional amarfanhada na base do mastro aguardando o içamento, ou tocando o convés no Cerimonial",
+          "C) costado com pintura avariada, revelando o lançamento de restos de comida pela borda",
+          "D) pontos de lágrimas de ferrugem nas proximidades dos amarelos, causados pela utilização de palha de aço (bombril) no polimento de metais",
+          "E) cabos jogados em desalinho pelo navio, chicotes sem falcaça ou esfiapados, boças descochadas ou desforradas"
+        ],
+        correct: 1,
+        subject: "Apresentação Marinheira",
+        explanation: "O Anexo A lista, no sumário de falhas mais comuns, a falha: \"Bandeira Nacional amarfanhada na base do mastro aguardando o içamento, ou tocando o convés no Cerimonial\". As demais opções, embora também sejam falhas reais listadas no manual, pertencem a outra categoria."
+      },
+      {
+        id: 724,
+        text: "CAAML-703 – Assinale, entre as opções abaixo, a que representa uma falha de caráter geral, ligada a arrumação, convés, pessoal ou pequenos acessórios, conforme o sumário do Anexo A:",
+        options: [
+          "A) cabos elétricos e afins passados sem cuidado, não respeitando as rotas do navio",
+          "B) marcações, vidros, partes envernizadas, borrachas de portas, vigias e cabos elétricos borrados pela tinta das anteparas",
+          "C) partes altas do navio desarrumadas, roupas e trapos estendidos nas bordas e lugares semelhantes",
+          "D) amarelos limpos, porém com a pintura adjacente borrada, devido ao extravasamento do preparado de limpeza (kaol ou similar)",
+          "E) graxa em excesso nas graxeiras e outros locais, sujando a pintura"
+        ],
+        correct: 2,
+        subject: "Apresentação Marinheira",
+        explanation: "O Anexo A lista, no sumário de falhas mais comuns, a falha: \"partes altas do navio desarrumadas, roupas e trapos estendidos nas bordas e lugares semelhantes\". As demais opções, embora também sejam falhas reais listadas no manual, pertencem a outra categoria."
+      },
+      {
+        id: 725,
+        text: "CAAML-703 – Assinale, entre as opções abaixo, a que representa uma falha relacionada a serviços de pintura e ao cuidado com a pintura do navio, conforme o sumário do Anexo A:",
+        options: [
+          "A) etiquetas, marcações de equipamentos e placas de advertência confeccionadas com desleixo",
+          "B) continência aos navios ou embarcações que passam sem a devida correção, sem o apito respectivo",
+          "C) militares debruçados nas balaustradas e/ou sentados nos acessórios do convés",
+          "D) graxa em excesso nas graxeiras e outros locais, sujando a pintura",
+          "E) vergueiros da balaustrada solecados"
+        ],
+        correct: 3,
+        subject: "Apresentação Marinheira",
+        explanation: "O Anexo A lista, no sumário de falhas mais comuns, a falha: \"graxa em excesso nas graxeiras e outros locais, sujando a pintura\". As demais opções, embora também sejam falhas reais listadas no manual, pertencem a outra categoria."
+      },
+      {
+        id: 726,
+        text: "CAAML-703 – Assinale, entre as opções abaixo, a que representa uma falha relacionada a cabos, cordoalha, amarração e boças, conforme o sumário do Anexo A:",
+        options: [
+          "A) vergueiros da balaustrada solecados",
+          "B) toldos sujos, mal enxugados, com excesso de água, perdendo resistência e podendo furar",
+          "C) navios com banda e trim",
+          "D) cais defronte ao navio sem estar limpo e arrumado, com objetos fora do lugar",
+          "E) defensas esquecidas dependuradas no costado"
+        ],
+        correct: 4,
+        subject: "Apresentação Marinheira",
+        explanation: "O Anexo A lista, no sumário de falhas mais comuns, a falha: \"defensas esquecidas dependuradas no costado\". As demais opções, embora também sejam falhas reais listadas no manual, pertencem a outra categoria."
+      },
+      {
+        id: 727,
+        text: "CAAML-703 – Assinale, entre as opções abaixo, a que representa uma falha relacionada a bandeiras, galhardetes ou instalações elétricas provisórias, conforme o sumário do Anexo A:",
+        options: [
+          "A) galhardetes e Bandeiras-Insígnias enrascados em adriças quando içados",
+          "B) cais defronte ao navio sem estar limpo e arrumado, com objetos fora do lugar",
+          "C) portaló — o \"cartão de visita\" do navio — sem estar rigorosamente limpo, arrumado e guarnecido por militares impecavelmente uniformizados",
+          "D) marcações, vidros, partes envernizadas, borrachas de portas, vigias e cabos elétricos borrados pela tinta das anteparas",
+          "E) amarelos limpos, porém com a pintura adjacente borrada, devido ao extravasamento do preparado de limpeza (kaol ou similar)"
+        ],
+        correct: 0,
+        subject: "Apresentação Marinheira",
+        explanation: "O Anexo A lista, no sumário de falhas mais comuns, a falha: \"galhardetes e Bandeiras-Insígnias enrascados em adriças quando içados\". As demais opções, embora também sejam falhas reais listadas no manual, pertencem a outra categoria."
+      },
+      {
+        id: 728,
+        text: "CAAML-703 – Assinale, entre as opções abaixo, a que representa uma falha de caráter geral, ligada a arrumação, convés, pessoal ou pequenos acessórios, conforme o sumário do Anexo A:",
+        options: [
+          "A) amarelos limpos, porém com a pintura adjacente borrada, devido ao extravasamento do preparado de limpeza (kaol ou similar)",
+          "B) serviços que sujam ou machucam o convés (faina de óleo, recebimento de gêneros) sem proteção de plásticos, lonas ou tábuas",
+          "C) graxa em excesso nas graxeiras e outros locais, sujando a pintura",
+          "D) pintura do costado manchada pela água de baldeação ou da chuva, por esquecimento dos bicos de pato rebatidos",
+          "E) costado com a linha d'água marcada por uma camada de limo, por falta de limpeza diária"
+        ],
+        correct: 1,
+        subject: "Apresentação Marinheira",
+        explanation: "O Anexo A lista, no sumário de falhas mais comuns, a falha: \"serviços que sujam ou machucam o convés (faina de óleo, recebimento de gêneros) sem proteção de plásticos, lonas ou tábuas\". As demais opções, embora também sejam falhas reais listadas no manual, pertencem a outra categoria."
+      },
+      {
+        id: 729,
+        text: "CAAML-703 – Assinale, entre as opções abaixo, a que representa uma falha relacionada a serviços de pintura e ao cuidado com a pintura do navio, conforme o sumário do Anexo A:",
+        options: [
+          "A) partes altas do navio desarrumadas, roupas e trapos estendidos nas bordas e lugares semelhantes",
+          "B) serviços que sujam ou machucam o convés (faina de óleo, recebimento de gêneros) sem proteção de plásticos, lonas ou tábuas",
+          "C) pintura do costado manchada pela água de baldeação ou da chuva, por esquecimento dos bicos de pato rebatidos",
+          "D) costado não protegido na atracação de batelão, chatas e outras embarcações que utilizam pneus como defensas",
+          "E) trapos utilizados como tapetes improvisados em locais que precisam ser protegidos"
+        ],
+        correct: 2,
+        subject: "Apresentação Marinheira",
+        explanation: "O Anexo A lista, no sumário de falhas mais comuns, a falha: \"pintura do costado manchada pela água de baldeação ou da chuva, por esquecimento dos bicos de pato rebatidos\". As demais opções, embora também sejam falhas reais listadas no manual, pertencem a outra categoria."
+      },
+      {
+        id: 730,
+        text: "CAAML-703 – Assinale, entre as opções abaixo, a que representa uma falha relacionada a cabos, cordoalha, amarração e boças, conforme o sumário do Anexo A:",
+        options: [
+          "A) costado não protegido na atracação de batelão, chatas e outras embarcações que utilizam pneus como defensas",
+          "B) trapos utilizados como tapetes improvisados em locais que precisam ser protegidos",
+          "C) etiquetas, marcações de equipamentos e placas de advertência confeccionadas com desleixo",
+          "D) cosedura das uniões de seções de toldos malfeita, parecendo espinha de peixe",
+          "E) continência aos navios ou embarcações que passam sem a devida correção, sem o apito respectivo"
+        ],
+        correct: 3,
+        subject: "Apresentação Marinheira",
+        explanation: "O Anexo A lista, no sumário de falhas mais comuns, a falha: \"cosedura das uniões de seções de toldos malfeita, parecendo espinha de peixe\". As demais opções, embora também sejam falhas reais listadas no manual, pertencem a outra categoria."
+      },
+      {
+        id: 731,
+        text: "CAAML-703 – Assinale, entre as opções abaixo, a que representa uma falha relacionada a bandeiras, galhardetes ou instalações elétricas provisórias, conforme o sumário do Anexo A:",
+        options: [
+          "A) etiquetas, marcações de equipamentos e placas de advertência confeccionadas com desleixo",
+          "B) continência aos navios ou embarcações que passam sem a devida correção, sem o apito respectivo",
+          "C) militares debruçados nas balaustradas e/ou sentados nos acessórios do convés",
+          "D) vergueiros da balaustrada solecados",
+          "E) torneiras e chuveiros pingando e mangueiras e tomadas de recebimento de água vazando"
+        ],
+        correct: 4,
+        subject: "Apresentação Marinheira",
+        explanation: "O Anexo A lista, no sumário de falhas mais comuns, a falha: \"torneiras e chuveiros pingando e mangueiras e tomadas de recebimento de água vazando\". As demais opções, embora também sejam falhas reais listadas no manual, pertencem a outra categoria."
+      },
+      {
+        id: 732,
+        text: "CAAML-703 – Assinale, entre as opções abaixo, a que representa uma falha de caráter geral, ligada a arrumação, convés, pessoal ou pequenos acessórios, conforme o sumário do Anexo A:",
+        options: [
+          "A) costado não protegido na atracação de batelão, chatas e outras embarcações que utilizam pneus como defensas",
+          "B) pintura do costado manchada pela água de baldeação ou da chuva, por esquecimento dos bicos de pato rebatidos",
+          "C) costado com a linha d'água marcada por uma camada de limo, por falta de limpeza diária",
+          "D) costado com pintura avariada, revelando o lançamento de restos de comida pela borda",
+          "E) pontos de lágrimas de ferrugem nas proximidades dos amarelos, causados pela utilização de palha de aço (bombril) no polimento de metais"
+        ],
+        correct: 0,
+        subject: "Apresentação Marinheira",
+        explanation: "O Anexo A lista, no sumário de falhas mais comuns, a falha: \"costado não protegido na atracação de batelão, chatas e outras embarcações que utilizam pneus como defensas\". As demais opções, embora também sejam falhas reais listadas no manual, pertencem a outra categoria."
+      },
+      {
+        id: 733,
+        text: "CAAML-703 – Na codificação de cores de capacete do Anexo B (item 2), a cor AMARELA corresponde a qual função?",
+        options: [
+          "A) Enfermeiro",
+          "B) Sr. Mestre",
+          "C) Oficial de Segurança",
+          "D) Reparador",
+          "E) Verificador/Inspetor"
+        ],
+        correct: 1,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "A tabela do item 2 associa o capacete amarelo ao Sr. Mestre."
+      },
+      {
+        id: 734,
+        text: "CAAML-703 – Nos cuidados ao trabalhar com espias e cabos (item 2.1), é recomendado usar luvas do tipo:",
+        options: [
+          "A) borracha isolante",
+          "B) lona reforçada",
+          "C) neoprene",
+          "D) couro cru sem tratamento",
+          "E) raspa de coco ou de vaqueta"
+        ],
+        correct: 4,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.1-a recomenda \"usar luvas do tipo 'raspa de coco' ou de vaqueta quando laborando cabos\"."
+      },
+      {
+        id: 735,
+        text: "CAAML-703 – São precauções previstas no item 2.2 (fainas de transferência no mar) do Anexo B, EXCETO:",
+        options: [
+          "A) manter um enfermeiro disponível na estação, bem como um oficial com a função de Oficial de Segurança",
+          "B) pessoal que trabalha com a carga não deve pisar em um estropo da rede que estiver talingado no gato",
+          "C) todo o pessoal deve estar atento a um possível movimento da carga devido ao jogo do navio, não se posicionando entre a carga e a borda do navio",
+          "D) permitir que o pessoal vire as costas para a carga que se aproxima, desde que sinalizada previamente",
+          "E) teques, spanwires e cabos de sustentação de aço devem ser presos ao tambor do guincho por presilha ou grampo especialmente projetado"
+        ],
+        correct: 3,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.2-k determina o oposto do afirmado: \"todo o pessoal deve estar atento e NUNCA virar as costas para a carga que se aproxima\"."
+      },
+      {
+        id: 736,
+        text: "CAAML-703 – Nas precauções da faina de reboque (item 2.3), é proibido o trânsito pelo convés na área de passeio do cabo de reboque; se imprescindível, deve-se:",
+        options: [
+          "A) utilizar apenas o corredor central do convés",
+          "B) solicitar autorização verbal do timoneiro antes de cada passagem",
+          "C) aguardar a redução total da velocidade do navio",
+          "D) fazê-lo agachado por fora do horse-bar, mantendo o cabo à vista",
+          "E) usar exclusivamente o colete salva-vidas auto-inflável"
+        ],
+        correct: 3,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.3-b orienta: \"proibir o trânsito pelo convés na área de passeio do cabo de reboque; se imprescindível, fazê-lo agachado por fora do horse-bar, e mantendo o cabo à vista\"."
+      },
+      {
+        id: 737,
+        text: "CAAML-703 – São precauções previstas para as fainas de recolhimento de homem ao mar e náufragos (item 2.4), EXCETO:",
+        options: [
+          "A) os homens que guarnecem as estações devem portar coletes de flutuabilidade permanente ou auto-infláveis e luvas",
+          "B) a balaustrada de segurança em viagem deve estar passada",
+          "C) dispensar o uso de colete salva-vidas pelo nadador reserva, caso o mar esteja calmo",
+          "D) os homens que trabalham por fora da balaustrada devem usar cinto de segurança",
+          "E) o nadador deve vestir roupa de neoprene e palamenta completa (sling, colete, faca, nadadeiras, máscara, esnórquel e lanterna)"
+        ],
+        correct: 2,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.4-e determina o oposto: \"o nadador reserva deve estar com a palamenta completa, pronto a entrar em ação caso necessário\" — não há dispensa por mar calmo."
+      },
+      {
+        id: 738,
+        text: "CAAML-703 – Para que o prático tenha acesso ao navio com segurança e comodidade, ele não deve subir menos do que 1,50 m, nem mais do que:",
+        options: [
+          "A) 6 m",
+          "B) 7 m",
+          "C) 9 m",
+          "D) 12 m",
+          "E) 15 m"
+        ],
+        correct: 2,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.5.3-b estabelece: \"o prático não deverá subir menos do que 1,50 m, nem mais do que 9 m\"."
+      },
+      {
+        id: 739,
+        text: "CAAML-703 – São medidas de segurança para as vias de acesso previstas no item 3 do Anexo B, EXCETO:",
+        options: [
+          "A) colocar redes de segurança sob as pranchas utilizadas para entrada ou saída de bordo",
+          "B) manter uma rota alternativa de escape em caso de obstrução de outra rota por serviço em andamento",
+          "C) permitir a obstrução temporária de escotilhões e escapes de emergência, desde que sinalizada",
+          "D) isolar com cabos/corrimões locais em que chapas do convés ou estrados forem removidos",
+          "E) iluminar adequadamente conveses e passagens, inclusive com lanternas de emergência na falta de energia"
+        ],
+        correct: 2,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 3-c é categórico: \"é proibido obstruir escotilhões, agulheiros, portas estanques e escapes de emergência, que devem ser conservados sempre em condições de uso\" — não há exceção para obstrução sinalizada."
+      },
+      {
+        id: 740,
+        text: "CAAML-703 – Nos serviços de pintura (item 4 do Anexo B), a quantidade de tinta e solvente armazenada na área de trabalho deve corresponder, no máximo, a:",
+        options: [
+          "A) uma semana de consumo",
+          "B) um dia de consumo",
+          "C) meio turno de serviço",
+          "D) todo o período de manutenção",
+          "E) três dias de consumo"
+        ],
+        correct: 1,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 4-d determina que \"a quantidade de tinta e solvente armazenada na área de trabalho deve ser a correspondente para, no máximo, um dia de consumo\"."
+      },
+      {
+        id: 741,
+        text: "CAAML-703 – No trabalho em mastros e chaminés (item 5 do Anexo B), é mandatório, entre outras providências:",
+        options: [
+          "A) trabalhar sempre em dupla no mastro",
+          "B) ter sempre um observador de segurança no convés",
+          "C) utilizar exclusivamente ferramentas elétricas isoladas",
+          "D) realizar o serviço apenas em condições de tempo bom",
+          "E) informar o serviço somente ao término de sua execução"
+        ],
+        correct: 1,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 5-a determina: \"tenha sempre um observador de segurança no convés\" como providência mandatória no trabalho em locais elevados."
+      },
+      {
+        id: 742,
+        text: "CAAML-703 – A sigla HERO, referente aos perigos da irradiação eletromagnética, significa:",
+        options: [
+          "A) Hazard of Electromagnetic Radiation to Ordnance (perigo da irradiação eletromagnética para o armamento)",
+          "B) Hazard of Emergency Radio Operations",
+          "C) High Energy Radiation Output",
+          "D) Hazard of Electric Radiation to Operators",
+          "E) Hazard of Explosive Radio Ordnance"
+        ],
+        correct: 0,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 6.2 do Anexo B define HERO como \"Hazard of Eletromagnetic Radiation to Ordnance\" — perigo da irradiação eletromagnética para o armamento."
+      },
+      {
+        id: 743,
+        text: "CAAML-703 – Ao efetuar medições em equipamentos eletrônicos (item 7.1 do Anexo B), deve-se primeiro conectar a ponta de prova:",
+        options: [
+          "A) viva (encarnada) ao ponto a ser medido, e depois a do terra (preta) à terra",
+          "B) viva e a do terra simultaneamente, em qualquer ordem",
+          "C) do terra (preta) à terra, e em seguida a ponta viva (encarnada) ao ponto a ser medido",
+          "D) apenas a ponta viva, dispensando a conexão à terra em medições rápidas",
+          "E) do terra diretamente ao ponto de medição, sem uso da ponta viva"
+        ],
+        correct: 2,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 7.1-f determina: \"para efetuar as medições, coloque em primeiro lugar a ponta de prova do terra (preta) para a terra, e em seguida, conecte a ponta viva (encarnada) ao ponto a ser medido\"."
+      },
+      {
+        id: 744,
+        text: "CAAML-703 – A tensão alternada padrão a bordo, segundo o item 8 do Anexo B, é de:",
+        options: [
+          "A) 220 volts, 50 ciclos, monofásica",
+          "B) 110 volts, 60 ciclos, bifásica",
+          "C) 380 volts, 50 ciclos, trifásica",
+          "D) 440 volts, 60 ciclos, trifásica",
+          "E) 115 volts, 60 ciclos, trifásica"
+        ],
+        correct: 3,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 8 informa: \"a tensão alternada padrão a bordo (440 volts, 60 ciclos, trifásica) é capaz de matar um homem, devendo ser tomadas as precauções de segurança necessárias\"."
+      },
+      {
+        id: 745,
+        text: "CAAML-703 – Antes de trabalhar no interior de tanques e espaços vazios (item 9 do Anexo B), deve-se verificar se estão:",
+        options: [
+          "A) apenas pintados recentemente",
+          "B) lacrados e sem acesso a outros compartimentos",
+          "C) equipados com sistema de som interno",
+          "D) limpos, desgaseificados e ventilados",
+          "E) identificados por placas coloridas apenas"
+        ],
+        correct: 3,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 9-a determina verificar, antes do trabalho em tanques e espaços vazios, \"se estão limpos, desgaseificados e ventilados\"."
+      },
+      {
+        id: 746,
+        text: "CAAML-703 – As ampolas de gás comprimido devem ser armazenadas sempre nos locais apropriados, afastadas de:",
+        options: [
+          "A) água doce e umidade excessiva",
+          "B) óleo, gases ou fontes de calor",
+          "C) luz solar direta apenas",
+          "D) outras ampolas do mesmo tipo",
+          "E) equipamentos de comunicação"
+        ],
+        correct: 1,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 10-a determina armazenar as ampolas \"sempre nos locais apropriados, afastadas de óleo, gases ou fontes de calor\"."
+      },
+      {
+        id: 747,
+        text: "CAAML-703 – Nos períodos de reparo, segundo o item 11 do Anexo B, deve-se retirar de bordo os materiais perigosos dispensáveis, tais como:",
+        options: [
+          "A) apenas produtos de limpeza doméstica",
+          "B) somente materiais de escritório",
+          "C) unicamente equipamentos eletrônicos obsoletos",
+          "D) apenas o material de rancho não consumido",
+          "E) óleos combustíveis, gasolina, querosene de aviação e munição dispensável"
+        ],
+        correct: 4,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 11-a orienta retirar de bordo, nos períodos de reparo, \"os materiais perigosos dispensáveis: óleos combustíveis, gasolina, querosene de aviação, munição [...] etc\"."
+      },
+      {
+        id: 748,
+        text: "CAAML-703 – Entre as normas mais comuns para prevenir um incêndio (item 12 do Anexo B), recomenda-se, quanto ao hábito de fumar a bordo, EXCETO:",
+        options: [
+          "A) não fumar deitado, considerando a possibilidade do sono chegar antes do cigarro terminar",
+          "B) fumar deitado é permitido, desde que em local autorizado",
+          "C) jogar o cigarro em cinzeiros, preferencialmente de metal, certificando-se de que foi apagado",
+          "D) não fumar em locais proibidos como praças de máquinas, paióis de munição, tanques e porões",
+          "E) não lançar cigarro aceso por barlavento"
+        ],
+        correct: 1,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 12-a-I determina justamente o oposto: \"não fumar deitado, considerando-se a possibilidade do sono chegar antes do cigarro terminar\"."
+      },
+      {
+        id: 749,
+        text: "CAAML-703 – Nas operações aéreas (item 13.1 do Anexo B), é terminantemente proibido fumar:",
+        options: [
+          "A) no hangar e na plataforma",
+          "B) apenas na plataforma, sendo permitido no hangar",
+          "C) apenas no hangar, sendo permitido na plataforma",
+          "D) em qualquer local do convés durante o dia",
+          "E) somente durante a decolagem da aeronave"
+        ],
+        correct: 0,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 13.1-d determina: \"é terminantemente proibido fumar no hangar e na plataforma. Cartazes de advertência deverão ser colocados no hangar\"."
+      },
+      {
+        id: 750,
+        text: "CAAML-703 – Durante os períodos de manutenção, o item 14 do Anexo B recomenda afixar em locais visíveis instruções visando à:",
+        options: [
+          "A) prevenção de acidentes",
+          "B) divulgação do cronograma de manutenção apenas",
+          "C) publicidade dos serviços contratados",
+          "D) identificação apenas das firmas contratadas",
+          "E) distribuição de escalas de serviço"
+        ],
+        correct: 0,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 14.1-a recomenda \"afixar em locais visíveis instruções visando à prevenção de acidentes\"."
+      },
+      {
+        id: 751,
+        text: "CAAML-703 – São precauções gerais de segurança do pessoal, listadas no item 15 do Anexo B, EXCETO:",
+        options: [
+          "A) conhecer e memorizar todas as saídas, inclusive as de emergência, e a localização das Máscaras de Escape Rápido",
+          "B) verificar se todo o material está bem armazenado, guardado e peiado",
+          "C) ao transportar volumes, procurar manter uma das mãos livre",
+          "D) correr a bordo é permitido em corredores amplos, desde que sinalizados",
+          "E) subir ou descer escadas, segurando o corrimão com uma das mãos"
+        ],
+        correct: 3,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 15-n determina o oposto: \"caminhar rápido, se necessário, mas não correr a bordo\" — correr nunca é recomendado, independentemente do corredor."
+      },
+      {
+        id: 752,
+        text: "CAAML-703 – Qual cor de capacete, segundo o Anexo B (item 2), é destinada aos oficiais, sem cruz colorida?",
+        options: [
+          "A) Azul",
+          "B) Laranja",
+          "C) Branco",
+          "D) Marrom",
+          "E) Cinza"
+        ],
+        correct: 2,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "A tabela do item 2 associa o capacete branco (sem cruz) aos Oficiais em geral."
+      },
+      {
+        id: 753,
+        text: "CAAML-703 – Antes de laborar cabos, o pessoal envolvido deve remover, entre outros itens, EXCETO:",
+        options: [
+          "A) capacete de proteção individual",
+          "B) anéis",
+          "C) relógios",
+          "D) pulseiras",
+          "E) outras peças que possam ser fisgadas pelos dispositivos"
+        ],
+        correct: 0,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.1-b determina remover \"anéis, relógios, pulseiras e outras peças que possam ser inadvertidamente 'fisgadas' pelos dispositivos e carga\" — o capacete, ao contrário, é equipamento de proteção que deve ser mantido, não removido."
+      },
+      {
+        id: 754,
+        text: "CAAML-703 – Nas fainas de transferência no mar (item 2.2), o navio recebedor só solicita ao fornecedor tensionar o span-wire no método STREAM após:",
+        options: [
+          "A) a chegada do Oficial de Segurança à estação",
+          "B) a confirmação do Comandante por rádio direto",
+          "C) o içamento da bandeira \"L\" na antena principal",
+          "D) a instalação da balaustrada de segurança temporária",
+          "E) receber autorização da Manobra, que posicionará o navio na distância mínima de 140 pés"
+        ],
+        correct: 4,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.2-t estabelece que, no método STREAM, \"o recebedor somente solicitará ao fornecedor que tensione o span-wire após receber autorização da Manobra (que posicionará o navio na distância mínima de 140 pés)\"."
+      },
+      {
+        id: 755,
+        text: "CAAML-703 – Nas manobras de atracação/desatracação com cabo de reboque (item 2.3), somente se deve dar o pronto para o início da puxada:",
+        options: [
+          "A) quando o Comandante estiver presente na manobra",
+          "B) após o navio reduzir totalmente o seguimento",
+          "C) quando a bandeira de reboque for hasteada no mastro principal",
+          "D) após a confirmação por rádio do navio rebocado",
+          "E) após os militares que deram a volta do cabo pelos cabeços terem se abrigado"
+        ],
+        correct: 4,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.3-f determina: \"somente dar o pronto para o início da puxada após os militares que deram a volta do cabo de reboque pelos cabeços terem se abrigado\"."
+      },
+      {
+        id: 756,
+        text: "CAAML-703 – Em situação de guerra, no recolhimento de náufrago inimigo (item 2.4), o manual recomenda:",
+        options: [
+          "A) dispensar qualquer revista, priorizando o atendimento médico imediato",
+          "B) acionar apenas o Oficial de Segurança, sem necessidade de pessoal armado",
+          "C) conduzir o náufrago diretamente à enfermaria sem escolta",
+          "D) manter homens armados postados em local elevado e próximo à estação, revistando os náufragos rigorosamente assim que chegarem a bordo",
+          "E) aguardar autorização do Comando antes de iniciar o recolhimento"
+        ],
+        correct: 3,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.4-h orienta manter homens armados em local elevado, prevenindo-se contra ação adversa, e \"revistar os náufragos rigorosamente, tão logo cheguem a bordo, independentemente do estado de saúde aparente\"."
+      },
+      {
+        id: 757,
+        text: "CAAML-703 – Devem ser mantidas prontas, para embarque/desembarque do prático, duas boças com diâmetro mínimo de:",
+        options: [
+          "A) 20 mm",
+          "B) 25 mm",
+          "C) 40 mm",
+          "D) 32 mm",
+          "E) 50 mm"
+        ],
+        correct: 3,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.5.3-d determina duas boças \"solidamente amarradas ao navio, tendo pelo menos 32 mm de diâmetro\"."
+      },
+      {
+        id: 758,
+        text: "CAAML-703 – Segundo o item 3 do Anexo B, as setas indicadoras de trânsito ou direções devem ser, sempre que possível, de material:",
+        options: [
+          "A) metálico polido",
+          "B) plástico transparente",
+          "C) madeira laqueada",
+          "D) fosforescente ou retro-reflexivo",
+          "E) tecido reforçado"
+        ],
+        correct: 3,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 3-h recomenda que as setas indicadoras \"sejam de material fosforescente ou retro-reflexivos a fim de serem facilmente identificadas no escuro\"."
+      },
+      {
+        id: 759,
+        text: "CAAML-703 – Nas fainas de pintura em compartimentos fechados (item 4 do Anexo B), deve-se utilizar:",
+        options: [
+          "A) iluminação natural exclusivamente",
+          "B) lanternas de mão comuns",
+          "C) iluminação à prova de explosão",
+          "D) velas de emergência",
+          "E) holofotes portáteis sem certificação"
+        ],
+        correct: 2,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 4-c determina \"utilizar iluminação à prova de explosão nas fainas de pintura em compartimentos fechados\"."
+      },
+      {
+        id: 760,
+        text: "CAAML-703 – Ao trabalhar em mastros e chaminés, o item 5 do Anexo B recomenda planejar o serviço de modo a:",
+        options: [
+          "A) descer a cada 30 minutos para verificação médica",
+          "B) utilizar apenas ferramentas emprestadas de outros compartimentos",
+          "C) não precisar descer para pegar ferramentas ou sobressalentes",
+          "D) evitar a comunicação com o convés durante o serviço",
+          "E) realizar o serviço somente à noite, com menor tráfego no convés"
+        ],
+        correct: 2,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 5-c orienta planejar o serviço \"de modo que não precise descer para pegar ferramentas ou sobressalentes\", evitando repetir fases perigosas da faina."
+      },
+      {
+        id: 761,
+        text: "CAAML-703 – A sigla HERF, referente aos perigos da irradiação eletromagnética, significa:",
+        options: [
+          "A) Hazard of Emergency Refueling Facilities",
+          "B) Hazard of Electromagnetic Radiation to Fuel (perigo da irradiação eletromagnética para o combustível)",
+          "C) High Explosive Radiation Fuel",
+          "D) Hazard of Electric Radio Frequency",
+          "E) Hazard of Emergency Radiation Failure"
+        ],
+        correct: 1,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 6.3 do Anexo B define HERF como \"Hazard of Eletromagnetic Radiation to Fuel\" — perigo da irradiação eletromagnética para o combustível."
+      },
+      {
+        id: 762,
+        text: "CAAML-703 – Ao desfazer uma medição em equipamento eletrônico (item 7.1), o procedimento correto é:",
+        options: [
+          "A) retirar primeiro a ponta do terra e depois a viva",
+          "B) retirar ambas simultaneamente",
+          "C) manter as duas pontas conectadas até nova medição",
+          "D) retirar primeiro a ponta viva e depois a do terra",
+          "E) retirar apenas a ponta viva, mantendo a do terra conectada indefinidamente"
+        ],
+        correct: 3,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 7.1-g estabelece: \"para desfazer a medição, faça o processo inverso, ou seja, inicialmente retire a ponta viva e depois o terra\"."
+      },
+      {
+        id: 763,
+        text: "CAAML-703 – Sempre que desalimentar uma chave ou disjuntor para trabalhar em um equipamento elétrico, o item 8 do Anexo B recomenda marcá-lo com uma etiqueta em encarnado do tipo:",
+        options: [
+          "A) \"EM MANUTENÇÃO - AGUARDE\"",
+          "B) \"CUIDADO - ALTA TENSÃO\"",
+          "C) \"DESLIGADO TEMPORARIAMENTE\"",
+          "D) \"RESERVADO PARA TESTES\"",
+          "E) \"PERIGO - NÃO ALIMENTAR\""
+        ],
+        correct: 4,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 8-i determina o uso da etiqueta em encarnado \"PERIGO - NÃO ALIMENTAR\" sempre que uma chave ou disjuntor for desalimentado para trabalho em equipamento."
+      },
+      {
+        id: 764,
+        text: "CAAML-703 – Por norma, um homem não entra sozinho em um tanque ou espaço vazio (item 9 do Anexo B); deve ser escalado:",
+        options: [
+          "A) um segundo homem dentro do tanque, sem função definida",
+          "B) apenas um supervisor a distância, por rádio",
+          "C) um oficial médico presente no convés principal",
+          "D) um sistema de câmeras sem observador humano",
+          "E) um observador de segurança do lado de fora do compartimento"
+        ],
+        correct: 4,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 9-d determina que seja escalado \"um observador de segurança do lado de fora do compartimento, devidamente familiarizado com as recomendações quanto à prevenção de acidentes e administração de primeiros socorros\"."
+      },
+      {
+        id: 765,
+        text: "CAAML-703 – O item 10 do Anexo B proíbe expressamente que o pessoal manuseie ampolas de gás comprimido com:",
+        options: [
+          "A) luvas de raspa de couro",
+          "B) óculos de proteção",
+          "C) as mãos ou luvas untadas de óleo",
+          "D) uniforme de trabalho padrão",
+          "E) capacete de proteção individual"
+        ],
+        correct: 2,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 10-c determina: \"o pessoal deve estar doutrinado quanto à proibição do manuseio de ampolas com as mãos ou luvas untadas de óleo\"."
+      },
+      {
+        id: 766,
+        text: "CAAML-703 – O item 11 do Anexo B determina que as redes de recebimento de vapor de terra recebam:",
+        options: [
+          "A) proteção e isolamento",
+          "B) pintura reflexiva obrigatória",
+          "C) sinalização sonora contínua",
+          "D) monitoramento por câmeras dedicadas",
+          "E) revestimento anticorrosivo colorido"
+        ],
+        correct: 0,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 11-d determina \"prover proteção e isolamento para as redes de recebimento de vapor de terra\"."
+      },
+      {
+        id: 767,
+        text: "CAAML-703 – Nos serviços de corte e solda (item 12 do Anexo B), deve-se manter a vigilância na área do serviço e na área limítrofe por, no mínimo, quantos minutos após o término de um trabalho com calor?",
+        options: [
+          "A) 5 minutos",
+          "B) 10 minutos",
+          "C) 25 minutos",
+          "D) 45 minutos",
+          "E) 60 minutos"
+        ],
+        correct: 2,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 12-g-II determina \"manter a vigilância na área do serviço, bem como na área limítrofe, até, ao menos, 25 minutos após ter sido terminado um trabalho com calor\"."
+      },
+      {
+        id: 768,
+        text: "CAAML-703 – Todos os componentes das equipes que operam na plataforma de voo devem usar obrigatoriamente, segundo o item 13.1 do Anexo B:",
+        options: [
+          "A) apenas capacete e luvas de trabalho",
+          "B) óculos de proteção, abafador de ruídos, coletes salva-vidas e botas especiais de convés",
+          "C) uniforme de gala e coturno",
+          "D) somente colete salva-vidas",
+          "E) máscara respiratória e avental"
+        ],
+        correct: 1,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 13.1-e determina que todos usem \"obrigatoriamente, óculos de proteção, abafador de ruídos, coletes salva-vidas e botas especiais de convôo\"."
+      },
+      {
+        id: 769,
+        text: "CAAML-703 – Nos contratos com firmas civis, durante períodos de manutenção, o item 14 do Anexo B recomenda incluir itens que definam claramente:",
+        options: [
+          "A) apenas o valor total do contrato",
+          "B) as responsabilidades quanto à segurança e à integridade dos funcionários civis, conforme a legislação em vigor",
+          "C) somente o prazo de execução dos serviços",
+          "D) unicamente a lista de materiais fornecidos",
+          "E) apenas os horários de acesso ao navio"
+        ],
+        correct: 1,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 14.1-c recomenda incluir nos contratos \"itens definindo claramente as responsabilidades quanto à segurança e à integridade dos funcionários civis, segundo a legislação em vigor\"."
+      },
+      {
+        id: 770,
+        text: "CAAML-703 – É uma precaução geral de segurança do pessoal prevista no item 15 do Anexo B:",
+        options: [
+          "A) dispensar o capacete em fainas marinheiras de curta duração",
+          "B) usar capacete apenas durante inspeções formais",
+          "C) reservar o uso do capacete exclusivamente para operações aéreas",
+          "D) o uso de capacete é opcional para praças antigos",
+          "E) utilizar capacete onde haja possibilidade de quedas/choques com objetos, como no fundo do dique ou em fainas marinheiras"
+        ],
+        correct: 4,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 15-j determina \"utilizar capacete onde haja possibilidade de quedas/choques com objetos como quando no fundo do dique, em fainas marinheiras e durante grandes reparos em praça de máquinas\"."
+      },
+      {
+        id: 771,
+        text: "CAAML-703 – Segundo a tabela de cores de capacete do Anexo B (item 2), o capacete CINZA é destinado a:",
+        options: [
+          "A) Raqueteiro/Telefonista",
+          "B) Operador do cabrestante/guincho/CAv",
+          "C) Laboradores de cabos/Faxina do Mestre",
+          "D) Outros",
+          "E) Verificador/Inspetor/Pessoal de fornecimento"
+        ],
+        correct: 3,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "A tabela do item 2 associa o capacete cinza à categoria \"Outros\"."
+      },
+      {
+        id: 772,
+        text: "CAAML-703 – Segundo o item 2.1, todas as espias e cabos de reboque devem possuir:",
+        options: [
+          "A) etiqueta de identificação numerada",
+          "B) fusível",
+          "C) revestimento de fibra de vidro",
+          "D) marcação luminosa retrorrefletiva",
+          "E) certificado de origem impresso"
+        ],
+        correct: 1,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.1-h é direto: \"todas as espias e cabos de reboque devem possuir fusível\"."
+      },
+      {
+        id: 773,
+        text: "CAAML-703 – É uma das precauções previstas no item 2.2 do Anexo B para as fainas de transferência no mar:",
+        options: [
+          "A) a balaustrada não deve ser arriada a não ser que absolutamente necessário",
+          "B) pessoal que trabalha com a carga não deve pisar em um estropo da rede que estiver talingado no gato",
+          "C) todo o pessoal deve estar atento a um possível movimento da carga devido ao jogo do navio, não se posicionando entre a carga e a borda do navio",
+          "D) teques, spanwires e cabos de sustentação de aço devem ser presos ao tambor do guincho por presilha ou grampo especialmente projetado",
+          "E) o pessoal de cada estação deve remover anéis, relógios, pulseiras e outras peças que possam ser fisgadas pelos dispositivos"
+        ],
+        correct: 0,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.2 do Anexo B recomenda expressamente: \"a balaustrada não deve ser arriada a não ser que absolutamente necessário\"."
+      },
+      {
+        id: 774,
+        text: "CAAML-703 – Durante a faina de reboque, o Comando deve ser mantido informado sobre:",
+        options: [
+          "A) a direção e o esforço sobre o mensageiro do cabo de reboque",
+          "B) a temperatura da água do mar",
+          "C) o consumo de combustível do navio rebocado",
+          "D) a posição exata das estrelas de navegação",
+          "E) o número de tripulantes do navio rebocado"
+        ],
+        correct: 0,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.3-d exige que \"o Comando deve ser mantido informado da direção e esforço sobre o mensageiro do cabo de reboque\", entre outros aspectos, para evitar risco ao pessoal no convés."
+      },
+      {
+        id: 775,
+        text: "CAAML-703 – Nas fainas de recolhimento de homem ao mar, um atirador armado com fuzil guarnece a estação de recolhimento ou a lancha, pronto a:",
+        options: [
+          "A) disparar sinalizadores luminosos para orientar a busca",
+          "B) abater drones que sobrevoem a área de resgate",
+          "C) sinalizar para outras embarcações da esquadra",
+          "D) acionar o sistema de iluminação do convés",
+          "E) atirar em tubarões que se aproximem do homem sendo recolhido"
+        ],
+        correct: 4,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.4-i determina que \"um atirador armado com fuzil guarnecerá a estação de recolhimento ou a lancha, pronto a atirar em tubarões que se aproximem do homem sendo recolhido\"."
+      },
+      {
+        id: 776,
+        text: "CAAML-703 – Se o navio estiver em movimento, o embarque ou desembarque do prático deve ser feito com máquinas adiante e velocidade máxima de:",
+        options: [
+          "A) 2 a 3 nós",
+          "B) 8 a 9 nós",
+          "C) 10 a 12 nós",
+          "D) 3 a 4 nós",
+          "E) 5 a 6 nós"
+        ],
+        correct: 4,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.5.3-e determina que, em movimento, o embarque/desembarque do prático seja feito \"com máquinas adiante e velocidade máxima de 5 a 6 nós\"."
+      },
+      {
+        id: 777,
+        text: "CAAML-703 – A condição de fechamento do material, controlada pela Central de CAv, deve ser rigorosamente mantida conforme o item 3-b do Anexo B porque:",
+        options: [
+          "A) apenas o Encarregado de CAv precisa conhecer a condição de fechamento",
+          "B) a condição de fechamento só é relevante em situação de guerra",
+          "C) a Central de CAv não tem competência para controlar acessórios estanques",
+          "D) a condição de fechamento é revisada apenas mensalmente",
+          "E) é importante conscientizar toda a tripulação quanto à necessidade de conservar a condição de fechamento do material"
+        ],
+        correct: 4,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 3-b reforça a importância de conscientizar toda a tripulação quanto à necessidade de conservar a condição de fechamento do material, controlada pela Central de CAv."
+      },
+      {
+        id: 778,
+        text: "CAAML-703 – O militar que estiver no flutuante durante serviço de pintura do costado deve portar, segundo o item 4 do Anexo B:",
+        options: [
+          "A) apenas capacete e luvas de proteção",
+          "B) somente óculos de proteção",
+          "C) máscara respiratória e avental",
+          "D) colete de paina, faca de marinheiro de pronto uso e cinto de segurança amarrado a um ponto fixo no convés",
+          "E) colete auto-inflável e binóculos"
+        ],
+        correct: 3,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 4-i determina que o militar no flutuante \"deverá estar portando colete de paina, uma faca de marinheiro de pronto uso e cinto de segurança amarrado a um ponto fixo no convés\"."
+      },
+      {
+        id: 779,
+        text: "CAAML-703 – Antes de trabalhar em mastros, é preciso assegurar-se de que radares e transmissores estejam desligados, pois as antenas de radar, girando, poderão:",
+        options: [
+          "A) causar apenas desconforto auditivo temporário",
+          "B) provocar apenas interferência em rádios portáteis",
+          "C) danificar somente equipamentos eletrônicos próximos",
+          "D) derrubar um homem, ou suas ferramentas de trabalho",
+          "E) gerar exclusivamente aquecimento superficial na pele"
+        ],
+        correct: 3,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 5-f-III alerta que \"as antenas de radar, girando, poderão derrubar um homem, ou suas ferramentas de trabalho\"."
+      },
+      {
+        id: 780,
+        text: "CAAML-703 – O emprego do LASER no meio militar, segundo o item 6.4 do Anexo B, oferece risco principalmente à:",
+        options: [
+          "A) audição, podendo causar surdez permanente",
+          "B) pele, causando queimaduras superficiais leves",
+          "C) visão, podendo causar danos ao globo ocular",
+          "D) circulação sanguínea, causando tontura",
+          "E) coordenação motora, causando desequilíbrio"
+        ],
+        correct: 2,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 6.4 alerta que os sistemas LASER \"oferecem risco à visão, pois podem causar danos ao globo ocular\", efeito que pode ser agravado se o raio for potencializado por binóculos."
+      },
+      {
+        id: 781,
+        text: "CAAML-703 – Caso uma válvula radioativa se quebre (item 7.2), os fragmentos menores devem ser retirados com um pano úmido, tomando o cuidado de:",
+        options: [
+          "A) esfregar vigorosamente em movimentos circulares",
+          "B) utilizar pano seco em vez de úmido",
+          "C) descartar o pano na lixeira comum do compartimento",
+          "D) aquecer o pano antes do uso para facilitar a remoção",
+          "E) passar o pano num único sentido, nunca de um lado para o outro"
+        ],
+        correct: 4,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 7.2-b-V determina que os fragmentos menores sejam retirados \"com um pano úmido, porém só passe o pano num único sentido, nunca de um lado para o outro\"."
+      },
+      {
+        id: 782,
+        text: "CAAML-703 – Ao carregar baterias a bordo, o item 8 do Anexo B recomenda verificar a ventilação do compartimento e afixar em local visível o aviso, em encarnado:",
+        options: [
+          "A) \"PROIBIDO FUMAR - CARGA DE BATERIA EM ANDAMENTO\"",
+          "B) \"ÁREA RESTRITA - SOMENTE PESSOAL AUTORIZADO\"",
+          "C) \"CUIDADO - PISO MOLHADO\"",
+          "D) \"ATENÇÃO - MATERIAL INFLAMÁVEL A 5 METROS\"",
+          "E) \"BATERIA EM TESTE - NÃO TOCAR\""
+        ],
+        correct: 0,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 8-u determina o aviso em encarnado \"PROIBIDO FUMAR - CARGA DE BATERIA EM ANDAMENTO\" durante o carregamento de baterias."
+      },
+      {
+        id: 783,
+        text: "CAAML-703 – Os tanques e espaços vazios devem ser mantidos, segundo o item 9 do Anexo B, com seus acessos:",
+        options: [
+          "A) fechados ou isolados quando não há faina em andamento",
+          "B) permanentemente abertos para ventilação natural",
+          "C) lacrados definitivamente após a primeira inspeção",
+          "D) identificados apenas por número, sem outras exigências",
+          "E) abertos apenas durante o período noturno"
+        ],
+        correct: 0,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 9-e determina que os tanques e espaços vazios sejam mantidos \"com seus acessos fechados ou isolados quando não há faina em andamento\"."
+      },
+      {
+        id: 784,
+        text: "CAAML-703 – É proibido o posicionamento de ampolas de oxigênio e/ou acetileno no interior de espaços confinados, com a única exceção da ampola de oxigênio:",
+        options: [
+          "A) do paiol de sobressalentes",
+          "B) da praça de máquinas",
+          "C) do compartimento de mergulho",
+          "D) da Enfermaria",
+          "E) do hangar de aeronaves"
+        ],
+        correct: 3,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 10-d é textual: \"é proibido o posicionamento de ampolas de oxigênio e/ou acetileno no interior de espaços confinados (exceção feita à ampola de oxigênio da Enfermaria)\"."
+      },
+      {
+        id: 785,
+        text: "CAAML-703 – As ordens de fogo, para serviços de corte e solda a bordo (item 12 do Anexo B), são expedidas mediante autorização de:",
+        options: [
+          "A) qualquer Oficial de quarto, independentemente da função",
+          "B) Comandante, exclusivamente",
+          "C) Imediato, exclusivamente",
+          "D) Oficial de Serviço, Encarregado do CAv ou seu substituto legal",
+          "E) Sargenteante da divisão de máquinas"
+        ],
+        correct: 3,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 12-g-IV determina que as ordens de fogo sejam expedidas \"mediante autorização do oficial-de-serviço, do Encarregado do CAv ou seu substituto legal, que assinam a papeleta de autorização\"."
+      },
+      {
+        id: 786,
+        text: "CAAML-703 – Antes do início e durante as operações aéreas, é terminantemente proibido jogar lixo no mar (item 13.1), sobretudo para evitar:",
+        options: [
+          "A) o entupimento dos ralos do convés de voo",
+          "B) a contaminação da água usada na lavagem da plataforma",
+          "C) a concentração de aves",
+          "D) o acúmulo de detritos no hangar",
+          "E) a atração de embarcações não identificadas"
+        ],
+        correct: 2,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 13.1-j determina a proibição de jogar lixo no mar antes e durante as operações aéreas \"para evitar a concentração de aves\"."
+      },
+      {
+        id: 787,
+        text: "CAAML-703 – Durante os períodos de manutenção, o item 14.2 do Anexo B recomenda instituir uma turma de prevenção de incêndio e manter disponíveis, em caso de falha da rede de incêndio de bordo:",
+        options: [
+          "A) apenas extintores de CO2 no hangar",
+          "B) somente mangueiras reserva no paiol",
+          "C) bombas de incêndio portáteis prontas para serem acionadas",
+          "D) unicamente baldes de areia distribuídos pelo convés",
+          "E) apenas alarmes sonoros adicionais"
+        ],
+        correct: 2,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 14.2-c recomenda manter disponíveis \"bombas de incêndio portáteis prontas para serem acionadas, em caso de falha ou inexistência de pressão na rede de incêndio de bordo ou do cais\"."
+      },
+      {
+        id: 788,
+        text: "CAAML-703 – É uma das precauções gerais de segurança do pessoal, listadas no item 15 do Anexo B:",
+        options: [
+          "A) garantir que as saídas e escapes não estejam bloqueados por materiais, nem travadas de modo a impedir a abertura por dentro",
+          "B) utilizar equipamentos de proteção individual como capacetes, luvas, sapatos ou botas, cintos de segurança e óculos adequados ao serviço",
+          "C) caminhar rápido, se necessário, mas não correr a bordo",
+          "D) conhecer a localização das balsas, especialmente a sua, e os caminhos a utilizar em uma emergência",
+          "E) fumar apenas nos locais permitidos"
+        ],
+        correct: 0,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 15 do Anexo B recomenda expressamente: \"garantir que as saídas e escapes não estejam bloqueados por materiais, nem travadas de modo a impedir a abertura por dentro\"."
+      },
+      {
+        id: 789,
+        text: "CAAML-703 – É um cuidado recomendado no item 2.1 ao se trabalhar com espias e cabos:",
+        options: [
+          "A) o colete salva-vidas pode ser retirado assim que soar o pronto da faina de dobrar amarração",
+          "B) apenas o primeiro homem que guarnece o cabo precisa usar luvas apropriadas",
+          "C) o pessoal envolvido nas fainas de dobrar a amarração deve permanecer com o colete vestido até o pronto da faina, mesmo após a volta do DEM",
+          "D) o uso de luvas é opcional em fainas de curta duração",
+          "E) cabos sob tensão podem ser cruzados por pessoal não envolvido na faina, se em baixa velocidade"
+        ],
+        correct: 2,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.1-g determina que o pessoal permaneça com o colete adequadamente vestido até o pronto da faina, como proteção adicional em caso de acidente."
+      },
+      {
+        id: 790,
+        text: "CAAML-703 – É uma das precauções previstas no item 2.2 do Anexo B para as fainas de transferência no mar:",
+        options: [
+          "A) a balaustrada não deve ser arriada a não ser que absolutamente necessário",
+          "B) o pessoal de cada estação deve remover anéis, relógios, pulseiras e outras peças que possam ser fisgadas pelos dispositivos",
+          "C) todo o pessoal deve permanecer a pelo menos 1,8 m de distância de moitões, cunhos, sarilhos e cabrestantes por onde os cabos gurnem",
+          "D) usar corretamente os contrapinos nas patolas, sem forçar sua abertura excessiva",
+          "E) o pessoal trabalhando em mastros, superestruturas ou por fora da borda livre deve usar cintos e cabos de segurança"
+        ],
+        correct: 1,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.2 do Anexo B recomenda expressamente: \"o pessoal de cada estação deve remover anéis, relógios, pulseiras e outras peças que possam ser fisgadas pelos dispositivos\"."
+      },
+      {
+        id: 791,
+        text: "CAAML-703 – Nas precauções para a faina de reboque, é necessário manter na área:",
+        options: [
+          "A) um mergulhador de prontidão",
+          "B) um enfermeiro com kit de primeiros socorros",
+          "C) duas embarcações miúdas arriadas",
+          "D) um helicóptero em alerta",
+          "E) um radioamador certificado"
+        ],
+        correct: 1,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.3-c determina \"manter um enfermeiro com 'kit' de primeiros socorros na área\" durante a faina de reboque."
+      },
+      {
+        id: 792,
+        text: "CAAML-703 – O cabo de recolhimento usado nas fainas de homem ao mar deve ter:",
+        options: [
+          "A) flutuabilidade positiva (polipropileno)",
+          "B) flutuabilidade negativa (aço galvanizado)",
+          "C) revestimento de fibra de carbono",
+          "D) núcleo metálico reforçado",
+          "E) tratamento antichama obrigatório"
+        ],
+        correct: 0,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.4-g determina o uso de \"cabo de recolhimento de flutuabilidade positiva (polipropileno)\"."
+      },
+      {
+        id: 793,
+        text: "CAAML-703 – Na escada de borda-falsa usada para a fixação da escada de prático, os dois balaustres devem ficar, no mínimo, a que altura acima da parte superior da borda-falsa?",
+        options: [
+          "A) 1,20 m",
+          "B) 0,70 m",
+          "C) 0,80 m",
+          "D) 1,50 m",
+          "E) 2,00 m"
+        ],
+        correct: 0,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 2.5.4 determina que os balaustres fiquem \"no mínimo a 1,20 m acima da parte superior da borda-falsa\", com diâmetro mínimo de 40 mm."
+      },
+      {
+        id: 794,
+        text: "CAAML-703 – O item 3 do Anexo B recomenda indicar adequadamente as rotas de acesso a locais importantes, como:",
+        options: [
+          "A) enfermaria e postos de primeiros socorros",
+          "B) camarote do Comandante",
+          "C) paiol de sobressalentes eletrônicos",
+          "D) sala de reuniões do Estado-Maior",
+          "E) biblioteca de bordo"
+        ],
+        correct: 0,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 3-g recomenda \"indicar adequadamente as rotas de acesso aos locais importantes, como enfermaria, postos de primeiros socorros etc.\"."
+      },
+      {
+        id: 795,
+        text: "CAAML-703 – Nos serviços de pintura em compartimentos fechados, o item 4 do Anexo B exige que os compartimentos sejam ventilados e:",
+        options: [
+          "A) sejam lacrados imediatamente após o serviço",
+          "B) recebam apenas ventilação natural pelas escotilhas",
+          "C) sejam isolados do sistema de CAv",
+          "D) tenham a iluminação reduzida ao mínimo",
+          "E) tenham a concentração de gases monitorada durante o período de pintura"
+        ],
+        correct: 4,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 4-g determina: \"os compartimentos fechados devem ser ventilados e ter a concentração de gases monitorada durante o período de pintura\"."
+      },
+      {
+        id: 796,
+        text: "CAAML-703 – O trabalho em locais elevados reveste-se de cuidados especiais porque um choque elétrico pode provocar:",
+        options: [
+          "A) apenas uma sensação de formigamento sem outras consequências",
+          "B) exclusivamente danos ao equipamento elétrico manuseado",
+          "C) somente a interrupção temporária do serviço em andamento",
+          "D) unicamente a necessidade de reposicionamento do observador",
+          "E) a relaxação involuntária das mãos e, consequentemente, a queda do mantenedor ou de uma ferramenta"
+        ],
+        correct: 4,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 5 explica que \"um choque elétrico poderá provocar a relaxação involuntária das mãos e, conseqüentemente, queda do mantenedor ou de uma ferramenta, que poderá atingir alguém no convés\"."
+      },
+      {
+        id: 797,
+        text: "CAAML-703 – São providências que evitam a exposição do pessoal à irradiação eletromagnética acima dos limites toleráveis (item 6.1), EXCETO:",
+        options: [
+          "A) não olhar na direção do lóbulo de transmissão de uma antena irradiando",
+          "B) empregar cargas fantasmas nos testes de equipamento, em vez de alimentar a antena",
+          "C) nunca dirigir o feixe de transmissão de um radar para áreas com pessoas trabalhando",
+          "D) aumentar a potência de transmissão sempre que houver manuseio de carga nas proximidades",
+          "E) adotar sinalização apropriada indicando a possível existência de radiação eletromagnética"
+        ],
+        correct: 3,
+        subject: "Segurança da Tripulação a Bordo",
+        explanation: "O item 6.1-f determina o oposto: \"altere os procedimentos operacionais (exemplo: reduzindo a potência de transmissão, ou mesmo não emitindo, quando estiver manuseando carga)\"."
+      },
     ];
 
     // App State
@@ -1546,6 +3569,9 @@
       await applySwitchMenuLocks();
 
       await loadSavedState();
+      if (currentUser) {
+        AlfaGamification.reconcileRespostasDetalhadas(sb, currentUser.id, QUIZ_ID, questionsData, userAnswers).then(() => {});
+      }
       const savedIndex = parseInt(localStorage.getItem(STORAGE_KEY_CURRENT), 10);
       currentIndex = (!isNaN(savedIndex) && savedIndex >= 0 && savedIndex < questionsData.length) ? savedIndex : 0;
       renderQuestion();
@@ -1889,6 +3915,17 @@
 
         var apLinkWrap = document.getElementById('apostila-link-wrap');
         if (apLinkWrap) { apLinkWrap.innerHTML = AlfaGamification.apostilaLinkHtml(apostilaLinksMap, q.id); }
+
+        const expDetail = document.getElementById('explanation-detail');
+        const expDetailText = document.getElementById('explanation-detail-text');
+        if (expDetail && expDetailText) {
+          if (q.explanation) {
+            expDetail.classList.remove('hidden');
+            expDetailText.innerText = q.explanation;
+          } else {
+            expDetail.classList.add('hidden');
+          }
+        }
       } else {
         expBox.classList.add('hidden');
       }
@@ -2018,22 +4055,25 @@
 
     function selectOption(optIndex) {
       if (isDiscarded(currentIndex, optIndex)) return;
-      const jaTinhaResposta = userAnswers[currentIndex] !== undefined;
       userAnswers[currentIndex] = optIndex;
       saveState();
       renderQuestion();
       renderGrid();
 
-      // Salva o resultado dessa questão em tempo real, sem esperar finalizar o simulado
-      if (currentUser && !jaTinhaResposta) {
+      // Salva o resultado dessa questão em tempo real, sem esperar finalizar o simulado.
+      // upsert (não insert): o aluno pode voltar numa questão já respondida pra
+      // reconferir, e nesse caso só atualizamos o acerto/erro mais recente, sem
+      // duplicar linha nem depender de um estado local pra saber "já respondi essa
+      // antes" (é esse estado local que fazia a cobertura ficar presa abaixo do real).
+      if (currentUser) {
         const q = questionsData[currentIndex];
-        sb.from('respostas_detalhadas').insert({
+        sb.from('respostas_detalhadas').upsert({
           user_id: currentUser.id,
           quiz_id: QUIZ_ID,
           subject: q.subject,
           question_id: q.id,
           acertou: optIndex === q.correct
-        }).then(() => {});
+        }, { onConflict: 'user_id,quiz_id,question_id' }).then(() => {});
       }
       if (window.StudyRoom) StudyRoom.reportAnswer(currentIndex, optIndex);
     }

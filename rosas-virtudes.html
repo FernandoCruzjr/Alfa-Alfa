@@ -528,6 +528,9 @@
           <div class="flex items-center gap-2 text-sm font-bold mb-1" id="explanation-title"></div>
           <div class="text-xs md:text-sm text-slate-300" id="explanation-text"></div>
           <div id="apostila-link-wrap" class="mt-2"></div>
+          <div class="text-xs md:text-sm text-slate-300 mt-3 pt-3 border-t border-slate-700/60 hidden" id="explanation-detail">
+            <span class="text-navy-400 font-semibold">Por que é essa alternativa: </span><span id="explanation-detail-text"></span>
+          </div>
         </div>
 
         <button id="flashcard-btn" onclick="saveAsFlashcard()" class="mt-4 w-full h-11 rounded-xl border border-navy-700 bg-navy-800/60 hover:bg-navy-700/60 hover:border-navy-500 text-slate-200 text-sm font-medium transition-all flex items-center justify-center gap-2">
@@ -671,7 +674,7 @@
 const questionsData = [
       {
         id: 1,
-        text: "é o sentimento quem induz o indivíduo a prática do bem da justiça e da moral é a força que o impele a prestigiar sua própria personalidade como um sentimento de seu patrimônio moral um misto debril e valor",
+        text: "É o sentimento que induz o indivíduo à prática do Bem, da Justiça e da Moral; é a força que o impele a prestigiar sua própria personalidade, como um sentimento de seu patrimônio moral, um misto de brio e valor. Essa é a virtude:",
         options: [
           "A) ordem",
           "B) zelo",
@@ -680,11 +683,12 @@ const questionsData = [
           "E) iniciativa"
         ],
         correct: 2,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"honra\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 2,
-        text: "ela exige a posse do perfeito sentimento do que é justo e respeitável para a elevação da dignidade e da bravura desse indivíduo e assim a afrontar perigos de toda a ordem na sustentação dos titanos da Verdade e do direito é a virtude por excelência porque em si contém todas as demais",
+        text: "\"Ela exige a posse do perfeito sentimento do que é justo e respeitável [...]. É a virtude por excelência, porque em si contém todas as demais.\" Essa é a virtude:",
         options: [
           "A) coragem",
           "B) decisão",
@@ -693,11 +697,12 @@ const questionsData = [
           "E) cooperação"
         ],
         correct: 3,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"honra\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 3,
-        text: "está acima da vida e de tudo que existe no mundo os avires e demais de bens que o indivíduo possui são transitórios enquanto a tudo sobrevive transmitir seus filhos aos netos ao lar a profissão escolhida e a terra em que se nasce é o patrimônio da alma na profissão ela consiste principalmente na dedicação ao serviço do cumprimento do dever na intrepidez e na disciplina tudo inspirado pelo patriotismo",
+        text: "\"Está acima da vida e de tudo que existe no mundo [...]; transmite-se aos filhos, aos netos, ao lar, à profissão escolhida e à terra em que se nasce. [...] Um navio nunca se entrega ao inimigo e sua bandeira jamais se arria em presença dele.\" Essa é a virtude:",
         options: [
           "A) coragem",
           "B) espírito de sacrifício",
@@ -706,11 +711,12 @@ const questionsData = [
           "E) patriotismo"
         ],
         correct: 3,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"honra\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 4,
-        text: "é o verdadeiro espontâneo e incansável devotamento a uma causa assim será obediência a autoridade do superiores e o respeito aos sentimentos de dignidade alheia o subordinado cumpre as ordens que recebe sempre com o mesmo ardor quer esteja perto ou longe de quem as deu ainda que por vezes intimamente não as compreenda",
+        text: "É o verdadeiro, espontâneo e incansável devotamento a uma causa, a sincera obediência à autoridade dos superiores e o respeito aos sentimentos de dignidade alheia. Essa é a virtude:",
         options: [
           "A) disciplina",
           "B) tenacidade",
@@ -719,11 +725,12 @@ const questionsData = [
           "E) fidelidade"
         ],
         correct: 2,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"lealdade\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 5,
-        text: "é mais do que a obediência porque esta se refere a vontade de expressa pelo superior e aquela ao Firmo propósito de honestamente interpretá-la e fielmente cumprê-la",
+        text: "\"É mais do que a Obediência, porque esta se refere à vontade expressa pelo superior, e aquela, ao firme propósito de honestamente interpretá-la e fielmente cumpri-la.\" Essa é a virtude:",
         options: [
           "A) fidelidade",
           "B) disciplina",
@@ -732,24 +739,26 @@ const questionsData = [
           "E) espírito de sacrifício"
         ],
         correct: 3,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"lealdade\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 6,
-        text: "é o sentimento que leva pois o subordinado a fazer tudo quanto for humanamente possível para bem cumprir uma ordem ou desempenhar uma dada missão exige que se manifeste ao superior disciplinadamente e no interesse dos serviços toda eventual incompreensão em relação a determinação orientação recebida",
+        text: "\"É o sentimento que leva o subordinado a fazer tudo quanto for humanamente possível para bem cumprir uma ordem [...]; exige que se manifeste ao superior, disciplinadamente, toda eventual incompreensão em relação à determinação recebida.\" Essa é a virtude:",
         options: [
           "A) fidelidade",
           "B) espírito de sacrifício",
           "C) disciplina",
-          "D) em cooperação",
+          "D) cooperação",
           "E) lealdade"
         ],
         correct: 4,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"lealdade\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 7,
-        text: "é o ânimo pronto para conceber e executar é uma manifestação de inteligência imaginação atividade saber e dedicação ao serviço um militar cumprir de forma conscienciosa as obrigações as rotinas de seu cargo faz o treinamento regular de seus homens e etc um outro faz tudo isso e ver onde um aperfeiçoamento pode ser introduzido não só o consegue como se interessa por sua adoção",
+        text: "É o ânimo pronto para conceber e executar; é uma manifestação de inteligência, imaginação, atividade, saber e dedicação ao serviço. Essa é a virtude:",
         options: [
           "A) iniciativa",
           "B) ordem",
@@ -758,11 +767,12 @@ const questionsData = [
           "E) disciplina"
         ],
         correct: 0,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"iniciativa\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 8,
-        text: "em um plano mas elevado é a faculdade de deliberar acertadamente em circunstâncias imprevistas ou na ausência do superiores agindo sobre responsabilidade própria mas dentro da doutrina a bem do serviço para assim fazer é preciso ter capacidade de profissional confiança em si e está bem orientado",
+        text: "\"Em um plano mais elevado, é a faculdade de deliberar acertadamente em circunstâncias imprevistas ou na ausência dos superiores, agindo sob responsabilidade própria, mas dentro da doutrina, a bem do serviço.\" Essa é a virtude:",
         options: [
           "A) iniciativa",
           "B) decisão",
@@ -771,11 +781,12 @@ const questionsData = [
           "E) coragem"
         ],
         correct: 0,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"iniciativa\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 9,
-        text: "é auxiliar eficiente e desinteressadamente é esforçar-se em benefício de uma causa comum",
+        text: "É auxiliar eficiente e desinteressadamente; é esforçar-se em benefício de uma causa comum. Essa é a virtude:",
         options: [
           "A) cooperação",
           "B) abnegação",
@@ -784,11 +795,12 @@ const questionsData = [
           "E) espírito militar"
         ],
         correct: 0,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"cooperação\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 10,
-        text: "faz a eficiência da Marinha!  em todas as atividades o trabalho deve obedecer a esse espírito de comunhão de esforços a fim de que a potencialidade do conjunto como um todo seja as mais elevada possível assim superiores e subordinados não devem limitar-se apenas ao cumprimento das tarefas que estiverem sido cometidas mas sim procurar ajudar-se mutuamente na execução das mesmas buscando compreender as necessidades e prioridades da instituição como um todo",
+        text: "\"É a Cooperação que faz a eficiência da Marinha! Em todas as atividades, o trabalho deve obedecer a esse espírito de comunhão de esforços [...]\" Essa é a virtude:",
         options: [
           "A) espírito militar",
           "B) espírito de sacrifício",
@@ -797,267 +809,2668 @@ const questionsData = [
           "E) cooperação"
         ],
         correct: 4,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"cooperação\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 11,
-        text: "é uma exigência imperiosa para a eficiência da instituição mas só possui esta qualidade quem não dá guarida as influências perniciosas do egoísmo da entrega ou da indiferença em prol de um sincero e profissional desprendimento",
+        text: "\"Só possui esta qualidade quem não dá guarida às influências perniciosas do egoísmo, da intriga ou da indiferença, em prol de um sincero e profissional desprendimento.\" Essa é a virtude:",
         options: [
-          "A) espírito de sacrifício",
-          "B) patriotismo",
-          "C) coragem",
+          "A) fidelidade",
+          "B) zelo",
+          "C) honra",
           "D) cooperação",
-          "E) abnegação"
+          "E) disciplina"
         ],
         correct: 3,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"cooperação\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 12,
-        text: "é a disposição sincera de realmente oferecer espontaneamente interesses comodidades vida tudo em prol do cumprimento do dever",
+        text: "É a disposição sincera de realmente oferecer, espontaneamente, interesses, comodidades, vida, tudo, em prol do cumprimento do dever. Essa é a virtude:",
         options: [
-          "A) fogo sagrado",
-          "B) abnegação",
+          "A) abnegação",
+          "B) decisão",
           "C) espírito de sacrifício",
-          "D) cooperação",
-          "E) fidelidade"
+          "D) ordem",
+          "E) tenacidade"
         ],
         correct: 2,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"espírito de sacrifício\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 13,
-        text: "é praticado vencendo Os Pequenos incômodos pessoais os menores percalços do dia a dia quem não é fiel no pouco certamente não será fiando muito somente percebendo o valor das coisas é que se desenvolve essa virtude e se torna capaz de dar um passo a mais na formação do caráter marinheiro",
+        text: "\"Quem não é fiel no pouco, certamente não será no muito\": somente percebendo o valor das coisas é que se desenvolve essa virtude, praticada vencendo os pequenos incômodos pessoais do dia a dia. Essa é a virtude:",
         options: [
-          "A) lealdade",
-          "B) cooperação",
-          "C) disciplina",
-          "D) abnegação",
+          "A) coragem",
+          "B) fidelidade",
+          "C) zelo",
+          "D) disciplina",
           "E) espírito de sacrifício"
         ],
         correct: 4,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"espírito de sacrifício\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 14,
-        text: "é um atributo que não depende em Alto grau de preparo profissional de predicados especiais de inteligência e de saber é por isso mesmo virtude que deve ser comum a todos os que servem a marinha essa qualidade é consequência direta do amor próprio do Amor a Marinha e a nação é o sentimento que leva a não poupar esforços para o bom desempenho das funções que lição atribuídas é o sentimento que conduz a dedicação ao serviço com autêntica expressão do dever",
+        text: "É atributo que não depende, em alto grau, de preparo profissional, de predicados especiais de inteligência e de saber; é, por isso mesmo, virtude que deve ser comum a todos os que servem à Marinha. Essa é a virtude:",
         options: [
-          "A) espírito de sacrifício",
-          "B) abnegação",
-          "C) disciplina",
+          "A) coragem",
+          "B) ordem",
+          "C) fogo sagrado",
           "D) zelo",
-          "E) cooperação"
+          "E) iniciativa"
         ],
         correct: 3,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"zelo\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 15,
-        text: "está intimamente ligado a probabilidade Vista como a capacidade de bem administrar os bens Fundos e recursos que nos foram confiados faz-se presente assim no exato cumprimento de orçamento e planos financeiros e não atento cuidado com o patrimônio da Marinha",
+        text: "\"Essa qualidade é consequência direta do 'amor próprio', do amor à Marinha e à Nação [...]; está intimamente ligada à probidade, vista como a capacidade de bem administrar os bens, fundos e recursos que nos foram confiados.\" Essa é a virtude:",
         options: [
-          "A) disciplina",
+          "A) fidelidade",
           "B) honra",
           "C) zelo",
-          "D) cooperação",
-          "E) patriotismo"
+          "D) lealdade",
+          "E) tenacidade"
         ],
         correct: 2,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"zelo\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 16,
-        text: "é a disposição natural que nos permite dominar o medo e enfrentar qualquer perigo é a força capaz de fazer com que aquele que ama a vida e que nela é feliz saiba arrisca-la e se dispõe a morrer por uma causa Nobre",
+        text: "É a disposição natural que nos permite dominar o medo e enfrentar qualquer perigo; é a força capaz de fazer com que aquele que ama a vida saiba arriscá-la por uma causa nobre. Essa é a virtude:",
         options: [
-          "A) honra",
-          "B) espírito de sacrifício",
+          "A) fogo sagrado",
+          "B) decisão",
           "C) coragem",
-          "D) patriotismo",
-          "E) fogo sagrado"
+          "D) abnegação",
+          "E) tenacidade"
         ],
         correct: 2,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"coragem\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 17,
-        text: "com força psíquica que ampara os homens nas crises do pensamento e do caráter é a sustentação das próprias ordens atitudes e convicções o saber assumir a responsabilidade dos três atos o afrontamento a perfídia a inveja e a incompreensão a manutenção intransigente do rumo moral curte o que custar deve andar de mãos de dadas com a sabedoria a prudência o bom senso e acalma",
+        text: "\"Há também a coragem [...] não menos imprescindível e valiosa, a força psíquica que ampara os homens nas crises do pensamento e do caráter; é a sustentação das próprias ordens, atitudes e convicções; o saber assumir a responsabilidade dos seus atos.\" Essa é a forma de coragem chamada:",
         options: [
-          "A) fogo sagrado",
-          "B) espírito de sacrifício",
+          "A) coragem física",
+          "B) fogo sagrado",
           "C) coragem moral",
-          "D) coragem",
-          "E) patriotismo"
+          "D) determinação",
+          "E) iniciativa"
         ],
         correct: 2,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"coragem moral\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 18,
-        text: "é diligência porque economiza o tempo e é Previdência porque o conserva com o exemplo de disciplina é método orienta o espírito e promove segurança porque resguarda e a linha em lugar próprio aquilo que será utilizado no futuro a sua falta traz desperdício e a perda do tempo bem precioso é que uma vez perdido não há como reaver",
+        text: "É diligência, porque economiza o tempo, e é previdência, porque o conserva; orienta o espírito e promove segurança, porque resguarda e alinha em lugar próprio aquilo que será utilizado no futuro. Essa é a virtude:",
         options: [
           "A) ordem",
-          "B) fidelidade",
+          "B) disciplina",
           "C) zelo",
-          "D) disciplina",
+          "D) tenacidade",
           "E) decisão"
         ],
         correct: 0,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"ordem\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 19,
-        text: "ser fiel é ser honesto ter tempera forte para opinar e agir sempre pelo bem mesmo e Principalmente quando não favorecer Ou até Contrariar as conveniências pessoais",
+        text: "Ser fiel é ser honesto, ter têmpera forte para opinar e agir sempre pelo bem, mesmo, e principalmente, quando não favorecer ou até contrariar as conveniências pessoais. Essa é a virtude:",
         options: [
           "A) lealdade",
-          "B) abnegação",
-          "C) e disciplina",
+          "B) disciplina",
+          "C) coragem",
           "D) fidelidade",
-          "E) patriotismo"
+          "E) zelo"
         ],
         correct: 3,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"fidelidade\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 20,
-        text: "é a paixão a fé ou entusiasmo com o que o militar se dedica a sua carreira é o seu intenso Amor à marinha o seu devotamento pela grandeza da sua profissão é a larga medida de uma verdadeira vocação e de seu sadio patriotismo é o Supremo amor pelo serviço e essa criança que anima a ponto de naturalmente julgar que os deveres que a lei e marca são o mínimo e que para bem servir cumpre Ir Além do próprio dever fazer tudo quanto é humanamente possível a custa embora de enchente e Labor",
+        text: "É a paixão, a fé, o entusiasmo com que o militar se dedica à sua carreira; é o seu intenso amor à Marinha, seu devotamento pela grandeza da profissão; \"é a alma da Marinha!\" Essa é a virtude:",
         options: [
-          "A) ordem",
-          "B) espírito militar",
-          "C) parte de autismo",
-          "D) espírito de sacrifício",
+          "A) patriotismo",
+          "B) honra",
+          "C) tenacidade",
+          "D) zelo",
           "E) fogo sagrado"
         ],
         correct: 4,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"fogo sagrado\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 21,
-        text: "força misteriosa que dominando a alma do verdadeiro Marinheiro o conduz sempre ao sacrifício com incendível vibração e estoica resignação essa virtude transmite-se mas para tanto é preciso possuí-lo em grande intensidade e demonstrá-lo mais por atitudes de ações do que por ordens e palavras é a alma da Marinha",
+        text: "\"Transmite-se, mas para tanto é preciso possuí-lo em grande intensidade e demonstrá-lo mais por atitudes e ações do que por ordens e palavras.\" Essa afirmação se refere à virtude:",
         options: [
-          "A) patriotismo",
-          "B) espírito militar",
-          "C) espírito de",
-          "D) abnegação",
+          "A) cooperação",
+          "B) disciplina",
+          "C) ordem",
+          "D) lealdade",
           "E) fogo sagrado"
         ],
         correct: 4,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"fogo sagrado\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 22,
-        text: "é o esquecimento voluntário do que a diagoístico nos desejos e tendências naturais em proveito de uma pessoa causa ou ideia é a renegação desse mesmo e a disposição de se colocar a serviço dos outros com o sacrifício dos próprios interesses",
+        text: "É o esquecimento voluntário do que há de egoístico nos desejos e tendências naturais, em proveito de uma pessoa, causa ou ideia; é a renegação de si mesmo em favor do serviço aos outros. Essa é a virtude:",
         options: [
-          "A) espírito de sacrifício",
-          "B) fogo sagrado",
+          "A) fidelidade",
+          "B) zelo",
           "C) abnegação",
-          "D) patriotismo",
-          "E) fidelidade"
+          "D) ordem",
+          "E) coragem"
         ],
         correct: 2,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"abnegação\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 23,
-        text: "é a disposição de se colocar a serviço dos outros com o sacrifício dos próprios interesses tem a consciência de servir incluir a base de todas as virtudes a humanidade e possui a simplicidade em todas as suas ações e palavras portanto fortalece o desenvolvimento de todas as atividades de serviço à marinha criando a unidade de ação pois ela é passar por cima de qualquer interesse individual",
+        text: "\"Fortalece o desenvolvimento de todas as atividades de serviço à Marinha, criando a unidade de ação, pois ela é passar por cima de qualquer interesse individual.\" Essa afirmação se refere à virtude:",
         options: [
-          "A) patriotismo",
+          "A) tenacidade",
           "B) abnegação",
-          "C) cooperação",
-          "D) fogo sagrado",
-          "E) espírito de sacrifício"
+          "C) disciplina",
+          "D) lealdade",
+          "E) decisão"
         ],
         correct: 1,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"abnegação\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 24,
-        text: "é a qualidade que impede o Militar de cumprir com natural interesse dentro da ética os deveres e obrigações do serviço com disciplina ele é o dádio sempre animado pelo desejo de ver brilhar o seu navio a sua classe e aumentar a eficiência e o prestígio da Marinha",
+        text: "É a qualidade que impele o militar a cumprir, com natural interesse e dentro da ética, os deveres e obrigações do serviço, com disciplina e lealdade, animado pelo desejo de ver brilhar seu navio e sua classe. Essa é a virtude:",
         options: [
-          "A) espírito de sacrifício",
-          "B) lealdade",
-          "C) abnegação",
+          "A) tenacidade",
+          "B) zelo",
+          "C) ordem",
+          "D) coragem",
+          "E) espírito militar"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"espírito militar\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
+      },
+      {
+        id: 25,
+        text: "\"Cria em torno de si um ambiente de compostura, seriedade e confiança, qualidades essenciais a quem comanda e tem sob sua direta responsabilidade a guarda e a defesa de preciosos valores morais e materiais da Nação.\" Essa afirmação se refere à virtude:",
+        options: [
+          "A) abnegação",
+          "B) fidelidade",
+          "C) ordem",
           "D) zelo",
           "E) espírito militar"
         ],
         correct: 4,
-        subject: "Rosas das Virtudes"
-      },
-      {
-        id: 25,
-        text: "o militar demonstra essa virtude em suas maneiras de agir e de se expressar no apoio dos seus uniformes na saudação a seus superiores na descrição com que se manifesta na seriedade que imprime ao seu serviço como expressão da dignidade da sua função e da eficiência dos seus encargos",
-        options: [
-          "A) espírito de sacrifício",
-          "B) fidelidade",
-          "C) zelo",
-          "D) ordem",
-          "E) espírito militar"
-        ],
-        correct: 4,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"espírito militar\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 26,
-        text: "o militar cria em torno desse um ambiente de compostura seriedade e confiança qualidades essenciais a quem comanda e tenha sobre sua direta responsabilidade aguarda e a defesa de preciosos valores morais e materiais da nação",
+        text: "É a qualidade demonstrada nas maneiras de agir e de se expressar do militar: no apuro de seus uniformes, na saudação a seus superiores e na seriedade que imprime ao seu serviço. Essa é a virtude:",
         options: [
           "A) espírito militar",
-          "B) ordem",
-          "C) patriotismo",
-          "D) espírito do sacrifício",
-          "E) disciplina"
+          "B) disciplina",
+          "C) cooperação",
+          "D) zelo",
+          "E) ordem"
         ],
         correct: 0,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"espírito militar\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 27,
-        text: "é a força de coesão de qualquer coletividade humana é indispensável não só um organismo militar mas a qualquer outro que pretenda reunir indivíduos em uma unidade sólida e eficaz tem um único inimigo verdadeiro que é o egoísmo então mais obstinado quanto mais inconsciente de si mesmo o amor próprio e limitado separa o homem de seus mais nobres pensamentos tornando um seres isolado que não que nada aceita fora do seu eu despido de todo o sentimento de solidariedade não pode conceder a não ser como forma de escravidão",
+        text: "É a força de coesão de qualquer coletividade humana; indispensável não só a um Organismo Militar, mas a qualquer outro que pretenda reunir indivíduos em uma unidade sólida e eficaz. Essa é a virtude:",
         options: [
-          "A) tenacidade",
-          "B) ordem",
+          "A) zelo",
+          "B) lealdade",
           "C) disciplina",
-          "D) patriotismo",
-          "E) zelo"
+          "D) fidelidade",
+          "E) coragem"
         ],
         correct: 2,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"disciplina\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 28,
-        text: "esta virtude não Visa tolera a personalidade mas sim a regular e coordenadas forças ela somente torna-se fecunda quando há condições de ser alegre e ativa um simples conformismo ou receio das censuras ou sanções não trazem ela o que a faz presente e aceita é um forte sentimento de interesse comum e principalmente a correta percepção de um dever comum assim entendida não haverá o risco de ela proibiram a enfraquecer as iniciativas pois não será impostas mas sim adquirida",
+        text: "\"Não visa a tolher a personalidade, mas sim a regular e coordenar esforços; só se torna fecunda quando há condições de ser alegre e ativa.\" Essa afirmação se refere à virtude:",
         options: [
-          "A) lealdade",
-          "B) patriotismo",
-          "C) zelo",
+          "A) ordem",
+          "B) zelo",
+          "C) cooperação",
           "D) disciplina",
-          "E) fidelidade"
+          "E) iniciativa"
         ],
         correct: 3,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"disciplina\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 29,
-        text: "manifesta-se basicamente pelo obediência pronta as ordens do Superior pela utilização Total das energias em prol do serviço e pela correção de atitudes e cooperação espontânea em benefício da disciplina coletiva e da eficiência da instituição na Marinha esta virtude é inseparável da hierarquia e traduz-se no perfeito cumprimento do dever por cada um dos seus componentes",
+        text: "Manifesta-se basicamente pela obediência pronta às ordens do superior, pela utilização total das energias em prol do serviço e pela correção de atitudes em benefício da eficiência da instituição. Essa é a virtude:",
         options: [
           "A) disciplina",
-          "B) lealdade",
+          "B) fidelidade",
           "C) cooperação",
-          "D) patriotismo",
-          "E) fidelidade"
+          "D) honra",
+          "E) zelo"
         ],
         correct: 0,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"disciplina\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
       },
       {
         id: 30,
-        text: "é o sentimento onde resistível que prende os indivíduos a terra em que nasceram é drama de afetos que através da gerações vai sendo tecido em suas almas ao redor do solo querido externamente é a emoção que os indivíduos sem real ver os acordes do hino nacional e ao ver desfraldado a bandeira de sua Pátria em essência é a criança na defesa dos ideais de nacionalidade expressão de carinho que hoje liga a terra que serviu de berço é a força de coesão poderosa que os torna na solidários em um interesse comum ensinando os a bem querer servir honrar defender a pátria",
+        text: "É o sentimento irresistível que prende os indivíduos à terra em que nasceram; é a emoção que sentem ao ouvir os acordes do Hino Nacional e ao ver desfraldada a Bandeira de sua Pátria. Essa é a virtude:",
         options: [
-          "A) espírito de sacrifício",
+          "A) honra",
           "B) patriotismo",
-          "C) coragem",
-          "D) cooperação",
+          "C) fogo sagrado",
+          "D) zelo",
           "E) espírito militar"
         ],
         correct: 1,
-        subject: "Rosas das Virtudes"
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado é a definição (ou parte dela) da virtude \"patriotismo\", conforme a Rosa das Virtudes (Anexo B da apostila de Liderança). Releia a definição completa na apostila para fixar o restante do parágrafo."
+      },
+      {
+        id: 31,
+        text: "Segundo a Rosa das Virtudes (Anexo B da apostila de Liderança), a que virtude se refere o trecho: \"A Honra é o sentimento que induz o indivíduo à prática do Bem, da Justiça e da Moral.\"?",
+        options: [
+          "A) honra",
+          "B) lealdade",
+          "C) iniciativa",
+          "D) cooperação",
+          "E) espírito de sacrifício"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"honra\" na Rosa das Virtudes."
+      },
+      {
+        id: 32,
+        text: "Complete: a virtude descrita como \"A Lealdade é o verdadeiro, espontâneo e incansável devotamento a uma causa, a sincera obediência à autoridade dos superiores e o respeito aos sentimentos de dignidade alheia.\" é conhecida como:",
+        options: [
+          "A) iniciativa",
+          "B) lealdade",
+          "C) cooperação",
+          "D) espírito de sacrifício",
+          "E) zelo"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"lealdade\" na Rosa das Virtudes."
+      },
+      {
+        id: 33,
+        text: "Assinale a virtude correspondente ao trecho: \"A Iniciativa é o ânimo pronto para conceber e executar.\".",
+        options: [
+          "A) cooperação",
+          "B) espírito de sacrifício",
+          "C) iniciativa",
+          "D) zelo",
+          "E) coragem"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"iniciativa\" na Rosa das Virtudes."
+      },
+      {
+        id: 34,
+        text: "Qual virtude da Rosa das Virtudes está descrita a seguir: \"Cooperar é auxiliar eficiente e desinteressadamente; é esforçar-se em benefício de uma causa comum.\"?",
+        options: [
+          "A) espírito de sacrifício",
+          "B) zelo",
+          "C) coragem",
+          "D) cooperação",
+          "E) ordem"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"cooperação\" na Rosa das Virtudes."
+      },
+      {
+        id: 35,
+        text: "Segundo a Rosa das Virtudes (Anexo B da apostila de Liderança), a que virtude se refere o trecho: \"O Espírito de Sacrifício é a disposição sincera de realmente oferecer, espontaneamente, interesses, comodidades, vida, tudo, em prol do cumprimento do dever.\"?",
+        options: [
+          "A) zelo",
+          "B) coragem",
+          "C) ordem",
+          "D) fidelidade",
+          "E) espírito de sacrifício"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"espírito de sacrifício\" na Rosa das Virtudes."
+      },
+      {
+        id: 36,
+        text: "Complete: a virtude descrita como \"O Zelo é atributo que não depende, em alto grau, de preparo profissional, de predicados especiais de inteligência e de saber.\" é conhecida como:",
+        options: [
+          "A) zelo",
+          "B) coragem",
+          "C) ordem",
+          "D) fidelidade",
+          "E) fogo sagrado"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"zelo\" na Rosa das Virtudes."
+      },
+      {
+        id: 37,
+        text: "Assinale a virtude correspondente ao trecho: \"A Coragem é a disposição natural que nos permite dominar o medo e enfrentar qualquer perigo.\".",
+        options: [
+          "A) ordem",
+          "B) coragem",
+          "C) fidelidade",
+          "D) fogo sagrado",
+          "E) tenacidade"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"coragem\" na Rosa das Virtudes."
+      },
+      {
+        id: 38,
+        text: "Qual virtude da Rosa das Virtudes está descrita a seguir: \"A Ordem é diligência, porque economiza o tempo, e é previdência, porque o conserva.\"?",
+        options: [
+          "A) fidelidade",
+          "B) fogo sagrado",
+          "C) ordem",
+          "D) tenacidade",
+          "E) decisão"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"ordem\" na Rosa das Virtudes."
+      },
+      {
+        id: 39,
+        text: "Segundo a Rosa das Virtudes (Anexo B da apostila de Liderança), a que virtude se refere o trecho: \"Ser fiel é ser honesto, ter têmpera forte para opinar e agir sempre pelo bem, mesmo, e principalmente, quando não favorecer ou até contrariar as conveniências pessoais.\"?",
+        options: [
+          "A) fogo sagrado",
+          "B) tenacidade",
+          "C) decisão",
+          "D) fidelidade",
+          "E) abnegação"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"fidelidade\" na Rosa das Virtudes."
+      },
+      {
+        id: 40,
+        text: "Complete: a virtude descrita como \"O \"Fogo Sagrado\" é a paixão, a fé, o entusiasmo com que o militar se dedica à sua carreira; é o seu intenso amor à Marinha, o seu devotamento pela grandeza da sua profissão; é a larga medida de uma verdadeira vocação e de um sadio patriotismo; é o supremo amor pelo serviço.\" é conhecida como:",
+        options: [
+          "A) tenacidade",
+          "B) decisão",
+          "C) abnegação",
+          "D) espírito militar",
+          "E) fogo sagrado"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"fogo sagrado\" na Rosa das Virtudes."
+      },
+      {
+        id: 41,
+        text: "Assinale a virtude correspondente ao trecho: \"A Tenacidade é uma forma de dedicação, de amor ao serviço.\".",
+        options: [
+          "A) tenacidade",
+          "B) decisão",
+          "C) abnegação",
+          "D) espírito militar",
+          "E) disciplina"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"tenacidade\" na Rosa das Virtudes."
+      },
+      {
+        id: 42,
+        text: "Qual virtude da Rosa das Virtudes está descrita a seguir: \"Decidir é tomar resolução, é sentenciar, é orientar a ação.\"?",
+        options: [
+          "A) abnegação",
+          "B) decisão",
+          "C) espírito militar",
+          "D) disciplina",
+          "E) patriotismo"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"decisão\" na Rosa das Virtudes."
+      },
+      {
+        id: 43,
+        text: "Segundo a Rosa das Virtudes (Anexo B da apostila de Liderança), a que virtude se refere o trecho: \"A Abnegação é o esquecimento voluntário do que há de egoístico nos desejos e tendências naturais, em proveito de uma pessoa, causa ou ideia.\"?",
+        options: [
+          "A) espírito militar",
+          "B) disciplina",
+          "C) abnegação",
+          "D) patriotismo",
+          "E) honra"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"abnegação\" na Rosa das Virtudes."
+      },
+      {
+        id: 44,
+        text: "Complete: a virtude descrita como \"Espírito Militar é a qualidade que impele o militar a cumprir com natural interesse, dentro da ética, os deveres e obrigações do serviço, com disciplina e lealdade, sempre animado pelo desejo de ver brilhar o seu navio, a sua classe e aumentar a eficiência e o prestígio da Marinha.\" é conhecida como:",
+        options: [
+          "A) disciplina",
+          "B) patriotismo",
+          "C) honra",
+          "D) espírito militar",
+          "E) lealdade"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"espírito militar\" na Rosa das Virtudes."
+      },
+      {
+        id: 45,
+        text: "Assinale a virtude correspondente ao trecho: \"A força de coesão de qualquer coletividade humana é a Disciplina.\".",
+        options: [
+          "A) patriotismo",
+          "B) honra",
+          "C) lealdade",
+          "D) iniciativa",
+          "E) disciplina"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"disciplina\" na Rosa das Virtudes."
+      },
+      {
+        id: 46,
+        text: "Qual virtude da Rosa das Virtudes está descrita a seguir: \"O Patriotismo é o sentimento irresistível que prende os indivíduos à terra em que nasceram.\"?",
+        options: [
+          "A) patriotismo",
+          "B) honra",
+          "C) lealdade",
+          "D) iniciativa",
+          "E) cooperação"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"patriotismo\" na Rosa das Virtudes."
+      },
+      {
+        id: 47,
+        text: "Segundo a Rosa das Virtudes (Anexo B da apostila de Liderança), a que virtude se refere o trecho: \"Há também a coragem moral — não menos imprescindível e valiosa —, a força psíquica que ampara os homens nas crises do pensamento e do caráter.\"?",
+        options: [
+          "A) lealdade",
+          "B) coragem moral",
+          "C) iniciativa",
+          "D) cooperação",
+          "E) espírito de sacrifício"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"coragem moral\" na Rosa das Virtudes."
+      },
+      {
+        id: 48,
+        text: "Complete: a virtude descrita como \"É a força que o impele a prestigiar sua própria personalidade, como um sentimento de seu patrimônio moral, um misto de brio e valor.\" é conhecida como:",
+        options: [
+          "A) fidelidade",
+          "B) fogo sagrado",
+          "C) honra",
+          "D) tenacidade",
+          "E) decisão"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"honra\" na Rosa das Virtudes."
+      },
+      {
+        id: 49,
+        text: "Assinale a virtude correspondente ao trecho: \"O subordinado leal cumpre as ordens que recebe sempre com o mesmo ardor, quer esteja perto ou longe de quem as deu, ainda que, por vezes, intimamente não as compreenda.\".",
+        options: [
+          "A) fogo sagrado",
+          "B) tenacidade",
+          "C) decisão",
+          "D) lealdade",
+          "E) abnegação"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"lealdade\" na Rosa das Virtudes."
+      },
+      {
+        id: 50,
+        text: "Qual virtude da Rosa das Virtudes está descrita a seguir: \"É uma manifestação de inteligência, imaginação, atividade, saber e dedicação ao serviço.\"?",
+        options: [
+          "A) tenacidade",
+          "B) decisão",
+          "C) abnegação",
+          "D) espírito militar",
+          "E) iniciativa"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"iniciativa\" na Rosa das Virtudes."
+      },
+      {
+        id: 51,
+        text: "Segundo a Rosa das Virtudes (Anexo B da apostila de Liderança), a que virtude se refere o trecho: \"O militar deve sempre agir no interesse maior do conjunto dos serviços.\"?",
+        options: [
+          "A) cooperação",
+          "B) decisão",
+          "C) abnegação",
+          "D) espírito militar",
+          "E) disciplina"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"cooperação\" na Rosa das Virtudes."
+      },
+      {
+        id: 52,
+        text: "Complete: a virtude descrita como \"O cultivo do Espírito de Sacrifício é praticado vencendo os pequenos incômodos pessoais, os menores percalços do dia a dia.\" é conhecida como:",
+        options: [
+          "A) abnegação",
+          "B) espírito de sacrifício",
+          "C) espírito militar",
+          "D) disciplina",
+          "E) patriotismo"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"espírito de sacrifício\" na Rosa das Virtudes."
+      },
+      {
+        id: 53,
+        text: "Assinale a virtude correspondente ao trecho: \"É, por isso mesmo, virtude que deve ser comum a todos os que servem à Marinha.\".",
+        options: [
+          "A) espírito militar",
+          "B) disciplina",
+          "C) zelo",
+          "D) patriotismo",
+          "E) honra"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"zelo\" na Rosa das Virtudes."
+      },
+      {
+        id: 54,
+        text: "Qual virtude da Rosa das Virtudes está descrita a seguir: \"É a força capaz de fazer com que aquele que ama a vida, e que nela é feliz, saiba arriscá-la e se disponha a morrer por uma causa nobre.\"?",
+        options: [
+          "A) disciplina",
+          "B) patriotismo",
+          "C) honra",
+          "D) coragem",
+          "E) lealdade"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"coragem\" na Rosa das Virtudes."
+      },
+      {
+        id: 55,
+        text: "Segundo a Rosa das Virtudes (Anexo B da apostila de Liderança), a que virtude se refere o trecho: \"Como exemplo de disciplina e método, a ordem orienta o espírito e promove segurança, porque resguarda e alinha em lugar próprio aquilo que será utilizado no futuro.\"?",
+        options: [
+          "A) patriotismo",
+          "B) honra",
+          "C) lealdade",
+          "D) iniciativa",
+          "E) ordem"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"ordem\" na Rosa das Virtudes."
+      },
+      {
+        id: 56,
+        text: "Complete: a virtude descrita como \"A fidelidade ao serviço impede que o militar cuide de afazeres e atividades estranhos à Marinha, enquanto estiver ao seu serviço, e negligencie as suas obrigações.\" é conhecida como:",
+        options: [
+          "A) fidelidade",
+          "B) honra",
+          "C) lealdade",
+          "D) iniciativa",
+          "E) cooperação"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"fidelidade\" na Rosa das Virtudes."
+      },
+      {
+        id: 57,
+        text: "Assinale a virtude correspondente ao trecho: \"O \"Fogo Sagrado\" transmite-se, mas para tanto é preciso possuí-lo em grande intensidade e demonstrá-lo mais por atitudes e ações do que por ordens e palavras.\".",
+        options: [
+          "A) lealdade",
+          "B) fogo sagrado",
+          "C) iniciativa",
+          "D) cooperação",
+          "E) espírito de sacrifício"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"fogo sagrado\" na Rosa das Virtudes."
+      },
+      {
+        id: 58,
+        text: "Qual virtude da Rosa das Virtudes está descrita a seguir: \"É a disposição para estudar tanto o material em si como também a maneira de utilizá-lo; para estar a par das rotinas, da organização interna de bordo, da ordenança, dos regulamentos e das leis.\"?",
+        options: [
+          "A) iniciativa",
+          "B) cooperação",
+          "C) tenacidade",
+          "D) espírito de sacrifício",
+          "E) zelo"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"tenacidade\" na Rosa das Virtudes."
+      },
+      {
+        id: 59,
+        text: "Segundo a Rosa das Virtudes (Anexo B da apostila de Liderança), a que virtude se refere o trecho: \"Não há qualidade, no trato geral dos militares com seus subordinados, que mais tenda a aumentar o respeito e confiança desses subordinados, do que sua capacidade de decidir.\"?",
+        options: [
+          "A) cooperação",
+          "B) espírito de sacrifício",
+          "C) zelo",
+          "D) decisão",
+          "E) coragem"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"decisão\" na Rosa das Virtudes."
+      },
+      {
+        id: 60,
+        text: "Complete: a virtude descrita como \"É a renegação de si mesmo e a disposição de se colocar a serviço dos outros com o sacrifício dos próprios interesses.\" é conhecida como:",
+        options: [
+          "A) espírito de sacrifício",
+          "B) zelo",
+          "C) coragem",
+          "D) ordem",
+          "E) abnegação"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"abnegação\" na Rosa das Virtudes."
+      },
+      {
+        id: 61,
+        text: "Assinale a virtude correspondente ao trecho: \"O militar dotado de Espírito Militar cria em torno de si um ambiente de compostura, seriedade e confiança.\".",
+        options: [
+          "A) espírito militar",
+          "B) zelo",
+          "C) coragem",
+          "D) ordem",
+          "E) fidelidade"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"espírito militar\" na Rosa das Virtudes."
+      },
+      {
+        id: 62,
+        text: "Qual virtude da Rosa das Virtudes está descrita a seguir: \"É indispensável não só a um Organismo Militar, mas a qualquer outro que pretenda reunir indivíduos em uma unidade sólida e eficaz.\"?",
+        options: [
+          "A) coragem",
+          "B) disciplina",
+          "C) ordem",
+          "D) fidelidade",
+          "E) fogo sagrado"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"disciplina\" na Rosa das Virtudes."
+      },
+      {
+        id: 63,
+        text: "Segundo a Rosa das Virtudes (Anexo B da apostila de Liderança), a que virtude se refere o trecho: \"É a trama de afetos que, através das gerações, vai sendo tecida em suas almas ao redor do solo querido.\"?",
+        options: [
+          "A) ordem",
+          "B) fidelidade",
+          "C) patriotismo",
+          "D) fogo sagrado",
+          "E) tenacidade"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"patriotismo\" na Rosa das Virtudes."
+      },
+      {
+        id: 64,
+        text: "Complete: a virtude descrita como \"É a sustentação das próprias ordens, atitudes e convicções; o saber assumir a responsabilidade dos seus atos; o afrontamento à perfídia, à inveja e à incompreensão; a manutenção intransigente do rumo moral, custe o que custar.\" é conhecida como:",
+        options: [
+          "A) fogo sagrado",
+          "B) tenacidade",
+          "C) decisão",
+          "D) coragem moral",
+          "E) abnegação"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"coragem moral\" na Rosa das Virtudes."
+      },
+      {
+        id: 65,
+        text: "Assinale a virtude correspondente ao trecho: \"Ela exige a posse do perfeito sentimento do que é justo e respeitável, para a elevação da dignidade e da bravura desse indivíduo, e, assim, afrontar perigos de toda a ordem, na sustentação dos ditames da Verdade e do Direito.\".",
+        options: [
+          "A) patriotismo",
+          "B) lealdade",
+          "C) iniciativa",
+          "D) cooperação",
+          "E) honra"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"honra\" na Rosa das Virtudes."
+      },
+      {
+        id: 66,
+        text: "Qual virtude da Rosa das Virtudes está descrita a seguir: \"A Lealdade é mais do que a Obediência, porque esta se refere à vontade expressa pelo superior e aquela, ao firme propósito de honestamente interpretá-la e fielmente cumpri-la.\"?",
+        options: [
+          "A) lealdade",
+          "B) honra",
+          "C) iniciativa",
+          "D) cooperação",
+          "E) espírito de sacrifício"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"lealdade\" na Rosa das Virtudes."
+      },
+      {
+        id: 67,
+        text: "Segundo a Rosa das Virtudes (Anexo B da apostila de Liderança), a que virtude se refere o trecho: \"A Iniciativa, em um plano mais elevado, é a faculdade de deliberar acertadamente em circunstâncias imprevistas ou na ausência dos superiores, agindo sob responsabilidade própria, mas dentro da doutrina, a bem do serviço.\"?",
+        options: [
+          "A) lealdade",
+          "B) iniciativa",
+          "C) cooperação",
+          "D) espírito de sacrifício",
+          "E) zelo"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"iniciativa\" na Rosa das Virtudes."
+      },
+      {
+        id: 68,
+        text: "Complete: a virtude descrita como \"É a Cooperação que faz a eficiência da Marinha.\" é conhecida como:",
+        options: [
+          "A) iniciativa",
+          "B) espírito de sacrifício",
+          "C) cooperação",
+          "D) zelo",
+          "E) coragem"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"cooperação\" na Rosa das Virtudes."
+      },
+      {
+        id: 69,
+        text: "Assinale a virtude correspondente ao trecho: \"\"Quem não é fiel no pouco, certamente não será no muito\": somente percebendo o valor das coisas é que se desenvolve o Espírito de Sacrifício.\".",
+        options: [
+          "A) cooperação",
+          "B) zelo",
+          "C) coragem",
+          "D) espírito de sacrifício",
+          "E) ordem"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"espírito de sacrifício\" na Rosa das Virtudes."
+      },
+      {
+        id: 70,
+        text: "Qual virtude da Rosa das Virtudes está descrita a seguir: \"Essa qualidade é consequência direta do \"amor próprio\", do amor à Marinha e à Nação.\"?",
+        options: [
+          "A) espírito de sacrifício",
+          "B) coragem",
+          "C) ordem",
+          "D) fidelidade",
+          "E) zelo"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"zelo\" na Rosa das Virtudes."
+      },
+      {
+        id: 71,
+        text: "Segundo a Rosa das Virtudes (Anexo B da apostila de Liderança), a que virtude se refere o trecho: \"A Coragem é o destemor em combate.\"?",
+        options: [
+          "A) coragem",
+          "B) zelo",
+          "C) ordem",
+          "D) fidelidade",
+          "E) fogo sagrado"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"coragem\" na Rosa das Virtudes."
+      },
+      {
+        id: 72,
+        text: "Complete: a virtude descrita como \"A sua falta traz o desperdício e a perda do tempo, bem precioso, e que, uma vez perdido, não há como reaver.\" é conhecida como:",
+        options: [
+          "A) coragem",
+          "B) ordem",
+          "C) fidelidade",
+          "D) fogo sagrado",
+          "E) tenacidade"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"ordem\" na Rosa das Virtudes."
+      },
+      {
+        id: 73,
+        text: "Assinale a virtude correspondente ao trecho: \"Cumprir ordens difíceis, arriscando a vida, contrariando os próprios interesses e opiniões, por fidelidade ao serviço, é muito mais digno, porquanto implica sacrifício, que caracteriza a virtude militar.\".",
+        options: [
+          "A) ordem",
+          "B) fogo sagrado",
+          "C) fidelidade",
+          "D) tenacidade",
+          "E) decisão"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"fidelidade\" na Rosa das Virtudes."
+      },
+      {
+        id: 74,
+        text: "Qual virtude da Rosa das Virtudes está descrita a seguir: \"O \"Fogo Sagrado\" é a alma da Marinha!\"?",
+        options: [
+          "A) fidelidade",
+          "B) tenacidade",
+          "C) decisão",
+          "D) fogo sagrado",
+          "E) abnegação"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"fogo sagrado\" na Rosa das Virtudes."
+      },
+      {
+        id: 75,
+        text: "Segundo a Rosa das Virtudes (Anexo B da apostila de Liderança), a que virtude se refere o trecho: \"Na arte de conduzir os homens, faz-se necessária a Tenacidade, o poder da vontade: é o saber querer longamente, sem desfalecimento e sem trégua, a presença de ânimo perante qualquer obstáculo ou dificuldade.\"?",
+        options: [
+          "A) fogo sagrado",
+          "B) decisão",
+          "C) abnegação",
+          "D) espírito militar",
+          "E) tenacidade"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"tenacidade\" na Rosa das Virtudes."
+      },
+      {
+        id: 76,
+        text: "Complete: a virtude descrita como \"O irresoluto, o perplexo, jamais poderá conduzir homens ou comandar navios.\" é conhecida como:",
+        options: [
+          "A) decisão",
+          "B) tenacidade",
+          "C) abnegação",
+          "D) espírito militar",
+          "E) disciplina"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"decisão\" na Rosa das Virtudes."
+      },
+      {
+        id: 77,
+        text: "Assinale a virtude correspondente ao trecho: \"A Abnegação fortalece o desenvolvimento de todas as atividades de serviço à Marinha, criando a unidade de ação, pois ela é passar por cima de qualquer interesse individual.\".",
+        options: [
+          "A) decisão",
+          "B) abnegação",
+          "C) espírito militar",
+          "D) disciplina",
+          "E) patriotismo"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"abnegação\" na Rosa das Virtudes."
+      },
+      {
+        id: 78,
+        text: "Segundo a Rosa das Virtudes (Anexo B da apostila de Liderança), a que virtude se refere o trecho: \"A Disciplina não visa a tolher a personalidade, mas sim a regular e coordenar esforços.\"?",
+        options: [
+          "A) espírito militar",
+          "B) patriotismo",
+          "C) disciplina",
+          "D) honra",
+          "E) lealdade"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"disciplina\" na Rosa das Virtudes."
+      },
+      {
+        id: 79,
+        text: "Complete: a virtude descrita como \"Externamente, é a emoção que os indivíduos sentem ao ouvir os acordes do Hino Nacional e ao ver desfraldada a Bandeira de sua Pátria.\" é conhecida como:",
+        options: [
+          "A) disciplina",
+          "B) honra",
+          "C) lealdade",
+          "D) patriotismo",
+          "E) iniciativa"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"patriotismo\" na Rosa das Virtudes."
+      },
+      {
+        id: 80,
+        text: "Segundo a Rosa das Virtudes, qual das alternativas resume corretamente a virtude \"honra\"?",
+        options: [
+          "A) A disposição natural que permite dominar o medo e enfrentar qualquer perigo — o destemor em combate.",
+          "B) A diligência que economiza o tempo e a previdência que o conserva, orientando o espírito e promovendo segurança.",
+          "C) Ser honesto e ter têmpera forte para opinar e agir sempre pelo bem, mesmo quando isso contrariar as conveniências pessoais.",
+          "D) A paixão, a fé e o entusiasmo com que o militar se dedica à carreira — o intenso amor à Marinha e o supremo amor pelo serviço.",
+          "E) O sentimento que induz o indivíduo à prática do Bem, da Justiça e da Moral, força que o impele a prestigiar sua própria personalidade como patrimônio moral."
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "A definição correta de \"honra\" é a citada. As demais alternativas resumem outras virtudes da Rosa das Virtudes (coragem, ordem, fidelidade, fogo sagrado) — preste atenção para não trocar uma virtude por outra parecida."
+      },
+      {
+        id: 81,
+        text: "Segundo a Rosa das Virtudes, qual das alternativas resume corretamente a virtude \"lealdade\"?",
+        options: [
+          "A) O verdadeiro, espontâneo e incansável devotamento a uma causa, a sincera obediência à autoridade dos superiores e o respeito à dignidade alheia.",
+          "B) A diligência que economiza o tempo e a previdência que o conserva, orientando o espírito e promovendo segurança.",
+          "C) Ser honesto e ter têmpera forte para opinar e agir sempre pelo bem, mesmo quando isso contrariar as conveniências pessoais.",
+          "D) A paixão, a fé e o entusiasmo com que o militar se dedica à carreira — o intenso amor à Marinha e o supremo amor pelo serviço.",
+          "E) A forma de dedicação e amor ao serviço; o saber querer longamente, sem desfalecimento, diante de qualquer obstáculo."
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "A definição correta de \"lealdade\" é a citada. As demais alternativas resumem outras virtudes da Rosa das Virtudes (ordem, fidelidade, fogo sagrado, tenacidade) — preste atenção para não trocar uma virtude por outra parecida."
+      },
+      {
+        id: 82,
+        text: "Segundo a Rosa das Virtudes, qual das alternativas resume corretamente a virtude \"iniciativa\"?",
+        options: [
+          "A) Ser honesto e ter têmpera forte para opinar e agir sempre pelo bem, mesmo quando isso contrariar as conveniências pessoais.",
+          "B) O ânimo pronto para conceber e executar, e a faculdade de deliberar acertadamente em circunstâncias imprevistas ou na ausência dos superiores.",
+          "C) A paixão, a fé e o entusiasmo com que o militar se dedica à carreira — o intenso amor à Marinha e o supremo amor pelo serviço.",
+          "D) A forma de dedicação e amor ao serviço; o saber querer longamente, sem desfalecimento, diante de qualquer obstáculo.",
+          "E) Tomar resolução, sentenciar, orientar a ação — a qualidade que mais aumenta o respeito e a confiança dos subordinados."
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "A definição correta de \"iniciativa\" é a citada. As demais alternativas resumem outras virtudes da Rosa das Virtudes (fidelidade, fogo sagrado, tenacidade, decisão) — preste atenção para não trocar uma virtude por outra parecida."
+      },
+      {
+        id: 83,
+        text: "Segundo a Rosa das Virtudes, qual das alternativas resume corretamente a virtude \"cooperação\"?",
+        options: [
+          "A) A paixão, a fé e o entusiasmo com que o militar se dedica à carreira — o intenso amor à Marinha e o supremo amor pelo serviço.",
+          "B) A forma de dedicação e amor ao serviço; o saber querer longamente, sem desfalecimento, diante de qualquer obstáculo.",
+          "C) Auxiliar eficiente e desinteressadamente, esforçando-se em benefício de uma causa comum — a virtude que faz a eficiência da Marinha.",
+          "D) Tomar resolução, sentenciar, orientar a ação — a qualidade que mais aumenta o respeito e a confiança dos subordinados.",
+          "E) O esquecimento voluntário do que há de egoístico nos desejos, em proveito de uma pessoa, causa ou ideia."
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "A definição correta de \"cooperação\" é a citada. As demais alternativas resumem outras virtudes da Rosa das Virtudes (fogo sagrado, tenacidade, decisão, abnegação) — preste atenção para não trocar uma virtude por outra parecida."
+      },
+      {
+        id: 84,
+        text: "Segundo a Rosa das Virtudes, qual das alternativas resume corretamente a virtude \"espírito de sacrifício\"?",
+        options: [
+          "A) A forma de dedicação e amor ao serviço; o saber querer longamente, sem desfalecimento, diante de qualquer obstáculo.",
+          "B) Tomar resolução, sentenciar, orientar a ação — a qualidade que mais aumenta o respeito e a confiança dos subordinados.",
+          "C) O esquecimento voluntário do que há de egoístico nos desejos, em proveito de uma pessoa, causa ou ideia.",
+          "D) A disposição sincera de oferecer, espontaneamente, interesses, comodidades e a própria vida, em prol do cumprimento do dever.",
+          "E) A qualidade que impele o militar a cumprir com natural interesse, dentro da ética, os deveres do serviço, com disciplina e lealdade."
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "A definição correta de \"espírito de sacrifício\" é a citada. As demais alternativas resumem outras virtudes da Rosa das Virtudes (tenacidade, decisão, abnegação, espírito militar) — preste atenção para não trocar uma virtude por outra parecida."
+      },
+      {
+        id: 85,
+        text: "Segundo a Rosa das Virtudes, qual das alternativas resume corretamente a virtude \"zelo\"?",
+        options: [
+          "A) Tomar resolução, sentenciar, orientar a ação — a qualidade que mais aumenta o respeito e a confiança dos subordinados.",
+          "B) O esquecimento voluntário do que há de egoístico nos desejos, em proveito de uma pessoa, causa ou ideia.",
+          "C) A qualidade que impele o militar a cumprir com natural interesse, dentro da ética, os deveres do serviço, com disciplina e lealdade.",
+          "D) A força de coesão de qualquer coletividade humana, que regula e coordena esforços sem tolher a personalidade.",
+          "E) A virtude que não depende, em alto grau, de preparo profissional, e que deve ser comum a todos os que servem à Marinha, consequência do amor à Marinha e à Nação."
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "A definição correta de \"zelo\" é a citada. As demais alternativas resumem outras virtudes da Rosa das Virtudes (decisão, abnegação, espírito militar, disciplina) — preste atenção para não trocar uma virtude por outra parecida."
+      },
+      {
+        id: 86,
+        text: "Segundo a Rosa das Virtudes, qual das alternativas resume corretamente a virtude \"coragem\"?",
+        options: [
+          "A) A disposição natural que permite dominar o medo e enfrentar qualquer perigo — o destemor em combate.",
+          "B) O esquecimento voluntário do que há de egoístico nos desejos, em proveito de uma pessoa, causa ou ideia.",
+          "C) A qualidade que impele o militar a cumprir com natural interesse, dentro da ética, os deveres do serviço, com disciplina e lealdade.",
+          "D) A força de coesão de qualquer coletividade humana, que regula e coordena esforços sem tolher a personalidade.",
+          "E) O sentimento irresistível que prende os indivíduos à terra em que nasceram, unindo-os em defesa da Pátria."
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "A definição correta de \"coragem\" é a citada. As demais alternativas resumem outras virtudes da Rosa das Virtudes (abnegação, espírito militar, disciplina, patriotismo) — preste atenção para não trocar uma virtude por outra parecida."
+      },
+      {
+        id: 87,
+        text: "Segundo a Rosa das Virtudes, qual das alternativas resume corretamente a virtude \"ordem\"?",
+        options: [
+          "A) A qualidade que impele o militar a cumprir com natural interesse, dentro da ética, os deveres do serviço, com disciplina e lealdade.",
+          "B) A diligência que economiza o tempo e a previdência que o conserva, orientando o espírito e promovendo segurança.",
+          "C) A força de coesão de qualquer coletividade humana, que regula e coordena esforços sem tolher a personalidade.",
+          "D) O sentimento irresistível que prende os indivíduos à terra em que nasceram, unindo-os em defesa da Pátria.",
+          "E) O sentimento que induz o indivíduo à prática do Bem, da Justiça e da Moral, força que o impele a prestigiar sua própria personalidade como patrimônio moral."
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "A definição correta de \"ordem\" é a citada. As demais alternativas resumem outras virtudes da Rosa das Virtudes (espírito militar, disciplina, patriotismo, honra) — preste atenção para não trocar uma virtude por outra parecida."
+      },
+      {
+        id: 88,
+        text: "Segundo a Rosa das Virtudes, qual das alternativas resume corretamente a virtude \"fidelidade\"?",
+        options: [
+          "A) A força de coesão de qualquer coletividade humana, que regula e coordena esforços sem tolher a personalidade.",
+          "B) O sentimento irresistível que prende os indivíduos à terra em que nasceram, unindo-os em defesa da Pátria.",
+          "C) Ser honesto e ter têmpera forte para opinar e agir sempre pelo bem, mesmo quando isso contrariar as conveniências pessoais.",
+          "D) O sentimento que induz o indivíduo à prática do Bem, da Justiça e da Moral, força que o impele a prestigiar sua própria personalidade como patrimônio moral.",
+          "E) O verdadeiro, espontâneo e incansável devotamento a uma causa, a sincera obediência à autoridade dos superiores e o respeito à dignidade alheia."
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "A definição correta de \"fidelidade\" é a citada. As demais alternativas resumem outras virtudes da Rosa das Virtudes (disciplina, patriotismo, honra, lealdade) — preste atenção para não trocar uma virtude por outra parecida."
+      },
+      {
+        id: 89,
+        text: "Segundo a Rosa das Virtudes, qual das alternativas resume corretamente a virtude \"fogo sagrado\"?",
+        options: [
+          "A) O sentimento irresistível que prende os indivíduos à terra em que nasceram, unindo-os em defesa da Pátria.",
+          "B) O sentimento que induz o indivíduo à prática do Bem, da Justiça e da Moral, força que o impele a prestigiar sua própria personalidade como patrimônio moral.",
+          "C) O verdadeiro, espontâneo e incansável devotamento a uma causa, a sincera obediência à autoridade dos superiores e o respeito à dignidade alheia.",
+          "D) A paixão, a fé e o entusiasmo com que o militar se dedica à carreira — o intenso amor à Marinha e o supremo amor pelo serviço.",
+          "E) O ânimo pronto para conceber e executar, e a faculdade de deliberar acertadamente em circunstâncias imprevistas ou na ausência dos superiores."
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "A definição correta de \"fogo sagrado\" é a citada. As demais alternativas resumem outras virtudes da Rosa das Virtudes (patriotismo, honra, lealdade, iniciativa) — preste atenção para não trocar uma virtude por outra parecida."
+      },
+      {
+        id: 90,
+        text: "Segundo a Rosa das Virtudes, qual das alternativas resume corretamente a virtude \"tenacidade\"?",
+        options: [
+          "A) O sentimento que induz o indivíduo à prática do Bem, da Justiça e da Moral, força que o impele a prestigiar sua própria personalidade como patrimônio moral.",
+          "B) O verdadeiro, espontâneo e incansável devotamento a uma causa, a sincera obediência à autoridade dos superiores e o respeito à dignidade alheia.",
+          "C) O ânimo pronto para conceber e executar, e a faculdade de deliberar acertadamente em circunstâncias imprevistas ou na ausência dos superiores.",
+          "D) Auxiliar eficiente e desinteressadamente, esforçando-se em benefício de uma causa comum — a virtude que faz a eficiência da Marinha.",
+          "E) A forma de dedicação e amor ao serviço; o saber querer longamente, sem desfalecimento, diante de qualquer obstáculo."
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "A definição correta de \"tenacidade\" é a citada. As demais alternativas resumem outras virtudes da Rosa das Virtudes (honra, lealdade, iniciativa, cooperação) — preste atenção para não trocar uma virtude por outra parecida."
+      },
+      {
+        id: 91,
+        text: "Segundo a Rosa das Virtudes, qual das alternativas resume corretamente a virtude \"decisão\"?",
+        options: [
+          "A) Tomar resolução, sentenciar, orientar a ação — a qualidade que mais aumenta o respeito e a confiança dos subordinados.",
+          "B) O verdadeiro, espontâneo e incansável devotamento a uma causa, a sincera obediência à autoridade dos superiores e o respeito à dignidade alheia.",
+          "C) O ânimo pronto para conceber e executar, e a faculdade de deliberar acertadamente em circunstâncias imprevistas ou na ausência dos superiores.",
+          "D) Auxiliar eficiente e desinteressadamente, esforçando-se em benefício de uma causa comum — a virtude que faz a eficiência da Marinha.",
+          "E) A disposição sincera de oferecer, espontaneamente, interesses, comodidades e a própria vida, em prol do cumprimento do dever."
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "A definição correta de \"decisão\" é a citada. As demais alternativas resumem outras virtudes da Rosa das Virtudes (lealdade, iniciativa, cooperação, espírito de sacrifício) — preste atenção para não trocar uma virtude por outra parecida."
+      },
+      {
+        id: 92,
+        text: "Segundo a Rosa das Virtudes, qual das alternativas resume corretamente a virtude \"abnegação\"?",
+        options: [
+          "A) O ânimo pronto para conceber e executar, e a faculdade de deliberar acertadamente em circunstâncias imprevistas ou na ausência dos superiores.",
+          "B) O esquecimento voluntário do que há de egoístico nos desejos, em proveito de uma pessoa, causa ou ideia.",
+          "C) Auxiliar eficiente e desinteressadamente, esforçando-se em benefício de uma causa comum — a virtude que faz a eficiência da Marinha.",
+          "D) A disposição sincera de oferecer, espontaneamente, interesses, comodidades e a própria vida, em prol do cumprimento do dever.",
+          "E) A virtude que não depende, em alto grau, de preparo profissional, e que deve ser comum a todos os que servem à Marinha, consequência do amor à Marinha e à Nação."
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "A definição correta de \"abnegação\" é a citada. As demais alternativas resumem outras virtudes da Rosa das Virtudes (iniciativa, cooperação, espírito de sacrifício, zelo) — preste atenção para não trocar uma virtude por outra parecida."
+      },
+      {
+        id: 93,
+        text: "Segundo a Rosa das Virtudes, qual das alternativas resume corretamente a virtude \"espírito militar\"?",
+        options: [
+          "A) Auxiliar eficiente e desinteressadamente, esforçando-se em benefício de uma causa comum — a virtude que faz a eficiência da Marinha.",
+          "B) A disposição sincera de oferecer, espontaneamente, interesses, comodidades e a própria vida, em prol do cumprimento do dever.",
+          "C) A qualidade que impele o militar a cumprir com natural interesse, dentro da ética, os deveres do serviço, com disciplina e lealdade.",
+          "D) A virtude que não depende, em alto grau, de preparo profissional, e que deve ser comum a todos os que servem à Marinha, consequência do amor à Marinha e à Nação.",
+          "E) A disposição natural que permite dominar o medo e enfrentar qualquer perigo — o destemor em combate."
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "A definição correta de \"espírito militar\" é a citada. As demais alternativas resumem outras virtudes da Rosa das Virtudes (cooperação, espírito de sacrifício, zelo, coragem) — preste atenção para não trocar uma virtude por outra parecida."
+      },
+      {
+        id: 94,
+        text: "Segundo a Rosa das Virtudes, qual das alternativas resume corretamente a virtude \"disciplina\"?",
+        options: [
+          "A) A disposição sincera de oferecer, espontaneamente, interesses, comodidades e a própria vida, em prol do cumprimento do dever.",
+          "B) A virtude que não depende, em alto grau, de preparo profissional, e que deve ser comum a todos os que servem à Marinha, consequência do amor à Marinha e à Nação.",
+          "C) A disposição natural que permite dominar o medo e enfrentar qualquer perigo — o destemor em combate.",
+          "D) A força de coesão de qualquer coletividade humana, que regula e coordena esforços sem tolher a personalidade.",
+          "E) A diligência que economiza o tempo e a previdência que o conserva, orientando o espírito e promovendo segurança."
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "A definição correta de \"disciplina\" é a citada. As demais alternativas resumem outras virtudes da Rosa das Virtudes (espírito de sacrifício, zelo, coragem, ordem) — preste atenção para não trocar uma virtude por outra parecida."
+      },
+      {
+        id: 95,
+        text: "Segundo a Rosa das Virtudes, qual das alternativas resume corretamente a virtude \"patriotismo\"?",
+        options: [
+          "A) A virtude que não depende, em alto grau, de preparo profissional, e que deve ser comum a todos os que servem à Marinha, consequência do amor à Marinha e à Nação.",
+          "B) A disposição natural que permite dominar o medo e enfrentar qualquer perigo — o destemor em combate.",
+          "C) A diligência que economiza o tempo e a previdência que o conserva, orientando o espírito e promovendo segurança.",
+          "D) Ser honesto e ter têmpera forte para opinar e agir sempre pelo bem, mesmo quando isso contrariar as conveniências pessoais.",
+          "E) O sentimento irresistível que prende os indivíduos à terra em que nasceram, unindo-os em defesa da Pátria."
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "A definição correta de \"patriotismo\" é a citada. As demais alternativas resumem outras virtudes da Rosa das Virtudes (zelo, coragem, ordem, fidelidade) — preste atenção para não trocar uma virtude por outra parecida."
+      },
+      {
+        id: 96,
+        text: "Segundo a Rosa das Virtudes, qual das alternativas resume corretamente a virtude \"coragem moral\"?",
+        options: [
+          "A) A força psíquica que ampara nas crises do pensamento e do caráter, sustentando as próprias convicções e assumindo a responsabilidade dos próprios atos.",
+          "B) A diligência que economiza o tempo e a previdência que o conserva, orientando o espírito e promovendo segurança.",
+          "C) Ser honesto e ter têmpera forte para opinar e agir sempre pelo bem, mesmo quando isso contrariar as conveniências pessoais.",
+          "D) A paixão, a fé e o entusiasmo com que o militar se dedica à carreira — o intenso amor à Marinha e o supremo amor pelo serviço.",
+          "E) A forma de dedicação e amor ao serviço; o saber querer longamente, sem desfalecimento, diante de qualquer obstáculo."
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "A definição correta de \"coragem moral\" é a citada. As demais alternativas resumem outras virtudes da Rosa das Virtudes (ordem, fidelidade, fogo sagrado, tenacidade) — preste atenção para não trocar uma virtude por outra parecida."
+      },
+      {
+        id: 97,
+        text: "Mesmo cercado e em desvantagem, o Comandante recusa-se a render seu navio ao inimigo, preferindo lutar até o fim a arriar a bandeira. Essa atitude ilustra a virtude:",
+        options: [
+          "A) tenacidade",
+          "B) honra",
+          "C) decisão",
+          "D) abnegação",
+          "E) espírito militar"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "A cena descrita ilustra a virtude \"honra\", da Rosa das Virtudes. Esse tipo de questão pede para reconhecer a virtude por trás de um comportamento, sem citar a definição diretamente."
+      },
+      {
+        id: 98,
+        text: "Discordando pessoalmente de uma ordem, um militar ainda assim a cumpre com o mesmo empenho de sempre, e manifesta sua discordância ao superior de forma respeitosa, pelos canais adequados. Isso ilustra a virtude:",
+        options: [
+          "A) decisão",
+          "B) abnegação",
+          "C) lealdade",
+          "D) espírito militar",
+          "E) disciplina"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "A cena descrita ilustra a virtude \"lealdade\", da Rosa das Virtudes. Esse tipo de questão pede para reconhecer a virtude por trás de um comportamento, sem citar a definição diretamente."
+      },
+      {
+        id: 99,
+        text: "Na ausência do Comandante, o Imediato resolve um problema imprevisto agindo dentro da doutrina, sem esperar por ordens que não poderiam chegar a tempo. Isso ilustra a virtude:",
+        options: [
+          "A) abnegação",
+          "B) espírito militar",
+          "C) disciplina",
+          "D) iniciativa",
+          "E) patriotismo"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "A cena descrita ilustra a virtude \"iniciativa\", da Rosa das Virtudes. Esse tipo de questão pede para reconhecer a virtude por trás de um comportamento, sem citar a definição diretamente."
+      },
+      {
+        id: 100,
+        text: "Uma equipe inteira se ajuda mutuamente na execução de uma tarefa, sem se limitar estritamente ao que cabia a cada um, para que o resultado do conjunto seja o melhor possível. Isso ilustra a virtude:",
+        options: [
+          "A) espírito militar",
+          "B) disciplina",
+          "C) patriotismo",
+          "D) honra",
+          "E) cooperação"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "A cena descrita ilustra a virtude \"cooperação\", da Rosa das Virtudes. Esse tipo de questão pede para reconhecer a virtude por trás de um comportamento, sem citar a definição diretamente."
+      },
+      {
+        id: 101,
+        text: "Um marinheiro abre mão de sua folga e de seu conforto pessoal para concluir uma tarefa urgente antes do previsto, sem que ninguém tenha pedido isso a ele. Isso ilustra a virtude:",
+        options: [
+          "A) espírito de sacrifício",
+          "B) disciplina",
+          "C) patriotismo",
+          "D) honra",
+          "E) lealdade"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "A cena descrita ilustra a virtude \"espírito de sacrifício\", da Rosa das Virtudes. Esse tipo de questão pede para reconhecer a virtude por trás de um comportamento, sem citar a definição diretamente."
+      },
+      {
+        id: 102,
+        text: "Mesmo sem ser cobrado por ninguém, um militar cuida com atenção redobrada dos recursos e do patrimônio sob sua responsabilidade, como se fossem seus. Isso ilustra a virtude:",
+        options: [
+          "A) patriotismo",
+          "B) zelo",
+          "C) honra",
+          "D) lealdade",
+          "E) iniciativa"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "A cena descrita ilustra a virtude \"zelo\", da Rosa das Virtudes. Esse tipo de questão pede para reconhecer a virtude por trás de um comportamento, sem citar a definição diretamente."
+      },
+      {
+        id: 103,
+        text: "Um mergulhador de combate avança para uma área de risco físico real para cumprir sua missão, superando o medo natural do perigo. Isso ilustra a virtude:",
+        options: [
+          "A) honra",
+          "B) lealdade",
+          "C) coragem",
+          "D) iniciativa",
+          "E) cooperação"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "A cena descrita ilustra a virtude \"coragem\", da Rosa das Virtudes. Esse tipo de questão pede para reconhecer a virtude por trás de um comportamento, sem citar a definição diretamente."
+      },
+      {
+        id: 104,
+        text: "Um Sargento organiza cuidadosamente seu material e sua rotina de trabalho, evitando desperdício de tempo e facilitando o uso futuro de tudo que está sob sua responsabilidade. Isso ilustra a virtude:",
+        options: [
+          "A) lealdade",
+          "B) iniciativa",
+          "C) cooperação",
+          "D) ordem",
+          "E) espírito de sacrifício"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "A cena descrita ilustra a virtude \"ordem\", da Rosa das Virtudes. Esse tipo de questão pede para reconhecer a virtude por trás de um comportamento, sem citar a definição diretamente."
+      },
+      {
+        id: 105,
+        text: "Mesmo quando isso contraria seus próprios interesses pessoais, um militar continua a agir sempre pelo bem do serviço, sem se desviar de suas obrigações. Isso ilustra a virtude:",
+        options: [
+          "A) iniciativa",
+          "B) cooperação",
+          "C) espírito de sacrifício",
+          "D) zelo",
+          "E) fidelidade"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "A cena descrita ilustra a virtude \"fidelidade\", da Rosa das Virtudes. Esse tipo de questão pede para reconhecer a virtude por trás de um comportamento, sem citar a definição diretamente."
+      },
+      {
+        id: 106,
+        text: "Um oficial demonstra, por meio de suas atitudes diárias e não apenas de palavras, um amor intenso e uma vocação genuína pela carreira naval. Isso ilustra a virtude:",
+        options: [
+          "A) fogo sagrado",
+          "B) cooperação",
+          "C) espírito de sacrifício",
+          "D) zelo",
+          "E) coragem"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "A cena descrita ilustra a virtude \"fogo sagrado\", da Rosa das Virtudes. Esse tipo de questão pede para reconhecer a virtude por trás de um comportamento, sem citar a definição diretamente."
+      },
+      {
+        id: 107,
+        text: "Diante de sucessivas dificuldades técnicas, um militar continua estudando o equipamento e a rotina até dominá-los por completo, sem desanimar. Isso ilustra a virtude:",
+        options: [
+          "A) espírito de sacrifício",
+          "B) tenacidade",
+          "C) zelo",
+          "D) coragem",
+          "E) ordem"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "A cena descrita ilustra a virtude \"tenacidade\", da Rosa das Virtudes. Esse tipo de questão pede para reconhecer a virtude por trás de um comportamento, sem citar a definição diretamente."
+      },
+      {
+        id: 108,
+        text: "Depois de avaliar cuidadosamente as circunstâncias, um Comandante toma uma resolução firme e se mantém nela, transmitindo segurança aos seus subordinados. Isso ilustra a virtude:",
+        options: [
+          "A) zelo",
+          "B) coragem",
+          "C) decisão",
+          "D) ordem",
+          "E) fidelidade"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "A cena descrita ilustra a virtude \"decisão\", da Rosa das Virtudes. Esse tipo de questão pede para reconhecer a virtude por trás de um comportamento, sem citar a definição diretamente."
+      },
+      {
+        id: 109,
+        text: "Um militar coloca os interesses do serviço acima dos próprios interesses pessoais, sem esperar reconhecimento por isso. Isso ilustra a virtude:",
+        options: [
+          "A) coragem",
+          "B) ordem",
+          "C) fidelidade",
+          "D) abnegação",
+          "E) fogo sagrado"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "A cena descrita ilustra a virtude \"abnegação\", da Rosa das Virtudes. Esse tipo de questão pede para reconhecer a virtude por trás de um comportamento, sem citar a definição diretamente."
+      },
+      {
+        id: 110,
+        text: "Um marinheiro mantém o uniforme impecável, a postura correta diante dos superiores e a seriedade no serviço, mesmo quando ninguém está observando de perto. Isso ilustra a virtude:",
+        options: [
+          "A) ordem",
+          "B) fidelidade",
+          "C) fogo sagrado",
+          "D) tenacidade",
+          "E) espírito militar"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "A cena descrita ilustra a virtude \"espírito militar\", da Rosa das Virtudes. Esse tipo de questão pede para reconhecer a virtude por trás de um comportamento, sem citar a definição diretamente."
+      },
+      {
+        id: 111,
+        text: "Uma tripulação cumpre prontamente as ordens recebidas e coordena seus esforços de forma organizada, sem que isso sufoque a iniciativa individual de cada um. Isso ilustra a virtude:",
+        options: [
+          "A) disciplina",
+          "B) fidelidade",
+          "C) fogo sagrado",
+          "D) tenacidade",
+          "E) decisão"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "A cena descrita ilustra a virtude \"disciplina\", da Rosa das Virtudes. Esse tipo de questão pede para reconhecer a virtude por trás de um comportamento, sem citar a definição diretamente."
+      },
+      {
+        id: 112,
+        text: "Um militar sente um profundo orgulho e emoção ao ouvir o Hino Nacional e ver a Bandeira do Brasil hasteada. Isso ilustra a virtude:",
+        options: [
+          "A) fogo sagrado",
+          "B) patriotismo",
+          "C) tenacidade",
+          "D) decisão",
+          "E) abnegação"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "A cena descrita ilustra a virtude \"patriotismo\", da Rosa das Virtudes. Esse tipo de questão pede para reconhecer a virtude por trás de um comportamento, sem citar a definição diretamente."
+      },
+      {
+        id: 113,
+        text: "Um oficial assume publicamente a responsabilidade por uma decisão impopular que tomou, mesmo sabendo que isso lhe trará críticas. Isso ilustra a virtude:",
+        options: [
+          "A) decisão",
+          "B) abnegação",
+          "C) coragem moral",
+          "D) espírito militar",
+          "E) disciplina"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "A cena descrita ilustra a virtude \"coragem moral\", da Rosa das Virtudes. Esse tipo de questão pede para reconhecer a virtude por trás de um comportamento, sem citar a definição diretamente."
+      },
+      {
+        id: 114,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) honra",
+          "B) lealdade",
+          "C) iniciativa",
+          "D) exemplo",
+          "E) cooperação"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "\"honra\", \"lealdade\", \"iniciativa\", \"cooperação\" são, de fato, virtudes da Rosa das Virtudes. \"Exemplo\" NÃO está entre elas — é um Atributo do Líder (Anexo A da mesma apostila de Liderança), não uma virtude da Rosa das Virtudes (Anexo B) — são duas listas diferentes dentro da mesma apostila."
+      },
+      {
+        id: 115,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) espírito de sacrifício",
+          "B) zelo",
+          "C) coragem",
+          "D) ordem",
+          "E) humildade"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "\"espírito de sacrifício\", \"zelo\", \"coragem\", \"ordem\" são, de fato, virtudes da Rosa das Virtudes. \"Humildade\" NÃO está entre elas — é um Atributo do Líder (Anexo A da mesma apostila de Liderança), não uma virtude da Rosa das Virtudes (Anexo B) — são duas listas diferentes dentro da mesma apostila."
+      },
+      {
+        id: 116,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) competência profissional",
+          "B) fidelidade",
+          "C) fogo sagrado",
+          "D) tenacidade",
+          "E) decisão"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "\"fidelidade\", \"fogo sagrado\", \"tenacidade\", \"decisão\" são, de fato, virtudes da Rosa das Virtudes. \"Competência profissional\" NÃO está entre elas — é um Atributo do Líder (Anexo A da mesma apostila de Liderança), não uma virtude da Rosa das Virtudes (Anexo B) — são duas listas diferentes dentro da mesma apostila."
+      },
+      {
+        id: 117,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) abnegação",
+          "B) entusiasmo",
+          "C) espírito militar",
+          "D) disciplina",
+          "E) patriotismo"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "\"abnegação\", \"espírito militar\", \"disciplina\", \"patriotismo\" são, de fato, virtudes da Rosa das Virtudes. \"Entusiasmo\" NÃO está entre elas — é um Atributo do Líder (Anexo A da mesma apostila de Liderança), não uma virtude da Rosa das Virtudes (Anexo B) — são duas listas diferentes dentro da mesma apostila."
+      },
+      {
+        id: 118,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) honra",
+          "B) coragem",
+          "C) capacidade decisória",
+          "D) disciplina",
+          "E) patriotismo"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "\"honra\", \"coragem\", \"disciplina\", \"patriotismo\" são, de fato, virtudes da Rosa das Virtudes. \"Capacidade decisória\" NÃO está entre elas — é um Atributo do Líder (Anexo A da mesma apostila de Liderança), não uma virtude da Rosa das Virtudes (Anexo B) — são duas listas diferentes dentro da mesma apostila."
+      },
+      {
+        id: 119,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) lealdade",
+          "B) fidelidade",
+          "C) disciplina",
+          "D) autoconfiança",
+          "E) espírito militar"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "\"lealdade\", \"fidelidade\", \"disciplina\", \"espírito militar\" são, de fato, virtudes da Rosa das Virtudes. \"Autoconfiança\" NÃO está entre elas — é um Atributo do Líder (Anexo A da mesma apostila de Liderança), não uma virtude da Rosa das Virtudes (Anexo B) — são duas listas diferentes dentro da mesma apostila."
+      },
+      {
+        id: 120,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) zelo",
+          "B) espírito de sacrifício",
+          "C) abnegação",
+          "D) tenacidade",
+          "E) autocontrole"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "\"zelo\", \"espírito de sacrifício\", \"abnegação\", \"tenacidade\" são, de fato, virtudes da Rosa das Virtudes. \"Autocontrole\" NÃO está entre elas — é um Atributo do Líder (Anexo A da mesma apostila de Liderança), não uma virtude da Rosa das Virtudes (Anexo B) — são duas listas diferentes dentro da mesma apostila."
+      },
+      {
+        id: 121,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) flexibilidade",
+          "B) iniciativa",
+          "C) decisão",
+          "D) coragem",
+          "E) ordem"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "\"iniciativa\", \"decisão\", \"coragem\", \"ordem\" são, de fato, virtudes da Rosa das Virtudes. \"Flexibilidade\" NÃO está entre elas — é um Atributo do Líder (Anexo A da mesma apostila de Liderança), não uma virtude da Rosa das Virtudes (Anexo B) — são duas listas diferentes dentro da mesma apostila."
+      },
+      {
+        id: 122,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) cooperação",
+          "B) altruísmo",
+          "C) espírito militar",
+          "D) disciplina",
+          "E) lealdade"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "\"cooperação\", \"espírito militar\", \"disciplina\", \"lealdade\" são, de fato, virtudes da Rosa das Virtudes. \"Altruísmo\" NÃO está entre elas — é um Atributo do Líder (Anexo A da mesma apostila de Liderança), não uma virtude da Rosa das Virtudes (Anexo B) — são duas listas diferentes dentro da mesma apostila."
+      },
+      {
+        id: 123,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) honra",
+          "B) zelo",
+          "C) respeito",
+          "D) fidelidade",
+          "E) patriotismo"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "\"honra\", \"zelo\", \"fidelidade\", \"patriotismo\" são, de fato, virtudes da Rosa das Virtudes. \"Respeito\" NÃO está entre elas — é um Atributo do Líder (Anexo A da mesma apostila de Liderança), não uma virtude da Rosa das Virtudes (Anexo B) — são duas listas diferentes dentro da mesma apostila."
+      },
+      {
+        id: 124,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) fogo sagrado",
+          "B) tenacidade",
+          "C) coragem",
+          "D) capacidade de relacionamento interpessoal",
+          "E) iniciativa"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "\"fogo sagrado\", \"tenacidade\", \"coragem\", \"iniciativa\" são, de fato, virtudes da Rosa das Virtudes. \"Capacidade de relacionamento interpessoal\" NÃO está entre elas — é um Atributo do Líder (Anexo A da mesma apostila de Liderança), não uma virtude da Rosa das Virtudes (Anexo B) — são duas listas diferentes dentro da mesma apostila."
+      },
+      {
+        id: 125,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) ordem",
+          "B) disciplina",
+          "C) abnegação",
+          "D) espírito militar",
+          "E) comunicação"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "\"ordem\", \"disciplina\", \"abnegação\", \"espírito militar\" são, de fato, virtudes da Rosa das Virtudes. \"Comunicação\" NÃO está entre elas — é um Atributo do Líder (Anexo A da mesma apostila de Liderança), não uma virtude da Rosa das Virtudes (Anexo B) — são duas listas diferentes dentro da mesma apostila."
+      },
+      {
+        id: 126,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) senso de justiça",
+          "B) lealdade",
+          "C) cooperação",
+          "D) espírito de sacrifício",
+          "E) zelo"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "\"lealdade\", \"cooperação\", \"espírito de sacrifício\", \"zelo\" são, de fato, virtudes da Rosa das Virtudes. \"Senso de justiça\" NÃO está entre elas — é um Atributo do Líder (Anexo A da mesma apostila de Liderança), não uma virtude da Rosa das Virtudes (Anexo B) — são duas listas diferentes dentro da mesma apostila."
+      },
+      {
+        id: 127,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) coragem",
+          "B) manobra",
+          "C) decisão",
+          "D) patriotismo",
+          "E) honra"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "\"coragem\", \"decisão\", \"patriotismo\", \"honra\" são, de fato, virtudes da Rosa das Virtudes. \"Manobra\" NÃO está entre elas — é um Princípio de Guerra ou Fator Condicionante do Poder Marítimo (matéria de PEM-2040), sem relação com a Rosa das Virtudes."
+      },
+      {
+        id: 128,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) iniciativa",
+          "B) tenacidade",
+          "C) surpresa",
+          "D) fidelidade",
+          "E) ordem"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "\"iniciativa\", \"tenacidade\", \"fidelidade\", \"ordem\" são, de fato, virtudes da Rosa das Virtudes. \"Surpresa\" NÃO está entre elas — é um Princípio de Guerra ou Fator Condicionante do Poder Marítimo (matéria de PEM-2040), sem relação com a Rosa das Virtudes."
+      },
+      {
+        id: 129,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) fogo sagrado",
+          "B) espírito militar",
+          "C) disciplina",
+          "D) economia de forças",
+          "E) abnegação"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "\"fogo sagrado\", \"espírito militar\", \"disciplina\", \"abnegação\" são, de fato, virtudes da Rosa das Virtudes. \"Economia de forças\" NÃO está entre elas — é um Princípio de Guerra ou Fator Condicionante do Poder Marítimo (matéria de PEM-2040), sem relação com a Rosa das Virtudes."
+      },
+      {
+        id: 130,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) honra",
+          "B) lealdade",
+          "C) coragem",
+          "D) zelo",
+          "E) massa"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "\"honra\", \"lealdade\", \"coragem\", \"zelo\" são, de fato, virtudes da Rosa das Virtudes. \"Massa\" NÃO está entre elas — é um Princípio de Guerra ou Fator Condicionante do Poder Marítimo (matéria de PEM-2040), sem relação com a Rosa das Virtudes."
+      },
+      {
+        id: 131,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) simplicidade",
+          "B) cooperação",
+          "C) espírito de sacrifício",
+          "D) fidelidade",
+          "E) decisão"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "\"cooperação\", \"espírito de sacrifício\", \"fidelidade\", \"decisão\" são, de fato, virtudes da Rosa das Virtudes. \"Simplicidade\" NÃO está entre elas — é um Princípio de Guerra ou Fator Condicionante do Poder Marítimo (matéria de PEM-2040), sem relação com a Rosa das Virtudes."
+      },
+      {
+        id: 132,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) ordem",
+          "B) prontidão",
+          "C) tenacidade",
+          "D) patriotismo",
+          "E) abnegação"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "\"ordem\", \"tenacidade\", \"patriotismo\", \"abnegação\" são, de fato, virtudes da Rosa das Virtudes. \"Prontidão\" NÃO está entre elas — é um Princípio de Guerra ou Fator Condicionante do Poder Marítimo (matéria de PEM-2040), sem relação com a Rosa das Virtudes."
+      },
+      {
+        id: 133,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) disciplina",
+          "B) espírito militar",
+          "C) exploração",
+          "D) iniciativa",
+          "E) coragem"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "\"disciplina\", \"espírito militar\", \"iniciativa\", \"coragem\" são, de fato, virtudes da Rosa das Virtudes. \"Exploração\" NÃO está entre elas — é um Princípio de Guerra ou Fator Condicionante do Poder Marítimo (matéria de PEM-2040), sem relação com a Rosa das Virtudes."
+      },
+      {
+        id: 134,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) zelo",
+          "B) fogo sagrado",
+          "C) lealdade",
+          "D) unidade de comando",
+          "E) honra"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "\"zelo\", \"fogo sagrado\", \"lealdade\", \"honra\" são, de fato, virtudes da Rosa das Virtudes. \"Unidade de comando\" NÃO está entre elas — é um Princípio de Guerra ou Fator Condicionante do Poder Marítimo (matéria de PEM-2040), sem relação com a Rosa das Virtudes."
+      },
+      {
+        id: 135,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) fidelidade",
+          "B) decisão",
+          "C) cooperação",
+          "D) ordem",
+          "E) mentalidade marítima"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "\"fidelidade\", \"decisão\", \"cooperação\", \"ordem\" são, de fato, virtudes da Rosa das Virtudes. \"Mentalidade marítima\" NÃO está entre elas — é um Princípio de Guerra ou Fator Condicionante do Poder Marítimo (matéria de PEM-2040), sem relação com a Rosa das Virtudes."
+      },
+      {
+        id: 136,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) capacidade bélica",
+          "B) patriotismo",
+          "C) abnegação",
+          "D) tenacidade",
+          "E) espírito de sacrifício"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "\"patriotismo\", \"abnegação\", \"tenacidade\", \"espírito de sacrifício\" são, de fato, virtudes da Rosa das Virtudes. \"Capacidade bélica\" NÃO está entre elas — é um Princípio de Guerra ou Fator Condicionante do Poder Marítimo (matéria de PEM-2040), sem relação com a Rosa das Virtudes."
+      },
+      {
+        id: 137,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) coragem",
+          "B) exemplo",
+          "C) iniciativa",
+          "D) zelo",
+          "E) disciplina"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "\"coragem\", \"iniciativa\", \"zelo\", \"disciplina\" são, de fato, virtudes da Rosa das Virtudes. \"Exemplo\" NÃO está entre elas — é um Atributo do Líder (Anexo A da mesma apostila de Liderança), não uma virtude da Rosa das Virtudes (Anexo B) — são duas listas diferentes dentro da mesma apostila."
+      },
+      {
+        id: 138,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) honra",
+          "B) fidelidade",
+          "C) humildade",
+          "D) ordem",
+          "E) fogo sagrado"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "\"honra\", \"fidelidade\", \"ordem\", \"fogo sagrado\" são, de fato, virtudes da Rosa das Virtudes. \"Humildade\" NÃO está entre elas — é um Atributo do Líder (Anexo A da mesma apostila de Liderança), não uma virtude da Rosa das Virtudes (Anexo B) — são duas listas diferentes dentro da mesma apostila."
+      },
+      {
+        id: 139,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) lealdade",
+          "B) espírito militar",
+          "C) decisão",
+          "D) competência profissional",
+          "E) abnegação"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "\"lealdade\", \"espírito militar\", \"decisão\", \"abnegação\" são, de fato, virtudes da Rosa das Virtudes. \"Competência profissional\" NÃO está entre elas — é um Atributo do Líder (Anexo A da mesma apostila de Liderança), não uma virtude da Rosa das Virtudes (Anexo B) — são duas listas diferentes dentro da mesma apostila."
+      },
+      {
+        id: 140,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) cooperação",
+          "B) tenacidade",
+          "C) patriotismo",
+          "D) zelo",
+          "E) entusiasmo"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "\"cooperação\", \"tenacidade\", \"patriotismo\", \"zelo\" são, de fato, virtudes da Rosa das Virtudes. \"Entusiasmo\" NÃO está entre elas — é um Atributo do Líder (Anexo A da mesma apostila de Liderança), não uma virtude da Rosa das Virtudes (Anexo B) — são duas listas diferentes dentro da mesma apostila."
+      },
+      {
+        id: 141,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) flexibilidade",
+          "B) espírito de sacrifício",
+          "C) coragem",
+          "D) disciplina",
+          "E) honra"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "\"espírito de sacrifício\", \"coragem\", \"disciplina\", \"honra\" são, de fato, virtudes da Rosa das Virtudes. \"Flexibilidade\" NÃO está entre elas — é um Atributo do Líder (Anexo A da mesma apostila de Liderança), não uma virtude da Rosa das Virtudes (Anexo B) — são duas listas diferentes dentro da mesma apostila."
+      },
+      {
+        id: 142,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) ordem",
+          "B) senso de justiça",
+          "C) fidelidade",
+          "D) iniciativa",
+          "E) fogo sagrado"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "\"ordem\", \"fidelidade\", \"iniciativa\", \"fogo sagrado\" são, de fato, virtudes da Rosa das Virtudes. \"Senso de justiça\" NÃO está entre elas — é um Atributo do Líder (Anexo A da mesma apostila de Liderança), não uma virtude da Rosa das Virtudes (Anexo B) — são duas listas diferentes dentro da mesma apostila."
+      },
+      {
+        id: 143,
+        text: "São virtudes da Rosa das Virtudes, expressas na apostila de Liderança, EXCETO:",
+        options: [
+          "A) decisão",
+          "B) abnegação",
+          "C) comunicação",
+          "D) zelo",
+          "E) lealdade"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "\"decisão\", \"abnegação\", \"zelo\", \"lealdade\" são, de fato, virtudes da Rosa das Virtudes. \"Comunicação\" NÃO está entre elas — é um Atributo do Líder (Anexo A da mesma apostila de Liderança), não uma virtude da Rosa das Virtudes (Anexo B) — são duas listas diferentes dentro da mesma apostila."
+      },
+      {
+        id: 144,
+        text: "Analise as afirmativas sobre as virtudes da Rosa das Virtudes:\nI — A Honra é descrita como \"a virtude por excelência, porque em si contém todas as demais\".\nII — A Lealdade e a Obediência são exatamente a mesma coisa, segundo a apostila.\nIII — A Iniciativa, em seu sentido mais elevado, só pode ser exercida na presença constante dos superiores.",
+        options: [
+          "A) Nenhuma é verdadeira",
+          "B) Apenas II é verdadeira",
+          "C) Apenas III é verdadeira",
+          "D) Apenas I é verdadeira",
+          "E) I e II são verdadeiras"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "I: Verdadeiro: é exatamente essa a afirmação da apostila sobre a Honra. II: Falso: a apostila diz que a Lealdade é MAIS do que a Obediência — a Obediência é cumprir a vontade expressa do superior, a Lealdade é interpretá-la e cumpri-la honesta e fielmente. III: Falso: a apostila define a Iniciativa \"em um plano mais elevado\" como a faculdade de deliberar acertadamente justamente na AUSÊNCIA dos superiores, dentro da doutrina."
+      },
+      {
+        id: 145,
+        text: "Analise as afirmativas sobre as virtudes da Rosa das Virtudes:\nI — O Zelo é apresentado como uma virtude que exige alto grau de preparo profissional e predicados intelectuais especiais.\nII — A Coragem, segundo a apostila, tem duas formas: uma ligada ao destemor físico, e outra, a coragem moral, ligada à sustentação das próprias convicções.\nIII — A Disciplina, segundo a apostila, tem como objetivo tolher a personalidade dos subordinados.",
+        options: [
+          "A) Nenhuma é verdadeira",
+          "B) Apenas I é verdadeira",
+          "C) Apenas III é verdadeira",
+          "D) I e II são verdadeiras",
+          "E) Apenas II é verdadeira"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "I: Falso: a apostila diz o contrário — o Zelo NÃO depende, em alto grau, de preparo profissional ou predicados especiais, por isso deve ser comum a todos. II: Verdadeiro: a apostila distingue a Coragem (destemor em combate) da coragem moral (força psíquica nas crises do pensamento e do caráter). III: Falso: a apostila afirma explicitamente que a Disciplina \"não visa a tolher a personalidade, mas sim a regular e coordenar esforços\"."
+      },
+      {
+        id: 146,
+        text: "Analise as afirmativas sobre as virtudes da Rosa das Virtudes:\nI — O Fogo Sagrado é descrito como \"a alma da Marinha\".\nII — A Tenacidade e a Decisão significam exatamente a mesma coisa na Rosa das Virtudes.\nIII — A Abnegação implica colocar os próprios interesses acima dos interesses do serviço.",
+        options: [
+          "A) Apenas I é verdadeira",
+          "B) Nenhuma é verdadeira",
+          "C) Apenas II é verdadeira",
+          "D) Apenas III é verdadeira",
+          "E) I e II são verdadeiras"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "I: Verdadeiro: é uma citação literal da definição do Fogo Sagrado na apostila. II: Falso: Tenacidade é a persistência e a vontade diante de obstáculos; Decisão é a capacidade de resolver e orientar a ação com firmeza — são virtudes distintas, embora complementares. III: Falso: é o contrário — a Abnegação é justamente o esquecimento voluntário do que há de egoístico nos próprios desejos, em proveito de uma causa maior."
+      },
+      {
+        id: 147,
+        text: "Analise as afirmativas sobre as virtudes da Rosa das Virtudes:\nI — O Espírito Militar se manifesta, entre outras formas, no apuro do uniforme e na seriedade do serviço.\nII — A Fidelidade, segundo a apostila, só é exigida quando cumprir uma ordem é fácil e agradável.\nIII — O Patriotismo é descrito como um sentimento ligado apenas a símbolos oficiais, sem relação com afeto pela terra natal.",
+        options: [
+          "A) Nenhuma é verdadeira",
+          "B) Apenas I é verdadeira",
+          "C) Apenas II é verdadeira",
+          "D) Apenas III é verdadeira",
+          "E) I e II são verdadeiras"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "I: Verdadeiro: a apostila cita exatamente essas manifestações como expressão do Espírito Militar. II: Falso: a apostila destaca que cumprir ordens difíceis, contrariando interesses pessoais, é o que realmente caracteriza a virtude militar da Fidelidade. III: Falso: a apostila descreve o Patriotismo como \"a trama de afetos\" que liga os indivíduos à terra em que nasceram — os símbolos (Hino, Bandeira) são apenas expressões externas desse sentimento."
+      },
+      {
+        id: 148,
+        text: "Analise as afirmativas sobre as virtudes da Rosa das Virtudes:\nI — A Cooperação é apontada como a virtude que faz a eficiência da Marinha.\nII — A Ordem, segundo a apostila, não tem nenhuma relação com a economia de tempo.\nIII — O Espírito de Sacrifício é praticado apenas em grandes atos heroicos, nunca no dia a dia.",
+        options: [
+          "A) Nenhuma é verdadeira",
+          "B) Apenas II é verdadeira",
+          "C) Apenas I é verdadeira",
+          "D) Apenas III é verdadeira",
+          "E) I e II são verdadeiras"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "I: Verdadeiro: é uma citação literal da apostila sobre a Cooperação. II: Falso: a apostila define a Ordem justamente como diligência \"porque economiza o tempo\". III: Falso: a apostila afirma que o cultivo do Espírito de Sacrifício é praticado vencendo os PEQUENOS incômodos pessoais do dia a dia."
+      },
+      {
+        id: 149,
+        text: "Qual a diferença entre coragem e coragem moral, segundo a Rosa das Virtudes?",
+        options: [
+          "A) As duas são a mesma virtude com nomes diferentes.",
+          "B) Coragem é sobre decisões administrativas, e coragem moral é sobre combate físico.",
+          "C) Coragem moral só existe em tempos de paz.",
+          "D) Coragem é o destemor físico, a disposição para dominar o medo e enfrentar qualquer perigo; coragem moral é a força psíquica que sustenta convicções e a responsabilidade pelos próprios atos, nas crises do pensamento e do caráter.",
+          "E) A apostila não faz essa distinção."
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "\"Coragem\" e \"coragem moral\" são virtudes distintas da Rosa das Virtudes, frequentemente confundidas por tratarem de temas próximos."
+      },
+      {
+        id: 150,
+        text: "Qual a diferença entre lealdade e fidelidade, segundo a Rosa das Virtudes?",
+        options: [
+          "A) São exatamente sinônimos, sem nenhuma diferença de sentido.",
+          "B) Lealdade se aplica só a superiores, e fidelidade só a subordinados.",
+          "C) Fidelidade é sobre uniformes, e lealdade é sobre ordens.",
+          "D) A apostila não define lealdade nem fidelidade.",
+          "E) Lealdade é o devotamento a uma causa e a obediência interpretativa e sincera às ordens dos superiores; fidelidade é a honestidade e a têmpera para agir sempre pelo bem, mesmo contrariando conveniências pessoais."
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "\"Lealdade\" e \"fidelidade\" são virtudes distintas da Rosa das Virtudes, frequentemente confundidas por tratarem de temas próximos."
+      },
+      {
+        id: 151,
+        text: "Qual a diferença entre zelo e espírito de sacrifício, segundo a Rosa das Virtudes?",
+        options: [
+          "A) Zelo é o cuidado constante no desempenho das funções e na administração dos recursos confiados, independente de talento especial; espírito de sacrifício é a disposição de oferecer, espontaneamente, interesses e comodidades pessoais em prol do dever.",
+          "B) As duas virtudes descrevem exatamente a mesma atitude.",
+          "C) Zelo é sobre abrir mão de coisas, e espírito de sacrifício é sobre administrar recursos.",
+          "D) Espírito de sacrifício exige alto grau de preparo profissional, e zelo não.",
+          "E) A apostila trata zelo e espírito de sacrifício como sinônimos."
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "\"Zelo\" e \"espírito de sacrifício\" são virtudes distintas da Rosa das Virtudes, frequentemente confundidas por tratarem de temas próximos."
+      },
+      {
+        id: 152,
+        text: "Qual a diferença entre tenacidade e decisão, segundo a Rosa das Virtudes?",
+        options: [
+          "A) As duas são a mesma virtude.",
+          "B) Tenacidade é a persistência e a vontade de superar obstáculos ao longo do tempo, sem desfalecimento; decisão é a capacidade de resolver e orientar a ação com firmeza no momento certo.",
+          "C) Tenacidade é sobre decidir rápido, e decisão é sobre persistir.",
+          "D) Decisão só se aplica a comandantes, e tenacidade só a subordinados.",
+          "E) A apostila não distingue tenacidade de decisão."
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "\"Tenacidade\" e \"decisão\" são virtudes distintas da Rosa das Virtudes, frequentemente confundidas por tratarem de temas próximos."
+      },
+      {
+        id: 153,
+        text: "Qual a diferença entre disciplina e espírito militar, segundo a Rosa das Virtudes?",
+        options: [
+          "A) Disciplina é exclusiva de tempos de guerra, e espírito militar de tempos de paz.",
+          "B) As duas virtudes são idênticas na Rosa das Virtudes.",
+          "C) Disciplina é a força de coesão que regula e coordena esforços de qualquer coletividade humana; espírito militar é a qualidade que impele o militar a cumprir os deveres do serviço com disciplina e lealdade, zelando pelo prestígio de seu navio e de sua classe.",
+          "D) Espírito militar é sinônimo de obediência cega.",
+          "E) Disciplina se aplica só a oficiais."
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "\"Disciplina\" e \"espírito militar\" são virtudes distintas da Rosa das Virtudes, frequentemente confundidas por tratarem de temas próximos."
+      },
+      {
+        id: 154,
+        text: "Relacione as virtudes da Rosa das Virtudes (coluna 1) às suas definições (coluna 2), segundo a apostila de Liderança, e assinale a sequência correta, de cima para baixo, na coluna 2:\n(1) Honra\n(2) Lealdade\n(3) Iniciativa\n(4) Cooperação\n\n( ) O verdadeiro, espontâneo e incansável devotamento a uma causa, a sincera obediência à autoridade dos superiores e o respeito à dignidade alheia.\n( ) O ânimo pronto para conceber e executar, e a faculdade de deliberar acertadamente em circunstâncias imprevistas ou na ausência dos superiores.\n( ) Auxiliar eficiente e desinteressadamente, esforçando-se em benefício de uma causa comum — a virtude que faz a eficiência da Marinha.\n( ) O sentimento que induz o indivíduo à prática do Bem, da Justiça e da Moral, força que o impele a prestigiar sua própria personalidade como patrimônio moral.",
+        options: [
+          "A) 3-4-1-2",
+          "B) 4-1-2-3",
+          "C) 1-2-3-4",
+          "D) 2-3-4-1",
+          "E) 1-4-3-2"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "A ordem correta segue a associação: honra = definição 1; lealdade = definição 2; iniciativa = definição 3; cooperação = definição 4."
+      },
+      {
+        id: 155,
+        text: "Relacione as virtudes da Rosa das Virtudes (coluna 1) às suas definições (coluna 2), segundo a apostila de Liderança, e assinale a sequência correta, de cima para baixo, na coluna 2:\n(1) Espírito de sacrifício\n(2) Zelo\n(3) Coragem\n(4) Ordem\n\n( ) A disposição natural que permite dominar o medo e enfrentar qualquer perigo — o destemor em combate.\n( ) A diligência que economiza o tempo e a previdência que o conserva, orientando o espírito e promovendo segurança.\n( ) A disposição sincera de oferecer, espontaneamente, interesses, comodidades e a própria vida, em prol do cumprimento do dever.\n( ) A virtude que não depende, em alto grau, de preparo profissional, e que deve ser comum a todos os que servem à Marinha, consequência do amor à Marinha e à Nação.",
+        options: [
+          "A) 4-1-2-3",
+          "B) 1-2-3-4",
+          "C) 2-3-4-1",
+          "D) 2-1-4-3",
+          "E) 3-4-1-2"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "A ordem correta segue a associação: espírito de sacrifício = definição 1; zelo = definição 2; coragem = definição 3; ordem = definição 4."
+      },
+      {
+        id: 156,
+        text: "Relacione as virtudes da Rosa das Virtudes (coluna 1) às suas definições (coluna 2), segundo a apostila de Liderança, e assinale a sequência correta, de cima para baixo, na coluna 2:\n(1) Fidelidade\n(2) Fogo sagrado\n(3) Tenacidade\n(4) Decisão\n\n( ) Tomar resolução, sentenciar, orientar a ação — a qualidade que mais aumenta o respeito e a confiança dos subordinados.\n( ) Ser honesto e ter têmpera forte para opinar e agir sempre pelo bem, mesmo quando isso contrariar as conveniências pessoais.\n( ) A paixão, a fé e o entusiasmo com que o militar se dedica à carreira — o intenso amor à Marinha e o supremo amor pelo serviço.\n( ) A forma de dedicação e amor ao serviço; o saber querer longamente, sem desfalecimento, diante de qualquer obstáculo.",
+        options: [
+          "A) 4-1-2-3",
+          "B) 1-2-3-4",
+          "C) 2-3-4-1",
+          "D) 3-4-1-2",
+          "E) 3-2-1-4"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "A ordem correta segue a associação: fidelidade = definição 1; fogo sagrado = definição 2; tenacidade = definição 3; decisão = definição 4."
+      },
+      {
+        id: 157,
+        text: "Relacione as virtudes da Rosa das Virtudes (coluna 1) às suas definições (coluna 2), segundo a apostila de Liderança, e assinale a sequência correta, de cima para baixo, na coluna 2:\n(1) Abnegação\n(2) Espírito militar\n(3) Disciplina\n(4) Patriotismo\n\n( ) O esquecimento voluntário do que há de egoístico nos desejos, em proveito de uma pessoa, causa ou ideia.\n( ) A qualidade que impele o militar a cumprir com natural interesse, dentro da ética, os deveres do serviço, com disciplina e lealdade.\n( ) A força de coesão de qualquer coletividade humana, que regula e coordena esforços sem tolher a personalidade.\n( ) O sentimento irresistível que prende os indivíduos à terra em que nasceram, unindo-os em defesa da Pátria.",
+        options: [
+          "A) 2-3-4-1",
+          "B) 1-2-3-4",
+          "C) 3-4-1-2",
+          "D) 4-1-2-3",
+          "E) 4-3-2-1"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "A ordem correta segue a associação: abnegação = definição 1; espírito militar = definição 2; disciplina = definição 3; patriotismo = definição 4."
+      },
+      {
+        id: 158,
+        text: "Uma prova de admissão da Marinha cita o seguinte trecho da Rosa das Virtudes: \"É a virtude por excelência, porque em si contém todas as demais.\". A que virtude ele se refere?",
+        options: [
+          "A) ordem",
+          "B) fidelidade",
+          "C) honra",
+          "D) fogo sagrado",
+          "E) tenacidade"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"honra\" na Rosa das Virtudes."
+      },
+      {
+        id: 159,
+        text: "Marque a virtude correspondente à afirmação: \"É o sentimento que leva, pois, o subordinado a fazer tudo quanto for humanamente possível para bem cumprir uma ordem ou desempenhar uma dada missão.\".",
+        options: [
+          "A) fidelidade",
+          "B) fogo sagrado",
+          "C) tenacidade",
+          "D) lealdade",
+          "E) decisão"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"lealdade\" na Rosa das Virtudes."
+      },
+      {
+        id: 160,
+        text: "Uma prova de admissão da Marinha cita o seguinte trecho da Rosa das Virtudes: \"Para assim fazer, é preciso ter capacidade profissional, confiança em si e estar bem orientado.\". A que virtude ele se refere?",
+        options: [
+          "A) fogo sagrado",
+          "B) tenacidade",
+          "C) decisão",
+          "D) abnegação",
+          "E) iniciativa"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"iniciativa\" na Rosa das Virtudes."
+      },
+      {
+        id: 161,
+        text: "Marque a virtude correspondente à afirmação: \"Em todas as atividades, o trabalho deve obedecer a esse espírito de comunhão de esforços, a fim de que a potencialidade do conjunto, como um todo, seja a mais elevada possível.\".",
+        options: [
+          "A) cooperação",
+          "B) tenacidade",
+          "C) decisão",
+          "D) abnegação",
+          "E) espírito militar"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"cooperação\" na Rosa das Virtudes."
+      },
+      {
+        id: 162,
+        text: "Uma prova de admissão da Marinha cita o seguinte trecho da Rosa das Virtudes: \"O Espírito de Sacrifício é a disposição sincera de realmente oferecer, espontaneamente, interesses, comodidades, vida, tudo, em prol do cumprimento do dever.\". A que virtude ele se refere?",
+        options: [
+          "A) decisão",
+          "B) espírito de sacrifício",
+          "C) abnegação",
+          "D) espírito militar",
+          "E) disciplina"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"espírito de sacrifício\" na Rosa das Virtudes."
+      },
+      {
+        id: 163,
+        text: "Marque a virtude correspondente à afirmação: \"É o sentimento que leva a não poupar esforços para o bom desempenho das funções que lhes são atribuídas.\".",
+        options: [
+          "A) abnegação",
+          "B) espírito militar",
+          "C) zelo",
+          "D) disciplina",
+          "E) patriotismo"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"zelo\" na Rosa das Virtudes."
+      },
+      {
+        id: 164,
+        text: "Uma prova de admissão da Marinha cita o seguinte trecho da Rosa das Virtudes: \"A Coragem tem de andar de mãos dadas com a sabedoria, a prudência, o bom senso e a calma.\". A que virtude ele se refere?",
+        options: [
+          "A) espírito militar",
+          "B) disciplina",
+          "C) patriotismo",
+          "D) coragem",
+          "E) honra"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"coragem\" na Rosa das Virtudes."
+      },
+      {
+        id: 165,
+        text: "Marque a virtude correspondente à afirmação: \"A arte de organizar, pôr em ordem, é essencial em um condutor de homens.\".",
+        options: [
+          "A) disciplina",
+          "B) patriotismo",
+          "C) honra",
+          "D) lealdade",
+          "E) ordem"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"ordem\" na Rosa das Virtudes."
+      },
+      {
+        id: 166,
+        text: "Uma prova de admissão da Marinha cita o seguinte trecho da Rosa das Virtudes: \"Ser fiel é ser honesto, ter têmpera forte para opinar e agir sempre pelo bem, mesmo, e principalmente, quando não favorecer ou até contrariar as conveniências pessoais.\". A que virtude ele se refere?",
+        options: [
+          "A) fidelidade",
+          "B) patriotismo",
+          "C) honra",
+          "D) lealdade",
+          "E) iniciativa"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"fidelidade\" na Rosa das Virtudes."
+      },
+      {
+        id: 167,
+        text: "Marque a virtude correspondente à afirmação: \"O \"Fogo Sagrado\" é a paixão, a fé, o entusiasmo com que o militar se dedica à sua carreira; é o seu intenso amor à Marinha, o seu devotamento pela grandeza da sua profissão; é a larga medida de uma verdadeira vocação e de um sadio patriotismo; é o supremo amor pelo serviço.\".",
+        options: [
+          "A) honra",
+          "B) fogo sagrado",
+          "C) lealdade",
+          "D) iniciativa",
+          "E) cooperação"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"fogo sagrado\" na Rosa das Virtudes."
+      },
+      {
+        id: 168,
+        text: "Uma prova de admissão da Marinha cita o seguinte trecho da Rosa das Virtudes: \"A Tenacidade é uma forma de dedicação, de amor ao serviço.\". A que virtude ele se refere?",
+        options: [
+          "A) lealdade",
+          "B) iniciativa",
+          "C) tenacidade",
+          "D) cooperação",
+          "E) espírito de sacrifício"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"tenacidade\" na Rosa das Virtudes."
+      },
+      {
+        id: 169,
+        text: "Marque a virtude correspondente à afirmação: \"Uma decisão vigorosa é a característica dos vencedores, mas o verdadeiro chefe medita bem — com cálculo e reflexão — antes de chegar a uma decisão.\".",
+        options: [
+          "A) iniciativa",
+          "B) cooperação",
+          "C) espírito de sacrifício",
+          "D) decisão",
+          "E) zelo"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"decisão\" na Rosa das Virtudes."
+      },
+      {
+        id: 170,
+        text: "Uma prova de admissão da Marinha cita o seguinte trecho da Rosa das Virtudes: \"A Abnegação é o esquecimento voluntário do que há de egoístico nos desejos e tendências naturais, em proveito de uma pessoa, causa ou ideia.\". A que virtude ele se refere?",
+        options: [
+          "A) cooperação",
+          "B) espírito de sacrifício",
+          "C) zelo",
+          "D) coragem",
+          "E) abnegação"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"abnegação\" na Rosa das Virtudes."
+      },
+      {
+        id: 171,
+        text: "Marque a virtude correspondente à afirmação: \"Espírito Militar é a qualidade que impele o militar a cumprir com natural interesse, dentro da ética, os deveres e obrigações do serviço, com disciplina e lealdade, sempre animado pelo desejo de ver brilhar o seu navio, a sua classe e aumentar a eficiência e o prestígio da Marinha.\".",
+        options: [
+          "A) espírito militar",
+          "B) espírito de sacrifício",
+          "C) zelo",
+          "D) coragem",
+          "E) ordem"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"espírito militar\" na Rosa das Virtudes."
+      },
+      {
+        id: 172,
+        text: "Uma prova de admissão da Marinha cita o seguinte trecho da Rosa das Virtudes: \"Manifesta-se basicamente: pela obediência pronta às ordens do superior; pela utilização total das energias em prol do serviço; e pela correção de atitudes e cooperação espontânea em benefício da disciplina coletiva.\". A que virtude ele se refere?",
+        options: [
+          "A) zelo",
+          "B) disciplina",
+          "C) coragem",
+          "D) ordem",
+          "E) fidelidade"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"disciplina\" na Rosa das Virtudes."
+      },
+      {
+        id: 173,
+        text: "Marque a virtude correspondente à afirmação: \"O Patriotismo é a força de coesão poderosa que os torna solidários em um interesse comum, ensinando-os a bem querer, servir, honrar e defender a Pátria.\".",
+        options: [
+          "A) coragem",
+          "B) ordem",
+          "C) patriotismo",
+          "D) fidelidade",
+          "E) fogo sagrado"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"patriotismo\" na Rosa das Virtudes."
+      },
+      {
+        id: 174,
+        text: "Uma prova de admissão da Marinha cita o seguinte trecho da Rosa das Virtudes: \"Há também a coragem moral — não menos imprescindível e valiosa —, a força psíquica que ampara os homens nas crises do pensamento e do caráter.\". A que virtude ele se refere?",
+        options: [
+          "A) fidelidade",
+          "B) fogo sagrado",
+          "C) tenacidade",
+          "D) coragem moral",
+          "E) decisão"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"coragem moral\" na Rosa das Virtudes."
+      },
+      {
+        id: 175,
+        text: "Marque a virtude correspondente à afirmação: \"A Honra está acima da vida e de tudo que existe no mundo.\".",
+        options: [
+          "A) fogo sagrado",
+          "B) tenacidade",
+          "C) decisão",
+          "D) abnegação",
+          "E) honra"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"honra\" na Rosa das Virtudes."
+      },
+      {
+        id: 176,
+        text: "Uma prova de admissão da Marinha cita o seguinte trecho da Rosa das Virtudes: \"A Lealdade exige que se manifeste ao superior, disciplinadamente e no interesse do serviço, toda eventual incompreensão em relação à determinação ou orientação recebida.\". A que virtude ele se refere?",
+        options: [
+          "A) lealdade",
+          "B) tenacidade",
+          "C) decisão",
+          "D) abnegação",
+          "E) espírito militar"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"lealdade\" na Rosa das Virtudes."
+      },
+      {
+        id: 177,
+        text: "Marque a virtude correspondente à afirmação: \"A Iniciativa é o ânimo pronto para conceber e executar.\".",
+        options: [
+          "A) decisão",
+          "B) iniciativa",
+          "C) abnegação",
+          "D) espírito militar",
+          "E) disciplina"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"iniciativa\" na Rosa das Virtudes."
+      },
+      {
+        id: 178,
+        text: "Uma prova de admissão da Marinha cita o seguinte trecho da Rosa das Virtudes: \"A Cooperação é uma exigência imperiosa para a eficiência da instituição, mas só possui esta qualidade quem não dá guarida às influências perniciosas do egoísmo, da intriga ou da indiferença.\". A que virtude ele se refere?",
+        options: [
+          "A) abnegação",
+          "B) espírito militar",
+          "C) cooperação",
+          "D) disciplina",
+          "E) patriotismo"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"cooperação\" na Rosa das Virtudes."
+      },
+      {
+        id: 179,
+        text: "Marque a virtude correspondente à afirmação: \"O cultivo do Espírito de Sacrifício é praticado vencendo os pequenos incômodos pessoais, os menores percalços do dia a dia.\".",
+        options: [
+          "A) espírito militar",
+          "B) disciplina",
+          "C) patriotismo",
+          "D) espírito de sacrifício",
+          "E) honra"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"espírito de sacrifício\" na Rosa das Virtudes."
+      },
+      {
+        id: 180,
+        text: "Uma prova de admissão da Marinha cita o seguinte trecho da Rosa das Virtudes: \"O Zelo está intimamente ligado à probidade, vista como a capacidade de bem administrar os bens, fundos e recursos que nos foram confiados.\". A que virtude ele se refere?",
+        options: [
+          "A) disciplina",
+          "B) patriotismo",
+          "C) honra",
+          "D) lealdade",
+          "E) zelo"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"zelo\" na Rosa das Virtudes."
+      },
+      {
+        id: 181,
+        text: "Marque a virtude correspondente à afirmação: \"O militar corajoso é otimista; confia em si; é eficiente; acredita no valor de seus companheiros.\".",
+        options: [
+          "A) coragem",
+          "B) patriotismo",
+          "C) honra",
+          "D) lealdade",
+          "E) iniciativa"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"coragem\" na Rosa das Virtudes."
+      },
+      {
+        id: 182,
+        text: "Uma prova de admissão da Marinha cita o seguinte trecho da Rosa das Virtudes: \"A Ordem é diligência, porque economiza o tempo, e é previdência, porque o conserva.\". A que virtude ele se refere?",
+        options: [
+          "A) honra",
+          "B) ordem",
+          "C) lealdade",
+          "D) iniciativa",
+          "E) cooperação"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"ordem\" na Rosa das Virtudes."
+      },
+      {
+        id: 183,
+        text: "Marque a virtude correspondente à afirmação: \"A fidelidade ao serviço impede que o militar cuide de afazeres e atividades estranhos à Marinha, enquanto estiver ao seu serviço, e negligencie as suas obrigações.\".",
+        options: [
+          "A) lealdade",
+          "B) iniciativa",
+          "C) fidelidade",
+          "D) cooperação",
+          "E) espírito de sacrifício"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"fidelidade\" na Rosa das Virtudes."
+      },
+      {
+        id: 184,
+        text: "Uma prova de admissão da Marinha cita o seguinte trecho da Rosa das Virtudes: \"O \"Fogo Sagrado\" transmite-se, mas para tanto é preciso possuí-lo em grande intensidade e demonstrá-lo mais por atitudes e ações do que por ordens e palavras.\". A que virtude ele se refere?",
+        options: [
+          "A) iniciativa",
+          "B) cooperação",
+          "C) espírito de sacrifício",
+          "D) fogo sagrado",
+          "E) zelo"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"fogo sagrado\" na Rosa das Virtudes."
+      },
+      {
+        id: 185,
+        text: "Marque a virtude correspondente à afirmação: \"É a disposição para estudar tanto o material em si como também a maneira de utilizá-lo; para estar a par das rotinas, da organização interna de bordo, da ordenança, dos regulamentos e das leis.\".",
+        options: [
+          "A) cooperação",
+          "B) espírito de sacrifício",
+          "C) zelo",
+          "D) coragem",
+          "E) tenacidade"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"tenacidade\" na Rosa das Virtudes."
+      },
+      {
+        id: 186,
+        text: "Uma prova de admissão da Marinha cita o seguinte trecho da Rosa das Virtudes: \"Decidir é tomar resolução, é sentenciar, é orientar a ação.\". A que virtude ele se refere?",
+        options: [
+          "A) decisão",
+          "B) espírito de sacrifício",
+          "C) zelo",
+          "D) coragem",
+          "E) ordem"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"decisão\" na Rosa das Virtudes."
+      },
+      {
+        id: 187,
+        text: "Marque a virtude correspondente à afirmação: \"É a renegação de si mesmo e a disposição de se colocar a serviço dos outros com o sacrifício dos próprios interesses.\".",
+        options: [
+          "A) zelo",
+          "B) abnegação",
+          "C) coragem",
+          "D) ordem",
+          "E) fidelidade"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"abnegação\" na Rosa das Virtudes."
+      },
+      {
+        id: 188,
+        text: "Uma prova de admissão da Marinha cita o seguinte trecho da Rosa das Virtudes: \"O militar dotado de Espírito Militar cria em torno de si um ambiente de compostura, seriedade e confiança.\". A que virtude ele se refere?",
+        options: [
+          "A) coragem",
+          "B) ordem",
+          "C) espírito militar",
+          "D) fidelidade",
+          "E) fogo sagrado"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"espírito militar\" na Rosa das Virtudes."
+      },
+      {
+        id: 189,
+        text: "Marque a virtude correspondente à afirmação: \"A força de coesão de qualquer coletividade humana é a Disciplina.\".",
+        options: [
+          "A) ordem",
+          "B) fidelidade",
+          "C) fogo sagrado",
+          "D) disciplina",
+          "E) tenacidade"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"disciplina\" na Rosa das Virtudes."
+      },
+      {
+        id: 190,
+        text: "Uma prova de admissão da Marinha cita o seguinte trecho da Rosa das Virtudes: \"O Patriotismo é o sentimento irresistível que prende os indivíduos à terra em que nasceram.\". A que virtude ele se refere?",
+        options: [
+          "A) fidelidade",
+          "B) fogo sagrado",
+          "C) tenacidade",
+          "D) decisão",
+          "E) patriotismo"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"patriotismo\" na Rosa das Virtudes."
+      },
+      {
+        id: 191,
+        text: "Marque a virtude correspondente à afirmação: \"É a sustentação das próprias ordens, atitudes e convicções; o saber assumir a responsabilidade dos seus atos; o afrontamento à perfídia, à inveja e à incompreensão; a manutenção intransigente do rumo moral, custe o que custar.\".",
+        options: [
+          "A) coragem moral",
+          "B) tenacidade",
+          "C) decisão",
+          "D) abnegação",
+          "E) espírito militar"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"coragem moral\" na Rosa das Virtudes."
+      },
+      {
+        id: 192,
+        text: "Uma prova de admissão da Marinha cita o seguinte trecho da Rosa das Virtudes: \"Os haveres e demais bens que o indivíduo possui são transitórios, enquanto que a Honra a tudo sobrevive; transmite-se aos filhos, aos netos, ao lar, à profissão escolhida e à terra em que se nasce.\". A que virtude ele se refere?",
+        options: [
+          "A) decisão",
+          "B) honra",
+          "C) abnegação",
+          "D) espírito militar",
+          "E) disciplina"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"honra\" na Rosa das Virtudes."
+      },
+      {
+        id: 193,
+        text: "Marque a virtude correspondente à afirmação: \"A Lealdade é o verdadeiro, espontâneo e incansável devotamento a uma causa, a sincera obediência à autoridade dos superiores e o respeito aos sentimentos de dignidade alheia.\".",
+        options: [
+          "A) abnegação",
+          "B) espírito militar",
+          "C) lealdade",
+          "D) disciplina",
+          "E) patriotismo"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"lealdade\" na Rosa das Virtudes."
+      },
+      {
+        id: 194,
+        text: "Uma prova de admissão da Marinha cita o seguinte trecho da Rosa das Virtudes: \"É uma manifestação de inteligência, imaginação, atividade, saber e dedicação ao serviço.\". A que virtude ele se refere?",
+        options: [
+          "A) espírito militar",
+          "B) disciplina",
+          "C) patriotismo",
+          "D) iniciativa",
+          "E) honra"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"iniciativa\" na Rosa das Virtudes."
+      },
+      {
+        id: 195,
+        text: "Marque a virtude correspondente à afirmação: \"Cooperar é auxiliar eficiente e desinteressadamente; é esforçar-se em benefício de uma causa comum.\".",
+        options: [
+          "A) disciplina",
+          "B) patriotismo",
+          "C) honra",
+          "D) lealdade",
+          "E) cooperação"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"cooperação\" na Rosa das Virtudes."
+      },
+      {
+        id: 196,
+        text: "Uma prova de admissão da Marinha cita o seguinte trecho da Rosa das Virtudes: \"\"Quem não é fiel no pouco, certamente não será no muito\": somente percebendo o valor das coisas é que se desenvolve o Espírito de Sacrifício.\". A que virtude ele se refere?",
+        options: [
+          "A) espírito de sacrifício",
+          "B) patriotismo",
+          "C) honra",
+          "D) lealdade",
+          "E) iniciativa"
+        ],
+        correct: 0,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"espírito de sacrifício\" na Rosa das Virtudes."
+      },
+      {
+        id: 197,
+        text: "Marque a virtude correspondente à afirmação: \"O Zelo é atributo que não depende, em alto grau, de preparo profissional, de predicados especiais de inteligência e de saber.\".",
+        options: [
+          "A) honra",
+          "B) zelo",
+          "C) lealdade",
+          "D) iniciativa",
+          "E) cooperação"
+        ],
+        correct: 1,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"zelo\" na Rosa das Virtudes."
+      },
+      {
+        id: 198,
+        text: "Uma prova de admissão da Marinha cita o seguinte trecho da Rosa das Virtudes: \"A Coragem é a disposição natural que nos permite dominar o medo e enfrentar qualquer perigo.\". A que virtude ele se refere?",
+        options: [
+          "A) lealdade",
+          "B) iniciativa",
+          "C) coragem",
+          "D) cooperação",
+          "E) espírito de sacrifício"
+        ],
+        correct: 2,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"coragem\" na Rosa das Virtudes."
+      },
+      {
+        id: 199,
+        text: "Marque a virtude correspondente à afirmação: \"Como exemplo de disciplina e método, a ordem orienta o espírito e promove segurança, porque resguarda e alinha em lugar próprio aquilo que será utilizado no futuro.\".",
+        options: [
+          "A) iniciativa",
+          "B) cooperação",
+          "C) espírito de sacrifício",
+          "D) ordem",
+          "E) zelo"
+        ],
+        correct: 3,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"ordem\" na Rosa das Virtudes."
+      },
+      {
+        id: 200,
+        text: "Uma prova de admissão da Marinha cita o seguinte trecho da Rosa das Virtudes: \"Cumprir ordens difíceis, arriscando a vida, contrariando os próprios interesses e opiniões, por fidelidade ao serviço, é muito mais digno, porquanto implica sacrifício, que caracteriza a virtude militar.\". A que virtude ele se refere?",
+        options: [
+          "A) cooperação",
+          "B) espírito de sacrifício",
+          "C) zelo",
+          "D) coragem",
+          "E) fidelidade"
+        ],
+        correct: 4,
+        subject: "Rosas das Virtudes",
+        explanation: "O trecho citado pertence à definição de \"fidelidade\" na Rosa das Virtudes."
       }
     ];
 
@@ -1167,6 +3580,9 @@ const questionsData = [
       await applySwitchMenuLocks();
 
       await loadSavedState();
+      if (currentUser) {
+        AlfaGamification.reconcileRespostasDetalhadas(sb, currentUser.id, QUIZ_ID, questionsData, userAnswers).then(() => {});
+      }
       const savedIndex = parseInt(localStorage.getItem(STORAGE_KEY_CURRENT), 10);
       currentIndex = (!isNaN(savedIndex) && savedIndex >= 0 && savedIndex < questionsData.length) ? savedIndex : 0;
       renderQuestion();
@@ -1512,6 +3928,17 @@ const questionsData = [
 
         var apLinkWrap = document.getElementById('apostila-link-wrap');
         if (apLinkWrap) { apLinkWrap.innerHTML = AlfaGamification.apostilaLinkHtml(apostilaLinksMap, q.id); }
+
+        const expDetail = document.getElementById('explanation-detail');
+        const expDetailText = document.getElementById('explanation-detail-text');
+        if (expDetail && expDetailText) {
+          if (q.explanation) {
+            expDetail.classList.remove('hidden');
+            expDetailText.innerText = q.explanation;
+          } else {
+            expDetail.classList.add('hidden');
+          }
+        }
       } else {
         expBox.classList.add('hidden');
       }
@@ -1641,22 +4068,25 @@ const questionsData = [
 
     function selectOption(optIndex) {
       if (isDiscarded(currentIndex, optIndex)) return;
-      const jaTinhaResposta = userAnswers[currentIndex] !== undefined;
       userAnswers[currentIndex] = optIndex;
       saveState();
       renderQuestion();
       renderGrid();
 
-      // Salva o resultado dessa questão em tempo real, sem esperar finalizar o simulado
-      if (currentUser && !jaTinhaResposta) {
+      // Salva o resultado dessa questão em tempo real, sem esperar finalizar o simulado.
+      // upsert (não insert): o aluno pode voltar numa questão já respondida pra
+      // reconferir, e nesse caso só atualizamos o acerto/erro mais recente, sem
+      // duplicar linha nem depender de um estado local pra saber "já respondi essa
+      // antes" (é esse estado local que fazia a cobertura ficar presa abaixo do real).
+      if (currentUser) {
         const q = questionsData[currentIndex];
-        sb.from('respostas_detalhadas').insert({
+        sb.from('respostas_detalhadas').upsert({
           user_id: currentUser.id,
           quiz_id: QUIZ_ID,
           subject: q.subject,
           question_id: q.id,
           acertou: optIndex === q.correct
-        }).then(() => {});
+        }, { onConflict: 'user_id,quiz_id,question_id' }).then(() => {});
       }
       if (window.StudyRoom) StudyRoom.reportAnswer(currentIndex, optIndex);
     }

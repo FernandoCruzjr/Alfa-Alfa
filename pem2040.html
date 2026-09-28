@@ -528,6 +528,9 @@
           <div class="flex items-center gap-2 text-sm font-bold mb-1" id="explanation-title"></div>
           <div class="text-xs md:text-sm text-slate-300" id="explanation-text"></div>
           <div id="apostila-link-wrap" class="mt-2"></div>
+          <div class="text-xs md:text-sm text-slate-300 mt-3 pt-3 border-t border-slate-700/60 hidden" id="explanation-detail">
+            <span class="text-navy-400 font-semibold">Por que é essa alternativa: </span><span id="explanation-detail-text"></span>
+          </div>
         </div>
 
         <button id="flashcard-btn" onclick="saveAsFlashcard()" class="mt-4 w-full h-11 rounded-xl border border-navy-700 bg-navy-800/60 hover:bg-navy-700/60 hover:border-navy-500 text-slate-200 text-sm font-medium transition-all flex items-center justify-center gap-2">
@@ -680,20 +683,22 @@ const questionsData = [
           "E) Estratégia da Marinha"
         ],
         correct: 3,
-        subject: "Missão, Visão e Valores da Marinha"
+        subject: "Missão, Visão e Valores da Marinha",
+        explanation: "O trecho citado é a redação oficial da Missão da Marinha do Brasil, conforme o PEM 2040 (capítulo 4.6) — não confundir com Visão de Futuro (o que a MB pretende SER) ou com os Valores/Rosa das Virtudes."
       },
       {
         id: 2,
         text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040),”A ideia de um pacifismo unilateral dificulta a identificação de ameaças ao Brasil, como também é insustentável, quando constatamos as diversas formas de disputa que ocorreram – e ainda ocorrem – na história da civilização. Na dinâmica e amplitude atuais de emprego do Poder Naval, constatamos a distância existente entre o ‘pacifismo unilateral’ e a realidade daquelas ameaças que, direta ou indiretamente, exigem crescentes níveis de prontidão.” Sendo assim:",
         options: [
-          "A) É primordial investir em educação e na formação dos miliares, seja física, ou tecnológica,\nmalgrado os investimentos no pessoal tenham aumentado os últimos aos, o PEM2040 prevê a\nnecessidade de um maior número de divisas para implementação de uma melhoria\nprofissional.",
-          "B) É importante identificar os inimigos da nação e estimular a indústria bélica do país, além de\numa mentalidade marítima efetiva na população, de modo a destacar a importância da defesa\nda Amazônia Azul e fomentar o patriotismo.",
-          "C) É importante identificar as ameaças existentes ou potenciais ao Brasil e estimular o\ndesenvolvimento de uma mentalidade de defesa na sociedade brasileira, de modo a destacar a\nimportância das questões que envolvam antagonismos aos interesses nacionais, em todas as\nsuas vertentes.",
-          "D) É necessário uma mudança de pensamento na população pois, por se tratar de um país\ncontinental por natureza, grande parte dos brasileiros não vê no mar as oportunidades e\ntambém as ameaças existentes.",
-          "E) É primordial direcionar maiores recursos ao comando da Marinha, de modo que os\ninvestimentos em tecnologias de ponta correspondam ao tamanho das necessidades de\nproteção das fronteiras marítimas nacionais, envidando esforços na proteção do mar, dos rios\ne lagos."
+          "A) É primordial investir em educação e na formação dos miliares, seja física, ou tecnológica, malgrado os investimentos no pessoal tenham aumentado os últimos aos, o PEM2040 prevê a necessidade de um maior número de divisas para implementação de uma melhoria profissional.",
+          "B) É importante identificar os inimigos da nação e estimular a indústria bélica do país, além de uma mentalidade marítima efetiva na população, de modo a destacar a importância da defesa da Amazônia Azul e fomentar o patriotismo.",
+          "C) É importante identificar as ameaças existentes ou potenciais ao Brasil e estimular o desenvolvimento de uma mentalidade de defesa na sociedade brasileira, de modo a destacar a importância das questões que envolvam antagonismos aos interesses nacionais, em todas as suas vertentes.",
+          "D) É necessário uma mudança de pensamento na população pois, por se tratar de um país continental por natureza, grande parte dos brasileiros não vê no mar as oportunidades e também as ameaças existentes.",
+          "E) É primordial direcionar maiores recursos ao comando da Marinha, de modo que os investimentos em tecnologias de ponta correspondam ao tamanho das necessidades de proteção das fronteiras marítimas nacionais, envidando esforços na proteção do mar, dos rios e lagos."
         ],
         correct: 2,
-        subject: "Poder Marítimo e Fatores Condicionantes"
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "A alternativa correta reflete o espírito do capítulo 1 do PEM 2040: identificar ameaças reais (e não apenas \"inimigos\") e fomentar a mentalidade marítima na sociedade — é a essência do Fator Condicionante \"Mentalidade Marítima\"."
       },
       {
         id: 3,
@@ -706,7 +711,8 @@ const questionsData = [
           "E) Elevação do Rio Grande"
         ],
         correct: 4,
-        subject: "Poder Marítimo e Fatores Condicionantes"
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "A Elevação do Rio Grande é a feição morfológica submarina do Atlântico Sul citada no capítulo 1.1 do PEM 2040, com relevante potencial econômico, mineral e energético."
       },
       {
         id: 4,
@@ -719,20 +725,22 @@ const questionsData = [
           "E) Poder Naval"
         ],
         correct: 3,
-        subject: "Poder Marítimo e Fatores Condicionantes"
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "Esta é a definição oficial de Poder Marítimo do PEM 2040 (capítulo 1.2): projeção do Poder Nacional pela integração dos recursos para uso do mar, tanto como instrumento político-militar quanto como fator de desenvolvimento econômico e social."
       },
       {
         id: 5,
         text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), a Autoridade Marítima, exercida pelo Comandante da Marinha, tem como uma de suas principais atribuições:",
         options: [
-          "A) Gerenciar a construção de infraestruturas urbanas em cidades portuárias, incluindo\nestradas e sistemas de transporte público, para melhorar a mobilidade urbana.",
-          "B) Garantir a operacionalidade dos portos marítimos nacionais e fiscalizar a entrada e saída de\nmaterial controlado pelos portos brasileiros.",
+          "A) Gerenciar a construção de infraestruturas urbanas em cidades portuárias, incluindo estradas e sistemas de transporte público, para melhorar a mobilidade urbana.",
+          "B) Garantir a operacionalidade dos portos marítimos nacionais e fiscalizar a entrada e saída de material controlado pelos portos brasileiros.",
           "C) Garantir a operação dos estaleiros nacionais em plena capacidade de funcionamento.",
           "D) Gerenciar a distribuição de alimentos e insumos médicos para as populações ribeirinhas.",
-          "E) Contribuir para a formulação de políticas nacionais que digam respeito ao mar, em especial\na Política Marítima Nacional (PMN)."
+          "E) Contribuir para a formulação de políticas nacionais que digam respeito ao mar, em especial a Política Marítima Nacional (PMN)."
         ],
         correct: 4,
-        subject: "Poder Marítimo e Fatores Condicionantes"
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "Contribuir para a formulação de políticas nacionais relativas ao mar, sobretudo a Política Marítima Nacional (PMN), é atribuição da Autoridade Marítima exercida pelo Comandante da Marinha (capítulo 1.7 / síntese final)."
       },
       {
         id: 6,
@@ -745,7 +753,8 @@ const questionsData = [
           "E) 1 – 2 – 3 - 4"
         ],
         correct: 3,
-        subject: "Poder Marítimo e Fatores Condicionantes"
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "A ordem correta associa: Intercomunicação → interesses (não apenas recursos); a definição de comunicação digital corresponde à Intercomunicação; a extração de recursos vivos/não-vivos é a Explotação; e a proteção das linhas de comunicação é a Defesa marítima e ribeirinha — capítulo 1.3 (Funções do Poder Marítimo)."
       },
       {
         id: 7,
@@ -758,7 +767,8 @@ const questionsData = [
           "E) Capacidade de Mobilização"
         ],
         correct: 0,
-        subject: "Poder Marítimo e Fatores Condicionantes"
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "\"Mentalidade Marítima\", \"Capacidade de Financiamento\", \"Necessidade de Desenvolvimento Sustentável\" e \"Capacidade de Mobilização\" são, de fato, Fatores Condicionantes do Poder Marítimo. \"Capacidade Bélica\" NÃO está entre os 5 fatores — é a pegadinha clássica mencionada explicitamente na apostila (capítulo 1.4): o quinto fator real é a Capacidade Tecnológica e Industrial."
       },
       {
         id: 8,
@@ -771,7 +781,8 @@ const questionsData = [
           "E) Intercomunicação"
         ],
         correct: 1,
-        subject: "Poder Marítimo e Fatores Condicionantes"
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "A definição citada — ligada à mentalidade do homem do mar e da sociedade em geral — corresponde ao Fator Condicionante \"Mentalidade Marítima\" (capítulo 1.4)."
       },
       {
         id: 9,
@@ -784,7 +795,8 @@ const questionsData = [
           "E) Tradição Marinheira"
         ],
         correct: 2,
-        subject: "Poder Marítimo e Fatores Condicionantes"
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "O \"elemento intangível que deve ser fomentado na sociedade brasileira\" é, segundo o PEM 2040, a Mentalidade Marítima (capítulo 1.4) — não confundir com o Poder Marítimo, que é o resultado tangível desse fomento."
       },
       {
         id: 10,
@@ -797,7 +809,8 @@ const questionsData = [
           "E) Pesquisa Naval"
         ],
         correct: 3,
-        subject: "Poder Marítimo e Fatores Condicionantes"
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "Esta é a definição oficial de Mentalidade Marítima do PEM 2040 (capítulo 1.4): grau de conscientização da sociedade e dos decisores governamentais, e sentimento de pertencimento à comunidade marítima."
       },
       {
         id: 11,
@@ -810,20 +823,22 @@ const questionsData = [
           "E) Apenas III e IV são verdadeiras"
         ],
         correct: 1,
-        subject: "Poder Marítimo e Fatores Condicionantes"
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "I é verdadeira (capacidade de financiamento depende de mentalidade marítima consolidada); II é verdadeira (desenvolvimento sustentável exige equilíbrio, não apenas restrição); III é verdadeira (é a definição oficial de Capacidade de Mobilização); IV é falsa — a apostila não descreve uma retração do papel do governo na tríplice hélice, e sim a necessidade de domínio tecnológico nacional (Capacidade Tecnológica e Industrial, capítulo 1.4)."
       },
       {
         id: 12,
         text: "“Diante do entorno estratégico definido na PND, cumpre destacar que a Política Naval atribui prioridade ao Atlântico Sul, compreendido pelos seguintes limites geoestratégicos: ao Norte, o paralelo 16º N; ao Sul, o Continente Antártico; a Leste, pelo litoral da África Ocidental; e ao Oeste, pela América do Sul. O limite de 16º N tem o propósito de englobar três importantes áreas: a que abrange o espaço entre os salientes nordestino e o ocidental africano, o Mar do Caribe e o litoral brasileiro do hemisfério Norte. Complementarmente, a END estabelece Estratégias de Defesa e Ações Estratégicas de Defesa, destacando duas áreas marítimas que merecem atenção especial, sob o ponto de vista da necessidade de controlar o acesso marítimo ao Brasil.” (Plano Estratégico da Marinha 2040. P..18) De acordo com a leitura do texto, assinale abaixo as duas áreas que merecem atenção especial:",
         options: [
-          "A) A Faixa que compreende todo o litoral dos estados do Rio de Janeiro e São Paulo e também\no Litoral do Nordeste entre os estados da Bahia e do Ceará.",
-          "B) A área mais próxima ao mar do Caribe, por conta das disputas recentes; e a faixa do\nAtlântico Sul que vai do Espírito Santo até o Rio Grande do Sul.",
-          "C) O Litoral do Nordeste, por ser o ponto mais próximo do continente africano e a região da\nElevação do Rio Grande.",
-          "D) A Área da Elevação do Rio Grande e também a faixa litorânea que vai de Paranaguá até\nVitória.",
+          "A) A Faixa que compreende todo o litoral dos estados do Rio de Janeiro e São Paulo e também o Litoral do Nordeste entre os estados da Bahia e do Ceará.",
+          "B) A área mais próxima ao mar do Caribe, por conta das disputas recentes; e a faixa do Atlântico Sul que vai do Espírito Santo até o Rio Grande do Sul.",
+          "C) O Litoral do Nordeste, por ser o ponto mais próximo do continente africano e a região da Elevação do Rio Grande.",
+          "D) A Área da Elevação do Rio Grande e também a faixa litorânea que vai de Paranaguá até Vitória.",
           "E) A faixa entre Santos e Vitória e a área marítima em torno da Foz do Rio Amazonas."
         ],
         correct: 4,
-        subject: "Poder Marítimo e Fatores Condicionantes"
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "O PEM 2040 (capítulo 1.5) destaca a faixa marítima entre Santos e Vitória (concentração do pré-sal) e a área em torno da foz do rio Amazonas como as duas áreas de atenção especial do Entorno Estratégico, dentro do limite de 16ºN."
       },
       {
         id: 13,
@@ -836,7 +851,8 @@ const questionsData = [
           "E) Ambiental"
         ],
         correct: 0,
-        subject: "Poder Marítimo e Fatores Condicionantes"
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "As quatro vertentes da Amazônia Azul são Soberania, Científica, Ambiental e Econômica (capítulo 1.6). \"Mobilidade\" NÃO é uma vertente da Amazônia Azul — é uma Característica da Força Naval (capítulo 3.7); é a pegadinha clássica citada na própria apostila."
       },
       {
         id: 14,
@@ -849,7 +865,8 @@ const questionsData = [
           "E) 1 – 2 – 2 – 1"
         ],
         correct: 3,
-        subject: "Poder Marítimo e Fatores Condicionantes"
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "Poder Marítimo é o conceito dual mais amplo (integra recursos para uso político-militar e socioeconômico); Poder Naval é o instrumento militar dentro dele, cuja principal área de atuação é a Amazônia Azul e que deve prover defesa de amplo espectro — capítulo 1.2 e 1.6."
       },
       {
         id: 15,
@@ -862,7 +879,8 @@ const questionsData = [
           "E) Expansão Marítima Contemporânea"
         ],
         correct: 3,
-        subject: "Ameaças ao Poder Marítimo"
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "\"Territorialização\" é o fenômeno de busca de poder dos Estados sobre os espaços marítimos, citado no capítulo 1.6 do PEM 2040 como pano de fundo da Amazônia Azul."
       },
       {
         id: 16,
@@ -875,7 +893,8 @@ const questionsData = [
           "E) Territorialização"
         ],
         correct: 4,
-        subject: "Ameaças ao Poder Marítimo"
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "A Territorialização é definida no PEM 2040 (capítulo 1.6) como o fenômeno que representa a busca de poder pelos Estados sobre os ambientes marítimos."
       },
       {
         id: 17,
@@ -888,20 +907,22 @@ const questionsData = [
           "E) Vandalismo - Terrorismo"
         ],
         correct: 1,
-        subject: "Ameaças ao Poder Marítimo"
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "O Sabotagem (dano deliberado a bens ou instalações) nem sempre decorre de políticas de Terrorismo, mas pode causar graves danos econômicos e ambientais — ambos estão entre as ameaças descritas no capítulo 2 do PEM 2040."
       },
       {
         id: 18,
         text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), assinale abaixo a opção que define corretamente a Zona de Paz e Cooperação (ZOPACAS):",
         options: [
-          "A) A ZOPACAS integra todos os países da América Latina, abaixo do paralelo 16ºN, voltados\npara o Atlântico e funciona como um grupo de cooperação econômica e um fórum de debate\nsobre defesa.",
-          "B) A ZOPACAS surgiu, inicialmente, como um fórum de debates sobre a preservação do\nambiente marinho no Atlântico Sul e, com o passar dos anos, as pautas de interesse do fórum\nforam aumentando e hoje, além de seu crescimento exponencial (foi aderido por todos os\npaíses que possuem sua costa para o Atlântico Sul), ganha importância pela quantidade de\ndebates em torno de ações de paz.",
-          "C) A ZOPACAS integra 24 países lindeiros ao Atlântico Sul, sendo um fórum de concertação que\nbusca criar condições para que as rivalidades extra-regionais não venham afetar as relações\neconômicas e políticas nesse espaço geopolítico",
-          "D) A ZOPACAS integra Brasil, Uruguai e Argentina e funciona como um fórum de cooperação\nambiental para preservação do Atlântico Sul e defesa dos interesses econômicos desses países.",
-          "E) A ZOPACAS foi uma iniciativa do governo brasileiro durante o Governo da Presidente Dilma\nRouseff. A Zona deve servir como base para estudos e também para manutenção da paz no\nAtlântico Sul."
+          "A) A ZOPACAS integra todos os países da América Latina, abaixo do paralelo 16ºN, voltados para o Atlântico e funciona como um grupo de cooperação econômica e um fórum de debate sobre defesa.",
+          "B) A ZOPACAS surgiu, inicialmente, como um fórum de debates sobre a preservação do ambiente marinho no Atlântico Sul e, com o passar dos anos, as pautas de interesse do fórum foram aumentando e hoje, além de seu crescimento exponencial (foi aderido por todos os países que possuem sua costa para o Atlântico Sul), ganha importância pela quantidade de debates em torno de ações de paz.",
+          "C) A ZOPACAS integra 24 países lindeiros ao Atlântico Sul, sendo um fórum de concertação que busca criar condições para que as rivalidades extra-regionais não venham afetar as relações econômicas e políticas nesse espaço geopolítico",
+          "D) A ZOPACAS integra Brasil, Uruguai e Argentina e funciona como um fórum de cooperação ambiental para preservação do Atlântico Sul e defesa dos interesses econômicos desses países.",
+          "E) A ZOPACAS foi uma iniciativa do governo brasileiro durante o Governo da Presidente Dilma Rouseff. A Zona deve servir como base para estudos e também para manutenção da paz no Atlântico Sul."
         ],
         correct: 2,
-        subject: "Ameaças ao Poder Marítimo"
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "A ZOPACAS integra 24 países lindeiros ao Atlântico Sul e funciona como fórum de concertação política contra rivalidades extra-regionais — capítulo 1.5 (tabela de mecanismos do Entorno Estratégico)."
       },
       {
         id: 19,
@@ -914,7 +935,8 @@ const questionsData = [
           "E) V – V – V – F – V"
         ],
         correct: 3,
-        subject: "Ameaças ao Poder Marítimo"
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "A ordem correta é F-F-F-V-F: a primeira é verdadeira (espaços marítimos são objeto de disputa); a segunda é falsa (uma potência superior no Atlântico Sul RESULTARIA em forte ameaça); a terceira é falsa (a pirataria no Golfo da Guiné não se expandiu para o Atlântico Ocidental na forma descrita); a quarta é verdadeira (há esforço global contra pesca ilegal); a quinta é falsa (o espaço cibernético não é considerado \"teatro de operações civis\", mas uma ameaça transversal) — capítulo 2."
       },
       {
         id: 20,
@@ -927,7 +949,8 @@ const questionsData = [
           "E) Combate naval contemporâneo"
         ],
         correct: 3,
-        subject: "Princípios de Guerra e Características da Força Naval"
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O \"Combate pelo Mar\" é o conceito que privilegia interoperabilidade e operações interagências, central na defesa da Amazônia Azul — capítulo 3.3 do PEM 2040."
       },
       {
         id: 21,
@@ -940,7 +963,8 @@ const questionsData = [
           "E) 3 - 1 - 2"
         ],
         correct: 3,
-        subject: "Princípios de Guerra e Características da Força Naval"
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A ordem correta é: Controle de Áreas Marítimas → garantia temporária de uso de área; Projeção de Poder sobre Terra → transposição da influência do Poder Naval para terra; Negação do Uso do Mar → dificultar o controle do inimigo — as três tarefas básicas do Combate no Mar, capítulo 3.1."
       },
       {
         id: 22,
@@ -949,11 +973,12 @@ const questionsData = [
           "A) Domínio da região costeira e explotação de matéria-prima energética",
           "B) Soberania sobre os recursos naturais e liberdade de navegação.",
           "C) A livre navegação dos povos e o princípio da cordialidade naval",
-          "D) A não intervenção ao território vizinho através do mar e delimitação de fronteiras\npermanentemente protegidas.",
-          "E) a regulação do trânsito de pessoas e materiais, além de um sistema de informação\ninterligando os principais portos mundiais."
+          "D) A não intervenção ao território vizinho através do mar e delimitação de fronteiras permanentemente protegidas.",
+          "E) a regulação do trânsito de pessoas e materiais, além de um sistema de informação interligando os principais portos mundiais."
         ],
         correct: 1,
-        subject: "Poder Marítimo e Fatores Condicionantes"
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "A CNUDM III se apoia em dois princípios básicos: soberania sobre os recursos naturais e liberdade de navegação — capítulo 1.6 do PEM 2040."
       },
       {
         id: 23,
@@ -966,7 +991,8 @@ const questionsData = [
           "E) Prontidão"
         ],
         correct: 0,
-        subject: "Princípios de Guerra e Características da Força Naval"
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho descreve o princípio de guerra \"Economia de Forças\": distribuição e emprego judicioso dos meios disponíveis para o esforço máximo nos locais e ocasiões decisivos — capítulo 3.2."
       },
       {
         id: 24,
@@ -979,7 +1005,8 @@ const questionsData = [
           "E) Manobra"
         ],
         correct: 0,
-        subject: "Princípios de Guerra e Características da Força Naval"
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho descreve o princípio de guerra \"Exploração\": intensificação das ações ofensivas após um êxito inicial, para ampliar o sucesso obtido — capítulo 3.2."
       },
       {
         id: 25,
@@ -992,7 +1019,8 @@ const questionsData = [
           "E) Manobra"
         ],
         correct: 4,
-        subject: "Princípios de Guerra e Características da Força Naval"
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O princípio de guerra \"Manobra\" busca colocar o inimigo em desvantagem, aproveitar o êxito alcançado, preservar a liberdade de ação e reduzir as próprias vulnerabilidades — capítulo 3.2."
       },
       {
         id: 26,
@@ -1005,7 +1033,8 @@ const questionsData = [
           "E) Ofensiva"
         ],
         correct: 2,
-        subject: "Princípios de Guerra e Características da Força Naval"
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho descreve o princípio de guerra \"Massa\": aplicação de forças superiores em quantidade, qualidade e eficiência, em um ponto decisivo, com capacidade de sustentar o esforço — capítulo 3.2."
       },
       {
         id: 27,
@@ -1018,7 +1047,8 @@ const questionsData = [
           "E) Surpresa"
         ],
         correct: 3,
-        subject: "Princípios de Guerra e Características da Força Naval"
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O princípio de guerra \"Moral\" é definido como o estado de ânimo ou atitude mental de um indivíduo ou grupo, refletido na conduta da tropa — capítulo 3.2."
       },
       {
         id: 28,
@@ -1031,7 +1061,8 @@ const questionsData = [
           "E) Objetivo"
         ],
         correct: 3,
-        subject: "Princípios de Guerra e Características da Força Naval"
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho descreve o princípio de guerra \"Ofensiva\": levar a ação bélica ao inimigo, obter e manter a iniciativa, impor sua vontade — capítulo 3.2."
       },
       {
         id: 29,
@@ -1044,7 +1075,8 @@ const questionsData = [
           "E) Manobra"
         ],
         correct: 2,
-        subject: "Princípios de Guerra e Características da Força Naval"
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A capacidade de pronto atendimento da Força Armada corresponde ao princípio de guerra \"Prontidão\" — capítulo 3.2."
       },
       {
         id: 30,
@@ -1057,7 +1089,8 @@ const questionsData = [
           "E) Manobra"
         ],
         correct: 0,
-        subject: "Princípios de Guerra e Características da Força Naval"
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho descreve o princípio de guerra \"Segurança\": medidas essenciais à liberdade de ação e à preservação do poder de combate, mitigando riscos — capítulo 3.2."
       },
       {
         id: 31,
@@ -1070,7 +1103,8 @@ const questionsData = [
           "E) Segurança"
         ],
         correct: 3,
-        subject: "Princípios de Guerra e Características da Força Naval"
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O princípio de guerra que preconiza clareza e facilidade de compreensão em ordens e planos é a \"Simplicidade\" — capítulo 3.2."
       },
       {
         id: 32,
@@ -1083,7 +1117,8 @@ const questionsData = [
           "E) Surpresa"
         ],
         correct: 4,
-        subject: "Princípios de Guerra e Características da Força Naval"
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O princípio de guerra \"Surpresa\" consiste em golpear o inimigo onde, quando ou de forma tal que ele não esteja preparado — capítulo 3.2."
       },
       {
         id: 33,
@@ -1096,7 +1131,8 @@ const questionsData = [
           "E) Águas limítrofes, águas interiores e águas territoriais."
         ],
         correct: 3,
-        subject: "Poder Marítimo e Fatores Condicionantes"
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "As três porções marítimas de interesse do Brasil são águas territoriais, patrimoniais e de interesse marítimo — capítulo 1.6 do PEM 2040."
       },
       {
         id: 34,
@@ -1109,7 +1145,8 @@ const questionsData = [
           "E) Versatilidade"
         ],
         correct: 3,
-        subject: "Princípios de Guerra e Características da Força Naval"
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "\"Mobilidade\", \"Permanência\", \"Flexibilidade\" e \"Versatilidade\" são, de fato, Características de uma Força Naval. \"Manobra\" NÃO é uma característica da Força Naval — é um Princípio de Guerra (capítulo 3.2); é a pegadinha clássica citada explicitamente na apostila (capítulo 3.7)."
       },
       {
         id: 35,
@@ -1122,7 +1159,8 @@ const questionsData = [
           "E) Flexibilidade"
         ],
         correct: 2,
-        subject: "Princípios de Guerra e Características da Força Naval"
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A capacidade de deslocar-se prontamente e a grandes distâncias, mantendo elevado nível de prontidão, é a definição de \"Mobilidade\" — Característica de uma Força Naval, capítulo 3.7."
       },
       {
         id: 36,
@@ -1135,7 +1173,8 @@ const questionsData = [
           "E) Manobra"
         ],
         correct: 0,
-        subject: "Princípios de Guerra e Características da Força Naval"
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A capacidade de organizar grupamentos operativos de diferentes valores, em função da missão, é a definição de \"Flexibilidade\" — Característica de uma Força Naval, capítulo 3.7."
       },
       {
         id: 37,
@@ -1148,7 +1187,8 @@ const questionsData = [
           "E) Manobra"
         ],
         correct: 3,
-        subject: "Princípios de Guerra e Características da Força Naval"
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A aptidão para executar uma ampla gama de tarefas e diferentes níveis de prontidão é a definição de \"Versatilidade\" — Característica de uma Força Naval, capítulo 3.7."
       },
       {
         id: 38,
@@ -1161,7 +1201,8 @@ const questionsData = [
           "E) Versatilidade"
         ],
         correct: 2,
-        subject: "Princípios de Guerra e Características da Força Naval"
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A capacidade de operar continuamente, com independência e por longos períodos, em áreas distantes, é a definição de \"Permanência\" — Característica de uma Força Naval, capítulo 3.7."
       },
       {
         id: 39,
@@ -1174,7 +1215,8 @@ const questionsData = [
           "E) Brasil"
         ],
         correct: 3,
-        subject: "Poder Marítimo e Fatores Condicionantes"
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "A AMAS (Área Marítima do Atlântico Sul) é composta por Argentina, Brasil, Paraguai e Uruguai — capítulo 1.5. Chile NÃO integra a AMAS."
       },
       {
         id: 40,
@@ -1187,20 +1229,22 @@ const questionsData = [
           "E) Agir"
         ],
         correct: 3,
-        subject: "Princípios de Guerra e Características da Força Naval"
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "\"Observar\", \"Orientar\" e \"Decidir\" são fases reais do ciclo OODA. \"Organizar\" NÃO é uma das 4 fases — a quarta fase real é \"Agir\" (Observar, Orientar, Decidir, Agir) — capítulo 6.2."
       },
       {
         id: 41,
         text: "“O conceito de estratégia, estabelecido no início do século XIX, inicialmente compreendia a dimensão militar, de emprego ou ameaça do uso da força para fins políticos. Porém, no século passado, o conceito de “estratégia” ultrapassou a esfera militar, passando a abranger outras expressões do Poder Nacional, compreendidas como instrumentos para a consecução dos objetivos de um Estado. A última extensão contemporânea foi além dos meios para alcançar fins políticos, pois a expressão passou a representar não só como atingi-los, mas também outras finalidades decorrentes de qualquer atividade humana. Sendo assim, a estratégia passou a refletir manobras e operações para atingir um propósito em geral, expressando como uma organização utiliza seus pontos fortes e corrige os fracos – existentes ou potenciais – para atingir seus objetivos, levando em consideração as oportunidades e ameaças do ambiente. (Plano Estratégico da Marinha 2040. P..48) No moderno sentido de planejamento, a estratégia pode ser definida como:",
         options: [
-          "A) Um preceito teórico decorrente do estudo de campanhas militares ao longo da história, o\nqual apresenta variações no espaço e no tempo.",
-          "B) A navegação adequada para alcançar determinado objetivo ou superar certo desafio,\nsempre com o foco no futuro desejado.",
-          "C) A ciência contemporânea que envolve o Estado como elemento central para adoção de\ndecisões soberanas.",
+          "A) Um preceito teórico decorrente do estudo de campanhas militares ao longo da história, o qual apresenta variações no espaço e no tempo.",
+          "B) A navegação adequada para alcançar determinado objetivo ou superar certo desafio, sempre com o foco no futuro desejado.",
+          "C) A ciência contemporânea que envolve o Estado como elemento central para adoção de decisões soberanas.",
           "D) A consideração na prioridade de objetivos e na concepção de sistemas defensivos.",
-          "E) A provisão de defesa de um amplo aspecto para os interesses nacionais, pautados a partir\nde estudos profundos e planejamento prévio."
+          "E) A provisão de defesa de um amplo aspecto para os interesses nacionais, pautados a partir de estudos profundos e planejamento prévio."
         ],
         correct: 1,
-        subject: "Planejamento Estratégico (PEM/SPAN)"
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "No sentido moderno de planejamento, a estratégia é definida como a navegação adequada para alcançar um objetivo ou superar um desafio, sempre com foco no futuro desejado — capítulo 4.1."
       },
       {
         id: 42,
@@ -1213,7 +1257,8 @@ const questionsData = [
           "E) Logística"
         ],
         correct: 3,
-        subject: "Planejamento Estratégico (PEM/SPAN)"
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "O Planejamento Estratégico é descrito como a ferramenta essencial para a obtenção de uma estratégia efetiva — capítulo 4.1."
       },
       {
         id: 43,
@@ -1226,20 +1271,22 @@ const questionsData = [
           "E) Mapa Decisório"
         ],
         correct: 3,
-        subject: "Planejamento Estratégico (PEM/SPAN)"
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "O documento que indica os caminhos a seguir, dinâmico e passível de atualização, servindo de norte para a Instituição, é o Plano Estratégico — capítulo 4.1."
       },
       {
         id: 44,
         text: "Conforme contido no Plano Estratégico da Marinha (PEM-2040), o planejamento estratégico militar compreende três níveis. Qual das opções abaixo representa os níveis citados:",
         options: [
-          "A) Nacional, formado pelo Presidente da República, pelo Ministro da Defesa e pelo Ministro da\nJustiça e Segurança pública; Setorial, formado pelos comandantes das Forças Armadas;\nSubsetorial, formado pelos Governadores de Estado e Pelos Comandantes Gerais das Forças\nAuxiliares.",
-          "B) Nacional, formado pelas mais altas autoridades do país; Setorial, constituído pelo Ministério\nda Defesa e demais órgãos com responsabilidades diretas; Subsetorial, composto pelas Forças\nArmadas.",
-          "C) Nacional, formado pelo Presidente da República e pelos Governadores de Estado; Setorial,\nformado pelo Ministro da Defesa e os comandantes das Forças Armadas; Subsetorial, formado\npelos Distritos Navais, Comandos Militares e Comandos Aéreos Regionais.",
-          "D) Nacional, formado pelo Presidente da República; Setorial, formado pelo Ministro da Defesa\ne pelos Comandantes das Forças Armadas; Subsetorial, formado pelos comandantes gerais das\nforças auxiliares.",
-          "E) Nacional, formado pelo Presidente da República e pelo Ministro da Defesa; Setorial,\nformado pelas Forças Armadas; Subsetorial, formado pelas Forças Auxiliares."
+          "A) Nacional, formado pelo Presidente da República, pelo Ministro da Defesa e pelo Ministro da Justiça e Segurança pública; Setorial, formado pelos comandantes das Forças Armadas; Subsetorial, formado pelos Governadores de Estado e Pelos Comandantes Gerais das Forças Auxiliares.",
+          "B) Nacional, formado pelas mais altas autoridades do país; Setorial, constituído pelo Ministério da Defesa e demais órgãos com responsabilidades diretas; Subsetorial, composto pelas Forças Armadas.",
+          "C) Nacional, formado pelo Presidente da República e pelos Governadores de Estado; Setorial, formado pelo Ministro da Defesa e os comandantes das Forças Armadas; Subsetorial, formado pelos Distritos Navais, Comandos Militares e Comandos Aéreos Regionais.",
+          "D) Nacional, formado pelo Presidente da República; Setorial, formado pelo Ministro da Defesa e pelos Comandantes das Forças Armadas; Subsetorial, formado pelos comandantes gerais das forças auxiliares.",
+          "E) Nacional, formado pelo Presidente da República e pelo Ministro da Defesa; Setorial, formado pelas Forças Armadas; Subsetorial, formado pelas Forças Auxiliares."
         ],
         correct: 1,
-        subject: "Planejamento Estratégico (PEM/SPAN)"
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "Os três níveis do planejamento estratégico militar são: Nacional (mais altas autoridades do país), Setorial (Ministério da Defesa e órgãos diretos) e Subsetorial (as Forças Armadas) — capítulo 4.2."
       },
       {
         id: 45,
@@ -1252,7 +1299,8 @@ const questionsData = [
           "E) Estado-Maior da Armada – Secretaria Geral da Marinha – 25 anos – 5 anos."
         ],
         correct: 2,
-        subject: "Planejamento Estratégico (PEM/SPAN)"
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "Conforme o PEM 2040: \"O PEM é elaborado pelo Estado-Maior da Armada e aprovado pelo Comandante da Marinha, com horizonte temporal de vinte anos, devendo ser sistematicamente revisto e atualizado a cada quatro anos\" — capítulo 4.5."
       },
       {
         id: 46,
@@ -1265,7 +1313,8 @@ const questionsData = [
           "E) Garantia dos Poderes Constitucionais"
         ],
         correct: 2,
-        subject: "Missão, Visão e Valores da Marinha"
+        subject: "Missão, Visão e Valores da Marinha",
+        explanation: "A Defesa da Pátria é o componente preponderante e essencial da Missão da Marinha, citada em primeiro lugar por ser a razão de ser primária das Forças Armadas — capítulo 4.6."
       },
       {
         id: 47,
@@ -1278,7 +1327,8 @@ const questionsData = [
           "E) Fogo Sagrado"
         ],
         correct: 0,
-        subject: "Missão, Visão e Valores da Marinha"
+        subject: "Missão, Visão e Valores da Marinha",
+        explanation: "O Zelo é definido como a virtude que deve ser comum a todos os que servem à Marinha, não dependendo de preparo profissional específico — capítulo 4.8 (Rosa das Virtudes)."
       },
       {
         id: 48,
@@ -1291,7 +1341,8 @@ const questionsData = [
           "E) Fogo Sagrado"
         ],
         correct: 1,
-        subject: "Missão, Visão e Valores da Marinha"
+        subject: "Missão, Visão e Valores da Marinha",
+        explanation: "O Zelo também é descrito como consequência direta do amor próprio, do amor à Marinha e à Nação — é a mesma virtude cobrada pelo outro ângulo de sua definição oficial (capítulo 4.8, nota de atenção sobre o Zelo)."
       },
       {
         id: 49,
@@ -1304,7 +1355,8 @@ const questionsData = [
           "E) Obter a capacidade operacional plena"
         ],
         correct: 2,
-        subject: "Planejamento Estratégico (PEM/SPAN)"
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "\"Prover a Segurança Marítima\" pertence à perspectiva \"Resultados para a Sociedade\" do Mapa Estratégico — é uma entrega direta à sociedade, e não um processo interno; por isso NÃO está entre os objetivos ligados a Processos, capítulo 5.2."
       },
       {
         id: 50,
@@ -1317,7 +1369,8 @@ const questionsData = [
           "E) Visão de Futuro da Marinha"
         ],
         correct: 1,
-        subject: "Planejamento Estratégico (PEM/SPAN)"
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "O Planejamento de Alto Nível da Marinha é orientado pela SPAN — Sistemática de Planejamento de Alto Nível — capítulo 4.3."
       },
       {
         id: 51,
@@ -1330,7 +1383,8 @@ const questionsData = [
           "E) PND"
         ],
         correct: 3,
-        subject: "Planejamento Estratégico (PEM/SPAN)"
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "\"SPAN\" NÃO é um documento condicionante externo do PEM — é a própria sistemática de planejamento da MB. Os documentos condicionantes são LBDN, PMN, END e PND — capítulo 4.4."
       },
       {
         id: 52,
@@ -1343,7 +1397,8 @@ const questionsData = [
           "E) Sistemática de Planejamento de Alto Nível"
         ],
         correct: 0,
-        subject: "Planejamento Estratégico (PEM/SPAN)"
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "Os Objetivos Navais (OBNAV) representam \"o que\" deve ser feito para alcançar a Visão de Futuro da Marinha — capítulo 5.1."
       },
       {
         id: 53,
@@ -1356,7 +1411,8 @@ const questionsData = [
           "E) Estratégias Navais"
         ],
         correct: 4,
-        subject: "Planejamento Estratégico (PEM/SPAN)"
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "As Estratégias Navais estabelecem \"como\" devem ser executados os OBNAV — capítulo 5.1."
       },
       {
         id: 54,
@@ -1369,7 +1425,8 @@ const questionsData = [
           "E) Capacitação"
         ],
         correct: 3,
-        subject: "Planejamento Estratégico (PEM/SPAN)"
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "\"Disponibilidade de Matéria-prima\", \"Orçamentário\", \"Tecnológico\" e \"Capacitação\" são, de fato, aspectos das Ações Estratégicas Navais. \"Estrutura dissuasória\" NÃO é um dos aspectos citados nas AEN — capítulo 5.1."
       },
       {
         id: 55,
@@ -1382,7 +1439,2038 @@ const questionsData = [
           "E) Comitê de Gestão Estratégica da Marinha – Estado-Maior da Armada"
         ],
         correct: 4,
-        subject: "Planejamento Estratégico (PEM/SPAN)"
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "A Gestão Estratégica da Marinha é realizada pelo Comitê de Gestão Estratégica da Marinha (COGEM) e coordenada pelo Estado-Maior da Armada — capítulo 5.4."
+      },
+      {
+        id: 56,
+        text: "Uma escola pública promove uma semana de atividades para ensinar aos alunos a importância econômica e estratégica do mar para o Brasil, buscando despertar o sentimento de pertencimento à comunidade marítima. Essa iniciativa busca fortalecer, sobretudo, qual Fator Condicionante do Poder Marítimo?",
+        options: [
+          "A) Capacidade Tecnológica e Industrial",
+          "B) Capacidade de Financiamento",
+          "C) Necessidade de Desenvolvimento Sustentável",
+          "D) Capacidade de Mobilização",
+          "E) Mentalidade Marítima"
+        ],
+        correct: 4,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "A situação descrita ilustra \"Mentalidade Marítima\" (Fatores Condicionantes do Poder Marítimo), conforme o PEM 2040. Esse tipo de questão pede para reconhecer o conceito por trás de uma situação concreta, sem citar a definição literalmente."
+      },
+      {
+        id: 57,
+        text: "Diante de uma emergência no litoral, o governo consegue reunir rapidamente meios civis e militares para atuar na área afetada. Essa aptidão corresponde a qual Fator Condicionante do Poder Marítimo?",
+        options: [
+          "A) Capacidade de Mobilização",
+          "B) Mentalidade Marítima",
+          "C) Capacidade de Financiamento",
+          "D) Necessidade de Desenvolvimento Sustentável",
+          "E) Capacidade Tecnológica e Industrial"
+        ],
+        correct: 0,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "A situação descrita ilustra \"Capacidade de Mobilização\" (Fatores Condicionantes do Poder Marítimo), conforme o PEM 2040. Esse tipo de questão pede para reconhecer o conceito por trás de uma situação concreta, sem citar a definição literalmente."
+      },
+      {
+        id: 58,
+        text: "Um navio mercante é abordado por indivíduos armados que roubam sua carga em alto-mar, para fins privados, sem qualquer motivação política. Essa é uma ocorrência típica de qual ameaça descrita no PEM 2040?",
+        options: [
+          "A) Ameaças Cibernéticas",
+          "B) Pirataria",
+          "C) Questões Ambientais, Desastres Naturais e Pandemias",
+          "D) Disputa por Recursos Naturais",
+          "E) Defesa da Soberania"
+        ],
+        correct: 1,
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "A situação descrita ilustra \"Pirataria\" (Ameaças ao Poder Marítimo), conforme o PEM 2040. Esse tipo de questão pede para reconhecer o conceito por trás de uma situação concreta, sem citar a definição literalmente."
+      },
+      {
+        id: 59,
+        text: "Um sistema de monitoramento de tráfego marítimo de um porto brasileiro sofre um ataque que compromete suas comunicações e seu controle operacional. Essa situação exemplifica qual ameaça ao Poder Marítimo?",
+        options: [
+          "A) Questões Ambientais, Desastres Naturais e Pandemias",
+          "B) Disputa por Recursos Naturais",
+          "C) Ameaças Cibernéticas",
+          "D) Defesa da Soberania",
+          "E) Pirataria"
+        ],
+        correct: 2,
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "A situação descrita ilustra \"Ameaças Cibernéticas\" (Ameaças ao Poder Marítimo), conforme o PEM 2040. Esse tipo de questão pede para reconhecer o conceito por trás de uma situação concreta, sem citar a definição literalmente."
+      },
+      {
+        id: 60,
+        text: "Uma empresa estrangeira coleta, sem autorização, espécies marinhas da costa brasileira para uso comercial em pesquisas genéticas no exterior. Essa conduta configura qual ameaça descrita no PEM 2040?",
+        options: [
+          "A) Disputa por Recursos Naturais",
+          "B) Defesa da Soberania",
+          "C) Pirataria",
+          "D) Acessos Ilegais a Conhecimentos: Fauna, Flora e Biopirataria",
+          "E) Pesca Ilegal, Não Declarada e Não Regulamentada (INN)"
+        ],
+        correct: 3,
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "A situação descrita ilustra \"Acessos Ilegais a Conhecimentos: Fauna, Flora e Biopirataria\" (Ameaças ao Poder Marítimo), conforme o PEM 2040. Esse tipo de questão pede para reconhecer o conceito por trás de uma situação concreta, sem citar a definição literalmente."
+      },
+      {
+        id: 61,
+        text: "Uma força naval ataca o adversário em um horário e local que ele não esperava, impedindo qualquer reação organizada. Esse resultado busca aplicar qual princípio de guerra?",
+        options: [
+          "A) Moral",
+          "B) Exploração",
+          "C) Prontidão",
+          "D) Objetivo",
+          "E) Surpresa"
+        ],
+        correct: 4,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A situação descrita ilustra \"Surpresa\" (Princípios de Guerra), conforme o PEM 2040. Esse tipo de questão pede para reconhecer o conceito por trás de uma situação concreta, sem citar a definição literalmente."
+      },
+      {
+        id: 62,
+        text: "Um comandante concentra deliberadamente a maior parte de seus meios navais em um único ponto decisivo do combate, mesmo reduzindo a presença em outras áreas. Essa decisão reflete qual princípio de guerra?",
+        options: [
+          "A) Massa",
+          "B) Exploração",
+          "C) Prontidão",
+          "D) Objetivo",
+          "E) Ofensiva"
+        ],
+        correct: 0,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A situação descrita ilustra \"Massa\" (Princípios de Guerra), conforme o PEM 2040. Esse tipo de questão pede para reconhecer o conceito por trás de uma situação concreta, sem citar a definição literalmente."
+      },
+      {
+        id: 63,
+        text: "Ao elaborar um plano de operação, o Estado-Maior evita instruções complexas e prefere ordens claras e facilmente compreendidas por toda a tropa. Isso ilustra qual princípio de guerra?",
+        options: [
+          "A) Prontidão",
+          "B) Simplicidade",
+          "C) Objetivo",
+          "D) Ofensiva",
+          "E) Massa"
+        ],
+        correct: 1,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A situação descrita ilustra \"Simplicidade\" (Princípios de Guerra), conforme o PEM 2040. Esse tipo de questão pede para reconhecer o conceito por trás de uma situação concreta, sem citar a definição literalmente."
+      },
+      {
+        id: 64,
+        text: "Um navio de guerra é deslocado rapidamente por milhares de quilômetros para atender a uma crise, mantendo-se pronto para o emprego assim que chega à área. Essa capacidade corresponde a qual característica de uma Força Naval?",
+        options: [
+          "A) Ambiental",
+          "B) Econômica",
+          "C) Mobilidade",
+          "D) Defesa da Soberania",
+          "E) Pirataria"
+        ],
+        correct: 2,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A situação descrita ilustra \"Mobilidade\" (Características de uma Força Naval), conforme o PEM 2040. Esse tipo de questão pede para reconhecer o conceito por trás de uma situação concreta, sem citar a definição literalmente."
+      },
+      {
+        id: 65,
+        text: "Uma força-tarefa naval opera de forma contínua e independente, por vários meses, em uma área extensa e distante do litoral brasileiro. Essa capacidade corresponde a qual característica de uma Força Naval?",
+        options: [
+          "A) Econômica",
+          "B) Defesa da Soberania",
+          "C) Pirataria",
+          "D) Permanência",
+          "E) Pesca Ilegal, Não Declarada e Não Regulamentada (INN)"
+        ],
+        correct: 3,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A situação descrita ilustra \"Permanência\" (Características de uma Força Naval), conforme o PEM 2040. Esse tipo de questão pede para reconhecer o conceito por trás de uma situação concreta, sem citar a definição literalmente."
+      },
+      {
+        id: 66,
+        text: "Durante um exercício conjunto, cada tripulante auxilia os demais mesmo em tarefas que não são estritamente suas, em benefício do resultado coletivo da operação. Essa atitude ilustra qual virtude da Rosa das Virtudes?",
+        options: [
+          "A) Decisão",
+          "B) Espírito Militar",
+          "C) Zelo",
+          "D) Honra",
+          "E) Cooperação"
+        ],
+        correct: 4,
+        subject: "Missão, Visão e Valores da Marinha",
+        explanation: "A situação descrita ilustra \"Cooperação\" (virtudes da Rosa das Virtudes), conforme o PEM 2040. Esse tipo de questão pede para reconhecer o conceito por trás de uma situação concreta, sem citar a definição literalmente."
+      },
+      {
+        id: 67,
+        text: "Um militar se oferece voluntariamente para uma missão de risco, dispondo-se a abrir mão de seu conforto pessoal em prol do cumprimento do dever. Essa atitude ilustra qual virtude da Rosa das Virtudes?",
+        options: [
+          "A) Espírito de Sacrifício",
+          "B) Espírito Militar",
+          "C) Zelo",
+          "D) Honra",
+          "E) Lealdade"
+        ],
+        correct: 0,
+        subject: "Missão, Visão e Valores da Marinha",
+        explanation: "A situação descrita ilustra \"Espírito de Sacrifício\" (virtudes da Rosa das Virtudes), conforme o PEM 2040. Esse tipo de questão pede para reconhecer o conceito por trás de uma situação concreta, sem citar a definição literalmente."
+      },
+      {
+        id: 68,
+        text: "Uma tripulação cumpre rigorosamente as ordens e procedimentos estabelecidos, mesmo sob pressão, mantendo a coesão do grupo diante de um imprevisto. Essa atitude ilustra qual virtude da Rosa das Virtudes?",
+        options: [
+          "A) Zelo",
+          "B) Disciplina",
+          "C) Honra",
+          "D) Lealdade",
+          "E) Iniciativa"
+        ],
+        correct: 1,
+        subject: "Missão, Visão e Valores da Marinha",
+        explanation: "A situação descrita ilustra \"Disciplina\" (virtudes da Rosa das Virtudes), conforme o PEM 2040. Esse tipo de questão pede para reconhecer o conceito por trás de uma situação concreta, sem citar a definição literalmente."
+      },
+      {
+        id: 69,
+        text: "Um objetivo do Mapa Estratégico da Marinha consiste em garantir a segurança marítima diretamente percebida pela população brasileira. A qual perspectiva do Mapa Estratégico esse objetivo pertence?",
+        options: [
+          "A) Acessos Ilegais a Conhecimentos: Fauna, Flora e Biopirataria",
+          "B) Crime Organizado e Conflitos Urbanos",
+          "C) Resultados para a Sociedade",
+          "D) Terrorismo",
+          "E) Ameaças Cibernéticas"
+        ],
+        correct: 2,
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "A situação descrita ilustra \"Resultados para a Sociedade\" (perspectivas do Mapa Estratégico), conforme o PEM 2040. Esse tipo de questão pede para reconhecer o conceito por trás de uma situação concreta, sem citar a definição literalmente."
+      },
+      {
+        id: 70,
+        text: "Um objetivo do Mapa Estratégico da Marinha busca ampliar a capacidade cibernética da Força, fortalecendo sua organização interna. A qual perspectiva do Mapa Estratégico esse objetivo pertence?",
+        options: [
+          "A) Crime Organizado e Conflitos Urbanos",
+          "B) Terrorismo",
+          "C) Ameaças Cibernéticas",
+          "D) Processos",
+          "E) Questões Ambientais, Desastres Naturais e Pandemias"
+        ],
+        correct: 3,
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "A situação descrita ilustra \"Processos\" (perspectivas do Mapa Estratégico), conforme o PEM 2040. Esse tipo de questão pede para reconhecer o conceito por trás de uma situação concreta, sem citar a definição literalmente."
+      },
+      {
+        id: 71,
+        text: "A Marinha do Brasil desenvolve um \"sistema de sistemas\" que integra sensores e informações para monitorar e controlar as águas jurisdicionais brasileiras. A qual Programa Estratégico esse sistema corresponde?",
+        options: [
+          "A) Pessoal — Nosso Maior Patrimônio",
+          "B) Programa Nuclear da Marinha (PNM)",
+          "C) Construção do Núcleo do Poder Naval",
+          "D) Obtenção da Capacidade Operacional Plena (OCOP)",
+          "E) Sistema de Gerenciamento da Amazônia Azul (SisGAAz)"
+        ],
+        correct: 4,
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "A situação descrita ilustra \"Sistema de Gerenciamento da Amazônia Azul (SisGAAz)\" (Programas Estratégicos da Marinha do Brasil), conforme o PEM 2040. Esse tipo de questão pede para reconhecer o conceito por trás de uma situação concreta, sem citar a definição literalmente."
+      },
+      {
+        id: 72,
+        text: "Uma força naval utiliza seus meios para apoiar diretamente uma operação militar em território terrestre, a partir do mar. Essa ação corresponde a qual tarefa básica do Combate no Mar?",
+        options: [
+          "A) Projeção de Poder sobre Terra",
+          "B) Ameaças Cibernéticas",
+          "C) Questões Ambientais, Desastres Naturais e Pandemias",
+          "D) Disputa por Recursos Naturais",
+          "E) Negação do Uso do Mar"
+        ],
+        correct: 0,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A situação descrita ilustra \"Projeção de Poder sobre Terra\" (tarefas básicas do Combate no Mar), conforme o PEM 2040. Esse tipo de questão pede para reconhecer o conceito por trás de uma situação concreta, sem citar a definição literalmente."
+      },
+      {
+        id: 73,
+        text: "Após obter um êxito tático inicial em combate, o comandante decide intensificar as ações ofensivas imediatamente, para não dar trégua ao inimigo e ampliar o sucesso alcançado. Esse comportamento reflete qual princípio de guerra?",
+        options: [
+          "A) Moral",
+          "B) Exploração",
+          "C) Prontidão",
+          "D) Objetivo",
+          "E) Ofensiva"
+        ],
+        correct: 1,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A situação descrita ilustra \"Exploração\" (Princípios de Guerra), conforme o PEM 2040. Esse tipo de questão pede para reconhecer o conceito por trás de uma situação concreta, sem citar a definição literalmente."
+      },
+      {
+        id: 74,
+        text: "São Funções do Poder Marítimo, segundo o PEM 2040, EXCETO:",
+        options: [
+          "A) intercomunicação",
+          "B) defesa marítima e ribeirinha",
+          "C) Diplomacia",
+          "D) pesquisa",
+          "E) explotação"
+        ],
+        correct: 2,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "\"intercomunicação\", \"defesa marítima e ribeirinha\", \"pesquisa\", \"explotação\" pertencem, de fato, à lista de Funções do Poder Marítimo. \"Diplomacia\" NÃO é uma das 4 Funções do Poder Marítimo — a Diplomacia Naval é um conceito à parte (capítulo 3.4), relacionado ao uso do Poder Naval como instrumento de política externa, não uma das funções clássicas do capítulo 1.3."
+      },
+      {
+        id: 75,
+        text: "São Fatores Condicionantes do Poder Marítimo, segundo o PEM 2040, EXCETO:",
+        options: [
+          "A) Mentalidade Marítima",
+          "B) Capacidade de Financiamento",
+          "C) Necessidade de Desenvolvimento Sustentável",
+          "D) Capacidade Bélica",
+          "E) Capacidade de Mobilização"
+        ],
+        correct: 3,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "\"Mentalidade Marítima\", \"Capacidade de Financiamento\", \"Necessidade de Desenvolvimento Sustentável\", \"Capacidade de Mobilização\" pertencem, de fato, à lista de Fatores Condicionantes do Poder Marítimo. Essa expressão NÃO é um dos 5 Fatores Condicionantes do PEM 2040 — é a pegadinha clássica citada explicitamente na apostila (capítulo 1.4); o quinto fator real, não listado aqui, é a Capacidade Tecnológica e Industrial."
+      },
+      {
+        id: 76,
+        text: "São vertentes da Amazônia Azul, segundo o PEM 2040, EXCETO:",
+        options: [
+          "A) Soberania",
+          "B) Científica",
+          "C) Ambiental",
+          "D) Econômica",
+          "E) Mobilidade"
+        ],
+        correct: 4,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "\"Soberania\", \"Científica\", \"Ambiental\", \"Econômica\" pertencem, de fato, à lista de vertentes da Amazônia Azul. \"Mobilidade\" NÃO é uma das 4 vertentes da Amazônia Azul — é uma Característica de uma Força Naval (capítulo 3.7); não confundir as duas listas, como a própria apostila alerta."
+      },
+      {
+        id: 77,
+        text: "São Ameaças ao Poder Marítimo, segundo o PEM 2040, EXCETO:",
+        options: [
+          "A) Segurança",
+          "B) Defesa da Soberania",
+          "C) Pirataria",
+          "D) Pesca Ilegal, Não Declarada e Não Regulamentada (INN)",
+          "E) Acessos Ilegais a Conhecimentos: Fauna, Flora e Biopirataria"
+        ],
+        correct: 0,
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "\"Defesa da Soberania\", \"Pirataria\", \"Pesca Ilegal, Não Declarada e Não Regulamentada (INN)\", \"Acessos Ilegais a Conhecimentos: Fauna, Flora e Biopirataria\" pertencem, de fato, à lista de Ameaças ao Poder Marítimo. \"Segurança\" NÃO é uma das ameaças descritas no capítulo 2 do PEM 2040 — é um Princípio de Guerra (capítulo 3.2), relacionado à preservação do poder de combate, e não uma categoria de ameaça ao Poder Marítimo."
+      },
+      {
+        id: 78,
+        text: "São Ameaças ao Poder Marítimo, segundo o PEM 2040, EXCETO:",
+        options: [
+          "A) Crime Organizado e Conflitos Urbanos",
+          "B) Moral",
+          "C) Terrorismo",
+          "D) Ameaças Cibernéticas",
+          "E) Questões Ambientais, Desastres Naturais e Pandemias"
+        ],
+        correct: 1,
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "\"Crime Organizado e Conflitos Urbanos\", \"Terrorismo\", \"Ameaças Cibernéticas\", \"Questões Ambientais, Desastres Naturais e Pandemias\" pertencem, de fato, à lista de Ameaças ao Poder Marítimo. \"Moral\" NÃO é uma das ameaças descritas no capítulo 2 do PEM 2040 — é um Princípio de Guerra (capítulo 3.2), relacionado à preservação do poder de combate, e não uma categoria de ameaça ao Poder Marítimo."
+      },
+      {
+        id: 79,
+        text: "São Princípios de Guerra, segundo o PEM 2040, EXCETO:",
+        options: [
+          "A) Objetivo",
+          "B) Ofensiva",
+          "C) Mobilidade",
+          "D) Massa",
+          "E) Economia de Forças"
+        ],
+        correct: 2,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "\"Objetivo\", \"Ofensiva\", \"Massa\", \"Economia de Forças\" pertencem, de fato, à lista de Princípios de Guerra. \"Mobilidade\" NÃO é um dos 12 Princípios de Guerra — é uma Característica de uma Força Naval (capítulo 3.7); cuidado para não confundir as duas listas do capítulo 3."
+      },
+      {
+        id: 80,
+        text: "São Princípios de Guerra, segundo o PEM 2040, EXCETO:",
+        options: [
+          "A) Manobra",
+          "B) Unidade de Comando",
+          "C) Segurança",
+          "D) Flexibilidade",
+          "E) Surpresa"
+        ],
+        correct: 3,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "\"Manobra\", \"Unidade de Comando\", \"Segurança\", \"Surpresa\" pertencem, de fato, à lista de Princípios de Guerra. \"Flexibilidade\" NÃO é um dos 12 Princípios de Guerra — é uma Característica de uma Força Naval (capítulo 3.7); cuidado para não confundir as duas listas do capítulo 3."
+      },
+      {
+        id: 81,
+        text: "São Características de uma Força Naval, segundo o PEM 2040, EXCETO:",
+        options: [
+          "A) Mobilidade",
+          "B) Flexibilidade",
+          "C) Versatilidade",
+          "D) Permanência",
+          "E) Manobra"
+        ],
+        correct: 4,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "\"Mobilidade\", \"Flexibilidade\", \"Versatilidade\", \"Permanência\" pertencem, de fato, à lista de Características de uma Força Naval. \"Manobra\" NÃO é uma Característica da Força Naval — é um Princípio de Guerra (capítulo 3.2); é a pegadinha clássica citada explicitamente na apostila (capítulo 3.7)."
+      },
+      {
+        id: 82,
+        text: "São virtudes da Rosa das Virtudes, segundo o PEM 2040, EXCETO:",
+        options: [
+          "A) Autocontrole",
+          "B) Zelo",
+          "C) Honra",
+          "D) Lealdade",
+          "E) Iniciativa"
+        ],
+        correct: 0,
+        subject: "Missão, Visão e Valores da Marinha",
+        explanation: "\"Zelo\", \"Honra\", \"Lealdade\", \"Iniciativa\" pertencem, de fato, à lista de virtudes da Rosa das Virtudes. \"Autocontrole\" NÃO está entre as 16 virtudes da Rosa das Virtudes citadas no PEM 2040 — é um Atributo do Líder (Anexo A da apostila de Liderança), pertencente a uma lista diferente."
+      },
+      {
+        id: 83,
+        text: "São virtudes da Rosa das Virtudes, segundo o PEM 2040, EXCETO:",
+        options: [
+          "A) Cooperação",
+          "B) Comunicação",
+          "C) Espírito de Sacrifício",
+          "D) Coragem",
+          "E) Abnegação"
+        ],
+        correct: 1,
+        subject: "Missão, Visão e Valores da Marinha",
+        explanation: "\"Cooperação\", \"Espírito de Sacrifício\", \"Coragem\", \"Abnegação\" pertencem, de fato, à lista de virtudes da Rosa das Virtudes. \"Comunicação\" NÃO está entre as 16 virtudes da Rosa das Virtudes citadas no PEM 2040 — é um Atributo do Líder (Anexo A da apostila de Liderança), pertencente a uma lista diferente."
+      },
+      {
+        id: 84,
+        text: "São documentos condicionantes do PEM, segundo o PEM 2040, EXCETO:",
+        options: [
+          "A) PND (Política Nacional de Defesa)",
+          "B) END (Estratégia Nacional de Defesa)",
+          "C) SPAN",
+          "D) LBDN (Livro Branco de Defesa Nacional)",
+          "E) PMN (Política Marítima Nacional)"
+        ],
+        correct: 2,
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "\"PND (Política Nacional de Defesa)\", \"END (Estratégia Nacional de Defesa)\", \"LBDN (Livro Branco de Defesa Nacional)\", \"PMN (Política Marítima Nacional)\" pertencem, de fato, à lista de documentos condicionantes do PEM. A SPAN NÃO é um documento condicionante externo do PEM — é a própria sistemática de planejamento de alto nível da Marinha (capítulo 4.3); os documentos condicionantes reais são LBDN, PMN, END e PND (capítulo 4.4)."
+      },
+      {
+        id: 85,
+        text: "São Programas Estratégicos da Marinha do Brasil, segundo o PEM 2040, EXCETO:",
+        options: [
+          "A) Pessoal — Nosso Maior Patrimônio",
+          "B) Programa Nuclear da Marinha (PNM)",
+          "C) Construção do Núcleo do Poder Naval",
+          "D) Segurança Marítima",
+          "E) Obtenção da Capacidade Operacional Plena (OCOP)"
+        ],
+        correct: 3,
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "\"Pessoal — Nosso Maior Patrimônio\", \"Programa Nuclear da Marinha (PNM)\", \"Construção do Núcleo do Poder Naval\", \"Obtenção da Capacidade Operacional Plena (OCOP)\" pertencem, de fato, à lista de Programas Estratégicos da Marinha do Brasil. \"Prover a Segurança Marítima\" NÃO é um dos 7 Programas Estratégicos da MB — é um objetivo (OBNAV) da perspectiva \"Resultados para a Sociedade\" do Mapa Estratégico (capítulo 5.2), pertencente a uma lista diferente."
+      },
+      {
+        id: 86,
+        text: "São Programas Estratégicos da Marinha do Brasil, segundo o PEM 2040, EXCETO:",
+        options: [
+          "A) Sistema de Gerenciamento da Amazônia Azul (SisGAAz)",
+          "B) Ampliação da Capacidade de Apoio Logístico para os Meios Operativos",
+          "C) Mentalidade Marítima",
+          "D) Pessoal — Nosso Maior Patrimônio",
+          "E) Modernizar a Força Naval"
+        ],
+        correct: 4,
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "\"Sistema de Gerenciamento da Amazônia Azul (SisGAAz)\", \"Ampliação da Capacidade de Apoio Logístico para os Meios Operativos\", \"Mentalidade Marítima\", \"Pessoal — Nosso Maior Patrimônio\" pertencem, de fato, à lista de Programas Estratégicos da Marinha do Brasil. \"Prover a Modernizar a Força Naval\" NÃO é um dos 7 Programas Estratégicos da MB — é um objetivo (OBNAV) da perspectiva \"Resultados para a Sociedade\" do Mapa Estratégico (capítulo 5.2), pertencente a uma lista diferente."
+      },
+      {
+        id: 87,
+        text: "São fases do ciclo OODA, segundo o PEM 2040, EXCETO:",
+        options: [
+          "A) Organizar",
+          "B) Observar",
+          "C) Orientar",
+          "D) Decidir",
+          "E) Agir"
+        ],
+        correct: 0,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "\"Observar\", \"Orientar\", \"Decidir\", \"Agir\" pertencem, de fato, à lista de fases do ciclo OODA. \"Organizar\" NÃO é uma das 4 fases do ciclo OODA — as fases reais são Observar, Orientar, Decidir e Agir (capítulo 6.2)."
+      },
+      {
+        id: 88,
+        text: "Analise as afirmativas a seguir sobre o PEM 2040: I — Segundo o PEM 2040, \"Capacidade Bélica\" é um dos 5 Fatores Condicionantes do Poder Marítimo. II — A Mentalidade Marítima é o grau de conscientização da sociedade sobre a importância do Poder Marítimo. III — O PEM é elaborado pelo Estado-Maior da Armada e aprovado pelo Comandante da Marinha.",
+        options: [
+          "A) Nenhuma é verdadeira",
+          "B) Apenas II e III são verdadeiras",
+          "C) Apenas I é verdadeira",
+          "D) Apenas II é verdadeira",
+          "E) Apenas III é verdadeira"
+        ],
+        correct: 1,
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "I: Falso: Capacidade Bélica NÃO é um dos 5 fatores — é a pegadinha clássica citada no capítulo 1.4. II: Verdadeiro: é a definição oficial de Mentalidade Marítima do capítulo 1.4. III: Verdadeiro: é a citação literal do capítulo 4.5 sobre a elaboração e aprovação do PEM."
+      },
+      {
+        id: 89,
+        text: "Analise as afirmativas a seguir sobre o PEM 2040: I — O horizonte temporal do PEM é de vinte anos, revisado a cada quatro anos. II — \"Manobra\" é uma Característica de uma Força Naval, segundo o capítulo 3.7 do PEM 2040. III — As quatro vertentes da Amazônia Azul são Soberania, Científica, Ambiental e Econômica.",
+        options: [
+          "A) Nenhuma é verdadeira",
+          "B) Apenas I é verdadeira",
+          "C) Apenas I e III são verdadeiras",
+          "D) Apenas II é verdadeira",
+          "E) Apenas III é verdadeira"
+        ],
+        correct: 2,
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "I: Verdadeiro: consta expressamente no capítulo 4.5. II: Falso: Manobra é um Princípio de Guerra (capítulo 3.2), não uma Característica da Força Naval. III: Verdadeiro: são as quatro vertentes descritas no capítulo 1.6."
+      },
+      {
+        id: 90,
+        text: "Analise as afirmativas a seguir sobre o PEM 2040: I — A ZOPACAS integra apenas Brasil, Argentina e Uruguai. II — O \"Combate pelo Mar\" está associado à defesa dos interesses da Amazônia Azul, com ênfase em interoperabilidade e operações interagências. III — A Gestão Estratégica da Marinha é realizada pelo COGEM e coordenada pelo Estado-Maior da Armada.",
+        options: [
+          "A) Nenhuma é verdadeira",
+          "B) Apenas I é verdadeira",
+          "C) Apenas II é verdadeira",
+          "D) Apenas II e III são verdadeiras",
+          "E) Apenas III é verdadeira"
+        ],
+        correct: 3,
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "I: Falso: a ZOPACAS integra 24 países lindeiros ao Atlântico Sul, não apenas três. II: Verdadeiro: é a definição do capítulo 3.3. III: Verdadeiro: consta expressamente no capítulo 5.4."
+      },
+      {
+        id: 91,
+        text: "Analise as afirmativas a seguir sobre o PEM 2040: I — As Estratégias Navais representam \"o que\" deve ser feito para alcançar a Visão de Futuro da MB. II — \"SPAN\" é um dos documentos condicionantes externos do PEM, junto com LBDN, PMN, END e PND. III — São 12 os Princípios de Guerra reafirmados pelo PEM 2040 no contexto do Combate no Mar.",
+        options: [
+          "A) Nenhuma é verdadeira",
+          "B) Apenas I é verdadeira",
+          "C) Apenas II é verdadeira",
+          "D) I e II são verdadeiras",
+          "E) Apenas III é verdadeira"
+        ],
+        correct: 4,
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "I: Falso: isso é a definição de OBNAV. As Estratégias Navais representam \"como\" os OBNAV devem ser executados (capítulo 5.1). II: Falso: a SPAN é a sistemática de planejamento da própria MB, não um documento condicionante externo — os quatro documentos reais são LBDN, PMN, END e PND (capítulo 4.4). III: Verdadeiro: são 12 princípios listados no capítulo 3.2."
+      },
+      {
+        id: 92,
+        text: "Analise as afirmativas a seguir sobre o PEM 2040: I — O ciclo OODA é composto por Observar, Orientar, Decidir e Organizar. II — São 7 os Programas Estratégicos concebidos pelo PEM 2040. III — \"Prover a Segurança Marítima\" pertence à perspectiva \"Processos\" do Mapa Estratégico.",
+        options: [
+          "A) Apenas II é verdadeira",
+          "B) Nenhuma é verdadeira",
+          "C) Apenas I é verdadeira",
+          "D) Apenas III é verdadeira",
+          "E) I e II são verdadeiras"
+        ],
+        correct: 0,
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "I: Falso: a quarta fase correta é \"Agir\", não \"Organizar\" — capítulo 6.2. II: Verdadeiro: são 7 programas listados no capítulo 5.3. III: Falso: pertence à perspectiva \"Resultados para a Sociedade\", por ser uma entrega direta à sociedade, e não uma capacidade interna (capítulo 5.2)."
+      },
+      {
+        id: 93,
+        text: "Complete a Missão da Marinha: \"Preparar e empregar o Poder Naval, a fim de contribuir para a _______; para a garantia dos poderes constitucionais e, por iniciativa de qualquer destes, da lei e da ordem; para o cumprimento das atribuições subsidiárias previstas em Lei; e para o apoio à Política Externa.\"",
+        options: [
+          "A) Segurança Nacional",
+          "B) Defesa da Pátria",
+          "C) Ordem Pública",
+          "D) Soberania Marítima",
+          "E) Integridade Territorial"
+        ],
+        correct: 1,
+        subject: "Missão, Visão e Valores da Marinha",
+        explanation: "A Defesa da Pátria é o componente preponderante e essencial da Missão da Marinha, citada em primeiro lugar por ser a razão de ser primária das Forças Armadas — capítulo 4.6."
+      },
+      {
+        id: 94,
+        text: "Complete a Visão de Futuro da Marinha: \"A Marinha do Brasil será uma Força moderna, aprestada e motivada, com alto grau de _______, de dimensão compatível com a estatura político-estratégica do Brasil no cenário internacional [...]\"",
+        options: [
+          "A) cooperação internacional",
+          "B) presença global",
+          "C) independência tecnológica",
+          "D) modernização naval",
+          "E) capacitação profissional"
+        ],
+        correct: 2,
+        subject: "Missão, Visão e Valores da Marinha",
+        explanation: "A Visão de Futuro da MB cita expressamente o \"alto grau de independência tecnológica\" como parte da caracterização de uma Força moderna — capítulo 4.7."
+      },
+      {
+        id: 95,
+        text: "Complete a definição oficial: \"Poder Marítimo é a projeção do Poder Nacional, resultante da integração dos recursos de que dispõe a Nação para a utilização do mar e das águas interiores, quer como instrumento de ação política e militar, quer como fator de _______.\"",
+        options: [
+          "A) expansão territorial",
+          "B) defesa nacional exclusiva",
+          "C) projeção internacional",
+          "D) desenvolvimento econômico e social",
+          "E) controle populacional"
+        ],
+        correct: 3,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "A definição oficial de Poder Marítimo (capítulo 1.2) cita expressamente \"fator de desenvolvimento econômico e social\" como a segunda dimensão do conceito, ao lado do instrumento de ação política e militar."
+      },
+      {
+        id: 96,
+        text: "Complete: \"O PEM é elaborado pelo _______ e aprovado pelo Comandante da Marinha, com horizonte temporal de vinte anos, devendo ser sistematicamente revisto e atualizado a cada quatro anos.\"",
+        options: [
+          "A) Comando de Operações Navais",
+          "B) Conselho de Gestão Estratégica",
+          "C) Secretaria Geral da Marinha",
+          "D) Ministério da Defesa",
+          "E) Estado-Maior da Armada"
+        ],
+        correct: 4,
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "O PEM 2040 estabelece expressamente que o Estado-Maior da Armada elabora o PEM, que é então aprovado pelo Comandante da Marinha — capítulo 4.5."
+      },
+      {
+        id: 97,
+        text: "Complete: \"A Gestão Estratégica é realizada pelo _______\", cuja importância advém da necessidade de analisar e avaliar as informações do Sistema de Medição de Desempenho.",
+        options: [
+          "A) Comitê de Gestão Estratégica da Marinha (COGEM)",
+          "B) Estado-Maior da Armada",
+          "C) Conselho do Plano Diretor",
+          "D) Conselho Financeiro e Administrativo",
+          "E) Comando de Operações Navais"
+        ],
+        correct: 0,
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "A Gestão Estratégica é realizada pelo COGEM e coordenada pelo Estado-Maior da Armada — capítulo 5.4; não confundir quem realiza com quem coordena."
+      },
+      {
+        id: 98,
+        text: "Segundo o PEM 2040, o Entorno Estratégico brasileiro no Atlântico Sul é delimitado ao Norte pelo paralelo:",
+        options: [
+          "A) 10ºN",
+          "B) 16ºN",
+          "C) 20ºN",
+          "D) 16ºS",
+          "E) 23ºN"
+        ],
+        correct: 1,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "O limite Norte do Entorno Estratégico é o paralelo 16ºN, conforme o capítulo 1.5 do PEM 2040."
+      },
+      {
+        id: 99,
+        text: "Segundo o PEM 2040, o Curto Prazo do horizonte temporal do PEM corresponde a:",
+        options: [
+          "A) de 5 a 12 anos",
+          "B) de 13 a 20 anos",
+          "C) até 4 anos (1 Plano Plurianual)",
+          "D) até 2 anos",
+          "E) até 8 anos"
+        ],
+        correct: 2,
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "O Curto Prazo do horizonte do PEM corresponde a até 4 anos, equivalente a 1 PPA — capítulo 4.5."
+      },
+      {
+        id: 100,
+        text: "Segundo o PEM 2040, o Médio Prazo do horizonte temporal do PEM corresponde a:",
+        options: [
+          "A) até 4 anos",
+          "B) de 13 a 20 anos",
+          "C) de 5 a 20 anos",
+          "D) de 5 a 12 anos (até 3 PPA)",
+          "E) até 6 anos"
+        ],
+        correct: 3,
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "O Médio Prazo do horizonte do PEM corresponde de 5 a 12 anos, equivalente a até 3 PPA — capítulo 4.5."
+      },
+      {
+        id: 101,
+        text: "Segundo o PEM 2040, o Longo Prazo do horizonte temporal do PEM corresponde a:",
+        options: [
+          "A) até 12 anos",
+          "B) de 5 a 12 anos",
+          "C) até 25 anos",
+          "D) de 10 a 20 anos",
+          "E) de 13 a 20 anos (até 5 PPA)"
+        ],
+        correct: 4,
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "O Longo Prazo do horizonte do PEM corresponde de 13 a 20 anos, equivalente a até 5 PPA — capítulo 4.5."
+      },
+      {
+        id: 102,
+        text: "Segundo o PEM 2040, os OBNAV (Objetivos Navais) representam:",
+        options: [
+          "A) \"o que\" deve ser feito para alcançar a Visão de Futuro da MB",
+          "B) \"como\" devem ser executadas as ações navais",
+          "C) \"com que recursos\" a MB deve operar",
+          "D) \"quando\" a MB deve agir",
+          "E) \"quem\" deve executar as ações navais"
+        ],
+        correct: 0,
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "Os OBNAV respondem à pergunta \"o que\" deve ser feito, estabelecidos na Política Naval — capítulo 5.1; não confundir com Estratégias Navais (\"como\") nem com AEN (\"com que ações concretas\")."
+      },
+      {
+        id: 103,
+        text: "Qual a diferença entre \"Combate no Mar\" e \"Combate pelo Mar\", segundo o PEM 2040?",
+        options: [
+          "A) Os dois termos são sinônimos no PEM 2040.",
+          "B) Combate no Mar é o conceito clássico de guerra naval contra outra força naval; Combate pelo Mar é o paradigma mais recente, ligado à defesa da Amazônia Azul, com ênfase em interoperabilidade e operações interagências.",
+          "C) Combate no Mar trata apenas de operações fluviais, e Combate pelo Mar de operações oceânicas.",
+          "D) Combate pelo Mar é exclusivo de tempos de paz, e Combate no Mar de tempos de guerra.",
+          "E) Combate no Mar é conduzido apenas pela aviação naval."
+        ],
+        correct: 1,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O Combate no Mar (capítulo 3.1) é o conceito clássico de confronto entre forças navais; o Combate pelo Mar (capítulo 3.3) é o paradigma mais recente, associado à defesa dos interesses da Amazônia Azul, privilegiando interoperabilidade e operações interagências."
+      },
+      {
+        id: 104,
+        text: "Qual a diferença entre \"Safety\" e \"Security\" na Defesa Marítima de Amplo Espectro, segundo o PEM 2040?",
+        options: [
+          "A) Safety trata de ameaças cibernéticas, e Security de ameaças físicas.",
+          "B) Os dois termos são sinônimos e intercambiáveis no PEM 2040.",
+          "C) Safety (Segurança do Tráfego Aquaviário) tem foco preventivo, como inspeções e busca e salvamento; Security (Proteção Marítima) tem foco coercitivo, contra ilícitos como pirataria e tráfico.",
+          "D) Safety é responsabilidade exclusiva da Capitania dos Portos, e Security da Marinha de Guerra.",
+          "E) Security tem foco preventivo, e Safety tem foco coercitivo."
+        ],
+        correct: 2,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "Safety (capítulo 3.6) tem foco em prevenção de acidentes — inspeções, poluição, busca e salvamento; Security tem foco em proteção coercitiva contra ilícitos deliberados, como pirataria, tráfico e terrorismo."
+      },
+      {
+        id: 105,
+        text: "Qual a diferença entre OBNAV, Estratégia Naval (EN) e Ação Estratégica Naval (AEN), segundo o PEM 2040?",
+        options: [
+          "A) Os três termos são sinônimos, usados apenas em contextos diferentes do documento.",
+          "B) AEN representa \"o que\" deve ser feito, e OBNAV o \"como\".",
+          "C) EN é exclusiva do nível Nacional, e AEN do nível Subsetorial.",
+          "D) OBNAV representa \"o que\" deve ser feito; EN estabelece \"como\" deve ser feito; AEN detalha \"com que ações concretas\" isso será feito.",
+          "E) OBNAV é aprovado pelo COGEM, e AEN pelo Estado-Maior da Armada."
+        ],
+        correct: 3,
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "Os OBNAV respondem a \"o que\" fazer (Política Naval); as Estratégias Navais a \"como\" fazer; e as AEN detalham \"com que ações concretas\" isso será feito, adequadas à realidade orçamentária, tecnológica e de capacitação do País — capítulo 5.1."
+      },
+      {
+        id: 106,
+        text: "Qual a diferença entre Poder Marítimo e Poder Naval, segundo o PEM 2040?",
+        options: [
+          "A) Poder Naval é mais amplo que Poder Marítimo, pois inclui a marinha mercante.",
+          "B) Os dois termos são sinônimos no PEM 2040.",
+          "C) Poder Marítimo é exclusivo de tempos de guerra.",
+          "D) Poder Naval trata apenas de questões econômicas, e Poder Marítimo de questões militares.",
+          "E) Poder Marítimo é o conceito mais amplo, que integra recursos para uso político-militar e socioeconômico do mar; Poder Naval é o instrumento militar contido nesse conceito mais amplo."
+        ],
+        correct: 4,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "O Poder Marítimo (capítulo 1.2) é o conceito dual mais amplo, envolvendo também a marinha mercante, os portos e a atividade econômica ligada ao mar; o Poder Naval é o braço militar contido nesse conceito mais amplo, principal responsável pela defesa da Amazônia Azul."
+      },
+      {
+        id: 107,
+        text: "Qual a diferença entre \"Mobilidade\" (Característica da Força Naval) e \"Manobra\" (Princípio de Guerra), segundo o PEM 2040?",
+        options: [
+          "A) Mobilidade é a capacidade de deslocar-se prontamente e a grandes distâncias; Manobra é colocar o inimigo em desvantagem por meio do emprego flexível do poder de combate.",
+          "B) As duas são a mesma coisa, apenas em capítulos diferentes da apostila.",
+          "C) Mobilidade é um Princípio de Guerra, e Manobra uma Característica da Força Naval.",
+          "D) Manobra trata apenas de deslocamento geográfico, sem relação com combate.",
+          "E) Mobilidade é exclusiva de submarinos."
+        ],
+        correct: 0,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "Mobilidade (capítulo 3.7) é uma Característica da Força Naval — capacidade de deslocamento rápido e a grandes distâncias; Manobra (capítulo 3.2) é um Princípio de Guerra — colocar o inimigo em desvantagem por meio do emprego flexível do poder de combate. É a pegadinha clássica citada na apostila."
+      },
+      {
+        id: 108,
+        text: "Relacione os níveis do Planejamento Estratégico Militar (coluna 1) às suas composições (coluna 2), segundo o PEM 2040, e assinale a sequência correta. Coluna 1: (1) Nacional; (2) Setorial; (3) Subsetorial Coluna 2: (a) formado pelas mais altas autoridades do país; (b) Ministério da Defesa e órgãos com responsabilidades diretas; (c) as Forças Armadas — Marinha, Exército e Aeronáutica",
+        options: [
+          "A) 1-3-2",
+          "B) 1-2-3",
+          "C) 2-1-3",
+          "D) 2-3-1",
+          "E) 3-1-2"
+        ],
+        correct: 1,
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "A ordem correta segue a associação: Nacional = definição 1; Setorial = definição 2; Subsetorial = definição 3."
+      },
+      {
+        id: 109,
+        text: "Relacione as perspectivas do Mapa Estratégico (coluna 1) aos seus focos (coluna 2), segundo o PEM 2040, e assinale a sequência correta. Coluna 1: (1) Resultados para a Sociedade; (2) Processos; (3) Institucional Coluna 2: (a) entregas diretas à sociedade, como segurança marítima e defesa da soberania; (b) organização interna, como capacidade operacional e cibernética; (c) alicerces como gestão de pessoal, orçamento e infraestrutura",
+        options: [
+          "A) 1-3-2",
+          "B) 2-1-3",
+          "C) 1-2-3",
+          "D) 2-3-1",
+          "E) 3-1-2"
+        ],
+        correct: 2,
+        subject: "Planejamento Estratégico (PEM/SPAN)",
+        explanation: "A ordem correta segue a associação: Resultados para a Sociedade = definição 1; Processos = definição 2; Institucional = definição 3."
+      },
+      {
+        id: 110,
+        text: "Relacione os atributos da Visão de Futuro da Marinha (coluna 1) aos seus significados (coluna 2), segundo o PEM 2040, e assinale a sequência correta. Coluna 1: (1) Moderna; (2) Aprestada; (3) Motivada Coluna 2: (a) acompanha a evolução tecnológica e doutrinária; (b) pronta para o emprego imediato; (c) sólida formação moral e identificação com os valores da instituição",
+        options: [
+          "A) 1-3-2",
+          "B) 2-1-3",
+          "C) 2-3-1",
+          "D) 1-2-3",
+          "E) 3-1-2"
+        ],
+        correct: 3,
+        subject: "Missão, Visão e Valores da Marinha",
+        explanation: "A ordem correta segue a associação: Moderna = definição 1; Aprestada = definição 2; Motivada = definição 3."
+      },
+      {
+        id: 111,
+        text: "Relacione as tarefas básicas do Combate no Mar (coluna 1) às suas definições (coluna 2), segundo o PEM 2040, e assinale a sequência correta. Coluna 1: (1) Negação do Uso do Mar; (2) Controle de Áreas Marítimas; (3) Projeção de Poder sobre Terra Coluna 2: (a) dificultar o controle de área marítima pelo inimigo; (b) garantia temporária de uso de uma área marítima; (c) transposição da influência do Poder Naval para áreas terrestres",
+        options: [
+          "A) 1-3-2",
+          "B) 2-1-3",
+          "C) 2-3-1",
+          "D) 3-1-2",
+          "E) 1-2-3"
+        ],
+        correct: 4,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A ordem correta segue a associação: Negação do Uso do Mar = definição 1; Controle de Áreas Marítimas = definição 2; Projeção de Poder sobre Terra = definição 3."
+      },
+      {
+        id: 112,
+        text: "Relacione as porções marítimas de interesse do Brasil (coluna 1) às suas definições (coluna 2), segundo o PEM 2040, e assinale a sequência correta. Coluna 1: (1) Águas territoriais; (2) Águas patrimoniais; (3) Águas de interesse marítimo Coluna 2: (a) faixa de 12 milhas náuticas a partir da costa, com soberania plena; (b) zona da Amazônia Azul, incluindo ZEE e Plataforma Continental; (c) terceira porção reconhecida pelo PEM 2040, além das duas anteriores",
+        options: [
+          "A) 1-2-3",
+          "B) 1-3-2",
+          "C) 2-1-3",
+          "D) 2-3-1",
+          "E) 3-1-2"
+        ],
+        correct: 0,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "A ordem correta segue a associação: Águas territoriais = definição 1; Águas patrimoniais = definição 2; Águas de interesse marítimo = definição 3."
+      },
+      {
+        id: 113,
+        text: "Conforme o Plano Estratégico da Marinha (PEM-2040), a definição a seguir corresponde a qual conceito? \"Uso do mar e das hidrovias como via de transporte de pessoas, mercadorias e informação — a função mais antiga e mais óbvia do Poder Marítimo\"",
+        options: [
+          "A) defesa marítima e ribeirinha",
+          "B) intercomunicação",
+          "C) pesquisa",
+          "D) explotação",
+          "E) Mentalidade Marítima"
+        ],
+        correct: 1,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "O trecho citado é a definição de \"intercomunicação\" (Funções do Poder Marítimo), conforme o PEM 2040."
+      },
+      {
+        id: 114,
+        text: "Segundo o PEM 2040, qual das alternativas define corretamente \"intercomunicação\"?",
+        options: [
+          "A) Uso do mar e das hidrovias como via de transporte de pessoas, mercadorias e informação — a função mais antiga e mais óbvia do Poder Marítimo",
+          "B) Domínio de tecnologias próprias e existência de uma indústria naval e de defesa nacional capaz de projetar, construir e manter meios navais, reduzindo a dependência externa",
+          "C) Afirmação e defesa da soberania e dos direitos de soberania do Brasil sobre suas águas jurisdicionais",
+          "D) Ampliação do conhecimento científico sobre o mar brasileiro, como a oceanografia, a biodiversidade e a geologia marinha",
+          "E) Proteção e uso sustentável dos ecossistemas marinhos e costeiros"
+        ],
+        correct: 0,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "A definição correta de \"intercomunicação\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 115,
+        text: "De acordo com o PEM 2040, o trecho abaixo descreve qual termo? \"Proteção do território, da população e dos interesses nacionais no mar e nas águas interiores contra ameaças de toda natureza\"",
+        options: [
+          "A) pesquisa",
+          "B) explotação",
+          "C) defesa marítima e ribeirinha",
+          "D) Mentalidade Marítima",
+          "E) Capacidade de Financiamento"
+        ],
+        correct: 2,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "O trecho citado é a definição de \"defesa marítima e ribeirinha\" (Funções do Poder Marítimo), conforme o PEM 2040."
+      },
+      {
+        id: 116,
+        text: "De acordo com o PEM 2040, assinale a definição correta de \"defesa marítima e ribeirinha\":",
+        options: [
+          "A) Afirmação e defesa da soberania e dos direitos de soberania do Brasil sobre suas águas jurisdicionais",
+          "B) Proteção do território, da população e dos interesses nacionais no mar e nas águas interiores contra ameaças de toda natureza",
+          "C) Ampliação do conhecimento científico sobre o mar brasileiro, como a oceanografia, a biodiversidade e a geologia marinha",
+          "D) Proteção e uso sustentável dos ecossistemas marinhos e costeiros",
+          "E) Aproveitamento econômico responsável dos recursos vivos e não vivos, como pesca, petróleo e gás e minerais"
+        ],
+        correct: 1,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "A definição correta de \"defesa marítima e ribeirinha\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 117,
+        text: "Segundo o PEM 2040, complete: é aquele(a) que se define como \"Produção de conhecimento científico sobre o mar, o litoral, o fundo oceânico e os recursos hídricos interiores\". Trata-se de:",
+        options: [
+          "A) explotação",
+          "B) Mentalidade Marítima",
+          "C) Capacidade de Financiamento",
+          "D) pesquisa",
+          "E) Necessidade de Desenvolvimento Sustentável"
+        ],
+        correct: 3,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "O trecho citado é a definição de \"pesquisa\" (Funções do Poder Marítimo), conforme o PEM 2040."
+      },
+      {
+        id: 118,
+        text: "Segundo o PEM 2040, qual das alternativas define corretamente \"pesquisa\"?",
+        options: [
+          "A) Ampliação do conhecimento científico sobre o mar brasileiro, como a oceanografia, a biodiversidade e a geologia marinha",
+          "B) Proteção e uso sustentável dos ecossistemas marinhos e costeiros",
+          "C) Produção de conhecimento científico sobre o mar, o litoral, o fundo oceânico e os recursos hídricos interiores",
+          "D) Aproveitamento econômico responsável dos recursos vivos e não vivos, como pesca, petróleo e gás e minerais",
+          "E) Ameaças de natureza militar ou política que buscam contestar a soberania brasileira sobre seu território, suas águas jurisdicionais e seus recursos"
+        ],
+        correct: 2,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "A definição correta de \"pesquisa\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 119,
+        text: "No PEM 2040, qual das alternativas corresponde à seguinte definição: \"Aproveitamento econômico dos recursos vivos e não vivos do mar e das águas interiores, como pesca, petróleo e gás, minerais e energia\"?",
+        options: [
+          "A) Mentalidade Marítima",
+          "B) Capacidade de Financiamento",
+          "C) Necessidade de Desenvolvimento Sustentável",
+          "D) Capacidade de Mobilização",
+          "E) explotação"
+        ],
+        correct: 4,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "O trecho citado é a definição de \"explotação\" (Funções do Poder Marítimo), conforme o PEM 2040."
+      },
+      {
+        id: 120,
+        text: "De acordo com o PEM 2040, assinale a definição correta de \"explotação\":",
+        options: [
+          "A) Proteção e uso sustentável dos ecossistemas marinhos e costeiros",
+          "B) Aproveitamento econômico responsável dos recursos vivos e não vivos, como pesca, petróleo e gás e minerais",
+          "C) Ameaças de natureza militar ou política que buscam contestar a soberania brasileira sobre seu território, suas águas jurisdicionais e seus recursos",
+          "D) Aproveitamento econômico dos recursos vivos e não vivos do mar e das águas interiores, como pesca, petróleo e gás, minerais e energia",
+          "E) Atos de violência, detenção ou depredação cometidos para fins privados contra embarcações, tripulações ou cargas, no mar ou em águas interiores"
+        ],
+        correct: 3,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "A definição correta de \"explotação\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 121,
+        text: "Conforme o Plano Estratégico da Marinha (PEM-2040), a definição a seguir corresponde a qual conceito? \"Grau de conscientização da sociedade e dos decisores governamentais sobre a importância do Poder Marítimo, além do sentimento de pertencimento à comunidade marítima brasileira\"",
+        options: [
+          "A) Mentalidade Marítima",
+          "B) Capacidade de Financiamento",
+          "C) Necessidade de Desenvolvimento Sustentável",
+          "D) Capacidade de Mobilização",
+          "E) Capacidade Tecnológica e Industrial"
+        ],
+        correct: 0,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "O trecho citado é a definição de \"Mentalidade Marítima\" (Fatores Condicionantes do Poder Marítimo), conforme o PEM 2040."
+      },
+      {
+        id: 122,
+        text: "Segundo o PEM 2040, qual das alternativas define corretamente \"Mentalidade Marítima\"?",
+        options: [
+          "A) Aproveitamento econômico responsável dos recursos vivos e não vivos, como pesca, petróleo e gás e minerais",
+          "B) Ameaças de natureza militar ou política que buscam contestar a soberania brasileira sobre seu território, suas águas jurisdicionais e seus recursos",
+          "C) Atos de violência, detenção ou depredação cometidos para fins privados contra embarcações, tripulações ou cargas, no mar ou em águas interiores",
+          "D) Atividade pesqueira realizada sem autorização, sem declaração às autoridades competentes, ou em desacordo com as normas de conservação de determinada área",
+          "E) Grau de conscientização da sociedade e dos decisores governamentais sobre a importância do Poder Marítimo, além do sentimento de pertencimento à comunidade marítima brasileira"
+        ],
+        correct: 4,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "A definição correta de \"Mentalidade Marítima\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 123,
+        text: "De acordo com o PEM 2040, o trecho abaixo descreve qual termo? \"Disponibilidade de recursos financeiros, públicos e privados, para investir em meios navais, infraestrutura portuária, indústria naval e pesquisa marítima\"",
+        options: [
+          "A) Necessidade de Desenvolvimento Sustentável",
+          "B) Capacidade de Financiamento",
+          "C) Capacidade de Mobilização",
+          "D) Capacidade Tecnológica e Industrial",
+          "E) Mentalidade Marítima"
+        ],
+        correct: 1,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "O trecho citado é a definição de \"Capacidade de Financiamento\" (Fatores Condicionantes do Poder Marítimo), conforme o PEM 2040."
+      },
+      {
+        id: 124,
+        text: "De acordo com o PEM 2040, assinale a definição correta de \"Capacidade de Financiamento\":",
+        options: [
+          "A) Disponibilidade de recursos financeiros, públicos e privados, para investir em meios navais, infraestrutura portuária, indústria naval e pesquisa marítima",
+          "B) Ameaças de natureza militar ou política que buscam contestar a soberania brasileira sobre seu território, suas águas jurisdicionais e seus recursos",
+          "C) Atos de violência, detenção ou depredação cometidos para fins privados contra embarcações, tripulações ou cargas, no mar ou em águas interiores",
+          "D) Atividade pesqueira realizada sem autorização, sem declaração às autoridades competentes, ou em desacordo com as normas de conservação de determinada área",
+          "E) Apropriação ou exploração não autorizada do patrimônio genético e da biodiversidade marinha e costeira brasileira por agentes estrangeiros"
+        ],
+        correct: 0,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "A definição correta de \"Capacidade de Financiamento\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 125,
+        text: "Segundo o PEM 2040, complete: é aquele(a) que se define como \"Equilíbrio entre o aproveitamento econômico dos recursos marítimos e sua preservação ambiental, garantindo que a exploração do mar hoje não comprometa as gerações futuras\". Trata-se de:",
+        options: [
+          "A) Capacidade de Mobilização",
+          "B) Capacidade Tecnológica e Industrial",
+          "C) Necessidade de Desenvolvimento Sustentável",
+          "D) Mentalidade Marítima",
+          "E) Capacidade de Financiamento"
+        ],
+        correct: 2,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "O trecho citado é a definição de \"Necessidade de Desenvolvimento Sustentável\" (Fatores Condicionantes do Poder Marítimo), conforme o PEM 2040."
+      },
+      {
+        id: 126,
+        text: "Segundo o PEM 2040, qual das alternativas define corretamente \"Necessidade de Desenvolvimento Sustentável\"?",
+        options: [
+          "A) Atos de violência, detenção ou depredação cometidos para fins privados contra embarcações, tripulações ou cargas, no mar ou em águas interiores",
+          "B) Equilíbrio entre o aproveitamento econômico dos recursos marítimos e sua preservação ambiental, garantindo que a exploração do mar hoje não comprometa as gerações futuras",
+          "C) Atividade pesqueira realizada sem autorização, sem declaração às autoridades competentes, ou em desacordo com as normas de conservação de determinada área",
+          "D) Apropriação ou exploração não autorizada do patrimônio genético e da biodiversidade marinha e costeira brasileira por agentes estrangeiros",
+          "E) Uso das vias marítimas e fluviais, como portos e hidrovias, para tráfico de drogas, armas e outros ilícitos ligados ao crime organizado"
+        ],
+        correct: 1,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "A definição correta de \"Necessidade de Desenvolvimento Sustentável\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 127,
+        text: "No PEM 2040, qual das alternativas corresponde à seguinte definição: \"Capacidade de reunir e empregar rapidamente recursos humanos e materiais, civis e militares, diante de uma necessidade ou ameaça no ambiente marítimo\"?",
+        options: [
+          "A) Capacidade Tecnológica e Industrial",
+          "B) Mentalidade Marítima",
+          "C) Capacidade de Financiamento",
+          "D) Capacidade de Mobilização",
+          "E) Necessidade de Desenvolvimento Sustentável"
+        ],
+        correct: 3,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "O trecho citado é a definição de \"Capacidade de Mobilização\" (Fatores Condicionantes do Poder Marítimo), conforme o PEM 2040."
+      },
+      {
+        id: 128,
+        text: "De acordo com o PEM 2040, assinale a definição correta de \"Capacidade de Mobilização\":",
+        options: [
+          "A) Atividade pesqueira realizada sem autorização, sem declaração às autoridades competentes, ou em desacordo com as normas de conservação de determinada área",
+          "B) Apropriação ou exploração não autorizada do patrimônio genético e da biodiversidade marinha e costeira brasileira por agentes estrangeiros",
+          "C) Capacidade de reunir e empregar rapidamente recursos humanos e materiais, civis e militares, diante de uma necessidade ou ameaça no ambiente marítimo",
+          "D) Uso das vias marítimas e fluviais, como portos e hidrovias, para tráfico de drogas, armas e outros ilícitos ligados ao crime organizado",
+          "E) Ataques contra instalações portuárias, plataformas de petróleo, embarcações ou infraestrutura crítica marítima, com objetivos políticos ou ideológicos"
+        ],
+        correct: 2,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "A definição correta de \"Capacidade de Mobilização\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 129,
+        text: "Conforme o Plano Estratégico da Marinha (PEM-2040), a definição a seguir corresponde a qual conceito? \"Domínio de tecnologias próprias e existência de uma indústria naval e de defesa nacional capaz de projetar, construir e manter meios navais, reduzindo a dependência externa\"",
+        options: [
+          "A) Mentalidade Marítima",
+          "B) Capacidade de Financiamento",
+          "C) Necessidade de Desenvolvimento Sustentável",
+          "D) Capacidade de Mobilização",
+          "E) Capacidade Tecnológica e Industrial"
+        ],
+        correct: 4,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "O trecho citado é a definição de \"Capacidade Tecnológica e Industrial\" (Fatores Condicionantes do Poder Marítimo), conforme o PEM 2040."
+      },
+      {
+        id: 130,
+        text: "Segundo o PEM 2040, qual das alternativas define corretamente \"Capacidade Tecnológica e Industrial\"?",
+        options: [
+          "A) Apropriação ou exploração não autorizada do patrimônio genético e da biodiversidade marinha e costeira brasileira por agentes estrangeiros",
+          "B) Uso das vias marítimas e fluviais, como portos e hidrovias, para tráfico de drogas, armas e outros ilícitos ligados ao crime organizado",
+          "C) Ataques contra instalações portuárias, plataformas de petróleo, embarcações ou infraestrutura crítica marítima, com objetivos políticos ou ideológicos",
+          "D) Domínio de tecnologias próprias e existência de uma indústria naval e de defesa nacional capaz de projetar, construir e manter meios navais, reduzindo a dependência externa",
+          "E) Ataques a sistemas de informação, comunicação e controle de que dependem as operações navais, portuárias e de monitoramento marítimo"
+        ],
+        correct: 3,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "A definição correta de \"Capacidade Tecnológica e Industrial\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 131,
+        text: "De acordo com o PEM 2040, o trecho abaixo descreve qual termo? \"Afirmação e defesa da soberania e dos direitos de soberania do Brasil sobre suas águas jurisdicionais\"",
+        options: [
+          "A) Soberania",
+          "B) Científica",
+          "C) Ambiental",
+          "D) Econômica",
+          "E) Defesa da Soberania"
+        ],
+        correct: 0,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "O trecho citado é a definição de \"Soberania\" (vertentes da Amazônia Azul), conforme o PEM 2040."
+      },
+      {
+        id: 132,
+        text: "De acordo com o PEM 2040, assinale a definição correta de \"Soberania\":",
+        options: [
+          "A) Uso das vias marítimas e fluviais, como portos e hidrovias, para tráfico de drogas, armas e outros ilícitos ligados ao crime organizado",
+          "B) Ataques contra instalações portuárias, plataformas de petróleo, embarcações ou infraestrutura crítica marítima, com objetivos políticos ou ideológicos",
+          "C) Ataques a sistemas de informação, comunicação e controle de que dependem as operações navais, portuárias e de monitoramento marítimo",
+          "D) Eventos que comprometem o meio ambiente marinho, como derramamentos de óleo e poluição, ou que exigem resposta emergencial da Marinha, como desastres naturais e crises sanitárias",
+          "E) Afirmação e defesa da soberania e dos direitos de soberania do Brasil sobre suas águas jurisdicionais"
+        ],
+        correct: 4,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "A definição correta de \"Soberania\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 133,
+        text: "Segundo o PEM 2040, complete: é aquele(a) que se define como \"Ampliação do conhecimento científico sobre o mar brasileiro, como a oceanografia, a biodiversidade e a geologia marinha\". Trata-se de:",
+        options: [
+          "A) Ambiental",
+          "B) Científica",
+          "C) Econômica",
+          "D) Defesa da Soberania",
+          "E) Pirataria"
+        ],
+        correct: 1,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "O trecho citado é a definição de \"Científica\" (vertentes da Amazônia Azul), conforme o PEM 2040."
+      },
+      {
+        id: 134,
+        text: "Segundo o PEM 2040, qual das alternativas define corretamente \"Científica\"?",
+        options: [
+          "A) Ampliação do conhecimento científico sobre o mar brasileiro, como a oceanografia, a biodiversidade e a geologia marinha",
+          "B) Ataques contra instalações portuárias, plataformas de petróleo, embarcações ou infraestrutura crítica marítima, com objetivos políticos ou ideológicos",
+          "C) Ataques a sistemas de informação, comunicação e controle de que dependem as operações navais, portuárias e de monitoramento marítimo",
+          "D) Eventos que comprometem o meio ambiente marinho, como derramamentos de óleo e poluição, ou que exigem resposta emergencial da Marinha, como desastres naturais e crises sanitárias",
+          "E) Competição internacional crescente por recursos minerais, energéticos e pesqueiros, inclusive em áreas de jurisdição controversa"
+        ],
+        correct: 0,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "A definição correta de \"Científica\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 135,
+        text: "No PEM 2040, qual das alternativas corresponde à seguinte definição: \"Proteção e uso sustentável dos ecossistemas marinhos e costeiros\"?",
+        options: [
+          "A) Econômica",
+          "B) Defesa da Soberania",
+          "C) Ambiental",
+          "D) Pirataria",
+          "E) Pesca Ilegal, Não Declarada e Não Regulamentada (INN)"
+        ],
+        correct: 2,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "O trecho citado é a definição de \"Ambiental\" (vertentes da Amazônia Azul), conforme o PEM 2040."
+      },
+      {
+        id: 136,
+        text: "De acordo com o PEM 2040, assinale a definição correta de \"Ambiental\":",
+        options: [
+          "A) Ataques a sistemas de informação, comunicação e controle de que dependem as operações navais, portuárias e de monitoramento marítimo",
+          "B) Proteção e uso sustentável dos ecossistemas marinhos e costeiros",
+          "C) Eventos que comprometem o meio ambiente marinho, como derramamentos de óleo e poluição, ou que exigem resposta emergencial da Marinha, como desastres naturais e crises sanitárias",
+          "D) Competição internacional crescente por recursos minerais, energéticos e pesqueiros, inclusive em áreas de jurisdição controversa",
+          "E) Dificultar ou impedir que o inimigo controle e utilize determinada área marítima para seus próprios propósitos"
+        ],
+        correct: 1,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "A definição correta de \"Ambiental\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 137,
+        text: "Conforme o Plano Estratégico da Marinha (PEM-2040), a definição a seguir corresponde a qual conceito? \"Aproveitamento econômico responsável dos recursos vivos e não vivos, como pesca, petróleo e gás e minerais\"",
+        options: [
+          "A) Defesa da Soberania",
+          "B) Pirataria",
+          "C) Pesca Ilegal, Não Declarada e Não Regulamentada (INN)",
+          "D) Econômica",
+          "E) Acessos Ilegais a Conhecimentos: Fauna, Flora e Biopirataria"
+        ],
+        correct: 3,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "O trecho citado é a definição de \"Econômica\" (vertentes da Amazônia Azul), conforme o PEM 2040."
+      },
+      {
+        id: 138,
+        text: "Segundo o PEM 2040, qual das alternativas define corretamente \"Econômica\"?",
+        options: [
+          "A) Eventos que comprometem o meio ambiente marinho, como derramamentos de óleo e poluição, ou que exigem resposta emergencial da Marinha, como desastres naturais e crises sanitárias",
+          "B) Competição internacional crescente por recursos minerais, energéticos e pesqueiros, inclusive em áreas de jurisdição controversa",
+          "C) Aproveitamento econômico responsável dos recursos vivos e não vivos, como pesca, petróleo e gás e minerais",
+          "D) Dificultar ou impedir que o inimigo controle e utilize determinada área marítima para seus próprios propósitos",
+          "E) Garantir, de forma temporária e localizada, a utilização de uma área marítima para os próprios propósitos, em determinado espaço de tempo"
+        ],
+        correct: 2,
+        subject: "Poder Marítimo e Fatores Condicionantes",
+        explanation: "A definição correta de \"Econômica\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 139,
+        text: "De acordo com o PEM 2040, o trecho abaixo descreve qual termo? \"Ameaças de natureza militar ou política que buscam contestar a soberania brasileira sobre seu território, suas águas jurisdicionais e seus recursos\"",
+        options: [
+          "A) Ameaças Cibernéticas",
+          "B) Questões Ambientais, Desastres Naturais e Pandemias",
+          "C) Disputa por Recursos Naturais",
+          "D) Pirataria",
+          "E) Defesa da Soberania"
+        ],
+        correct: 4,
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "O trecho citado é a definição de \"Defesa da Soberania\" (Ameaças ao Poder Marítimo), conforme o PEM 2040."
+      },
+      {
+        id: 140,
+        text: "De acordo com o PEM 2040, assinale a definição correta de \"Defesa da Soberania\":",
+        options: [
+          "A) Competição internacional crescente por recursos minerais, energéticos e pesqueiros, inclusive em áreas de jurisdição controversa",
+          "B) Dificultar ou impedir que o inimigo controle e utilize determinada área marítima para seus próprios propósitos",
+          "C) Garantir, de forma temporária e localizada, a utilização de uma área marítima para os próprios propósitos, em determinado espaço de tempo",
+          "D) Ameaças de natureza militar ou política que buscam contestar a soberania brasileira sobre seu território, suas águas jurisdicionais e seus recursos",
+          "E) Transpor a influência do Poder Naval do mar para áreas terrestres de interesse, apoiando operações em terra a partir do mar"
+        ],
+        correct: 3,
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "A definição correta de \"Defesa da Soberania\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 141,
+        text: "Segundo o PEM 2040, complete: é aquele(a) que se define como \"Atos de violência, detenção ou depredação cometidos para fins privados contra embarcações, tripulações ou cargas, no mar ou em águas interiores\". Trata-se de:",
+        options: [
+          "A) Pirataria",
+          "B) Questões Ambientais, Desastres Naturais e Pandemias",
+          "C) Disputa por Recursos Naturais",
+          "D) Defesa da Soberania",
+          "E) Pesca Ilegal, Não Declarada e Não Regulamentada (INN)"
+        ],
+        correct: 0,
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "O trecho citado é a definição de \"Pirataria\" (Ameaças ao Poder Marítimo), conforme o PEM 2040."
+      },
+      {
+        id: 142,
+        text: "Segundo o PEM 2040, qual das alternativas define corretamente \"Pirataria\"?",
+        options: [
+          "A) Dificultar ou impedir que o inimigo controle e utilize determinada área marítima para seus próprios propósitos",
+          "B) Garantir, de forma temporária e localizada, a utilização de uma área marítima para os próprios propósitos, em determinado espaço de tempo",
+          "C) Transpor a influência do Poder Naval do mar para áreas terrestres de interesse, apoiando operações em terra a partir do mar",
+          "D) Toda operação militar deve ser dirigida a um objetivo claramente definido, decisivo e alcançável",
+          "E) Atos de violência, detenção ou depredação cometidos para fins privados contra embarcações, tripulações ou cargas, no mar ou em águas interiores"
+        ],
+        correct: 4,
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "A definição correta de \"Pirataria\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 143,
+        text: "No PEM 2040, qual das alternativas corresponde à seguinte definição: \"Atividade pesqueira realizada sem autorização, sem declaração às autoridades competentes, ou em desacordo com as normas de conservação de determinada área\"?",
+        options: [
+          "A) Disputa por Recursos Naturais",
+          "B) Pesca Ilegal, Não Declarada e Não Regulamentada (INN)",
+          "C) Defesa da Soberania",
+          "D) Pirataria",
+          "E) Acessos Ilegais a Conhecimentos: Fauna, Flora e Biopirataria"
+        ],
+        correct: 1,
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "O trecho citado é a definição de \"Pesca Ilegal, Não Declarada e Não Regulamentada (INN)\" (Ameaças ao Poder Marítimo), conforme o PEM 2040."
+      },
+      {
+        id: 144,
+        text: "De acordo com o PEM 2040, assinale a definição correta de \"Pesca Ilegal, Não Declarada e Não Regulamentada (INN)\":",
+        options: [
+          "A) Atividade pesqueira realizada sem autorização, sem declaração às autoridades competentes, ou em desacordo com as normas de conservação de determinada área",
+          "B) Garantir, de forma temporária e localizada, a utilização de uma área marítima para os próprios propósitos, em determinado espaço de tempo",
+          "C) Transpor a influência do Poder Naval do mar para áreas terrestres de interesse, apoiando operações em terra a partir do mar",
+          "D) Toda operação militar deve ser dirigida a um objetivo claramente definido, decisivo e alcançável",
+          "E) Levar a ação bélica ao inimigo, a fim de obter e manter a iniciativa e impor sua vontade a ele"
+        ],
+        correct: 0,
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "A definição correta de \"Pesca Ilegal, Não Declarada e Não Regulamentada (INN)\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 145,
+        text: "Conforme o Plano Estratégico da Marinha (PEM-2040), a definição a seguir corresponde a qual conceito? \"Apropriação ou exploração não autorizada do patrimônio genético e da biodiversidade marinha e costeira brasileira por agentes estrangeiros\"",
+        options: [
+          "A) Defesa da Soberania",
+          "B) Pirataria",
+          "C) Acessos Ilegais a Conhecimentos: Fauna, Flora e Biopirataria",
+          "D) Pesca Ilegal, Não Declarada e Não Regulamentada (INN)",
+          "E) Crime Organizado e Conflitos Urbanos"
+        ],
+        correct: 2,
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "O trecho citado é a definição de \"Acessos Ilegais a Conhecimentos: Fauna, Flora e Biopirataria\" (Ameaças ao Poder Marítimo), conforme o PEM 2040."
+      },
+      {
+        id: 146,
+        text: "Segundo o PEM 2040, qual das alternativas define corretamente \"Acessos Ilegais a Conhecimentos: Fauna, Flora e Biopirataria\"?",
+        options: [
+          "A) Transpor a influência do Poder Naval do mar para áreas terrestres de interesse, apoiando operações em terra a partir do mar",
+          "B) Apropriação ou exploração não autorizada do patrimônio genético e da biodiversidade marinha e costeira brasileira por agentes estrangeiros",
+          "C) Toda operação militar deve ser dirigida a um objetivo claramente definido, decisivo e alcançável",
+          "D) Levar a ação bélica ao inimigo, a fim de obter e manter a iniciativa e impor sua vontade a ele",
+          "E) Aplicação de forças superiores, concentração de meios, em um ponto decisivo, no tempo devido"
+        ],
+        correct: 1,
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "A definição correta de \"Acessos Ilegais a Conhecimentos: Fauna, Flora e Biopirataria\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 147,
+        text: "De acordo com o PEM 2040, o trecho abaixo descreve qual termo? \"Uso das vias marítimas e fluviais, como portos e hidrovias, para tráfico de drogas, armas e outros ilícitos ligados ao crime organizado\"",
+        options: [
+          "A) Pirataria",
+          "B) Pesca Ilegal, Não Declarada e Não Regulamentada (INN)",
+          "C) Acessos Ilegais a Conhecimentos: Fauna, Flora e Biopirataria",
+          "D) Crime Organizado e Conflitos Urbanos",
+          "E) Terrorismo"
+        ],
+        correct: 3,
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "O trecho citado é a definição de \"Crime Organizado e Conflitos Urbanos\" (Ameaças ao Poder Marítimo), conforme o PEM 2040."
+      },
+      {
+        id: 148,
+        text: "De acordo com o PEM 2040, assinale a definição correta de \"Crime Organizado e Conflitos Urbanos\":",
+        options: [
+          "A) Toda operação militar deve ser dirigida a um objetivo claramente definido, decisivo e alcançável",
+          "B) Levar a ação bélica ao inimigo, a fim de obter e manter a iniciativa e impor sua vontade a ele",
+          "C) Uso das vias marítimas e fluviais, como portos e hidrovias, para tráfico de drogas, armas e outros ilícitos ligados ao crime organizado",
+          "D) Aplicação de forças superiores, concentração de meios, em um ponto decisivo, no tempo devido",
+          "E) Distribuição e emprego judicioso dos meios disponíveis, para a obtenção do esforço máximo nos locais e ocasiões decisivos"
+        ],
+        correct: 2,
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "A definição correta de \"Crime Organizado e Conflitos Urbanos\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 149,
+        text: "Segundo o PEM 2040, complete: é aquele(a) que se define como \"Ataques contra instalações portuárias, plataformas de petróleo, embarcações ou infraestrutura crítica marítima, com objetivos políticos ou ideológicos\". Trata-se de:",
+        options: [
+          "A) Pesca Ilegal, Não Declarada e Não Regulamentada (INN)",
+          "B) Acessos Ilegais a Conhecimentos: Fauna, Flora e Biopirataria",
+          "C) Crime Organizado e Conflitos Urbanos",
+          "D) Ameaças Cibernéticas",
+          "E) Terrorismo"
+        ],
+        correct: 4,
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "O trecho citado é a definição de \"Terrorismo\" (Ameaças ao Poder Marítimo), conforme o PEM 2040."
+      },
+      {
+        id: 150,
+        text: "Segundo o PEM 2040, qual das alternativas define corretamente \"Terrorismo\"?",
+        options: [
+          "A) Levar a ação bélica ao inimigo, a fim de obter e manter a iniciativa e impor sua vontade a ele",
+          "B) Aplicação de forças superiores, concentração de meios, em um ponto decisivo, no tempo devido",
+          "C) Distribuição e emprego judicioso dos meios disponíveis, para a obtenção do esforço máximo nos locais e ocasiões decisivos",
+          "D) Ataques contra instalações portuárias, plataformas de petróleo, embarcações ou infraestrutura crítica marítima, com objetivos políticos ou ideológicos",
+          "E) Colocar o inimigo em posição de desvantagem por meio da aplicação flexível do poder de combate, a fim de obter superioridade, aproveitar o êxito alcançado e preservar a liberdade de ação, reduzindo as próprias vulnerabilidades"
+        ],
+        correct: 3,
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "A definição correta de \"Terrorismo\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 151,
+        text: "No PEM 2040, qual das alternativas corresponde à seguinte definição: \"Ataques a sistemas de informação, comunicação e controle de que dependem as operações navais, portuárias e de monitoramento marítimo\"?",
+        options: [
+          "A) Ameaças Cibernéticas",
+          "B) Acessos Ilegais a Conhecimentos: Fauna, Flora e Biopirataria",
+          "C) Crime Organizado e Conflitos Urbanos",
+          "D) Terrorismo",
+          "E) Questões Ambientais, Desastres Naturais e Pandemias"
+        ],
+        correct: 0,
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "O trecho citado é a definição de \"Ameaças Cibernéticas\" (Ameaças ao Poder Marítimo), conforme o PEM 2040."
+      },
+      {
+        id: 152,
+        text: "De acordo com o PEM 2040, assinale a definição correta de \"Ameaças Cibernéticas\":",
+        options: [
+          "A) Aplicação de forças superiores, concentração de meios, em um ponto decisivo, no tempo devido",
+          "B) Distribuição e emprego judicioso dos meios disponíveis, para a obtenção do esforço máximo nos locais e ocasiões decisivos",
+          "C) Colocar o inimigo em posição de desvantagem por meio da aplicação flexível do poder de combate, a fim de obter superioridade, aproveitar o êxito alcançado e preservar a liberdade de ação, reduzindo as próprias vulnerabilidades",
+          "D) Todo esforço militar deve ser dirigido sob uma única autoridade responsável, com objetivo comum e ação coordenada",
+          "E) Ataques a sistemas de informação, comunicação e controle de que dependem as operações navais, portuárias e de monitoramento marítimo"
+        ],
+        correct: 4,
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "A definição correta de \"Ameaças Cibernéticas\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 153,
+        text: "Conforme o Plano Estratégico da Marinha (PEM-2040), a definição a seguir corresponde a qual conceito? \"Eventos que comprometem o meio ambiente marinho, como derramamentos de óleo e poluição, ou que exigem resposta emergencial da Marinha, como desastres naturais e crises sanitárias\"",
+        options: [
+          "A) Crime Organizado e Conflitos Urbanos",
+          "B) Questões Ambientais, Desastres Naturais e Pandemias",
+          "C) Terrorismo",
+          "D) Ameaças Cibernéticas",
+          "E) Disputa por Recursos Naturais"
+        ],
+        correct: 1,
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "O trecho citado é a definição de \"Questões Ambientais, Desastres Naturais e Pandemias\" (Ameaças ao Poder Marítimo), conforme o PEM 2040."
+      },
+      {
+        id: 154,
+        text: "Segundo o PEM 2040, qual das alternativas define corretamente \"Questões Ambientais, Desastres Naturais e Pandemias\"?",
+        options: [
+          "A) Eventos que comprometem o meio ambiente marinho, como derramamentos de óleo e poluição, ou que exigem resposta emergencial da Marinha, como desastres naturais e crises sanitárias",
+          "B) Distribuição e emprego judicioso dos meios disponíveis, para a obtenção do esforço máximo nos locais e ocasiões decisivos",
+          "C) Colocar o inimigo em posição de desvantagem por meio da aplicação flexível do poder de combate, a fim de obter superioridade, aproveitar o êxito alcançado e preservar a liberdade de ação, reduzindo as próprias vulnerabilidades",
+          "D) Todo esforço militar deve ser dirigido sob uma única autoridade responsável, com objetivo comum e ação coordenada",
+          "E) Adoção de medidas essenciais à liberdade de ação e à preservação do poder de combate, mitigando os riscos a que a força está exposta"
+        ],
+        correct: 0,
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "A definição correta de \"Questões Ambientais, Desastres Naturais e Pandemias\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 155,
+        text: "De acordo com o PEM 2040, o trecho abaixo descreve qual termo? \"Competição internacional crescente por recursos minerais, energéticos e pesqueiros, inclusive em áreas de jurisdição controversa\"",
+        options: [
+          "A) Terrorismo",
+          "B) Ameaças Cibernéticas",
+          "C) Disputa por Recursos Naturais",
+          "D) Questões Ambientais, Desastres Naturais e Pandemias",
+          "E) Defesa da Soberania"
+        ],
+        correct: 2,
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "O trecho citado é a definição de \"Disputa por Recursos Naturais\" (Ameaças ao Poder Marítimo), conforme o PEM 2040."
+      },
+      {
+        id: 156,
+        text: "De acordo com o PEM 2040, assinale a definição correta de \"Disputa por Recursos Naturais\":",
+        options: [
+          "A) Colocar o inimigo em posição de desvantagem por meio da aplicação flexível do poder de combate, a fim de obter superioridade, aproveitar o êxito alcançado e preservar a liberdade de ação, reduzindo as próprias vulnerabilidades",
+          "B) Competição internacional crescente por recursos minerais, energéticos e pesqueiros, inclusive em áreas de jurisdição controversa",
+          "C) Todo esforço militar deve ser dirigido sob uma única autoridade responsável, com objetivo comum e ação coordenada",
+          "D) Adoção de medidas essenciais à liberdade de ação e à preservação do poder de combate, mitigando os riscos a que a força está exposta",
+          "E) Golpear o inimigo em momento, local ou de forma tal que ele não esteja preparado para reagir"
+        ],
+        correct: 1,
+        subject: "Ameaças ao Poder Marítimo",
+        explanation: "A definição correta de \"Disputa por Recursos Naturais\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 157,
+        text: "Segundo o PEM 2040, complete: é aquele(a) que se define como \"Dificultar ou impedir que o inimigo controle e utilize determinada área marítima para seus próprios propósitos\". Trata-se de:",
+        options: [
+          "A) Controle de Áreas Marítimas",
+          "B) Projeção de Poder sobre Terra",
+          "C) Objetivo",
+          "D) Negação do Uso do Mar",
+          "E) Ofensiva"
+        ],
+        correct: 3,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho citado é a definição de \"Negação do Uso do Mar\" (tarefas básicas do Combate no Mar), conforme o PEM 2040."
+      },
+      {
+        id: 158,
+        text: "Segundo o PEM 2040, qual das alternativas define corretamente \"Negação do Uso do Mar\"?",
+        options: [
+          "A) Todo esforço militar deve ser dirigido sob uma única autoridade responsável, com objetivo comum e ação coordenada",
+          "B) Adoção de medidas essenciais à liberdade de ação e à preservação do poder de combate, mitigando os riscos a que a força está exposta",
+          "C) Dificultar ou impedir que o inimigo controle e utilize determinada área marítima para seus próprios propósitos",
+          "D) Golpear o inimigo em momento, local ou de forma tal que ele não esteja preparado para reagir",
+          "E) Preparação e execução de ordens e planos com concepções claras e facilmente inteligíveis, evitando complexidade desnecessária"
+        ],
+        correct: 2,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A definição correta de \"Negação do Uso do Mar\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 159,
+        text: "No PEM 2040, qual das alternativas corresponde à seguinte definição: \"Garantir, de forma temporária e localizada, a utilização de uma área marítima para os próprios propósitos, em determinado espaço de tempo\"?",
+        options: [
+          "A) Projeção de Poder sobre Terra",
+          "B) Objetivo",
+          "C) Ofensiva",
+          "D) Massa",
+          "E) Controle de Áreas Marítimas"
+        ],
+        correct: 4,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho citado é a definição de \"Controle de Áreas Marítimas\" (tarefas básicas do Combate no Mar), conforme o PEM 2040."
+      },
+      {
+        id: 160,
+        text: "De acordo com o PEM 2040, assinale a definição correta de \"Controle de Áreas Marítimas\":",
+        options: [
+          "A) Adoção de medidas essenciais à liberdade de ação e à preservação do poder de combate, mitigando os riscos a que a força está exposta",
+          "B) Golpear o inimigo em momento, local ou de forma tal que ele não esteja preparado para reagir",
+          "C) Preparação e execução de ordens e planos com concepções claras e facilmente inteligíveis, evitando complexidade desnecessária",
+          "D) Garantir, de forma temporária e localizada, a utilização de uma área marítima para os próprios propósitos, em determinado espaço de tempo",
+          "E) Estado de ânimo ou atitude mental de um indivíduo, ou de um grupo, que se reflete na conduta da tropa"
+        ],
+        correct: 3,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A definição correta de \"Controle de Áreas Marítimas\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 161,
+        text: "Conforme o Plano Estratégico da Marinha (PEM-2040), a definição a seguir corresponde a qual conceito? \"Transpor a influência do Poder Naval do mar para áreas terrestres de interesse, apoiando operações em terra a partir do mar\"",
+        options: [
+          "A) Projeção de Poder sobre Terra",
+          "B) Objetivo",
+          "C) Ofensiva",
+          "D) Massa",
+          "E) Economia de Forças"
+        ],
+        correct: 0,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho citado é a definição de \"Projeção de Poder sobre Terra\" (tarefas básicas do Combate no Mar), conforme o PEM 2040."
+      },
+      {
+        id: 162,
+        text: "Segundo o PEM 2040, qual das alternativas define corretamente \"Projeção de Poder sobre Terra\"?",
+        options: [
+          "A) Golpear o inimigo em momento, local ou de forma tal que ele não esteja preparado para reagir",
+          "B) Preparação e execução de ordens e planos com concepções claras e facilmente inteligíveis, evitando complexidade desnecessária",
+          "C) Estado de ânimo ou atitude mental de um indivíduo, ou de um grupo, que se reflete na conduta da tropa",
+          "D) Intensificação das ações ofensivas, após um primeiro êxito, para ampliar esse êxito inicial e não dar trégua ao inimigo",
+          "E) Transpor a influência do Poder Naval do mar para áreas terrestres de interesse, apoiando operações em terra a partir do mar"
+        ],
+        correct: 4,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A definição correta de \"Projeção de Poder sobre Terra\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 163,
+        text: "De acordo com o PEM 2040, o trecho abaixo descreve qual termo? \"Toda operação militar deve ser dirigida a um objetivo claramente definido, decisivo e alcançável\"",
+        options: [
+          "A) Manobra",
+          "B) Objetivo",
+          "C) Unidade de Comando",
+          "D) Segurança",
+          "E) Surpresa"
+        ],
+        correct: 1,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho citado é a definição de \"Objetivo\" (Princípios de Guerra), conforme o PEM 2040."
+      },
+      {
+        id: 164,
+        text: "De acordo com o PEM 2040, assinale a definição correta de \"Objetivo\":",
+        options: [
+          "A) Toda operação militar deve ser dirigida a um objetivo claramente definido, decisivo e alcançável",
+          "B) Preparação e execução de ordens e planos com concepções claras e facilmente inteligíveis, evitando complexidade desnecessária",
+          "C) Estado de ânimo ou atitude mental de um indivíduo, ou de um grupo, que se reflete na conduta da tropa",
+          "D) Intensificação das ações ofensivas, após um primeiro êxito, para ampliar esse êxito inicial e não dar trégua ao inimigo",
+          "E) Capacidade de pronto atendimento da Força Armada para fazer face às situações que se apresentem, em ambiente de combate ou não"
+        ],
+        correct: 0,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A definição correta de \"Objetivo\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 165,
+        text: "Segundo o PEM 2040, complete: é aquele(a) que se define como \"Levar a ação bélica ao inimigo, a fim de obter e manter a iniciativa e impor sua vontade a ele\". Trata-se de:",
+        options: [
+          "A) Unidade de Comando",
+          "B) Segurança",
+          "C) Ofensiva",
+          "D) Surpresa",
+          "E) Simplicidade"
+        ],
+        correct: 2,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho citado é a definição de \"Ofensiva\" (Princípios de Guerra), conforme o PEM 2040."
+      },
+      {
+        id: 166,
+        text: "Segundo o PEM 2040, qual das alternativas define corretamente \"Ofensiva\"?",
+        options: [
+          "A) Estado de ânimo ou atitude mental de um indivíduo, ou de um grupo, que se reflete na conduta da tropa",
+          "B) Levar a ação bélica ao inimigo, a fim de obter e manter a iniciativa e impor sua vontade a ele",
+          "C) Intensificação das ações ofensivas, após um primeiro êxito, para ampliar esse êxito inicial e não dar trégua ao inimigo",
+          "D) Capacidade de pronto atendimento da Força Armada para fazer face às situações que se apresentem, em ambiente de combate ou não",
+          "E) Capacidade de deslocar-se prontamente e a grandes distâncias, mantendo elevado nível de prontidão"
+        ],
+        correct: 1,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A definição correta de \"Ofensiva\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 167,
+        text: "No PEM 2040, qual das alternativas corresponde à seguinte definição: \"Aplicação de forças superiores, concentração de meios, em um ponto decisivo, no tempo devido\"?",
+        options: [
+          "A) Segurança",
+          "B) Surpresa",
+          "C) Simplicidade",
+          "D) Massa",
+          "E) Moral"
+        ],
+        correct: 3,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho citado é a definição de \"Massa\" (Princípios de Guerra), conforme o PEM 2040."
+      },
+      {
+        id: 168,
+        text: "De acordo com o PEM 2040, assinale a definição correta de \"Massa\":",
+        options: [
+          "A) Intensificação das ações ofensivas, após um primeiro êxito, para ampliar esse êxito inicial e não dar trégua ao inimigo",
+          "B) Capacidade de pronto atendimento da Força Armada para fazer face às situações que se apresentem, em ambiente de combate ou não",
+          "C) Aplicação de forças superiores, concentração de meios, em um ponto decisivo, no tempo devido",
+          "D) Capacidade de deslocar-se prontamente e a grandes distâncias, mantendo elevado nível de prontidão",
+          "E) Capacidade de organizar grupamentos operativos de diferentes valores, adequados a cada situação, permitindo emprego gradativo da força"
+        ],
+        correct: 2,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A definição correta de \"Massa\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 169,
+        text: "Conforme o Plano Estratégico da Marinha (PEM-2040), a definição a seguir corresponde a qual conceito? \"Distribuição e emprego judicioso dos meios disponíveis, para a obtenção do esforço máximo nos locais e ocasiões decisivos\"",
+        options: [
+          "A) Surpresa",
+          "B) Simplicidade",
+          "C) Moral",
+          "D) Exploração",
+          "E) Economia de Forças"
+        ],
+        correct: 4,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho citado é a definição de \"Economia de Forças\" (Princípios de Guerra), conforme o PEM 2040."
+      },
+      {
+        id: 170,
+        text: "Segundo o PEM 2040, qual das alternativas define corretamente \"Economia de Forças\"?",
+        options: [
+          "A) Capacidade de pronto atendimento da Força Armada para fazer face às situações que se apresentem, em ambiente de combate ou não",
+          "B) Capacidade de deslocar-se prontamente e a grandes distâncias, mantendo elevado nível de prontidão",
+          "C) Capacidade de organizar grupamentos operativos de diferentes valores, adequados a cada situação, permitindo emprego gradativo da força",
+          "D) Distribuição e emprego judicioso dos meios disponíveis, para a obtenção do esforço máximo nos locais e ocasiões decisivos",
+          "E) Aptidão para executar uma ampla gama de tarefas, em diferentes níveis de prontidão e ao mesmo tempo"
+        ],
+        correct: 3,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A definição correta de \"Economia de Forças\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 171,
+        text: "De acordo com o PEM 2040, o trecho abaixo descreve qual termo? \"Colocar o inimigo em posição de desvantagem por meio da aplicação flexível do poder de combate, a fim de obter superioridade, aproveitar o êxito alcançado e preservar a liberdade de ação, reduzindo as próprias vulnerabilidades\"",
+        options: [
+          "A) Manobra",
+          "B) Simplicidade",
+          "C) Moral",
+          "D) Exploração",
+          "E) Prontidão"
+        ],
+        correct: 0,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho citado é a definição de \"Manobra\" (Princípios de Guerra), conforme o PEM 2040."
+      },
+      {
+        id: 172,
+        text: "De acordo com o PEM 2040, assinale a definição correta de \"Manobra\":",
+        options: [
+          "A) Capacidade de deslocar-se prontamente e a grandes distâncias, mantendo elevado nível de prontidão",
+          "B) Capacidade de organizar grupamentos operativos de diferentes valores, adequados a cada situação, permitindo emprego gradativo da força",
+          "C) Aptidão para executar uma ampla gama de tarefas, em diferentes níveis de prontidão e ao mesmo tempo",
+          "D) Capacidade de operar, continuamente, com independência e por longos períodos, em áreas distantes e de grandes dimensões",
+          "E) Colocar o inimigo em posição de desvantagem por meio da aplicação flexível do poder de combate, a fim de obter superioridade, aproveitar o êxito alcançado e preservar a liberdade de ação, reduzindo as próprias vulnerabilidades"
+        ],
+        correct: 4,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A definição correta de \"Manobra\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 173,
+        text: "Segundo o PEM 2040, complete: é aquele(a) que se define como \"Todo esforço militar deve ser dirigido sob uma única autoridade responsável, com objetivo comum e ação coordenada\". Trata-se de:",
+        options: [
+          "A) Moral",
+          "B) Unidade de Comando",
+          "C) Exploração",
+          "D) Prontidão",
+          "E) Objetivo"
+        ],
+        correct: 1,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho citado é a definição de \"Unidade de Comando\" (Princípios de Guerra), conforme o PEM 2040."
+      },
+      {
+        id: 174,
+        text: "Segundo o PEM 2040, qual das alternativas define corretamente \"Unidade de Comando\"?",
+        options: [
+          "A) Todo esforço militar deve ser dirigido sob uma única autoridade responsável, com objetivo comum e ação coordenada",
+          "B) Capacidade de organizar grupamentos operativos de diferentes valores, adequados a cada situação, permitindo emprego gradativo da força",
+          "C) Aptidão para executar uma ampla gama de tarefas, em diferentes níveis de prontidão e ao mesmo tempo",
+          "D) Capacidade de operar, continuamente, com independência e por longos períodos, em áreas distantes e de grandes dimensões",
+          "E) \"virtude que deve ser comum a todos os que servem à Marinha\", que não depende, em alto grau, de preparo profissional ou de predicados especiais de inteligência; é consequência direta do amor próprio, do amor à Marinha e à Nação"
+        ],
+        correct: 0,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A definição correta de \"Unidade de Comando\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 175,
+        text: "No PEM 2040, qual das alternativas corresponde à seguinte definição: \"Adoção de medidas essenciais à liberdade de ação e à preservação do poder de combate, mitigando os riscos a que a força está exposta\"?",
+        options: [
+          "A) Exploração",
+          "B) Prontidão",
+          "C) Segurança",
+          "D) Objetivo",
+          "E) Ofensiva"
+        ],
+        correct: 2,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho citado é a definição de \"Segurança\" (Princípios de Guerra), conforme o PEM 2040."
+      },
+      {
+        id: 176,
+        text: "De acordo com o PEM 2040, assinale a definição correta de \"Segurança\":",
+        options: [
+          "A) Aptidão para executar uma ampla gama de tarefas, em diferentes níveis de prontidão e ao mesmo tempo",
+          "B) Adoção de medidas essenciais à liberdade de ação e à preservação do poder de combate, mitigando os riscos a que a força está exposta",
+          "C) Capacidade de operar, continuamente, com independência e por longos períodos, em áreas distantes e de grandes dimensões",
+          "D) \"virtude que deve ser comum a todos os que servem à Marinha\", que não depende, em alto grau, de preparo profissional ou de predicados especiais de inteligência; é consequência direta do amor próprio, do amor à Marinha e à Nação",
+          "E) Sentimento que induz o indivíduo à prática do Bem, da Justiça e da Moral; força que impele a prestigiar a própria personalidade, como patrimônio moral"
+        ],
+        correct: 1,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A definição correta de \"Segurança\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 177,
+        text: "Conforme o Plano Estratégico da Marinha (PEM-2040), a definição a seguir corresponde a qual conceito? \"Golpear o inimigo em momento, local ou de forma tal que ele não esteja preparado para reagir\"",
+        options: [
+          "A) Prontidão",
+          "B) Objetivo",
+          "C) Ofensiva",
+          "D) Surpresa",
+          "E) Massa"
+        ],
+        correct: 3,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho citado é a definição de \"Surpresa\" (Princípios de Guerra), conforme o PEM 2040."
+      },
+      {
+        id: 178,
+        text: "Segundo o PEM 2040, qual das alternativas define corretamente \"Surpresa\"?",
+        options: [
+          "A) Capacidade de operar, continuamente, com independência e por longos períodos, em áreas distantes e de grandes dimensões",
+          "B) \"virtude que deve ser comum a todos os que servem à Marinha\", que não depende, em alto grau, de preparo profissional ou de predicados especiais de inteligência; é consequência direta do amor próprio, do amor à Marinha e à Nação",
+          "C) Golpear o inimigo em momento, local ou de forma tal que ele não esteja preparado para reagir",
+          "D) Sentimento que induz o indivíduo à prática do Bem, da Justiça e da Moral; força que impele a prestigiar a própria personalidade, como patrimônio moral",
+          "E) Devotamento verdadeiro, espontâneo e incansável a uma causa; sincera obediência à autoridade dos superiores e respeito à dignidade alheia"
+        ],
+        correct: 2,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A definição correta de \"Surpresa\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 179,
+        text: "De acordo com o PEM 2040, o trecho abaixo descreve qual termo? \"Preparação e execução de ordens e planos com concepções claras e facilmente inteligíveis, evitando complexidade desnecessária\"",
+        options: [
+          "A) Objetivo",
+          "B) Ofensiva",
+          "C) Massa",
+          "D) Economia de Forças",
+          "E) Simplicidade"
+        ],
+        correct: 4,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho citado é a definição de \"Simplicidade\" (Princípios de Guerra), conforme o PEM 2040."
+      },
+      {
+        id: 180,
+        text: "De acordo com o PEM 2040, assinale a definição correta de \"Simplicidade\":",
+        options: [
+          "A) \"virtude que deve ser comum a todos os que servem à Marinha\", que não depende, em alto grau, de preparo profissional ou de predicados especiais de inteligência; é consequência direta do amor próprio, do amor à Marinha e à Nação",
+          "B) Sentimento que induz o indivíduo à prática do Bem, da Justiça e da Moral; força que impele a prestigiar a própria personalidade, como patrimônio moral",
+          "C) Devotamento verdadeiro, espontâneo e incansável a uma causa; sincera obediência à autoridade dos superiores e respeito à dignidade alheia",
+          "D) Preparação e execução de ordens e planos com concepções claras e facilmente inteligíveis, evitando complexidade desnecessária",
+          "E) Ânimo pronto para conceber e executar; manifestação de inteligência, imaginação, atividade, saber e dedicação ao serviço"
+        ],
+        correct: 3,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A definição correta de \"Simplicidade\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 181,
+        text: "Segundo o PEM 2040, complete: é aquele(a) que se define como \"Estado de ânimo ou atitude mental de um indivíduo, ou de um grupo, que se reflete na conduta da tropa\". Trata-se de:",
+        options: [
+          "A) Moral",
+          "B) Ofensiva",
+          "C) Massa",
+          "D) Economia de Forças",
+          "E) Manobra"
+        ],
+        correct: 0,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho citado é a definição de \"Moral\" (Princípios de Guerra), conforme o PEM 2040."
+      },
+      {
+        id: 182,
+        text: "Segundo o PEM 2040, qual das alternativas define corretamente \"Moral\"?",
+        options: [
+          "A) Sentimento que induz o indivíduo à prática do Bem, da Justiça e da Moral; força que impele a prestigiar a própria personalidade, como patrimônio moral",
+          "B) Devotamento verdadeiro, espontâneo e incansável a uma causa; sincera obediência à autoridade dos superiores e respeito à dignidade alheia",
+          "C) Ânimo pronto para conceber e executar; manifestação de inteligência, imaginação, atividade, saber e dedicação ao serviço",
+          "D) Auxiliar eficiente e desinteressadamente; esforço em benefício de uma causa comum — é a Cooperação que faz a eficiência da Marinha",
+          "E) Estado de ânimo ou atitude mental de um indivíduo, ou de um grupo, que se reflete na conduta da tropa"
+        ],
+        correct: 4,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A definição correta de \"Moral\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 183,
+        text: "No PEM 2040, qual das alternativas corresponde à seguinte definição: \"Intensificação das ações ofensivas, após um primeiro êxito, para ampliar esse êxito inicial e não dar trégua ao inimigo\"?",
+        options: [
+          "A) Massa",
+          "B) Exploração",
+          "C) Economia de Forças",
+          "D) Manobra",
+          "E) Unidade de Comando"
+        ],
+        correct: 1,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho citado é a definição de \"Exploração\" (Princípios de Guerra), conforme o PEM 2040."
+      },
+      {
+        id: 184,
+        text: "De acordo com o PEM 2040, assinale a definição correta de \"Exploração\":",
+        options: [
+          "A) Intensificação das ações ofensivas, após um primeiro êxito, para ampliar esse êxito inicial e não dar trégua ao inimigo",
+          "B) Devotamento verdadeiro, espontâneo e incansável a uma causa; sincera obediência à autoridade dos superiores e respeito à dignidade alheia",
+          "C) Ânimo pronto para conceber e executar; manifestação de inteligência, imaginação, atividade, saber e dedicação ao serviço",
+          "D) Auxiliar eficiente e desinteressadamente; esforço em benefício de uma causa comum — é a Cooperação que faz a eficiência da Marinha",
+          "E) Disposição sincera de oferecer, espontaneamente, interesses, comodidades e a própria vida, em prol do cumprimento do dever"
+        ],
+        correct: 0,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A definição correta de \"Exploração\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 185,
+        text: "Conforme o Plano Estratégico da Marinha (PEM-2040), a definição a seguir corresponde a qual conceito? \"Capacidade de pronto atendimento da Força Armada para fazer face às situações que se apresentem, em ambiente de combate ou não\"",
+        options: [
+          "A) Economia de Forças",
+          "B) Manobra",
+          "C) Prontidão",
+          "D) Unidade de Comando",
+          "E) Segurança"
+        ],
+        correct: 2,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho citado é a definição de \"Prontidão\" (Princípios de Guerra), conforme o PEM 2040."
+      },
+      {
+        id: 186,
+        text: "Segundo o PEM 2040, qual das alternativas define corretamente \"Prontidão\"?",
+        options: [
+          "A) Ânimo pronto para conceber e executar; manifestação de inteligência, imaginação, atividade, saber e dedicação ao serviço",
+          "B) Capacidade de pronto atendimento da Força Armada para fazer face às situações que se apresentem, em ambiente de combate ou não",
+          "C) Auxiliar eficiente e desinteressadamente; esforço em benefício de uma causa comum — é a Cooperação que faz a eficiência da Marinha",
+          "D) Disposição sincera de oferecer, espontaneamente, interesses, comodidades e a própria vida, em prol do cumprimento do dever",
+          "E) Disposição natural que permite dominar o medo e enfrentar qualquer perigo; o destemor no cumprimento do dever"
+        ],
+        correct: 1,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A definição correta de \"Prontidão\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 187,
+        text: "De acordo com o PEM 2040, o trecho abaixo descreve qual termo? \"Capacidade de deslocar-se prontamente e a grandes distâncias, mantendo elevado nível de prontidão\"",
+        options: [
+          "A) Flexibilidade",
+          "B) Versatilidade",
+          "C) Permanência",
+          "D) Mobilidade",
+          "E) Zelo"
+        ],
+        correct: 3,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho citado é a definição de \"Mobilidade\" (Características de uma Força Naval), conforme o PEM 2040."
+      },
+      {
+        id: 188,
+        text: "De acordo com o PEM 2040, assinale a definição correta de \"Mobilidade\":",
+        options: [
+          "A) Auxiliar eficiente e desinteressadamente; esforço em benefício de uma causa comum — é a Cooperação que faz a eficiência da Marinha",
+          "B) Disposição sincera de oferecer, espontaneamente, interesses, comodidades e a própria vida, em prol do cumprimento do dever",
+          "C) Capacidade de deslocar-se prontamente e a grandes distâncias, mantendo elevado nível de prontidão",
+          "D) Disposição natural que permite dominar o medo e enfrentar qualquer perigo; o destemor no cumprimento do dever",
+          "E) Esquecimento voluntário do que há de egoístico nos próprios desejos, em proveito de uma causa ou ideia; disposição de servir com sacrifício dos próprios interesses"
+        ],
+        correct: 2,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A definição correta de \"Mobilidade\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 189,
+        text: "Segundo o PEM 2040, complete: é aquele(a) que se define como \"Capacidade de organizar grupamentos operativos de diferentes valores, adequados a cada situação, permitindo emprego gradativo da força\". Trata-se de:",
+        options: [
+          "A) Versatilidade",
+          "B) Permanência",
+          "C) Zelo",
+          "D) Honra",
+          "E) Flexibilidade"
+        ],
+        correct: 4,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho citado é a definição de \"Flexibilidade\" (Características de uma Força Naval), conforme o PEM 2040."
+      },
+      {
+        id: 190,
+        text: "Segundo o PEM 2040, qual das alternativas define corretamente \"Flexibilidade\"?",
+        options: [
+          "A) Disposição sincera de oferecer, espontaneamente, interesses, comodidades e a própria vida, em prol do cumprimento do dever",
+          "B) Disposição natural que permite dominar o medo e enfrentar qualquer perigo; o destemor no cumprimento do dever",
+          "C) Esquecimento voluntário do que há de egoístico nos próprios desejos, em proveito de uma causa ou ideia; disposição de servir com sacrifício dos próprios interesses",
+          "D) Capacidade de organizar grupamentos operativos de diferentes valores, adequados a cada situação, permitindo emprego gradativo da força",
+          "E) Diligência, porque economiza o tempo, e previdência, porque o conserva; orienta o espírito e promove segurança"
+        ],
+        correct: 3,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A definição correta de \"Flexibilidade\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 191,
+        text: "No PEM 2040, qual das alternativas corresponde à seguinte definição: \"Aptidão para executar uma ampla gama de tarefas, em diferentes níveis de prontidão e ao mesmo tempo\"?",
+        options: [
+          "A) Versatilidade",
+          "B) Permanência",
+          "C) Zelo",
+          "D) Honra",
+          "E) Lealdade"
+        ],
+        correct: 0,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho citado é a definição de \"Versatilidade\" (Características de uma Força Naval), conforme o PEM 2040."
+      },
+      {
+        id: 192,
+        text: "De acordo com o PEM 2040, assinale a definição correta de \"Versatilidade\":",
+        options: [
+          "A) Disposição natural que permite dominar o medo e enfrentar qualquer perigo; o destemor no cumprimento do dever",
+          "B) Esquecimento voluntário do que há de egoístico nos próprios desejos, em proveito de uma causa ou ideia; disposição de servir com sacrifício dos próprios interesses",
+          "C) Diligência, porque economiza o tempo, e previdência, porque o conserva; orienta o espírito e promove segurança",
+          "D) Força de coesão de qualquer coletividade humana; indispensável a qualquer Organismo Militar para reunir indivíduos em uma unidade sólida e eficaz",
+          "E) Aptidão para executar uma ampla gama de tarefas, em diferentes níveis de prontidão e ao mesmo tempo"
+        ],
+        correct: 4,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A definição correta de \"Versatilidade\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 193,
+        text: "Conforme o Plano Estratégico da Marinha (PEM-2040), a definição a seguir corresponde a qual conceito? \"Capacidade de operar, continuamente, com independência e por longos períodos, em áreas distantes e de grandes dimensões\"",
+        options: [
+          "A) Zelo",
+          "B) Permanência",
+          "C) Honra",
+          "D) Lealdade",
+          "E) Iniciativa"
+        ],
+        correct: 1,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "O trecho citado é a definição de \"Permanência\" (Características de uma Força Naval), conforme o PEM 2040."
+      },
+      {
+        id: 194,
+        text: "Segundo o PEM 2040, qual das alternativas define corretamente \"Permanência\"?",
+        options: [
+          "A) Capacidade de operar, continuamente, com independência e por longos períodos, em áreas distantes e de grandes dimensões",
+          "B) Esquecimento voluntário do que há de egoístico nos próprios desejos, em proveito de uma causa ou ideia; disposição de servir com sacrifício dos próprios interesses",
+          "C) Diligência, porque economiza o tempo, e previdência, porque o conserva; orienta o espírito e promove segurança",
+          "D) Força de coesão de qualquer coletividade humana; indispensável a qualquer Organismo Militar para reunir indivíduos em uma unidade sólida e eficaz",
+          "E) Ser honesto, ter têmpera forte para opinar e agir pelo bem, mesmo quando isso contrariar conveniências pessoais"
+        ],
+        correct: 0,
+        subject: "Princípios de Guerra e Características da Força Naval",
+        explanation: "A definição correta de \"Permanência\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 195,
+        text: "De acordo com o PEM 2040, o trecho abaixo descreve qual termo? \"\"virtude que deve ser comum a todos os que servem à Marinha\", que não depende, em alto grau, de preparo profissional ou de predicados especiais de inteligência; é consequência direta do amor próprio, do amor à Marinha e à Nação\"",
+        options: [
+          "A) Fogo Sagrado",
+          "B) Tenacidade",
+          "C) Zelo",
+          "D) Decisão",
+          "E) Espírito Militar"
+        ],
+        correct: 2,
+        subject: "Missão, Visão e Valores da Marinha",
+        explanation: "O trecho citado é a definição de \"Zelo\" (virtudes da Rosa das Virtudes), conforme o PEM 2040."
+      },
+      {
+        id: 196,
+        text: "De acordo com o PEM 2040, assinale a definição correta de \"Zelo\":",
+        options: [
+          "A) Diligência, porque economiza o tempo, e previdência, porque o conserva; orienta o espírito e promove segurança",
+          "B) \"virtude que deve ser comum a todos os que servem à Marinha\", que não depende, em alto grau, de preparo profissional ou de predicados especiais de inteligência; é consequência direta do amor próprio, do amor à Marinha e à Nação",
+          "C) Força de coesão de qualquer coletividade humana; indispensável a qualquer Organismo Militar para reunir indivíduos em uma unidade sólida e eficaz",
+          "D) Ser honesto, ter têmpera forte para opinar e agir pelo bem, mesmo quando isso contrariar conveniências pessoais",
+          "E) Sentimento irresistível que prende os indivíduos à terra em que nasceram; a emoção sentida ao ouvir o Hino Nacional e ver a Bandeira desfraldada"
+        ],
+        correct: 1,
+        subject: "Missão, Visão e Valores da Marinha",
+        explanation: "A definição correta de \"Zelo\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 197,
+        text: "Segundo o PEM 2040, complete: é aquele(a) que se define como \"Sentimento que induz o indivíduo à prática do Bem, da Justiça e da Moral; força que impele a prestigiar a própria personalidade, como patrimônio moral\". Trata-se de:",
+        options: [
+          "A) Tenacidade",
+          "B) Decisão",
+          "C) Espírito Militar",
+          "D) Honra",
+          "E) Zelo"
+        ],
+        correct: 3,
+        subject: "Missão, Visão e Valores da Marinha",
+        explanation: "O trecho citado é a definição de \"Honra\" (virtudes da Rosa das Virtudes), conforme o PEM 2040."
+      },
+      {
+        id: 198,
+        text: "Segundo o PEM 2040, qual das alternativas define corretamente \"Honra\"?",
+        options: [
+          "A) Força de coesão de qualquer coletividade humana; indispensável a qualquer Organismo Militar para reunir indivíduos em uma unidade sólida e eficaz",
+          "B) Ser honesto, ter têmpera forte para opinar e agir pelo bem, mesmo quando isso contrariar conveniências pessoais",
+          "C) Sentimento que induz o indivíduo à prática do Bem, da Justiça e da Moral; força que impele a prestigiar a própria personalidade, como patrimônio moral",
+          "D) Sentimento irresistível que prende os indivíduos à terra em que nasceram; a emoção sentida ao ouvir o Hino Nacional e ver a Bandeira desfraldada",
+          "E) Paixão, fé e entusiasmo com que o militar se dedica à carreira; intenso amor à Marinha e devotamento pela grandeza da profissão"
+        ],
+        correct: 2,
+        subject: "Missão, Visão e Valores da Marinha",
+        explanation: "A definição correta de \"Honra\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
+      },
+      {
+        id: 199,
+        text: "No PEM 2040, qual das alternativas corresponde à seguinte definição: \"Devotamento verdadeiro, espontâneo e incansável a uma causa; sincera obediência à autoridade dos superiores e respeito à dignidade alheia\"?",
+        options: [
+          "A) Decisão",
+          "B) Espírito Militar",
+          "C) Zelo",
+          "D) Honra",
+          "E) Lealdade"
+        ],
+        correct: 4,
+        subject: "Missão, Visão e Valores da Marinha",
+        explanation: "O trecho citado é a definição de \"Lealdade\" (virtudes da Rosa das Virtudes), conforme o PEM 2040."
+      },
+      {
+        id: 200,
+        text: "De acordo com o PEM 2040, assinale a definição correta de \"Lealdade\":",
+        options: [
+          "A) Ser honesto, ter têmpera forte para opinar e agir pelo bem, mesmo quando isso contrariar conveniências pessoais",
+          "B) Sentimento irresistível que prende os indivíduos à terra em que nasceram; a emoção sentida ao ouvir o Hino Nacional e ver a Bandeira desfraldada",
+          "C) Paixão, fé e entusiasmo com que o militar se dedica à carreira; intenso amor à Marinha e devotamento pela grandeza da profissão",
+          "D) Devotamento verdadeiro, espontâneo e incansável a uma causa; sincera obediência à autoridade dos superiores e respeito à dignidade alheia",
+          "E) Forma de dedicação e amor ao serviço; disposição para estudar o material, a organização interna, a ordenança e os regulamentos"
+        ],
+        correct: 3,
+        subject: "Missão, Visão e Valores da Marinha",
+        explanation: "A definição correta de \"Lealdade\" é a citada, conforme o PEM 2040. As demais alternativas são definições verdadeiras de OUTROS conceitos da apostila — cuidado para não trocar a definição de lugar."
       }
     ];
 
@@ -1492,6 +3580,9 @@ const questionsData = [
       await applySwitchMenuLocks();
 
       await loadSavedState();
+      if (currentUser) {
+        AlfaGamification.reconcileRespostasDetalhadas(sb, currentUser.id, QUIZ_ID, questionsData, userAnswers).then(() => {});
+      }
       const savedIndex = parseInt(localStorage.getItem(STORAGE_KEY_CURRENT), 10);
       currentIndex = (!isNaN(savedIndex) && savedIndex >= 0 && savedIndex < questionsData.length) ? savedIndex : 0;
       renderQuestion();
@@ -1837,6 +3928,17 @@ const questionsData = [
 
         var apLinkWrap = document.getElementById('apostila-link-wrap');
         if (apLinkWrap) { apLinkWrap.innerHTML = AlfaGamification.apostilaLinkHtml(apostilaLinksMap, q.id); }
+
+        const expDetail = document.getElementById('explanation-detail');
+        const expDetailText = document.getElementById('explanation-detail-text');
+        if (expDetail && expDetailText) {
+          if (q.explanation) {
+            expDetail.classList.remove('hidden');
+            expDetailText.innerText = q.explanation;
+          } else {
+            expDetail.classList.add('hidden');
+          }
+        }
       } else {
         expBox.classList.add('hidden');
       }
@@ -1966,22 +4068,25 @@ const questionsData = [
 
     function selectOption(optIndex) {
       if (isDiscarded(currentIndex, optIndex)) return;
-      const jaTinhaResposta = userAnswers[currentIndex] !== undefined;
       userAnswers[currentIndex] = optIndex;
       saveState();
       renderQuestion();
       renderGrid();
 
-      // Salva o resultado dessa questão em tempo real, sem esperar finalizar o simulado
-      if (currentUser && !jaTinhaResposta) {
+      // Salva o resultado dessa questão em tempo real, sem esperar finalizar o simulado.
+      // upsert (não insert): o aluno pode voltar numa questão já respondida pra
+      // reconferir, e nesse caso só atualizamos o acerto/erro mais recente, sem
+      // duplicar linha nem depender de um estado local pra saber "já respondi essa
+      // antes" (é esse estado local que fazia a cobertura ficar presa abaixo do real).
+      if (currentUser) {
         const q = questionsData[currentIndex];
-        sb.from('respostas_detalhadas').insert({
+        sb.from('respostas_detalhadas').upsert({
           user_id: currentUser.id,
           quiz_id: QUIZ_ID,
           subject: q.subject,
           question_id: q.id,
           acertou: optIndex === q.correct
-        }).then(() => {});
+        }, { onConflict: 'user_id,quiz_id,question_id' }).then(() => {});
       }
       if (window.StudyRoom) StudyRoom.reportAnswer(currentIndex, optIndex);
     }

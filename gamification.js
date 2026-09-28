@@ -23,18 +23,20 @@
   var SUBJECTS = {
     PORTUGUES: { label: 'Língua Portuguesa', url: 'portugues.html', total: 372 },
     HISTORIA_NAVAL: { label: 'História Militar Naval', url: 'historia-naval.html', total: 583 },
-    GEOGRAFIA: { label: 'Geografia', url: 'geografia.html', total: 164 },
-    MATEMATICA: { label: 'Matemática', url: 'matematica.html', total: 79 },
-    'CAAML-703': { label: 'Embarcações Miúdas & Segurança', url: 'caaml-703.html', total: 65 },
+    HISTORIA_NAVAL_FATOS_1: { label: 'Fatos da História Naval', url: 'historia-naval-fatos-1.html', total: 217 },
+    GEOGRAFIA: { label: 'Geografia', url: 'geografia.html', total: 200 },
+    MATEMATICA: { label: 'Matemática', url: 'matematica.html', total: 200 },
+    'CAAML-703': { label: 'Embarcações Miúdas & Segurança', url: 'caaml-703.html', total: 200 },
     CERIMONIAL: { label: 'Cerimonial da Marinha', url: 'cerimonial.html', total: 280 },
-    ROSAS_VIRTUDES: { label: 'Rosas das Virtudes', url: 'rosas-virtudes.html', total: 30 },
-    JUSTICA_DISCIPLINA: { label: 'Justiça e Disciplina', url: 'justica-disciplina.html', total: 147 },
+    ROSAS_VIRTUDES: { label: 'Rosas das Virtudes', url: 'rosas-virtudes.html', total: 200 },
+    JUSTICA_DISCIPLINA: { label: 'Justiça e Disciplina', url: 'justica-disciplina.html', total: 200 },
     LIDERANCA: { label: 'Liderança', url: 'lideranca.html', total: 210 },
+    LIDERANCA_ATRIBUTOS: { label: 'Atributos de Liderança', url: 'lideranca-atributos.html', total: 200 },
     OGSA: { label: 'OGSA', url: 'ogsa.html', total: 211 },
-    CAMAAL_CAV: { label: 'CAMAAL 1202 (CAV)', url: 'camaal-cav.html', total: 122 },
-    ESTATUTO_RDM: { label: 'Estatuto dos Militares & RDM', url: 'estatuto-rdm.html', total: 176 },
+    CAMAAL_CAV: { label: 'CAMAAL 1202 (CAV)', url: 'camaal-cav.html', total: 200 },
+    ESTATUTO_RDM: { label: 'Estatuto dos Militares & RDM', url: 'estatuto-rdm.html', total: 200 },
     DOC_ADM_MB: { label: 'Documentação Administrativa na MB', url: 'doc-adm-mb.html', total: 200 },
-    PEM2040: { label: 'PEM-2040', url: 'pem2040.html', total: 55 },
+    PEM2040: { label: 'PEM-2040', url: 'pem2040.html', total: 200 },
     PROVA_SIMULADA: { label: 'Prova Simulada', url: 'prova-simulada.html', total: null }
   };
 
@@ -604,6 +606,73 @@
       '<i class="fa-solid fa-book-open"></i> Ver na apostila</a>';
   }
 
+  // ===================================================================
+  // Reconciliação de respostas_detalhadas (corrige a "cobertura de
+  // questões" que ficava presa em um número menor do que o real).
+  //
+  // O progresso de resumo (retomar de onde parei) fica salvo em
+  // `progresso.respostas` (um JSON { índice: opção escolhida }). Já a
+  // cobertura por matéria (cobertura-banco.html) conta linhas ÚNICAS em
+  // `respostas_detalhadas`. Historicamente essas duas fontes podiam ficar
+  // dessincronizadas — por exemplo, se uma tentativa de INSERT falhasse
+  // silenciosamente (rede, RLS) só uma vez, a questão nunca mais era
+  // reenviada pra `respostas_detalhadas`, porque o gatilho de envio olhava
+  // só pro estado local de "já respondi" e não pro banco. Isso fazia a
+  // cobertura mostrada ficar presa bem abaixo do que o aluno realmente já
+  // fez.
+  //
+  // Esta função roda uma vez a cada carregamento da página do quiz (depois
+  // de `loadSavedState()`), compara o que está em `userAnswers` com o que
+  // já está de fato salvo em `respostas_detalhadas`, e reenvia só o que
+  // estiver faltando. Autocorretiva: quanto mais o aluno abre um quiz que
+  // já tem progresso, mais qualquer buraco antigo se fecha sozinho.
+  // ===================================================================
+  function reconcileRespostasDetalhadas(sb, userId, quizId, questionsData, userAnswers) {
+    if (!sb || !userId || !quizId || !questionsData || !userAnswers) return Promise.resolve();
+    return sb.from('respostas_detalhadas')
+      .select('question_id')
+      .eq('user_id', userId)
+      .eq('quiz_id', quizId)
+      .then(function (res) {
+        if (res.error) return;
+        var logged = {};
+        (res.data || []).forEach(function (r) { logged[String(r.question_id)] = true; });
+
+        var toInsert = [];
+        Object.keys(userAnswers).forEach(function (idxStr) {
+          var idx = Number(idxStr);
+          var q = questionsData[idx];
+          if (!q) return;
+          if (logged[String(q.id)]) return;
+          var selected = userAnswers[idxStr];
+          if (selected === undefined || selected === null) return;
+          toInsert.push({
+            user_id: userId,
+            quiz_id: quizId,
+            subject: q.subject,
+            question_id: q.id,
+            acertou: selected === q.correct
+          });
+        });
+
+        if (toInsert.length === 0) return;
+
+        var LOTE = 200;
+        var chain = Promise.resolve();
+        var _loop = function (i) {
+          chain = chain.then(function () {
+            return sb.from('respostas_detalhadas').upsert(
+              toInsert.slice(i, i + LOTE),
+              { onConflict: 'user_id,quiz_id,question_id', ignoreDuplicates: true }
+            );
+          });
+        };
+        for (var i = 0; i < toInsert.length; i += LOTE) _loop(i);
+        return chain;
+      })
+      .catch(function () { /* silencioso — nunca deve travar o carregamento do quiz */ });
+  }
+
   global.AlfaGamification = {
     SUBJECTS: SUBJECTS,
     TOTAL_SUBJECTS: TOTAL_SUBJECTS,
@@ -631,6 +700,7 @@
     fetchQuizAccess: fetchQuizAccess,
     fetchAllAccess: fetchAllAccess,
     fetchApostilaLinks: fetchApostilaLinks,
-    apostilaLinkHtml: apostilaLinkHtml
+    apostilaLinkHtml: apostilaLinkHtml,
+    reconcileRespostasDetalhadas: reconcileRespostasDetalhadas
   };
 })(window);

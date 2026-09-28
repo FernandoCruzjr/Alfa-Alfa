@@ -528,6 +528,7 @@
           <div class="flex items-center gap-2 text-sm font-bold mb-1" id="explanation-title"></div>
           <div class="text-xs md:text-sm text-slate-300" id="explanation-text"></div>
           <div id="apostila-link-wrap" class="mt-2"></div>
+          <div class="text-xs md:text-sm text-slate-300 mt-3 pt-3 border-t border-slate-700/60 hidden" id="explanation-detail"><span class="text-navy-400 font-semibold">Por que é essa alternativa: </span><span id="explanation-detail-text"></span></div>
         </div>
 
         <button id="flashcard-btn" onclick="saveAsFlashcard()" class="mt-4 w-full h-11 rounded-xl border border-navy-700 bg-navy-800/60 hover:bg-navy-700/60 hover:border-navy-500 text-slate-200 text-sm font-medium transition-all flex items-center justify-center gap-2">
@@ -680,7 +681,8 @@ const questionsData = [
           "E) conduzir homens"
         ],
         correct: 0,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"O exercício da chefia é entendido pelo conjunto de ações e decisões tomadas pelo mais antigo, com autoridade para tal, na sua esfera de competência, a fim de conduzir de forma integrada o setor que lhe é confiado.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 2,
@@ -693,7 +695,8 @@ const questionsData = [
           "E) chefe e condutor de homens"
         ],
         correct: 4,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"No desempenho de suas funções, os mais antigos, normalmente, desempenham dois papéis funcionais, a saber: o de \"chefe\" e o de \"condutor de homens\". Em relação ao primeiro papel, prevalece a autoridade advinda da responsabilidade atribuída à função, associada com aquela decorrente de seu posto ou graduação, à qual passaremos a definir, genericamente, como chefia. Com respeito ao segundo papel, identifica-se um estreito relacionamento com o atributo de líder. Neste contexto, fi...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 3,
@@ -706,7 +709,8 @@ const questionsData = [
           "E) chefia"
         ],
         correct: 0,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"• LIDERANÇA - \"o processo que consiste em influenciar pessoas no sentido de que ajam, voluntariamente, em prol dos objetivos da Instituição\".\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 4,
@@ -719,7 +723,8 @@ const questionsData = [
           "E) agentes da liderança"
         ],
         correct: 1,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"• ELEMENTOS BÁSICOS DA LIDERANÇA – Grupo – Situação – Líder.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 5,
@@ -732,7 +737,8 @@ const questionsData = [
           "E) elementos básicos da liderança"
         ],
         correct: 0,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"Nessa definição de liderança, estão implícitos os seus agentes, ou seja, o líder e os liderados, as relações entre eles e os princípios filosóficos, psicológicos e sociológicos que regem o comportamento humano.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 6,
@@ -745,7 +751,8 @@ const questionsData = [
           "E) elementos de liderança"
         ],
         correct: 3,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"Nessa definição de liderança, estão implícitos os seus agentes, ou seja, o líder e os liderados, as relações entre eles e os princípios filosóficos, psicológicos e sociológicos que regem o comportamento humano.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 7,
@@ -758,7 +765,8 @@ const questionsData = [
           "E) sociologia"
         ],
         correct: 1,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"A Filosofia tem como característica desenvolver o senso crítico, que fornece ao indivíduo bases metodológicas para efetuar, permanentemente, o exame corrente da situação, favorecendo o processo de tomada de decisões. Tal prática é fundamental ao exercício da liderança, podendo-se verificar que o requisito pensamento crítico está direta ou indiretamente associado a diversos atributos de liderança prescritos nesta Doutrina.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 8,
@@ -771,7 +779,8 @@ const questionsData = [
           "E) psicologia"
         ],
         correct: 3,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"A Axiologia, também conhecida como a teoria dos valores, é considerada a parte mais nobre da Filosofia. O processo de influenciação de um grupo, que é a essência da liderança, está profundamente ligado aos valores éticos e morais que devem ser transmitidos e praticados pelo líder.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 9,
@@ -784,7 +793,8 @@ const questionsData = [
           "E) axiologia"
         ],
         correct: 1,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"O caminho para a liderança passa pelo conhecimento profissional, mas também pelo autoconhecimento e por conhecer bem seus subordinados. Para os dois últimos requisitos, a Psicologia pode oferecer ferramentas úteis para o líder. Pesquisas mostram que o quociente emocional (QE) ou inteligência emocional está, cada mais, destacando-se como o principal diferencial de competência no trabalho, por se tratar da capacidade de autoconsciência, controle de impulsos, persistência, empat...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 10,
@@ -797,7 +807,8 @@ const questionsData = [
           "E) processos sociais"
         ],
         correct: 4,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"Outro tópico de Sociologia avaliado como relevante é o dos processos sociais, estes definidos como a interação repetitiva de padrões de comportamento comumente encontrados na vida social. Os processos sociais de maior incidência nas sociedades e grupos humanos são: cooperação, competição e conflito. O líder, cuja matéria-prima é o grupo liderado, necessita identificar a existência destes processos, estimulando-os ou não, em função das especificidades da situação corrente e da...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 11,
@@ -810,7 +821,8 @@ const questionsData = [
           "E) luta"
         ],
         correct: 1,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"Cooperação, etimologicamente, significa trabalhar em conjunto. Implica uma opção pelo coletivo em detrimento do individual, mas nada impede o desenvolvimento e o estímulo das habilidades de cada membro, em prol de um objetivo comum. Sob muitos aspectos, e de um ponto de vista humanista, é a forma ideal de atuação de grupos. Ocorre que nem sempre é possível, dentro de um grupo, manter, exclusivamente, o processo cooperativo. Em função do contexto, das circunstâncias da própria...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 12,
@@ -823,7 +835,8 @@ const questionsData = [
           "E) conflito"
         ],
         correct: 0,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"Competição é definida como a luta pela posse de recompensas cuja oferta é limitada. Tais recompensas incluem dinheiro, poder, status, amor e muitos outros. Outra forma de descrever o processo competitivo o mostra como a tentativa de obter uma recompensa superando todos os rivais. A competição pode ser pessoal – entre um número limitado de concorrentes que se conhecem entre si – ou impessoal – quando o número de rivais é tal, que se torna impossível o conhecimento entre eles,...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 13,
@@ -836,7 +849,8 @@ const questionsData = [
           "E) situação"
         ],
         correct: 1,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"Conflito é a exacerbação da competição. Uma definição mais específica afirma que tal processo consiste em obter recompensas pela eliminação ou enfraquecimento dos competidores. Ou seja, o conflito é uma forma de competição que pode caminhar para a instalação de violência e, que se vai intensificando, à medida que aumenta a duração do processo, já que este tem caráter cumulativo – a cada ato hostil surge uma represália cada vez mais agressiva.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 14,
@@ -849,7 +863,8 @@ const questionsData = [
           "E) liderança orientada para tarefa e liderança orientada para relacionamento"
         ],
         correct: 1,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"A) QUANTO AO GRAU DE CENTRALIZAÇÃO DE PODER: Liderança Centralizadora, Liderança Participativa e Liderança Delegativa;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 15,
@@ -862,7 +877,8 @@ const questionsData = [
           "E) liderança democrática liderança autocrática e liderança participativa"
         ],
         correct: 0,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"B) QUANTO AO TIPO DE INCENTIVO: Liderança Transformacional e Liderança Transacional; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 16,
@@ -875,7 +891,8 @@ const questionsData = [
           "E) liderança centralizadora liderança participativa e liderança delegativa"
         ],
         correct: 2,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"C) QUANTO AO FOCO DO LÍDER: Liderança Orientada para Tarefa e Liderança Orientada para Relacionamento.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 17,
@@ -888,7 +905,8 @@ const questionsData = [
           "E) liderança orientada para tarefa"
         ],
         correct: 3,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"A liderança centralizadora é baseada na autoridade formal, aceita como correta e legítima pela estrutura do grupo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 18,
@@ -901,7 +919,8 @@ const questionsData = [
           "E) liderança delegativa"
         ],
         correct: 2,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"O líder centralizador baseia a sua atuação numa disciplina rígida, impondo obediência e mantendo-se afastado de relacionamentos menos formais com os seus subordinados, controla o grupo por meio de inspeções de verificação do cumprimento de normas e padrões de eficiência. Esse tipo de liderança pode ser útil e, até mesmo, recomendável, em situações especiais como em combate, quando o líder tem que tomar decisões rápidas e não é possível ouvir seus liderados, sendo a forma de l...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 19,
@@ -914,7 +933,8 @@ const questionsData = [
           "E) liderança delegativa"
         ],
         correct: 1,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"A principal restrição a esse tipo de liderança é o desinteresse pelos problemas e ideias, tolhendo a iniciativa e, por conseguinte, a participação e a criatividade dos subordinados. O uso desse estilo de liderança pode gerar resistência passiva dentro da equipe e inibir a iniciativa do subordinado, além de não considerar os aspectos humanos, dentre eles, o relacionamento líder-liderados.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 20,
@@ -927,7 +947,8 @@ const questionsData = [
           "E) e liderança orientada para relacionamento"
         ],
         correct: 0,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"Nesse estilo de liderança, abre-se mão de parte da autoridade formal em prol de uma esperada participação dos subordinados e aproveitamento de suas ideias. Os componentes do grupo são incentivados a opinarem sobre as formas como uma tarefa poderá ser realizada, cabendo a decisão final ao líder (exemplo típico é o Estado-Maior). O êxito desse estilo é condicionado pelas características pessoais, pelo conhecimento técnico-profissional e pelo engajamento e motivação dos componen...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 21,
@@ -940,7 +961,8 @@ const questionsData = [
           "E) liderança orientada para relacionamentos"
         ],
         correct: 1,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"Nesse estilo de liderança, abre-se mão de parte da autoridade formal em prol de uma esperada participação dos subordinados e aproveitamento de suas ideias. Os componentes do grupo são incentivados a opinarem sobre as formas como uma tarefa poderá ser realizada, cabendo a decisão final ao líder (exemplo típico é o Estado-Maior). O êxito desse estilo é condicionado pelas características pessoais, pelo conhecimento técnico-profissional e pelo engajamento e motivação dos componen...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 22,
@@ -953,7 +975,8 @@ const questionsData = [
           "E) liderança orientada para tarefa"
         ],
         correct: 3,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"Esse estilo é indicado para assuntos de natureza técnica, onde o líder atribui a assessores a tomada de decisões especializadas, deixando-os agir por si só. Desse modo, ele tem mais tempo para dar atenção a todos os problemas sem se deter especificamente a uma determinada área. É eficaz quando exercido sobre pessoas altamente qualificadas e motivadas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 23,
@@ -966,7 +989,8 @@ const questionsData = [
           "E) liderança democrática"
         ],
         correct: 1,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"Esse estilo é indicado para assuntos de natureza técnica, onde o líder atribui a assessores a tomada de decisões especializadas, deixando-os agir por si só. Desse modo, ele tem mais tempo para dar atenção a todos os problemas sem se deter especificamente a uma determinada área. É eficaz quando exercido sobre pessoas altamente qualificadas e motivadas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 24,
@@ -979,7 +1003,8 @@ const questionsData = [
           "E) liderança transformacional"
         ],
         correct: 4,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"Esse estilo de liderança é especialmente indicado para situações de pressão, crise e mudança, que requerem elevados níveis de envolvimento e comprometimento dos subordinados, sendo que \"uma ou mais pessoas engajam-se com outras de tal forma que líderes e seguidores elevam um ao outro a níveis mais altos de motivação e moral\" (BURNS, 1978, apud SMITH; PETERSON, 1994, p. 129)\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 25,
@@ -992,7 +1017,8 @@ const questionsData = [
           "E) liderança transformacional"
         ],
         correct: 4,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"Quatro aspectos caracterizam a liderança transformacional: 1º) \"[...] carisma (influência idealizada) associado com um grau elevado de poder de referência por parte do líder [...]\" (NOBRE, 1998, p. 54), que é capaz de despertar respeito, confiança e admiração; 2º) inspiração motivadora, que consiste na capacidade de apresentar uma visão, dando sentido à missão a ser realizada, de instilar orgulho. Inclui também a capacidade de simplificar o entendimento sobre a importância do...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 26,
@@ -1004,7 +1030,8 @@ const questionsData = [
           "D) consideração individualizada"
         ],
         correct: 1,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"Quatro aspectos caracterizam a liderança transformacional: 1º) \"[...] carisma (influência idealizada) associado com um grau elevado de poder de referência por parte do líder [...]\" (NOBRE, 1998, p. 54), que é capaz de despertar respeito, confiança e admiração; 2º) inspiração motivadora, que consiste na capacidade de apresentar uma visão, dando sentido à missão a ser realizada, de instilar orgulho. Inclui também a capacidade de simplificar o entendimento sobre a importância do...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 27,
@@ -1016,7 +1043,8 @@ const questionsData = [
           "D) carisma"
         ],
         correct: 0,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"Quatro aspectos caracterizam a liderança transformacional: 1º) \"[...] carisma (influência idealizada) associado com um grau elevado de poder de referência por parte do líder [...]\" (NOBRE, 1998, p. 54), que é capaz de despertar respeito, confiança e admiração; 2º) inspiração motivadora, que consiste na capacidade de apresentar uma visão, dando sentido à missão a ser realizada, de instilar orgulho. Inclui também a capacidade de simplificar o entendimento sobre a importância do...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 28,
@@ -1029,7 +1057,8 @@ const questionsData = [
           "E) inspiração motivadora"
         ],
         correct: 1,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"Quatro aspectos caracterizam a liderança transformacional: 1º) \"[...] carisma (influência idealizada) associado com um grau elevado de poder de referência por parte do líder [...]\" (NOBRE, 1998, p. 54), que é capaz de despertar respeito, confiança e admiração; 2º) inspiração motivadora, que consiste na capacidade de apresentar uma visão, dando sentido à missão a ser realizada, de instilar orgulho. Inclui também a capacidade de simplificar o entendimento sobre a importância do...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 29,
@@ -1041,7 +1070,8 @@ const questionsData = [
           "D) carisma"
         ],
         correct: 1,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"Quatro aspectos caracterizam a liderança transformacional: 1º) \"[...] carisma (influência idealizada) associado com um grau elevado de poder de referência por parte do líder [...]\" (NOBRE, 1998, p. 54), que é capaz de despertar respeito, confiança e admiração; 2º) inspiração motivadora, que consiste na capacidade de apresentar uma visão, dando sentido à missão a ser realizada, de instilar orgulho. Inclui também a capacidade de simplificar o entendimento sobre a importância do...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 30,
@@ -1054,7 +1084,8 @@ const questionsData = [
           "E) liderança delegativa"
         ],
         correct: 3,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"Quatro aspectos caracterizam a liderança transformacional: 1º) \"[...] carisma (influência idealizada) associado com um grau elevado de poder de referência por parte do líder [...]\" (NOBRE, 1998, p. 54), que é capaz de despertar respeito, confiança e admiração; 2º) inspiração motivadora, que consiste na capacidade de apresentar uma visão, dando sentido à missão a ser realizada, de instilar orgulho. Inclui também a capacidade de simplificar o entendimento sobre a importância do...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 31,
@@ -1067,7 +1098,8 @@ const questionsData = [
           "E) liderança transformacional"
         ],
         correct: 2,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"Nesse estilo de liderança, o líder trabalha com interesses e necessidades primárias dos seguidores, oferecendo recompensas de natureza econômica ou psicológica, em troca de esforço para alcançar os resultados organizacionais desejados (CAVALCANTI et al., 2005).\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 32,
@@ -1080,7 +1112,8 @@ const questionsData = [
           "E) liderança transacional"
         ],
         correct: 4,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"\"A recompensa é contingente, buscando-se uma sintonia entre o atendimento das necessidades dos subordinados e o alcance dos objetivos organizacionais; Esse estilo de liderança caracteriza-se também pela administração por exceção, que implica num gerenciamento atuante somente no sentido de corrigir erros [...].\" (NOBRE, 1998, p. 55)\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 33,
@@ -1093,7 +1126,8 @@ const questionsData = [
           "E) liderança orientada para a tarefa"
         ],
         correct: 3,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"\"A recompensa é contingente, buscando-se uma sintonia entre o atendimento das necessidades dos subordinados e o alcance dos objetivos organizacionais; Esse estilo de liderança caracteriza-se também pela administração por exceção, que implica num gerenciamento atuante somente no sentido de corrigir erros [...].\" (NOBRE, 1998, p. 55)\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 34,
@@ -1106,7 +1140,8 @@ const questionsData = [
           "E) liderança autocrática"
         ],
         correct: 3,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"Neste estilo de liderança, o líder \"[...] observa e procura desvios das regras e padrões, toma medidas corretivas.\" (CAVALCANTI et al., 2005, p. 120).\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 35,
@@ -1119,7 +1154,8 @@ const questionsData = [
           "E) liderança orientada para tarefa"
         ],
         correct: 4,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"A especialização em tarefas é uma das principais responsabilidades do líder, na medida em que possui a necessária qualificação profissional para o exercício da função. Nesse estilo de liderança, então, o líder focaliza o desempenho de tarefas e a realização de objetivos, transmitindo orientações específicas, definindo maneiras de realizar o trabalho, o que espera de cada um e quais são os padrões organizacionais.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 36,
@@ -1132,7 +1168,8 @@ const questionsData = [
           "E) liderança orientada para tarefa"
         ],
         correct: 0,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"A liderança direta é obtida por meio do relacionamento face a face entre o líder e seus liderados e é mais presente nos escalões inferiores, quando o contato pessoal é constante. A liderança direta, conquanto seja mais intensa no comando de pequenas frações ou unidades, tendo em vista que a estrutura organizacional da Força exige o trato com assessores e subordinados diretos.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 37,
@@ -1145,7 +1182,8 @@ const questionsData = [
           "E) liderança direta"
         ],
         correct: 2,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"A liderança organizacional desenvolve-se em organizações de maior envergadura, normalmente estruturadas como Estado-Maior, sendo composta por liderança direta, conduzida em menor escala e voltada para os subordinados imediatos, e por delegação de tarefas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 38,
@@ -1158,7 +1196,8 @@ const questionsData = [
           "E) liderança orientada para relacionamentos"
         ],
         correct: 0,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"A liderança estratégica militar é aquela exercida nos níveis que definem a política e a estratégia da Força. É um processo empregado para conduzir a realização de uma visão de futuro desejável e bem delineada.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 39,
@@ -1171,7 +1210,8 @@ const questionsData = [
           "E) liderança direta"
         ],
         correct: 1,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"Ao contrário do que acontece no nível de liderança direta, onde os líderes planejam, preparam, executam e controlam diretamente os resultados dos seus trabalhos, a influência dos líderes organizacionais é basicamente indireta: eles expedem suas políticas e diretivas e incentivam seus liderados por meio de seu staff e comandantes subordinados. Devido ao fato de não haver proximidade, os resultados de suas ações são frequentemente menos visíveis e mais demorados. No entanto, a...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 40,
@@ -1184,7 +1224,8 @@ const questionsData = [
           "E) liderança estratégica"
         ],
         correct: 4,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"Dentro da instituição, os líderes estratégicos constroem o suporte para facilitar a busca dos objetivos finais de sua visão. Isto significa montar um staff que possa assessorá-los convenientemente a conduzir seus subordinados de maneira segura e flexível. Para obter o suporte necessário, os líderes estratégicos procuram obter o consenso não só no âmbito interno da organização, como também trabalhando junto a outros órgãos e instituições a que tenham acesso, em questões como o...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 41,
@@ -1197,7 +1238,8 @@ const questionsData = [
           "E) cultura geral"
         ],
         correct: 1,
-        subject: "Liderança — Banco Original"
+        subject: "Liderança — Banco Original",
+        explanation: "Conforme a apostila de Liderança: \"• as diferentes atividades do \"marinheiro\", do \"soldado\" e do \"aviador\".\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 42,
@@ -1210,7 +1252,8 @@ const questionsData = [
           "E) Liderança"
         ],
         correct: 1,
-        subject: "Chefia, Liderança e Comando"
+        subject: "Chefia, Liderança e Comando",
+        explanation: "Conforme a apostila de Liderança: \"O exercício da chefia é entendido pelo conjunto de ações e decisões tomadas pelo mais antigo, com autoridade para tal, na sua esfera de competência, a fim de conduzir de forma integrada o setor que lhe é confiado.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 43,
@@ -1223,7 +1266,8 @@ const questionsData = [
           "E) Chefe e líder"
         ],
         correct: 3,
-        subject: "Chefia, Liderança e Comando"
+        subject: "Chefia, Liderança e Comando",
+        explanation: "Conforme a apostila de Liderança: \"No desempenho de suas funções, os mais antigos, normalmente, desempenham dois papéis funcionais, a saber: o de \"chefe\" e o de \"condutor de homens\". Em relação ao primeiro papel, prevalece a autoridade advinda da responsabilidade atribuída à função, associada com aquela decorrente de seu posto ou graduação, à qual passaremos a definir, genericamente, como chefia. Com respeito ao segundo papel, identifica-se um estreito relacionamento com o atributo de líder. Neste contexto, fi...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 44,
@@ -1236,7 +1280,8 @@ const questionsData = [
           "E) VVF"
         ],
         correct: 4,
-        subject: "Chefia, Liderança e Comando"
+        subject: "Chefia, Liderança e Comando",
+        explanation: "Conforme a apostila de Liderança: \"No desempenho de suas funções, os mais antigos, normalmente, desempenham dois papéis funcionais, a saber: o de \"chefe\" e o de \"condutor de homens\". Em relação ao primeiro papel, prevalece a autoridade advinda da responsabilidade atribuída à função, associada com aquela decorrente de seu posto ou graduação, à qual passaremos a definir, genericamente, como chefia. Com respeito ao segundo papel, identifica-se um estreito relacionamento com o atributo de líder. Neste contexto, fi...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 45,
@@ -1249,7 +1294,8 @@ const questionsData = [
           "E) Comandar é exercer a chefia e a liderança"
         ],
         correct: 4,
-        subject: "Chefia, Liderança e Comando"
+        subject: "Chefia, Liderança e Comando",
+        explanation: "Conforme a apostila de Liderança: \"Caracterizados esses dois atributos do comandante, o de chefe e o de líder, pode-se afirmar que comandar é exercer a chefia e a liderança, a fim de conduzir eficazmente a organização no cumprimento da missão. Sendo o exercício do comando um processo abrangente, a divisão ora apresentada será utilizada para efeito de uma melhor compreensão do tema em lide, pois chefia e liderança não são processos alternativos e sim, simultâneos e complementares.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 46,
@@ -1262,7 +1308,8 @@ const questionsData = [
           "E) Liderar"
         ],
         correct: 2,
-        subject: "Chefia, Liderança e Comando"
+        subject: "Chefia, Liderança e Comando",
+        explanation: "Conforme a apostila de Liderança: \"Caracterizados esses dois atributos do comandante, o de chefe e o de líder, pode-se afirmar que comandar é exercer a chefia e a liderança, a fim de conduzir eficazmente a organização no cumprimento da missão. Sendo o exercício do comando um processo abrangente, a divisão ora apresentada será utilizada para efeito de uma melhor compreensão do tema em lide, pois chefia e liderança não são processos alternativos e sim, simultâneos e complementares.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 47,
@@ -1275,7 +1322,8 @@ const questionsData = [
           "E) Simultâneos e dinâmicos"
         ],
         correct: 3,
-        subject: "Chefia, Liderança e Comando"
+        subject: "Chefia, Liderança e Comando",
+        explanation: "Conforme a apostila de Liderança: \"Caracterizados esses dois atributos do comandante, o de chefe e o de líder, pode-se afirmar que comandar é exercer a chefia e a liderança, a fim de conduzir eficazmente a organização no cumprimento da missão. Sendo o exercício do comando um processo abrangente, a divisão ora apresentada será utilizada para efeito de uma melhor compreensão do tema em lide, pois chefia e liderança não são processos alternativos e sim, simultâneos e complementares.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 48,
@@ -1288,7 +1336,8 @@ const questionsData = [
           "E) Dinâmico e progressivo"
         ],
         correct: 4,
-        subject: "Chefia, Liderança e Comando"
+        subject: "Chefia, Liderança e Comando",
+        explanation: "Conforme a apostila de Liderança: \"A liderança deve ser entendida como um processo dinâmico e progressivo de aprendizado, o qual, desenvolvido nos cursos de carreira e no dia a dia das OM, trará não só evidentes benefícios às organizações, como também contribuirá para o sucesso profissional individual de cada militar. Desta forma, o contínuo desenvolvimento das qualidades dos militares da MB como líderes deverá ser objeto de atenta e permanente atenção, a ser trabalhada, conjuntamente, pela instituição e, prio...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 49,
@@ -1301,7 +1350,8 @@ const questionsData = [
           "E) Liderança"
         ],
         correct: 4,
-        subject: "Chefia, Liderança e Comando"
+        subject: "Chefia, Liderança e Comando",
+        explanation: "Conforme a apostila de Liderança: \"• LIDERANÇA - \"o processo que consiste em influenciar pessoas no sentido de que ajam, voluntariamente, em prol dos objetivos da Instituição\".\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 50,
@@ -1314,7 +1364,8 @@ const questionsData = [
           "E) Líder e subordinados"
         ],
         correct: 0,
-        subject: "Chefia, Liderança e Comando"
+        subject: "Chefia, Liderança e Comando",
+        explanation: "Conforme a apostila de Liderança: \"Nessa definição de liderança, estão implícitos os seus agentes, ou seja, o líder e os liderados, as relações entre eles e os princípios filosóficos, psicológicos e sociológicos que regem o comportamento humano.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 51,
@@ -1327,7 +1378,8 @@ const questionsData = [
           "E) Filantrópicos, psicológicos e sociológicos"
         ],
         correct: 1,
-        subject: "Bases Científicas e Processos Sociais da Liderança"
+        subject: "Bases Científicas e Processos Sociais da Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Nessa definição de liderança, estão implícitos os seus agentes, ou seja, o líder e os liderados, as relações entre eles e os princípios filosóficos, psicológicos e sociológicos que regem o comportamento humano.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 52,
@@ -1340,7 +1392,8 @@ const questionsData = [
           "E) Psicologia"
         ],
         correct: 2,
-        subject: "Bases Científicas e Processos Sociais da Liderança"
+        subject: "Bases Científicas e Processos Sociais da Liderança",
+        explanation: "Conforme a apostila de Liderança: \"A Filosofia tem como característica desenvolver o senso crítico, que fornece ao indivíduo bases metodológicas para efetuar, permanentemente, o exame corrente da situação, favorecendo o processo de tomada de decisões. Tal prática é fundamental ao exercício da liderança, podendo-se verificar que o requisito pensamento crítico está direta ou indiretamente associado a diversos atributos de liderança prescritos nesta Doutrina.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 53,
@@ -1353,7 +1406,8 @@ const questionsData = [
           "E) Aspecto filosófico"
         ],
         correct: 4,
-        subject: "Bases Científicas e Processos Sociais da Liderança"
+        subject: "Bases Científicas e Processos Sociais da Liderança",
+        explanation: "Conforme a apostila de Liderança: \"A Filosofia tem como característica desenvolver o senso crítico, que fornece ao indivíduo bases metodológicas para efetuar, permanentemente, o exame corrente da situação, favorecendo o processo de tomada de decisões. Tal prática é fundamental ao exercício da liderança, podendo-se verificar que o requisito pensamento crítico está direta ou indiretamente associado a diversos atributos de liderança prescritos nesta Doutrina.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 54,
@@ -1366,7 +1420,8 @@ const questionsData = [
           "E) Filantropia"
         ],
         correct: 1,
-        subject: "Bases Científicas e Processos Sociais da Liderança"
+        subject: "Bases Científicas e Processos Sociais da Liderança",
+        explanation: "Conforme a apostila de Liderança: \"A Axiologia, também conhecida como a teoria dos valores, é considerada a parte mais nobre da Filosofia. O processo de influenciação de um grupo, que é a essência da liderança, está profundamente ligado aos valores éticos e morais que devem ser transmitidos e praticados pelo líder.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 55,
@@ -1379,7 +1434,8 @@ const questionsData = [
           "E) Filantropia"
         ],
         correct: 0,
-        subject: "Bases Científicas e Processos Sociais da Liderança"
+        subject: "Bases Científicas e Processos Sociais da Liderança",
+        explanation: "Conforme a apostila de Liderança: \"A Axiologia, também conhecida como a teoria dos valores, é considerada a parte mais nobre da Filosofia. O processo de influenciação de um grupo, que é a essência da liderança, está profundamente ligado aos valores éticos e morais que devem ser transmitidos e praticados pelo líder.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 56,
@@ -1392,7 +1448,8 @@ const questionsData = [
           "E) Valores educacionais"
         ],
         correct: 2,
-        subject: "Bases Científicas e Processos Sociais da Liderança"
+        subject: "Bases Científicas e Processos Sociais da Liderança",
+        explanation: "Conforme a apostila de Liderança: \"A Axiologia, também conhecida como a teoria dos valores, é considerada a parte mais nobre da Filosofia. O processo de influenciação de um grupo, que é a essência da liderança, está profundamente ligado aos valores éticos e morais que devem ser transmitidos e praticados pelo líder.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 57,
@@ -1405,7 +1462,8 @@ const questionsData = [
           "E) A prática dos fundamentos educacionais e morais, valorizando princípios e convivendo em harmonia"
         ],
         correct: 0,
-        subject: "Bases Científicas e Processos Sociais da Liderança"
+        subject: "Bases Científicas e Processos Sociais da Liderança",
+        explanation: "Conforme a apostila de Liderança: \"A prática dos fundamentos filosóficos da educação, seja ela formal ou informal, desenvolvida por grupos sociais, independente de suas crenças e culturas, constitui-se no elemento catalisador dos valores universais.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 58,
@@ -1418,7 +1476,8 @@ const questionsData = [
           "E) Liberdade, igualdade e fraternidade"
         ],
         correct: 0,
-        subject: "Bases Científicas e Processos Sociais da Liderança"
+        subject: "Bases Científicas e Processos Sociais da Liderança",
+        explanation: "Conforme a apostila de Liderança: \"O ser humano precisa receber uma educação adequada para ser capaz de valorizar um objeto (a vida humana, a Pátria, a família). Sem essa educação, perde-se a capacidade de perceber esses valores, especialmente quando se trata daqueles universais, tais como: honra, dignidade e honestidade.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 59,
@@ -1431,7 +1490,8 @@ const questionsData = [
           "E) Axiologia"
         ],
         correct: 4,
-        subject: "Bases Científicas e Processos Sociais da Liderança"
+        subject: "Bases Científicas e Processos Sociais da Liderança",
+        explanation: "Conforme a apostila de Liderança: \"A característica fundamental da Axiologia consiste na hierarquização desses valores, que são transmitidos pela educação familiar, pela sociedade e pelo grupo. Essa hierarquização de valores varia de um país para o outro, de uma sociedade organizada para outra, de um grupo social para outro. Por exemplo, os fundamentalistas islâmicos, que se sacrificam em atentados, contrariando o instinto de preservação, valor primordial do ser humano.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 60,
@@ -1444,7 +1504,8 @@ const questionsData = [
           "E) Aspecto educacional"
         ],
         correct: 2,
-        subject: "Bases Científicas e Processos Sociais da Liderança"
+        subject: "Bases Científicas e Processos Sociais da Liderança",
+        explanation: "Conforme a apostila de Liderança: \"\"Em essência, a liderança envolve a realização de objetivos com e através de pessoas. Consequentemente, um líder precisa preocupar-se com tarefas e relações humanas.\" (HERSEY; BLANCHARD, 1982, p. 105)\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 61,
@@ -1457,7 +1518,8 @@ const questionsData = [
           "E) Psicologia"
         ],
         correct: 3,
-        subject: "Bases Científicas e Processos Sociais da Liderança"
+        subject: "Bases Científicas e Processos Sociais da Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Os processos grupais e a liderança são os principais objetos de estudo da Psicologia Social e a subjetividade humana, a personalidade e as mudanças psicológicas oriundas de processos de influenciação e de aprendizagem são focos de estudo e de análise da Psicologia.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 62,
@@ -1470,7 +1532,8 @@ const questionsData = [
           "E) Axiologia"
         ],
         correct: 1,
-        subject: "Bases Científicas e Processos Sociais da Liderança"
+        subject: "Bases Científicas e Processos Sociais da Liderança",
+        explanation: "Conforme a apostila de Liderança: \"O caminho para a liderança passa pelo conhecimento profissional, mas também pelo autoconhecimento e por conhecer bem seus subordinados. Para os dois últimos requisitos, a Psicologia pode oferecer ferramentas úteis para o líder. Pesquisas mostram que o quociente emocional (QE) ou inteligência emocional está, cada mais, destacando-se como o principal diferencial de competência no trabalho, por se tratar da capacidade de autoconsciência, controle de impulsos, persistência, empat...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 63,
@@ -1483,7 +1546,8 @@ const questionsData = [
           "E) Aspecto filosófico"
         ],
         correct: 3,
-        subject: "Bases Científicas e Processos Sociais da Liderança"
+        subject: "Bases Científicas e Processos Sociais da Liderança",
+        explanation: "Conforme a apostila de Liderança: \"\"Em essência, a liderança envolve a realização de objetivos com e através de pessoas. Consequentemente, um líder precisa preocupar-se com tarefas e relações humanas.\" (HERSEY; BLANCHARD, 1982, p. 105)\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 64,
@@ -1496,7 +1560,8 @@ const questionsData = [
           "E) Perspectiva moral"
         ],
         correct: 0,
-        subject: "Bases Científicas e Processos Sociais da Liderança"
+        subject: "Bases Científicas e Processos Sociais da Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Sociólogos concordam que a perspectiva sociológica envolve um processo que vai permitir examinar as coletividades além das fachadas das estruturas sociais, com o propósito de refletir, com profundidade, sobre a dinâmica de forças atuantes em dada coletividade.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 65,
@@ -1509,7 +1574,8 @@ const questionsData = [
           "E) Líder, subordinados e contexto (situação)"
         ],
         correct: 2,
-        subject: "Bases Científicas e Processos Sociais da Liderança"
+        subject: "Bases Científicas e Processos Sociais da Liderança",
+        explanation: "Conforme a apostila de Liderança: \"A liderança envolve líder, liderados, e contexto (ou situação), constituindo, fundamentalmente, uma relação. Para muitos teóricos, a liderança, dadas as características singulares que envolve, constitui-se em um processo ímpar de interação social. Partindo desta visão da liderança, é evidente o quanto a Sociologia tem para contribuir em termos de embasamento teórico no estudo e na construção do processo da liderança.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 66,
@@ -1522,7 +1588,8 @@ const questionsData = [
           "E) Filosofia"
         ],
         correct: 1,
-        subject: "Bases Científicas e Processos Sociais da Liderança"
+        subject: "Bases Científicas e Processos Sociais da Liderança",
+        explanation: "Conforme a apostila de Liderança: \"A liderança envolve líder, liderados, e contexto (ou situação), constituindo, fundamentalmente, uma relação. Para muitos teóricos, a liderança, dadas as características singulares que envolve, constitui-se em um processo ímpar de interação social. Partindo desta visão da liderança, é evidente o quanto a Sociologia tem para contribuir em termos de embasamento teórico no estudo e na construção do processo da liderança.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 67,
@@ -1535,7 +1602,8 @@ const questionsData = [
           "E) Axiologia e teoria dos valores"
         ],
         correct: 2,
-        subject: "Bases Científicas e Processos Sociais da Liderança"
+        subject: "Bases Científicas e Processos Sociais da Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Os militares, em geral, em função da peculiaridade de suas atividades profissionais, constituem uma subcultura dentro da sociedade brasileira. Focalizando mais de perto ainda, pode-se afirmar que a Marinha, dentro das Forças Armadas, face a suas atribuições muito próprias, constitui-se, igualmente, em uma subcultura. A liderança, por definição, pressupõe a atuação do líder sobre grupos humanos; os membros destes grupos são, em geral, oriundos de diferentes subculturas. Estes...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 68,
@@ -1548,7 +1616,8 @@ const questionsData = [
           "E) Conflito, cooperação e duelo"
         ],
         correct: 3,
-        subject: "Bases Científicas e Processos Sociais da Liderança"
+        subject: "Bases Científicas e Processos Sociais da Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Outro tópico de Sociologia avaliado como relevante é o dos processos sociais, estes definidos como a interação repetitiva de padrões de comportamento comumente encontrados na vida social. Os processos sociais de maior incidência nas sociedades e grupos humanos são: cooperação, competição e conflito. O líder, cuja matéria-prima é o grupo liderado, necessita identificar a existência destes processos, estimulando-os ou não, em função das especificidades da situação corrente e da...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 69,
@@ -1561,7 +1630,8 @@ const questionsData = [
           "E) 1 – 2 – 3 – 1 – 2 – 3 – 1 – 3 – 2 – 2"
         ],
         correct: 2,
-        subject: "Bases Científicas e Processos Sociais da Liderança"
+        subject: "Bases Científicas e Processos Sociais da Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Competição é definida como a luta pela posse de recompensas cuja oferta é limitada. Tais recompensas incluem dinheiro, poder, status, amor e muitos outros. Outra forma de descrever o processo competitivo o mostra como a tentativa de obter uma recompensa superando todos os rivais. A competição pode ser pessoal – entre um número limitado de concorrentes que se conhecem entre si – ou impessoal – quando o número de rivais é tal, que se torna impossível o conhecimento entre eles,...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 70,
@@ -1574,7 +1644,8 @@ const questionsData = [
           "E) Ocorre entre um número limitado de concorrentes que se conhecem entre si"
         ],
         correct: 4,
-        subject: "Bases Científicas e Processos Sociais da Liderança"
+        subject: "Bases Científicas e Processos Sociais da Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Competição é definida como a luta pela posse de recompensas cuja oferta é limitada. Tais recompensas incluem dinheiro, poder, status, amor e muitos outros. Outra forma de descrever o processo competitivo o mostra como a tentativa de obter uma recompensa superando todos os rivais. A competição pode ser pessoal – entre um número limitado de concorrentes que se conhecem entre si – ou impessoal – quando o número de rivais é tal, que se torna impossível o conhecimento entre eles,...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 71,
@@ -1587,7 +1658,8 @@ const questionsData = [
           "E) Reciprocidade"
         ],
         correct: 3,
-        subject: "Bases Científicas e Processos Sociais da Liderança"
+        subject: "Bases Científicas e Processos Sociais da Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Sob o ponto de vista psicológico, é relevante considerar que, se a competição tem o mérito inicial de estimular a atividade dos indivíduos e dos grupos, aumentando-lhes a produtividade, tem o grave inconveniente de desencorajar os esforços daqueles que se habituaram a fracassar. Vencedor há um só; todos os demais são perdedores. Outro inconveniente sério, decorrente do estímulo à competição, é a forte possibilidade de desenvolvimento de hostilidades e desavenças no interior d...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 72,
@@ -1600,7 +1672,8 @@ const questionsData = [
           "E) Liderança"
         ],
         correct: 1,
-        subject: "Bases Científicas e Processos Sociais da Liderança"
+        subject: "Bases Científicas e Processos Sociais da Liderança",
+        explanation: "Conforme a apostila de Liderança: \"O processo social de conflito inclui aspectos positivos e negativos. Por um lado, o conflito tende a destruir a unidade social e, da mesma forma, desagregar grupos menores, pelo aumento do ressentimento, pelo desvio dos objetivos mais elevados do grupo, pela destruição dos canais normais de cooperação, pela intensificação de tensões internas, podendo chegar à violência. Por outro lado, doses regulares de conflito de posições, podem ter efeito integrador dentro do grupo, na me...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 73,
@@ -1613,7 +1686,8 @@ const questionsData = [
           "E) Cooperação"
         ],
         correct: 2,
-        subject: "Bases Científicas e Processos Sociais da Liderança"
+        subject: "Bases Científicas e Processos Sociais da Liderança",
+        explanation: "Conforme a apostila de Liderança: \"É indispensável que o líder seja capaz de diagnosticar as situações de conflito, mesmo quando ainda latentes, de modo a buscar estratégias adequadas para gerenciá-las construtivamente.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 74,
@@ -1626,7 +1700,8 @@ const questionsData = [
           "E) Liderança orientada para a tarefa, liderança orientada para o relacionamento e foco do líder"
         ],
         correct: 1,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Para simplificar a apresentação e o emprego de uma gama de estilos de liderança consagrados e relevantes para o contexto militar-naval, foram considerados alguns estilos selecionados em três grandes eixos:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 75,
@@ -1639,7 +1714,8 @@ const questionsData = [
           "E) 1 – 2 – 3 – 1 – 3 – 2 – 1"
         ],
         correct: 4,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"A) QUANTO AO GRAU DE CENTRALIZAÇÃO DE PODER: Liderança Centralizadora, Liderança Participativa e Liderança Delegativa;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 76,
@@ -1652,7 +1728,8 @@ const questionsData = [
           "E) Centralizadora"
         ],
         correct: 4,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"A liderança centralizadora é baseada na autoridade formal, aceita como correta e legítima pela estrutura do grupo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 77,
@@ -1665,7 +1742,8 @@ const questionsData = [
           "E) Delegativo"
         ],
         correct: 2,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"O líder centralizador baseia a sua atuação numa disciplina rígida, impondo obediência e mantendo-se afastado de relacionamentos menos formais com os seus subordinados, controla o grupo por meio de inspeções de verificação do cumprimento de normas e padrões de eficiência. Esse tipo de liderança pode ser útil e, até mesmo, recomendável, em situações especiais como em combate, quando o líder tem que tomar decisões rápidas e não é possível ouvir seus liderados, sendo a forma de l...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 78,
@@ -1678,7 +1756,8 @@ const questionsData = [
           "E) Organizacional"
         ],
         correct: 1,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"O líder centralizador baseia a sua atuação numa disciplina rígida, impondo obediência e mantendo-se afastado de relacionamentos menos formais com os seus subordinados, controla o grupo por meio de inspeções de verificação do cumprimento de normas e padrões de eficiência. Esse tipo de liderança pode ser útil e, até mesmo, recomendável, em situações especiais como em combate, quando o líder tem que tomar decisões rápidas e não é possível ouvir seus liderados, sendo a forma de l...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 79,
@@ -1691,7 +1770,8 @@ const questionsData = [
           "E) Estratégica"
         ],
         correct: 1,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "O trecho da apostila de Liderança relacionado a essa questão traz: \"O líder centralizador baseia a sua atuação numa disciplina rígida, impondo obediência e mantendo-se afastado de relacionamentos menos formais com os seus subordinados, controla o grupo por meio de inspeções de verificação do cumprimento de normas e padrões de eficiência. Esse tipo de liderança pode ser útil e, até mesmo, recomendável, em situações especiais como em combate, quando o líder tem que tomar decisões rápidas e não é possível ouvir seus liderados, sendo a forma de l...\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 80,
@@ -1704,7 +1784,8 @@ const questionsData = [
           "E) Estratégica"
         ],
         correct: 1,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"A principal restrição a esse tipo de liderança é o desinteresse pelos problemas e ideias, tolhendo a iniciativa e, por conseguinte, a participação e a criatividade dos subordinados. O uso desse estilo de liderança pode gerar resistência passiva dentro da equipe e inibir a iniciativa do subordinado, além de não considerar os aspectos humanos, dentre eles, o relacionamento líder-liderados.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 81,
@@ -1717,7 +1798,8 @@ const questionsData = [
           "E) Centralizadora"
         ],
         correct: 0,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Nesse estilo de liderança, abre-se mão de parte da autoridade formal em prol de uma esperada participação dos subordinados e aproveitamento de suas ideias. Os componentes do grupo são incentivados a opinarem sobre as formas como uma tarefa poderá ser realizada, cabendo a decisão final ao líder (exemplo típico é o Estado-Maior). O êxito desse estilo é condicionado pelas características pessoais, pelo conhecimento técnico-profissional e pelo engajamento e motivação dos componen...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 82,
@@ -1730,7 +1812,8 @@ const questionsData = [
           "E) Delegativa"
         ],
         correct: 1,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Nesse estilo de liderança, abre-se mão de parte da autoridade formal em prol de uma esperada participação dos subordinados e aproveitamento de suas ideias. Os componentes do grupo são incentivados a opinarem sobre as formas como uma tarefa poderá ser realizada, cabendo a decisão final ao líder (exemplo típico é o Estado-Maior). O êxito desse estilo é condicionado pelas características pessoais, pelo conhecimento técnico-profissional e pelo engajamento e motivação dos componen...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 83,
@@ -1743,7 +1826,8 @@ const questionsData = [
           "E) Participativa"
         ],
         correct: 4,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Nesse estilo de liderança, abre-se mão de parte da autoridade formal em prol de uma esperada participação dos subordinados e aproveitamento de suas ideias. Os componentes do grupo são incentivados a opinarem sobre as formas como uma tarefa poderá ser realizada, cabendo a decisão final ao líder (exemplo típico é o Estado-Maior). O êxito desse estilo é condicionado pelas características pessoais, pelo conhecimento técnico-profissional e pelo engajamento e motivação dos componen...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 84,
@@ -1756,7 +1840,8 @@ const questionsData = [
           "E) Participativa"
         ],
         correct: 4,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"O líder deve estabelecer um ambiente de respeito, confiança e entendimento recíprocos, devendo possuir, para tanto, ascendência técnico-profissional sobre seus subordinados e conduta ética e moral compatíveis com o cargo que exerce. Um líder que adota o estilo democrático encoraja a participação, mas nunca perde de vista sua autoridade e responsabilidade.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 85,
@@ -1769,7 +1854,8 @@ const questionsData = [
           "E) Direta"
         ],
         correct: 1,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Esse estilo é indicado para assuntos de natureza técnica, onde o líder atribui a assessores a tomada de decisões especializadas, deixando-os agir por si só. Desse modo, ele tem mais tempo para dar atenção a todos os problemas sem se deter especificamente a uma determinada área. É eficaz quando exercido sobre pessoas altamente qualificadas e motivadas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 86,
@@ -1782,7 +1868,8 @@ const questionsData = [
           "E) Centralizadora"
         ],
         correct: 0,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Esse estilo é indicado para assuntos de natureza técnica, onde o líder atribui a assessores a tomada de decisões especializadas, deixando-os agir por si só. Desse modo, ele tem mais tempo para dar atenção a todos os problemas sem se deter especificamente a uma determinada área. É eficaz quando exercido sobre pessoas altamente qualificadas e motivadas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 87,
@@ -1795,7 +1882,8 @@ const questionsData = [
           "E) F – V – V – V – F"
         ],
         correct: 1,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Nesse estilo de liderança, abre-se mão de parte da autoridade formal em prol de uma esperada participação dos subordinados e aproveitamento de suas ideias. Os componentes do grupo são incentivados a opinarem sobre as formas como uma tarefa poderá ser realizada, cabendo a decisão final ao líder (exemplo típico é o Estado-Maior). O êxito desse estilo é condicionado pelas características pessoais, pelo conhecimento técnico-profissional e pelo engajamento e motivação dos componen...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 88,
@@ -1808,7 +1896,8 @@ const questionsData = [
           "E) Transformacional"
         ],
         correct: 4,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Esse estilo de liderança é especialmente indicado para situações de pressão, crise e mudança, que requerem elevados níveis de envolvimento e comprometimento dos subordinados, sendo que \"uma ou mais pessoas engajam-se com outras de tal forma que líderes e seguidores elevam um ao outro a níveis mais altos de motivação e moral\" (BURNS, 1978, apud SMITH; PETERSON, 1994, p. 129)\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 89,
@@ -1821,7 +1910,8 @@ const questionsData = [
           "E) Carisma, inspiração motivadora, estimulação intelectual e consideração individualizada"
         ],
         correct: 4,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Quatro aspectos caracterizam a liderança transformacional: 1º) \"[...] carisma (influência idealizada) associado com um grau elevado de poder de referência por parte do líder [...]\" (NOBRE, 1998, p. 54), que é capaz de despertar respeito, confiança e admiração; 2º) inspiração motivadora, que consiste na capacidade de apresentar uma visão, dando sentido à missão a ser realizada, de instilar orgulho. Inclui também a capacidade de simplificar o entendimento sobre a importância do...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 90,
@@ -1834,7 +1924,8 @@ const questionsData = [
           "E) Inspiração motivadora"
         ],
         correct: 3,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Quatro aspectos caracterizam a liderança transformacional: 1º) \"[...] carisma (influência idealizada) associado com um grau elevado de poder de referência por parte do líder [...]\" (NOBRE, 1998, p. 54), que é capaz de despertar respeito, confiança e admiração; 2º) inspiração motivadora, que consiste na capacidade de apresentar uma visão, dando sentido à missão a ser realizada, de instilar orgulho. Inclui também a capacidade de simplificar o entendimento sobre a importância do...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 91,
@@ -1847,7 +1938,8 @@ const questionsData = [
           "E) Exemplo"
         ],
         correct: 0,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Quatro aspectos caracterizam a liderança transformacional: 1º) \"[...] carisma (influência idealizada) associado com um grau elevado de poder de referência por parte do líder [...]\" (NOBRE, 1998, p. 54), que é capaz de despertar respeito, confiança e admiração; 2º) inspiração motivadora, que consiste na capacidade de apresentar uma visão, dando sentido à missão a ser realizada, de instilar orgulho. Inclui também a capacidade de simplificar o entendimento sobre a importância do...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 92,
@@ -1860,7 +1952,8 @@ const questionsData = [
           "E) Consideração individualizada"
         ],
         correct: 2,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Quatro aspectos caracterizam a liderança transformacional: 1º) \"[...] carisma (influência idealizada) associado com um grau elevado de poder de referência por parte do líder [...]\" (NOBRE, 1998, p. 54), que é capaz de despertar respeito, confiança e admiração; 2º) inspiração motivadora, que consiste na capacidade de apresentar uma visão, dando sentido à missão a ser realizada, de instilar orgulho. Inclui também a capacidade de simplificar o entendimento sobre a importância do...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 93,
@@ -1873,7 +1966,8 @@ const questionsData = [
           "E) Inspiração motivadora"
         ],
         correct: 2,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Quatro aspectos caracterizam a liderança transformacional: 1º) \"[...] carisma (influência idealizada) associado com um grau elevado de poder de referência por parte do líder [...]\" (NOBRE, 1998, p. 54), que é capaz de despertar respeito, confiança e admiração; 2º) inspiração motivadora, que consiste na capacidade de apresentar uma visão, dando sentido à missão a ser realizada, de instilar orgulho. Inclui também a capacidade de simplificar o entendimento sobre a importância do...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 94,
@@ -1886,7 +1980,8 @@ const questionsData = [
           "E) Orientada para a tarefa"
         ],
         correct: 0,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Quatro aspectos caracterizam a liderança transformacional: 1º) \"[...] carisma (influência idealizada) associado com um grau elevado de poder de referência por parte do líder [...]\" (NOBRE, 1998, p. 54), que é capaz de despertar respeito, confiança e admiração; 2º) inspiração motivadora, que consiste na capacidade de apresentar uma visão, dando sentido à missão a ser realizada, de instilar orgulho. Inclui também a capacidade de simplificar o entendimento sobre a importância do...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 95,
@@ -1899,7 +1994,8 @@ const questionsData = [
           "E) Orientada para a tarefa"
         ],
         correct: 2,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Nesse estilo de liderança, o líder trabalha com interesses e necessidades primárias dos seguidores, oferecendo recompensas de natureza econômica ou psicológica, em troca de esforço para alcançar os resultados organizacionais desejados (CAVALCANTI et al., 2005).\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 96,
@@ -1912,7 +2008,8 @@ const questionsData = [
           "E) Orientada para o relacionamento"
         ],
         correct: 0,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"\"A recompensa é contingente, buscando-se uma sintonia entre o atendimento das necessidades dos subordinados e o alcance dos objetivos organizacionais; Esse estilo de liderança caracteriza-se também pela administração por exceção, que implica num gerenciamento atuante somente no sentido de corrigir erros [...].\" (NOBRE, 1998, p. 55)\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 97,
@@ -1925,7 +2022,8 @@ const questionsData = [
           "E) Orientada para tarefa"
         ],
         correct: 0,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Neste estilo de liderança, o líder \"[...] observa e procura desvios das regras e padrões, toma medidas corretivas.\" (CAVALCANTI et al., 2005, p. 120).\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 98,
@@ -1938,7 +2036,8 @@ const questionsData = [
           "E) Orientada para o relacionamento"
         ],
         correct: 2,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"A especialização em tarefas é uma das principais responsabilidades do líder, na medida em que possui a necessária qualificação profissional para o exercício da função. Nesse estilo de liderança, então, o líder focaliza o desempenho de tarefas e a realização de objetivos, transmitindo orientações específicas, definindo maneiras de realizar o trabalho, o que espera de cada um e quais são os padrões organizacionais.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 99,
@@ -1951,7 +2050,8 @@ const questionsData = [
           "E) Orientada para o relacionamento"
         ],
         correct: 4,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Nesse estilo de liderança, o foco do líder é a manutenção e fortalecimento das relações pessoais e do próprio grupo. O líder demonstra sensibilidade às necessidades pessoais dos liderados, concentra-se nas relações interpessoais, no clima e no moral do grupo. Esse estilo de liderança, que está significativamente associado às medidas de satisfação dos liderados em relação ao trabalho e ao chefe, pode ser útil em situações de tensão, frustração, insatisfação e desmotivação do g...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 100,
@@ -1964,7 +2064,8 @@ const questionsData = [
           "E) Todas estão incorretas"
         ],
         correct: 3,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Destacando-se apenas esta última variável como exemplo, pode-se afirmar, genericamente, que a identificação de um baixo nível de maturidade (profissional e/ou emocional) no grupo de subordinados induz à aplicação de estilos com maior centralização de poder, mais foco na tarefa e que incentivos no nível transacional (licença, rancho, conforto etc) tendem a ter mais valência para o grupo. Por outro lado, grupos mais maduros, em geral, respondem melhor a estilos menos centraliza...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 101,
@@ -1977,7 +2078,8 @@ const questionsData = [
           "E) A disciplina consciente dos liderados, o pulso firme do líder e o respaldo das ações por parte da instituição."
         ],
         correct: 3,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"À luz da abordagem situacional, que prevalece na atualidade, na qual a liderança pode assumir diversos estilos, os principais requisitos de liderança passam a ser a capacidade de diagnosticar as variáveis situacionais, a flexibilidade e a adaptabilidade às mudanças. Os melhores líderes utilizam estilos diferentes, em distintas situações. Assim, é necessário um esforço pessoal do líder no sentido de se adaptar, continuamente, às mudanças de estilo adequadas a cada contexto.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 102,
@@ -1990,7 +2092,8 @@ const questionsData = [
           "E) VFVFVF"
         ],
         correct: 4,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"\"A comunicação é um processo essencial à liderança, que consiste na troca de ordens, informações e ideias, só ocorrendo quando a mensagem é recebida e compreendida. [...] É através desse processo que o líder coordena, supervisiona, avalia, ensina, treina e aconselha seus subordinados.[...] O que é comunicado e a forma como isto é feito aumentam ou diminuem o vínculo das relações pessoais, criam o respeito, a confiança mútua e a compreensão. Os laços que se formam, com o passa...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 103,
@@ -2003,7 +2106,8 @@ const questionsData = [
           "E) Líder"
         ],
         correct: 3,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"\"A comunicação é um processo essencial à liderança, que consiste na troca de ordens, informações e ideias, só ocorrendo quando a mensagem é recebida e compreendida. [...] É através desse processo que o líder coordena, supervisiona, avalia, ensina, treina e aconselha seus subordinados.[...] O que é comunicado e a forma como isto é feito aumentam ou diminuem o vínculo das relações pessoais, criam o respeito, a confiança mútua e a compreensão. Os laços que se formam, com o passa...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 104,
@@ -2016,7 +2120,8 @@ const questionsData = [
           "E) Liderança Estratégica"
         ],
         correct: 0,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"1.4 — Estilos de Liderança\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 105,
@@ -2029,7 +2134,8 @@ const questionsData = [
           "E) Líder Estratégico"
         ],
         correct: 0,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Ao contrário do que acontece no nível de liderança direta, onde os líderes planejam, preparam, executam e controlam diretamente os resultados dos seus trabalhos, a influência dos líderes organizacionais é basicamente indireta: eles expedem suas políticas e diretivas e incentivam seus liderados por meio de seu staff e comandantes subordinados. Devido ao fato de não haver proximidade, os resultados de suas ações são frequentemente menos visíveis e mais demorados. No entanto, a...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 106,
@@ -2042,7 +2148,8 @@ const questionsData = [
           "E) Centralizador"
         ],
         correct: 3,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Os líderes estratégicos trabalham para deixar, hoje, a instituição pronta para o amanhã, ou seja, para enfrentar os desafios do futuro, oscilando entre a consciência das necessidades nacionais correntes e na missão e objetivos de longo prazo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 107,
@@ -2055,7 +2162,8 @@ const questionsData = [
           "E) Estratégico"
         ],
         correct: 4,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Em resumo, esses líderes preparam a instituição para o futuro por meio de sua liderança. Isto significa influenciar pessoas – integrantes da própria organização, membros de outros setores do governo, elites políticas – por meio de propósitos significativos, direções claras e motivação consistente. Significa, também, acompanhar o desenrolar das missões atuais, sejam quais forem, e buscar aperfeiçoar a instituição – tendo a certeza que o pessoal está adestrado e de que seus equ...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 108,
@@ -2068,7 +2176,8 @@ const questionsData = [
           "E) 2 – 3 – 1 – 3 – 1"
         ],
         correct: 4,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"A liderança estratégica militar é aquela exercida nos níveis que definem a política e a estratégia da Força. É um processo empregado para conduzir a realização de uma visão de futuro desejável e bem delineada.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 109,
@@ -2081,7 +2190,8 @@ const questionsData = [
           "E) Aplicam os atributos conceituais de pensamento crítico-lógico e pensamento criativo para determinar a melhor maneira de cumprir a missão."
         ],
         correct: 0,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "O trecho da apostila de Liderança relacionado a essa questão traz: \"Ao contrário do que acontece no nível de liderança direta, onde os líderes planejam, preparam, executam e controlam diretamente os resultados dos seus trabalhos, a influência dos líderes organizacionais é basicamente indireta: eles expedem suas políticas e diretivas e incentivam seus liderados por meio de seu staff e comandantes subordinados. Devido ao fato de não haver proximidade, os resultados de suas ações são frequentemente menos visíveis e mais demorados. No entanto, a...\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 110,
@@ -2094,7 +2204,8 @@ const questionsData = [
           "E) Líderes organizacionais"
         ],
         correct: 0,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "Conforme a apostila de Liderança: \"Se aperfeiçoam ao assumirem os valores da instituição e ao estabelecerem um modelo de conduta para seus subordinados, colocando os interesses da instituição e do Grupo que lideram acima dos próprios. Com isto, eles desenvolvem equipes fortes e coesas em um ambiente de aprendizagem saudável e efetiva.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 111,
@@ -2107,7 +2218,8 @@ const questionsData = [
           "E) Sua influência é praticamente indireta."
         ],
         correct: 0,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "O trecho da apostila de Liderança relacionado a essa questão traz: \"Os líderes diretos devem, ainda, estimular ao máximo o desenvolvimento de líderes subordinados, de forma a potencializar a sua influência até os níveis organizacionais mais baixos e obter melhores resultados.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 112,
@@ -2120,7 +2232,8 @@ const questionsData = [
           "E) Exercem sua liderança no âmbito dos níveis mais elevados da instituição."
         ],
         correct: 0,
-        subject: "Estilos e Níveis de Liderança"
+        subject: "Estilos e Níveis de Liderança",
+        explanation: "O trecho da apostila de Liderança relacionado a essa questão traz: \"Ao contrário do que acontece no nível de liderança direta, onde os líderes planejam, preparam, executam e controlam diretamente os resultados dos seus trabalhos, a influência dos líderes organizacionais é basicamente indireta: eles expedem suas políticas e diretivas e incentivam seus liderados por meio de seu staff e comandantes subordinados. Devido ao fato de não haver proximidade, os resultados de suas ações são frequentemente menos visíveis e mais demorados. No entanto, a...\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 113,
@@ -2133,7 +2246,8 @@ const questionsData = [
           "E) Liderança naval"
         ],
         correct: 4,
-        subject: "Ética Militar Naval e Atributos do Líder"
+        subject: "Ética Militar Naval e Atributos do Líder",
+        explanation: "Conforme a apostila de Liderança: \"Historicamente, na Marinha, a condução do pessoal – Liderança Naval – é um processo de influenciação utilizado por todos os escalões, no trato com os subordinados, em busca da harmonia entre os objetivos da Instituição e os interesses pessoais, fundamentada em leis e tradições navais.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 114,
@@ -2146,7 +2260,8 @@ const questionsData = [
           "E) Liderança militar"
         ],
         correct: 3,
-        subject: "Ética Militar Naval e Atributos do Líder"
+        subject: "Ética Militar Naval e Atributos do Líder",
+        explanation: "Conforme a apostila de Liderança: \"O conjunto dos princípios, valores, costumes, tradições, normas estatutárias e regulamentos que regem o juízo de conduta do militar da Marinha é entendido como Ética Militar Naval. Ela é um atributo que induz ao atendimento das regras de conduta compatíveis com o comportamento militar naval desejado e dela fazem parte, dentre outros, o valor e a ética militar (Estatuto dos Militares, Art. 27 e 28), o código de honra expresso na \"Rosa das Virtudes\" e os dizeres do juramento à...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 115,
@@ -2159,7 +2274,8 @@ const questionsData = [
           "E) O código de honra expresso na Rosa das virtudes"
         ],
         correct: 3,
-        subject: "Ética Militar Naval e Atributos do Líder"
+        subject: "Ética Militar Naval e Atributos do Líder",
+        explanation: "O trecho da apostila de Liderança relacionado a essa questão traz: \"O conjunto dos princípios, valores, costumes, tradições, normas estatutárias e regulamentos que regem o juízo de conduta do militar da Marinha é entendido como Ética Militar Naval. Ela é um atributo que induz ao atendimento das regras de conduta compatíveis com o comportamento militar naval desejado e dela fazem parte, dentre outros, o valor e a ética militar (Estatuto dos Militares, Art. 27 e 28), o código de honra expresso na \"Rosa das Virtudes\" e os dizeres do juramento à...\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 116,
@@ -2172,7 +2288,8 @@ const questionsData = [
           "E) Está intrinsecamente ligada à missão a ser cumprida e o objetivo a ser atingido, que será sempre o farol para todas as atividades desenvolvidas."
         ],
         correct: 1,
-        subject: "Ética Militar Naval e Atributos do Líder"
+        subject: "Ética Militar Naval e Atributos do Líder",
+        explanation: "Conforme a apostila de Liderança: \"Os preceitos da Ética Militar Naval constituem a base para o exercício da liderança naval e devem ser cultivados e exaltados.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 117,
@@ -2185,7 +2302,8 @@ const questionsData = [
           "E) Liderança"
         ],
         correct: 2,
-        subject: "Ética Militar Naval e Atributos do Líder"
+        subject: "Ética Militar Naval e Atributos do Líder",
+        explanation: "Conforme a apostila de Liderança: \"A autoconfiança destaca-se como atributo a ser prioritariamente aprimorada para a assunção de cargos na MB. Ela resulta,\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 118,
@@ -2198,7 +2316,8 @@ const questionsData = [
           "E) VFV"
         ],
         correct: 2,
-        subject: "Ética Militar Naval e Atributos do Líder"
+        subject: "Ética Militar Naval e Atributos do Líder",
+        explanation: "Conforme a apostila de Liderança: \"primeiro, do perfeito preparo profissional; segundo, da habilidade em transmitir esse conhecimento; e terceiro, do sentimento de satisfação que daí decorre.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 119,
@@ -2211,7 +2330,8 @@ const questionsData = [
           "E) Estado-Maior Conjunto das Forças Armadas"
         ],
         correct: 2,
-        subject: "Ética Militar Naval e Atributos do Líder"
+        subject: "Ética Militar Naval e Atributos do Líder",
+        explanation: "Conforme a apostila de Liderança: \"Merece destaque o papel dos oficiais em cargo de chefia, comando ou direção. A eles são confiadas as mais elevadas e complexas responsabilidades, que repercutem no destino da Instituição. Portanto, eles não devem se limitar ao incentivo da prática da liderança em suas OM, mas devem exaltar e ser exemplo, dos conceitos, princípios e valores da liderança naval.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 120,
@@ -2224,7 +2344,8 @@ const questionsData = [
           "E) A terminologia diferenciada."
         ],
         correct: 1,
-        subject: "Ética Militar Naval e Atributos do Líder"
+        subject: "Ética Militar Naval e Atributos do Líder",
+        explanation: "O trecho da apostila de Liderança relacionado a essa questão traz: \"As demais Forças Armadas brasileiras também seguem, como parâmetro legal, o Estatuto dos Militares e Leis Complementares, onde são definidos dois elos fundamentais entre chefes e subordinados: a hierarquia e a disciplina, bem como a relação dos Comandos para a execução das tarefas conjuntas. Essa abordagem é fundamental para esses diferentes grupos humanos de interesse que, eventualmente, atuam de forma conjunta. Nessas situações, destacam-se certas nuances, decorrentes das e...\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 121,
@@ -2237,7 +2358,8 @@ const questionsData = [
           "E) Grupos com pessoal de organizações civis."
         ],
         correct: 2,
-        subject: "Ética Militar Naval e Atributos do Líder"
+        subject: "Ética Militar Naval e Atributos do Líder",
+        explanation: "Conforme a apostila de Liderança: \"Da mesma forma que nas demais situações de liderança, o Líder deverá ser, necessariamente, um Líder intramuros, reconhecido pela sua conduta moral e profissional, percepção política, conhecimento profissional, cultura geral, habilidade de negociação, capacidade de comunicação e iniciativa.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 122,
@@ -2250,7 +2372,8 @@ const questionsData = [
           "E) Inteligência"
         ],
         correct: 4,
-        subject: "Ética Militar Naval e Atributos do Líder"
+        subject: "Ética Militar Naval e Atributos do Líder",
+        explanation: "O trecho da apostila de Liderança relacionado a essa questão traz: \"O Líder naval, nesse ambiente, tem sua credibilidade associada à sua posição hierárquica, ao seu papel de chefe naval, à sua percepção política, à capacidade de comunicação e iniciativa, ao conhecimento técnico e à habilidade de negociação.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 123,
@@ -2263,7 +2386,8 @@ const questionsData = [
           "E) 2 – 4 – 1 – 5 – 3"
         ],
         correct: 3,
-        subject: "Ética Militar Naval e Atributos do Líder"
+        subject: "Ética Militar Naval e Atributos do Líder",
+        explanation: "Conforme a apostila de Liderança: \"A coragem apresenta-se sob duas formas: coragem física – superação do medo ao dano físico no cumprimento do dever; e coragem moral – disposição para defender suas convicções, sobretudo em situações críticas, e para \"[...] opinar e agir sempre pelo bem, mesmo e, principalmente, quando não favorecer e ou até contrariar as conveniências pessoais.\" (BRASIL, 2009, p. 39).\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 124,
@@ -2276,7 +2400,8 @@ const questionsData = [
           "E) 2 – 3 – 4 – 1 – 5"
         ],
         correct: 0,
-        subject: "Ética Militar Naval e Atributos do Líder"
+        subject: "Ética Militar Naval e Atributos do Líder",
+        explanation: "Conforme a apostila de Liderança: \"2.3 — A Ética Militar Naval\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 125,
@@ -2289,7 +2414,8 @@ const questionsData = [
           "E) 3 – 2 – 4 – 1 – 5"
         ],
         correct: 1,
-        subject: "Ética Militar Naval e Atributos do Líder"
+        subject: "Ética Militar Naval e Atributos do Líder",
+        explanation: "Conforme a apostila de Liderança: \"2.3 — A Ética Militar Naval\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 126,
@@ -2302,7 +2428,8 @@ const questionsData = [
           "E) 5 – 1 – 2 – 3 – 4"
         ],
         correct: 2,
-        subject: "Ética Militar Naval e Atributos do Líder"
+        subject: "Ética Militar Naval e Atributos do Líder",
+        explanation: "O trecho da apostila de Liderança relacionado a essa questão traz: \"2.3 — A Ética Militar Naval\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 127,
@@ -2315,7 +2442,8 @@ const questionsData = [
           "E) Iniciativa"
         ],
         correct: 2,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A Honra é o sentimento que induz o indivíduo à prática do Bem, da Justiça e da Moral. É a força que o impele a prestigiar sua própria personalidade, como um sentimento de seu patrimônio moral, um misto de brio e valor. Ela exige a posse do perfeito sentimento do que é justo e respeitável, para a elevação da dignidade e da bravura desse indivíduo, e, assim, afrontar perigos de toda a ordem, na sustentação dos ditames da Verdade e do Direito. É a virtude por excelência, porque...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 128,
@@ -2328,7 +2456,8 @@ const questionsData = [
           "E) Lealdade"
         ],
         correct: 0,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A Honra é o sentimento que induz o indivíduo à prática do Bem, da Justiça e da Moral. É a força que o impele a prestigiar sua própria personalidade, como um sentimento de seu patrimônio moral, um misto de brio e valor. Ela exige a posse do perfeito sentimento do que é justo e respeitável, para a elevação da dignidade e da bravura desse indivíduo, e, assim, afrontar perigos de toda a ordem, na sustentação dos ditames da Verdade e do Direito. É a virtude por excelência, porque...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 129,
@@ -2341,7 +2470,8 @@ const questionsData = [
           "E) Zelo"
         ],
         correct: 0,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A Honra é o sentimento que induz o indivíduo à prática do Bem, da Justiça e da Moral. É a força que o impele a prestigiar sua própria personalidade, como um sentimento de seu patrimônio moral, um misto de brio e valor. Ela exige a posse do perfeito sentimento do que é justo e respeitável, para a elevação da dignidade e da bravura desse indivíduo, e, assim, afrontar perigos de toda a ordem, na sustentação dos ditames da Verdade e do Direito. É a virtude por excelência, porque...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 130,
@@ -2354,7 +2484,8 @@ const questionsData = [
           "E) Tenacidade"
         ],
         correct: 2,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A Honra é o sentimento que induz o indivíduo à prática do Bem, da Justiça e da Moral. É a força que o impele a prestigiar sua própria personalidade, como um sentimento de seu patrimônio moral, um misto de brio e valor. Ela exige a posse do perfeito sentimento do que é justo e respeitável, para a elevação da dignidade e da bravura desse indivíduo, e, assim, afrontar perigos de toda a ordem, na sustentação dos ditames da Verdade e do Direito. É a virtude por excelência, porque...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 131,
@@ -2367,7 +2498,8 @@ const questionsData = [
           "E) Disciplina"
         ],
         correct: 3,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A Honra é o sentimento que induz o indivíduo à prática do Bem, da Justiça e da Moral. É a força que o impele a prestigiar sua própria personalidade, como um sentimento de seu patrimônio moral, um misto de brio e valor. Ela exige a posse do perfeito sentimento do que é justo e respeitável, para a elevação da dignidade e da bravura desse indivíduo, e, assim, afrontar perigos de toda a ordem, na sustentação dos ditames da Verdade e do Direito. É a virtude por excelência, porque...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 132,
@@ -2380,7 +2512,8 @@ const questionsData = [
           "E) Fogo sagrado"
         ],
         correct: 3,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"\"A Lealdade é o verdadeiro, espontâneo e incansável devotamento a uma causa, a sincera obediência à autoridade dos superiores e o respeito aos sentimentos de dignidade alheia.\" (BRASIL, 2009, p. 33).\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 133,
@@ -2393,7 +2526,8 @@ const questionsData = [
           "E) Abnegação"
         ],
         correct: 3,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A Lealdade é o verdadeiro, espontâneo e incansável devotamento a uma causa, a sincera obediência à autoridade dos superiores e o respeito aos sentimentos de dignidade alheia. O subordinado leal cumpre as ordens que recebe sempre com o mesmo ardor, quer esteja perto ou longe de quem as deu, ainda que, por vezes, intimamente não as compreenda. A Lealdade é mais do que a Obediência, porque esta se refere à vontade expressa pelo superior e aquela, ao firme propósito de honestamen...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 134,
@@ -2406,7 +2540,8 @@ const questionsData = [
           "E) Lealdade"
         ],
         correct: 4,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A Lealdade é o verdadeiro, espontâneo e incansável devotamento a uma causa, a sincera obediência à autoridade dos superiores e o respeito aos sentimentos de dignidade alheia. O subordinado leal cumpre as ordens que recebe sempre com o mesmo ardor, quer esteja perto ou longe de quem as deu, ainda que, por vezes, intimamente não as compreenda. A Lealdade é mais do que a Obediência, porque esta se refere à vontade expressa pelo superior e aquela, ao firme propósito de honestamen...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 135,
@@ -2419,7 +2554,8 @@ const questionsData = [
           "E) Cooperação"
         ],
         correct: 0,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A Lealdade é o verdadeiro, espontâneo e incansável devotamento a uma causa, a sincera obediência à autoridade dos superiores e o respeito aos sentimentos de dignidade alheia. O subordinado leal cumpre as ordens que recebe sempre com o mesmo ardor, quer esteja perto ou longe de quem as deu, ainda que, por vezes, intimamente não as compreenda. A Lealdade é mais do que a Obediência, porque esta se refere à vontade expressa pelo superior e aquela, ao firme propósito de honestamen...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 136,
@@ -2432,7 +2568,8 @@ const questionsData = [
           "E) Tenacidade"
         ],
         correct: 0,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A Lealdade é o verdadeiro, espontâneo e incansável devotamento a uma causa, a sincera obediência à autoridade dos superiores e o respeito aos sentimentos de dignidade alheia. O subordinado leal cumpre as ordens que recebe sempre com o mesmo ardor, quer esteja perto ou longe de quem as deu, ainda que, por vezes, intimamente não as compreenda. A Lealdade é mais do que a Obediência, porque esta se refere à vontade expressa pelo superior e aquela, ao firme propósito de honestamen...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 137,
@@ -2445,7 +2582,8 @@ const questionsData = [
           "E) Iniciativa"
         ],
         correct: 4,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A Iniciativa é o ânimo pronto para conceber e executar. É uma manifestação de inteligência, imaginação, atividade, saber e dedicação ao serviço. Um militar cumpre de forma conscienciosa as obrigações, as rotinas de seu cargo, faz o treinamento regular de seus homens, etc. Um outro faz tudo isto e vê onde um aperfeiçoamento pode ser introduzido. Não só o concebe, como se interessa por sua adoção. Se é coisa que só dele dependa e a sua ideia não vai ferir a conveniência da unif...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 138,
@@ -2458,7 +2596,8 @@ const questionsData = [
           "E) Espírito militar"
         ],
         correct: 3,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A Iniciativa é o ânimo pronto para conceber e executar. É uma manifestação de inteligência, imaginação, atividade, saber e dedicação ao serviço. Um militar cumpre de forma conscienciosa as obrigações, as rotinas de seu cargo, faz o treinamento regular de seus homens, etc. Um outro faz tudo isto e vê onde um aperfeiçoamento pode ser introduzido. Não só o concebe, como se interessa por sua adoção. Se é coisa que só dele dependa e a sua ideia não vai ferir a conveniência da unif...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 139,
@@ -2471,7 +2610,8 @@ const questionsData = [
           "E) Abnegação"
         ],
         correct: 2,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"\"A Iniciativa, em um plano mais elevado, é a faculdade de deliberar acertadamente em circunstâncias imprevistas ou na ausência dos superiores, agindo sob responsabilidade própria, mas dentro da doutrina, a bem do serviço. Para assim fazer, é preciso ter capacidade profissional, confiança em si e estar bem orientado.\" (BRASIL, 2009, p. 34)\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 140,
@@ -2484,7 +2624,8 @@ const questionsData = [
           "E) Cooperação"
         ],
         correct: 4,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"Cooperar é auxiliar eficiente e desinteressadamente; é esforçar-se em benefício de uma causa comum. O militar deve sempre agir no interesse maior do conjunto dos serviços. É a Cooperação que faz a eficiência da Marinha. Em todas as atividades, o trabalho deve obedecer a esse espírito de comunhão de esforços, a fim de que a potencialidade do conjunto, como um todo, seja a mais elevada possível. Assim, superiores e subordinados não devem limitar-se apenas ao cumprimento das tar...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 141,
@@ -2497,7 +2638,8 @@ const questionsData = [
           "E) Zelo"
         ],
         correct: 1,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"Cooperar é auxiliar eficiente e desinteressadamente; é esforçar-se em benefício de uma causa comum. O militar deve sempre agir no interesse maior do conjunto dos serviços. É a Cooperação que faz a eficiência da Marinha. Em todas as atividades, o trabalho deve obedecer a esse espírito de comunhão de esforços, a fim de que a potencialidade do conjunto, como um todo, seja a mais elevada possível. Assim, superiores e subordinados não devem limitar-se apenas ao cumprimento das tar...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 142,
@@ -2510,7 +2652,8 @@ const questionsData = [
           "E) Cooperação"
         ],
         correct: 4,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"Cooperar é auxiliar eficiente e desinteressadamente; é esforçar-se em benefício de uma causa comum. O militar deve sempre agir no interesse maior do conjunto dos serviços. É a Cooperação que faz a eficiência da Marinha. Em todas as atividades, o trabalho deve obedecer a esse espírito de comunhão de esforços, a fim de que a potencialidade do conjunto, como um todo, seja a mais elevada possível. Assim, superiores e subordinados não devem limitar-se apenas ao cumprimento das tar...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 143,
@@ -2523,7 +2666,8 @@ const questionsData = [
           "E) Patriotismo"
         ],
         correct: 0,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"O Espírito de Sacrifício é a disposição sincera de realmente oferecer, espontaneamente, interesses, comodidades, vida, tudo, em prol do cumprimento do dever. O cultivo do Espírito de Sacrifício é praticado vencendo os pequenos incômodos pessoais, os menores percalços do dia a dia. \"Quem não é fiel no pouco, certamente não será no muito\": somente percebendo o valor das coisas é que se desenvolve o Espírito de Sacrifício e se torna capaz de dar um passo a mais na formação do ca...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 144,
@@ -2536,7 +2680,8 @@ const questionsData = [
           "E) Zelo"
         ],
         correct: 2,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"O Espírito de Sacrifício é a disposição sincera de realmente oferecer, espontaneamente, interesses, comodidades, vida, tudo, em prol do cumprimento do dever. O cultivo do Espírito de Sacrifício é praticado vencendo os pequenos incômodos pessoais, os menores percalços do dia a dia. \"Quem não é fiel no pouco, certamente não será no muito\": somente percebendo o valor das coisas é que se desenvolve o Espírito de Sacrifício e se torna capaz de dar um passo a mais na formação do ca...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 145,
@@ -2549,7 +2694,8 @@ const questionsData = [
           "E) Abnegação"
         ],
         correct: 2,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "O trecho da apostila de Liderança relacionado a essa questão traz: \"O Espírito de Sacrifício é a disposição sincera de realmente oferecer, espontaneamente, interesses, comodidades, vida, tudo, em prol do cumprimento do dever. O cultivo do Espírito de Sacrifício é praticado vencendo os pequenos incômodos pessoais, os menores percalços do dia a dia. \"Quem não é fiel no pouco, certamente não será no muito\": somente percebendo o valor das coisas é que se desenvolve o Espírito de Sacrifício e se torna capaz de dar um passo a mais na formação do ca...\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 146,
@@ -2562,7 +2708,8 @@ const questionsData = [
           "E) Coragem"
         ],
         correct: 2,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "O trecho da apostila de Liderança relacionado a essa questão traz: \"O Zelo é atributo que não depende, em alto grau, de preparo profissional, de predicados especiais de inteligência e de saber. É, por isso mesmo, virtude que deve ser comum a todos os que servem à Marinha. Essa qualidade é consequência direta do \"amor próprio\", do amor à Marinha e à Nação. É o sentimento que leva a não poupar esforços para o bom desempenho das funções que lhes são atribuídas. É o sentimento que conduz à dedicação ao serviço, como autêntica expressão do Dever....\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 147,
@@ -2575,7 +2722,8 @@ const questionsData = [
           "E) Fogo sagrado"
         ],
         correct: 2,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"O Zelo é atributo que não depende, em alto grau, de preparo profissional, de predicados especiais de inteligência e de saber. É, por isso mesmo, virtude que deve ser comum a todos os que servem à Marinha. Essa qualidade é consequência direta do \"amor próprio\", do amor à Marinha e à Nação. É o sentimento que leva a não poupar esforços para o bom desempenho das funções que lhes são atribuídas. É o sentimento que conduz à dedicação ao serviço, como autêntica expressão do Dever....\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 148,
@@ -2588,7 +2736,8 @@ const questionsData = [
           "E) Espírito militar"
         ],
         correct: 1,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"O Zelo é atributo que não depende, em alto grau, de preparo profissional, de predicados especiais de inteligência e de saber. É, por isso mesmo, virtude que deve ser comum a todos os que servem à Marinha. Essa qualidade é consequência direta do \"amor próprio\", do amor à Marinha e à Nação. É o sentimento que leva a não poupar esforços para o bom desempenho das funções que lhes são atribuídas. É o sentimento que conduz à dedicação ao serviço, como autêntica expressão do Dever....\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 149,
@@ -2601,7 +2750,8 @@ const questionsData = [
           "E) Fogo sagrado"
         ],
         correct: 3,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"O Zelo é atributo que não depende, em alto grau, de preparo profissional, de predicados especiais de inteligência e de saber. É, por isso mesmo, virtude que deve ser comum a todos os que servem à Marinha. Essa qualidade é consequência direta do \"amor próprio\", do amor à Marinha e à Nação. É o sentimento que leva a não poupar esforços para o bom desempenho das funções que lhes são atribuídas. É o sentimento que conduz à dedicação ao serviço, como autêntica expressão do Dever....\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 150,
@@ -2614,7 +2764,8 @@ const questionsData = [
           "E) Honra"
         ],
         correct: 1,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"O Zelo é atributo que não depende, em alto grau, de preparo profissional, de predicados especiais de inteligência e de saber. É, por isso mesmo, virtude que deve ser comum a todos os que servem à Marinha. Essa qualidade é consequência direta do \"amor próprio\", do amor à Marinha e à Nação. É o sentimento que leva a não poupar esforços para o bom desempenho das funções que lhes são atribuídas. É o sentimento que conduz à dedicação ao serviço, como autêntica expressão do Dever....\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 151,
@@ -2627,7 +2778,8 @@ const questionsData = [
           "E) Espírito militar"
         ],
         correct: 3,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A Coragem é a disposição natural que nos permite dominar o medo e enfrentar qualquer perigo. É a força capaz de fazer com que aquele que ama a vida, e que nela é feliz, saiba arriscá-la e se disponha a morrer por uma causa nobre. A Coragem é o destemor em combate. Há também a coragem moral – não menos imprescindível e valiosa, a força psíquica que ampara os homens nas crises do pensamento e do caráter. É a sustentação das próprias ordens, atitudes e convicções; o saber assumi...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 152,
@@ -2640,7 +2792,8 @@ const questionsData = [
           "E) Abnegação"
         ],
         correct: 0,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A Coragem é a disposição natural que nos permite dominar o medo e enfrentar qualquer perigo. É a força capaz de fazer com que aquele que ama a vida, e que nela é feliz, saiba arriscá-la e se disponha a morrer por uma causa nobre. A Coragem é o destemor em combate. Há também a coragem moral – não menos imprescindível e valiosa, a força psíquica que ampara os homens nas crises do pensamento e do caráter. É a sustentação das próprias ordens, atitudes e convicções; o saber assumi...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 153,
@@ -2653,7 +2806,8 @@ const questionsData = [
           "E) Coragem moral"
         ],
         correct: 4,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A Coragem é a disposição natural que nos permite dominar o medo e enfrentar qualquer perigo. É a força capaz de fazer com que aquele que ama a vida, e que nela é feliz, saiba arriscá-la e se disponha a morrer por uma causa nobre. A Coragem é o destemor em combate. Há também a coragem moral – não menos imprescindível e valiosa, a força psíquica que ampara os homens nas crises do pensamento e do caráter. É a sustentação das próprias ordens, atitudes e convicções; o saber assumi...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 154,
@@ -2666,7 +2820,8 @@ const questionsData = [
           "E) Espírito militar"
         ],
         correct: 0,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A Coragem é a disposição natural que nos permite dominar o medo e enfrentar qualquer perigo. É a força capaz de fazer com que aquele que ama a vida, e que nela é feliz, saiba arriscá-la e se disponha a morrer por uma causa nobre. A Coragem é o destemor em combate. Há também a coragem moral – não menos imprescindível e valiosa, a força psíquica que ampara os homens nas crises do pensamento e do caráter. É a sustentação das próprias ordens, atitudes e convicções; o saber assumi...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 155,
@@ -2679,7 +2834,8 @@ const questionsData = [
           "E) Cooperação"
         ],
         correct: 1,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A Coragem é a disposição natural que nos permite dominar o medo e enfrentar qualquer perigo. É a força capaz de fazer com que aquele que ama a vida, e que nela é feliz, saiba arriscá-la e se disponha a morrer por uma causa nobre. A Coragem é o destemor em combate. Há também a coragem moral – não menos imprescindível e valiosa, a força psíquica que ampara os homens nas crises do pensamento e do caráter. É a sustentação das próprias ordens, atitudes e convicções; o saber assumi...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 156,
@@ -2692,7 +2848,8 @@ const questionsData = [
           "E) Disciplina"
         ],
         correct: 3,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A Ordem é diligência, porque economiza o tempo, e é previdência, porque o conserva. Como exemplo de disciplina e método, a ordem orienta o espírito e promove segurança, porque resguarda e alinha em lugar próprio aquilo que será utilizado no futuro. A sua falta traz o desperdício e a perda do tempo, bem precioso, e que, uma vez perdido, não há como reaver. A arte de organizar, pôr em ordem, é essencial em um condutor de homens. O aprendizado da arte de organizar inicia-se indi...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 157,
@@ -2705,7 +2862,8 @@ const questionsData = [
           "E) Disciplina"
         ],
         correct: 3,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A Ordem é diligência, porque economiza o tempo, e é previdência, porque o conserva. Como exemplo de disciplina e método, a ordem orienta o espírito e promove segurança, porque resguarda e alinha em lugar próprio aquilo que será utilizado no futuro. A sua falta traz o desperdício e a perda do tempo, bem precioso, e que, uma vez perdido, não há como reaver. A arte de organizar, pôr em ordem, é essencial em um condutor de homens. O aprendizado da arte de organizar inicia-se indi...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 158,
@@ -2718,7 +2876,8 @@ const questionsData = [
           "E) Fidelidade"
         ],
         correct: 4,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"Ser fiel é ser honesto, ter têmpera forte para opinar e agir sempre pelo bem, mesmo, e principalmente, quando não favorecer ou até contrariar as conveniências pessoais. A fidelidade ao serviço impede que o militar cuide de afazeres e atividades estranhos à Marinha, enquanto estiver ao seu serviço, e negligencie as suas obrigações. Executar ordens que são agradáveis, ou que partem de pessoas a quem se dedica estima, é um dever fácil de cumprir. Mas, cumprir ordens difíceis, ar...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 159,
@@ -2731,7 +2890,8 @@ const questionsData = [
           "E) Coragem"
         ],
         correct: 0,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"Ser fiel é ser honesto, ter têmpera forte para opinar e agir sempre pelo bem, mesmo, e principalmente, quando não favorecer ou até contrariar as conveniências pessoais. A fidelidade ao serviço impede que o militar cuide de afazeres e atividades estranhos à Marinha, enquanto estiver ao seu serviço, e negligencie as suas obrigações. Executar ordens que são agradáveis, ou que partem de pessoas a quem se dedica estima, é um dever fácil de cumprir. Mas, cumprir ordens difíceis, ar...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 160,
@@ -2744,7 +2904,8 @@ const questionsData = [
           "E) Espírito militar"
         ],
         correct: 1,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"O \"Fogo Sagrado\" é a paixão, a fé, o entusiasmo com que o militar se dedica à sua carreira; é o seu intenso amor à Marinha, o seu devotamento pela grandeza da sua profissão; é a larga medida de uma verdadeira vocação e de um sadio patriotismo; é o supremo amor pelo serviço. É essa crença que anima a ponto de, naturalmente, julgar que os deveres que a lei marca são o mínimo, e que para bem servir cumpre ir além do próprio dever, fazer tudo quanto é humanamente possível, à cust...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 161,
@@ -2757,7 +2918,8 @@ const questionsData = [
           "E) Espírito de sacrifício"
         ],
         correct: 0,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"O \"Fogo Sagrado\" é a paixão, a fé, o entusiasmo com que o militar se dedica à sua carreira; é o seu intenso amor à Marinha, o seu devotamento pela grandeza da sua profissão; é a larga medida de uma verdadeira vocação e de um sadio patriotismo; é o supremo amor pelo serviço. É essa crença que anima a ponto de, naturalmente, julgar que os deveres que a lei marca são o mínimo, e que para bem servir cumpre ir além do próprio dever, fazer tudo quanto é humanamente possível, à cust...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 162,
@@ -2770,7 +2932,8 @@ const questionsData = [
           "E) Espírito de sacrifício"
         ],
         correct: 1,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"O \"Fogo Sagrado\" é a paixão, a fé, o entusiasmo com que o militar se dedica à sua carreira; é o seu intenso amor à Marinha, o seu devotamento pela grandeza da sua profissão; é a larga medida de uma verdadeira vocação e de um sadio patriotismo; é o supremo amor pelo serviço. É essa crença que anima a ponto de, naturalmente, julgar que os deveres que a lei marca são o mínimo, e que para bem servir cumpre ir além do próprio dever, fazer tudo quanto é humanamente possível, à cust...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 163,
@@ -2783,7 +2946,8 @@ const questionsData = [
           "E) Patriotismo"
         ],
         correct: 3,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"O \"Fogo Sagrado\" é a paixão, a fé, o entusiasmo com que o militar se dedica à sua carreira; é o seu intenso amor à Marinha, o seu devotamento pela grandeza da sua profissão; é a larga medida de uma verdadeira vocação e de um sadio patriotismo; é o supremo amor pelo serviço. É essa crença que anima a ponto de, naturalmente, julgar que os deveres que a lei marca são o mínimo, e que para bem servir cumpre ir além do próprio dever, fazer tudo quanto é humanamente possível, à cust...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 164,
@@ -2796,7 +2960,8 @@ const questionsData = [
           "E) Cooperação"
         ],
         correct: 0,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"Aplicação é uma forma de dedicação, de amor ao serviço. É a disposição para estudar tanto o material em si como também a maneira de utilizá-lo; para estar a par das rotinas, da organização interna de bordo, da ordenança, dos regulamentos e das leis; para bem conhecer tudo referente aos aspectos essenciais da profissão. Na arte de conduzir os homens, o campo é mais profundo: faz-se necessária a tenacidade, o poder da vontade. É o saber querer longamente, sem desfalecimento e s...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 165,
@@ -2809,7 +2974,8 @@ const questionsData = [
           "E) Tenacidade"
         ],
         correct: 4,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"Aplicação é uma forma de dedicação, de amor ao serviço. É a disposição para estudar tanto o material em si como também a maneira de utilizá-lo; para estar a par das rotinas, da organização interna de bordo, da ordenança, dos regulamentos e das leis; para bem conhecer tudo referente aos aspectos essenciais da profissão. Na arte de conduzir os homens, o campo é mais profundo: faz-se necessária a tenacidade, o poder da vontade. É o saber querer longamente, sem desfalecimento e s...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 166,
@@ -2822,7 +2988,8 @@ const questionsData = [
           "E) Honra"
         ],
         correct: 3,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"Aplicação é uma forma de dedicação, de amor ao serviço. É a disposição para estudar tanto o material em si como também a maneira de utilizá-lo; para estar a par das rotinas, da organização interna de bordo, da ordenança, dos regulamentos e das leis; para bem conhecer tudo referente aos aspectos essenciais da profissão. Na arte de conduzir os homens, o campo é mais profundo: faz-se necessária a tenacidade, o poder da vontade. É o saber querer longamente, sem desfalecimento e s...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 167,
@@ -2835,7 +3002,8 @@ const questionsData = [
           "E) Patriotismo"
         ],
         correct: 1,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"Aplicação é uma forma de dedicação, de amor ao serviço. É a disposição para estudar tanto o material em si como também a maneira de utilizá-lo; para estar a par das rotinas, da organização interna de bordo, da ordenança, dos regulamentos e das leis; para bem conhecer tudo referente aos aspectos essenciais da profissão. Na arte de conduzir os homens, o campo é mais profundo: faz-se necessária a tenacidade, o poder da vontade. É o saber querer longamente, sem desfalecimento e s...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 168,
@@ -2848,7 +3016,8 @@ const questionsData = [
           "E) Abnegação"
         ],
         correct: 0,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"Decidir é tomar resolução, é sentenciar, é orientar a ação. Não há qualidade, no trato geral dos militares com seus subordinados, que mais tenda a aumentar o respeito e confiança desses subordinados, do que sua capacidade de decidir. O irresoluto, o perplexo, jamais poderá conduzir homens ou comandar navios. Uma orientação insegura é tão nociva quanto a ausência de orientação. Uma decisão vigorosa é a característica dos vencedores. Evidentemente, para acertar, é necessário me...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 169,
@@ -2861,7 +3030,8 @@ const questionsData = [
           "E) Zelo"
         ],
         correct: 4,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"Decidir é tomar resolução, é sentenciar, é orientar a ação. Não há qualidade, no trato geral dos militares com seus subordinados, que mais tenda a aumentar o respeito e confiança desses subordinados, do que sua capacidade de decidir. O irresoluto, o perplexo, jamais poderá conduzir homens ou comandar navios. Uma orientação insegura é tão nociva quanto a ausência de orientação. Uma decisão vigorosa é a característica dos vencedores. Evidentemente, para acertar, é necessário me...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 170,
@@ -2874,7 +3044,8 @@ const questionsData = [
           "E) Zelo"
         ],
         correct: 3,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"Decidir é tomar resolução, é sentenciar, é orientar a ação. Não há qualidade, no trato geral dos militares com seus subordinados, que mais tenda a aumentar o respeito e confiança desses subordinados, do que sua capacidade de decidir. O irresoluto, o perplexo, jamais poderá conduzir homens ou comandar navios. Uma orientação insegura é tão nociva quanto a ausência de orientação. Uma decisão vigorosa é a característica dos vencedores. Evidentemente, para acertar, é necessário me...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 171,
@@ -2887,7 +3058,8 @@ const questionsData = [
           "E) Zelo"
         ],
         correct: 3,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A Abnegação é o esquecimento voluntário do que há de egoístico nos desejos e tendências naturais, em proveito de uma pessoa, causa ou ideia. É a renegação de si mesmo e a disposição de se colocar a serviço dos outros com o sacrifício dos próprios interesses. O caráter marinheiro é carregado de Abnegação: tem a consciência do \"servir\"; inclui a base de todas as virtudes, a humanidade; e possui a simplicidade em todas as suas ações e palavras. A Abnegação, portanto, fortalece o...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 172,
@@ -2900,7 +3072,8 @@ const questionsData = [
           "E) Espírito de sacrifício"
         ],
         correct: 2,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A Abnegação é o esquecimento voluntário do que há de egoístico nos desejos e tendências naturais, em proveito de uma pessoa, causa ou ideia. É a renegação de si mesmo e a disposição de se colocar a serviço dos outros com o sacrifício dos próprios interesses. O caráter marinheiro é carregado de Abnegação: tem a consciência do \"servir\"; inclui a base de todas as virtudes, a humanidade; e possui a simplicidade em todas as suas ações e palavras. A Abnegação, portanto, fortalece o...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 173,
@@ -2913,7 +3086,8 @@ const questionsData = [
           "E) Zelo"
         ],
         correct: 2,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A Abnegação é o esquecimento voluntário do que há de egoístico nos desejos e tendências naturais, em proveito de uma pessoa, causa ou ideia. É a renegação de si mesmo e a disposição de se colocar a serviço dos outros com o sacrifício dos próprios interesses. O caráter marinheiro é carregado de Abnegação: tem a consciência do \"servir\"; inclui a base de todas as virtudes, a humanidade; e possui a simplicidade em todas as suas ações e palavras. A Abnegação, portanto, fortalece o...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 174,
@@ -2926,7 +3100,8 @@ const questionsData = [
           "E) Zelo"
         ],
         correct: 4,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A Abnegação é o esquecimento voluntário do que há de egoístico nos desejos e tendências naturais, em proveito de uma pessoa, causa ou ideia. É a renegação de si mesmo e a disposição de se colocar a serviço dos outros com o sacrifício dos próprios interesses. O caráter marinheiro é carregado de Abnegação: tem a consciência do \"servir\"; inclui a base de todas as virtudes, a humanidade; e possui a simplicidade em todas as suas ações e palavras. A Abnegação, portanto, fortalece o...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 175,
@@ -2939,7 +3114,8 @@ const questionsData = [
           "E) Espírito militar"
         ],
         correct: 1,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"Espírito Militar é a qualidade que impele o militar de cumprir com natural interesse, dentro da ética, os deveres e obrigações do serviço, com disciplina e lealdade, sempre animado pelo desejo de ver brilhar o seu navio, a sua classe e aumentar a eficiência e o prestígio da Marinha. O militar demonstra estar possuído de Espírito Militar em suas maneiras de agir e de se expressar; no apuro de seus uniformes; na saudação a seus superiores; na discrição com que se manifesta; na...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 176,
@@ -2952,7 +3128,8 @@ const questionsData = [
           "E) Disciplina"
         ],
         correct: 2,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"Espírito Militar é a qualidade que impele o militar de cumprir com natural interesse, dentro da ética, os deveres e obrigações do serviço, com disciplina e lealdade, sempre animado pelo desejo de ver brilhar o seu navio, a sua classe e aumentar a eficiência e o prestígio da Marinha. O militar demonstra estar possuído de Espírito Militar em suas maneiras de agir e de se expressar; no apuro de seus uniformes; na saudação a seus superiores; na discrição com que se manifesta; na...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 177,
@@ -2965,7 +3142,8 @@ const questionsData = [
           "E) Cooperação"
         ],
         correct: 0,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A força de coesão de qualquer coletividade humana é a Disciplina. É indispensável não só a um Organismo Militar, mas a qualquer outro que pretenda reunir indivíduos em uma unidade sólida e eficaz. A Disciplina tem um único inimigo verdadeiro, que é o egoísmo, tão mais obstinado quanto mais inconsciente de si mesmo. O amor próprio ilimitado separa o homem de seus mais nobres pensamentos, tornando-o um ser isolado, que nada aceita fora do seu eu. Despido de todo sentimento de s...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 178,
@@ -2978,7 +3156,8 @@ const questionsData = [
           "E) Cooperação"
         ],
         correct: 3,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A força de coesão de qualquer coletividade humana é a Disciplina. É indispensável não só a um Organismo Militar, mas a qualquer outro que pretenda reunir indivíduos em uma unidade sólida e eficaz. A Disciplina tem um único inimigo verdadeiro, que é o egoísmo, tão mais obstinado quanto mais inconsciente de si mesmo. O amor próprio ilimitado separa o homem de seus mais nobres pensamentos, tornando-o um ser isolado, que nada aceita fora do seu eu. Despido de todo sentimento de s...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 179,
@@ -2991,7 +3170,8 @@ const questionsData = [
           "E) Tenacidade"
         ],
         correct: 2,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A força de coesão de qualquer coletividade humana é a Disciplina. É indispensável não só a um Organismo Militar, mas a qualquer outro que pretenda reunir indivíduos em uma unidade sólida e eficaz. A Disciplina tem um único inimigo verdadeiro, que é o egoísmo, tão mais obstinado quanto mais inconsciente de si mesmo. O amor próprio ilimitado separa o homem de seus mais nobres pensamentos, tornando-o um ser isolado, que nada aceita fora do seu eu. Despido de todo sentimento de s...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 180,
@@ -3004,7 +3184,8 @@ const questionsData = [
           "E) Abnegação"
         ],
         correct: 0,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A força de coesão de qualquer coletividade humana é a Disciplina. É indispensável não só a um Organismo Militar, mas a qualquer outro que pretenda reunir indivíduos em uma unidade sólida e eficaz. A Disciplina tem um único inimigo verdadeiro, que é o egoísmo, tão mais obstinado quanto mais inconsciente de si mesmo. O amor próprio ilimitado separa o homem de seus mais nobres pensamentos, tornando-o um ser isolado, que nada aceita fora do seu eu. Despido de todo sentimento de s...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 181,
@@ -3017,7 +3198,8 @@ const questionsData = [
           "E) Disciplina"
         ],
         correct: 4,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"A força de coesão de qualquer coletividade humana é a Disciplina. É indispensável não só a um Organismo Militar, mas a qualquer outro que pretenda reunir indivíduos em uma unidade sólida e eficaz. A Disciplina tem um único inimigo verdadeiro, que é o egoísmo, tão mais obstinado quanto mais inconsciente de si mesmo. O amor próprio ilimitado separa o homem de seus mais nobres pensamentos, tornando-o um ser isolado, que nada aceita fora do seu eu. Despido de todo sentimento de s...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 182,
@@ -3030,7 +3212,8 @@ const questionsData = [
           "E) Abnegação"
         ],
         correct: 0,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"O Patriotismo é o sentimento irresistível que prende os indivíduos à terra em que nasceram. É a trama de afetos que, através das gerações, vai sendo tecido em suas almas ao redor do solo querido. Externamente, é a emoção que os indivíduos sentem ao ouvir os acordes do Hino Nacional e ao ver desfraldada a Bandeira de sua Pátria. Em essência, é a crença na defesa dos ideais de Nacionalidade. Expressão de carinho que os liga à terra que serviu de berço, o Patriotismo é a força d...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 183,
@@ -3043,7 +3226,8 @@ const questionsData = [
           "E) Coragem"
         ],
         correct: 0,
-        subject: "Virtudes Militares (Rosa das Virtudes)"
+        subject: "Virtudes Militares (Rosa das Virtudes)",
+        explanation: "Conforme a apostila de Liderança: \"O Patriotismo é o sentimento irresistível que prende os indivíduos à terra em que nasceram. É a trama de afetos que, através das gerações, vai sendo tecido em suas almas ao redor do solo querido. Externamente, é a emoção que os indivíduos sentem ao ouvir os acordes do Hino Nacional e ao ver desfraldada a Bandeira de sua Pátria. Em essência, é a crença na defesa dos ideais de Nacionalidade. Expressão de carinho que os liga à terra que serviu de berço, o Patriotismo é a força d...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 184,
@@ -3056,7 +3240,8 @@ const questionsData = [
           "E) Ser claro"
         ],
         correct: 3,
-        subject: "Expedição de Ordens"
+        subject: "Expedição de Ordens",
+        explanation: "O trecho da apostila de Liderança relacionado a essa questão traz: \"Para que as ordens, quando necessárias, sejam corretamente dadas, deve o chefe:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 185,
@@ -3069,7 +3254,8 @@ const questionsData = [
           "E) Reduzir ao mínimo as ordens negativas"
         ],
         correct: 3,
-        subject: "Expedição de Ordens"
+        subject: "Expedição de Ordens",
+        explanation: "Conforme a apostila de Liderança: \"Evitar ordens contraditórias. Poucas coisas impressionam tão mal o subordinado como a circunstância do chefe expedir determinada ordem e, logo a seguir, exprimi-la num sentido oposto. O chefe parece-lhe inseguro, vacilante sobre o que conhece ou diz.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 186,
@@ -3082,7 +3268,8 @@ const questionsData = [
           "E) integridade ética"
         ],
         correct: 4,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"Honestidade, transparência e comprometimento inquebrantável com os valores éticos da instituição, tais como: honra, lealdade para com seus superiores, pares e subordinados, fidelidade e coragem, dentre outros, expressos na Rosa das Virtudes (Anexo B).\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 187,
@@ -3095,7 +3282,8 @@ const questionsData = [
           "E) lealdade"
         ],
         correct: 4,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"\"A Lealdade é o verdadeiro, espontâneo e incansável devotamento a uma causa, a sincera obediência à autoridade dos superiores e o respeito aos sentimentos de dignidade alheia.\" (BRASIL, 2009, p. 33).\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 188,
@@ -3108,7 +3296,8 @@ const questionsData = [
           "E) exemplo"
         ],
         correct: 2,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"A coragem apresenta-se sob duas formas: coragem física – superação do medo ao dano físico no cumprimento do dever; e coragem moral – disposição para defender suas convicções, sobretudo em situações críticas, e para \"[...] opinar e agir sempre pelo bem, mesmo e, principalmente, quando não favorecer e ou até contrariar as conveniências pessoais.\" (BRASIL, 2009, p. 39).\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 189,
@@ -3121,7 +3310,8 @@ const questionsData = [
           "E) exemplo"
         ],
         correct: 3,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"A coragem apresenta-se sob duas formas: coragem física – superação do medo ao dano físico no cumprimento do dever; e coragem moral – disposição para defender suas convicções, sobretudo em situações críticas, e para \"[...] opinar e agir sempre pelo bem, mesmo e, principalmente, quando não favorecer e ou até contrariar as conveniências pessoais.\" (BRASIL, 2009, p. 39).\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 190,
@@ -3134,7 +3324,8 @@ const questionsData = [
           "E) altruísmo"
         ],
         correct: 2,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"Por sua importância na paz ou no combate, ressalta-se que a coragem moral é a capacidade de assumir responsabilidade por suas decisões e erros.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 191,
@@ -3147,7 +3338,8 @@ const questionsData = [
           "E) altruísmo"
         ],
         correct: 3,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"\"O caráter é [...] a combinação de traços de personalidade que dão consistência ao comportamento e tem por base as crenças e valores, sendo o fator preponderante nas decisões e no modo de agir de qualquer pessoa.\"(BRASIL, 1991, p.6-2). Merecem destaque como traços essenciais do caráter, a honestidade e a integridade.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 192,
@@ -3160,7 +3352,8 @@ const questionsData = [
           "E) capacidade de relacionamento interpessoal"
         ],
         correct: 1,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"É ter consciência de que o líder pode não saber tudo sobre determinado assunto, que pode estar equivocado em seu julgamento ou sua posição e que mais modernos, ou mais antigos, com suas experiências, podem saber mais e ajudá-lo no cumprimento da missão.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 193,
@@ -3173,7 +3366,8 @@ const questionsData = [
           "E) flexibilidade"
         ],
         correct: 0,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"O militar deve sempre aprimorar seus conhecimentos e habilidades e, por meio de uma atitude positiva compatível com seu grau hierárquico, conseguir resultados eficazes para a instituição.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 194,
@@ -3186,7 +3380,8 @@ const questionsData = [
           "E) determinação"
         ],
         correct: 0,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"\"Competências representam combinações sinérgicas de conhecimentos, habilidades e atitudes, expressas pelo desempenho profissional, dentro de determinado contexto organizacional.\" (DURAND, 2000; NISEMBAUM, 2000, apud BRUNOFARIA; BRANDÃO, 2003, p. 37)\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 195,
@@ -3199,7 +3394,8 @@ const questionsData = [
           "E) determinação"
         ],
         correct: 4,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"Persistência para a realização de tarefas, possibilitando vencer as dificuldades encontradas até concluí-las com eficácia, dentro dos prazos estabelecidos.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 196,
@@ -3212,7 +3408,8 @@ const questionsData = [
           "E) entusiasmo"
         ],
         correct: 4,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"É uma disposição para assumir responsabilidades e enfrentar desafios, demonstrando vibração espontânea e contagiante pelo seu trabalho e pela Organização.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 197,
@@ -3225,7 +3422,8 @@ const questionsData = [
           "E) competência profissional"
         ],
         correct: 2,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"É a habilidade para considerar diversas linhas de ação, diante de uma situação-problema, escolhendo, em tempo hábil, aquela mais adequada para, assim, implementá-la.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 198,
@@ -3238,7 +3436,8 @@ const questionsData = [
           "E) autocontrole"
         ],
         correct: 2,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"Capacidade de pensar e de decidir, autonomamente, e convicção de ter competência para ser bem sucedido diante de dificuldades, expressa pela segurança, firmeza e otimismo no modo de falar e de agir.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 199,
@@ -3251,7 +3450,8 @@ const questionsData = [
           "E) altruísmo"
         ],
         correct: 1,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"Estabilidade de humor e capacidade de atuar eficazmente, mesmo sob pressão.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 200,
@@ -3264,7 +3464,8 @@ const questionsData = [
           "E) humildade"
         ],
         correct: 1,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"Maleabilidade de ideias e habilidade para integrar informações novas, mesmo que divergentes em relação a crenças e planejamentos prévios, desde que agreguem valor.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 201,
@@ -3277,7 +3478,8 @@ const questionsData = [
           "E) capacidade de decisória"
         ],
         correct: 2,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"Capacidade de adaptação a mudanças. Habilidade para atuar corretamente de modo diverso em diferentes situações.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 202,
@@ -3290,7 +3492,8 @@ const questionsData = [
           "E) humildade"
         ],
         correct: 0,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"Capacidade de se colocar no lugar dos liderados, compreendendo-os, demonstrando interesse genuíno por suas necessidades, preocupando-se e provendo o desenvolvimento e bem-estar pessoal e profissional destes.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 203,
@@ -3303,7 +3506,8 @@ const questionsData = [
           "E) autocontrole"
         ],
         correct: 0,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"O líder deve ter respeito pela dignidade humana, que é inerente a todo indivíduo. O líder que respeita seu subordinado é educado ao dirigir-lhe a palavra. É imparcial em seus julgamentos, seus elogios e suas críticas. Age com tato e demonstra consideração com cada um de seus comandados.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 204,
@@ -3316,7 +3520,8 @@ const questionsData = [
           "E) senso de Justiça"
         ],
         correct: 0,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"Habilidade para lidar com pessoas, sejam superiores, pares ou subordinados, com tato, respeito e consideração individualizada. Capacidade de exercer o papel de mentor, cultivando habilidades alheias, fornecendo feedback construtivo e reconhecimento oportuno.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 205,
@@ -3329,7 +3534,8 @@ const questionsData = [
           "E) incenso de Justiça"
         ],
         correct: 3,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"Habilidade para lidar com pessoas, sejam superiores, pares ou subordinados, com tato, respeito e consideração individualizada. Capacidade de exercer o papel de mentor, cultivando habilidades alheias, fornecendo feedback construtivo e reconhecimento oportuno.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 206,
@@ -3342,7 +3548,8 @@ const questionsData = [
           "E) entusiasmo"
         ],
         correct: 3,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"\"Os líderes que trabalham bem em grupo produzem uma atmosfera de solidariedade amistosa e constituem, eles mesmos, modelos de respeito, prestimosidade e cooperação. Inspiram nos demais um compromisso ativo e entusiástico com o esforço coletivo, e promovem a fidelidade e a identificação.\" (GOLEMAN; BOYATZIS; McKEE, 2002, p. 254)\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 207,
@@ -3355,7 +3562,8 @@ const questionsData = [
           "E) capacidade de relacionamento interpessoal"
         ],
         correct: 2,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"Habilidade verbal para persuadir e inspirar os liderados, fomentando um sentido de objetivo, que vá além das tarefas cotidianas, tornando o trabalho mais estimulante, de forma a conquistar a adesão voluntária dos subordinados. Clareza, objetividade e propriedade de linguagem na expressão oral e escrita. Preocupação com a disseminação pronta e eficaz de ordens e notícias, de forma a prevenir mal-entendidos, rumores e boatos nocivos ao moral do grupo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 208,
@@ -3368,7 +3576,8 @@ const questionsData = [
           "E) capacidade decisória"
         ],
         correct: 1,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"\"A Iniciativa, em um plano mais elevado, é a faculdade de deliberar acertadamente em circunstâncias imprevistas ou na ausência dos superiores, agindo sob responsabilidade própria, mas dentro da doutrina, a bem do serviço. Para assim fazer, é preciso ter capacidade profissional, confiança em si e estar bem orientado.\" (BRASIL, 2009, p. 34)\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 209,
@@ -3381,7 +3590,8 @@ const questionsData = [
           "E) senso de Justiça"
         ],
         correct: 4,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "O trecho da apostila de Liderança relacionado a essa questão traz: \"Capacidade de julgar, imparcial e respeitosamente, com base em dados objetivos, de acordo com o mérito e o desempenho de cada um, não se deixando influenciar por sentimentos pessoais, estereótipos ou preconceitos.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 210,
@@ -3394,7 +3604,8 @@ const questionsData = [
           "E) comunicação"
         ],
         correct: 3,
-        subject: "Liderança — Atributos"
+        subject: "Liderança — Atributos",
+        explanation: "Conforme a apostila de Liderança: \"\"A todo momento, o líder é observado por seus subordinadas e deve buscar conquistar-lhes a confiança, o respeito e a admiração.\" (BRASIL, 1996).\" — esse é o trecho que fundamenta a alternativa correta."
       }
     ];
 
@@ -3504,6 +3715,9 @@ const questionsData = [
       await applySwitchMenuLocks();
 
       await loadSavedState();
+      if (currentUser) {
+        AlfaGamification.reconcileRespostasDetalhadas(sb, currentUser.id, QUIZ_ID, questionsData, userAnswers).then(() => {});
+      }
       const savedIndex = parseInt(localStorage.getItem(STORAGE_KEY_CURRENT), 10);
       currentIndex = (!isNaN(savedIndex) && savedIndex >= 0 && savedIndex < questionsData.length) ? savedIndex : 0;
       renderQuestion();
@@ -3849,6 +4063,17 @@ const questionsData = [
 
         var apLinkWrap = document.getElementById('apostila-link-wrap');
         if (apLinkWrap) { apLinkWrap.innerHTML = AlfaGamification.apostilaLinkHtml(apostilaLinksMap, q.id); }
+
+        const expDetail = document.getElementById('explanation-detail');
+        const expDetailText = document.getElementById('explanation-detail-text');
+        if (expDetail && expDetailText) {
+          if (q.explanation) {
+            expDetail.classList.remove('hidden');
+            expDetailText.innerText = q.explanation;
+          } else {
+            expDetail.classList.add('hidden');
+          }
+        }
       } else {
         expBox.classList.add('hidden');
       }
@@ -3978,22 +4203,25 @@ const questionsData = [
 
     function selectOption(optIndex) {
       if (isDiscarded(currentIndex, optIndex)) return;
-      const jaTinhaResposta = userAnswers[currentIndex] !== undefined;
       userAnswers[currentIndex] = optIndex;
       saveState();
       renderQuestion();
       renderGrid();
 
-      // Salva o resultado dessa questão em tempo real, sem esperar finalizar o simulado
-      if (currentUser && !jaTinhaResposta) {
+      // Salva o resultado dessa questão em tempo real, sem esperar finalizar o simulado.
+      // upsert (não insert): o aluno pode voltar numa questão já respondida pra
+      // reconferir, e nesse caso só atualizamos o acerto/erro mais recente, sem
+      // duplicar linha nem depender de um estado local pra saber "já respondi essa
+      // antes" (é esse estado local que fazia a cobertura ficar presa abaixo do real).
+      if (currentUser) {
         const q = questionsData[currentIndex];
-        sb.from('respostas_detalhadas').insert({
+        sb.from('respostas_detalhadas').upsert({
           user_id: currentUser.id,
           quiz_id: QUIZ_ID,
           subject: q.subject,
           question_id: q.id,
           acertou: optIndex === q.correct
-        }).then(() => {});
+        }, { onConflict: 'user_id,quiz_id,question_id' }).then(() => {});
       }
       if (window.StudyRoom) StudyRoom.reportAnswer(currentIndex, optIndex);
     }

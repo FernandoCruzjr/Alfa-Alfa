@@ -528,6 +528,7 @@
           <div class="flex items-center gap-2 text-sm font-bold mb-1" id="explanation-title"></div>
           <div class="text-xs md:text-sm text-slate-300" id="explanation-text"></div>
           <div id="apostila-link-wrap" class="mt-2"></div>
+          <div class="text-xs md:text-sm text-slate-300 mt-3 pt-3 border-t border-slate-700/60 hidden" id="explanation-detail"><span class="text-navy-400 font-semibold">Por que é essa alternativa: </span><span id="explanation-detail-text"></span></div>
         </div>
 
         <button id="flashcard-btn" onclick="saveAsFlashcard()" class="mt-4 w-full h-11 rounded-xl border border-navy-700 bg-navy-800/60 hover:bg-navy-700/60 hover:border-navy-500 text-slate-200 text-sm font-medium transition-all flex items-center justify-center gap-2">
@@ -680,7 +681,8 @@ const questionsData = [
           "E) ato de criação"
         ],
         correct: 0,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"§ 3º — Regimento Interno é o ato administrativo que complementa o Regulamento, ordenando seu detalhamento e permitindo que, em âmbito interno, sejam disciplinadas todas as atividades rotineiras da OM.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 2,
@@ -693,7 +695,8 @@ const questionsData = [
           "E) organização de combate"
         ],
         correct: 0,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"§ 2º — Regulamento é o ato administrativo que complementa o Ato de Criação permitindo que, em âmbito geral, possam ser conhecidas a sua missão, organização, estrutura e outros dados de interesse.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 3,
@@ -706,7 +709,8 @@ const questionsData = [
           "E) regimento interno"
         ],
         correct: 0,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"§ 1º — Ato de Criação é o documento que especifica propósito, a subordinação, a sede, o posto do Comandante e a constituição de um núcleo de implantação, quando necessário.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 4,
@@ -719,7 +723,8 @@ const questionsData = [
           "E) ministro da defesa"
         ],
         correct: 2,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"Art. 2-1-8 É da competência do Ministro (Comandante) da Marinha ou das Autoridades que tenham recebido expressa delegação de competência para tal a aprovação dos Regulamentos e Regimentos Internos das OM de terra.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 5,
@@ -732,7 +737,8 @@ const questionsData = [
           "E) ministro da defesa"
         ],
         correct: 2,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"Art. 2-1-8 É da competência do Ministro (Comandante) da Marinha ou das Autoridades que tenham recebido expressa delegação de competência para tal a aprovação dos Regulamentos e Regimentos Internos das OM de terra.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 6,
@@ -745,7 +751,8 @@ const questionsData = [
           "E) o estado maior de uma força de disporá de Praças em quantidade e especialidade fixadas em tabela de lotação"
         ],
         correct: 2,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"§ 1º — Os Oficiais do Estado-Maior não poderão intervir nas atividades inerentes ao navio em que estiverem embarcados, inclusive naquelas relativas ao Cerimonial, a não ser por determinação do Comandante da Força, e com o conhecimento do Comandante do navio.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 7,
@@ -758,7 +765,8 @@ const questionsData = [
           "E) ao seu superior hierárquico"
         ],
         correct: 0,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"Art. 4-1-15 O militar que presenciar qualquer irregularidade em que se envolva pessoal da Marinha, ou verificar desvio de objetos pertencentes à Fazenda Nacional e atos comprometedores da segurança das Organizações Militares (OM) da Marinha deve, conforme as circunstâncias, reprimir de pronto esses atos, ou dar parte deles com a maior brevidade a seu Comandante ou à autoridade competente.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 8,
@@ -771,7 +779,8 @@ const questionsData = [
           "E) do Seu imediato"
         ],
         correct: 2,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"Art. 4-1-17 Todo Oficial ou Praça pode, sempre que for conveniente à ordem, à disciplina ou à normalidade do serviço, prender à sua ordem ou à de autoridade competente, quem tiver antiguidade inferior à sua.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 9,
@@ -784,7 +793,8 @@ const questionsData = [
           "E) ao oficial de serviço"
         ],
         correct: 1,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"Art. 4-1-16 Todo militar que tiver conhecimento de notícia, ainda que vaga, de algum fato que, direta ou indiretamente, possa comprometer as tarefas da sua ou de outras OM, ou que tenha relação com os interesses nacionais, tem rigorosa obrigação de o participar de pronto — verbalmente ou por escrito, com conveniente reserva — ao seu Comandante, pelos canais competentes ou em caso de urgência, diretamente.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 10,
@@ -797,7 +807,8 @@ const questionsData = [
           "E) a ordem do comandante do acusado"
         ],
         correct: 3,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"§ 1º — Pode, também, em flagrante de crime inafiançável, prender à ordem de autoridade superior qualquer Oficial ou Praça de antiguidade superior à sua.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 11,
@@ -810,7 +821,8 @@ const questionsData = [
           "E) do seu oficial de serviço a autoridade a que o preso estiver diretamente subordinado"
         ],
         correct: 3,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"§ 2º — Em qualquer caso, quem efetuar a prisão dará logo parte circunstanciada, por escrito e por intermédio do próprio Comandante, à autoridade a que o preso estiver diretamente subordinado.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 12,
@@ -823,7 +835,8 @@ const questionsData = [
           "E) se pessoa estranha a marinha cometer crime a Bordo será presa e autuada em flagrante delito em seguida será apresentada a autoridade competente"
         ],
         correct: 0,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"§ 1º — O uso de bigode é permitido aos Oficiais, Suboficiais e Sargentos.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 13,
@@ -836,7 +849,8 @@ const questionsData = [
           "E) ordem do dia"
         ],
         correct: 0,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"§ 1º — As Organizações Administrativas e Regimentos Internos discriminarão esses serviços.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 14,
@@ -849,7 +863,8 @@ const questionsData = [
           "E) delegar todas as fanhas ao subordinados"
         ],
         correct: 0,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"Art. 4-2-1 Além do disposto no Capítulo 1, são deveres específicos de todo Oficial da Marinha:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 15,
@@ -862,7 +877,8 @@ const questionsData = [
           "E) apresentar-se ao oficial de serviço e ao imediato"
         ],
         correct: 4,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"g) Apresentar-se ao Oficial de Serviço e ao Imediato, sempre que entrar ou sair de bordo e ao Comandante, diariamente, ao entrar a bordo pela primeira vez e ao se retirar pela última vez;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 16,
@@ -875,7 +891,8 @@ const questionsData = [
           "E) não possui responsabilidade direta"
         ],
         correct: 0,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"h) Zelar pela boa conservação material;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 17,
@@ -888,7 +905,8 @@ const questionsData = [
           "E) impor penas disciplinares"
         ],
         correct: 4,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"Art. 4-2-3 É responsabilidade dos Oficiais, quando no exercício de Comando, impor penas disciplinares.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 18,
@@ -901,7 +919,8 @@ const questionsData = [
           "E) chefe do estado maior"
         ],
         correct: 4,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"Art. 6-1-5 Na ausência acidental do Comandante da Força, o Chefe do Estado-Maior o representa nos casos urgentes.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 19,
@@ -914,7 +933,8 @@ const questionsData = [
           "E) diário de bordo"
         ],
         correct: 0,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"Art. 6-1-7 O Chefe do Estado-Maior terá em seu poder o diário histórico da Força, no qual escreverá ou fará escrever, sob sua inspeção e responsabilidade, o histórico dos movimentos e operações da Força e de outras ocorrências importantes que interessem a esta. Esse diário receberá o visto do Comandante da Força e ficará sujeito às alterações que este entender introduzir.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 20,
@@ -927,7 +947,8 @@ const questionsData = [
           "E) secretário"
         ],
         correct: 0,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"Art. 6-1-8 Quando o Comandante da Força reunir os Comandantes das unidades subordinadas, seu Estado-Maior e outros Oficiais não especificados para tratar de assuntos sigilosos, o registro do que ocorrer na reunião será feito pelo Chefe do Estado-Maior.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 21,
@@ -940,7 +961,8 @@ const questionsData = [
           "E) o ajudante de ordens"
         ],
         correct: 3,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"Art. 6-1-9 Em seu impedimento, o Chefe do Estado-Maior será substituído pelo Oficial mais antigo pertencente ao Estado-Maior.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 22,
@@ -953,7 +975,8 @@ const questionsData = [
           "E) chefe do estado maior"
         ],
         correct: 1,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"h) acompanhar o Comandante da Força em suas inspeções.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 23,
@@ -966,7 +989,8 @@ const questionsData = [
           "E) oficial mais antigo"
         ],
         correct: 2,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"Art. 6-2-4 Em seu impedimento, o Chefe de Gabinete será substituído pelo Oficial mais antigo pertencente ao Gabinete.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 24,
@@ -979,7 +1003,8 @@ const questionsData = [
           "E) Capitão de Fragata"
         ],
         correct: 3,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"Art. 6-2-5 O Assistente deverá ser do posto de Capitão-de-Corveta, preferencialmente do mesmo Corpo ou Quadro a que pertencer o Almirante ou Comandante de Força no Gabinete do qual for servir, e possuir os cursos inerentes à sua antiguidade.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 25,
@@ -992,7 +1017,8 @@ const questionsData = [
           "E) ajudante de ordens"
         ],
         correct: 1,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"c) Responder, perante o Chefe do Estado-Maior/Gabinete, pela escrituração dos Livros da OM;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 26,
@@ -1005,7 +1031,8 @@ const questionsData = [
           "E) chefe do estado maior"
         ],
         correct: 0,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"f) Representar o Almirante ou Comandante de Força em solenidades e outros atos, quando ordenado; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 27,
@@ -1018,7 +1045,8 @@ const questionsData = [
           "E) oficial mais antigo do estado maior"
         ],
         correct: 3,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"Art. 6-1-9 Em seu impedimento, o Chefe do Estado-Maior será substituído pelo Oficial mais antigo pertencente ao Estado-Maior.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 28,
@@ -1031,7 +1059,8 @@ const questionsData = [
           "E) Capitão de Fragata"
         ],
         correct: 1,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"Art. 6-2-7 O Ajudante-de-Ordens deverá ser do posto de Capitão-Tenente, preferencialmente do mesmo Corpo ou Quadro a que pertencer o Almirante no Gabinete do qual for servir, e possuir os cursos inerentes à sua antiguidade.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 29,
@@ -1044,7 +1073,8 @@ const questionsData = [
           "E) imediato"
         ],
         correct: 1,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"d) Organizar a agenda do Almirante ou Comandante de Força;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 30,
@@ -1057,7 +1087,8 @@ const questionsData = [
           "E) chefe de gabinete"
         ],
         correct: 2,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"c) propor, quando for o caso, a atualização, alteração, substituição ou a revogação dos documentos normativos pertinentes, referentes às suas atribuição; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 31,
@@ -1070,7 +1101,8 @@ const questionsData = [
           "E) assistente"
         ],
         correct: 0,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"a) Assessorar o Almirante nas suas funções, auxiliando a transmissão de ordens, na execução de providências e nos entendimentos com as autoridades;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 32,
@@ -1083,7 +1115,8 @@ const questionsData = [
           "E) chefe do estado maior"
         ],
         correct: 3,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"c) Assistir o Almirante na sua representação funcional e social;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 33,
@@ -1096,7 +1129,8 @@ const questionsData = [
           "E) chefe do estado maior"
         ],
         correct: 0,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"f) Preparar ou fazer preparar, bem como distribuir Ordens do Dia, Ordens de Serviço, portarias e demais documentos.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 34,
@@ -1109,7 +1143,8 @@ const questionsData = [
           "E) chefe do estado maior"
         ],
         correct: 3,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"b) Preparar e processar a correspondência funcional e pessoal do Almirante;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 35,
@@ -1122,7 +1157,8 @@ const questionsData = [
           "E) chefe do estado maior"
         ],
         correct: 0,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"e) Programar e dirigir o cerimonial e as solenidades oficiais; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 36,
@@ -1135,7 +1171,8 @@ const questionsData = [
           "E) chefe de gabinete"
         ],
         correct: 4,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"CHEFE DE GABINETE | ASSISTENTE | AJUDANTE DE ORDENS // 1. Assessorar o Almirante nas suas funções, auxiliando a transmissão de ordens, na execução de providências e nos entendimentos com as autoridades; | 1. Acompanhar o Almirante ou Comandante de Força em suas inspeções; | 1. Acompanhar o Almirante ou Comandante de Força nas inspeções, visitas ou representações Oficiais, e fazer as visitas de cortesia que lhe forem ordenadas; // 2. Assistir o Almirante na sua representação f...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 37,
@@ -1148,7 +1185,8 @@ const questionsData = [
           "E) ajudante de ordem"
         ],
         correct: 3,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"e) Fazer o detalhe de serviço das Praças do Estado-Maior/Gabinete;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 38,
@@ -1161,7 +1199,8 @@ const questionsData = [
           "E) demais oficiais do estado maior"
         ],
         correct: 1,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"c) Responder, perante o Chefe do Estado-Maior/Gabinete, pela escrituração dos Livros da OM;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 39,
@@ -1174,7 +1213,8 @@ const questionsData = [
           "E) demais oficiais do estado maior"
         ],
         correct: 0,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"b) Coordenar e uniformizar os métodos, as normas e as práticas relativas ao preparo, à expedição, ao recebimento, à distribuição e ao arquivamento da correspondência, de acordo com as instruções em vigor;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 40,
@@ -1187,7 +1227,8 @@ const questionsData = [
           "E) assistente"
         ],
         correct: 4,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"a) Ter a seu cargo a Secretaria do Comando/Gabinete;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 41,
@@ -1200,7 +1241,8 @@ const questionsData = [
           "E) assistente"
         ],
         correct: 1,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"c) Administrar o rancho do Almirante ou Comandante de Força;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 42,
@@ -1213,7 +1255,8 @@ const questionsData = [
           "E) assistente"
         ],
         correct: 0,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"b) Assistir à recepção e à despedida de todos os Comandantes de Forças, navios e outras pessoas em visita ao Almirante ou Comandante de Força;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 43,
@@ -1226,7 +1269,8 @@ const questionsData = [
           "E) assistente"
         ],
         correct: 1,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"d) Organizar a agenda do Almirante ou Comandante de Força;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 44,
@@ -1239,7 +1283,8 @@ const questionsData = [
           "E) chefe de gabinete"
         ],
         correct: 3,
-        subject: "OGSA — Banco Original"
+        subject: "OGSA — Banco Original",
+        explanation: "Conforme a apostila de OGSA: \"g) Auxiliar os Oficiais do Estado-Maior/Gabinete.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 45,
@@ -1252,7 +1297,8 @@ const questionsData = [
           "E) Todos os Oficiais da unidade, sem exceção de postos ou funções."
         ],
         correct: 1,
-        subject: "Escalas de Serviço (Art. 7-2)"
+        subject: "Escalas de Serviço (Art. 7-2)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-2-1 Concorrem às Escalas de Serviço em navio em viagem os Oficiais Intermediários e Subalternos da unidade.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 46,
@@ -1265,7 +1311,8 @@ const questionsData = [
           "E) Exclusivamente se forem designados diretamente pelo COMIMSUP."
         ],
         correct: 2,
-        subject: "Escalas de Serviço (Art. 7-2)"
+        subject: "Escalas de Serviço (Art. 7-2)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-2-2 Concorrem à Escala de Serviço de Oficial de Quarto os Oficiais Intermediários e Subalternos, do Corpo da Armada, da unidade.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 47,
@@ -1278,7 +1325,8 @@ const questionsData = [
           "E) Rodízios semanais supervisionados pelo Oficial Superior de Pernoite."
         ],
         correct: 3,
-        subject: "Escalas de Serviço (Art. 7-2)"
+        subject: "Escalas de Serviço (Art. 7-2)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-2-3 Em viagem os Oficiais serão escalados por Divisões de Serviço que se sucederão continuadamente em Serviço de Quartos.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 48,
@@ -1291,7 +1339,8 @@ const questionsData = [
           "E) Menor do que cinco nem maior do que dez divisões."
         ],
         correct: 2,
-        subject: "Escalas de Serviço (Art. 7-2)"
+        subject: "Escalas de Serviço (Art. 7-2)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-2-4 O número de Divisões de Serviço em viagem será fixado pelo Comandante e não deverá ser menor do que três nem maior do que seis.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 49,
@@ -1304,7 +1353,8 @@ const questionsData = [
           "E) Pela Quarta Divisão de Serviço de bordo."
         ],
         correct: 0,
-        subject: "Escalas de Serviço (Art. 7-2)"
+        subject: "Escalas de Serviço (Art. 7-2)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-2-5 Em cada comissão, o serviço será iniciado pela Primeira Divisão; dentro da mesma comissão, o serviço reiniciar-se-á com a Divisão que se seguir à que houver estado de serviço por ocasião da interrupção da viagem.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 50,
@@ -1317,7 +1367,8 @@ const questionsData = [
           "E) Exatamente às doze horas de cada dia civil em andamento."
         ],
         correct: 3,
-        subject: "Escalas de Serviço (Art. 7-2)"
+        subject: "Escalas de Serviço (Art. 7-2)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-2-6 O regime e o serviço de viagem serão cumpridos a partir da hora que for estabelecida ou a partir do início do quarto em que estiver compreendida a hora marcada para o navio suspender, ou, em caso de suspender imprevisto, logo depois dessa faina; cessará na hora que for determinada ou no fim do quarto em que o navio fundear, amarrar ou atracar.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 51,
@@ -1330,7 +1381,8 @@ const questionsData = [
           "E) Ser substituídos obrigatoriamente pelo serviço de estado."
         ],
         correct: 2,
-        subject: "Escalas de Serviço (Art. 7-2)"
+        subject: "Escalas de Serviço (Art. 7-2)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-2-7 Quando o navio fundear, amarrar ou atracar por menos de 24 horas, o regime e o serviço de viagem poderão, a critério do Comandante, não ser interrompidos.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 52,
@@ -1343,7 +1395,8 @@ const questionsData = [
           "E) Os Oficiais Intermediários e Subalternos da própria unidade."
         ],
         correct: 4,
-        subject: "Escalas de Serviço (Art. 7-2)"
+        subject: "Escalas de Serviço (Art. 7-2)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-2-8 Concorrem às Escalas de Serviço nos navios, em regime normal no porto, e nas OM de terra, os Oficiais Intermediários e Subalternos da unidade.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 53,
@@ -1356,7 +1409,8 @@ const questionsData = [
           "E) Trinta e seis horas, iniciado ao toque de alvorada oficial."
         ],
         correct: 0,
-        subject: "Escalas de Serviço (Art. 7-2)"
+        subject: "Escalas de Serviço (Art. 7-2)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-2-9 Os Oficiais que concorrem à Escala de Serviço serão distribuídos por Divisões de Serviço, que se sucederão continuamente no serviço, cabendo a cada Divisão serviço por período de vinte e quatro horas, iniciado às doze horas de cada dia.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 54,
@@ -1369,7 +1423,8 @@ const questionsData = [
           "E) Inferior a seis nem superior a doze divisões de serviço."
         ],
         correct: 0,
-        subject: "Escalas de Serviço (Art. 7-2)"
+        subject: "Escalas de Serviço (Art. 7-2)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-2-10 O número de Divisões de Serviço será fixado por ato do COMIMSUP, levando em conta o tipo e a situação do navio ou OM e, em circunstâncias normais, não deverá ser inferior a quatro nem superior a oito.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 55,
@@ -1382,7 +1437,8 @@ const questionsData = [
           "E) Quando o número de Oficiais por Divisão de serviço for igual ou inferior a dois."
         ],
         correct: 4,
-        subject: "Escalas de Serviço (Art. 7-2)"
+        subject: "Escalas de Serviço (Art. 7-2)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-2-11 Na situação em que o número de Oficiais por Divisão de serviço for igual ou inferior a dois far-se-á o serviço de estado.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 56,
@@ -1395,7 +1451,8 @@ const questionsData = [
           "E) Houver feito o último serviço de porto (se viagem iniciada antes da meia-noite) ou a seguinte (caso contrário)."
         ],
         correct: 4,
-        subject: "Escalas de Serviço (Art. 7-2)"
+        subject: "Escalas de Serviço (Art. 7-2)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-2-12 Quando houver mudança de regime de viagem para normal de porto, entrará de serviço a Divisão que houver feito o último serviço de porto no caso de se haver iniciado o serviço de viagem antes de meia-noite, e a que se lhe seguir, no caso contrário.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 57,
@@ -1408,7 +1465,8 @@ const questionsData = [
           "E) As ordens diretas emitidas pelo Oficial Superior de Pernoite."
         ],
         correct: 3,
-        subject: "Escalas de Serviço (Art. 7-2)"
+        subject: "Escalas de Serviço (Art. 7-2)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-2-13 O navio, nos portos fora de sua sede, em caso de regime especial, acompanhará o estabelecido para a área em que estiver estacionado.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 58,
@@ -1421,7 +1479,8 @@ const questionsData = [
           "E) Do Oficial Superior de Pernoite designado pelo Comandante."
         ],
         correct: 3,
-        subject: "Oficial de Quarto (Art. 7-3)"
+        subject: "Oficial de Quarto (Art. 7-3)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-3-1 Em regime de viagem, o exercício de velar, durante um determinado período — denominado quarto — pela segurança do navio, pela manutenção da disciplina e pelo cumprimento da rotina de bordo é de responsabilidade do \"Oficial de Quarto\".\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 59,
@@ -1434,7 +1493,8 @@ const questionsData = [
           "E) Acumular as funções de Chefe de Máquinas e Imediato."
         ],
         correct: 2,
-        subject: "Oficial de Quarto (Art. 7-3)"
+        subject: "Oficial de Quarto (Art. 7-3)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-3-2 O Oficial de Quarto é sempre aquele que, independente de sua antiguidade, estiver de serviço na estação de controle da manobra do navio, em viagem.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 60,
@@ -1447,7 +1507,8 @@ const questionsData = [
           "E) A visibilidade estiver perfeita para a navegação costeira."
         ],
         correct: 1,
-        subject: "Oficial de Quarto (Art. 7-3)"
+        subject: "Oficial de Quarto (Art. 7-3)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-3-3 O Oficial de Quarto, sempre que julgar indispensável à segurança do navio, solicitará a presença do Comandante na estação de controle da manobra.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 61,
@@ -1460,7 +1521,8 @@ const questionsData = [
           "E) A escala de rancho da praça-d'armas e o mapa de férias."
         ],
         correct: 2,
-        subject: "Oficial de Quarto (Art. 7-3)"
+        subject: "Oficial de Quarto (Art. 7-3)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-3-4 O Oficial ao entrar quarto não assumirá o serviço sem primeiro se inteirar, além do que está mencionado nas Disposições Gerais sobre o Serviço:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 62,
@@ -1473,7 +1535,8 @@ const questionsData = [
           "E) Perante o Oficial Superior de Pernoite no passadiço central."
         ],
         correct: 0,
-        subject: "Oficial de Quarto (Art. 7-3)"
+        subject: "Oficial de Quarto (Art. 7-3)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-3-5 A passagem de serviço será feita na estação de controle da manobra, perante o Comandante; caso o Comandante não esteja presente, o Oficial que passa o serviço apresentar-se-á ao mesmo, participando-lhe sua rendição.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 63,
@@ -1486,7 +1549,8 @@ const questionsData = [
           "E) Completar o período exato de doze horas ininterruptas de quarto."
         ],
         correct: 2,
-        subject: "Oficial de Quarto (Art. 7-3)"
+        subject: "Oficial de Quarto (Art. 7-3)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-3-6 O Oficial de Quarto não passará o serviço antes de terminar qualquer manobra ou evolução que tenha sido iniciada sob sua direção.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 64,
@@ -1499,7 +1563,8 @@ const questionsData = [
           "E) Sinais de saudação protocolar a autoridades estrangeiras em terra."
         ],
         correct: 3,
-        subject: "Oficial de Quarto (Art. 7-3)"
+        subject: "Oficial de Quarto (Art. 7-3)",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"Art. 7-3-7 O Oficial de Quarto não pode, sem ordem do Comandante, mandar fazer sinais, exceto:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 65,
@@ -1512,7 +1577,8 @@ const questionsData = [
           "E) Substituir o Capitânia em caso de falha nos equipamentos de comunicação."
         ],
         correct: 2,
-        subject: "Oficial de Quarto (Art. 7-3)"
+        subject: "Oficial de Quarto (Art. 7-3)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-3-8 O Oficial de Quarto, quando o navio navegar em formatura, empregará todos os esforços para mantê-lo na posição ordenada, dando ciência ao Comandante quando não puder fazê-lo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 66,
@@ -1525,7 +1591,8 @@ const questionsData = [
           "E) Pelo Chefe do Departamento de Material."
         ],
         correct: 2,
-        subject: "Oficial de Quarto (Art. 7-3)"
+        subject: "Oficial de Quarto (Art. 7-3)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-3-9 O Oficial de Quarto promoverá a fiel execução das manobras, movimentos e fainas ordenados pelo Comandante da Força.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 67,
@@ -1538,7 +1605,8 @@ const questionsData = [
           "E) Somente quando solicitado formalmente pelo Imediato da unidade."
         ],
         correct: 0,
-        subject: "Oficial de Quarto (Art. 7-3)"
+        subject: "Oficial de Quarto (Art. 7-3)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-3-10 O Oficial de Quarto terá atenção à derrota do navio, registrando ou fazendo registrar nos livros apropriados todos os elementos que a caracterizam, de hora em hora e/ou quando houver qualquer alteração nas condições de navegação.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 68,
@@ -1551,7 +1619,8 @@ const questionsData = [
           "E) Manobrar conforme as circunstâncias exigirem, mandando imediatamente participar ao Comandante o que houver feito."
         ],
         correct: 4,
-        subject: "Oficial de Quarto (Art. 7-3)"
+        subject: "Oficial de Quarto (Art. 7-3)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-3-11 O Oficial de Quarto velará para que o navio siga a derrota e mantenha o regime de máquinas determinado. Em ocorrência imprevista, manobrará, conforme as circunstâncias exigirem, mandando imediatamente participar ao Comandante que houver feito.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 69,
@@ -1564,7 +1633,8 @@ const questionsData = [
           "E) As regras do Regulamento Internacional para Evitar Abalroamento no Mar, dando ciência ao Comandante logo que possível."
         ],
         correct: 4,
-        subject: "Oficial de Quarto (Art. 7-3)"
+        subject: "Oficial de Quarto (Art. 7-3)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-3-12 O Oficial de Quarto acompanhará o aparecimento de qualquer luz, navio, terra ou derrelito, determinando sua marcação e distância; cumpre-lhe executar, desde logo, qualquer manobra exigida pelas circunstâncias e que, tratando-se de navio, deve ser feita de acordo com as regras do Regulamento Internacional para Evitar Abalroamento no Mar, dando disso ciência ao Comandante, logo que possível.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 70,
@@ -1577,7 +1647,8 @@ const questionsData = [
           "E) Visíveis apenas a uma distância inferior a uma milha náutica."
         ],
         correct: 0,
-        subject: "Oficial de Quarto (Art. 7-3)"
+        subject: "Oficial de Quarto (Art. 7-3)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-3-13 O Oficial de Quarto, à noite ou em condições de baixa visibilidade, terá atenção para que as luzes de navegação estejam acesas e sejam as únicas visíveis do exterior.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 71,
@@ -1590,7 +1661,8 @@ const questionsData = [
           "E) As redes de proteção contra abalroamento lateral em portos."
         ],
         correct: 2,
-        subject: "Oficial de Quarto (Art. 7-3)"
+        subject: "Oficial de Quarto (Art. 7-3)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-3-14 O Oficial de Quarto terá atenção para que estejam sempre prontas uma embarcação de socorro e bóias salva-vidas para as fainas e exercícios de homem ao mar.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 72,
@@ -1603,7 +1675,8 @@ const questionsData = [
           "E) Pelo menos uma vez durante o quarto."
         ],
         correct: 4,
-        subject: "Oficial de Quarto (Art. 7-3)"
+        subject: "Oficial de Quarto (Art. 7-3)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-3-15 O Oficial de Quarto fará inspecionar, pelo menos uma vez durante o quarto, o aparelho de governo e fará cumprir, com frequência, a rotina de comparação das agulhas giroscópica e magnética.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 73,
@@ -1616,7 +1689,8 @@ const questionsData = [
           "E) Do Contramestre mais antigo de serviço."
         ],
         correct: 0,
-        subject: "Serviço de Estado (Art. 7-4)"
+        subject: "Serviço de Estado (Art. 7-4)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-4-1 Em navio em regime normal, no porto, e OM de terra, o exercício de velar, durante um determinado período, pela segurança, pela manutenção da disciplina e pelo cumprimento da rotina da OM é de responsabilidade do Oficial de Serviço.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 74,
@@ -1629,7 +1703,8 @@ const questionsData = [
           "E) O expediente administrativo diário já tenha sido encerrado."
         ],
         correct: 3,
-        subject: "Serviço de Estado (Art. 7-4)"
+        subject: "Serviço de Estado (Art. 7-4)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-4-2 Quando executando Serviço de Estado, o Oficial de Serviço poderá deixar de observar as disposições relativas à atitude e local de serviço contidas nos itens 7-1-10 (Ao Oficial de Serviço é expressamente proibido sentar-se, bem como ocupar-se em leituras, conversas ou outros assuntos não ligados ao serviço) e 7-1-17 (Oficial de Serviço deve permanecer no posto determinado pela organização da OM), conforme detalhado no presente Capítulo e desde que assegurada a vigil...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 75,
@@ -1642,7 +1717,8 @@ const questionsData = [
           "E) Pelo Oficial Superior de Pernoite."
         ],
         correct: 3,
-        subject: "Serviço de Estado (Art. 7-4)"
+        subject: "Serviço de Estado (Art. 7-4)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-4-3 Quando em Serviço de Estado, durante as refeições, Oficial de Serviço far-se-á representar, em seu posto, pelo Contramestre de Serviço.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 76,
@@ -1655,7 +1731,8 @@ const questionsData = [
           "E) Em seu próprio camarote privativo a bordo."
         ],
         correct: 3,
-        subject: "Serviço de Estado (Art. 7-4)"
+        subject: "Serviço de Estado (Art. 7-4)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-4-4 Quando em Serviço de Estado, no período compreendido entre a volta a exercícios e fainas e o silêncio, o Oficial de Serviço poderá observar repouso relativo na Sala de Estado ou Praça-d’Armas, continuando, entretanto, responsável pelo que ocorrer.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 77,
@@ -1668,7 +1745,8 @@ const questionsData = [
           "E) Ocupar-se de leituras recreativas e conversas na praça-d'armas."
         ],
         correct: 1,
-        subject: "Serviço de Estado (Art. 7-4)"
+        subject: "Serviço de Estado (Art. 7-4)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-4-5 Quando em Serviço de Estado, no período compreendido entre o silêncio e a alvorada será permitido ao Oficial de Serviço repouso completo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 78,
@@ -1681,7 +1759,8 @@ const questionsData = [
           "E) As fainas de manuseio de cargas pesadas nos portos sede."
         ],
         correct: 2,
-        subject: "Serviço de Estado (Art. 7-4)"
+        subject: "Serviço de Estado (Art. 7-4)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-4-6 Ao Oficial de Serviço compete dirigir as fainas a serem executadas fora do horário de expediente.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 79,
@@ -1694,7 +1773,8 @@ const questionsData = [
           "E) Reuniões sociais oficiais realizadas na praça-d'armas."
         ],
         correct: 1,
-        subject: "Serviço de Estado (Art. 7-4)"
+        subject: "Serviço de Estado (Art. 7-4)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-4-7 O Oficial de Serviço fará com que sejam tomadas as providências necessárias à segurança do pessoal por ocasião de banho de mar, de exercícios, fainas, e transportes de pessoal ou material em que possa haver risco de vida.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 80,
@@ -1707,7 +1787,8 @@ const questionsData = [
           "E) Durante os períodos de repouso relativo na praça-d'armas."
         ],
         correct: 1,
-        subject: "Serviço de Estado (Art. 7-4)"
+        subject: "Serviço de Estado (Art. 7-4)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-4-8 O Oficial de Serviço inspecionará as cobertas de rancho pessoalmente ou por intermédio de outro Oficial da Divisão de Serviço, antes das refeições. Inspecionará as cobertas do rancho e a cozinha antes do silêncio.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 81,
@@ -1720,7 +1801,8 @@ const questionsData = [
           "E) Oficial Diretor de Manutenção e Reparos de Casco."
         ],
         correct: 0,
-        subject: "Oficial Responsável (Art. 7-5)"
+        subject: "Oficial Responsável (Art. 7-5)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-5-1 O exercício de velar, durante um determinado período, pelo funcionamento de setor específico essencial ao desempenho tático-operativo ou administrativo da OM, poderá ser colocado sob a responsabilidade de um Oficial pelo Comandante da OM.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 82,
@@ -1733,7 +1815,8 @@ const questionsData = [
           "E) No Capítulo 1 do Título Geral de Administração."
         ],
         correct: 0,
-        subject: "Oficial Responsável (Art. 7-5)"
+        subject: "Oficial Responsável (Art. 7-5)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-5-2 A Organização dos serviços será estabelecida de acordo com o contido no Capítulo 2 deste Título, conforme aplicável.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 83,
@@ -1746,7 +1829,8 @@ const questionsData = [
           "E) O controle financeiro de todas as fainas da unidade."
         ],
         correct: 2,
-        subject: "Oficial Responsável (Art. 7-5)"
+        subject: "Oficial Responsável (Art. 7-5)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-5-3 Na condução dos serviços, o Oficial é o responsável pela imediata e correta execução das ordens recebidas do Comandante ou do Oficial de Serviço, pela operação dos equipamentos que lhe são afetos e pela boa ordem, disciplina e segurança nos compartimentos onde exerce sua autoridade.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 84,
@@ -1759,7 +1843,8 @@ const questionsData = [
           "E) Ao Contramestre encarregado do serviço noturno."
         ],
         correct: 0,
-        subject: "Oficial Responsável (Art. 7-5)"
+        subject: "Oficial Responsável (Art. 7-5)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-5-4 O Oficial responsável informará prontamente quaisquer ocorrências anormais ao Oficial de Serviço, tomando simultaneamente as medidas que julgar oportunas e convenientes para a segurança do navio, do pessoal e do material a seu cargo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 85,
@@ -1772,7 +1857,8 @@ const questionsData = [
           "E) No boletim informativo interno divulgado aos domingos."
         ],
         correct: 1,
-        subject: "Oficial Responsável (Art. 7-5)"
+        subject: "Oficial Responsável (Art. 7-5)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-5-5 O Oficial responsável registrará as ocorrências do serviço no livro próprio e de acordo com as normas em vigor.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 86,
@@ -1785,7 +1871,8 @@ const questionsData = [
           "E) As ordens em vigor, a situação dos equipamentos de seus compartimentos e do pessoal de serviço."
         ],
         correct: 4,
-        subject: "Oficial Responsável (Art. 7-5)"
+        subject: "Oficial Responsável (Art. 7-5)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-5-6 Nenhum Oficial assumirá o serviço sem ter tomado conhecimento das ordens em vigor, da situação dos equipamentos dos seus compartimentos e do pessoal de serviço.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 87,
@@ -1798,7 +1885,8 @@ const questionsData = [
           "E) Ao Comandante da Força em exercício."
         ],
         correct: 3,
-        subject: "Oficial Responsável (Art. 7-5)"
+        subject: "Oficial Responsável (Art. 7-5)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-5-7 O Oficial que passar o serviço deverá informar ao que suceder tudo o que se menciona no artigo precedente, ficando responsável pelas consequências resultantes de qualquer erro ou omissão. A passagem de serviço será comunicada ao Oficial de Serviço.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 88,
@@ -1811,7 +1899,8 @@ const questionsData = [
           "E) Cadetes da Escola Naval em período de estágio."
         ],
         correct: 0,
-        subject: "Oficial Responsável (Art. 7-5)"
+        subject: "Oficial Responsável (Art. 7-5)",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"Art. 7-5-8 Nos navios em que o número de Oficiais não seja suficiente para os serviços, estes poderão ser feitos por pessoal subalterno, de acordo com as normas em vigor.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 89,
@@ -1824,7 +1913,8 @@ const questionsData = [
           "E) Os Oficiais encarregados de auxiliar o Oficial de Serviço no exercício de suas atribuições."
         ],
         correct: 4,
-        subject: "Ajudantes do Oficial de Serviço e OSP (Art. 7-6/7-7)"
+        subject: "Ajudantes do Oficial de Serviço e OSP (Art. 7-6/7-7)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-6-1 Os Ajudantes são os Oficiais encarregados de auxiliar Oficial de Serviço no exercício de suas atribuições.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 90,
@@ -1837,7 +1927,8 @@ const questionsData = [
           "E) Comunicação direta ao Comandante do navio."
         ],
         correct: 3,
-        subject: "Ajudantes do Oficial de Serviço e OSP (Art. 7-6/7-7)"
+        subject: "Ajudantes do Oficial de Serviço e OSP (Art. 7-6/7-7)",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"Art. 7-6-2 Os Ajudantes não se afastarão de seus postos sem licença ou ordem do Oficial de Serviço.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 91,
@@ -1850,7 +1941,8 @@ const questionsData = [
           "E) Comandar as equipes de manobra na estação de controle."
         ],
         correct: 3,
-        subject: "Ajudantes do Oficial de Serviço e OSP (Art. 7-6/7-7)"
+        subject: "Ajudantes do Oficial de Serviço e OSP (Art. 7-6/7-7)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-6-3 Os Ajudantes passarão as inspeções, e farão as rondas que lhes ordenar o Oficial de Serviço, e dirigirão os serviços e as fainas programadas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 92,
@@ -1863,7 +1955,8 @@ const questionsData = [
           "E) Sentar-se, bem como ocupar-se em leituras, conversações ou outros assuntos não ligados ao serviço."
         ],
         correct: 4,
-        subject: "Ajudantes do Oficial de Serviço e OSP (Art. 7-6/7-7)"
+        subject: "Ajudantes do Oficial de Serviço e OSP (Art. 7-6/7-7)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-6-4 Aos Ajudantes do Oficial de Serviço, quando em Serviço por Quartos, é expressamente proibido sentar-se, bem como ocupar-se em leituras, conversas ou outros assuntos não ligados ao serviço.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 93,
@@ -1876,7 +1969,8 @@ const questionsData = [
           "E) Das condições operativas e de segurança da OM."
         ],
         correct: 2,
-        subject: "Ajudantes do Oficial de Serviço e OSP (Art. 7-6/7-7)"
+        subject: "Ajudantes do Oficial de Serviço e OSP (Art. 7-6/7-7)",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"Art. 7-6-5 Os Ajudantes não deixarão o serviço sem que tenham sido rendidos e se apresentado ao Oficial de Serviço, obedecendo ao disposto nesta Ordenança. O Oficial, ao assumir o serviço, não o fará sem primeiro se inteirar:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 94,
@@ -1889,7 +1983,8 @@ const questionsData = [
           "E) O Oficial de Quarto de serviço no passadiço."
         ],
         correct: 1,
-        subject: "Ajudantes do Oficial de Serviço e OSP (Art. 7-6/7-7)"
+        subject: "Ajudantes do Oficial de Serviço e OSP (Art. 7-6/7-7)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-6-6 O mais antigo dos Ajudantes do Oficial de Serviço terá a seu cargo o cumprimento da rotina.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 95,
@@ -1902,7 +1997,8 @@ const questionsData = [
           "E) Atribuições específicas, definidas na Organização Administrativa e de Combate do navio."
         ],
         correct: 4,
-        subject: "Ajudantes do Oficial de Serviço e OSP (Art. 7-6/7-7)"
+        subject: "Ajudantes do Oficial de Serviço e OSP (Art. 7-6/7-7)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-6-7 A critério do Comandante, o Oficial de Serviço no CIC, COC, Máquinas etc., poderá ser auxiliado por outros Oficiais, em função da situação tática e do regime de viagem; esses Oficiais terão atribuições específicas, definidas na Organização Administrativa e de Combate do navio.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 96,
@@ -1915,7 +2011,8 @@ const questionsData = [
           "E) Responder perante o COMIMSUP por todas as decisões administrativas."
         ],
         correct: 0,
-        subject: "Ajudantes do Oficial de Serviço e OSP (Art. 7-6/7-7)"
+        subject: "Ajudantes do Oficial de Serviço e OSP (Art. 7-6/7-7)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-7-1 Os Oficiais Superiores das OM concorrerão ao Serviço de Oficial Superior de Pernoite (OSP), com a responsabilidade de, fora do expediente e na ausência do Comandante e do Imediato, supervisionar o serviço e as demais atividades da OM.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 97,
@@ -1928,7 +2025,8 @@ const questionsData = [
           "E) Atribuição dada pelo Comandante da Organização Militar a determinado Oficial para execução permanente."
         ],
         correct: 3,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-1 Serviço de Oficiais é toda atribuição dada pelo Comandante da Organização Militar (OM) a determinado Oficial, para ser executada por período limitado de tempo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 98,
@@ -1941,7 +2039,8 @@ const questionsData = [
           "E) É a atribuição de duração superior a doze horas executada exclusivamente em terra."
         ],
         correct: 2,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-2 Serviço por Quartos é o serviço executado por períodos de duração igual ou inferior a seis horas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 99,
@@ -1954,7 +2053,8 @@ const questionsData = [
           "E) Serviço administrativo executado exclusivamente nos finais de semana e feriados."
         ],
         correct: 0,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-3 Serviço de Estado é o serviço executado por período de duração superior a seis horas, não podendo ultrapassar vinte e quatro horas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 100,
@@ -1967,7 +2067,8 @@ const questionsData = [
           "E) O Oficial encarregado de gerir o orçamento e as finanças da organização militar."
         ],
         correct: 0,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-4 Para efeito do contido neste Título, a expressão \"Oficial de Serviço\" aplica-se ao Oficial a quem cabe velar, durante determinado período de tempo, pela segurança, pela manutenção da disciplina e pelo cumprimento da rotina da OM.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 101,
@@ -1980,7 +2081,8 @@ const questionsData = [
           "E) Imediato de Manobra."
         ],
         correct: 3,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-5 Oficial de Serviço a bordo de navio, em regime de viagem, na estação de controle da manobra, denomina-se Oficial de Quarto.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 102,
@@ -1993,7 +2095,8 @@ const questionsData = [
           "E) Ele subordina-se inteiramente aos suboficiais mais antigos durante o período noturno."
         ],
         correct: 1,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-6 Oficial de Serviço, no exercício de suas atribuições, é o representante do Comandante e, como tal, tem plena autoridade sobre tudo que se relacionar com o serviço.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 103,
@@ -2006,7 +2109,8 @@ const questionsData = [
           "E) A condução tática de frotas combinadas em exercícios de guerra eletrônica."
         ],
         correct: 2,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-7 O Oficial de Serviço é o responsável pelo exato cumprimento da rotina de bordo, pela execução de todas as disposições prescritas na Organização Administrativa ou Regimento Interno, pelo asseio e aspecto marinheiro da OM e de suas embarcações, e pela correção dos uniformes do pessoal, especialmente dos licenciados.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 104,
@@ -2019,7 +2123,8 @@ const questionsData = [
           "E) Ele não possui qualquer responsabilidade sobre o que ocorreu antes de assumir o serviço."
         ],
         correct: 1,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-8 O Oficial de Serviço é responsável por todas as irregularidades que se derem, durante seu serviço, em relação às obrigações que lhe são impostas nesta Ordenança; é igualmente responsável pelas irregularidades que constatar provindas de serviço anterior se, logo que delas se inteirar, não tomar as medidas corretivas necessárias, ou deixar de as participar ao Comandante ou Imediato.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 105,
@@ -2032,7 +2137,8 @@ const questionsData = [
           "E) Assumir o controle total das operações náuticas sem consulta prévia."
         ],
         correct: 0,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-9 O Oficial de Serviço, na presença do Comandante ou do Imediato, não ordenará qualquer faina ou formatura sem lhe pedir licença; da mesma forma procederá na presença de Almirante ou Comandante de Força, se o seu Comandante não estiver presente.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 106,
@@ -2045,7 +2151,8 @@ const questionsData = [
           "E) Conceder licença temporária para subordinados sem autorização do Imediato."
         ],
         correct: 1,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-10 Ao Oficial de Serviço é expressamente proibido sentar-se, bem como ocupar-se em leituras, conversas ou outros assuntos não ligados ao serviço.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 107,
@@ -2058,7 +2165,8 @@ const questionsData = [
           "E) Do planejamento estratégico da Força Naval para os próximos cinco anos."
         ],
         correct: 3,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-11 O Oficial, ao assumir o serviço, não o fará sem primeiro inteirar-se:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 108,
@@ -2071,7 +2179,8 @@ const questionsData = [
           "E) Na presença do Chefe de Intendência e dos encarregados de divisão."
         ],
         correct: 2,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-12 O Oficial que passar o serviço deverá informar, ao que suceder, tudo que se menciona no artigo precedente, ficando responsável pelas consequências resultantes de qualquer erro ou omissão. A passagem do serviço será feita na presença do Comandante, após o que os Oficiais apresentar-se-ão ao Imediato.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 109,
@@ -2084,7 +2193,8 @@ const questionsData = [
           "E) O Oficial poderá deixar o posto após completar doze horas de trabalho contínuo, mesmo sem substituto."
         ],
         correct: 3,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-13 Em nenhuma hipótese, o Oficial deixará o serviço sem ter sido regularmente rendido por quem o deva substituir.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 110,
@@ -2097,7 +2207,8 @@ const questionsData = [
           "E) Distribuir o armamento portátil a todos os praças de serviço."
         ],
         correct: 3,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-14 O Oficial de Serviço, logo após havê-lo assumido, fará verificar se todo o pessoal de serviço acha-se convenientemente rendido em seus postos.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 111,
@@ -2110,7 +2221,8 @@ const questionsData = [
           "E) Ele suspende imediatamente a faina geral para garantir a segurança da rotina."
         ],
         correct: 2,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-15 O Oficial de Serviço, durante os exercícios ou fainas gerais, será rendido pelo Oficial designado na Organização Administrativa ou Regimento Interno da OM para que possa assumir o posto que lhe cabe.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 112,
@@ -2123,7 +2235,8 @@ const questionsData = [
           "E) Realizar uma inspeção surpresa em todos os camarotes dos oficiais superiores."
         ],
         correct: 0,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-16 O Oficial de Serviço, durante a noite, mandará avisar, com a necessária antecedência, seu sucessor e todo o pessoal que tiver que entrar de serviço.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 113,
@@ -2136,7 +2249,8 @@ const questionsData = [
           "E) Exclusivamente no alojamento reservado aos chefes de departamento."
         ],
         correct: 0,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-17 O Oficial de Serviço deve permanecer no posto determinado pela organização da OM.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 114,
@@ -2149,7 +2263,8 @@ const questionsData = [
           "E) Que esteja constantemente atento e se conserve nos postos que lhe tiverem sido designados."
         ],
         correct: 4,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-18 O Oficial de Serviço determinará que todo o pessoal escalado para serviço esteja constantemente atento e se conserve nos postos que lhe tiverem sido designados.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 115,
@@ -2162,7 +2277,8 @@ const questionsData = [
           "E) Autoridade para conceder licença definitiva de trinta dias por motivo de saúde."
         ],
         correct: 0,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-19 O Oficial de Serviço tem autoridade para permitir que Oficiais e Praças de serviço se ausentem temporariamente de seus postos, por motivo justificado.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 116,
@@ -2175,7 +2291,8 @@ const questionsData = [
           "E) Anotar em folhas soltas que serão descartadas após a conferência do Imediato."
         ],
         correct: 3,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-20 O Oficial de Serviço tem o dever de registrar em livro apropriado, obedecendo às respectivas instruções, as condições e ocorrências do seu serviço, assinando-o logo após a passagem do serviço.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 117,
@@ -2188,7 +2305,8 @@ const questionsData = [
           "E) Fará lavrar imediatamente o respectivo Termo, obedecidas as formalidades legais."
         ],
         correct: 4,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-21 O Oficial de Serviço, em caso de acidentes de que resultem lesões ou morte, fará lavrar imediatamente o respectivo Termo, obedecidas as formalidades legais.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 118,
@@ -2201,7 +2319,8 @@ const questionsData = [
           "E) Distribuir os alimentos diretamente sem inspeção prévia de qualidade."
         ],
         correct: 3,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-22 O Oficial de Serviço provará a amostra de rancho da guarnição antes de mandar distribuí-lo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 119,
@@ -2214,7 +2333,8 @@ const questionsData = [
           "E) Permitir que a tripulação utilize os refeitórios principais de bordo."
         ],
         correct: 1,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-23 O Oficial de Serviço evitará, durante o tempo das refeições e repouso subsequente, empregar a guarnição em qualquer serviço que não seja exigido por circunstância importante e urgente.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 120,
@@ -2227,7 +2347,8 @@ const questionsData = [
           "E) Da rota exata traçada nos mapas hidrográficos internacionais."
         ],
         correct: 3,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-24 O Oficial de Serviço deverá certificar-se, pelos meios disponíveis, da condição de fechamento do material e do estado de estanqueidade do navio.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 121,
@@ -2240,7 +2361,8 @@ const questionsData = [
           "E) Que todo o armamento seja limpo diariamente com produtos químicos especiais."
         ],
         correct: 3,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-25 O Oficial de Serviço velará que não seja distribuído ou utilizado qualquer armamento portátil, sem sua prévia autorização.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 122,
@@ -2253,7 +2375,8 @@ const questionsData = [
           "E) Manter todos os paióis abertos permanentemente para facilitar vistorias rápidas."
         ],
         correct: 0,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-26 O Oficial de Serviço velará para que não se abra qualquer paiol de munição sem sua ordem ou ciência, e terá cuidado de fazer executar todas as medidas de segurança prescritas nas normas em vigor.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 123,
@@ -2266,7 +2389,8 @@ const questionsData = [
           "E) Proibir qualquer movimentação de carga durante os períodos diurnos de rotina."
         ],
         correct: 2,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-27 O Oficial de Serviço, com referência ao embarque e desembarque de material, cumprirá rigorosamente as normas e instruções em vigor no que lhe disser respeito, providenciando os necessários registros e recibos.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 124,
@@ -2279,7 +2403,8 @@ const questionsData = [
           "E) Ele pode realizar inspeções somente com a autorização prévia da Capitania dos Portos."
         ],
         correct: 1,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-28 O Oficial de Serviço tem autoridade para inspecionar tudo quanto embarcar ou desembarcar da OM pertencente ao pessoal embarcado, destacado ou de passagem.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 125,
@@ -2292,7 +2417,8 @@ const questionsData = [
           "E) Que sejam ignorados caso venham de embarcações estrangeiras."
         ],
         correct: 3,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-29 O Oficial de Serviço exigirá que sejam observados os sinais feitos por quaisquer navios à vista, e que sejam prontamente reconhecidos e interpretados os que forem dirigidos a seu navio ou Força, dando ciência de todos estes ao Comandante.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 126,
@@ -2305,7 +2431,8 @@ const questionsData = [
           "E) Registrar os movimentos apenas no final de seu turno de serviço de estado."
         ],
         correct: 3,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-30 O Oficial de Serviço estará atento às fainas e aos movimentos dos navios à vista e dará conhecimento ao Comandante de tudo que possa interessar.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 127,
@@ -2318,7 +2445,8 @@ const questionsData = [
           "E) Que qualquer embarcação largue da OM sem sua licença e, caso pertença à sua OM, sem que a inspecione ou faça inspecionar."
         ],
         correct: 4,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-31 O Oficial de Serviço não permitirá que qualquer embarcação largue da OM sem sua licença e, caso pertença à sua OM, sem que a inspecione ou faça inspecionar.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 128,
@@ -2331,7 +2459,8 @@ const questionsData = [
           "E) Que a embarcação permaneça fundeada a duzentos metros de distância."
         ],
         correct: 1,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-32 O Oficial de Serviço exigirá que o advirtam da aproximação de qualquer embarcação, a tempo de resolver sobre sua atracação.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 129,
@@ -2344,7 +2473,8 @@ const questionsData = [
           "E) Somente embarcações civis contratadas para o transporte de víveres."
         ],
         correct: 1,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-33 O Oficial de Serviço não permitirá que permaneçam atracadas senão as embarcações que conduzam Oficiais-Generais ou Comandantes de Força, desde que não haja inconveniente para o serviço.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 130,
@@ -2357,7 +2487,8 @@ const questionsData = [
           "E) Que permaneçam a bordo por período superior a duas horas consecutivas."
         ],
         correct: 3,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-34 O Oficial de Serviço não permitirá que as Praças das guarnições de embarcações estranhas as deixem ou que as de bordo embarquem nas mesmas, senão por motivo de serviço.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 131,
@@ -2370,7 +2501,8 @@ const questionsData = [
           "E) Determinará o disparo de salva de canhões independentemente da patente."
         ],
         correct: 2,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-35 O Oficial de Serviço fará vigiar as embarcações que, com bandeiras-insígnias, passarem nas proximidades do navio, a fim de se prestarem as honras devidas, de acordo com o Cerimonial da Marinha.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 132,
@@ -2383,7 +2515,8 @@ const questionsData = [
           "E) Permitirá o uso livre de qualquer tipo de iluminação decorativa nos conveses."
         ],
         correct: 1,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-36 O Oficial de Serviço não permitirá que haja luzes extraordinárias além das autorizadas e disso se certificará mandando passar as necessárias revistas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 133,
@@ -2396,7 +2529,8 @@ const questionsData = [
           "E) Prestará e fará prestar por seus auxiliares a maior atenção a tudo o que ocorrer no porto e, em caso de emergência ou acidente, providenciará para a imediata prestação de auxílios ou socorros, dando pronta participação do ocorrido ao Comandante."
         ],
         correct: 4,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-37 O Oficial de Serviço prestará e fará prestar por seus auxiliares a maior atenção a tudo o que ocorrer no porto e, em caso de emergência ou acidente, providenciará para a imediata prestação de auxílios ou socorros, dando pronta participação do ocorrido ao Comandante.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 134,
@@ -2409,7 +2543,8 @@ const questionsData = [
           "E) Terá o maior cuidado com o fundeio ou a amarração do navio para mantê-lo em perfeita segurança, tomando as necessárias providências quando essa estiver ameaçada."
         ],
         correct: 4,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-38 O Oficial de Serviço terá o maior cuidado com o fundeio ou a amarração do navio para mantê-lo em perfeita segurança, tomando as necessárias providências quando essa estiver ameaçada.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 135,
@@ -2422,7 +2557,8 @@ const questionsData = [
           "E) Suspenderá o navio imediatamente para alto-mar sem autorização do Comandante."
         ],
         correct: 0,
-        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)"
+        subject: "Serviço de Oficiais — Disposições Gerais (Art. 7-1)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-39 O Oficial de Serviço, quando o tempo ou condições do fundeadouro o exigirem, tomará as providências cabíveis no sentido de verificar se o navio não garra.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 136,
@@ -2435,7 +2571,8 @@ const questionsData = [
           "E) Regulamento"
         ],
         correct: 1,
-        subject: "Organização Administrativa e Atos de Criação"
+        subject: "Organização Administrativa e Atos de Criação",
+        explanation: "Conforme a apostila de OGSA: \"Art. 2-1-1 A preparação dos navios, unidades aéreas e unidades de fuzileiros navais para combate e sua conduta durante o mesmo serão regidas por uma Organização de Combate.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 137,
@@ -2448,7 +2585,8 @@ const questionsData = [
           "E) Organização Administrativa"
         ],
         correct: 4,
-        subject: "Organização Administrativa e Atos de Criação"
+        subject: "Organização Administrativa e Atos de Criação",
+        explanation: "Conforme a apostila de OGSA: \"Art. 2-1-2 As atividades administrativas das forças, navios, unidades aéreas e unidades de fuzileiros navais serão regidas por uma Organização Administrativa.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 138,
@@ -2461,7 +2599,8 @@ const questionsData = [
           "E) Organização de Combate"
         ],
         correct: 4,
-        subject: "Organização Administrativa e Atos de Criação"
+        subject: "Organização Administrativa e Atos de Criação",
+        explanation: "Conforme a apostila de OGSA: \"Parágrafo único — A Organização Administrativa dos navios, unidades aéreas e unidades de fuzileiros navais serão elaboradas com base nas respectivas Organizações de Combate e deverá atender, na distribuição do pessoal, tanto quanto possível, à que trabalhem juntos, nas diferentes fainas e tarefas, os que irão trabalhar juntos em combate.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 139,
@@ -2474,7 +2613,8 @@ const questionsData = [
           "E) Horário de funcionamento do rancho"
         ],
         correct: 4,
-        subject: "Organização Administrativa e Atos de Criação"
+        subject: "Organização Administrativa e Atos de Criação",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"Art. 2-1-3 A Organização Administrativa deverá abordar, entre outros, os seguintes pontos:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 140,
@@ -2487,7 +2627,8 @@ const questionsData = [
           "E) Fainas Comuns e de emergência, e sua execução"
         ],
         correct: 1,
-        subject: "Organização Administrativa e Atos de Criação"
+        subject: "Organização Administrativa e Atos de Criação",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"Art. 2-1-3 A Organização Administrativa deverá abordar, entre outros, os seguintes pontos:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 141,
@@ -2500,7 +2641,8 @@ const questionsData = [
           "E) MD"
         ],
         correct: 1,
-        subject: "Organização Administrativa e Atos de Criação"
+        subject: "Organização Administrativa e Atos de Criação",
+        explanation: "Conforme a apostila de OGSA: \"Art. 2-1-4 A elaboração das organizações das forças, navios, unidades aéreas e unidades de fuzileiros navais será pautada em normas baixadas pelo Estado-Maior da Armada.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 142,
@@ -2513,7 +2655,8 @@ const questionsData = [
           "E) EMA"
         ],
         correct: 2,
-        subject: "Organização Administrativa e Atos de Criação"
+        subject: "Organização Administrativa e Atos de Criação",
+        explanation: "Conforme a apostila de OGSA: \"Art. 2-1-5 É da competência do Ministro da Marinha, ou das autoridades que tenham recebido expressa delegação de competência para tal, a aprovação das Organizações de forças, navios, unidades aéreas e unidades de fuzileiros navais.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 143,
@@ -2526,7 +2669,8 @@ const questionsData = [
           "E) Ato de Criação, Regulamento e Ordem Interna"
         ],
         correct: 3,
-        subject: "Organização Administrativa e Atos de Criação"
+        subject: "Organização Administrativa e Atos de Criação",
+        explanation: "Conforme a apostila de OGSA: \"Art. 2-1-6 As Organizações Militares (OM) de terra são estruturadas com base em três documentos fundamentais: Ato de Criação, Regulamento e Regimento Interno.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 144,
@@ -2539,7 +2683,8 @@ const questionsData = [
           "E) Regulamento"
         ],
         correct: 2,
-        subject: "Organização Administrativa e Atos de Criação"
+        subject: "Organização Administrativa e Atos de Criação",
+        explanation: "Conforme a apostila de OGSA: \"§ 1º — Ato de Criação é o documento que especifica propósito, a subordinação, a sede, o posto do Comandante e a constituição de um núcleo de implantação, quando necessário.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 145,
@@ -2552,7 +2697,8 @@ const questionsData = [
           "E) Regulamento"
         ],
         correct: 4,
-        subject: "Organização Administrativa e Atos de Criação"
+        subject: "Organização Administrativa e Atos de Criação",
+        explanation: "Conforme a apostila de OGSA: \"§ 2º — Regulamento é o ato administrativo que complementa o Ato de Criação permitindo que, em âmbito geral, possam ser conhecidas a sua missão, organização, estrutura e outros dados de interesse.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 146,
@@ -2565,7 +2711,8 @@ const questionsData = [
           "E) Organização de Combate"
         ],
         correct: 2,
-        subject: "Organização Administrativa e Atos de Criação"
+        subject: "Organização Administrativa e Atos de Criação",
+        explanation: "Conforme a apostila de OGSA: \"§ 3º — Regimento Interno é o ato administrativo que complementa o Regulamento, ordenando seu detalhamento e permitindo que, em âmbito interno, sejam disciplinadas todas as atividades rotineiras da OM.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 147,
@@ -2578,7 +2725,8 @@ const questionsData = [
           "E) F F V F V"
         ],
         correct: 1,
-        subject: "Organização Administrativa e Atos de Criação"
+        subject: "Organização Administrativa e Atos de Criação",
+        explanation: "Conforme a apostila de OGSA: \"Art. 2-1-9 O número e a qualificação do pessoal necessário para exercer os diversos cargos nas OM serão fixados em Tabelas de Lotação aprovadas pelo (Comandante) Ministro da Marinha, ou por autoridade que tenha recebido expressa delegação de competência para tal.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 148,
@@ -2591,7 +2739,8 @@ const questionsData = [
           "E) Comandante"
         ],
         correct: 4,
-        subject: "Organização Administrativa e Atos de Criação"
+        subject: "Organização Administrativa e Atos de Criação",
+        explanation: "Conforme a apostila de OGSA: \"Parágrafo único — Nos casos em que uma Tabela de Lotação não mais satisfizer às novas exigências do serviço, será proposta pelo Comandante a alteração da existente.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 149,
@@ -2604,7 +2753,8 @@ const questionsData = [
           "E) As Praças que servem em uma OM constituem a sua guarnição"
         ],
         correct: 1,
-        subject: "Organização Administrativa e Atos de Criação"
+        subject: "Organização Administrativa e Atos de Criação",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"Parágrafo único — Os Guardas-Marinha também farão parte da Oficialidade, porém com as restrições inerentes à sua situação de Praças Especiais.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 150,
@@ -2617,7 +2767,8 @@ const questionsData = [
           "E) Assessorar o Comandante de Força no exercício das atividades inerentes ao campo operativo"
         ],
         correct: 0,
-        subject: "Estado-Maior — Composição e Subordinação"
+        subject: "Estado-Maior — Composição e Subordinação",
+        explanation: "Conforme a apostila de OGSA: \"Art. 2-2-1 O Estado-Maior de uma Força tem como propósito assessorar o Comandante da Força no exercício deste cargo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 151,
@@ -2630,7 +2781,8 @@ const questionsData = [
           "E) Estado-Maior de Força"
         ],
         correct: 4,
-        subject: "Estado-Maior — Composição e Subordinação"
+        subject: "Estado-Maior — Composição e Subordinação",
+        explanation: "Conforme a apostila de OGSA: \"Art. 2-2-2 O Estado-Maior de Força será composto, em princípio, por um Chefe e pelos Oficiais necessários à execução das atividades relacionadas com a Organização, Informações, Operações e Logística. Poderão compor, também, o Estado-Maior os Oficiais designados para a coordenação de outras atividades, como Comunicações, Mobilização, Armamento, Máquinas, Saúde, Aviação, etc.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 152,
@@ -2643,7 +2795,8 @@ const questionsData = [
           "E) Totalmente correta"
         ],
         correct: 4,
-        subject: "Estado-Maior — Composição e Subordinação"
+        subject: "Estado-Maior — Composição e Subordinação",
+        explanation: "Conforme a apostila de OGSA: \"Parágrafo único — Ao Assistente e Ajudante de Ordens poderão ser atribuídas, em caráter cumulativo, funções no Estado-Maior, conforme suas qualificações.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 153,
@@ -2656,7 +2809,8 @@ const questionsData = [
           "E) DPM"
         ],
         correct: 2,
-        subject: "Estado-Maior — Composição e Subordinação"
+        subject: "Estado-Maior — Composição e Subordinação",
+        explanation: "Conforme a apostila de OGSA: \"Art. 2-2-5 Os Oficiais que deverão compor o Estado-Maior de uma Força serão propostos pelo respectivo Comandante, e nomeados de acordo com as normas em vigor.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 154,
@@ -2669,7 +2823,8 @@ const questionsData = [
           "E) Comapem - Organização do Navio"
         ],
         correct: 0,
-        subject: "Estado-Maior — Composição e Subordinação"
+        subject: "Estado-Maior — Composição e Subordinação",
+        explanation: "Conforme a apostila de OGSA: \"Art. 2-2-7 Os Oficiais do Estado-Maior ficarão diretamente subordinados ao Comandante da Força sob cujas ordens servirem, devendo contudo observar as disposições da organização do navio em que se acharem embarcados.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 155,
@@ -2682,7 +2837,8 @@ const questionsData = [
           "E) Oficial de Organização do Estado-Maior"
         ],
         correct: 2,
-        subject: "Estado-Maior — Composição e Subordinação"
+        subject: "Estado-Maior — Composição e Subordinação",
+        explanation: "Conforme a apostila de OGSA: \"§ 2º — Os Oficiais do Estado-Maior serão alojados no Capitânia, de acordo com os respectivos postos e antiguidade, cabendo ao Comandante da Força indicar os Oficiais que, na falta de acomodações no Capitânia, devam alojar-se em outros navios da Força.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 156,
@@ -2695,7 +2851,8 @@ const questionsData = [
           "E) Imediato do Navio"
         ],
         correct: 2,
-        subject: "Estado-Maior — Composição e Subordinação"
+        subject: "Estado-Maior — Composição e Subordinação",
+        explanation: "Conforme a apostila de OGSA: \"Art. 2-2-11 As Praças do Estado-Maior ficarão subordinadas, para todos os efeitos, salvo o relacionado com a execução de suas tarefas específicas, ao Comandante do navio em que estiverem embarcadas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 157,
@@ -2708,7 +2865,8 @@ const questionsData = [
           "E) respeitar a legislação em vigor, obedecer aos superiores e conhecer e cumprir as normas e instruções da Marinha;"
         ],
         correct: 1,
-        subject: "Estado-Maior — Composição e Subordinação"
+        subject: "Estado-Maior — Composição e Subordinação",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"Art. 4-1-1 Todos os Oficiais e Praças, quer a bordo, quer em terra, em serviço ou não, devem:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 158,
@@ -2721,7 +2879,8 @@ const questionsData = [
           "E) Da impessoalidade do cargo, função ou incumbência a ser exercido"
         ],
         correct: 0,
-        subject: "Estado-Maior — Composição e Subordinação"
+        subject: "Estado-Maior — Composição e Subordinação",
+        explanation: "Conforme a apostila de OGSA: \"Art. 4-1-2 A autoridade de cada um promana do ato de designação para o cargo que tiver que desempenhar; ou da ordem superior que tiver recebido; começa a ser exercida com a posse nesse cargo ou com o início da execução da ordem; a autoridade corresponde inteira responsabilidade pelo bom desempenho no cargo ou pela perfeita execução da ordem.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 159,
@@ -2734,7 +2893,8 @@ const questionsData = [
           "E) por infração à legislação em vigor, às disposições desta Ordenança e as normas e instruções da Marinha"
         ],
         correct: 3,
-        subject: "Estado-Maior — Composição e Subordinação"
+        subject: "Estado-Maior — Composição e Subordinação",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"Art. 4-1-3 Todos são individualmente responsáveis, dentro de sua esfera de ação:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 160,
@@ -2747,7 +2907,8 @@ const questionsData = [
           "E) Autorizar licenças em situação de emergência sempre que o subordinado assim trouxer os fatos verídicos que comprovem a extrema necessidade"
         ],
         correct: 4,
-        subject: "Deveres do Superior e do Subordinado"
+        subject: "Deveres do Superior e do Subordinado",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"a) manter, em todas as circunstâncias, na plenitude e sua autoridade a disciplina, a boa ordem nas fainas e serviços e a estrita execução da legislação em vigor, da presente Ordenança e das normas e instruções da Marinha;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 161,
@@ -2760,7 +2921,8 @@ const questionsData = [
           "E) Apenas a II está correta"
         ],
         correct: 0,
-        subject: "Deveres do Superior e do Subordinado"
+        subject: "Deveres do Superior e do Subordinado",
+        explanation: "Conforme a apostila de OGSA: \"b) pelas consequências da omissão de ordens, nos casos em que for de seu dever providenciar.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 162,
@@ -2773,7 +2935,8 @@ const questionsData = [
           "E) Apenas a II está correta"
         ],
         correct: 1,
-        subject: "Deveres do Superior e do Subordinado"
+        subject: "Deveres do Superior e do Subordinado",
+        explanation: "Conforme a apostila de OGSA: \"a) respeitar seus superiores e ter para com eles a consideração devida, quer estejam ou não presentes; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 163,
@@ -2786,7 +2949,8 @@ const questionsData = [
           "E) escritas - ofício - transmissor – CP"
         ],
         correct: 2,
-        subject: "Deveres do Superior e do Subordinado"
+        subject: "Deveres do Superior e do Subordinado",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"Parágrafo único — As ordens verbais dadas pelo superior, ou em seu nome, obrigam tanto como se fossem por escrito. Se tais ordens, por sua importância, puderem envolver grave responsabilidade para o executor, este poderá pedir que lhe sejam dadas por escrito, o que não poderá ser recusado.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 164,
@@ -2799,7 +2963,8 @@ const questionsData = [
           "E) Apenas a II está correta"
         ],
         correct: 0,
-        subject: "Deveres do Superior e do Subordinado"
+        subject: "Deveres do Superior e do Subordinado",
+        explanation: "Conforme a apostila de OGSA: \"b) pelas consequências da omissão em participar ao superior, em tempo hábil, qualquer ocorrência que reclame providência, ou que o impeça de cumprir a ordem recebida.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 165,
@@ -2812,7 +2977,8 @@ const questionsData = [
           "E) Apenas a I está correta"
         ],
         correct: 3,
-        subject: "Deveres do Superior e do Subordinado"
+        subject: "Deveres do Superior e do Subordinado",
+        explanation: "Conforme a apostila de OGSA: \"§ 2º — Em qualquer caso, quem efetuar a prisão dará logo parte circunstanciada, por escrito e por intermédio do próprio Comandante, à autoridade a que o preso estiver diretamente subordinado.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 166,
@@ -2825,7 +2991,8 @@ const questionsData = [
           "E) V V V F"
         ],
         correct: 4,
-        subject: "Deveres do Superior e do Subordinado"
+        subject: "Deveres do Superior e do Subordinado",
+        explanation: "Conforme a apostila de OGSA: \"Art. 4-1-20 A continência individual é a saudação devida pelo militar de menor antiguidade, quando uniformizado, a bordo ou em terra, aos mais antigos da Marinha, do Exército, da Aeronáutica e dos países estrangeiros, ainda que em traje civil; neste último caso, desde que os conheça.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 167,
@@ -2838,7 +3005,8 @@ const questionsData = [
           "E) V F V F V F"
         ],
         correct: 2,
-        subject: "Deveres do Superior e do Subordinado"
+        subject: "Deveres do Superior e do Subordinado",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"Art. 4-1-27 O subordinado que se julgar com fundamento para ponderar sobre qualquer ato de superior que lhe pareça ilegal ou ofensivo tem direito de dirigir-lhe, verbalmente ou por escrito, representação respeitosa. Se o superior deixar de atendê-la, ou não a resolver do modo que lhe pareça justo, poderá representar ao Comandante da OM em que servir o superior, pedida a devida permissão, que não lhe poderá ser negada.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 168,
@@ -2851,7 +3019,8 @@ const questionsData = [
           "E) 20 dias"
         ],
         correct: 3,
-        subject: "Deveres do Superior e do Subordinado"
+        subject: "Deveres do Superior e do Subordinado",
+        explanation: "Conforme a apostila de OGSA: \"Art. 4-1-32 Todas as representações, partes ou requerimentos que militares da Marinha dirigirem a autoridades superiores devem ser encaminhados por intermédio do seu respectivo Comandante, o qual os transmitirá a quem de direito, dando sua própria informação a respeito, antes de decorrido prazo de oito dias desde o seu recebimento.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 169,
@@ -2864,7 +3033,8 @@ const questionsData = [
           "E) 7 dias"
         ],
         correct: 3,
-        subject: "Deveres do Superior e do Subordinado"
+        subject: "Deveres do Superior e do Subordinado",
+        explanation: "Conforme a apostila de OGSA: \"Art. 4-1-33 Se a representação, parte ou requerimento estiver escrito de modo contrário ao que é preceituado nos artigos anteriores, o Comandante o reterá em seu poder, fazendo ciente ao respectivo autor para que o substitua, modificando sua linguagem. Se o autor, dentro de prazo nunca maior de oito dias, não atender ao Comandante, este fará pelos canais competentes a remessa à autoridade a quem for dirigido o documento, desde que o mesmo não contenha insulto, ofensa ou injúr...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 170,
@@ -2877,7 +3047,8 @@ const questionsData = [
           "E) Seu respectivo Comandante"
         ],
         correct: 4,
-        subject: "Deveres dos Oficiais e Praças"
+        subject: "Deveres dos Oficiais e Praças",
+        explanation: "Conforme a apostila de OGSA: \"§ 2º — O militar que necessitar encobrir lesão fisionômica poderá usar barba, bigode, cavanhaque ou cabelo fora das normas em vigor, desde que esteja autorizado pelo seu respectivo Comandante.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 171,
@@ -2890,7 +3061,8 @@ const questionsData = [
           "E) Cumprir as instruções que tenham para o serviço, executando-as e fazendo com que sejam bem executadas por seus subordinados"
         ],
         correct: 4,
-        subject: "Deveres dos Oficiais e Praças"
+        subject: "Deveres dos Oficiais e Praças",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"a) cumprir as instruções que tiverem para o serviço, executando-as e fazendo com que sejam bem executadas por seus subordinados;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 172,
@@ -2903,7 +3075,8 @@ const questionsData = [
           "E) Tomar parte nas fainas e exercícios da OM, e ter máxima àquelas a que assistirem"
         ],
         correct: 4,
-        subject: "Deveres dos Oficiais e Praças"
+        subject: "Deveres dos Oficiais e Praças",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"a) tomar parte nas fainas e exercícios da OM, e ter máxima atenção àquelas a que assistirem;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 173,
@@ -2916,7 +3089,8 @@ const questionsData = [
           "E) Esforçar-se no sentido de manter seus subordinados nas condições ideais de Adestramento, moral e higidez"
         ],
         correct: 0,
-        subject: "Deveres dos Oficiais e Praças"
+        subject: "Deveres dos Oficiais e Praças",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"d) participar dos exercícios de cultura física e desportos.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 174,
@@ -2929,7 +3103,8 @@ const questionsData = [
           "E) Esforçar-se para manter e aprimorar sua higidez"
         ],
         correct: 2,
-        subject: "Deveres dos Oficiais e Praças"
+        subject: "Deveres dos Oficiais e Praças",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"Art. 4-2-1 Além do disposto no Capítulo 1, são deveres específicos de todo Oficial da Marinha:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 175,
@@ -2942,7 +3117,8 @@ const questionsData = [
           "E) Desempenhar em serviço, no porto ou em viagem, as tarefas que lhes forem determinadas"
         ],
         correct: 1,
-        subject: "Deveres dos Oficiais e Praças"
+        subject: "Deveres dos Oficiais e Praças",
+        explanation: "Conforme a apostila de OGSA: \"r) Colocar os interesses da Marinha acima dos pessoais.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 176,
@@ -2955,7 +3131,8 @@ const questionsData = [
           "E) Capitães de Mar e Guerra"
         ],
         correct: 0,
-        subject: "Deveres dos Oficiais e Praças"
+        subject: "Deveres dos Oficiais e Praças",
+        explanation: "Conforme a apostila de OGSA: \"Art. 4-2-3 É responsabilidade dos Oficiais, quando no exercício de Comando, impor penas disciplinares.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 177,
@@ -2968,7 +3145,8 @@ const questionsData = [
           "E) No Regimento Interno ou Organização Administrativa"
         ],
         correct: 4,
-        subject: "Deveres dos Oficiais e Praças"
+        subject: "Deveres dos Oficiais e Praças",
+        explanation: "Conforme a apostila de OGSA: \"Parágrafo único — Nas OM comandadas por Almirantes, a delegação de competência para imposição de penas disciplinares deverá ser explicitada no Regimento Interno ou Organização Administrativa.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 178,
@@ -2981,7 +3159,8 @@ const questionsData = [
           "E) Em alojamento específico e no rancho na guarnição"
         ],
         correct: 3,
-        subject: "Deveres dos Oficiais e Praças"
+        subject: "Deveres dos Oficiais e Praças",
+        explanation: "Conforme a apostila de OGSA: \"Art. 4-3-1 As Praças Especiais ficarão sujeitas às normas das OM e terão, sempre que possível, seus alojamentos e ranchos à parte.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 179,
@@ -2994,7 +3173,8 @@ const questionsData = [
           "E) Auxiliar o pessoal de serviço"
         ],
         correct: 1,
-        subject: "Deveres dos Oficiais e Praças"
+        subject: "Deveres dos Oficiais e Praças",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"d) participar dos exercícios de cultura física e desportos.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 180,
@@ -3007,7 +3187,8 @@ const questionsData = [
           "E) Estar pronto para assumir qualquer função que seja determinada, uma vez que militar algum pode negar-se a assumir função"
         ],
         correct: 2,
-        subject: "Deveres dos Oficiais e Praças"
+        subject: "Deveres dos Oficiais e Praças",
+        explanation: "Conforme a apostila de OGSA: \"Art. 4-4-1 Atribuição principal — A atribuição principal das Praças é a execução das tarefas necessárias à manutenção e operação dos equipamentos e à conservação de compartimentos de suas OM.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 181,
@@ -3020,7 +3201,8 @@ const questionsData = [
           "E) Cumprir as instruções que tiverem para o serviço, executando-as e fazendo com que sejam bem executadas por seus subordinados"
         ],
         correct: 0,
-        subject: "Deveres dos Oficiais e Praças"
+        subject: "Deveres dos Oficiais e Praças",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"b) auxiliar os encarregados dos setores nos quais estiverem distribuídas;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 182,
@@ -3033,7 +3215,8 @@ const questionsData = [
           "E) Regimento Interno ou nas Organizações Administrativas e de Combate"
         ],
         correct: 4,
-        subject: "Deveres dos Oficiais e Praças"
+        subject: "Deveres dos Oficiais e Praças",
+        explanation: "Conforme a apostila de OGSA: \"Art. 4-4-5 Os deveres das Praças relativos às suas incumbências serão fixados nos Regimentos Internos ou nas Organizações Administrativas e de Combate.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 183,
@@ -3046,7 +3229,8 @@ const questionsData = [
           "E) Assistente"
         ],
         correct: 2,
-        subject: "Estado-Maior — Cargos e Atribuições"
+        subject: "Estado-Maior — Cargos e Atribuições",
+        explanation: "Conforme a apostila de OGSA: \"Art. 6-1-1 O Chefe do Estado-Maior de Força coordena e controla as tarefas do Estado-Maior e, por seu intermédio ou com seu conhecimento, são normalmente transmitidas as ordens do Comandante da Força, cuja execução é de sua competência verificar.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 184,
@@ -3059,7 +3243,8 @@ const questionsData = [
           "E) Exercer fiscalização direta sobre as tarefas dos Oficiais do Estado-Maior, cujas funções coordenará e controlará, de forma a que possa assessorar o Comandante da Força a tomar suas decisões"
         ],
         correct: 2,
-        subject: "Estado-Maior — Cargos e Atribuições"
+        subject: "Estado-Maior — Cargos e Atribuições",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"c) Assistir o Almirante na sua representação funcional e social;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 185,
@@ -3072,7 +3257,8 @@ const questionsData = [
           "E) supervisionar o serviço dos Oficiais do Estado-Maior"
         ],
         correct: 1,
-        subject: "Estado-Maior — Cargos e Atribuições"
+        subject: "Estado-Maior — Cargos e Atribuições",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"a) Ter a seu cargo a Secretaria do Comando/Gabinete;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 186,
@@ -3085,7 +3271,8 @@ const questionsData = [
           "E) Ter conhecimento de história militar e naval"
         ],
         correct: 1,
-        subject: "Estado-Maior — Cargos e Atribuições"
+        subject: "Estado-Maior — Cargos e Atribuições",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"Art. 6-1-15 São qualidades desejáveis do Oficial de Estado-Maior:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 187,
@@ -3098,7 +3285,8 @@ const questionsData = [
           "E) O oficial mais antigo pertencente ao gabinete"
         ],
         correct: 4,
-        subject: "Estado-Maior — Cargos e Atribuições"
+        subject: "Estado-Maior — Cargos e Atribuições",
+        explanation: "Conforme a apostila de OGSA: \"Art. 6-2-4 Em seu impedimento, o Chefe de Gabinete será substituído pelo Oficial mais antigo pertencente ao Gabinete.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 188,
@@ -3111,7 +3299,8 @@ const questionsData = [
           "E) organizar a documentação histórica da OM"
         ],
         correct: 0,
-        subject: "Estado-Maior — Cargos e Atribuições"
+        subject: "Estado-Maior — Cargos e Atribuições",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"b) Assistir à recepção e à despedida de todos os Comandantes de Forças, navios e outras pessoas em visita ao Almirante ou Comandante de Força;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 189,
@@ -3124,7 +3313,8 @@ const questionsData = [
           "E) Assessorar o Almirante nas suas funções, auxiliando a transmissão de ordens, na execução de providências e nos entendimentos com as autoridades"
         ],
         correct: 4,
-        subject: "Estado-Maior — Cargos e Atribuições"
+        subject: "Estado-Maior — Cargos e Atribuições",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"a) Assessorar o Almirante nas suas funções, auxiliando a transmissão de ordens, na execução de providências e nos entendimentos com as autoridades;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 190,
@@ -3137,7 +3327,8 @@ const questionsData = [
           "E) Administrar o Rancho do Almirante ou Comandante de Força"
         ],
         correct: 3,
-        subject: "Estado-Maior — Cargos e Atribuições"
+        subject: "Estado-Maior — Cargos e Atribuições",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"e) Fazer o detalhe de serviço das Praças do Estado-Maior/Gabinete;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 191,
@@ -3150,7 +3341,8 @@ const questionsData = [
           "E) V V V F"
         ],
         correct: 3,
-        subject: "Estado-Maior — Cargos e Atribuições"
+        subject: "Estado-Maior — Cargos e Atribuições",
+        explanation: "Conforme a apostila de OGSA: \"Art. 6-3-3 O Imediato é quem recebe, oralmente, as ordens e instruções do Comandante sobre as diferentes tarefas, e as cumpre ou transmite para serem cumpridas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 192,
@@ -3163,7 +3355,8 @@ const questionsData = [
           "E) assessorar diretamente o comandante quando solicitado"
         ],
         correct: 4,
-        subject: "Estado-Maior — Cargos e Atribuições"
+        subject: "Estado-Maior — Cargos e Atribuições",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"g) assessorar diretamente o Comandante quando solicitado;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 193,
@@ -3176,7 +3369,8 @@ const questionsData = [
           "E) Comandante"
         ],
         correct: 2,
-        subject: "Estado-Maior — Cargos e Atribuições"
+        subject: "Estado-Maior — Cargos e Atribuições",
+        explanation: "Conforme a apostila de OGSA: \"Art. 6-3-6 Ao desarmar o navio, cumpre ao Imediato fiscalizar desembarque e entrega dos bens da Fazenda Nacional às OM que os devam receber.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 194,
@@ -3189,7 +3383,8 @@ const questionsData = [
           "E) esforçar-se para que seja observada economia de recursos nos diversos setores da OM"
         ],
         correct: 4,
-        subject: "Estado-Maior — Cargos e Atribuições"
+        subject: "Estado-Maior — Cargos e Atribuições",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"s) esforçar-se para que seja observada economia de recursos nos diversos setores da OM;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 195,
@@ -3202,7 +3397,8 @@ const questionsData = [
           "E) Comandante"
         ],
         correct: 3,
-        subject: "Estado-Maior — Cargos e Atribuições"
+        subject: "Estado-Maior — Cargos e Atribuições",
+        explanation: "Conforme a apostila de OGSA: \"Art. 6-4-9 Além das atribuições relacionadas na presente Seção, cabe, especificamente, ao Chefe do Departamento de Intendência a responsabilidade, a guarda e a administração dos bens públicos da OM, pelos quais responderá de acordo com a legislação em vigor.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 196,
@@ -3215,7 +3411,8 @@ const questionsData = [
           "E) Fazer os pedidos de material e de reparo necessários para a sua divisão"
         ],
         correct: 0,
-        subject: "Estado-Maior — Cargos e Atribuições"
+        subject: "Estado-Maior — Cargos e Atribuições",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"u) fiscalizar o licenciamento, de forma a que o mesmo se faça dentro das normas prescritas pelo Comandante;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 197,
@@ -3228,7 +3425,8 @@ const questionsData = [
           "E) FFVV"
         ],
         correct: 3,
-        subject: "Escalas de Serviço e Oficial de Quarto (OGSA)"
+        subject: "Escalas de Serviço e Oficial de Quarto (OGSA)",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"8. Quando o navio fundear, amarrar ou atracar por menos de 24 horas, o regime e o serviço de viagem poderão, a critério do Comandante, não ser interrompidos.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 198,
@@ -3241,7 +3439,8 @@ const questionsData = [
           "E) I, II, III, IV e V"
         ],
         correct: 3,
-        subject: "Escalas de Serviço e Oficial de Quarto (OGSA)"
+        subject: "Escalas de Serviço e Oficial de Quarto (OGSA)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-3-1 Em regime de viagem, o exercício de velar, durante um determinado período — denominado quarto — pela segurança do navio, pela manutenção da disciplina e pelo cumprimento da rotina de bordo é de responsabilidade do \"Oficial de Quarto\".\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 199,
@@ -3254,7 +3453,8 @@ const questionsData = [
           "E) Pela correção de uniformes do pessoal, especialmente dos licenciados"
         ],
         correct: 0,
-        subject: "Escalas de Serviço e Oficial de Quarto (OGSA)"
+        subject: "Escalas de Serviço e Oficial de Quarto (OGSA)",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"Art. 7-1-7 O Oficial de Serviço é o responsável pelo exato cumprimento da rotina de bordo, pela execução de todas as disposições prescritas na Organização Administrativa ou Regimento Interno, pelo asseio e aspecto marinheiro da OM e de suas embarcações, e pela correção dos uniformes do pessoal, especialmente dos licenciados.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 200,
@@ -3267,7 +3467,8 @@ const questionsData = [
           "E) Oficial de Serviço"
         ],
         correct: 4,
-        subject: "Escalas de Serviço e Oficial de Quarto (OGSA)"
+        subject: "Escalas de Serviço e Oficial de Quarto (OGSA)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-1-24 O Oficial de Serviço deverá certificar-se, pelos meios disponíveis, da condição de fechamento do material e do estado de estanqueidade do navio.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 201,
@@ -3280,7 +3481,8 @@ const questionsData = [
           "E) VFVV"
         ],
         correct: 0,
-        subject: "Escalas de Serviço e Oficial de Quarto (OGSA)"
+        subject: "Escalas de Serviço e Oficial de Quarto (OGSA)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-3-1 Em regime de viagem, o exercício de velar, durante um determinado período — denominado quarto — pela segurança do navio, pela manutenção da disciplina e pelo cumprimento da rotina de bordo é de responsabilidade do \"Oficial de Quarto\".\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 202,
@@ -3293,7 +3495,8 @@ const questionsData = [
           "E) Livro branco"
         ],
         correct: 1,
-        subject: "Escalas de Serviço e Oficial de Quarto (OGSA)"
+        subject: "Escalas de Serviço e Oficial de Quarto (OGSA)",
+        explanation: "Conforme a apostila de OGSA: \"No período entre o pôr e o nascer do sol conhecerá, igualmente, das disposições constantes do Livro de Ordens para a noite, do Comandante.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 203,
@@ -3306,7 +3509,8 @@ const questionsData = [
           "E) Sinais de honra às embarcações estrangeiras"
         ],
         correct: 4,
-        subject: "Escalas de Serviço e Oficial de Quarto (OGSA)"
+        subject: "Escalas de Serviço e Oficial de Quarto (OGSA)",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"Art. 7-3-7 O Oficial de Quarto não pode, sem ordem do Comandante, mandar fazer sinais, exceto:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 204,
@@ -3319,7 +3523,8 @@ const questionsData = [
           "E) Comandante do Navio ordenar – dos militares de serviço no passadiço – Comandante da Força"
         ],
         correct: 2,
-        subject: "Escalas de Serviço e Oficial de Quarto (OGSA)"
+        subject: "Escalas de Serviço e Oficial de Quarto (OGSA)",
+        explanation: "Conforme a apostila de OGSA: \"Parágrafo único — No Capitânia, porém, o Oficial de Quarto mandará fazer os sinais que o Comandante da Força ordenar, diretamente ou por intermédio de um dos Oficiais do seu Estado-Maior, fazendo logo ao Comandante do navio a devida participação, se necessária.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 205,
@@ -3332,7 +3537,8 @@ const questionsData = [
           "E) Oficial do Estado-Maior"
         ],
         correct: 3,
-        subject: "Escalas de Serviço e Oficial de Quarto (OGSA)"
+        subject: "Escalas de Serviço e Oficial de Quarto (OGSA)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-3-9 O Oficial de Quarto promoverá a fiel execução das manobras, movimentos e fainas ordenados pelo Comandante da Força.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 206,
@@ -3345,7 +3551,8 @@ const questionsData = [
           "E) Somente a III está correta"
         ],
         correct: 3,
-        subject: "Escalas de Serviço e Oficial de Quarto (OGSA)"
+        subject: "Escalas de Serviço e Oficial de Quarto (OGSA)",
+        explanation: "Conforme a apostila de OGSA: \"Art. 7-4-2 Quando executando Serviço de Estado, o Oficial de Serviço poderá deixar de observar as disposições relativas à atitude e local de serviço contidas nos itens 7-1-10 (Ao Oficial de Serviço é expressamente proibido sentar-se, bem como ocupar-se em leituras, conversas ou outros assuntos não ligados ao serviço) e 7-1-17 (Oficial de Serviço deve permanecer no posto determinado pela organização da OM), conforme detalhado no presente Capítulo e desde que assegurada a vigil...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 207,
@@ -3358,7 +3565,8 @@ const questionsData = [
           "E) Conduta Pessoal"
         ],
         correct: 2,
-        subject: "Atributos Morais e Profissionais"
+        subject: "Atributos Morais e Profissionais",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"Art. 9-1-4 Principais atributos morais — Os principais atributos morais que devem constar dos documentos mencionados neste Capítulo são: Lealdade, Coragem Moral, Critério, Probidade, Discrição, Tato, Presença de Ânimo, Cooperação, Conduta Militar e Conduta Pessoal.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 208,
@@ -3371,7 +3579,8 @@ const questionsData = [
           "E) Critério"
         ],
         correct: 0,
-        subject: "Atributos Morais e Profissionais"
+        subject: "Atributos Morais e Profissionais",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"Art. 9-1-4 Principais atributos morais — Os principais atributos morais que devem constar dos documentos mencionados neste Capítulo são: Lealdade, Coragem Moral, Critério, Probidade, Discrição, Tato, Presença de Ânimo, Cooperação, Conduta Militar e Conduta Pessoal.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 209,
@@ -3384,7 +3593,8 @@ const questionsData = [
           "E) Higidez"
         ],
         correct: 3,
-        subject: "Atributos Morais e Profissionais"
+        subject: "Atributos Morais e Profissionais",
+        explanation: "Conforme a apostila de OGSA: \"Art. 9-1-4 Principais atributos morais — Os principais atributos morais que devem constar dos documentos mencionados neste Capítulo são: Lealdade, Coragem Moral, Critério, Probidade, Discrição, Tato, Presença de Ânimo, Cooperação, Conduta Militar e Conduta Pessoal.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 210,
@@ -3397,7 +3607,8 @@ const questionsData = [
           "E) Iniciativa e inteligência"
         ],
         correct: 1,
-        subject: "Atributos Morais e Profissionais"
+        subject: "Atributos Morais e Profissionais",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"Art. 9-1-5 Principais atributos profissionais — Os principais atributos profissionais que devem constar dos documentos mencionados neste Capítulo são: Liderança, Iniciativa, Aptidão para o Serviço, Capacidade de Decisão, Inteligência, Capacidade Profissional, Capacidade Administrativa, Cultura Geral, Expressão Oral e Expressão Escrita.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 211,
@@ -3410,7 +3621,8 @@ const questionsData = [
           "E) Higidez Física"
         ],
         correct: 4,
-        subject: "Atributos Morais e Profissionais"
+        subject: "Atributos Morais e Profissionais",
+        explanation: "O trecho da apostila de OGSA relacionado a essa questão traz: \"Art. 9-2-1 Os usos, costumes e linguagem das tradições navais devem ser preservados e cultivados por todos na Marinha.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       }
     ];
 
@@ -3520,6 +3732,9 @@ const questionsData = [
       await applySwitchMenuLocks();
 
       await loadSavedState();
+      if (currentUser) {
+        AlfaGamification.reconcileRespostasDetalhadas(sb, currentUser.id, QUIZ_ID, questionsData, userAnswers).then(() => {});
+      }
       const savedIndex = parseInt(localStorage.getItem(STORAGE_KEY_CURRENT), 10);
       currentIndex = (!isNaN(savedIndex) && savedIndex >= 0 && savedIndex < questionsData.length) ? savedIndex : 0;
       renderQuestion();
@@ -3865,6 +4080,17 @@ const questionsData = [
 
         var apLinkWrap = document.getElementById('apostila-link-wrap');
         if (apLinkWrap) { apLinkWrap.innerHTML = AlfaGamification.apostilaLinkHtml(apostilaLinksMap, q.id); }
+
+        const expDetail = document.getElementById('explanation-detail');
+        const expDetailText = document.getElementById('explanation-detail-text');
+        if (expDetail && expDetailText) {
+          if (q.explanation) {
+            expDetail.classList.remove('hidden');
+            expDetailText.innerText = q.explanation;
+          } else {
+            expDetail.classList.add('hidden');
+          }
+        }
       } else {
         expBox.classList.add('hidden');
       }
@@ -3994,22 +4220,25 @@ const questionsData = [
 
     function selectOption(optIndex) {
       if (isDiscarded(currentIndex, optIndex)) return;
-      const jaTinhaResposta = userAnswers[currentIndex] !== undefined;
       userAnswers[currentIndex] = optIndex;
       saveState();
       renderQuestion();
       renderGrid();
 
-      // Salva o resultado dessa questão em tempo real, sem esperar finalizar o simulado
-      if (currentUser && !jaTinhaResposta) {
+      // Salva o resultado dessa questão em tempo real, sem esperar finalizar o simulado.
+      // upsert (não insert): o aluno pode voltar numa questão já respondida pra
+      // reconferir, e nesse caso só atualizamos o acerto/erro mais recente, sem
+      // duplicar linha nem depender de um estado local pra saber "já respondi essa
+      // antes" (é esse estado local que fazia a cobertura ficar presa abaixo do real).
+      if (currentUser) {
         const q = questionsData[currentIndex];
-        sb.from('respostas_detalhadas').insert({
+        sb.from('respostas_detalhadas').upsert({
           user_id: currentUser.id,
           quiz_id: QUIZ_ID,
           subject: q.subject,
           question_id: q.id,
           acertou: optIndex === q.correct
-        }).then(() => {});
+        }, { onConflict: 'user_id,quiz_id,question_id' }).then(() => {});
       }
       if (window.StudyRoom) StudyRoom.reportAnswer(currentIndex, optIndex);
     }

@@ -528,6 +528,7 @@
           <div class="flex items-center gap-2 text-sm font-bold mb-1" id="explanation-title"></div>
           <div class="text-xs md:text-sm text-slate-300" id="explanation-text"></div>
           <div id="apostila-link-wrap" class="mt-2"></div>
+          <div class="text-xs md:text-sm text-slate-300 mt-3 pt-3 border-t border-slate-700/60 hidden" id="explanation-detail"><span class="text-navy-400 font-semibold">Por que é essa alternativa: </span><span id="explanation-detail-text"></span></div>
         </div>
 
         <button id="flashcard-btn" onclick="saveAsFlashcard()" class="mt-4 w-full h-11 rounded-xl border border-navy-700 bg-navy-800/60 hover:bg-navy-700/60 hover:border-navy-500 text-slate-200 text-sm font-medium transition-all flex items-center justify-center gap-2">
@@ -680,7 +681,8 @@ const questionsData = [
           "E) Acatar as autoridades civis."
         ],
         correct: 2,
-        subject: "Do Valor e da Ética Militar"
+        subject: "Do Valor e da Ética Militar",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"V - o amor à profissão das armas e o entusiasmo com que é exercida; e\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 2,
@@ -693,7 +695,8 @@ const questionsData = [
           "E) Ética militar"
         ],
         correct: 3,
-        subject: "Dos Deveres Militares"
+        subject: "Dos Deveres Militares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 31 - Os deveres militares emanam de um conjunto de vínculos racionais e morais que ligam o militar à Pátria e ao seu serviço, e compreendem, essencialmente:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 3,
@@ -706,7 +709,8 @@ const questionsData = [
           "E) Valor militar"
         ],
         correct: 4,
-        subject: "Do Valor e da Ética Militar"
+        subject: "Do Valor e da Ética Militar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 28 - O sentimento do dever, o pundonor militar e o decoro da classe impõem, a cada um dos integrantes das Forças Armadas, conduta moral e profissional irrepreensíveis, com a observância dos seguintes preceitos da ética militar:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 4,
@@ -719,7 +723,8 @@ const questionsData = [
           "E) Apenas I e III estão corretas"
         ],
         correct: 3,
-        subject: "Do Valor e da Ética Militar"
+        subject: "Do Valor e da Ética Militar",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"§ 3º - No intuito de desenvolver a prática profissional, é permitido aos oficiais titulados dos Quadros ou Serviços de Saúde e de Veterinária o exercício de Atividade técnico-profissional no meio civil, desde que tal prática não prejudique o serviço e não infrinja o disposto neste artigo.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 5,
@@ -732,7 +737,8 @@ const questionsData = [
           "E) 2 - 1 - 3"
         ],
         correct: 2,
-        subject: "Do Comando e da Subordinação"
+        subject: "Do Comando e da Subordinação",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 34 - Comando é a soma de autoridade, deveres e responsabilidades de que o militar é investido legalmente quando conduz homens ou dirige uma organização militar. O comando é vinculado ao grau hierárquico e constitui uma prerrogativa impessoal, em cujo exercício o militar se define e se caracteriza como chefe.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 6,
@@ -745,7 +751,8 @@ const questionsData = [
           "E) N.D.A."
         ],
         correct: 0,
-        subject: "Dos Conselhos de Justificação e de Disciplina"
+        subject: "Dos Conselhos de Justificação e de Disciplina",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 2º - Compete ao Superior Tribunal Militar, em tempo de paz, ou a Tribunal Especial, em tempo de guerra, julgar, em instância única, os processos oriundos dos Conselhos de Justificação, nos casos previstos em lei específica.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 7,
@@ -758,7 +765,8 @@ const questionsData = [
           "E) Valor pessoal e militar."
         ],
         correct: 0,
-        subject: "Da Promoção"
+        subject: "Da Promoção",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 59 - O acesso da hierarquia militar, fundamentado principalmente no valor moral e profissional, é seletivo, gradual e sucessivo, e será feito mediante promoções, de conformidade com a legislação e regulamentação das promoções de oficiais e de praças, de modo a obter-se um fluxo regular e equilibrado de carreira para os militares.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 8,
@@ -771,7 +779,8 @@ const questionsData = [
           "E) Licença para tratamento de saúde própria"
         ],
         correct: 1,
-        subject: "Das Férias e Outros Afastamentos"
+        subject: "Das Férias e Outros Afastamentos",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 63 - Férias são afastamentos totais do serviço, anual e obrigatoriamente concedidos aos militares para descanso, a partir do último mês do ano a que se referem e durante todo o ano seguinte:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 9,
@@ -784,7 +793,8 @@ const questionsData = [
           "E) O poder executivo"
         ],
         correct: 4,
-        subject: "Das Férias e Outros Afastamentos"
+        subject: "Das Férias e Outros Afastamentos",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 1° - O Poder Executivo fixará a duração das férias, inclusive para os militares servindo em localidades especiais.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 10,
@@ -797,7 +807,8 @@ const questionsData = [
           "E) Ao Comimsup"
         ],
         correct: 2,
-        subject: "Das Férias e Outros Afastamentos"
+        subject: "Das Férias e Outros Afastamentos",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 2° - Compete aos Comandantes Militares regulamentar a concessão de férias.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 11,
@@ -810,7 +821,8 @@ const questionsData = [
           "E) Extrema Necessidade do Serviço"
         ],
         correct: 2,
-        subject: "Das Férias e Outros Afastamentos"
+        subject: "Das Férias e Outros Afastamentos",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"5. para cumprimento de punição decorrente de contravenção ou de transgressão disciplinar de natureza grave e\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 12,
@@ -823,7 +835,8 @@ const questionsData = [
           "E) Instalação até 10 dias"
         ],
         correct: 0,
-        subject: "Das Férias e Outros Afastamentos"
+        subject: "Das Férias e Outros Afastamentos",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"Art. 64 - Os militares têm direito ainda aos seguintes períodos de afastamento total do serviço, obedecidas as disposições legais e regulamentares, por motivo de:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 13,
@@ -836,7 +849,8 @@ const questionsData = [
           "E) Licença para candidatar-se a cargo político"
         ],
         correct: 4,
-        subject: "Das Licenças"
+        subject: "Das Licenças",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"Art. 67 - Licença é a autorização para afastamento total do serviço, em caráter temporário, concedida ao militar, obedecidas às disposições legais e regulamentares.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 14,
@@ -849,7 +863,8 @@ const questionsData = [
           "E) Comandante de Esquadrão"
         ],
         correct: 0,
-        subject: "Das Licenças"
+        subject: "Das Licenças",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 3° - A concessão da licença é regulada pelo Comandante da Força.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 15,
@@ -862,7 +877,8 @@ const questionsData = [
           "E) 24 meses"
         ],
         correct: 2,
-        subject: "Das Licenças"
+        subject: "Das Licenças",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 2° - O prazo limite para a licença será de 36 (trinta e seis) meses, podendo ser concedida de forma contínua ou fracionada.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 16,
@@ -875,7 +891,8 @@ const questionsData = [
           "E) Para cumprimento de punição disciplinar de natureza grave"
         ],
         correct: 4,
-        subject: "Das Licenças"
+        subject: "Das Licenças",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"5. para cumprimento de punição decorrente de contravenção ou de transgressão disciplinar de natureza grave e\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 17,
@@ -888,7 +905,8 @@ const questionsData = [
           "E) Contravenção disciplinar"
         ],
         correct: 4,
-        subject: "Definição de Contravenção Disciplinar"
+        subject: "Definição de Contravenção Disciplinar",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"Art. 6º - Contravenção Disciplinar é toda ação ou omissão contrária às obrigações ou aos deveres militares estatuídos nas leis, nos regulamentos, nas normas e nas disposições em vigor que fundamentam a Organização Militar, desde que não incidindo no que é capitulado pelo Código Penal Militar como crime.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 18,
@@ -901,7 +919,8 @@ const questionsData = [
           "E) Gravíssimas e leves"
         ],
         correct: 0,
-        subject: "Da Natureza das Contravenções e suas Circunstâncias"
+        subject: "Da Natureza das Contravenções e suas Circunstâncias",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Parágrafo único - São também consideradas contravenções disciplinares todas as omissões do dever militar não especificadas no presente artigo, desde que não qualificadas como crimes nas leis penais militares, cometidas contra preceitos de subordinação e regras de serviço estabelecidos nos diversos regulamentos militares e determinações das autoridades superiores competentes.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 19,
@@ -914,7 +933,8 @@ const questionsData = [
           "E) Ter o contraventor abusado da sua autoridade ou funcional."
         ],
         correct: 1,
-        subject: "Da Natureza das Contravenções e suas Circunstâncias"
+        subject: "Da Natureza das Contravenções e suas Circunstâncias",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"e) tratamento em serviço ordinário com rigor não autorizado pelos regulamentos militares; e\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 20,
@@ -927,7 +947,8 @@ const questionsData = [
           "E) Provocação"
         ],
         correct: 1,
-        subject: "Da Natureza das Contravenções e suas Circunstâncias"
+        subject: "Da Natureza das Contravenções e suas Circunstâncias",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"a) ignorância plenamente comprovada da ordem transgredida;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 21,
@@ -940,7 +961,8 @@ const questionsData = [
           "E) Prestação anterior de serviços relevantes já conhecidos."
         ],
         correct: 4,
-        subject: "Da Natureza das Contravenções e suas Circunstâncias"
+        subject: "Da Natureza das Contravenções e suas Circunstâncias",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"d) prestação anterior de serviços relevantes já reconhecidos;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 22,
@@ -953,7 +975,8 @@ const questionsData = [
           "E) Cabos"
         ],
         correct: 4,
-        subject: "Das Penas Disciplinares"
+        subject: "Das Penas Disciplinares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"b) para Oficiais da reserva que exerçam funções de atividade: 1. repreensão; 2. prisão simples, até 10 dias; 3. prisão rigorosa, até 10 dias; e 4. dispensa das funções de atividade.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 23,
@@ -966,7 +989,8 @@ const questionsData = [
           "E) Os presidentes e encarregados de OM"
         ],
         correct: 1,
-        subject: "Da Competência e Jurisdição para Imposição de Penas"
+        subject: "Da Competência e Jurisdição para Imposição de Penas",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"b) aos seus comandados ou aos que servem sob sua direção ou ordem: o chefe, vice-chefe e subchefes do EMA; o Comte, Chefe do Estado-Maior e o Subchefes do CON; o SGM; os Diretores Gerais; o CGCFN; os Comandantes dos DN e Comandos Navais; os Comtes das Forças Navais, Aeronavais e de FuzNav; os Presidentes e Encarregados de OM; os Diretores dos Órgãos do Setor de Apoio; o Comandante de Apoio do CFN; os Comandantes de Navios e Unidades de Tropa; os Diretores de estabelecimentos...\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 24,
@@ -979,7 +1003,8 @@ const questionsData = [
           "E) Pelo superior ou por sua delegação às praças de graduação inferior a Sargento formatura da tripulação, ou parte dela, a que pertencer o contraventor."
         ],
         correct: 3,
-        subject: "Do Cumprimento das Penas Disciplinares"
+        subject: "Do Cumprimento das Penas Disciplinares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 21 - A repreensão consistirá na declaração formal de que o contraventor é assim punido por haver cometido determinada contravenção, podendo ser aplicada em particular ou não.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 25,
@@ -992,7 +1017,8 @@ const questionsData = [
           "E) VVV"
         ],
         correct: 0,
-        subject: "Das Normas para Imposição de Penas"
+        subject: "Das Normas para Imposição de Penas",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"CAPÍTULO IV - DAS NORMAS PARA IMPOSIÇÃO\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 26,
@@ -1005,7 +1031,8 @@ const questionsData = [
           "E) O aprimoramento técnico-profissional."
         ],
         correct: 3,
-        subject: "Do Valor e da Ética Militar"
+        subject: "Do Valor e da Ética Militar",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"III - respeitar a dignidade da pessoa humana;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 27,
@@ -1018,7 +1045,8 @@ const questionsData = [
           "E) Garantir assistência moral e material ao seu lar e conduzir-se como chefe de família modelar."
         ],
         correct: 2,
-        subject: "Do Valor e da Ética Militar"
+        subject: "Do Valor e da Ética Militar",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"Art. 28 - O sentimento do dever, o pundonor militar e o decoro da classe impõem, a cada um dos integrantes das Forças Armadas, conduta moral e profissional irrepreensíveis, com a observância dos seguintes preceitos da ética militar:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 28,
@@ -1031,7 +1059,8 @@ const questionsData = [
           "E) O valor militar, quando não cumprido, configura crime ou contravenção."
         ],
         correct: 2,
-        subject: "Do Valor e da Ética Militar"
+        subject: "Do Valor e da Ética Militar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"SEÇÃO I - DO VALOR MILITAR\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 29,
@@ -1044,7 +1073,8 @@ const questionsData = [
           "E) Representante comercial autônomo."
         ],
         correct: 2,
-        subject: "Do Valor e da Ética Militar"
+        subject: "Do Valor e da Ética Militar",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"Art. 29 - Ao militar da ativa é vedado comerciar ou tomar parte na administração ou gerência de sociedade ou dela ser sócio ou participar, exceto como acionista ou quotista, em sociedade anônima ou por quotas de responsabilidade limitada.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 30,
@@ -1057,7 +1087,8 @@ const questionsData = [
           "E) Exercício de cargo ou função de natureza civil na administração pública."
         ],
         correct: 3,
-        subject: "Do Valor e da Ética Militar"
+        subject: "Do Valor e da Ética Militar",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"Art. 28 - O sentimento do dever, o pundonor militar e o decoro da classe impõem, a cada um dos integrantes das Forças Armadas, conduta moral e profissional irrepreensíveis, com a observância dos seguintes preceitos da ética militar:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 31,
@@ -1070,7 +1101,8 @@ const questionsData = [
           "E) 1 - 3 - 2"
         ],
         correct: 0,
-        subject: "Do Valor e da Ética Militar"
+        subject: "Do Valor e da Ética Militar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 27 - São manifestações essenciais do valor militar:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 32,
@@ -1083,7 +1115,8 @@ const questionsData = [
           "E) Só se aplica a oficiais generais e almirantes."
         ],
         correct: 1,
-        subject: "Do Valor e da Ética Militar"
+        subject: "Do Valor e da Ética Militar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 1º - A violação dos preceitos da ética militar será tão mais grave quanto mais elevado for o grau hierárquico de quem a cometer.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 33,
@@ -1096,7 +1129,8 @@ const questionsData = [
           "E) A obrigação de tratar o subordinado dignamente e com urbanidade."
         ],
         correct: 3,
-        subject: "Dos Deveres Militares"
+        subject: "Dos Deveres Militares",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"Art. 31 - Os deveres militares emanam de um conjunto de vínculos racionais e morais que ligam o militar à Pátria e ao seu serviço, e compreendem, essencialmente:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 34,
@@ -1109,7 +1143,8 @@ const questionsData = [
           "E) O aprimoramento técnico-profissional."
         ],
         correct: 0,
-        subject: "Dos Deveres Militares"
+        subject: "Dos Deveres Militares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"V - o rigoroso cumprimento das obrigações e das ordens; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 35,
@@ -1122,7 +1157,8 @@ const questionsData = [
           "E) F - F - V"
         ],
         correct: 0,
-        subject: "Dos Deveres Militares"
+        subject: "Dos Deveres Militares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"CAPÍTULO II - DOS DEVERES MILITARES\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 36,
@@ -1135,7 +1171,8 @@ const questionsData = [
           "E) Apenas enquanto estiver na ativa."
         ],
         correct: 1,
-        subject: "Dos Deveres Militares"
+        subject: "Dos Deveres Militares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"I - a dedicação e a fidelidade à Pátria, cuja honra, integridade e instituições devem ser defendidas mesmo com o sacrifício da própria vida;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 37,
@@ -1148,7 +1185,8 @@ const questionsData = [
           "E) O não cumprimento de ambos configura sempre crime militar."
         ],
         correct: 0,
-        subject: "Dos Deveres Militares"
+        subject: "Dos Deveres Militares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"CAPÍTULO II - DOS DEVERES MILITARES\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 38,
@@ -1161,7 +1199,8 @@ const questionsData = [
           "E) Assumirá compromisso exclusivamente perante seu comandante imediato."
         ],
         correct: 1,
-        subject: "Do Compromisso Militar"
+        subject: "Do Compromisso Militar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 32 - Todo cidadão, após ingressar em uma das Forças Armadas mediante incorporação, matrícula ou nomeação, prestará compromisso de honra, no qual afirmará a sua aceitação consciente das obrigações e dos deveres militares e manifestará a sua firme disposição de bem cumpri-los.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 39,
@@ -1174,7 +1213,8 @@ const questionsData = [
           "E) Ata de incorporação lavrada em cartório."
         ],
         correct: 1,
-        subject: "Do Compromisso Militar"
+        subject: "Do Compromisso Militar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 33 - O compromisso do incorporado, do matriculado e do nomeado, a que se refere o artigo anterior, terá caráter solene e será sempre prestado sob a forma de juramento à Bandeira na presença de tropa ou guarnição formada, conforme os dizeres estabelecidos nos regulamentos específicos das Forças Armadas, e tão logo o militar tenha adquirido um grau de instrução compatível com o perfeito entendimento de seus deveres como integrante das Forças Armadas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 40,
@@ -1187,7 +1227,8 @@ const questionsData = [
           "E) No ato da matrícula, antes de qualquer instrução."
         ],
         correct: 2,
-        subject: "Do Compromisso Militar"
+        subject: "Do Compromisso Militar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 33 - O compromisso do incorporado, do matriculado e do nomeado, a que se refere o artigo anterior, terá caráter solene e será sempre prestado sob a forma de juramento à Bandeira na presença de tropa ou guarnição formada, conforme os dizeres estabelecidos nos regulamentos específicos das Forças Armadas, e tão logo o militar tenha adquirido um grau de instrução compatível com o perfeito entendimento de seus deveres como integrante das Forças Armadas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 41,
@@ -1200,7 +1241,8 @@ const questionsData = [
           "E) Na sede do Ministério da Defesa."
         ],
         correct: 1,
-        subject: "Do Compromisso Militar"
+        subject: "Do Compromisso Militar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 1º - O compromisso de Guarda-Marinha ou Aspirante-a-Oficial é prestado nos estabelecimentos de formação, obedecendo ao cerimonial ao fixado nos respectivos regulamentos.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 42,
@@ -1213,7 +1255,8 @@ const questionsData = [
           "E) Só se aplica a oficiais-generais."
         ],
         correct: 1,
-        subject: "Do Compromisso Militar"
+        subject: "Do Compromisso Militar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 2° - O compromisso como oficial, quando houver, será regulado em cada Força Armada.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 43,
@@ -1226,7 +1269,8 @@ const questionsData = [
           "E) É atribuído exclusivamente por ato do Presidente da República."
         ],
         correct: 0,
-        subject: "Do Comando e da Subordinação"
+        subject: "Do Comando e da Subordinação",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 34 - Comando é a soma de autoridade, deveres e responsabilidades de que o militar é investido legalmente quando conduz homens ou dirige uma organização militar. O comando é vinculado ao grau hierárquico e constitui uma prerrogativa impessoal, em cujo exercício o militar se define e se caracteriza como chefe.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 44,
@@ -1239,7 +1283,8 @@ const questionsData = [
           "E) Depende de regulamentação específica de cada organização militar."
         ],
         correct: 1,
-        subject: "Do Comando e da Subordinação"
+        subject: "Do Comando e da Subordinação",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 35 - A subordinação não afeta, de modo algum, a dignidade pessoal do militar e decorre, exclusivamente, da estrutura hierarquizada das Forças Armadas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 45,
@@ -1252,7 +1297,8 @@ const questionsData = [
           "E) Instrução, exclusivamente."
         ],
         correct: 0,
-        subject: "Do Comando e da Subordinação"
+        subject: "Do Comando e da Subordinação",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 36 - O oficial é preparado, ao longo da carreira, para o exercício de funções de comando, de chefia e de direção.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 46,
@@ -1265,7 +1311,8 @@ const questionsData = [
           "E) Nomeação específica em Ordem de Serviço."
         ],
         correct: 1,
-        subject: "Do Comando e da Subordinação"
+        subject: "Do Comando e da Subordinação",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 37 - Os graduados auxiliam e complementam as atividades dos oficiais, quer no adestramento e no emprego de meios, quer na instrução e na administração.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 47,
@@ -1278,7 +1325,8 @@ const questionsData = [
           "E) Os oficiais subalternos."
         ],
         correct: 0,
-        subject: "Do Comando e da Subordinação"
+        subject: "Do Comando e da Subordinação",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 38 - Os Cabos, Taifeiros-Mores, Soldados-de-Primeira-Classe, Taifeiros-de-Primeira-Classe, Marinheiros, Soldados, Soldados-de-Segunda-Classe e Taifeiros-de-Segunda-Classe são, essencialmente, elementos de execução.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 48,
@@ -1291,7 +1339,8 @@ const questionsData = [
           "E) Exclusivamente perante seu comandante imediato, nunca perante a Justiça Militar."
         ],
         correct: 2,
-        subject: "Do Comando e da Subordinação"
+        subject: "Do Comando e da Subordinação",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 41 - Cabe ao militar a responsabilidade integral pelas decisões que tomar, pelas ordens que emitir e pelos atos que praticar.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 49,
@@ -1304,7 +1353,8 @@ const questionsData = [
           "E) Ato ilícito civil, apenas."
         ],
         correct: 1,
-        subject: "Da Violação das Obrigações e dos Deveres Militares"
+        subject: "Da Violação das Obrigações e dos Deveres Militares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 42 - A violação das obrigações ou dos deveres militares constituirá crime, contravenção ou transgressão disciplinar, conforme dispuser a legislação ou regulamentação específicas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 50,
@@ -1317,7 +1367,8 @@ const questionsData = [
           "E) Prevalecerá a pena de maior gravidade entre as duas, somando-se os prazos."
         ],
         correct: 0,
-        subject: "Da Violação das Obrigações e dos Deveres Militares"
+        subject: "Da Violação das Obrigações e dos Deveres Militares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 2° - No concurso de crime militar e de contravenção ou transgressão disciplinar, quando forem da mesma natureza, será aplicada somente a pena relativa ao crime.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 51,
@@ -1330,7 +1381,8 @@ const questionsData = [
           "E) Nenhuma, se não houver dolo comprovado."
         ],
         correct: 2,
-        subject: "Da Violação das Obrigações e dos Deveres Militares"
+        subject: "Da Violação das Obrigações e dos Deveres Militares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 43 - A inobservância dos deveres especificados nas leis e regulamentos, ou a falta de exação no cumprimento dos mesmos, acarreta para o militar responsabilidade funcional, pecuniária, disciplinar ou penal, consoante a legislação específica.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 52,
@@ -1343,7 +1395,8 @@ const questionsData = [
           "E) Excluído do serviço ativo, independentemente de apuração."
         ],
         correct: 1,
-        subject: "Da Violação das Obrigações e dos Deveres Militares"
+        subject: "Da Violação das Obrigações e dos Deveres Militares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 44 - O militar que, por sua atuação, se tornar incompatível com o cargo, ou demonstrar incapacidade no exercício de funções militares a ele inerentes, será afastado do cargo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 53,
@@ -1356,7 +1409,8 @@ const questionsData = [
           "E) Qualquer oficial superior hierárquico direto, independentemente de regulamentação específica."
         ],
         correct: 4,
-        subject: "Da Violação das Obrigações e dos Deveres Militares"
+        subject: "Da Violação das Obrigações e dos Deveres Militares",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"Art. 44 - O militar que, por sua atuação, se tornar incompatível com o cargo, ou demonstrar incapacidade no exercício de funções militares a ele inerentes, será afastado do cargo.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 54,
@@ -1369,7 +1423,8 @@ const questionsData = [
           "E) Apenas quando dirigidas à imprensa."
         ],
         correct: 2,
-        subject: "Da Violação das Obrigações e dos Deveres Militares"
+        subject: "Da Violação das Obrigações e dos Deveres Militares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 45 - São proibidas quaisquer manifestações coletivas, tanto sobre atos de superiores quanto as de caráter reivindicatório ou político.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 55,
@@ -1382,7 +1437,8 @@ const questionsData = [
           "E) O Código de Processo Penal Militar."
         ],
         correct: 1,
-        subject: "Dos Crimes Militares e das Contravenções/Transgressões Disciplinares"
+        subject: "Dos Crimes Militares e das Contravenções/Transgressões Disciplinares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 46 - O Código Penal Militar relaciona e classifica os crimes militares, em tempo de paz e em tempo de guerra, e dispõe sobre a aplicação aos militares das penas correspondentes aos crimes por eles cometidos.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 56,
@@ -1395,7 +1451,8 @@ const questionsData = [
           "E) Classificar os crimes militares em tempo de paz e de guerra."
         ],
         correct: 4,
-        subject: "Dos Crimes Militares e das Contravenções/Transgressões Disciplinares"
+        subject: "Dos Crimes Militares e das Contravenções/Transgressões Disciplinares",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"Art. 47 - Os regulamentos disciplinares das Forças Armadas especificarão e classificarão as contravenções ou transgressões disciplinares e estabelecerão as normas relativas à amplitude e aplicação das penas disciplinares, à classificação do comportamento militar e à interposição de recursos contra as penas disciplinares.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 57,
@@ -1408,7 +1465,8 @@ const questionsData = [
           "E) 60 (sessenta) dias."
         ],
         correct: 2,
-        subject: "Dos Crimes Militares e das Contravenções/Transgressões Disciplinares"
+        subject: "Dos Crimes Militares e das Contravenções/Transgressões Disciplinares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 1º - As penas disciplinares de impedimento, detenção ou prisão não podem ultrapassar 30 (trinta) dias.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 58,
@@ -1421,7 +1479,8 @@ const questionsData = [
           "E) Junta médica, apenas."
         ],
         correct: 1,
-        subject: "Dos Crimes Militares e das Contravenções/Transgressões Disciplinares"
+        subject: "Dos Crimes Militares e das Contravenções/Transgressões Disciplinares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 48 - O oficial presumivelmente incapaz de permanecer como militar da ativa será, na forma da legislação específica, submetido a Conselho de Justificação.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 59,
@@ -1434,7 +1493,8 @@ const questionsData = [
           "E) Em nenhuma norma adicional, aplicando-se apenas o Estatuto."
         ],
         correct: 1,
-        subject: "Dos Crimes Militares e das Contravenções/Transgressões Disciplinares"
+        subject: "Dos Crimes Militares e das Contravenções/Transgressões Disciplinares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 2º - À praça especial aplicam-se, também, as disposições disciplinares previstas no regulamento do estabelecimento de ensino onde estiver matriculada.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 60,
@@ -1447,7 +1507,8 @@ const questionsData = [
           "E) Apenas se houver flagrante delito."
         ],
         correct: 1,
-        subject: "Dos Conselhos de Justificação e de Disciplina"
+        subject: "Dos Conselhos de Justificação e de Disciplina",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 1º - O oficial, ao ser submetido a Conselho de Justificação, poderá ser afastado do exercício de suas funções, a critério do respectivo Ministro, conforme estabelecido em legislação específica.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 61,
@@ -1460,7 +1521,8 @@ const questionsData = [
           "E) Somente militares em situação de agregação."
         ],
         correct: 1,
-        subject: "Dos Conselhos de Justificação e de Disciplina"
+        subject: "Dos Conselhos de Justificação e de Disciplina",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 3º - O Conselho de Justificação poderá, também, ser submetido o oficial da reserva remunerada ou reformado, presumivelmente incapaz de permanecer na situação de inatividade em que se encontra.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 62,
@@ -1473,7 +1535,8 @@ const questionsData = [
           "E) Os oficiais superiores, apenas."
         ],
         correct: 1,
-        subject: "Dos Conselhos de Justificação e de Disciplina"
+        subject: "Dos Conselhos de Justificação e de Disciplina",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 49 - O Guarda-Marinha, o Aspirante-a-Oficial e as praças com estabilidade assegurada, presumivelmente incapazes de permanecerem como militares da ativa, serão submetidos a Conselho de Disciplina e afastados das atividades que estiverem exercendo, na forma da regulamentação específica.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 63,
@@ -1486,7 +1549,8 @@ const questionsData = [
           "E) De inquéritos policiais militares, exclusivamente."
         ],
         correct: 2,
-        subject: "Dos Conselhos de Justificação e de Disciplina"
+        subject: "Dos Conselhos de Justificação e de Disciplina",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 2º - Compete ao Superior Tribunal Militar, em tempo de paz, ou a Tribunal Especial, em tempo de guerra, julgar, em instância única, os processos oriundos dos Conselhos de Justificação, nos casos previstos em lei específica.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 64,
@@ -1499,7 +1563,8 @@ const questionsData = [
           "E) Normas estabelecidas caso a caso pelo Ministro da Defesa."
         ],
         correct: 1,
-        subject: "Dos Conselhos de Justificação e de Disciplina"
+        subject: "Dos Conselhos de Justificação e de Disciplina",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 1º - O Conselho de Disciplina obedecerá a normas comuns às três Forças Armadas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 65,
@@ -1512,7 +1577,8 @@ const questionsData = [
           "E) A imunidade penal por atos praticados fora do serviço."
         ],
         correct: 4,
-        subject: "Dos Direitos dos Militares"
+        subject: "Dos Direitos dos Militares",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"Art. 50 - São direitos dos militares:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 66,
@@ -1525,7 +1591,8 @@ const questionsData = [
           "E) Qualquer tempo de serviço, desde que aprovada em concurso de acesso."
         ],
         correct: 1,
-        subject: "Dos Direitos dos Militares"
+        subject: "Dos Direitos dos Militares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"a) a estabilidade, somente se praça de carreira com 10 (dez) anos ou mais de tempo de efetivo serviço;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 67,
@@ -1538,7 +1605,8 @@ const questionsData = [
           "E) Subtenente."
         ],
         correct: 2,
-        subject: "Dos Direitos dos Militares"
+        subject: "Dos Direitos dos Militares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"h) o fardamento, constituindo-se no conjunto de uniformes, roupa branca e roupa de cama, fornecido ao militar na ativa de graduação inferior a Terceiro-Sargento e, em casos especiais, a outros militares;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 68,
@@ -1551,7 +1619,8 @@ const questionsData = [
           "E) Publicar sua discordância na imprensa, desde que de forma respeitosa."
         ],
         correct: 1,
-        subject: "Dos Direitos dos Militares"
+        subject: "Dos Direitos dos Militares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 51 - O militar que se julgar prejudicado ou ofendido por qualquer ato administrativo ou disciplinar de superior hierárquico poderá recorrer ou interpor pedido de reconsideração, queixa ou representação, segundo regulamentação específica de cada Força Armada.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 69,
@@ -1564,7 +1633,8 @@ const questionsData = [
           "E) Qualquer ato administrativo, sem distinção."
         ],
         correct: 1,
-        subject: "Dos Direitos dos Militares"
+        subject: "Dos Direitos dos Militares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"a) em 15 (quinze) dias corridos, a contar do recebimento da comunicação oficial, quando o ato que decorra de inclusão em quota compulsória ou de composição de Quadro de Acesso; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 70,
@@ -1577,7 +1647,8 @@ const questionsData = [
           "E) 120 (cento e vinte) dias."
         ],
         correct: 1,
-        subject: "Dos Direitos dos Militares"
+        subject: "Dos Direitos dos Militares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 1º - O direito de recorrer na esfera administrativa prescreverá:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 71,
@@ -1590,7 +1661,8 @@ const questionsData = [
           "E) Apenas praças especiais em formação."
         ],
         correct: 0,
-        subject: "Dos Direitos dos Militares"
+        subject: "Dos Direitos dos Militares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 52 - Os militares são alistáveis, como eleitores, desde que oficiais, guardas-marinha ou aspirantes-a-oficial, subofíciais ou subtenentes, sargentos ou alunos das escolas militares de nível superior para formação de oficiais.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 72,
@@ -1603,7 +1675,8 @@ const questionsData = [
           "E) Impedido de se candidatar, por vedação legal."
         ],
         correct: 1,
-        subject: "Dos Direitos dos Militares"
+        subject: "Dos Direitos dos Militares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"a) se contar menos de 5 (cinco) anos de serviço, será, ao se candidatar a cargo eletivo, excluído do serviço ativo mediante demissão ou licenciamento ex officio; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 73,
@@ -1616,7 +1689,8 @@ const questionsData = [
           "E) Pensão militar e adicionais de tempo de serviço."
         ],
         correct: 0,
-        subject: "Da Remuneração"
+        subject: "Da Remuneração",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"a) soldo, gratificações e indenizações regulares.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 74,
@@ -1629,7 +1703,8 @@ const questionsData = [
           "E) Ajuda de custo mensal."
         ],
         correct: 0,
-        subject: "Da Remuneração"
+        subject: "Da Remuneração",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"a) proventos, constituídos de soldos ou quotas de soldo e gratificações incorporáveis;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 75,
@@ -1642,7 +1717,8 @@ const questionsData = [
           "E) Exceto quando decretado estado de sítio."
         ],
         correct: 1,
-        subject: "Da Remuneração"
+        subject: "Da Remuneração",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 54 - O soldo é irredutível e não está sujeito a penhora, sequestro ou arresto, exceto nos casos previstos em lei.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 76,
@@ -1655,7 +1731,8 @@ const questionsData = [
           "E) Somente enquanto o militar permanecer no mesmo cargo."
         ],
         correct: 1,
-        subject: "Da Remuneração"
+        subject: "Da Remuneração",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 55 - O valor do soldo é igual para o militar da ativa, da reserva remunerada ou reformado, de um mesmo grau hierárquico, ressalvado o disposto no item II do caput do art. 50.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 77,
@@ -1668,7 +1745,8 @@ const questionsData = [
           "E) For publicada nova Lei de Promoções."
         ],
         correct: 1,
-        subject: "Da Remuneração"
+        subject: "Da Remuneração",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 58 - Os proventos de inatividade serão revistos sempre que, por motivo de alteração do poder aquisitivo da moeda, se modificarem os vencimentos dos militares em serviço ativo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 78,
@@ -1681,7 +1759,8 @@ const questionsData = [
           "E) Determinado exclusivamente por concurso público externo."
         ],
         correct: 1,
-        subject: "Da Promoção"
+        subject: "Da Promoção",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 59 - O acesso da hierarquia militar, fundamentado principalmente no valor moral e profissional, é seletivo, gradual e sucessivo, e será feito mediante promoções, de conformidade com a legislação e regulamentação das promoções de oficiais e de praças, de modo a obter-se um fluxo regular e equilibrado de carreira para os militares.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 79,
@@ -1694,7 +1773,8 @@ const questionsData = [
           "E) Sorteio entre os candidatos habilitados."
         ],
         correct: 4,
-        subject: "Da Promoção"
+        subject: "Da Promoção",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"Art. 60 - As promoções serão efetuadas pelos critérios de antiguidade, merecimento ou escolha, ou, ainda, por bravura e post mortem.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 80,
@@ -1707,7 +1787,8 @@ const questionsData = [
           "E) Somente em tempo de guerra."
         ],
         correct: 0,
-        subject: "Da Promoção"
+        subject: "Da Promoção",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 1º - Em casos extraordinários e independentes de vagas, poderá haver promoção em ressarcimento de preterição.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 81,
@@ -1720,7 +1801,8 @@ const questionsData = [
           "E) Decisão do Ministro da Defesa, sem critério técnico."
         ],
         correct: 1,
-        subject: "Da Promoção"
+        subject: "Da Promoção",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 2° - A promoção de militar feita em ressarcimento de preterição será efetuada segundo os critérios de antiguidade ou merecimento, recebendo ele o número que lhe competir na escala hierárquica, como se houvesse sido promovido, na época devida, pelo critério em que hora é feita sua promoção.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 82,
@@ -1733,7 +1815,8 @@ const questionsData = [
           "E) Da Casa Civil da Presidência da República."
         ],
         correct: 1,
-        subject: "Da Promoção"
+        subject: "Da Promoção",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Parágrafo único - O planejamento da carreira dos oficiais e das praças é atribuição de cada um dos Ministérios das Forças Singulares.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 83,
@@ -1746,7 +1829,8 @@ const questionsData = [
           "E) Situação de agregação temporária."
         ],
         correct: 1,
-        subject: "Da Promoção"
+        subject: "Da Promoção",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 62 - Não haverá promoção de militar por ocasião de sua transferência para a reserva remunerada ou reforma.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 84,
@@ -1759,7 +1843,8 @@ const questionsData = [
           "E) A pedido do militar, sem necessidade de justificativa."
         ],
         correct: 4,
-        subject: "Das Férias e Outros Afastamentos"
+        subject: "Das Férias e Outros Afastamentos",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"§ 4° - Somente nos seguintes casos os militares terão interrompido ou deixarão de gozar na época prevista o período de férias a que tiverem direito, registrando-se o fato em seus assentamentos:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 85,
@@ -1772,7 +1857,8 @@ const questionsData = [
           "E) Apenas com remuneração parcial (50%)."
         ],
         correct: 1,
-        subject: "Das Férias e Outros Afastamentos"
+        subject: "Das Férias e Outros Afastamentos",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 65 - As férias e os afastamentos mencionados no artigo anterior são concedidos com a remuneração prevista na legislação específica e computados como tempo de efetivo serviço para todos os efeitos legais.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 86,
@@ -1785,7 +1871,8 @@ const questionsData = [
           "E) Definida exclusivamente pelo Ministério das Relações Exteriores."
         ],
         correct: 1,
-        subject: "Das Férias e Outros Afastamentos"
+        subject: "Das Férias e Outros Afastamentos",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 66 - As férias, instalação e trânsito dos militares que se encontram a serviço no estrangeiro devem ter regulamentação idêntica para as três Forças Armadas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 87,
@@ -1798,7 +1885,8 @@ const questionsData = [
           "E) Definir a duração das férias somente para oficiais-generais."
         ],
         correct: 1,
-        subject: "Das Férias e Outros Afastamentos"
+        subject: "Das Férias e Outros Afastamentos",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 1° - O Poder Executivo fixará a duração das férias, inclusive para os militares servindo em localidades especiais.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 88,
@@ -1811,7 +1899,8 @@ const questionsData = [
           "E) 25 (vinte e cinco) anos de efetivo serviço."
         ],
         correct: 1,
-        subject: "Das Licenças"
+        subject: "Das Licenças",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 69 - Licença para tratar de interesse particular é a autorização para o afastamento total do serviço, concedida ao militar, com mais de 10 (dez) anos de efetivo serviço, que a requeira com aquela finalidade.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 89,
@@ -1824,7 +1913,8 @@ const questionsData = [
           "E) Mediante desconto de 50% da remuneração, mantendo a contagem de tempo."
         ],
         correct: 1,
-        subject: "Das Licenças"
+        subject: "Das Licenças",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 1° - A licença será concedida sempre com prejuízo da remuneração e da contagem de tempo de efetivo serviço, exceto, quanto a este último, para fins de indicação para a quota compulsória.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 90,
@@ -1837,7 +1927,8 @@ const questionsData = [
           "E) Prazo indeterminado, enquanto durar a designação do cônjuge."
         ],
         correct: 2,
-        subject: "Das Licenças"
+        subject: "Das Licenças",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 2° - O prazo limite para a licença será de 36 (trinta e seis) meses, podendo ser concedida de forma contínua ou fracionada.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 91,
@@ -1850,7 +1941,8 @@ const questionsData = [
           "E) A pedido de qualquer familiar do militar licenciado, sem outra formalidade."
         ],
         correct: 4,
-        subject: "Das Licenças"
+        subject: "Das Licenças",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"Art. 70 - As licenças poderão ser interrompidas a pedido ou nas condições estabelecidas neste artigo.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 92,
@@ -1863,7 +1955,8 @@ const questionsData = [
           "E) Financiar o fardamento dos dependentes do militar."
         ],
         correct: 1,
-        subject: "Da Pensão Militar"
+        subject: "Da Pensão Militar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 71 - A pensão militar destina-se a amparar os beneficiários do militar falecido ou extraviado e será paga conforme o disposto em legislação específica.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 93,
@@ -1876,7 +1969,8 @@ const questionsData = [
           "E) Apenas os militares casados são contribuintes obrigatórios."
         ],
         correct: 1,
-        subject: "Da Pensão Militar"
+        subject: "Da Pensão Militar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 2° - Todos os militares são contribuintes obrigatórios da pensão militar correspondente ao seu posto ou graduação, com as exceções previstas em legislação específica.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 94,
@@ -1889,7 +1983,8 @@ const questionsData = [
           "E) É válida apenas para dependentes menores de idade."
         ],
         correct: 1,
-        subject: "Da Pensão Militar"
+        subject: "Da Pensão Militar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 3° - Todo militar é obrigado a fazer sua declaração de beneficiários que, salvo prova em contrário, prevalecerá para a habilitação dos mesmos à pensão militar.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 95,
@@ -1902,7 +1997,8 @@ const questionsData = [
           "E) Por ato do Ministro da Defesa, caso a caso."
         ],
         correct: 1,
-        subject: "Da Pensão Militar"
+        subject: "Da Pensão Militar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 72 - A pensão militar defere-se nas prioridades e condições estabelecidas em legislação específica.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 96,
@@ -1915,7 +2011,8 @@ const questionsData = [
           "E) Pelo direito à promoção por antiguidade, exclusivamente."
         ],
         correct: 0,
-        subject: "Das Prerrogativas dos Militares"
+        subject: "Das Prerrogativas dos Militares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 73 - As prerrogativas dos militares são constituídas pelas honras, dignidades e distinções devidas aos graus hierárquicos e cargos.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 97,
@@ -1928,7 +2025,8 @@ const questionsData = [
           "E) Isenção total de responsabilidade disciplinar durante férias."
         ],
         correct: 4,
-        subject: "Das Prerrogativas dos Militares"
+        subject: "Das Prerrogativas dos Militares",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"a) uso de títulos, uniformes, distintivos, insígnias e emblemas militares das Forças Armadas, correspondentes ao posto ou graduação, Corpo, Quadro, Arma, Serviço ou Cargo;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 98,
@@ -1941,7 +2039,8 @@ const questionsData = [
           "E) Aguardar ordem do Ministério Público para qualquer providência."
         ],
         correct: 1,
-        subject: "Das Prerrogativas dos Militares"
+        subject: "Das Prerrogativas dos Militares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 74 - Somente em caso de flagrante delito o militar poderá ser preso por autoridade policial, ficando esta obrigada a entregá-lo imediatamente à autoridade militar mais próxima, só podendo retê-lo na delegacia ou posto policial durante o tempo necessário à lavratura do flagrante.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 99,
@@ -1954,7 +2053,8 @@ const questionsData = [
           "E) Pelo tempo que a autoridade policial julgar conveniente."
         ],
         correct: 1,
-        subject: "Das Prerrogativas dos Militares"
+        subject: "Das Prerrogativas dos Militares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 74 - Somente em caso de flagrante delito o militar poderá ser preso por autoridade policial, ficando esta obrigada a entregá-lo imediatamente à autoridade militar mais próxima, só podendo retê-lo na delegacia ou posto policial durante o tempo necessário à lavratura do flagrante.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 100,
@@ -1967,7 +2067,8 @@ const questionsData = [
           "E) Apenas em tempo de guerra."
         ],
         correct: 1,
-        subject: "Das Prerrogativas dos Militares"
+        subject: "Das Prerrogativas dos Militares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 75 - Os militares da ativa, no exercício de funções militares, são dispensados do serviço na instituição do Júri e do serviço na Justiça Eleitoral.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 101,
@@ -1980,7 +2081,8 @@ const questionsData = [
           "E) Não registrar o flagrante em livro próprio da delegacia."
         ],
         correct: 0,
-        subject: "Das Prerrogativas dos Militares"
+        subject: "Das Prerrogativas dos Militares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 1° - Cabe à autoridade militar competente a iniciativa de responsabilizar a autoridade policial pelo não cumprimento do disposto neste artigo e ainda que maltratar ou consentir que seja maltratado qualquer preso militar ou não lhe der tratamento devido ao seu posto ou graduação.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 102,
@@ -1993,7 +2095,8 @@ const questionsData = [
           "E) A titulação acadêmica do militar."
         ],
         correct: 1,
-        subject: "Do Uso dos Uniformes"
+        subject: "Do Uso dos Uniformes",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 76 - Os uniformes das Forças Armadas, com seus distintivos, insígnias e emblemas, são privativos dos militares e simbolizam a autoridade militar, com as prerrogativas que lhe são inerentes.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 103,
@@ -2006,7 +2109,8 @@ const questionsData = [
           "E) Em campanha eleitoral de terceiros, mesmo que não fardado ostensivamente."
         ],
         correct: 2,
-        subject: "Do Uso dos Uniformes"
+        subject: "Do Uso dos Uniformes",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"c) na inatividade, salvo para comparecer a solenidades militares, a cerimônias cívicas comemorativas de datas nacionais ou a atos sociais solenes de caráter particular, desde que autorizado.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 104,
@@ -2019,7 +2123,8 @@ const questionsData = [
           "E) Apenas o uso incorreto de insígnias por militar da ativa, sem outra hipótese."
         ],
         correct: 0,
-        subject: "Do Uso dos Uniformes"
+        subject: "Do Uso dos Uniformes",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Parágrafo único - Constituem crimes previstos na legislação específica o desrespeito aos uniformes, distintivos, insígnias e emblemas militares, bem como seu uso por quem a eles não tiver direito.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 105,
@@ -2032,7 +2137,8 @@ const questionsData = [
           "E) Usar somente insígnias, sem o uniforme completo."
         ],
         correct: 0,
-        subject: "Do Uso dos Uniformes"
+        subject: "Do Uso dos Uniformes",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 2° - O oficial na inatividade, quando no cargo de Ministro de Estado da Marinha, do Exército ou da Aeronáutica, poderá usar os mesmos uniformes dos militares na ativa.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 106,
@@ -2045,7 +2151,8 @@ const questionsData = [
           "E) Do Presidente da República, apenas."
         ],
         correct: 1,
-        subject: "Do Uso dos Uniformes"
+        subject: "Do Uso dos Uniformes",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 3° - Os militares na inatividade cuja conduta possa ser considerada como ofensiva à dignidade da classe poderão ser definitivamente proibidos de usar uniformes por decisão do Ministro da respectiva Força Singular.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 107,
@@ -2058,7 +2165,8 @@ const questionsData = [
           "E) Adquirir publicações institucionais das Forças Armadas."
         ],
         correct: 1,
-        subject: "Do Uso dos Uniformes"
+        subject: "Do Uso dos Uniformes",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 79 - É vedado às Forças Auxiliares e a qualquer elemento civil ou organizações civis usar uniformes ou ostentar distintivos, insígnias ou emblemas que possam ser confundidos com os adotados nas Forças Armadas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 108,
@@ -2071,7 +2179,8 @@ const questionsData = [
           "E) Tenha sido testemunhada por, no mínimo, duas pessoas."
         ],
         correct: 1,
-        subject: "Definição de Contravenção Disciplinar"
+        subject: "Definição de Contravenção Disciplinar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 6º - Contravenção Disciplinar é toda ação ou omissão contrária às obrigações ou aos deveres militares estatuídos nas leis, nos regulamentos, nas normas e nas disposições em vigor que fundamentam a Organização Militar, desde que não incidindo no que é capitulado pelo Código Penal Militar como crime.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 109,
@@ -2084,7 +2193,8 @@ const questionsData = [
           "E) Somente na Constituição Federal."
         ],
         correct: 1,
-        subject: "Definição de Contravenção Disciplinar"
+        subject: "Definição de Contravenção Disciplinar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 6º - Contravenção Disciplinar é toda ação ou omissão contrária às obrigações ou aos deveres militares estatuídos nas leis, nos regulamentos, nas normas e nas disposições em vigor que fundamentam a Organização Militar, desde que não incidindo no que é capitulado pelo Código Penal Militar como crime.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 110,
@@ -2097,7 +2207,8 @@ const questionsData = [
           "E) Pelo Comandante da Marinha, privativamente."
         ],
         correct: 1,
-        subject: "Definição de Contravenção Disciplinar"
+        subject: "Definição de Contravenção Disciplinar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Parágrafo Único - No caso de descaracterização de crime para contravenção disciplinar, esta deverá ser julgada pela autoridade a que o contraventor estiver subordinado.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 111,
@@ -2110,7 +2221,8 @@ const questionsData = [
           "E) Retardar, sem motivo justo, o cumprimento de ordem recebida da autoridade competente."
         ],
         correct: 3,
-        subject: "Especificação das Contravenções Disciplinares"
+        subject: "Especificação das Contravenções Disciplinares",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"Art. 7º - São contravenções disciplinares:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 112,
@@ -2123,7 +2235,8 @@ const questionsData = [
           "E) Cumprimentar o superior quando uniformizado."
         ],
         correct: 0,
-        subject: "Especificação das Contravenções Disciplinares"
+        subject: "Especificação das Contravenções Disciplinares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 7º - São contravenções disciplinares:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 113,
@@ -2136,7 +2249,8 @@ const questionsData = [
           "E) Com prévia autorização, em termos respeitosos e por via hierárquica."
         ],
         correct: 4,
-        subject: "Especificação das Contravenções Disciplinares"
+        subject: "Especificação das Contravenções Disciplinares",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"15. representar contra o superior: a) sem prévia autorização deste; b) em inobservância à via hierárquica; c) em termos desrespeitosos; e d) empregando argumentos falsos ou envolvendo má-fé.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 114,
@@ -2149,7 +2263,8 @@ const questionsData = [
           "E) Conceder, sem demora, licença a subalterno para tratar de seus interesses junto à autoridade superior."
         ],
         correct: 4,
-        subject: "Especificação das Contravenções Disciplinares"
+        subject: "Especificação das Contravenções Disciplinares",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"26. negar licença, sem motivo justificável, a subalterno para se dirigir à autoridade superior, a fim de tratar dos seus interesses;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 115,
@@ -2162,7 +2277,8 @@ const questionsData = [
           "E) Dar, vender, empenhar ou trocar peças de uniformes fornecidas pela União."
         ],
         correct: 3,
-        subject: "Especificação das Contravenções Disciplinares"
+        subject: "Especificação das Contravenções Disciplinares",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"43. ter a barba, o bigode, as costeletas, o cavanhaque ou o cabelo fora das normas regulamentares;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 116,
@@ -2175,7 +2291,8 @@ const questionsData = [
           "E) Comparecer prontamente à chamada e desempenhar com zelo o serviço confiado."
         ],
         correct: 4,
-        subject: "Especificação das Contravenções Disciplinares"
+        subject: "Especificação das Contravenções Disciplinares",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"Art. 8º - As contravenções disciplinares são classificadas em graves e leves - conforme o dano - grave ou leve - que causarem à disciplina ou ao serviço, em virtude da sua natureza intrínseca, ou das consequências que delas advierem, ou puderem advir, pelas circunstâncias em que forem cometidas.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 117,
@@ -2188,7 +2305,8 @@ const questionsData = [
           "E) Portar consigo documento atualizado comprobatório de identidade, quando em trânsito."
         ],
         correct: 4,
-        subject: "Especificação das Contravenções Disciplinares"
+        subject: "Especificação das Contravenções Disciplinares",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"60. transitar sem ter em seu poder documento atualizado comprobatório de identidade;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 118,
@@ -2201,7 +2319,8 @@ const questionsData = [
           "E) Introduzir ou estar de posse em Organização Militar de armas ou instrumentos proibidos."
         ],
         correct: 3,
-        subject: "Especificação das Contravenções Disciplinares"
+        subject: "Especificação das Contravenções Disciplinares",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"67. entrar ou sair da Organização Militar por acesso que não o determinado;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 119,
@@ -2214,7 +2333,8 @@ const questionsData = [
           "E) Abster-se de discutir, sem autorização, assunto militar sigiloso relativo à Defesa Nacional."
         ],
         correct: 4,
-        subject: "Especificação das Contravenções Disciplinares"
+        subject: "Especificação das Contravenções Disciplinares",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"77. discutir pela imprensa ou por qualquer outro meio de publicidade, sem autorização competente, assunto militar, exceto de caráter técnico não sigiloso e que não se refira à Defesa ou à Segurança Nacional;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 120,
@@ -2227,7 +2347,8 @@ const questionsData = [
           "E) Fazer qualquer transação de caráter comercial em Organização Militar."
         ],
         correct: 3,
-        subject: "Especificação das Contravenções Disciplinares"
+        subject: "Especificação das Contravenções Disciplinares",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"36. contrair dívidas ou assumir compromissos superiores às suas possibilidades, comprometendo o bom nome da classe;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 121,
@@ -2240,7 +2361,8 @@ const questionsData = [
           "E) Somente as condutas reincidentes."
         ],
         correct: 1,
-        subject: "Especificação das Contravenções Disciplinares"
+        subject: "Especificação das Contravenções Disciplinares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 7º - São contravenções disciplinares:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 122,
@@ -2253,7 +2375,8 @@ const questionsData = [
           "E) Exclusivamente da autoridade que a apura."
         ],
         correct: 1,
-        subject: "Da Natureza das Contravenções e suas Circunstâncias"
+        subject: "Da Natureza das Contravenções e suas Circunstâncias",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 8º - As contravenções disciplinares são classificadas em graves e leves - conforme o dano - grave ou leve - que causarem à disciplina ou ao serviço, em virtude da sua natureza intrínseca, ou das consequências que delas advierem, ou puderem advir, pelas circunstâncias em que forem cometidas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 123,
@@ -2266,7 +2389,8 @@ const questionsData = [
           "E) Prevalecerá a decisão do Conselho de Disciplina."
         ],
         correct: 0,
-        subject: "Da Natureza das Contravenções e suas Circunstâncias"
+        subject: "Da Natureza das Contravenções e suas Circunstâncias",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 9º - No concurso de crime militar e de contravenção disciplinar, ambos de idêntica natureza, será aplicada somente a penalidade relaiva ao crime.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 124,
@@ -2279,7 +2403,8 @@ const questionsData = [
           "E) Ter sido praticada com ofensa à honra e ao pundonor militar."
         ],
         correct: 3,
-        subject: "Da Natureza das Contravenções e suas Circunstâncias"
+        subject: "Da Natureza das Contravenções e suas Circunstâncias",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"Art. 10 - São circunstâncias agravantes da contravenção disciplinar:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 125,
@@ -2292,7 +2417,8 @@ const questionsData = [
           "E) Prestação anterior de serviços relevantes já reconhecidos."
         ],
         correct: 3,
-        subject: "Da Natureza das Contravenções e suas Circunstâncias"
+        subject: "Da Natureza das Contravenções e suas Circunstâncias",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"Art. 11 - São circunstâncias atenuantes da contravenção disciplinar:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 126,
@@ -2305,7 +2431,8 @@ const questionsData = [
           "E) Ter cometido a falta em presença de subordinado."
         ],
         correct: 1,
-        subject: "Da Natureza das Contravenções e suas Circunstâncias"
+        subject: "Da Natureza das Contravenções e suas Circunstâncias",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 12 - São circunstâncias justificativas ou dirimentes da contravenção disciplinar:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 127,
@@ -2318,7 +2445,8 @@ const questionsData = [
           "E) Prisão rigorosa e exclusão do serviço ativo, apenas."
         ],
         correct: 0,
-        subject: "Das Penas Disciplinares"
+        subject: "Das Penas Disciplinares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"a) para Oficiais da ativa: 1. repreensão; 2. prisão simples, até 10 dias; e 3. prisão rigorosa, até 10 dias.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 128,
@@ -2331,7 +2459,8 @@ const questionsData = [
           "E) Qualquer militar, independentemente do posto ou graduação."
         ],
         correct: 2,
-        subject: "Das Penas Disciplinares"
+        subject: "Das Penas Disciplinares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 1º - As penas disciplinares de impedimento, detenção ou prisão não podem ultrapassar 30 (trinta) dias.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 129,
@@ -2344,7 +2473,8 @@ const questionsData = [
           "E) A prisão simples até 10 dias."
         ],
         correct: 1,
-        subject: "Das Penas Disciplinares"
+        subject: "Das Penas Disciplinares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 15 - Não será considerada como pena a admoestação que o superior fizer ao subalterno, mostrando-lhe irregularidade praticada no serviço ou chamando sua atenção para fato que possa trazer como consequência uma contravenção.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 130,
@@ -2357,7 +2487,8 @@ const questionsData = [
           "E) Detido para averiguação de contravenção disciplinar."
         ],
         correct: 1,
-        subject: "Das Penas Disciplinares"
+        subject: "Das Penas Disciplinares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 16 - Não será considerado como pena o recolhimento em compartimento fechado, com ou sem sentinela, bem como a aplicação de camisa de força, algemas ou outro meio de coerção física de quem for atacado de loucura ou excitação violenta.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 131,
@@ -2370,7 +2501,8 @@ const questionsData = [
           "E) Aplicam-se automaticamente todas as penas cabíveis ao posto do contraventor."
         ],
         correct: 1,
-        subject: "Das Penas Disciplinares"
+        subject: "Das Penas Disciplinares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 17 - Por uma única contravenção não pode ser aplicada mais de uma punição.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 132,
@@ -2383,7 +2515,8 @@ const questionsData = [
           "E) Exime o punido de responsabilidade civil apenas se for a primeira contravenção."
         ],
         correct: 1,
-        subject: "Das Penas Disciplinares"
+        subject: "Das Penas Disciplinares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 18 - A punição disciplinar não exime o punido da responsabilidade civil que lhe couber.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 133,
@@ -2396,7 +2529,8 @@ const questionsData = [
           "E) Qualquer oficial-general, independentemente do cargo."
         ],
         correct: 0,
-        subject: "Da Competência e Jurisdição para Imposição de Penas"
+        subject: "Da Competência e Jurisdição para Imposição de Penas",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"a) a todos os militares da Marinha: o Presidente da República e o Comandante da Marinha.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 134,
@@ -2409,7 +2543,8 @@ const questionsData = [
           "E) Somente mediante autorização do Ministro da Defesa."
         ],
         correct: 1,
-        subject: "Da Competência e Jurisdição para Imposição de Penas"
+        subject: "Da Competência e Jurisdição para Imposição de Penas",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 1º - Os Almirantes poderão delegar esta competência, no todo ou em parte, a Oficiais subordinados.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 135,
@@ -2422,7 +2557,8 @@ const questionsData = [
           "E) Pelo Corregedor-Geral da Marinha."
         ],
         correct: 1,
-        subject: "Da Competência e Jurisdição para Imposição de Penas"
+        subject: "Da Competência e Jurisdição para Imposição de Penas",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 3º - A pena de licenciamento e exclusão do Serviço Ativo da Marinha, será imposta pelo CM ou por autoridade que dele tenha recebido delegação de Competência.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 136,
@@ -2435,7 +2571,8 @@ const questionsData = [
           "E) Pelo Conselho de Justificação."
         ],
         correct: 0,
-        subject: "Da Competência e Jurisdição para Imposição de Penas"
+        subject: "Da Competência e Jurisdição para Imposição de Penas",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 5º - A pena de dispensa das funções de atividade será imposta privativamente pelo CM.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 137,
@@ -2448,7 +2585,8 @@ const questionsData = [
           "E) A ambas as autoridades, de forma cumulativa."
         ],
         correct: 1,
-        subject: "Da Competência e Jurisdição para Imposição de Penas"
+        subject: "Da Competência e Jurisdição para Imposição de Penas",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 20 - Quando duas autoridades, ambas com jurisdição disciplinar sobre o contraventor, tiverem conhecimento da falta, caberá o julgamento à autoridade mais antiga, ou à mais moderna, se o seu superior assim o determinar.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 138,
@@ -2461,7 +2599,8 @@ const questionsData = [
           "E) Facultada apenas a Oficiais, nunca a praças."
         ],
         correct: 1,
-        subject: "Do Cumprimento das Penas Disciplinares"
+        subject: "Do Cumprimento das Penas Disciplinares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 1° - Quando em particular, será aplicada diretamente pelo superior que a impuser; verbalmente, na presença única do contraventor; por escrito, em ofício reservado a ele dirigido.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 139,
@@ -2474,7 +2613,8 @@ const questionsData = [
           "E) Recolher-se aos recintos destinados ao uso de seu círculo."
         ],
         correct: 1,
-        subject: "Do Cumprimento das Penas Disciplinares"
+        subject: "Do Cumprimento das Penas Disciplinares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 22 - A pena de impedimento obriga o contraventor a permanecer na Organização Militar, sem prejuízo de qualquer serviço que lhe competir.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 140,
@@ -2487,7 +2627,8 @@ const questionsData = [
           "E) Apenas em substituição a férias já concedidas."
         ],
         correct: 1,
-        subject: "Do Cumprimento das Penas Disciplinares"
+        subject: "Do Cumprimento das Penas Disciplinares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 23 - A pena de serviço extraordinário consistirá no desempenho pelo contraventor de qualquer serviço interno, inclusive faina, em dias e horas em que não lhe competir esse serviço.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 141,
@@ -2500,7 +2641,8 @@ const questionsData = [
           "E) Em prisão fechada, sempre."
         ],
         correct: 1,
-        subject: "Do Cumprimento das Penas Disciplinares"
+        subject: "Do Cumprimento das Penas Disciplinares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"a) do Oficial, Suboficial ou Sargento na Organização Militar ou outro local determinado, sem prejuízo do serviço interno que lhe couber;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 142,
@@ -2513,7 +2655,8 @@ const questionsData = [
           "E) A hospital militar, para observação."
         ],
         correct: 1,
-        subject: "Do Cumprimento das Penas Disciplinares"
+        subject: "Do Cumprimento das Penas Disciplinares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 25 - A pena de prisão rigorosa consiste no recolhimento:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 143,
@@ -2526,7 +2669,8 @@ const questionsData = [
           "E) Metade do prazo original, para ambas as modalidades de prisão."
         ],
         correct: 1,
-        subject: "Do Cumprimento das Penas Disciplinares"
+        subject: "Do Cumprimento das Penas Disciplinares",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 2° - A critério da autoridade que as impôs, as penas de prisão simples e prisão rigorosa poderão ser cumpridas pelas Praças como determina o artigo 22, computando-se dois (2) dias de impedimento para cada dia de prisão simples e três (3) dias de impedimento para cada dia de prisão rigorosa.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 144,
@@ -2539,7 +2683,8 @@ const questionsData = [
           "E) Haja parecer favorável da Consultoria Jurídica da Marinha."
         ],
         correct: 1,
-        subject: "Das Normas para Imposição de Penas"
+        subject: "Das Normas para Imposição de Penas",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 26 - Nenhuma pena será imposta sem ser ouvido o contraventor e serem devidamente apurados os fatos.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 145,
@@ -2552,7 +2697,8 @@ const questionsData = [
           "E) 8 dias úteis, contados da confissão do contraventor."
         ],
         correct: 1,
-        subject: "Das Normas para Imposição de Penas"
+        subject: "Das Normas para Imposição de Penas",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 1° - Normalmente, a pena deverá ser imposta dentro do prazo de 48 horas, contadas do momento em que a contravenção chegou ao conhecimento da autoridade que tiver que impô-la.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 146,
@@ -2565,7 +2711,8 @@ const questionsData = [
           "E) A arquivamento sumário, até nova denúncia."
         ],
         correct: 0,
-        subject: "Das Normas para Imposição de Penas"
+        subject: "Das Normas para Imposição de Penas",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 3° - Quando houver necessidade de maiores esclarecimentos sobre a contravenção, a autoridade mandará proceder a sindicância ou, se houver indício de crime, a inquérito, de acordo com as normas e prazos legais.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 147,
@@ -2578,7 +2725,8 @@ const questionsData = [
           "E) Passam à condição de agregados, com efeitos remuneratórios imediatos."
         ],
         correct: 1,
-        subject: "Das Normas para Imposição de Penas"
+        subject: "Das Normas para Imposição de Penas",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 5° - Os militares detidos para averiguação de contravenções disciplinares não devem comparecer a exercícios e fainas, nem executar serviço algum.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 148,
@@ -2591,7 +2739,8 @@ const questionsData = [
           "E) Sem necessidade de considerar as circunstâncias do caso concreto."
         ],
         correct: 1,
-        subject: "Das Normas para Imposição de Penas"
+        subject: "Das Normas para Imposição de Penas",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 27 - A autoridade julgará com imparcialidade e isenção de ânimo a gravidade da contravenção, sem condescendência ou rigor excessivo, levando em conta as circunstâncias justificativas ou atenuantes, em face das disposições deste Regulamento e tendo sempre em vista os acontecimentos e a situação pessoal do contraventor.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 149,
@@ -2604,7 +2753,8 @@ const questionsData = [
           "E) Termo lavrado exclusivamente pela Corregedoria."
         ],
         correct: 1,
-        subject: "Das Normas para Imposição de Penas"
+        subject: "Das Normas para Imposição de Penas",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"b) para Sargentos e demais Praças: mediante lançamento nos respectivos Livros de Registro de Contravenções, onde constará o histórico da falta, seu enquadramento neste Regulamento, as circunstâncias atenuantes e agravantes e a pena imposta.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 150,
@@ -2617,7 +2767,8 @@ const questionsData = [
           "E) Não é computado."
         ],
         correct: 2,
-        subject: "Da Contagem do Tempo de Punição"
+        subject: "Da Contagem do Tempo de Punição",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 34 - O tempo que durar o impedimento de que trata o artigo 26, § 3°, será levado em conta:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 151,
@@ -2630,7 +2781,8 @@ const questionsData = [
           "E) Exclusão do serviço ativo."
         ],
         correct: 1,
-        subject: "Da Contagem do Tempo de Punição"
+        subject: "Da Contagem do Tempo de Punição",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"f) para Cabos, Marinheiros e Soldados: 1. repreensão; 2. impedimento, até 30 dias; 3. serviço extraordinário, até 10 dias; 4. prisão simples, até 10 dias; 5. prisão rigorosa, até 10 dias; e 6. licenciamento ou exclusão do serviço ativo, a bem da disciplina.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 152,
@@ -2643,7 +2795,8 @@ const questionsData = [
           "E) Repreensão pública."
         ],
         correct: 2,
-        subject: "Da Contagem do Tempo de Punição"
+        subject: "Da Contagem do Tempo de Punição",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 35 - O tempo passado em hospitais (doentes hospitalizados) não será computado para cumprimento de pena disciplinar.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 153,
@@ -2656,7 +2809,8 @@ const questionsData = [
           "E) É computado apenas se a internação for superior a 30 dias."
         ],
         correct: 1,
-        subject: "Da Contagem do Tempo de Punição"
+        subject: "Da Contagem do Tempo de Punição",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 35 - O tempo passado em hospitais (doentes hospitalizados) não será computado para cumprimento de pena disciplinar.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 154,
@@ -2669,7 +2823,8 @@ const questionsData = [
           "E) Um livro exclusivo para Oficiais, sem registro para as demais categorias."
         ],
         correct: 1,
-        subject: "Do Registro e da Transcrição"
+        subject: "Do Registro e da Transcrição",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 36 - Para o registro das contravenções cometidas e penas impostas, haverá nas Organizações Militares dois livros numerados e rubricados pelo Comandante ou por quem dele haja recebido delegação, sendo um para os Sargentos e outro para as demais Praças.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 155,
@@ -2682,7 +2837,8 @@ const questionsData = [
           "E) Nunca, salvo determinação judicial expressa."
         ],
         correct: 1,
-        subject: "Do Registro e da Transcrição"
+        subject: "Do Registro e da Transcrição",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"Art. 37 - Todas as penas impostas, exceto repreensões em particular, serão transcritas nos assentamentos do contraventor, logo após o seu cumprimento ou a solução de recursos interpostos.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 156,
@@ -2695,7 +2851,8 @@ const questionsData = [
           "E) Somente mediante requerimento do próprio contraventor."
         ],
         correct: 1,
-        subject: "Do Registro e da Transcrição"
+        subject: "Do Registro e da Transcrição",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"1° - Para Sargentos e demais Praças, esta transcrição será feita na Caderneta Registro, independente de ordem superior.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 157,
@@ -2708,7 +2865,8 @@ const questionsData = [
           "E) À Corregedoria-Geral da União."
         ],
         correct: 1,
-        subject: "Do Registro e da Transcrição"
+        subject: "Do Registro e da Transcrição",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 2° - Para Oficiais e Suboficiais, cópia da Ordem de Serviço que publicou a punição será remetida à DPMM ou CApCFN, conforme o caso, a fim de ser anexada aos documentos de informação referentes ao Oficial ou Suboficial punido.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 158,
@@ -2721,7 +2879,8 @@ const questionsData = [
           "E) Apenas o artigo do RDM infringido, sem detalhamento do fato."
         ],
         correct: 1,
-        subject: "Do Registro e da Transcrição"
+        subject: "Do Registro e da Transcrição",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 3° - A transcrição conterá o resumo do histórico da falta cometida e a pena imposta.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 159,
@@ -2734,7 +2893,8 @@ const questionsData = [
           "E) Somente agravar a pena, nunca atenuá-la ou anulá-la."
         ],
         correct: 1,
-        subject: "Da Anulação, Atenuação, Agravamento, Relevamento e Cancelamento"
+        subject: "Da Anulação, Atenuação, Agravamento, Relevamento e Cancelamento",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 38 - O disposto no artigo 19 não inibe a autoridade superior na Cadeia de Comando de tomar conhecimento ex officio de qualquer contravenção e julgá-la de acordo com as normas deste Regulamento, ou reformar o julgamento de autoridade inferior, anulando, atenuando ou agravando a pena imposta, ou ainda relevando o seu cumprimento.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 160,
@@ -2747,7 +2907,8 @@ const questionsData = [
           "E) 180 dias após a data da sua imposição, sem exceção."
         ],
         correct: 3,
-        subject: "Da Anulação, Atenuação, Agravamento, Relevamento e Cancelamento"
+        subject: "Da Anulação, Atenuação, Agravamento, Relevamento e Cancelamento",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 1° - A revisão do julgamento poderá ocorrer até 120 (cento e vinte) dias após a data da sua imposição. Fora desse prazo só poderá ser feita, privativamente, pelo Ministro da Marinha.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 161,
@@ -2760,7 +2921,8 @@ const questionsData = [
           "E) Pelo Corregedor-Geral da Marinha."
         ],
         correct: 1,
-        subject: "Da Anulação, Atenuação, Agravamento, Relevamento e Cancelamento"
+        subject: "Da Anulação, Atenuação, Agravamento, Relevamento e Cancelamento",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"a) por motivo de serviços relevantes prestados à Nação pelo contraventor, privativamente, pelo Presidente da República e pelo Ministro da Marinha; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 162,
@@ -2773,7 +2935,8 @@ const questionsData = [
           "E) Ter sido promovido ao posto ou graduação imediatamente superior."
         ],
         correct: 4,
-        subject: "Da Anulação, Atenuação, Agravamento, Relevamento e Cancelamento"
+        subject: "Da Anulação, Atenuação, Agravamento, Relevamento e Cancelamento",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"Art. 39 - Poderá ser concedido ao militar o cancelamento de punições disciplinares que lhe houverem sido impostas ex officio ou mediante requerimento do interessado, desde que satisfaça as seguintes condições simultaneamente:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 163,
@@ -2786,7 +2949,8 @@ const questionsData = [
           "E) Apenas mediante nova avaliação psicológica."
         ],
         correct: 1,
-        subject: "Da Anulação, Atenuação, Agravamento, Relevamento e Cancelamento"
+        subject: "Da Anulação, Atenuação, Agravamento, Relevamento e Cancelamento",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 1° - O militar, cujas punições disciplinares tenham sido canceladas, poderá concorrer, a partir da data do ato de cancelamento, em igualdade de condições com seus pares em qualquer situação da carreira.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 164,
@@ -2799,7 +2963,8 @@ const questionsData = [
           "E) Produz efeitos retroativos somente se concedido pelo Ministro da Marinha."
         ],
         correct: 1,
-        subject: "Da Anulação, Atenuação, Agravamento, Relevamento e Cancelamento"
+        subject: "Da Anulação, Atenuação, Agravamento, Relevamento e Cancelamento",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 4° - O cancelamento concedido não produzirá efeitos retroativos, para quaisquer fins de carreira.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 165,
@@ -2812,7 +2977,8 @@ const questionsData = [
           "E) Comunicar apenas verbalmente, sem necessidade de registro escrito."
         ],
         correct: 1,
-        subject: "Da Parte e da Prisão Imediata"
+        subject: "Da Parte e da Prisão Imediata",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 40 - Todo superior que tiver conhecimento, direto ou indireto, de contravenção cometida por qualquer subalterno, deverá dar parte escrita do fato à autoridade sob cujas ordens estiver, a fim de que esta puna ou remeta a parte à autoridade sob cujas ordens estiver o contraventor, para o mesmo fim.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 166,
@@ -2825,7 +2991,8 @@ const questionsData = [
           "E) A contravenção tiver sido cometida há mais de 48 horas."
         ],
         correct: 0,
-        subject: "Da Parte e da Prisão Imediata"
+        subject: "Da Parte e da Prisão Imediata",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 41 - O superior deverá também dar voz de prisão imediata ao contraventor e fazê-lo recolher-se à sua Organização Militar quando a contravenção ou suas circunstâncias assim o exigirem, a bem da ordem pública, da disciplina ou da regularidade do serviço.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 167,
@@ -2838,7 +3005,8 @@ const questionsData = [
           "E) Da Justiça Militar."
         ],
         correct: 1,
-        subject: "Da Parte e da Prisão Imediata"
+        subject: "Da Parte e da Prisão Imediata",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Parágrafo único - Essa voz de prisão será dada em nome da autoridade a que o contraventor estiver diretamente subordinado, ou, quando esta for menos graduada ou antiga do que quem dá a voz, em nome da que se lhe seguir em escala ascendente. Caso o contraventor se recuse a declarar a Organização Militar em que serve, a voz de prisão será dada em nome do Comandante do Distrito Naval ou do Comando Naval em cuja jurisdição ocorrer a prisão.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 168,
@@ -2851,7 +3019,8 @@ const questionsData = [
           "E) Do Superior Tribunal Militar."
         ],
         correct: 1,
-        subject: "Da Parte e da Prisão Imediata"
+        subject: "Da Parte e da Prisão Imediata",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Parágrafo único - Essa voz de prisão será dada em nome da autoridade a que o contraventor estiver diretamente subordinado, ou, quando esta for menos graduada ou antiga do que quem dá a voz, em nome da que se lhe seguir em escala ascendente. Caso o contraventor se recuse a declarar a Organização Militar em que serve, a voz de prisão será dada em nome do Comandante do Distrito Naval ou do Comando Naval em cuja jurisdição ocorrer a prisão.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 169,
@@ -2864,7 +3033,8 @@ const questionsData = [
           "E) 30 (trinta) dias úteis."
         ],
         correct: 1,
-        subject: "Da Parte e da Prisão Imediata"
+        subject: "Da Parte e da Prisão Imediata",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Parágrafo único - A quem deu parte assiste o direito de pedir à respectiva autoridade, dentro de oito dias úteis, pelos meios legais, a reconsideração da solução, se julgar que esta deprime sua pessoa ou a dignidade de seu posto, não podendo o pedido ficar sem despacho. Para tanto, a autoridade que aplicar a pena disciplinar deverá comunicar ao autor da parte a punição efetivamente imposta e o enquadramento neste Regulamento, com as circunstâncias atenuantes ou agravantes que...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 170,
@@ -2877,7 +3047,8 @@ const questionsData = [
           "E) Somente por ordem do Ministro da Marinha, em qualquer caso."
         ],
         correct: 0,
-        subject: "Da Parte e da Prisão Imediata"
+        subject: "Da Parte e da Prisão Imediata",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 41 - Cabe ao militar a responsabilidade integral pelas decisões que tomar, pelas ordens que emitir e pelos atos que praticar.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 171,
@@ -2890,7 +3061,8 @@ const questionsData = [
           "E) Aplicável apenas a Oficiais-Generais."
         ],
         correct: 1,
-        subject: "Da Parte e da Prisão Imediata"
+        subject: "Da Parte e da Prisão Imediata",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 41 - Cabe ao militar a responsabilidade integral pelas decisões que tomar, pelas ordens que emitir e pelos atos que praticar.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 172,
@@ -2903,7 +3075,8 @@ const questionsData = [
           "E) 48 horas, contadas do recebimento do pedido."
         ],
         correct: 1,
-        subject: "Dos Recursos"
+        subject: "Dos Recursos",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 45 - Àquele a quem for imposta pena disciplinar será facultado solicitar reconsideração da punição à autoridade que a aplicou, devendo esta apreciar e decidir sobre a mesma dentro de oito dias úteis, contados do recebimento do pedido.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 173,
@@ -2916,7 +3089,8 @@ const questionsData = [
           "E) Somente por escrito, nunca verbalmente."
         ],
         correct: 1,
-        subject: "Dos Recursos"
+        subject: "Dos Recursos",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 1° - O recurso deve ser interposto após o cumprimento da pena e dentro do prazo de oito dias úteis.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 174,
@@ -2929,7 +3103,8 @@ const questionsData = [
           "E) Recurso ao Congresso Nacional."
         ],
         correct: 2,
-        subject: "Dos Recursos"
+        subject: "Dos Recursos",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 3° - Contra decisão do Ministro da Marinha, o único recurso admissível é o pedido de reconsideração a essa mesma autoridade.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 175,
@@ -2942,7 +3117,8 @@ const questionsData = [
           "E) Não cabe recurso nesse caso, sendo decisão irrecorrível."
         ],
         correct: 1,
-        subject: "Dos Recursos"
+        subject: "Dos Recursos",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 4° - Quando a punição disciplinar tiver sido imposta pelo Ministro da Marinha, caberá interposição de recurso ao Presidente da República, nos termos definidos no presente artigo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 176,
@@ -2955,7 +3131,344 @@ const questionsData = [
           "E) Será suspensa, mas não cancelada, até nova análise."
         ],
         correct: 1,
-        subject: "Dos Recursos"
+        subject: "Dos Recursos",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 49 - Se o recurso for julgado inteiramente procedente, a punição será anulada e cancelado tudo quanto a ela se referir; se apenas em parte, será modificada a pena.\" — esse é o trecho que fundamenta a alternativa correta."
+      },
+      {
+        id: 177,
+        text: "De acordo com o art. 6º do RDM, Contravenção Disciplinar é toda ação ou omissão contrária às obrigações ou aos deveres militares estatuídos:",
+        options: [
+          "A) exclusivamente no Código Penal Militar",
+          "B) nas leis, nos regulamentos, nas normas e nas disposições em vigor que fundamentam a Organização Militar",
+          "C) apenas nas normas internas de cada Organização Militar",
+          "D) unicamente no Estatuto dos Militares, sem referência a regulamentos",
+          "E) somente em portarias ministeriais específicas"
+        ],
+        correct: 1,
+        subject: "Definição de Contravenção Disciplinar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 6º - Contravenção Disciplinar é toda ação ou omissão contrária às obrigações ou aos deveres militares estatuídos nas leis, nos regulamentos, nas normas e nas disposições em vigor que fundamentam a Organização Militar, desde que não incidindo no que é capitulado pelo Código Penal Militar como crime.\" — esse é o trecho que fundamenta a alternativa correta."
+      },
+      {
+        id: 178,
+        text: "Para que uma ação ou omissão contrária às obrigações ou aos deveres militares seja considerada contravenção disciplinar, segundo o art. 6º do RDM, é necessário que:",
+        options: [
+          "A) tenha sido cometida por Oficial, exclusivamente",
+          "B) tenha causado dano patrimonial à Fazenda Nacional",
+          "C) não incida no que é capitulado pelo Código Penal Militar como crime",
+          "D) esteja prevista expressamente em Ordem de Serviço",
+          "E) tenha sido presenciada por duas testemunhas"
+        ],
+        correct: 2,
+        subject: "Definição de Contravenção Disciplinar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 6º - Contravenção Disciplinar é toda ação ou omissão contrária às obrigações ou aos deveres militares estatuídos nas leis, nos regulamentos, nas normas e nas disposições em vigor que fundamentam a Organização Militar, desde que não incidindo no que é capitulado pelo Código Penal Militar como crime.\" — esse é o trecho que fundamenta a alternativa correta."
+      },
+      {
+        id: 179,
+        text: "A definição de Contravenção Disciplinar do art. 6º do RDM abrange TODOS os elementos abaixo, EXCETO:",
+        options: [
+          "A) ação ou omissão contrária às obrigações militares",
+          "B) ação ou omissão contrária aos deveres militares",
+          "C) estar estatuída em leis, regulamentos, normas ou disposições em vigor",
+          "D) a exigência de dolo específico do agente, comprovado por perícia",
+          "E) não incidir no que é capitulado pelo CPM como crime"
+        ],
+        correct: 3,
+        subject: "Definição de Contravenção Disciplinar",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"Art. 6º - Contravenção Disciplinar é toda ação ou omissão contrária às obrigações ou aos deveres militares estatuídos nas leis, nos regulamentos, nas normas e nas disposições em vigor que fundamentam a Organização Militar, desde que não incidindo no que é capitulado pelo Código Penal Militar como crime.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
+      },
+      {
+        id: 180,
+        text: "O que diferencia, em essência, a Contravenção Disciplinar do Crime Militar, segundo a definição do art. 6º do RDM, é que a contravenção:",
+        options: [
+          "A) é sempre mais grave do que o crime militar",
+          "B) só pode ser cometida por praças, nunca por oficiais",
+          "C) independe de estar prevista em lei ou regulamento",
+          "D) prescreve em prazo idêntico ao do crime militar",
+          "E) não incide no que é capitulado pelo Código Penal Militar como crime"
+        ],
+        correct: 4,
+        subject: "Definição de Contravenção Disciplinar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 6º - Contravenção Disciplinar é toda ação ou omissão contrária às obrigações ou aos deveres militares estatuídos nas leis, nos regulamentos, nas normas e nas disposições em vigor que fundamentam a Organização Militar, desde que não incidindo no que é capitulado pelo Código Penal Militar como crime.\" — esse é o trecho que fundamenta a alternativa correta."
+      },
+      {
+        id: 181,
+        text: "Para fins de aplicação da legislação específica sobre pensão militar, será considerado como posto ou graduação do militar:",
+        options: [
+          "A) o correspondente ao soldo sobre o qual forem calculadas as suas contribuições",
+          "B) sempre o último posto ou graduação exercido, independentemente das contribuições",
+          "C) o posto mais alto alcançado em toda a carreira",
+          "D) o definido exclusivamente por decisão judicial",
+          "E) o posto na data do óbito, ainda que diverso do contributivo"
+        ],
+        correct: 0,
+        subject: "Da Pensão Militar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 1° - Para fins de aplicação da legislação específica, será considerado como posto ou graduação do militar o correspondente ao soldo sobre o qual forem calculadas as suas contribuições.\" — esse é o trecho que fundamenta a alternativa correta."
+      },
+      {
+        id: 182,
+        text: "As pensões militares são custeadas com recursos provenientes de:",
+        options: [
+          "A) exclusivamente do Tesouro Nacional, sem contribuição dos militares",
+          "B) contribuição dos militares das Forças Armadas, de seus pensionistas e do Tesouro Nacional",
+          "C) doações voluntárias de terceiros",
+          "D) exclusivamente da contribuição dos pensionistas",
+          "E) convênios com o setor privado"
+        ],
+        correct: 1,
+        subject: "Da Pensão Militar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 2º-A - As pensões militares são custeadas com recursos provenientes da contribuição dos militares das Forças Armadas, de seus pensionistas e do Tesouro Nacional.\" — esse é o trecho que fundamenta a alternativa correta."
+      },
+      {
+        id: 183,
+        text: "Quanto à obrigatoriedade de contribuição para a pensão militar, o Estatuto dos Militares estabelece que:",
+        options: [
+          "A) a contribuição é sempre facultativa",
+          "B) somente oficiais generais são obrigados a contribuir",
+          "C) todos os militares são contribuintes obrigatórios da pensão militar correspondente ao seu posto ou graduação, com as exceções previstas em legislação específica",
+          "D) a contribuição só é devida após 30 anos de serviço",
+          "E) a contribuição é proporcional exclusivamente ao tempo de guerra"
+        ],
+        correct: 2,
+        subject: "Da Pensão Militar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 2° - Todos os militares são contribuintes obrigatórios da pensão militar correspondente ao seu posto ou graduação, com as exceções previstas em legislação específica.\" — esse é o trecho que fundamenta a alternativa correta."
+      },
+      {
+        id: 184,
+        text: "Segundo o Estatuto dos Militares, a pensão militar destina-se a amparar os beneficiários do militar, EXCETO na hipótese de o militar estar:",
+        options: [
+          "A) falecido",
+          "B) extraviado",
+          "C) em situação prevista em legislação específica quanto ao pagamento",
+          "D) apenas agregado temporariamente, sem falecimento ou extravio",
+          "E) devidamente habilitado por declaração de beneficiários"
+        ],
+        correct: 3,
+        subject: "Da Pensão Militar",
+        explanation: "O trecho do Estatuto dos Militares/RDM relacionado a essa questão traz: \"Art. 71 - A pensão militar destina-se a amparar os beneficiários do militar falecido ou extraviado e será paga conforme o disposto em legislação específica.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
+      },
+      {
+        id: 185,
+        text: "O tempo que durar o impedimento de que trata o art. 26, § 3°, será levado em conta, para o cumprimento de penas de impedimento:",
+        options: [
+          "A) na razão de 1/2",
+          "B) na razão de 1/3",
+          "C) na razão de 2/3",
+          "D) não será computado",
+          "E) integralmente"
+        ],
+        correct: 4,
+        subject: "Da Contagem do Tempo de Punição",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"a) integralmente para o cumprimento de penas de impedimento;\" — esse é o trecho que fundamenta a alternativa correta."
+      },
+      {
+        id: 186,
+        text: "O tempo de impedimento é computado na razão de 1/2 para o cumprimento de penas de:",
+        options: [
+          "A) prisão simples",
+          "B) impedimento",
+          "C) prisão rigorosa",
+          "D) detenção",
+          "E) reclusão"
+        ],
+        correct: 0,
+        subject: "Da Contagem do Tempo de Punição",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"b) na razão de 1/2 para as de prisão simples; e\" — esse é o trecho que fundamenta a alternativa correta."
+      },
+      {
+        id: 187,
+        text: "O tempo de impedimento é computado na razão de 1/3 para o cumprimento de penas de:",
+        options: [
+          "A) prisão simples",
+          "B) prisão rigorosa",
+          "C) impedimento",
+          "D) detenção",
+          "E) repreensão"
+        ],
+        correct: 1,
+        subject: "Da Contagem do Tempo de Punição",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"c) na razão de 1/3 para as prisão rigorosa.\" — esse é o trecho que fundamenta a alternativa correta."
+      },
+      {
+        id: 188,
+        text: "O tempo passado em hospitais, no caso de militar doente hospitalizado, em relação ao cumprimento de pena disciplinar:",
+        options: [
+          "A) será computado integralmente",
+          "B) será computado na razão de 1/2",
+          "C) não será computado para cumprimento de pena disciplinar",
+          "D) será computado na razão de 1/3",
+          "E) será computado apenas se a internação exceder 30 dias"
+        ],
+        correct: 2,
+        subject: "Da Contagem do Tempo de Punição",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 35 - O tempo passado em hospitais (doentes hospitalizados) não será computado para cumprimento de pena disciplinar.\" — esse é o trecho que fundamenta a alternativa correta."
+      },
+      {
+        id: 189,
+        text: "Ao prestar compromisso de honra, todo cidadão que ingressa nas Forças Armadas mediante incorporação, matrícula ou nomeação afirmará:",
+        options: [
+          "A) apenas sua adesão simbólica, sem efeitos jurídicos",
+          "B) exclusivamente sua fidelidade pessoal ao Comandante da OM",
+          "C) sua concordância com o regime de subordinação hierárquica, apenas",
+          "D) a sua aceitação consciente das obrigações e dos deveres militares e manifestará a sua firme disposição de bem cumpri-los",
+          "E) sua disposição de permanecer na ativa por tempo determinado"
+        ],
+        correct: 3,
+        subject: "Do Compromisso Militar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 32 - Todo cidadão, após ingressar em uma das Forças Armadas mediante incorporação, matrícula ou nomeação, prestará compromisso de honra, no qual afirmará a sua aceitação consciente das obrigações e dos deveres militares e manifestará a sua firme disposição de bem cumpri-los.\" — esse é o trecho que fundamenta a alternativa correta."
+      },
+      {
+        id: 190,
+        text: "O compromisso do incorporado, do matriculado e do nomeado terá caráter solene e será sempre prestado sob a forma de:",
+        options: [
+          "A) assinatura de termo em cartório civil",
+          "B) declaração verbal informal perante o Comandante, sem tropa formada",
+          "C) juramento perante autoridade judiciária",
+          "D) compromisso escrito remetido por via postal",
+          "E) juramento à Bandeira na presença de tropa ou guarnição formada, conforme os dizeres estabelecidos nos regulamentos específicos das Forças Armadas"
+        ],
+        correct: 4,
+        subject: "Do Compromisso Militar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 33 - O compromisso do incorporado, do matriculado e do nomeado, a que se refere o artigo anterior, terá caráter solene e será sempre prestado sob a forma de juramento à Bandeira na presença de tropa ou guarnição formada, conforme os dizeres estabelecidos nos regulamentos específicos das Forças Armadas, e tão logo o militar tenha adquirido um grau de instrução compatível com o perfeito entendimento de seus deveres como integrante das Forças Armadas.\" — esse é o trecho que fundamenta a alternativa correta."
+      },
+      {
+        id: 191,
+        text: "O compromisso de Guarda-Marinha ou Aspirante-a-Oficial é prestado nos estabelecimentos de formação, obedecendo:",
+        options: [
+          "A) ao cerimonial fixado nos respectivos regulamentos",
+          "B) a cerimonial livremente definido pelo próprio formando",
+          "C) às normas do Código de Processo Penal Militar",
+          "D) a cerimonial civil, sem vínculo com regulamento militar",
+          "E) a determinação exclusiva do Ministro da Marinha, sem regulamento próprio"
+        ],
+        correct: 0,
+        subject: "Do Compromisso Militar",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 1º - O compromisso de Guarda-Marinha ou Aspirante-a-Oficial é prestado nos estabelecimentos de formação, obedecendo ao cerimonial ao fixado nos respectivos regulamentos.\" — esse é o trecho que fundamenta a alternativa correta."
+      },
+      {
+        id: 192,
+        text: "A remuneração dos militares ativos e inativos é encargo financeiro:",
+        options: [
+          "A) exclusivo de cada Força Armada, sem participação do Tesouro Nacional",
+          "B) do Tesouro Nacional",
+          "C) dos Estados-membros, proporcionalmente",
+          "D) de fundos previdenciários privados",
+          "E) dos Municípios onde servem"
+        ],
+        correct: 1,
+        subject: "Da Remuneração",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 53-A - A remuneração dos militares ativos e inativos é encargo financeiro do Tesouro Nacional.\" — esse é o trecho que fundamenta a alternativa correta."
+      },
+      {
+        id: 193,
+        text: "Por ocasião de sua passagem para a inatividade, o militar terá direito a tantas quotas de soldo quantos forem os anos de serviço computáveis para a inatividade, até o máximo de:",
+        options: [
+          "A) 25 (vinte e cinco) anos",
+          "B) 30 (trinta) anos",
+          "C) 35 (trinta e cinco) anos",
+          "D) 40 (quarenta) anos",
+          "E) 20 (vinte) anos"
+        ],
+        correct: 2,
+        subject: "Da Remuneração",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 56 - Por ocasião de sua passagem para a inatividade, o militar terá direito a tantas quotas de soldo quantos forem os anos de serviço computáveis para a inatividade, até o máximo de 35 (trinta e cinco) anos, ressalvado o disposto nas alíneas \"b\", \"c\" e \"d\" do inciso II do caput do art. 50 desta Lei.\" — esse é o trecho que fundamenta a alternativa correta."
+      },
+      {
+        id: 194,
+        text: "Ressalvados os casos previstos em lei, os proventos da inatividade não poderão exceder:",
+        options: [
+          "A) o dobro do soldo da ativa correspondente",
+          "B) o valor fixado anualmente pelo Ministro da Marinha, sem vínculo com a ativa",
+          "C) a remuneração do posto imediatamente superior",
+          "D) a remuneração percebida pelo militar da ativa no posto ou graduação correspondente aos dos seus proventos",
+          "E) o teto constitucional do funcionalismo civil, exclusivamente"
+        ],
+        correct: 3,
+        subject: "Da Remuneração",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Parágrafo único - Ressalvados os casos previstos em lei, os proventos da inatividade não poderão exceder a remuneração percebida pelo militar da ativa no posto ou graduação correspondente aos dos seus proventos.\" — esse é o trecho que fundamenta a alternativa correta."
+      },
+      {
+        id: 195,
+        text: "Para o registro das contravenções cometidas e penas impostas, haverá nas Organizações Militares dois livros numerados e rubricados pelo Comandante (ou por quem dele haja recebido delegação), sendo:",
+        options: [
+          "A) um para Oficiais e outro para Praças, apenas",
+          "B) um único livro para toda a tripulação",
+          "C) um para cada Divisão da OM, independentemente do posto/graduação",
+          "D) um para faltas leves e outro para faltas graves",
+          "E) um para os Sargentos e outro para as demais Praças"
+        ],
+        correct: 4,
+        subject: "Do Registro e da Transcrição",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Art. 36 - Para o registro das contravenções cometidas e penas impostas, haverá nas Organizações Militares dois livros numerados e rubricados pelo Comandante ou por quem dele haja recebido delegação, sendo um para os Sargentos e outro para as demais Praças.\" — esse é o trecho que fundamenta a alternativa correta."
+      },
+      {
+        id: 196,
+        text: "A transcrição da pena disciplinar nos assentamentos do contraventor conterá:",
+        options: [
+          "A) o resumo do histórico da falta cometida e a pena imposta",
+          "B) apenas o número do processo administrativo",
+          "C) somente a data do cumprimento da pena, sem detalhamento do fato",
+          "D) exclusivamente o nome da autoridade que aplicou a pena",
+          "E) o parecer do Conselho de Disciplina, quando houver"
+        ],
+        correct: 0,
+        subject: "Do Registro e da Transcrição",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 3° - A transcrição conterá o resumo do histórico da falta cometida e a pena imposta.\" — esse é o trecho que fundamenta a alternativa correta."
+      },
+      {
+        id: 197,
+        text: "Para Oficiais e Suboficiais, a cópia da Ordem de Serviço que publicou a punição será remetida à DPMM ou CApCFN, conforme o caso, a fim de:",
+        options: [
+          "A) ser publicada em Diário Oficial da União, obrigatoriamente",
+          "B) ser anexada aos documentos de informação referentes ao Oficial ou Suboficial punido",
+          "C) instruir automaticamente um Conselho de Disciplina",
+          "D) ser arquivada exclusivamente na Organização Militar de origem",
+          "E) ser remetida ao Superior Tribunal Militar"
+        ],
+        correct: 1,
+        subject: "Do Registro e da Transcrição",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 2° - Para Oficiais e Suboficiais, cópia da Ordem de Serviço que publicou a punição será remetida à DPMM ou CApCFN, conforme o caso, a fim de ser anexada aos documentos de informação referentes ao Oficial ou Suboficial punido.\" — esse é o trecho que fundamenta a alternativa correta."
+      },
+      {
+        id: 198,
+        text: "Aquele a quem for imposta pena disciplinar poderá recorrer à autoridade superior a que a impôs, pedindo sua anulação ou modificação, sendo esse recurso feito:",
+        options: [
+          "A) somente por escrito, dispensada qualquer licença prévia",
+          "B) apenas por meio de advogado constituído",
+          "C) verbalmente ou por escrito, por via hierárquica e em termos respeitosos, com prévia licença da mesma autoridade",
+          "D) diretamente ao Ministro da Marinha, sem via hierárquica",
+          "E) exclusivamente por mensagem eletrônica formal"
+        ],
+        correct: 2,
+        subject: "Dos Recursos",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 1° - O recurso deve ser interposto após o cumprimento da pena e dentro do prazo de oito dias úteis.\" — esse é o trecho que fundamenta a alternativa correta."
+      },
+      {
+        id: 199,
+        text: "Da solução de um recurso contra pena disciplinar só cabe a interposição de novos recursos às autoridades superiores, até:",
+        options: [
+          "A) o Comandante do Distrito Naval",
+          "B) o Superior Tribunal Militar",
+          "C) o Presidente da República, em toda e qualquer hipótese",
+          "D) o Ministro da Marinha",
+          "E) o Comandante Imediato"
+        ],
+        correct: 3,
+        subject: "Dos Recursos",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"§ 2° - Da solução de um recurso só cabe a interposição de novos recursos às autoridades superiores, até o Ministro da Marinha.\" — esse é o trecho que fundamenta a alternativa correta."
+      },
+      {
+        id: 200,
+        text: "A autoridade a quem for dirigido o recurso deve conhecê-lo sem demora, procedendo ou mandando proceder às averiguações necessárias para resolver a questão com justiça; no caso de delegação, para proceder a essas averiguações será nomeado:",
+        options: [
+          "A) um Oficial de igual posto ao do recorrente, obrigatoriamente",
+          "B) um Suboficial designado por sorteio",
+          "C) o próprio recorrente, em regime de autodefesa",
+          "D) um perito civil contratado especificamente para o caso",
+          "E) um Oficial de posto superior ao do recorrente"
+        ],
+        correct: 4,
+        subject: "Dos Recursos",
+        explanation: "Conforme o Estatuto dos Militares/RDM: \"Parágrafo único - No caso de delegação, para proceder a estas averiguações será nomeado um Oficial de posto superior ao do recorrente.\" — esse é o trecho que fundamenta a alternativa correta."
       }
     ];
 
@@ -3065,6 +3578,9 @@ const questionsData = [
       await applySwitchMenuLocks();
 
       await loadSavedState();
+      if (currentUser) {
+        AlfaGamification.reconcileRespostasDetalhadas(sb, currentUser.id, QUIZ_ID, questionsData, userAnswers).then(() => {});
+      }
       const savedIndex = parseInt(localStorage.getItem(STORAGE_KEY_CURRENT), 10);
       currentIndex = (!isNaN(savedIndex) && savedIndex >= 0 && savedIndex < questionsData.length) ? savedIndex : 0;
       renderQuestion();
@@ -3410,6 +3926,17 @@ const questionsData = [
 
         var apLinkWrap = document.getElementById('apostila-link-wrap');
         if (apLinkWrap) { apLinkWrap.innerHTML = AlfaGamification.apostilaLinkHtml(apostilaLinksMap, q.id); }
+
+        const expDetail = document.getElementById('explanation-detail');
+        const expDetailText = document.getElementById('explanation-detail-text');
+        if (expDetail && expDetailText) {
+          if (q.explanation) {
+            expDetail.classList.remove('hidden');
+            expDetailText.innerText = q.explanation;
+          } else {
+            expDetail.classList.add('hidden');
+          }
+        }
       } else {
         expBox.classList.add('hidden');
       }
@@ -3539,22 +4066,25 @@ const questionsData = [
 
     function selectOption(optIndex) {
       if (isDiscarded(currentIndex, optIndex)) return;
-      const jaTinhaResposta = userAnswers[currentIndex] !== undefined;
       userAnswers[currentIndex] = optIndex;
       saveState();
       renderQuestion();
       renderGrid();
 
-      // Salva o resultado dessa questão em tempo real, sem esperar finalizar o simulado
-      if (currentUser && !jaTinhaResposta) {
+      // Salva o resultado dessa questão em tempo real, sem esperar finalizar o simulado.
+      // upsert (não insert): o aluno pode voltar numa questão já respondida pra
+      // reconferir, e nesse caso só atualizamos o acerto/erro mais recente, sem
+      // duplicar linha nem depender de um estado local pra saber "já respondi essa
+      // antes" (é esse estado local que fazia a cobertura ficar presa abaixo do real).
+      if (currentUser) {
         const q = questionsData[currentIndex];
-        sb.from('respostas_detalhadas').insert({
+        sb.from('respostas_detalhadas').upsert({
           user_id: currentUser.id,
           quiz_id: QUIZ_ID,
           subject: q.subject,
           question_id: q.id,
           acertou: optIndex === q.correct
-        }).then(() => {});
+        }, { onConflict: 'user_id,quiz_id,question_id' }).then(() => {});
       }
       if (window.StudyRoom) StudyRoom.reportAnswer(currentIndex, optIndex);
     }

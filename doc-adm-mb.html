@@ -528,6 +528,7 @@
           <div class="flex items-center gap-2 text-sm font-bold mb-1" id="explanation-title"></div>
           <div class="text-xs md:text-sm text-slate-300" id="explanation-text"></div>
           <div id="apostila-link-wrap" class="mt-2"></div>
+          <div class="text-xs md:text-sm text-slate-300 mt-3 pt-3 border-t border-slate-700/60 hidden" id="explanation-detail"><span class="text-navy-400 font-semibold">Por que é essa alternativa: </span><span id="explanation-detail-text"></span></div>
         </div>
 
         <button id="flashcard-btn" onclick="saveAsFlashcard()" class="mt-4 w-full h-11 rounded-xl border border-navy-700 bg-navy-800/60 hover:bg-navy-700/60 hover:border-navy-500 text-slate-200 text-sm font-medium transition-all flex items-center justify-center gap-2">
@@ -680,7 +681,8 @@ const questionsData = [
           "E) apenas os documentos classificados como sigilosos"
         ],
         correct: 1,
-        subject: "Documentos"
+        subject: "Documentos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Unidade de registro de informações, qualquer que seja o suporte ou formato.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 2,
@@ -693,7 +695,8 @@ const questionsData = [
           "E) Documentos Internacionais"
         ],
         correct: 4,
-        subject: "Documentos"
+        subject: "Documentos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"Os documentos de interesse da Marinha do Brasil (MB), conforme o estabelecido em Portaria do Comandante da Marinha (CM), que aprova diretrizes sobre a documentação da Marinha, estão enquadrados nos seguintes grupos:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 3,
@@ -706,7 +709,8 @@ const questionsData = [
           "E) Urgentes, Especiais e de Rotina"
         ],
         correct: 0,
-        subject: "Documentos"
+        subject: "Documentos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Visam divulgar normas, transmitir ordens e decisões, esclarecer situações, declarar direitos, especificar materiais e estabelecer procedimentos técnicos. Subdividem-se nos seguintes tipos:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 4,
@@ -719,7 +723,8 @@ const questionsData = [
           "E) Ofício (Of)"
         ],
         correct: 4,
-        subject: "Documentos"
+        subject: "Documentos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"Destes documentos, apenas os abaixo relacionados serão tratados por estas Normas:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 5,
@@ -732,7 +737,8 @@ const questionsData = [
           "E) Ofício (Of)"
         ],
         correct: 3,
-        subject: "Documentos"
+        subject: "Documentos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"1.3.2 - DA de Correspondência:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 6,
@@ -745,7 +751,8 @@ const questionsData = [
           "E) Termo"
         ],
         correct: 3,
-        subject: "Documentos"
+        subject: "Documentos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"1.3.3 - DA Declaratórios\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 7,
@@ -758,7 +765,8 @@ const questionsData = [
           "E) Comic Sans"
         ],
         correct: 2,
-        subject: "Documentos"
+        subject: "Documentos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Nos DA, em conformidade com o preconizado no Manual de Redação da Presidência da República, deverá ser empregada a fonte \"Carlito\", haja vista ser gratuita e integrante de biblioteca livre, atendendo à recomendação governamental para uso de softwares e linguagens livres. A fonte recomendada corresponde à \"Calibri\" nos aplicativos que não são softwares livres.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 8,
@@ -771,7 +779,8 @@ const questionsData = [
           "E) LEGISMAR"
         ],
         correct: 1,
-        subject: "Documentos"
+        subject: "Documentos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Os DA deverão tramitar por meio do Sistema de Gerência de Documentos homologado pela Marinha, o Sistema de Gerência de Documentos Eletrônicos da Marinha (SiGDEM).\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 9,
@@ -784,7 +793,8 @@ const questionsData = [
           "E) ao formato e ao tamanho"
         ],
         correct: 1,
-        subject: "Classificação dos Documentos Administrativos"
+        subject: "Classificação dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"O DA é classificado quanto ao âmbito, à precedência e ao acesso.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 10,
@@ -797,7 +807,8 @@ const questionsData = [
           "E) especial"
         ],
         correct: 2,
-        subject: "Classificação dos Documentos Administrativos"
+        subject: "Classificação dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"b) Externo - tramita entre organizações da MB e entidades extra-MB.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 11,
@@ -810,7 +821,8 @@ const questionsData = [
           "E) prioritário, comum ou eventual"
         ],
         correct: 0,
-        subject: "Classificação dos Documentos Administrativos"
+        subject: "Classificação dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"O DA poderá ter um dos seguintes graus de precedência: urgente, especial ou rotina.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 12,
@@ -823,7 +835,8 @@ const questionsData = [
           "E) qualquer âmbito, sem restrição"
         ],
         correct: 1,
-        subject: "Classificação dos Documentos Administrativos"
+        subject: "Classificação dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"b) Especial - a tramitação do DA especial possui prioridade sobre a tramitação do DA de rotina. Esse grau de precedência somente será atribuído ao DA de âmbito interno; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 13,
@@ -836,7 +849,8 @@ const questionsData = [
           "E) nenhuma das anteriores, todas são classificações válidas"
         ],
         correct: 3,
-        subject: "Classificação dos Documentos Administrativos"
+        subject: "Classificação dos Documentos Administrativos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"O DA é classificado quanto ao âmbito, à precedência e ao acesso.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 14,
@@ -849,7 +863,8 @@ const questionsData = [
           "E) de qualquer oficial superior"
         ],
         correct: 1,
-        subject: "Classificação dos Documentos Administrativos"
+        subject: "Classificação dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"A reprodução do todo ou de parte de DA sigiloso terá o mesmo grau de sigilo do original, e dependerá de autorização da autoridade expedidora, em conformidade com as normas em vigor.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 15,
@@ -862,7 +877,8 @@ const questionsData = [
           "E) da DAdM"
         ],
         correct: 0,
-        subject: "Classificação dos Documentos Administrativos"
+        subject: "Classificação dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Dependem de permissão da autoridade classificadora;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 16,
@@ -875,7 +891,8 @@ const questionsData = [
           "E) não houver anexos"
         ],
         correct: 1,
-        subject: "Classificação dos Documentos Administrativos"
+        subject: "Classificação dos Documentos Administrativos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"Serão elaborados sob responsabilidade das autoridades destinatárias, exceto quando expressamente vedado no próprio documento.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 17,
@@ -888,7 +905,8 @@ const questionsData = [
           "E) igual à média dos graus de sigilo dos anexos"
         ],
         correct: 1,
-        subject: "Classificação dos Documentos Administrativos"
+        subject: "Classificação dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"O DA que contiver anexos sigilosos será classificado com o grau de sigilo igual ou superior ao maior grau indicado nesses anexos.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 18,
@@ -901,7 +919,8 @@ const questionsData = [
           "E) distribuição de cópias"
         ],
         correct: 1,
-        subject: "Classificação dos Documentos Administrativos"
+        subject: "Classificação dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"O TCI é o formulário que formaliza a decisão de classificação, desclassificação, reclassificação ou redução do prazo de sigilo de informação classificada em qualquer grau de sigilo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 19,
@@ -914,7 +933,8 @@ const questionsData = [
           "E) EMA-137"
         ],
         correct: 1,
-        subject: "Classificação dos Documentos Administrativos"
+        subject: "Classificação dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"O DA sigiloso deverá ser formalizado, especificamente, por meio do TCI, de acordo com o modelo contido na publicação EMA-414.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 20,
@@ -927,7 +947,8 @@ const questionsData = [
           "E) 9.784/1999"
         ],
         correct: 0,
-        subject: "Classificação dos Documentos Administrativos"
+        subject: "Classificação dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"A classificação das informações será reavaliada pela autoridade classificadora ou por autoridade hierarquicamente superior, mediante provocação ou de ofício, para desclassificação ou redução do prazo de sigilo, conforme disposto no art. 29 da Lei nº 12.527/2011 e no art. 35 do Decreto nº 7.724/2012.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 21,
@@ -940,7 +961,8 @@ const questionsData = [
           "E) apenas ao final do processo administrativo"
         ],
         correct: 1,
-        subject: "Classificação dos Documentos Administrativos"
+        subject: "Classificação dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"O DA de Correspondência classificado como sigiloso, unicamente por encaminhar anexo sigiloso, será desclassificado tão logo seja retirado esse anexo, devendo ser registrada a desclassificação no campo específico do TCI.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 22,
@@ -953,7 +975,8 @@ const questionsData = [
           "E) nenhum grau de sigilo, permanece ostensivo"
         ],
         correct: 1,
-        subject: "Classificação dos Documentos Administrativos"
+        subject: "Classificação dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Na hipótese de documento ou processo que contenha informações classificadas em diferentes graus de sigilo, será atribuído ao grau de sigilo mais elevado.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 23,
@@ -966,7 +989,8 @@ const questionsData = [
           "E) sua tradução para outros idiomas"
         ],
         correct: 1,
-        subject: "Gestão de Documentos"
+        subject: "Gestão de Documentos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Considera-se gestão de documentos o conjunto de procedimentos e operações técnicas referentes à sua produção, tramitação, uso, avaliação e arquivamento em fase corrente e intermediária, visando a sua eliminação ou recolhimento para guarda permanente.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 24,
@@ -979,7 +1003,8 @@ const questionsData = [
           "E) elaboração, assinatura e distribuição"
         ],
         correct: 2,
-        subject: "Gestão de Documentos"
+        subject: "Gestão de Documentos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"De acordo com o Conselho Nacional de Arquivos (CONARQ), as fases da gestão de documentos são: produção, utilização e destinação.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 25,
@@ -992,7 +1017,8 @@ const questionsData = [
           "E) à classificação de sigilo dos documentos"
         ],
         correct: 1,
-        subject: "Gestão de Documentos"
+        subject: "Gestão de Documentos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Esta fase diz respeito ao fluxo percorrido pelos documentos para o cumprimento de sua função administrativa, assim como sua guarda, após cessar o trâmite.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 26,
@@ -1005,7 +1031,8 @@ const questionsData = [
           "E) para qual OM devem ser transferidos"
         ],
         correct: 0,
-        subject: "Gestão de Documentos"
+        subject: "Gestão de Documentos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Implica em decidir quais documentos devem ser conservados, quais devem ser eliminados e por quanto tempo devem ser mantidos por razões administrativas, legais ou fiscais. Envolve as atividades de análise, seleção e fixação de prazos de guarda dos documentos.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 27,
@@ -1018,7 +1045,8 @@ const questionsData = [
           "E) padronizar a fonte tipográfica utilizada"
         ],
         correct: 1,
-        subject: "Gestão de Documentos"
+        subject: "Gestão de Documentos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Classificação é a organização dos documentos de acordo com um código ou plano de classificação, com o objetivo de reunir os documentos que tratam de um mesmo assunto, como forma de agilizar as tarefas arquivísticas relacionadas com a produção, uso, avaliação, seleção, eliminação, transferência, recolhimento e acesso a esses documentos.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 28,
@@ -1031,7 +1059,8 @@ const questionsData = [
           "E) 105/2021"
         ],
         correct: 0,
-        subject: "Gestão de Documentos"
+        subject: "Gestão de Documentos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"O Código de Classificação está definido na Portaria do CONARQ nº 47/2020 que dispõe sobre o Código de Classificação e Tabela de Temporalidade e Destinação de Documentos relativos às atividades-meio do Poder Executivo Federal.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 29,
@@ -1044,7 +1073,8 @@ const questionsData = [
           "E) 12.527/2011"
         ],
         correct: 1,
-        subject: "Gestão de Documentos"
+        subject: "Gestão de Documentos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Para documentos com assuntos relacionados à área fim, deve ser utilizado o Código de Classificação e a Tabela de Temporalidade e Destinação de Documentos de Arquivo relativos às Atividades-Fim do Ministério da Defesa, aprovado pela Portaria do CONARQ nº 154/2013.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 30,
@@ -1057,7 +1087,8 @@ const questionsData = [
           "E) a atribuição do grau de sigilo"
         ],
         correct: 1,
-        subject: "Gestão de Documentos"
+        subject: "Gestão de Documentos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Instrumento complementar ao Código de Classificação, também aprovado pelo Arquivo Nacional. A TTDD determina prazos e condições de guarda tendo em vista a transferência, recolhimento ou a eliminação de documentos, e é organizada conforme exemplo a seguir:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 31,
@@ -1070,7 +1101,8 @@ const questionsData = [
           "E) a DAdM"
         ],
         correct: 1,
-        subject: "Gestão de Documentos"
+        subject: "Gestão de Documentos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"b) prazos de guarda - referem-se ao tempo de arquivamento dos documentos nas fases corrente e intermediária, visando atender exclusivamente às necessidades da OM que os gerou. Excepcionalmente, pode ser expresso a partir de uma ação concreta que deverá ocorrer em relação a um determinado conjunto documental. Entretanto, deve ser objetivo e direto na definição da ação. Exemplos: até aprovação das contas; enquanto vigorar; enquanto o militar permanecer na ativa; e até apuração...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 32,
@@ -1083,7 +1115,8 @@ const questionsData = [
           "E) o recolhimento ao Arquivo Nacional imediatamente"
         ],
         correct: 1,
-        subject: "Gestão de Documentos"
+        subject: "Gestão de Documentos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"c) destinação final - nesse campo é registrada uma das seguintes destinações para o documento: a eliminação, quando o documento não apresenta valor secundário (probatório ou informativo); ou a guarda permanente, quando as informações contidas no documento são consideradas importantes para fins de prova, informação e pesquisa, além de conterem a História da instituição; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 33,
@@ -1096,7 +1129,8 @@ const questionsData = [
           "E) EMA-137"
         ],
         correct: 1,
-        subject: "Gestão de Documentos"
+        subject: "Gestão de Documentos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Os procedimentos para avaliar os conjuntos documentais e proceder com a destinação (eliminação, transferência ou recolhimento), bem como a formação das subcomissões de avaliação estão previstas nas NORMAS PARA GESTÃO ARQUIVÍSTICA (SGM-503).\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 34,
@@ -1109,7 +1143,8 @@ const questionsData = [
           "E) é elaborada exclusivamente pela DAdM"
         ],
         correct: 1,
-        subject: "Gestão de Documentos"
+        subject: "Gestão de Documentos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Consiste na relação de documentos, de um mesmo tipo, que se encontram em vigor.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 35,
@@ -1122,7 +1157,8 @@ const questionsData = [
           "E) SERPRO"
         ],
         correct: 1,
-        subject: "Documentos Digitais"
+        subject: "Documentos Digitais",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Para este tipo de assinatura, a MB, por meio da DCTIM, disponibiliza o Orion. Os arquivos digitais podem utilizar esse recurso para trâmite pelo SiGDEM.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 36,
@@ -1135,7 +1171,8 @@ const questionsData = [
           "E) autenticar o documento em cartório"
         ],
         correct: 1,
-        subject: "Documentos Digitais"
+        subject: "Documentos Digitais",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Devido ao seu formato, os documentos assinados com o Orion não podem ser acessados extra-MB, bem como não é possível sobrepor outros tipos de assinatura eletrônica. Neste caso, em face dessa limitação, é obrigatório que uma via original seja impressa em papel, com a assinatura de próprio punho da autoridade expedidora para ser arquivada no SECOM da OM de origem.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 37,
@@ -1148,7 +1185,8 @@ const questionsData = [
           "E) 10.139/2019"
         ],
         correct: 0,
-        subject: "Documentos Digitais"
+        subject: "Documentos Digitais",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"– Utiliza certificado digital, nos termos do disposto na Medida Provisória nº 2.200-2/2001.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 38,
@@ -1161,7 +1199,8 @@ const questionsData = [
           "E) apenas Autoridades Certificadoras estrangeiras"
         ],
         correct: 1,
-        subject: "Documentos Digitais"
+        subject: "Documentos Digitais",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"O procedimento de assinar digitalmente exige o uso de um certificado digital gerado por uma infraestrutura de chaves públicas de confiança. Conforme o estabelecido na legislação atual, apenas a ICP-Brasil (Infraestrutura de Chaves Público Brasileira) possui a confiança inequívoca do Estado brasileiro.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 39,
@@ -1174,7 +1213,8 @@ const questionsData = [
           "E) Autoridade Certificadora de Defesa"
         ],
         correct: 1,
-        subject: "Documentos Digitais"
+        subject: "Documentos Digitais",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"A Portaria Normativa nº 17/MD, de 13 de abril de 2018, estabeleceu as normas de funcionamento da Autoridade Certificadora de Defesa - AC Defesa. Nessa estrutura, o Serviço de Identificação da Marinha (SIM) atua como um Agente de Registro Remoto (ARR). A AC Defesa tem como finalidade emitir e fornecer certificados digitais para o Ministério da Defesa (MD), bem como para a MB, EB e FAB.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 40,
@@ -1187,7 +1227,8 @@ const questionsData = [
           "E) DPHDM"
         ],
         correct: 1,
-        subject: "Documentos Digitais"
+        subject: "Documentos Digitais",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"A Portaria Normativa nº 17/MD, de 13 de abril de 2018, estabeleceu as normas de funcionamento da Autoridade Certificadora de Defesa - AC Defesa. Nessa estrutura, o Serviço de Identificação da Marinha (SIM) atua como um Agente de Registro Remoto (ARR). A AC Defesa tem como finalidade emitir e fornecer certificados digitais para o Ministério da Defesa (MD), bem como para a MB, EB e FAB.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 41,
@@ -1200,7 +1241,8 @@ const questionsData = [
           "E) documento sigiloso automaticamente"
         ],
         correct: 1,
-        subject: "Documentos Digitais"
+        subject: "Documentos Digitais",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Os documentos nato-digitais assinados com certificado digital possuem validade jurídica, não havendo necessidade de serem impressos e assinados fisicamente. Qualquer reprodução em papel de um documento nato-digital com assinatura digital é considerada uma cópia simples com valor apenas informativo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 42,
@@ -1213,7 +1255,8 @@ const questionsData = [
           "E) precisa ser reassinado a cada trâmite"
         ],
         correct: 1,
-        subject: "Documentos Digitais"
+        subject: "Documentos Digitais",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"O DA, após receber a assinatura digital, não poderá sofrer alterações.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 43,
@@ -1226,7 +1269,8 @@ const questionsData = [
           "E) JPEG"
         ],
         correct: 1,
-        subject: "Documentos Digitais"
+        subject: "Documentos Digitais",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Os documentos nato-digitais, assinados com certificado ICP-Brasil, deverão ser produzidos em formato PDF/A, conforme o preconizado pela Câmara Técnica de Documentos Eletrônicos (CTDE), do Conselho Nacional de Arquivos (CONARQ).\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 44,
@@ -1239,7 +1283,8 @@ const questionsData = [
           "E) rubrica manuscrita digitalizada"
         ],
         correct: 1,
-        subject: "Documentos Digitais"
+        subject: "Documentos Digitais",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"De acordo com o Decreto nº 10.278/2020, o documento digitalizado destinado a se equiparar a documento físico para todos os efeitos legais e para a comprovação de qualquer ato perante pessoa jurídica de direito público deverá ser assinado digitalmente com certificação digital no padrão ICP-Brasil, de modo a garantir a autoria da digitalização e a integridade do documento e de seus metadados.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 45,
@@ -1252,7 +1297,8 @@ const questionsData = [
           "E) deve ser destruído para evitar fraude"
         ],
         correct: 1,
-        subject: "Documentos Digitais"
+        subject: "Documentos Digitais",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Por se tratar de cópia autenticada, o original físico deve ser preservado na OM de origem.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 46,
@@ -1265,7 +1311,8 @@ const questionsData = [
           "E) apenas com dupla criptografia obrigatória em qualquer situação"
         ],
         correct: 1,
-        subject: "Documentos Digitais"
+        subject: "Documentos Digitais",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"a) poderá tramitar por meio eletrônico qualquer DA independentemente do seu grau de sigilo. Contudo, a transmissão de DA ULTRASSECRETO por meio eletrônico só será permitida em casos extremos e que requeira tramitação e solução imediata;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 47,
@@ -1278,7 +1325,8 @@ const questionsData = [
           "E) cifra apenas se solicitado"
         ],
         correct: 1,
-        subject: "Documentos Digitais"
+        subject: "Documentos Digitais",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"b) os DA sigilosos serão, obrigatoriamente, criptografados após serem assinados digitalmente:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 48,
@@ -1291,7 +1339,8 @@ const questionsData = [
           "E) tratados da mesma forma que os documentos reservados"
         ],
         correct: 1,
-        subject: "Documentos Digitais"
+        subject: "Documentos Digitais",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"– os DA com grau de sigilo SECRETO e ULTRASSECRETO serão duplamente cifrados, após compactados; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 49,
@@ -1304,7 +1353,8 @@ const questionsData = [
           "E) exclusivamente durante o transporte físico"
         ],
         correct: 1,
-        subject: "Documentos Digitais"
+        subject: "Documentos Digitais",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"c) não deverão ser tramitados e mantidos DA sigilosos em texto claro nas redes locais das OM nem nas unidades de disco rígido (hard disk) das estações de trabalho. O trâmite interno de DA sigilosos deverá ser realizado de acordo com as normas específicas vigentes.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 50,
@@ -1317,7 +1367,8 @@ const questionsData = [
           "E) o destinatário for extra-MB"
         ],
         correct: 1,
-        subject: "Documentos Digitais"
+        subject: "Documentos Digitais",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"Quando o tamanho obtido pelo somatório de arquivos que compõem o DA for superior a \"1 MB\", estes poderão ser compactados em um único arquivo, por meio de software de compactação padronizado para uso pela MB, de forma a facilitar o seu encaminhamento por meio do correio eletrônico. No entanto, não deverá ser utilizado o recurso da compactação em arquivos que tenham sido compactados anteriormente. Visando facilitar o manuseio dos documentos pelos usuários do Sistema, o arquivo...\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 51,
@@ -1330,7 +1381,8 @@ const questionsData = [
           "E) 50 arquivos a serem anexados"
         ],
         correct: 2,
-        subject: "Documentos Digitais"
+        subject: "Documentos Digitais",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Quando o tamanho obtido pelo somatório de arquivos que compõem o DA for superior a \"1 MB\", estes poderão ser compactados em um único arquivo, por meio de software de compactação padronizado para uso pela MB, de forma a facilitar o seu encaminhamento por meio do correio eletrônico. No entanto, não deverá ser utilizado o recurso da compactação em arquivos que tenham sido compactados anteriormente. Visando facilitar o manuseio dos documentos pelos usuários do Sistema, o arquivo...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 52,
@@ -1343,7 +1395,8 @@ const questionsData = [
           "E) origem, destino e conteúdo"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"O DA é composto pelas seguintes partes básicas: cabeçalho, texto, assinatura e cópias ou distribuição.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 53,
@@ -1356,7 +1409,8 @@ const questionsData = [
           "E) A-5"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Empregar como tamanho de papel para impressão o A-4 (29,7x21cm), na cor branca, inclusive as cópias.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 54,
@@ -1369,7 +1423,8 @@ const questionsData = [
           "E) 2,5 cm"
         ],
         correct: 2,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"CAPÍTULO 1 — COMPOSIÇÃO DOS DOCUMENTOS ADMINISTRATIVOS\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 55,
@@ -1382,7 +1437,8 @@ const questionsData = [
           "E) 2,5 cm"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"CAPÍTULO 1 — COMPOSIÇÃO DOS DOCUMENTOS ADMINISTRATIVOS\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 56,
@@ -1395,7 +1451,8 @@ const questionsData = [
           "E) o vocativo"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Será utilizada a letra com fonte \"Carlito\" ou \"Calibri\", estilo \"Normal\", na cor preta e tamanho \"12\" para o texto em geral, inclusive na continuação e numeração de páginas, \"11\" nas citações e \"10\" nas notas de rodapé. Não deverá haver abuso no uso de negrito, itálico, sublinhado, letras maiúsculas, sombreado, relevo, bordas ou qualquer outra forma de formatação que afete a apresentação e a sobriedade do documento. As palavras estrangeiras devem ser grafadas em itálico, exce...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 57,
@@ -1408,7 +1465,8 @@ const questionsData = [
           "E) a numeração de páginas"
         ],
         correct: 2,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Será utilizada a letra com fonte \"Carlito\" ou \"Calibri\", estilo \"Normal\", na cor preta e tamanho \"12\" para o texto em geral, inclusive na continuação e numeração de páginas, \"11\" nas citações e \"10\" nas notas de rodapé. Não deverá haver abuso no uso de negrito, itálico, sublinhado, letras maiúsculas, sombreado, relevo, bordas ou qualquer outra forma de formatação que afete a apresentação e a sobriedade do documento. As palavras estrangeiras devem ser grafadas em itálico, exce...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 58,
@@ -1421,7 +1479,8 @@ const questionsData = [
           "E) 16"
         ],
         correct: 3,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Para o SIGILO, PRECEDÊNCIA e INFORMAÇÃO PESSOAL será empregada fonte Carlito ou Calibri, negrito, tamanho 14, na cor preta, exceto para a descrição da Lei, que utilizará a fonte Carlito ou Calibri, itálico, na cor preta e tamanho 8.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 59,
@@ -1434,7 +1493,8 @@ const questionsData = [
           "E) 10.278/2020"
         ],
         correct: 0,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"c) Informação Pessoal - no canto superior direito, abaixo da marcação de precedência, quando houver, e usando a expressão \"(nos termos da Lei nº 12.527/2011, regulamentada pelo Dec. nº 7.724/2012)\".\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 60,
@@ -1447,7 +1507,8 @@ const questionsData = [
           "E) 2,5 cm x 2,5 cm"
         ],
         correct: 2,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"O Brasão será utilizado no tamanho de 2,0 cm x 2,0 cm e será utilizada as Armas Nacionais disponibilizada pelo Governo Federal e pela DAdM.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 61,
@@ -1460,7 +1521,8 @@ const questionsData = [
           "E) \"SEGUNDA VIA\""
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"II) as cópias dos DA cujo trâmite seja realizado por meio físico serão distinguidas do original pela aposição da palavra \"CÓPIA\", na impressão (carlito/calibri, negrito, tamanho 14, na cor preta) ou carimbada na primeira página, no canto superior direito.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 62,
@@ -1473,7 +1535,8 @@ const questionsData = [
           "E) 1 (um)"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"O Grupo Indicador é composto de três elementos, conforme exemplificado a seguir:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 63,
@@ -1486,7 +1549,8 @@ const questionsData = [
           "E) o ano de expedição"
         ],
         correct: 0,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"– 20 - 1º elemento – representa o Elemento Organizacional da OM responsável pela confecção do documento.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 64,
@@ -1499,7 +1563,8 @@ const questionsData = [
           "E) o número de vias"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"– 023.131 – 2º elemento – representa o código da classificação sugerida para o arquivamento.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 65,
@@ -1512,7 +1577,8 @@ const questionsData = [
           "E) o DA for de caráter normativo"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"II) a escrituração do terceiro elemento é obrigatória somente quando a elaboração de um DA é resposta de outro; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 66,
@@ -1525,7 +1591,8 @@ const questionsData = [
           "E) apenas trimestral"
         ],
         correct: 2,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"A atribuição de sequência para o número de ordem poderá ser anual ou contínua.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 67,
@@ -1538,7 +1605,8 @@ const questionsData = [
           "E) reiniciam a numeração a cada semestre"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"O número de ordem é atribuído sequencialmente, recomeçando pela unidade a cada ano, para cada espécie de DA, com exceção do Of e OfExt que terão a mesma numeração sequencial. O número de ordem não deve ser complementado com zeros à esquerda de números significativos;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 68,
@@ -1551,7 +1619,8 @@ const questionsData = [
           "E) nunca poderá ser reaproveitado"
         ],
         correct: 2,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"O Número de Ordem de um DA normativo cancelado ou renumerado só será reaproveitado após dois anos.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 69,
@@ -1564,7 +1633,8 @@ const questionsData = [
           "E) um asterisco"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"A reedição do DA normativo será indicada por uma letra maiúscula após o número de ordem, começando com \"A\", que indica a primeira reedição do documento, e em consequência, o cancelamento da edição anterior, conforme os exemplos a seguir:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 70,
@@ -1577,7 +1647,8 @@ const questionsData = [
           "E) Ordem de Serviço e Ordem do Dia"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"– Atestado, Carta, Requerimento e Certidão, normalmente, não são numerados. Todavia, caso julgado conveniente, as OM que utilizam com frequência alguns destes DA poderão numerá-los;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 71,
@@ -1590,7 +1661,8 @@ const questionsData = [
           "E) \"Cópias:\""
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Se no texto de um DA interno houver necessidade em mencionar outros documentos, para maior facilidade, estes deverão ser relacionados no cabeçalho. Para isso, usa-se a palavra \"Referência:\" ou \"Referências:\", seguida de escrituração que os identifique. Nos DA de âmbito externo as referências devem ser citadas no texto.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 72,
@@ -1603,7 +1675,8 @@ const questionsData = [
           "E) apenas verbalmente, antes da entrega"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Se no texto de um DA interno houver necessidade em mencionar outros documentos, para maior facilidade, estes deverão ser relacionados no cabeçalho. Para isso, usa-se a palavra \"Referência:\" ou \"Referências:\", seguida de escrituração que os identifique. Nos DA de âmbito externo as referências devem ser citadas no texto.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 73,
@@ -1616,7 +1689,8 @@ const questionsData = [
           "E) asteriscos numerados"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"IV) quando houver mais de um documento para ser relacionado como referência, serão listados na ordem em que forem citados no texto, precedidos de letras maiúsculas, obedecendo à ordem alfabética, seguidas de um parêntese;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 74,
@@ -1629,7 +1703,8 @@ const questionsData = [
           "E) documentos assinados eletronicamente"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"VIII) não se deve referenciar documentos com prazo de arquivamento vencido;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 75,
@@ -1642,7 +1717,8 @@ const questionsData = [
           "E) complementos"
         ],
         correct: 0,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Os anexos de documentos relacionados no cabeçalho como \"anexos\" passam a ser apensos.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 76,
@@ -1655,7 +1731,8 @@ const questionsData = [
           "E) Orion"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"IV) DA que encaminhem cheques ou quaisquer outros valores deverão ter escriturados, explicitamente, esses anexos. Não é permitido anexar dinheiro em espécie a DA que use serviço postal, restrição esta extensiva ao Serviço Postal da Marinha (SPM);\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 77,
@@ -1668,7 +1745,8 @@ const questionsData = [
           "E) \"Ilustríssimo Senhor\""
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"Alguns DA empregam, imediatamente antes do texto, o cargo ou a função genérica do destinatário, quando houver, precedido de \"Senhor\" ou \"Senhora\", exceto em DA endereçados aos Chefes dos Poderes Legislativo e Judiciário, situação em que se utilizará a expressão Excelentíssimo Senhor. O vocativo termina sempre com vírgula.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 78,
@@ -1681,7 +1759,8 @@ const questionsData = [
           "E) redundância"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"A redação do texto deve caracterizar-se pela impessoalidade, uso do padrão culto de linguagem, clareza, formalidade, concisão, simplicidade e objetividade.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 79,
@@ -1694,7 +1773,8 @@ const questionsData = [
           "E) apenas com autorização da autoridade superior"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"A transcrição de trechos de outra fonte no texto de um DA contendo mais de três linhas, quando necessária, será efetuada entre aspas, com recuo de texto e redução do tamanho da fonte para \"11\", e, ainda, mediante a identificação de sua origem/autoria, ano e respectiva página. A fonte selecionada para transcrição deverá estar relacionada entre as referências do DA, conforme exemplificado a seguir:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 80,
@@ -1707,7 +1787,8 @@ const questionsData = [
           "E) não há item específico para isso"
         ],
         correct: 2,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"III) Item 3 - Destina-se à apresentação da conclusão, solução proposta, providência solicitada ou ação recomendada.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 81,
@@ -1720,7 +1801,8 @@ const questionsData = [
           "E) à assinatura da autoridade"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"I) Item 1 - Destina-se à exposição concisa e precisa de um fato, à apresentação de um problema ou à comunicação de uma situação existente.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 82,
@@ -1733,7 +1815,8 @@ const questionsData = [
           "E) \"GENERALIDADES\""
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"As diversas partes do texto normativo, exceto na Portaria, serão colocadas sob a forma de itens e subitens, admitindo-se, quando necessário, a subdivisão em alíneas e subalíneas.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 83,
@@ -1746,7 +1829,8 @@ const questionsData = [
           "E) \"GENERALIDADES\""
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"c) Os seguintes itens terão destinação específica em texto normativo:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 84,
@@ -1759,7 +1843,8 @@ const questionsData = [
           "E) travessão"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"É a unidade básica para apresentação, divisão ou agrupamento de assuntos. Serão designados pela abreviatura \"Art.\", seguida de numeração ordinal até o nono e cardinal a partir deste, e sem traço antes do início do texto. Os textos dos artigos serão iniciados com letra maiúscula e encerrados com ponto final, exceto quando tiverem incisos, caso em que serão encerrados com dois pontos.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 85,
@@ -1772,7 +1857,8 @@ const questionsData = [
           "E) capítulos"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Os artigos podem desdobrar-se, por sua vez, em parágrafos ou em incisos, os parágrafos em incisos, os incisos em alíneas e as alíneas em itens.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 86,
@@ -1785,7 +1871,8 @@ const questionsData = [
           "E) \"parágrafo exclusivo\""
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"No singular o parágrafo é representado pelo sinal gráfico \"§\" e no plural \"§§\". A representação do parágrafo deve ser seguida de numeração ordinal até o nono e cardinal a partir deste, utilizando-se, quando existente apenas um, a expressão \"parágrafo único\" por extenso.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 87,
@@ -1798,7 +1885,8 @@ const questionsData = [
           "E) travessões"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Será estruturado em parágrafos, todos numerados, na forma de algarismo arábico, seguido de ponto.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 88,
@@ -1811,7 +1899,8 @@ const questionsData = [
           "E) comunicar"
         ],
         correct: 3,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"apresentar, restituir, determinar, remeter, recomendar, enviar, comunicar, esclarecer e informar.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 89,
@@ -1824,7 +1913,8 @@ const questionsData = [
           "E) \"Vossa Excelência\""
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Quando o tratamento do destinatário for \"Vossa Senhoria\", o endereçamento a ser empregado é \"Ao Senhor\" ou \"À Senhora\", não sendo utilizada a expressão \"A Sua Senhoria o(a) Senhor(a)\".\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 90,
@@ -1837,7 +1927,8 @@ const questionsData = [
           "E) Atestado e Certidão, sempre"
         ],
         correct: 4,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"O Número Único de Protocolo (NUP) é a numeração utilizada para controle de seus documentos, avulsos ou processos, no Sistema Protocolo Integrado que busca a integração das informações em tramitação nos órgãos e entidades da Administração Pública Federal e, no caso da MB, entre suas Organizações Militares. A constituição do NUP seguirá a legislação em vigor, devendo integrar os seguintes DA produzidos: INST, NORM, Port, IN, Carta, Circ, CP, Of, OfExt, Desp, Memo, DD, OD, OS e...\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 91,
@@ -1850,7 +1941,8 @@ const questionsData = [
           "E) apenas para processos, nunca para documentos avulsos"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"II) as OM, aqui definidas como Unidades Protocolizadoras (UP), ao produzirem os DA, deverão atribuir um NUP antes da sua expedição; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 92,
@@ -1863,7 +1955,8 @@ const questionsData = [
           "E) Manual de Redação da Presidência da República, exclusivamente"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"O uso desses recursos obedecerá ao que estiver estabelecido em publicações específicas em vigor, como o MANUAL DE ABREVIATURAS, SIGLAS, SÍMBOLOS E CONVENÇÕES CARTOGRÁFICAS DAS FORÇAS ARMADAS (MD33-M-02).\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 93,
@@ -1876,7 +1969,8 @@ const questionsData = [
           "E) for um Ofício comum"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"– tratar de comunicação sobre a aplicação de pena disciplinar, salvo se imposta pelo signatário, por delegação;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 94,
@@ -1889,7 +1983,8 @@ const questionsData = [
           "E) \"A pedido de:\""
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"e) Nos documentos de âmbito externo, não será usado o termo \"Por ordem:\", que será substituído pelo \"Incumbiu-me\", a ser inserido no início do texto, apondo somente o nome/posto/cargo de quem assina, conforme o exemplo a seguir:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 95,
@@ -1902,7 +1997,8 @@ const questionsData = [
           "E) \"Sob autorização de\""
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Observação: Para aqueles documentos destinados a autoridade de maior precedência o termo \"Incumbiu-me\" será substituído pelo \"Na ausência\", conforme o exemplo a seguir:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 96,
@@ -1915,7 +2011,8 @@ const questionsData = [
           "E) \"Interinamente por:\""
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"b) Nos documentos de âmbito interno, a assinatura será precedida do termo \"No impedimento de:\", admitindo-se nos casos imprescindíveis, abreviá-lo para \"No impto. de:\", uma linha acima do nome e do parágrafo, digitada ou carimbada logo abaixo do texto, conforme o exemplo a seguir:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 97,
@@ -1928,7 +2025,8 @@ const questionsData = [
           "E) sempre com o Titular da OM ao centro"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Para documentos com mais de uma assinatura (Pareceres, Relatórios, Atas, entre outros) a disposição será do mais antigo para o mais moderno, da esquerda para a direita e de cima para baixo, e poderá ter seu espaçamento reduzido para otimização dos espaços no documento, conforme os exemplos a seguir:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 98,
@@ -1941,7 +2039,8 @@ const questionsData = [
           "E) \"CERTIFICADO ICP-BRASIL\""
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"O DA com assinatura digital deverá conter, na parte básica destinada à assinatura e abaixo do cargo da autoridade expedidora, a expressão \"ASSINADO DIGITALMENTE\", mantendo-se o tamanho e tipo de fonte utilizada nos demais campos, grafada em letras maiúsculas e delimitada por bordas simples, seguindo a representação gráfica do exemplo abaixo:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 99,
@@ -1954,7 +2053,8 @@ const questionsData = [
           "E) apenas nas páginas com anexos"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Nas páginas - Quando possuir mais de uma página, a autoridade rubricará todas as páginas que antecedem aquela onde colocará sua assinatura, na parte superior direita de cada página, acima da primeira linha do texto, não sendo necessário escriturar data, nome, posto ou cargo; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 100,
@@ -1967,7 +2067,8 @@ const questionsData = [
           "E) qualquer servidor civil da OM"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"a) poderão usar Cópias Autenticadas:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 101,
@@ -1980,7 +2081,8 @@ const questionsData = [
           "E) mediante autorização judicial"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"O DA só poderá ser autenticado após a assinatura do documento original pela autoridade expedidora, assegurando que o arquivo transmitido corresponde, exatamente, ao DA assinado originalmente, que será arquivado no SECOM da OM de origem.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 102,
@@ -1993,7 +2095,8 @@ const questionsData = [
           "E) tiver mais de dez páginas"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"As páginas de um documento, ostensivo ou sigiloso, serão numeradas sucessivamente desde a primeira até a última. A numeração será na margem inferior, centralizada, dentro do rodapé. Os documentos que tenham apenas uma página não recebem numeração.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 103,
@@ -2006,7 +2109,8 @@ const questionsData = [
           "E) que não possuam número de ordem"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"A indicação \"Distribuição:\" será utilizada para os documentos de emissão repetitiva ou em série, que divulguem assunto para conhecimento de várias OM.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 104,
@@ -2019,7 +2123,8 @@ const questionsData = [
           "E) \"Vocativo:\""
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Usada nos documentos cujo destinatário está definido no Cabeçalho (normalmente aqueles que contêm \"Ao:\").\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 105,
@@ -2032,7 +2137,8 @@ const questionsData = [
           "E) pela DAdM"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"A IN é expedida, no âmbito da MB, exclusivamente pelo CM, em virtude de competência regimental ou delegada, para estabelecer instruções e procedimentos de caráter geral necessário à execução de normas, leis, decretos e regulamentos.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 106,
@@ -2045,7 +2151,8 @@ const questionsData = [
           "E) IN Unificada"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"5.1.1. Instrução Normativa Conjunta (INC)\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 107,
@@ -2058,7 +2165,8 @@ const questionsData = [
           "E) apenas para assuntos sigilosos"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"É o DA normativo por meio do qual o EMA, os ODS, o GCM, as Organizações Militares Orientadoras Técnicas (OMOT), e as OM com atribuições de Diretoria Especializada (DE) estabelecem normas e procedimentos sobre assuntos de sua competência, para toda a MB.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 108,
@@ -2071,7 +2179,8 @@ const questionsData = [
           "E) sua inserção no LEGISMAR"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"O uso de INST deverá ser restrito ao mínimo indispensável, evitando-se a emissão de instruções em cascata, ou múltiplas, sobre o mesmo assunto, pelos diferentes níveis da estrutura organizacional.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 109,
@@ -2084,7 +2193,8 @@ const questionsData = [
           "E) completar dez modificações, exatamente"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"A INST deverá ser reeditada quando o número de modificações já divulgadas for elevado ou, ainda, quando ocorrer alteração significativa.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 110,
@@ -2097,7 +2207,8 @@ const questionsData = [
           "E) Mensagem ao GCM"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"O cancelamento de uma INST será divulgado no último item de uma outra INST, ou por meio de Nota em BONO.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 111,
@@ -2110,7 +2221,8 @@ const questionsData = [
           "E) apenas por Organizações extra-MB"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"É o DA normativo pelo qual os Almirantes, em cargo de Comando, Direção ou Chefia, bem como os Oficiais Superiores Comandantes de Força estabelecem normas e procedimentos que serão cumpridos pelas OM que lhes são subordinadas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 112,
@@ -2123,7 +2235,8 @@ const questionsData = [
           "E) autoridades exaltam datas históricas"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"É o DA normativo pelo qual os Titulares de OM estabelecem normas e procedimentos no âmbito interno de suas OM.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 113,
@@ -2136,7 +2249,8 @@ const questionsData = [
           "E) Nota em BONO, exclusivamente"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Quando uma OI tiver que ser cancelada, sem implicar reedição, o cancelamento se dará por meio da divulgação em Plano do Dia.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 114,
@@ -2149,7 +2263,8 @@ const questionsData = [
           "E) distribuição nominal"
         ],
         correct: 0,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"CAPÍTULO 5 — TIPOS DE DOCUMENTOS ADMINISTRATIVOS NA MB\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 115,
@@ -2162,7 +2277,8 @@ const questionsData = [
           "E) têm numeração departamental obrigatória"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"As portarias de pessoal são os atos referentes a agentes públicos nominalmente identificados.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 116,
@@ -2175,7 +2291,8 @@ const questionsData = [
           "E) \"extinta a vigência anterior\""
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"A revogação de Port far-se-á por meio de nova Port que elencará, explicitamente, os documentos revogados, evitando-se a expressão \"revogadas as disposições em contrário\" ou equivalente. Quando aplicável, a revogação será indicada no último artigo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 117,
@@ -2188,7 +2305,8 @@ const questionsData = [
           "E) tem vigência de um ano"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"Não será mais permitida a inserção, no artigo \"VIGÊNCIA\", do texto que diz que a Portaria ficará automaticamente cancelada, logo após surtir o efeito a que se propõe.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 118,
@@ -2201,7 +2319,8 @@ const questionsData = [
           "E) três algarismos"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"No caso de alteração de portaria, deverá constar na sua ementa a seguinte expressão inicial: \"Altera a Portaria nº ______/AAAA,...\", onde: AAAA–ano, sempre com quatro algarismos.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 119,
@@ -2214,7 +2333,8 @@ const questionsData = [
           "E) tenha caráter transitório"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"De acordo com o Dec nº 10.139/2019, é aquela que tenha a finalidade de disciplinar a aplicação de leis, decretos e regulamentos, visando estabelecer regras, diretrizes, instruções ou procedimentos sobre a matéria de sua competência específica e que não seja de aplicação exclusivamente interna da OM.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 120,
@@ -2227,7 +2347,8 @@ const questionsData = [
           "E) entre Almirantes"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"A Carta somente deverá ser utilizada em endereçamentos extra-MB.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 121,
@@ -2240,7 +2361,8 @@ const questionsData = [
           "E) Instruções Normativas"
         ],
         correct: 2,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"É o DA de correspondência por meio do qual os Almirantes, em cargo de Comando, Direção ou Chefia, e os Oficiais Superiores Comandantes de Força promovem alterações de DA normativos, exceto Portarias, ou divulgam assuntos de caráter temporário que devam ser do conhecimento de um elevado número de OM.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 122,
@@ -2253,7 +2375,8 @@ const questionsData = [
           "E) qualquer mês, sem restrição"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"a) a Circ é um DA de caráter temporário, cuja vigência deve estar explicitamente declarada, não podendo estender-se para o ano seguinte ao da sua divulgação. É permitido, contudo, que Circ emitida nos meses de novembro e dezembro, que precise vigorar também no ano seguinte, receba Número de Ordem relativo a esse ano, embora possa ter vigência desde a data da sua emissão;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 123,
@@ -2266,7 +2389,8 @@ const questionsData = [
           "E) qualquer Circ pode ser renumerada, sem condição"
         ],
         correct: 0,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"b) até o dia quinze de janeiro, as OM deverão emitir Circ renumerando, para o ano corrente, as Circ de anos anteriores que tenham necessidade de permanecer em vigor; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 124,
@@ -2279,7 +2403,8 @@ const questionsData = [
           "E) a Carta"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Quando a comunicação envolver o titular da OM, como origem ou como destinatário, deve ser empregado o Ofício.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 125,
@@ -2292,7 +2417,8 @@ const questionsData = [
           "E) ostensiva"
         ],
         correct: 2,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"É o documento de âmbito interno da MB, por meio do qual as Centrais de Processos Judiciários (CPJ) encaminharão documentos relativos a processos judiciais para prestação de informações e/ou cumprimento de decisões judiciais.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 126,
@@ -2305,7 +2431,8 @@ const questionsData = [
           "E) duas originais e uma cópia"
         ],
         correct: 0,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"A CPPJ será confeccionada em três vias, sendo uma original e duas cópias, onde uma cópia será arquivada na CPJ de origem, com anexo, sem apensos e a outra enviada à CPJ/GCM, sem anexos.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 127,
@@ -2318,7 +2445,8 @@ const questionsData = [
           "E) à Ordem de Serviço"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"É o DA de correspondência utilizado, exclusivamente, no âmbito interno da MB, em continuação ao Of.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 128,
@@ -2331,7 +2459,8 @@ const questionsData = [
           "E) \"Anexos inalterados desde a origem\""
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Se os anexos não tiverem sido alterados, será usada a expressão \"Os mesmos do ofício inicial.\". Caso houver alteração nos anexos do ofício inicial, tramitado pela OM anterior, será usada a expressão \"Os mesmos do despacho anterior.\".\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 129,
@@ -2344,7 +2473,8 @@ const questionsData = [
           "E) nenhum destinatário definido"
         ],
         correct: 0,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"– um Desp terá apenas um único destinatário.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 130,
@@ -2357,7 +2487,8 @@ const questionsData = [
           "E) um Termo"
         ],
         correct: 0,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"– não cabe o emprego de Desp por parte dos endereçados de cópias de um expediente. Quando houver necessidade de manifestação de um endereçado de cópia sobre o assunto tratado no expediente, deve ser utilizado um novo Of ou Msg.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 131,
@@ -2370,7 +2501,8 @@ const questionsData = [
           "E) linguagem indireta livre, sem pessoa definida"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"a) a redação do texto utilizará a terceira pessoa do singular para se referir ao requerente;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 132,
@@ -2383,7 +2515,8 @@ const questionsData = [
           "E) não requer rubrica, apenas assinatura"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"a) o Req endereçado ao Titular da OM será rubricado pela segunda autoridade dessa OM, na margem superior à esquerda, logo abaixo do cabeçalho, sobre seu nome, posto e cargo (digitados ou carimbados);\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 133,
@@ -2396,7 +2529,8 @@ const questionsData = [
           "E) não é necessária rubrica nesse caso"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"d) quando o Requerente for o Titular da OM a rubrica caberá ao Comando Imediatamente Superior (COMIMSUP).\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 134,
@@ -2409,7 +2543,8 @@ const questionsData = [
           "E) uma alteração de cargo"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"É o DA declaratório pelo qual os Titulares de OM ou autoridade delegada comprovam, a pedido, um fato ou situação de que tenham conhecimento.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 135,
@@ -2422,7 +2557,8 @@ const questionsData = [
           "E) exclusivamente em registros digitais externos"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"É o DA declaratório mediante o qual os Titulares de OM declaram a existência de fatos com base em documentos existentes na OM.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 136,
@@ -2435,7 +2571,8 @@ const questionsData = [
           "E) Informativa apenas"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Quando transcreve, por inteiro, o conteúdo do registro ou do documento fonte. É também chamada \"Verbo ad Verbum\", \"Textual\" ou \"em Inteiro Teor\".\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 137,
@@ -2448,7 +2585,8 @@ const questionsData = [
           "E) Retificadora"
         ],
         correct: 3,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Quando nega a existência ou registro de um determinado ato ou fato.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 138,
@@ -2461,7 +2599,8 @@ const questionsData = [
           "E) Certidão Verbo ad Verbum"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Quando descreve pedaços esparsos do original, sem copiar todo o texto ou, ainda, quando informa ou responde a perguntas formuladas. Neste caso, é também chamada \"Certidão em Relatório\" ou \"Certidão Informativa\".\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 139,
@@ -2474,7 +2613,8 @@ const questionsData = [
           "E) autorizadas apenas pelo CM"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"A Certidão será digitada em espaço um, sem ponto parágrafo, sem espaços em branco, sem entrelinhas, sem rasuras e as emendas serão ressalvadas no texto, antes do encerramento.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 140,
@@ -2487,7 +2627,8 @@ const questionsData = [
           "E) registram alterações de cargo de pessoal"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"É o DA declaratório mediante o qual o CM e os Titulares de OM exaltam datas históricas ou fatos significativos. As OD poderão ser encaminhadas a Órgãos extra-MB, ouvido o GCM.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 141,
@@ -2500,7 +2641,8 @@ const questionsData = [
           "E) alteração de denominação de Organização Militar"
         ],
         correct: 4,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"Determinação técnica ou administrativa expedida por escrito por autoridade, CM e titulares de OM, e dirigida a responsáveis por serviços, tarefas ou obras, autorizando-os no que concerne a:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 142,
@@ -2513,7 +2655,8 @@ const questionsData = [
           "E) enviada à DAdM para retificação"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"Quando a OS contiver um único lançamento, e sendo detectado o lançamento incorreto ou que o mesmo deixou de ser cumprido, ela poderá ser cancelada pela OM de origem, com o seguinte texto:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 143,
@@ -2526,7 +2669,8 @@ const questionsData = [
           "E) reenviada para nova assinatura de toda a OS"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"Quando a OS contiver vários lançamentos, e sendo detectado lançamento incorreto ou que o mesmo deixou de ser cumprido, ela poderá ser retificada pela OM de origem, com o seguinte texto:\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 144,
@@ -2539,7 +2683,8 @@ const questionsData = [
           "E) se exaltam datas históricas"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"É o DA pelo qual especialistas emitem opinião fundamentada sobre determinado assunto.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 145,
@@ -2552,7 +2697,8 @@ const questionsData = [
           "E) uma citação de jurisprudência obrigatória"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"O texto conterá o histórico do problema, a análise fundamentada e uma conclusão, observando, no que couber, o contido no Manual Técnico de Produção de Documentos da MB, para os textos de correspondência.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 146,
@@ -2565,7 +2711,8 @@ const questionsData = [
           "E) não é necessário Termo de Aprovação"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Imediatamente após a assinatura, será digitado o Termo de Aprovação, que será assinado pela autoridade Titular da OM, que deverá ser hierarquicamente superior àquela que emitiu o Parecer.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 147,
@@ -2578,7 +2725,8 @@ const questionsData = [
           "E) 90 dias"
         ],
         correct: 2,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Os prazos máximos, contados desde a data de recebimento das solicitações pelas OM, até a entrada das respostas no GCM, são os seguintes:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 148,
@@ -2591,7 +2739,8 @@ const questionsData = [
           "E) 60 dias e 30 dias"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Os prazos máximos, contados desde a data de recebimento das solicitações pelas OM, até a entrada das respostas no GCM, são os seguintes:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 149,
@@ -2604,7 +2753,8 @@ const questionsData = [
           "E) classificar o grau de sigilo de documentos"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"É o DA lavrado por pessoa especificamente autorizada - em alguns casos, por mais de uma, com a finalidade de relatar fatos, inventariar bens ou documentos, escriturar resultados de inspeções e vistorias ou descrever formalmente qualquer outra situação.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 150,
@@ -2617,7 +2767,8 @@ const questionsData = [
           "E) do número de testemunhas"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Os Termos serão numerados sequencialmente dentro do ano, independentemente do título e do assunto.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 151,
@@ -2630,7 +2781,8 @@ const questionsData = [
           "E) \"Fica encerrado o presente Termo nesta data\""
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"\"E, para constar, foi lavrado o presente TERMO, que vai assinado\"\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 152,
@@ -2643,7 +2795,8 @@ const questionsData = [
           "E) condecorações recebidas"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"Não incluir cursos expeditos de duração inferior a três meses. Citar instituição de ensino, quando o curso for extra-MB;\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 153,
@@ -2656,7 +2809,8 @@ const questionsData = [
           "E) aguardar 48 horas antes de qualquer providência"
         ],
         correct: 1,
-        subject: "Composição de Processos"
+        subject: "Composição de Processos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"III) verificar se o invólucro do processo encontra-se íntegro, se os anexos indicados estão constando na documentação, se as folhas estão corretamente numeradas e subsequentes, e se todos os volumes estão presentes. Havendo danos no invólucro, adulteração, qualquer irregularidade ou exigência o fato deverá ser registrado no ato do recebimento e a comunicação feita imediatamente à autoridade competente;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 154,
@@ -2669,7 +2823,8 @@ const questionsData = [
           "E) motivo automático de devolução, sem registro"
         ],
         correct: 1,
-        subject: "Composição de Processos"
+        subject: "Composição de Processos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"III) verificar se o invólucro do processo encontra-se íntegro, se os anexos indicados estão constando na documentação, se as folhas estão corretamente numeradas e subsequentes, e se todos os volumes estão presentes. Havendo danos no invólucro, adulteração, qualquer irregularidade ou exigência o fato deverá ser registrado no ato do recebimento e a comunicação feita imediatamente à autoridade competente;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 155,
@@ -2682,7 +2837,8 @@ const questionsData = [
           "E) perde a validade jurídica"
         ],
         correct: 1,
-        subject: "Composição de Processos"
+        subject: "Composição de Processos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"V) o processo com poucos volumes poderá ser digitalizado em formato PDF/A, por volume, e inserido no sistema para trâmite, mantendo o original na OM que o recebeu; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 156,
@@ -2695,7 +2851,8 @@ const questionsData = [
           "E) apenas nas folhas com anexos"
         ],
         correct: 1,
-        subject: "Composição de Processos"
+        subject: "Composição de Processos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"III) numerar as folhas do(s) documento(s) principal(is) com o carimbo de \"NUMERAÇÃO DE FOLHA OU PEÇA\", em ordem crescente, sem rasuras, sempre que possível no canto superior direito. Caberá ao setor que estiver tramitando o processo, no caso de inserção de uma ou mais folhas, bem como de peças no processo, fazer a aposição do carimbo, preenchendo com os seguintes dados: número da folha ou peça; e rubrica do militar/servidor que fez as anotações.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 157,
@@ -2708,7 +2865,8 @@ const questionsData = [
           "E) sem ordem específica exigida"
         ],
         correct: 1,
-        subject: "Composição de Processos"
+        subject: "Composição de Processos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"V) prender a capa, junto a toda a documentação, com colchetes, em ordem cronológica, do mais antigo para o mais recente;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 158,
@@ -2721,7 +2879,8 @@ const questionsData = [
           "E) solicita aprovação do Arquivo Nacional"
         ],
         correct: 1,
-        subject: "Composição de Processos"
+        subject: "Composição de Processos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"II) sempre que um documento for inserido no processo com temporalidade ou grau de sigilo maior que o processo, o sistema automaticamente verifica e aplica, ao processo inteiro, a maior temporalidade e/ou sigilo, e, se necessário, critica a autoridade competente a reclassificar o TCI com as devidas alterações. Essa ação protegerá o processo de eliminações indevidas ou disponibilização de informações sensíveis;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 159,
@@ -2734,7 +2893,8 @@ const questionsData = [
           "E) definido por sorteio entre as OM envolvidas"
         ],
         correct: 1,
-        subject: "Composição de Processos"
+        subject: "Composição de Processos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"a) Quanto aos processos não digitais\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 160,
@@ -2747,7 +2907,8 @@ const questionsData = [
           "E) apenas eletronicamente, mesmo em processo físico"
         ],
         correct: 1,
-        subject: "Composição de Processos"
+        subject: "Composição de Processos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"II) lavrar o Termo de Juntada por Anexação, em folha a ser anexada após a última folha do processo principal;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 161,
@@ -2760,7 +2921,8 @@ const questionsData = [
           "E) 15 mm"
         ],
         correct: 2,
-        subject: "Composição de Processos"
+        subject: "Composição de Processos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"I) manter sobreposto um processo a outro, presos por cadarço ou similar de algodão cru com no mínimo 30 mm de largura, ficando o processo principal, isto é, o que contiver o pedido da juntada por apensação, em primeiro;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 162,
@@ -2773,7 +2935,8 @@ const questionsData = [
           "E) nenhuma numeração durante a apensação"
         ],
         correct: 1,
-        subject: "Composição de Processos"
+        subject: "Composição de Processos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"II) manter as folhas de cada processo com sua numeração original;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 163,
@@ -2786,7 +2949,8 @@ const questionsData = [
           "E) só pode ser feita mediante autorização do CM"
         ],
         correct: 1,
-        subject: "Composição de Processos"
+        subject: "Composição de Processos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"V) a operação de apensação não altera o Código de Classificação e Temporalidade e o grau de sigilo dos processos envolvidos, mas o tratamento quanto ao sigilo deve ser o de maior grau, para todos os processos envolvidos, enquanto a apensação ocorrer; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 164,
@@ -2799,7 +2963,8 @@ const questionsData = [
           "E) aplicável apenas a processos sigilosos"
         ],
         correct: 1,
-        subject: "Composição de Processos"
+        subject: "Composição de Processos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"III) validar por meio de assinatura eletrônica o Termo de Juntada por Anexação que tem o objetivo de validar a união definitiva de processo(s) a processo;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 165,
@@ -2812,7 +2977,8 @@ const questionsData = [
           "E) digitalizar um processo físico"
         ],
         correct: 1,
-        subject: "Composição de Processos"
+        subject: "Composição de Processos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"a) Quanto aos processos não digitais\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 166,
@@ -2825,7 +2991,8 @@ const questionsData = [
           "E) apensar provisoriamente dois processos"
         ],
         correct: 1,
-        subject: "Composição de Processos"
+        subject: "Composição de Processos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"a) Quanto aos processos não digitais\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 167,
@@ -2838,7 +3005,8 @@ const questionsData = [
           "E) documentos assinados eletronicamente"
         ],
         correct: 1,
-        subject: "Composição de Processos"
+        subject: "Composição de Processos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"IV) o sistema não permitirá a retirada de documentos principais, processos anexos ou despachos decisórios; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 168,
@@ -2851,7 +3019,8 @@ const questionsData = [
           "E) arquivá-los separadamente sem gerar novo processo"
         ],
         correct: 1,
-        subject: "Composição de Processos"
+        subject: "Composição de Processos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"a) Quanto aos processos não digitais\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 169,
@@ -2864,7 +3033,8 @@ const questionsData = [
           "E) assinado apenas pelo CM"
         ],
         correct: 1,
-        subject: "Composição de Processos"
+        subject: "Composição de Processos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"c) Lavrar o \"Termo de Reconstituição de Processo\", o qual será a primeira folha do processo reconstituído;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 170,
@@ -2877,7 +3047,8 @@ const questionsData = [
           "E) anulado por Portaria"
         ],
         correct: 1,
-        subject: "Composição de Processos"
+        subject: "Composição de Processos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"b) Reunir os documentos obtidos durante a operação de reconstituição, encaminhando à unidade protocolizadora, para autuação, sendo atribuído ao processo formado um novo NUP, mantendo-se o anterior como referência;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 171,
@@ -2890,7 +3061,8 @@ const questionsData = [
           "E) não há procedimento específico, segue-se o processo normalmente"
         ],
         correct: 1,
-        subject: "Composição de Processos"
+        subject: "Composição de Processos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"No caso de perda ou extravio de volume de um processo, deverão ser seguidos os mesmos procedimentos anteriormente descritos, mantendo-se a numeração original do processo, bem como lavrado o \"Termo de Reconstituição de Volume\" o qual será a primeira folha do volume reconstituído.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 172,
@@ -2903,7 +3075,8 @@ const questionsData = [
           "E) apenas em processos sigilosos"
         ],
         correct: 1,
-        subject: "Composição de Processos"
+        subject: "Composição de Processos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Ao autuar um processo, apor o carimbo \"EM BRANCO\", no verso das folhas que não contenham informações registradas.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 173,
@@ -2916,7 +3089,8 @@ const questionsData = [
           "E) dispensar a autuação de processos"
         ],
         correct: 1,
-        subject: "Composição de Processos"
+        subject: "Composição de Processos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"O carimbo \"CONFERE COM O ORIGINAL DIGITAL\", tendo em vista a necessidade, por vezes, de tramitação de documentos assinados digitalmente em meio físico.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 174,
@@ -2929,7 +3103,8 @@ const questionsData = [
           "E) \"Histórico Geral\""
         ],
         correct: 1,
-        subject: "Composição de Processos"
+        subject: "Composição de Processos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Nos processos digitais o sigilo estará informado na papeleta do processo, e na aba TCI as informações de classificação da informação como data, grau de sigilo e autoridade responsável.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 175,
@@ -2942,7 +3117,8 @@ const questionsData = [
           "E) tantas vias quantos forem os destinatários, sem mínimo definido"
         ],
         correct: 1,
-        subject: "Gestão de Documentos"
+        subject: "Gestão de Documentos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Vale ressaltar que, no caso de um DA físico, este deverá ser produzido, no mínimo, em duas vias originais sendo, uma para compor o arquivo da OM e a(s) outra(s) para ser(em) enviada(s) ao(s) destinatário(s).\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 176,
@@ -2955,7 +3131,8 @@ const questionsData = [
           "E) apenas o critério de urgência declarado pelo produtor"
         ],
         correct: 1,
-        subject: "Gestão de Documentos"
+        subject: "Gestão de Documentos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"O DA será submetido à apreciação das autoridades da OM, seguindo a cadeia hierárquica e suas respectivas normas internas até a aprovação e assinatura pela autoridade competente.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 177,
@@ -2968,7 +3145,8 @@ const questionsData = [
           "E) não há forma de acompanhamento previsto"
         ],
         correct: 1,
-        subject: "Gestão de Documentos"
+        subject: "Gestão de Documentos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Compreende o encaminhamento, a circulação e o controle do DA no âmbito interno da OM. Seu acompanhamento poderá ser observado na trilha de auditoria do SiGDEM.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 178,
@@ -2981,7 +3159,8 @@ const questionsData = [
           "E) HTML"
         ],
         correct: 1,
-        subject: "Documentos Digitais"
+        subject: "Documentos Digitais",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Os documentos trocados entre OM ou enviados para órgãos extra-MB deverão, sempre que possível, ser gerados no formato PDF, exceto quando houver necessidade de alteração, pela OM de destino, do DA no seu formato original. Como exemplo, minutas de normas enviadas para aprovação pelo ODS. Nesse caso, deverão ser utilizados os formatos de arquivo ODF.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 179,
@@ -2994,7 +3173,8 @@ const questionsData = [
           "E) qualquer formato proprietário disponível"
         ],
         correct: 1,
-        subject: "Documentos Digitais"
+        subject: "Documentos Digitais",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Os documentos trocados entre OM ou enviados para órgãos extra-MB deverão, sempre que possível, ser gerados no formato PDF, exceto quando houver necessidade de alteração, pela OM de destino, do DA no seu formato original. Como exemplo, minutas de normas enviadas para aprovação pelo ODS. Nesse caso, deverão ser utilizados os formatos de arquivo ODF.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 180,
@@ -3007,7 +3187,8 @@ const questionsData = [
           "E) foi extinta apenas para militares"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Na relação dos órgãos e entidades dos Poderes da União, dos Estados, do Distrito Federal e dos Municípios com o cidadão, fica dispensada a exigência reconhecimento de firma, devendo o agente administrativo, confrontando a assinatura com aquela constante do documento de identidade do signatário, ou estando este presente e assinando o documento diante do agente, lavrar sua autenticidade no próprio documento; autenticação de cópia de documento, cabendo ao agente administrativo,...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 181,
@@ -3020,7 +3201,8 @@ const questionsData = [
           "E) tópicos"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Os anexos poderão ser desdobrados em apêndices, e estes em adendos. Receberão marcação na parte superior direita da primeira página (somente com a primeira letra maiúscula), seguidas de letra identificadora (quando for o caso). Nas demais páginas, a indicação da palavra será \"Continuação do anexo\", \"Continuação do apêndice\" ou \"Continuação do adendo\", à exceção de INST, NORM e OI, da parte identificadora do documento, contendo abreviatura da espécie, número e sigla da OM ou d...\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 182,
@@ -3033,7 +3215,8 @@ const questionsData = [
           "E) numerados com algarismos romanos"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"Os anexos, apêndices e adendos de documentos normativos, exceto a Ordem Interna, serão obrigatoriamente assinados ou rubricados pelo Titular da OM. Os anexos, apêndices e adendos dos documentos de correspondência ou documentos declaratórios poderão ser assinados ou rubricados pelos elementos organizacionais responsáveis por sua elaboração.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 183,
@@ -3046,7 +3229,8 @@ const questionsData = [
           "E) irrelevante para a classificação do documento"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"O grau de sigilo de um anexo será igual ou superior àquele atribuído ao seu apêndice ou adendo de maior grau de sigilo.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 184,
@@ -3059,7 +3243,8 @@ const questionsData = [
           "E) considerado documento autônomo, sem vínculo"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Quando um anexo, por seu peso ou tamanho, não puder tramitar apenso ao documento a que pertence, será devidamente acondicionado e receberá uma etiqueta com a identificação completa do documento de que faz parte. O mesmo procedimento deve ser adotado para apêndice ou adendo, conforme os exemplos a seguir:\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 185,
@@ -3072,7 +3257,8 @@ const questionsData = [
           "E) no cabeçalho de todas as páginas"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"A divulgação de um documento será realizada mediante uma das formas previstas a seguir, sendo apresentada na última folha do documento, após a assinatura.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 186,
@@ -3085,7 +3271,8 @@ const questionsData = [
           "E) é obrigatório o uso de Referência"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Usada nos demais documentos como, por exemplo, Circulares, Ordens de Serviço, Instruções Permanentes e Portarias, onde não há destinatário definido no Cabeçalho.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 187,
@@ -3098,7 +3285,8 @@ const questionsData = [
           "E) \"Distribuído\""
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"Abaixo da palavra \"Cópias:\", serão relacionadas todas as cópias que foram extraídas do documento, usando sempre siglas constantes de publicação oficial, incluindo, ao final, a palavra \"Arquivo\" referente à via original destinada ao SECOM da OM.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 188,
@@ -3111,7 +3299,8 @@ const questionsData = [
           "E) \"anexos inclusos\""
         ],
         correct: 0,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"– quando todos os anexos acompanharem a cópia, será usada a expressão \"c/anexos\";\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 189,
@@ -3124,7 +3313,8 @@ const questionsData = [
           "E) o remetente for Almirante"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"c) não é permitida a remessa de cópias de documentos aos escalões superiores, sobre assuntos ainda em fase de estudo, salvo se houver prévia autorização ou determinação superior.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 190,
@@ -3137,7 +3327,8 @@ const questionsData = [
           "E) o grau de sigilo é automaticamente elevado"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"I) nos documentos divulgados por meio do Bol MB, não se publicará a \"Distribuição:\";\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 191,
@@ -3150,7 +3341,8 @@ const questionsData = [
           "E) documento provisório"
         ],
         correct: 1,
-        subject: "Composição dos Documentos Administrativos"
+        subject: "Composição dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"II) os documentos encaminhados por meio de \"Distribuição:\" serão todos considerados como original;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 192,
@@ -3163,7 +3355,8 @@ const questionsData = [
           "E) numeração sequencial"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "O trecho da apostila de Documentação Administrativa da Marinha (SGM-105) relacionado a essa questão traz: \"Para efeito, considera-se \"assunto de rotina\" a remessa de informações funcionais periódicas, de documentos ou de materiais, e a comunicação de fatos, mesmo não periódicos, com características de coisa comum, previstos na legislação ou nos procedimentos vigentes e que não envolvam juízo de valor da própria OM, juízos de competência superior, decisões, ordens ou determinações.\" — as demais alternativas correspondem a itens/afirmações desse trecho, enquanto a alternativa correta é a única que não consta dele, ou que o contraria."
       },
       {
         id: 193,
@@ -3176,7 +3369,8 @@ const questionsData = [
           "E) Arquivo Nacional"
         ],
         correct: 1,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"A implementação da CPPJ observará os termos das Normas para Organização e o Funcionamento do Sistema de Assessoria Jurídica Consultiva da Marinha (SAJCM).\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 194,
@@ -3189,7 +3383,8 @@ const questionsData = [
           "E) nenhuma das afirmativas está correta"
         ],
         correct: 0,
-        subject: "Tipos de Documentos Administrativos"
+        subject: "Tipos de Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"CAPÍTULO 5 — TIPOS DE DOCUMENTOS ADMINISTRATIVOS NA MB\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 195,
@@ -3202,7 +3397,8 @@ const questionsData = [
           "E) (P)"
         ],
         correct: 2,
-        subject: "Classificação dos Documentos Administrativos"
+        subject: "Classificação dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"– os DA com grau de sigilo RESERVADO levarão apenas uma cifra;\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 196,
@@ -3215,7 +3411,8 @@ const questionsData = [
           "E) (X)"
         ],
         correct: 0,
-        subject: "Classificação dos Documentos Administrativos"
+        subject: "Classificação dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"CAPÍTULO 2 — CLASSIFICAÇÃO DOS DOCUMENTOS ADMINISTRATIVOS\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 197,
@@ -3228,7 +3425,8 @@ const questionsData = [
           "E) (C)"
         ],
         correct: 1,
-        subject: "Classificação dos Documentos Administrativos"
+        subject: "Classificação dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"CAPÍTULO 2 — CLASSIFICAÇÃO DOS DOCUMENTOS ADMINISTRATIVOS\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 198,
@@ -3241,7 +3439,8 @@ const questionsData = [
           "E) não há tratamento específico, é tratado como ostensivo"
         ],
         correct: 2,
-        subject: "Classificação dos Documentos Administrativos"
+        subject: "Classificação dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"No caso do DA contendo Informação Pessoal, o seu tratamento deverá seguir os mesmos moldes do DA do grau de sigilo reservado.\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 199,
@@ -3254,7 +3453,8 @@ const questionsData = [
           "E) normativo"
         ],
         correct: 1,
-        subject: "Classificação dos Documentos Administrativos"
+        subject: "Classificação dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"b) Especial - a tramitação do DA especial possui prioridade sobre a tramitação do DA de rotina. Esse grau de precedência somente será atribuído ao DA de âmbito interno; e\" — esse é o trecho que fundamenta a alternativa correta."
       },
       {
         id: 200,
@@ -3267,7 +3467,8 @@ const questionsData = [
           "E) autorização prévia do CM"
         ],
         correct: 1,
-        subject: "Classificação dos Documentos Administrativos"
+        subject: "Classificação dos Documentos Administrativos",
+        explanation: "Conforme a apostila de Documentação Administrativa da Marinha (SGM-105): \"a) Urgente - o DA exige ação ou conhecimento imediato do recebedor;\" — esse é o trecho que fundamenta a alternativa correta."
       }
     ];
 
@@ -3377,6 +3578,9 @@ const questionsData = [
       await applySwitchMenuLocks();
 
       await loadSavedState();
+      if (currentUser) {
+        AlfaGamification.reconcileRespostasDetalhadas(sb, currentUser.id, QUIZ_ID, questionsData, userAnswers).then(() => {});
+      }
       const savedIndex = parseInt(localStorage.getItem(STORAGE_KEY_CURRENT), 10);
       currentIndex = (!isNaN(savedIndex) && savedIndex >= 0 && savedIndex < questionsData.length) ? savedIndex : 0;
       renderQuestion();
@@ -3722,6 +3926,17 @@ const questionsData = [
 
         var apLinkWrap = document.getElementById('apostila-link-wrap');
         if (apLinkWrap) { apLinkWrap.innerHTML = AlfaGamification.apostilaLinkHtml(apostilaLinksMap, q.id); }
+
+        const expDetail = document.getElementById('explanation-detail');
+        const expDetailText = document.getElementById('explanation-detail-text');
+        if (expDetail && expDetailText) {
+          if (q.explanation) {
+            expDetail.classList.remove('hidden');
+            expDetailText.innerText = q.explanation;
+          } else {
+            expDetail.classList.add('hidden');
+          }
+        }
       } else {
         expBox.classList.add('hidden');
       }
@@ -3851,22 +4066,25 @@ const questionsData = [
 
     function selectOption(optIndex) {
       if (isDiscarded(currentIndex, optIndex)) return;
-      const jaTinhaResposta = userAnswers[currentIndex] !== undefined;
       userAnswers[currentIndex] = optIndex;
       saveState();
       renderQuestion();
       renderGrid();
 
-      // Salva o resultado dessa questão em tempo real, sem esperar finalizar o simulado
-      if (currentUser && !jaTinhaResposta) {
+      // Salva o resultado dessa questão em tempo real, sem esperar finalizar o simulado.
+      // upsert (não insert): o aluno pode voltar numa questão já respondida pra
+      // reconferir, e nesse caso só atualizamos o acerto/erro mais recente, sem
+      // duplicar linha nem depender de um estado local pra saber "já respondi essa
+      // antes" (é esse estado local que fazia a cobertura ficar presa abaixo do real).
+      if (currentUser) {
         const q = questionsData[currentIndex];
-        sb.from('respostas_detalhadas').insert({
+        sb.from('respostas_detalhadas').upsert({
           user_id: currentUser.id,
           quiz_id: QUIZ_ID,
           subject: q.subject,
           question_id: q.id,
           acertou: optIndex === q.correct
-        }).then(() => {});
+        }, { onConflict: 'user_id,quiz_id,question_id' }).then(() => {});
       }
       if (window.StudyRoom) StudyRoom.reportAnswer(currentIndex, optIndex);
     }
