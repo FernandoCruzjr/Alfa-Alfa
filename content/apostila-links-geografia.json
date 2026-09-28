@@ -1,1 +1,802 @@
-{"1": {"slug": "geografia", "block": 20}, "2": {"slug": "geografia", "block": 20}, "3": {"slug": "geografia", "block": 20}, "4": {"slug": "geografia", "block": 20}, "5": {"slug": "geografia", "block": 20}, "6": {"slug": "geografia", "block": 18}, "7": {"slug": "geografia", "block": 15}, "8": {"slug": "geografia", "block": 15}, "9": {"slug": "geografia", "block": 15}, "10": {"slug": "geografia", "block": 15}, "11": {"slug": "geografia", "block": 15}, "12": {"slug": "geografia", "block": 15}, "13": {"slug": "geografia", "block": 15}, "14": {"slug": "geografia", "block": 15}, "15": {"slug": "geografia", "block": 15}, "16": {"slug": "geografia", "block": 15}, "17": {"slug": "geografia", "block": 15}, "18": {"slug": "geografia", "block": 15}, "19": {"slug": "geografia", "block": 15}, "20": {"slug": "geografia", "block": 20}, "21": {"slug": "geografia", "block": 15}, "22": {"slug": "geografia", "block": 15}, "23": {"slug": "geografia", "block": 20}, "24": {"slug": "geografia", "block": 15}, "25": {"slug": "geografia", "block": 15}, "26": {"slug": "geografia", "block": 22}, "27": {"slug": "geografia", "block": 26}, "28": {"slug": "geografia", "block": 15}, "29": {"slug": "geografia", "block": 15}, "30": {"slug": "geografia", "block": 15}, "31": {"slug": "geografia", "block": 15}, "32": {"slug": "geografia", "block": 15}, "33": {"slug": "geografia", "block": 15}, "34": {"slug": "geografia", "block": 15}, "35": {"slug": "geografia", "block": 15}, "36": {"slug": "geografia", "block": 15}, "37": {"slug": "geografia", "block": 15}, "38": {"slug": "geografia", "block": 15}, "39": {"slug": "geografia", "block": 15}, "40": {"slug": "geografia", "block": 15}, "41": {"slug": "geografia", "block": 15}, "42": {"slug": "geografia", "block": 44}, "43": {"slug": "geografia", "block": 44}, "44": {"slug": "geografia", "block": 44}, "45": {"slug": "geografia", "block": 44}, "46": {"slug": "geografia", "block": 44}, "47": {"slug": "geografia", "block": 44}, "48": {"slug": "geografia", "block": 44}, "49": {"slug": "geografia", "block": 44}, "50": {"slug": "geografia", "block": 44}, "51": {"slug": "geografia", "block": 44}, "52": {"slug": "geografia", "block": 44}, "53": {"slug": "geografia", "block": 44}, "54": {"slug": "geografia", "block": 44}, "55": {"slug": "geografia", "block": 44}, "56": {"slug": "geografia", "block": 44}, "57": {"slug": "geografia", "block": 52}, "58": {"slug": "geografia", "block": 44}, "59": {"slug": "geografia", "block": 44}, "60": {"slug": "geografia", "block": 44}, "61": {"slug": "geografia", "block": 44}, "62": {"slug": "geografia", "block": 44}, "63": {"slug": "geografia", "block": 44}, "64": {"slug": "geografia", "block": 44}, "65": {"slug": "geografia", "block": 44}, "66": {"slug": "geografia", "block": 44}, "67": {"slug": "geografia", "block": 44}, "68": {"slug": "geografia", "block": 44}, "69": {"slug": "geografia", "block": 44}, "70": {"slug": "geografia", "block": 44}, "71": {"slug": "geografia", "block": 44}, "72": {"slug": "geografia", "block": 44}, "73": {"slug": "geografia", "block": 52}, "74": {"slug": "geografia", "block": 44}, "75": {"slug": "geografia", "block": 44}, "76": {"slug": "geografia", "block": 52}, "77": {"slug": "geografia", "block": 44}, "78": {"slug": "geografia", "block": 44}, "79": {"slug": "geografia", "block": 44}, "80": {"slug": "geografia", "block": 31}, "81": {"slug": "geografia", "block": 31}, "82": {"slug": "geografia", "block": 35}, "83": {"slug": "geografia", "block": 35}, "84": {"slug": "geografia", "block": 31}, "85": {"slug": "geografia", "block": 39}, "86": {"slug": "geografia", "block": 31}, "87": {"slug": "geografia", "block": 31}, "88": {"slug": "geografia", "block": 31}, "89": {"slug": "geografia", "block": 37}, "90": {"slug": "geografia", "block": 31}, "91": {"slug": "geografia", "block": 37}, "92": {"slug": "geografia", "block": 42}, "93": {"slug": "geografia", "block": 37}, "94": {"slug": "geografia", "block": 37}, "95": {"slug": "geografia", "block": 37}, "96": {"slug": "geografia", "block": 31}, "97": {"slug": "geografia", "block": 31}, "98": {"slug": "geografia", "block": 31}, "99": {"slug": "geografia", "block": 56}, "100": {"slug": "geografia", "block": 56}, "101": {"slug": "geografia", "block": 56}, "102": {"slug": "geografia", "block": 56}, "103": {"slug": "geografia", "block": 56}, "104": {"slug": "geografia", "block": 56}, "105": {"slug": "geografia", "block": 61}, "106": {"slug": "geografia", "block": 61}, "107": {"slug": "geografia", "block": 56}, "108": {"slug": "geografia", "block": 56}, "109": {"slug": "geografia", "block": 56}, "110": {"slug": "geografia", "block": 56}, "111": {"slug": "geografia", "block": 56}, "112": {"slug": "geografia", "block": 56}, "113": {"slug": "geografia", "block": 56}, "114": {"slug": "geografia", "block": 56}, "115": {"slug": "geografia", "block": 68}, "116": {"slug": "geografia", "block": 67}, "117": {"slug": "geografia", "block": 56}, "118": {"slug": "geografia", "block": 61}, "119": {"slug": "geografia", "block": 56}, "120": {"slug": "geografia", "block": 56}, "121": {"slug": "geografia", "block": 56}, "122": {"slug": "geografia", "block": 56}, "123": {"slug": "geografia", "block": 75}, "124": {"slug": "geografia", "block": 78}, "125": {"slug": "geografia", "block": 79}, "126": {"slug": "geografia", "block": 73}, "127": {"slug": "geografia", "block": 78}, "128": {"slug": "geografia", "block": 73}, "129": {"slug": "geografia", "block": 73}, "130": {"slug": "geografia", "block": 73}, "131": {"slug": "geografia", "block": 73}, "132": {"slug": "geografia", "block": 73}, "133": {"slug": "geografia", "block": 108}, "134": {"slug": "geografia", "block": 105}, "135": {"slug": "geografia", "block": 99}, "136": {"slug": "geografia", "block": 101}, "137": {"slug": "geografia", "block": 96}, "138": {"slug": "geografia", "block": 96}, "139": {"slug": "geografia", "block": 96}, "140": {"slug": "geografia", "block": 101}, "141": {"slug": "geografia", "block": 101}, "142": {"slug": "geografia", "block": 106}, "143": {"slug": "geografia", "block": 106}, "144": {"slug": "geografia", "block": 96}, "145": {"slug": "geografia", "block": 96}, "146": {"slug": "geografia", "block": 96}, "147": {"slug": "geografia", "block": 96}, "148": {"slug": "geografia", "block": 103}, "149": {"slug": "geografia", "block": 96}, "150": {"slug": "geografia", "block": 96}, "151": {"slug": "geografia", "block": 96}, "152": {"slug": "geografia", "block": 112}, "153": {"slug": "geografia", "block": 114}, "154": {"slug": "geografia", "block": 117}, "155": {"slug": "geografia", "block": 112}, "156": {"slug": "geografia", "block": 112}, "157": {"slug": "geografia", "block": 112}, "158": {"slug": "geografia", "block": 112}, "159": {"slug": "geografia", "block": 88}, "160": {"slug": "geografia", "block": 86}, "161": {"slug": "geografia", "block": 90}, "162": {"slug": "geografia", "block": 86}, "163": {"slug": "geografia", "block": 86}, "164": {"slug": "geografia", "block": 86}}
+{
+  "1": {
+    "slug": "geografia",
+    "block": 20
+  },
+  "2": {
+    "slug": "geografia",
+    "block": 20
+  },
+  "3": {
+    "slug": "geografia",
+    "block": 20
+  },
+  "4": {
+    "slug": "geografia",
+    "block": 20
+  },
+  "5": {
+    "slug": "geografia",
+    "block": 20
+  },
+  "6": {
+    "slug": "geografia",
+    "block": 18
+  },
+  "7": {
+    "slug": "geografia",
+    "block": 17
+  },
+  "8": {
+    "slug": "geografia",
+    "block": 22
+  },
+  "9": {
+    "slug": "geografia",
+    "block": 27
+  },
+  "10": {
+    "slug": "geografia",
+    "block": 26
+  },
+  "11": {
+    "slug": "geografia",
+    "block": 20
+  },
+  "12": {
+    "slug": "geografia",
+    "block": 20
+  },
+  "13": {
+    "slug": "geografia",
+    "block": 27
+  },
+  "14": {
+    "slug": "geografia",
+    "block": 26
+  },
+  "15": {
+    "slug": "geografia",
+    "block": 20
+  },
+  "16": {
+    "slug": "geografia",
+    "block": 20
+  },
+  "17": {
+    "slug": "geografia",
+    "block": 20
+  },
+  "18": {
+    "slug": "geografia",
+    "block": 17
+  },
+  "19": {
+    "slug": "geografia",
+    "block": 20
+  },
+  "20": {
+    "slug": "geografia",
+    "block": 20
+  },
+  "21": {
+    "slug": "geografia",
+    "block": 22
+  },
+  "22": {
+    "slug": "geografia",
+    "block": 20
+  },
+  "23": {
+    "slug": "geografia",
+    "block": 20
+  },
+  "24": {
+    "slug": "geografia",
+    "block": 26
+  },
+  "25": {
+    "slug": "geografia",
+    "block": 26
+  },
+  "26": {
+    "slug": "geografia",
+    "block": 22
+  },
+  "27": {
+    "slug": "geografia",
+    "block": 26
+  },
+  "28": {
+    "slug": "geografia",
+    "block": 27
+  },
+  "29": {
+    "slug": "geografia",
+    "block": 20
+  },
+  "30": {
+    "slug": "geografia",
+    "block": 27
+  },
+  "31": {
+    "slug": "geografia",
+    "block": 26
+  },
+  "32": {
+    "slug": "geografia",
+    "block": 26
+  },
+  "33": {
+    "slug": "geografia",
+    "block": 20
+  },
+  "34": {
+    "slug": "geografia",
+    "block": 27
+  },
+  "35": {
+    "slug": "geografia",
+    "block": 20
+  },
+  "36": {
+    "slug": "geografia",
+    "block": 26
+  },
+  "37": {
+    "slug": "geografia",
+    "block": 27
+  },
+  "38": {
+    "slug": "geografia",
+    "block": 26
+  },
+  "39": {
+    "slug": "geografia",
+    "block": 26
+  },
+  "40": {
+    "slug": "geografia",
+    "block": 26
+  },
+  "41": {
+    "slug": "geografia",
+    "block": 20
+  },
+  "42": {
+    "slug": "geografia",
+    "block": 51
+  },
+  "43": {
+    "slug": "geografia",
+    "block": 52
+  },
+  "44": {
+    "slug": "geografia",
+    "block": 52
+  },
+  "45": {
+    "slug": "geografia",
+    "block": 52
+  },
+  "46": {
+    "slug": "geografia",
+    "block": 46
+  },
+  "47": {
+    "slug": "geografia",
+    "block": 51
+  },
+  "48": {
+    "slug": "geografia",
+    "block": 48
+  },
+  "49": {
+    "slug": "geografia",
+    "block": 48
+  },
+  "50": {
+    "slug": "geografia",
+    "block": 46
+  },
+  "51": {
+    "slug": "geografia",
+    "block": 52
+  },
+  "52": {
+    "slug": "geografia",
+    "block": 51
+  },
+  "53": {
+    "slug": "geografia",
+    "block": 55
+  },
+  "54": {
+    "slug": "geografia",
+    "block": 52
+  },
+  "55": {
+    "slug": "geografia",
+    "block": 51
+  },
+  "56": {
+    "slug": "geografia",
+    "block": 46
+  },
+  "57": {
+    "slug": "geografia",
+    "block": 52
+  },
+  "58": {
+    "slug": "geografia",
+    "block": 51
+  },
+  "59": {
+    "slug": "geografia",
+    "block": 48
+  },
+  "60": {
+    "slug": "geografia",
+    "block": 55
+  },
+  "61": {
+    "slug": "geografia",
+    "block": 51
+  },
+  "62": {
+    "slug": "geografia",
+    "block": 52
+  },
+  "63": {
+    "slug": "geografia",
+    "block": 51
+  },
+  "64": {
+    "slug": "geografia",
+    "block": 48
+  },
+  "65": {
+    "slug": "geografia",
+    "block": 55
+  },
+  "66": {
+    "slug": "geografia",
+    "block": 52
+  },
+  "67": {
+    "slug": "geografia",
+    "block": 51
+  },
+  "68": {
+    "slug": "geografia",
+    "block": 49
+  },
+  "69": {
+    "slug": "geografia",
+    "block": 51
+  },
+  "70": {
+    "slug": "geografia",
+    "block": 46
+  },
+  "71": {
+    "slug": "geografia",
+    "block": 51
+  },
+  "72": {
+    "slug": "geografia",
+    "block": 52
+  },
+  "73": {
+    "slug": "geografia",
+    "block": 52
+  },
+  "74": {
+    "slug": "geografia",
+    "block": 52
+  },
+  "75": {
+    "slug": "geografia",
+    "block": 52
+  },
+  "76": {
+    "slug": "geografia",
+    "block": 52
+  },
+  "77": {
+    "slug": "geografia",
+    "block": 46
+  },
+  "78": {
+    "slug": "geografia",
+    "block": 46
+  },
+  "79": {
+    "slug": "geografia",
+    "block": 48
+  },
+  "80": {
+    "slug": "geografia",
+    "block": 37
+  },
+  "81": {
+    "slug": "geografia",
+    "block": 33
+  },
+  "82": {
+    "slug": "geografia",
+    "block": 35
+  },
+  "83": {
+    "slug": "geografia",
+    "block": 35
+  },
+  "84": {
+    "slug": "geografia",
+    "block": 37
+  },
+  "85": {
+    "slug": "geografia",
+    "block": 39
+  },
+  "86": {
+    "slug": "geografia",
+    "block": 37
+  },
+  "87": {
+    "slug": "geografia",
+    "block": 37
+  },
+  "88": {
+    "slug": "geografia",
+    "block": 37
+  },
+  "89": {
+    "slug": "geografia",
+    "block": 37
+  },
+  "90": {
+    "slug": "geografia",
+    "block": 37
+  },
+  "91": {
+    "slug": "geografia",
+    "block": 37
+  },
+  "92": {
+    "slug": "geografia",
+    "block": 42
+  },
+  "93": {
+    "slug": "geografia",
+    "block": 37
+  },
+  "94": {
+    "slug": "geografia",
+    "block": 37
+  },
+  "95": {
+    "slug": "geografia",
+    "block": 37
+  },
+  "96": {
+    "slug": "geografia",
+    "block": 39
+  },
+  "97": {
+    "slug": "geografia",
+    "block": 37
+  },
+  "98": {
+    "slug": "geografia",
+    "block": 37
+  },
+  "99": {
+    "slug": "geografia",
+    "block": 58
+  },
+  "100": {
+    "slug": "geografia",
+    "block": 63
+  },
+  "101": {
+    "slug": "geografia",
+    "block": 60
+  },
+  "102": {
+    "slug": "geografia",
+    "block": 61
+  },
+  "103": {
+    "slug": "geografia",
+    "block": 65
+  },
+  "104": {
+    "slug": "geografia",
+    "block": 60
+  },
+  "105": {
+    "slug": "geografia",
+    "block": 61
+  },
+  "106": {
+    "slug": "geografia",
+    "block": 61
+  },
+  "107": {
+    "slug": "geografia",
+    "block": 63
+  },
+  "108": {
+    "slug": "geografia",
+    "block": 60
+  },
+  "109": {
+    "slug": "geografia",
+    "block": 63
+  },
+  "110": {
+    "slug": "geografia",
+    "block": 63
+  },
+  "111": {
+    "slug": "geografia",
+    "block": 60
+  },
+  "112": {
+    "slug": "geografia",
+    "block": 63
+  },
+  "113": {
+    "slug": "geografia",
+    "block": 63
+  },
+  "114": {
+    "slug": "geografia",
+    "block": 65
+  },
+  "115": {
+    "slug": "geografia",
+    "block": 68
+  },
+  "116": {
+    "slug": "geografia",
+    "block": 67
+  },
+  "117": {
+    "slug": "geografia",
+    "block": 67
+  },
+  "118": {
+    "slug": "geografia",
+    "block": 61
+  },
+  "119": {
+    "slug": "geografia",
+    "block": 60
+  },
+  "120": {
+    "slug": "geografia",
+    "block": 60
+  },
+  "121": {
+    "slug": "geografia",
+    "block": 63
+  },
+  "122": {
+    "slug": "geografia",
+    "block": 60
+  },
+  "123": {
+    "slug": "geografia",
+    "block": 75
+  },
+  "124": {
+    "slug": "geografia",
+    "block": 78
+  },
+  "125": {
+    "slug": "geografia",
+    "block": 79
+  },
+  "126": {
+    "slug": "geografia",
+    "block": 77
+  },
+  "127": {
+    "slug": "geografia",
+    "block": 78
+  },
+  "128": {
+    "slug": "geografia",
+    "block": 78
+  },
+  "129": {
+    "slug": "geografia",
+    "block": 75
+  },
+  "130": {
+    "slug": "geografia",
+    "block": 75
+  },
+  "131": {
+    "slug": "geografia",
+    "block": 78
+  },
+  "132": {
+    "slug": "geografia",
+    "block": 75
+  },
+  "133": {
+    "slug": "geografia",
+    "block": 108
+  },
+  "134": {
+    "slug": "geografia",
+    "block": 105
+  },
+  "135": {
+    "slug": "geografia",
+    "block": 99
+  },
+  "136": {
+    "slug": "geografia",
+    "block": 101
+  },
+  "137": {
+    "slug": "geografia",
+    "block": 101
+  },
+  "138": {
+    "slug": "geografia",
+    "block": 101
+  },
+  "139": {
+    "slug": "geografia",
+    "block": 98
+  },
+  "140": {
+    "slug": "geografia",
+    "block": 101
+  },
+  "141": {
+    "slug": "geografia",
+    "block": 101
+  },
+  "142": {
+    "slug": "geografia",
+    "block": 106
+  },
+  "143": {
+    "slug": "geografia",
+    "block": 106
+  },
+  "144": {
+    "slug": "geografia",
+    "block": 108
+  },
+  "145": {
+    "slug": "geografia",
+    "block": 98
+  },
+  "146": {
+    "slug": "geografia",
+    "block": 98
+  },
+  "147": {
+    "slug": "geografia",
+    "block": 98
+  },
+  "148": {
+    "slug": "geografia",
+    "block": 103
+  },
+  "149": {
+    "slug": "geografia",
+    "block": 98
+  },
+  "150": {
+    "slug": "geografia",
+    "block": 98
+  },
+  "151": {
+    "slug": "geografia",
+    "block": 101
+  },
+  "152": {
+    "slug": "geografia",
+    "block": 116
+  },
+  "153": {
+    "slug": "geografia",
+    "block": 114
+  },
+  "154": {
+    "slug": "geografia",
+    "block": 117
+  },
+  "155": {
+    "slug": "geografia",
+    "block": 116
+  },
+  "156": {
+    "slug": "geografia",
+    "block": 116
+  },
+  "157": {
+    "slug": "geografia",
+    "block": 116
+  },
+  "158": {
+    "slug": "geografia",
+    "block": 119
+  },
+  "159": {
+    "slug": "geografia",
+    "block": 88
+  },
+  "160": {
+    "slug": "geografia",
+    "block": 88
+  },
+  "161": {
+    "slug": "geografia",
+    "block": 90
+  },
+  "162": {
+    "slug": "geografia",
+    "block": 88
+  },
+  "163": {
+    "slug": "geografia",
+    "block": 88
+  },
+  "164": {
+    "slug": "geografia",
+    "block": 90
+  },
+  "165": {
+    "slug": "geografia",
+    "block": 114
+  },
+  "166": {
+    "slug": "geografia",
+    "block": 116
+  },
+  "167": {
+    "slug": "geografia",
+    "block": 117
+  },
+  "168": {
+    "slug": "geografia",
+    "block": 117
+  },
+  "169": {
+    "slug": "geografia",
+    "block": 119
+  },
+  "170": {
+    "slug": "geografia",
+    "block": 121
+  },
+  "171": {
+    "slug": "geografia",
+    "block": 119
+  },
+  "172": {
+    "slug": "geografia",
+    "block": 114
+  },
+  "173": {
+    "slug": "geografia",
+    "block": 88
+  },
+  "174": {
+    "slug": "geografia",
+    "block": 90
+  },
+  "175": {
+    "slug": "geografia",
+    "block": 95
+  },
+  "176": {
+    "slug": "geografia",
+    "block": 92
+  },
+  "177": {
+    "slug": "geografia",
+    "block": 92
+  },
+  "178": {
+    "slug": "geografia",
+    "block": 88
+  },
+  "179": {
+    "slug": "geografia",
+    "block": 90
+  },
+  "180": {
+    "slug": "geografia",
+    "block": 90
+  },
+  "181": {
+    "slug": "geografia",
+    "block": 75
+  },
+  "182": {
+    "slug": "geografia",
+    "block": 77
+  },
+  "183": {
+    "slug": "geografia",
+    "block": 78
+  },
+  "184": {
+    "slug": "geografia",
+    "block": 80
+  },
+  "185": {
+    "slug": "geografia",
+    "block": 82
+  },
+  "186": {
+    "slug": "geografia",
+    "block": 75
+  },
+  "187": {
+    "slug": "geografia",
+    "block": 85
+  },
+  "188": {
+    "slug": "geografia",
+    "block": 77
+  },
+  "189": {
+    "slug": "geografia",
+    "block": 33
+  },
+  "190": {
+    "slug": "geografia",
+    "block": 35
+  },
+  "191": {
+    "slug": "geografia",
+    "block": 39
+  },
+  "192": {
+    "slug": "geografia",
+    "block": 42
+  },
+  "193": {
+    "slug": "geografia",
+    "block": 37
+  },
+  "194": {
+    "slug": "geografia",
+    "block": 42
+  },
+  "195": {
+    "slug": "geografia",
+    "block": 98
+  },
+  "196": {
+    "slug": "geografia",
+    "block": 99
+  },
+  "197": {
+    "slug": "geografia",
+    "block": 101
+  },
+  "198": {
+    "slug": "geografia",
+    "block": 103
+  },
+  "199": {
+    "slug": "geografia",
+    "block": 108
+  },
+  "200": {
+    "slug": "geografia",
+    "block": 108
+  }
+}
