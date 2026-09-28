@@ -339,7 +339,12 @@
 
   <!-- Main -->
   <main class="flex-1 max-w-4xl w-full mx-auto px-4 md:px-6 py-6 md:py-10">
-    <p class="text-sm text-slate-400 mb-6">Isso conta <strong class="text-ink">questões diferentes que você já respondeu pelo menos uma vez</strong> em cada matéria — não é a sua nota. A ideia é te ajudar a fechar 100% do banco.</p>
+    <div class="flex items-start justify-between gap-3 mb-6">
+      <p class="text-sm text-slate-400">Isso conta <strong class="text-ink">questões diferentes que você já respondeu pelo menos uma vez</strong> em cada matéria — não é a sua nota. A ideia é te ajudar a fechar 100% do banco.</p>
+      <button type="button" onclick="carregarCobertura()" id="btn-atualizar-cobertura" class="shrink-0 flex items-center gap-1.5 bg-navy-800/80 border border-navy-700 hover:border-navy-500 text-slate-200 text-xs font-medium px-3 py-2 rounded-lg transition-colors" title="Recarregar a cobertura agora">
+        <i class="fa-solid fa-rotate text-[11px]"></i> Atualizar
+      </button>
+    </div>
 
     <!-- Resumo geral -->
     <div id="resumo-geral" class="bg-navy-800/80 border border-navy-700 rounded-xl p-6 mb-8 flex flex-col sm:flex-row items-center gap-6">
@@ -442,10 +447,15 @@
     }
 
     async function carregarCobertura() {
+      const btn = document.getElementById('btn-atualizar-cobertura');
+      if (btn) { btn.disabled = true; btn.querySelector('i').classList.add('fa-spin'); }
+
       const { data: detalhes, error } = await sb
         .from('respostas_detalhadas')
         .select('quiz_id, question_id')
         .eq('user_id', currentUser.id);
+
+      if (btn) { btn.disabled = false; btn.querySelector('i').classList.remove('fa-spin'); }
 
       if (error) return;
 
@@ -549,6 +559,18 @@
           showAccessScreen();
         }
       });
+    });
+
+    // A cobertura só é calculada quando a página carrega — se você responder
+    // questões numa aba e voltar pra essa sem recarregar, o número ficava
+    // parado. Recarrega sozinho quando a aba volta a ficar visível (troca de
+    // aba, ou volta pelo botão "voltar" do navegador, inclusive quando o
+    // navegador restaura a página do cache sem rodar o carregamento de novo).
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible' && currentUser) carregarCobertura();
+    });
+    window.addEventListener('pageshow', (e) => {
+      if (e.persisted && currentUser) carregarCobertura();
     });
   </script>
   <script>

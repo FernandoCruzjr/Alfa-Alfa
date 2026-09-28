@@ -627,6 +627,26 @@
   // estiver faltando. Autocorretiva: quanto mais o aluno abre um quiz que
   // já tem progresso, mais qualquer buraco antigo se fecha sozinho.
   // ===================================================================
+  // Grava uma resposta em respostas_detalhadas com upsert (evita duplicar
+  // linha quando o aluno reconfere uma questão já respondida) mas com uma
+  // rede de segurança: se o upsert falhar — por exemplo, RLS sem política de
+  // UPDATE liberada pra esse caminho, mesmo com a constraint de unicidade já
+  // criada — cai pra um insert simples, que sempre funciona contanto que a
+  // política de INSERT exista (é a mesma que o código antigo já usava). Sem
+  // essa rede, uma falha nesse ponto passava batido (silenciosa) e a questão
+  // simplesmente nunca contava pra cobertura.
+  function logRespostaDetalhada(sb, row) {
+    return sb.from('respostas_detalhadas')
+      .upsert(row, { onConflict: 'user_id,quiz_id,question_id' })
+      .then(function (res) {
+        if (res && res.error) return sb.from('respostas_detalhadas').insert(row);
+        return res;
+      })
+      .catch(function () {
+        return sb.from('respostas_detalhadas').insert(row).catch(function () {});
+      });
+  }
+
   function reconcileRespostasDetalhadas(sb, userId, quizId, questionsData, userAnswers) {
     if (!sb || !userId || !quizId || !questionsData || !userAnswers) return Promise.resolve();
     return sb.from('respostas_detalhadas')
@@ -660,11 +680,14 @@
         var LOTE = 200;
         var chain = Promise.resolve();
         var _loop = function (i) {
+          var lote = toInsert.slice(i, i + LOTE);
           chain = chain.then(function () {
-            return sb.from('respostas_detalhadas').upsert(
-              toInsert.slice(i, i + LOTE),
-              { onConflict: 'user_id,quiz_id,question_id', ignoreDuplicates: true }
-            );
+            return sb.from('respostas_detalhadas')
+              .upsert(lote, { onConflict: 'user_id,quiz_id,question_id', ignoreDuplicates: true })
+              .then(function (res) {
+                if (res && res.error) return sb.from('respostas_detalhadas').insert(lote);
+                return res;
+              });
           });
         };
         for (var i = 0; i < toInsert.length; i += LOTE) _loop(i);
@@ -701,6 +724,7 @@
     fetchAllAccess: fetchAllAccess,
     fetchApostilaLinks: fetchApostilaLinks,
     apostilaLinkHtml: apostilaLinkHtml,
-    reconcileRespostasDetalhadas: reconcileRespostasDetalhadas
+    reconcileRespostasDetalhadas: reconcileRespostasDetalhadas,
+    logRespostaDetalhada: logRespostaDetalhada
   };
 })(window);

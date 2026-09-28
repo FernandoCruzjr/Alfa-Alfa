@@ -3862,13 +3862,13 @@ const questionsData = [
       // reconferir uma questão já respondida.
       if (currentUser) {
         const q = questionsData[currentIndex];
-        sb.from('respostas_detalhadas').upsert({
+        AlfaGamification.logRespostaDetalhada(sb, {
           user_id: currentUser.id,
           quiz_id: QUIZ_ID,
           subject: q.subject,
           question_id: q.id,
           acertou: optIndex === q.correct
-        }, { onConflict: 'user_id,quiz_id,question_id' }).then(() => {});
+        }).then(() => {});
       }
       if (window.StudyRoom) StudyRoom.reportAnswer(currentIndex, optIndex);
     }
@@ -4059,7 +4059,9 @@ const questionsData = [
           }
         });
         if (detalhes.length > 0) {
-          sb.from('respostas_detalhadas').upsert(detalhes, { onConflict: 'user_id,quiz_id,question_id' }).then(() => {});
+          sb.from('respostas_detalhadas')
+            .upsert(detalhes, { onConflict: 'user_id,quiz_id,question_id' })
+            .then((res) => { if (res && res.error) sb.from('respostas_detalhadas').insert(detalhes).then(() => {}); });
         }
       }
     }
