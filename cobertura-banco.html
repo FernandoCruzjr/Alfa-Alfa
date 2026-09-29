@@ -374,8 +374,7 @@
     // Total de questões de cada matéria (o "100%" de cada uma)
     const TOTAL_QUESTOES = {
       'PORTUGUES': { label: 'Língua Portuguesa', total: 372 },
-      'HISTORIA_NAVAL': { label: 'História Militar Naval', total: 583 },
-      'HISTORIA_NAVAL_FATOS_1': { label: 'Fatos da História Naval', total: 217 },
+      'HISTORIA_NAVAL': { label: 'História Militar Naval', total: 584 },
       'GEOGRAFIA': { label: 'Geografia', total: 200 },
       'MATEMATICA': { label: 'Matemática', total: 200 },
       'CAAML-703': { label: 'CAAML-703 — Embarcações Miúdas', total: 200 },
@@ -472,7 +471,7 @@
         uniquePorMateria[d.quiz_id].add(String(d.question_id));
       });
 
-      // Resumo geral (soma sobre as 16 matérias reais do banco)
+      // Resumo geral (soma sobre as 15 matérias reais do banco)
       let totalRespondidasGeral = 0;
       let totalBancoGeral = 0;
       Object.keys(TOTAL_QUESTOES).forEach(quizId => {

@@ -53,7 +53,6 @@ const PRECACHE_URLS = [
   'flashcards-rosas-virtudes.html',
   'geografia.html',
   'historia-naval.html',
-  'historia-naval-fatos-1.html',
   'justica-disciplina.html',
   'lideranca.html',
   'lideranca-atributos.html',

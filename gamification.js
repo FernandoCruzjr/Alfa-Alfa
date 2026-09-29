@@ -22,8 +22,7 @@
   // ===================================================================
   var SUBJECTS = {
     PORTUGUES: { label: 'Língua Portuguesa', url: 'portugues.html', total: 372 },
-    HISTORIA_NAVAL: { label: 'História Militar Naval', url: 'historia-naval.html', total: 583 },
-    HISTORIA_NAVAL_FATOS_1: { label: 'Fatos da História Naval', url: 'historia-naval-fatos-1.html', total: 217 },
+    HISTORIA_NAVAL: { label: 'História Militar Naval', url: 'historia-naval.html', total: 584 },
     GEOGRAFIA: { label: 'Geografia', url: 'geografia.html', total: 200 },
     MATEMATICA: { label: 'Matemática', url: 'matematica.html', total: 200 },
     'CAAML-703': { label: 'Embarcações Miúdas & Segurança', url: 'caaml-703.html', total: 200 },
