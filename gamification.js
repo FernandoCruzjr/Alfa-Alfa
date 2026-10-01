@@ -647,23 +647,46 @@
   }
 
   function reconcileRespostasDetalhadas(sb, userId, quizId, questionsData, userAnswers) {
-    if (!sb || !userId || !quizId || !questionsData || !userAnswers) return Promise.resolve();
-    return sb.from('respostas_detalhadas')
-      .select('question_id')
-      .eq('user_id', userId)
-      .eq('quiz_id', quizId)
-      .then(function (res) {
-        if (res.error) return;
+    if (!sb || !userId || !quizId || !questionsData) return Promise.resolve();
+    // Junta duas fontes de "o que eu já respondi": o estado atual em memória
+    // (userAnswers, de onde você parou agora) E o histórico de toda prova/
+    // simulado dessa matéria que você já finalizou (tabela `resultados`,
+    // que guarda um retrato de `respostas` — índice da questão -> opção
+    // marcada — a cada finalização). A segunda fonte existe justamente pra
+    // recuperar respostas de quando a gravação detalhada (respostas_detalhadas)
+    // falhava silenciosamente (por exemplo, por falta de permissão no banco
+    // antes da correção) — `resultados` não depende dessa mesma permissão e
+    // é por isso que o total de acertos da página inicial sempre esteve
+    // certo mesmo quando a Cobertura ficava zerada.
+    return Promise.all([
+      sb.from('respostas_detalhadas').select('question_id').eq('user_id', userId).eq('quiz_id', quizId),
+      sb.from('resultados').select('respostas').eq('user_id', userId).eq('quiz_id', quizId)
+    ])
+      .then(function (results) {
+        var detalhesRes = results[0];
+        var resultadosRes = results[1];
+        if (detalhesRes.error) return;
         var logged = {};
-        (res.data || []).forEach(function (r) { logged[String(r.question_id)] = true; });
+        (detalhesRes.data || []).forEach(function (r) { logged[String(r.question_id)] = true; });
+
+        var combinedAnswers = {};
+        Object.keys(userAnswers || {}).forEach(function (idxStr) { combinedAnswers[idxStr] = userAnswers[idxStr]; });
+        if (!resultadosRes.error) {
+          (resultadosRes.data || []).forEach(function (row) {
+            var respostas = (row && row.respostas) || {};
+            Object.keys(respostas).forEach(function (idxStr) {
+              if (combinedAnswers[idxStr] === undefined) combinedAnswers[idxStr] = respostas[idxStr];
+            });
+          });
+        }
 
         var toInsert = [];
-        Object.keys(userAnswers).forEach(function (idxStr) {
+        Object.keys(combinedAnswers).forEach(function (idxStr) {
           var idx = Number(idxStr);
           var q = questionsData[idx];
           if (!q) return;
           if (logged[String(q.id)]) return;
-          var selected = userAnswers[idxStr];
+          var selected = combinedAnswers[idxStr];
           if (selected === undefined || selected === null) return;
           toInsert.push({
             user_id: userId,
