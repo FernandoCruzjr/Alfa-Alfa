@@ -25,7 +25,7 @@
   <link rel="icon" type="image/png" href="icons/favicon-32.png">
   <link rel="preload" as="image" href="login-oficial-mesa.jpg">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0" defer></script>
   <script src="gamification.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -652,6 +652,7 @@
         <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
         <p class="text-sm text-amber-200">Conta criada! Seu acesso ainda está aguardando liberação do administrador.</p>
         <button type="button" onclick="handleLogout()" class="text-xs text-[#8fb3dd] hover:text-ink underline underline-offset-2">Sair</button>
+        <button type="button" id="pending-retry-btn" onclick="location.reload()" class="hidden mt-1 text-xs font-semibold text-ink bg-[#0066CC] hover:bg-[#0055AA] px-4 py-2 rounded-lg transition-colors">Tentar novamente</button>
       </div>
 
       <div id="access-message" class="min-h-5 mt-4 text-xs" role="alert" aria-live="polite"></div>
@@ -1349,6 +1350,11 @@
       target.classList.remove('hidden');
       target.classList.add('flex');
       document.getElementById('access-message').textContent = '';
+      // Botão "Tentar novamente" só deve aparecer quando showLoadTimeoutFallback()
+      // explicitamente o mostra de novo (ela chama showForm primeiro, e só depois
+      // revela o botão) — some por padrão em qualquer outra troca de tela.
+      const retryBtn = document.getElementById('pending-retry-btn');
+      if (retryBtn) retryBtn.classList.add('hidden');
     }
 
     function switchAuthTab(tab) {
@@ -1458,6 +1464,33 @@
         if (icon) icon.className = 'fa-solid fa-wifi text-3xl text-amber-300';
       }
       showForm('pending-panel');
+    }
+
+    // Rede de segurança: se depois de um tempo razoável nem a tela de login
+    // nem o painel logado apareceram (trava em alguma consulta ao Supabase,
+    // por exemplo), mostra uma tela de "demorando mais que o normal" com
+    // botão pra tentar de novo — em vez de deixar a pessoa olhando pra uma
+    // tela girando/carregando pra sempre sem explicação, o que parecia
+    // "o site quebrou". Checa o estado real do DOM (não uma flag separada)
+    // pra funcionar mesmo que a travada seja numa consulta dentro de
+    // onUserAuthenticated(), depois do evento de auth já ter disparado.
+    function showLoadTimeoutFallback() {
+      const screen = document.getElementById('access-screen');
+      const bar = document.getElementById('user-bar');
+      const dashboardShown = bar && bar.classList.contains('flex');
+      const loginShown = screen && !screen.classList.contains('hidden');
+      if (dashboardShown || loginShown) return; // já resolveu de algum jeito, não precisa
+      screen.classList.remove('hidden');
+      showForm('pending-panel');
+      const panel = document.getElementById('pending-panel');
+      if (panel) {
+        const p = panel.querySelector('p');
+        if (p) p.textContent = 'Isso está demorando mais que o normal pra carregar. Pode ser uma conexão lenta ou uma instabilidade passageira — tente novamente em alguns segundos.';
+        const icon = panel.querySelector('i');
+        if (icon) icon.className = 'fa-solid fa-triangle-exclamation text-3xl text-amber-300';
+      }
+      const retryBtn = document.getElementById('pending-retry-btn');
+      if (retryBtn) retryBtn.classList.remove('hidden');
     }
 
     async function onUserAuthenticated() {
@@ -1938,6 +1971,11 @@
           showAccessScreen();
         }
       });
+
+      // Watchdog: se em 12s nada do Supabase respondeu (nem login nem sessão),
+      // mostra a tela de "demorando mais que o normal" em vez de deixar a
+      // pessoa travada numa tela carregando pra sempre sem explicação.
+      setTimeout(showLoadTimeoutFallback, 12000);
     });
   </script>
 
