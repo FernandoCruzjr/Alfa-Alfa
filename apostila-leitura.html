@@ -588,13 +588,24 @@
       const groups = [];
       let current = [];
       let pageStartTop = 0;
+      const isHeading = (el) => !!el && /^H[1-3]$/.test(el.tagName);
       children.forEach(child => {
         const top = child.offsetTop;
         const bottom = top + child.offsetHeight;
         if ((bottom - pageStartTop) > A4_CONTENT_H && current.length > 0) {
-          groups.push(current);
-          current = [];
-          pageStartTop = top;
+          // Evita que um título (h1/h2/h3) fique sozinho, isolado, no fim
+          // da página: se o(s) último(s) item(ns) já encaixado(s) no grupo
+          // atual for(em) título(s) — às vezes há mais de um título seguido,
+          // como "PARTE VI" logo acima de "24. ..." — todos eles "sobem"
+          // junto com o conteúdo seguinte para a próxima página, em vez de
+          // ficarem pendurados sem corpo de texto abaixo.
+          const orphanBuffer = [];
+          while (current.length > 0 && isHeading(current[current.length - 1])) {
+            orphanBuffer.unshift(current.pop());
+          }
+          if (current.length > 0) groups.push(current);
+          current = orphanBuffer;
+          pageStartTop = orphanBuffer.length ? orphanBuffer[0].offsetTop : top;
         }
         current.push(child);
       });
