@@ -3720,23 +3720,19 @@ let questionsData = [
       document.getElementById('user-email').textContent = currentUser.email;
       await applySwitchMenuLocks();
 
-      // Se o aluno já embaralhou essa prova antes, restaura a mesma ordem —
-      // senão as respostas salvas (indexadas pela posição) ficariam coladas
-      // nas questões erradas depois de recarregar a página.
-      try {
-        const savedOrder = JSON.parse(localStorage.getItem(STORAGE_KEY_ORDER) || 'null');
-        if (Array.isArray(savedOrder) && savedOrder.length === questionsData.length) {
-          const byId = {};
-          questionsData.forEach(q => { byId[String(q.id)] = q; });
-          const reordered = savedOrder.map(id => byId[String(id)]).filter(Boolean);
-          if (reordered.length === questionsData.length) questionsData = reordered;
-        }
-      } catch (e) { /* mantém a ordem original se der qualquer problema */ }
-
+      // A ordem embaralhada (se houver) agora é restaurada dentro de
+      // loadSavedState(), que prioriza a ordem salva na nuvem (sincronizada
+      // entre aparelhos) e só cai para a ordem salva neste aparelho
+      // (localStorage) se não houver nada salvo na nuvem ainda — ver
+      // comentário detalhado lá dentro.
       await loadSavedState();
       if (currentUser) {
         AlfaGamification.reconcileRespostasDetalhadas(sb, currentUser.id, QUIZ_ID, questionsData, userAnswers).then(() => {});
         AlfaGamification.syncLocalAnswers(sb, currentUser.id, QUIZ_ID, STORAGE_KEY_PREFIX).then(() => {});
+        // Garante que a ordem agora em uso (da nuvem, ou a de fallback
+        // local) fique salva no servidor também — fecha o ciclo pra
+        // qualquer outro aparelho que o aluno usar depois.
+        syncProgressToCloud();
       }
       const savedIndex = parseInt(localStorage.getItem(STORAGE_KEY_CURRENT), 10);
       currentIndex = (!isNaN(savedIndex) && savedIndex >= 0 && savedIndex < questionsData.length) ? savedIndex : 0;
@@ -3848,16 +3844,40 @@ let questionsData = [
       userAnswers = {};
       discardedOptions = {};
       let loadedFromCloud = false;
+      let orderApplied = false;
+
+      function aplicarOrdem(ordemSalva) {
+        if (!Array.isArray(ordemSalva) || ordemSalva.length !== questionsData.length) return false;
+        const byId = {};
+        questionsData.forEach(q => { byId[String(q.id)] = q; });
+        const reordered = ordemSalva.map(id => byId[String(id)]).filter(Boolean);
+        if (reordered.length !== questionsData.length) return false;
+        questionsData = reordered;
+        return true;
+      }
 
       if (currentUser) {
         try {
           const { data, error } = await sb
             .from('progresso')
-            .select('respostas, descartadas, modo')
+            .select('respostas, descartadas, modo, ordem')
             .eq('user_id', currentUser.id)
             .eq('quiz_id', QUIZ_ID)
             .maybeSingle();
           if (!error && data) {
+            // Restaura primeiro a ordem embaralhada salva NA NUVEM, antes de
+            // aplicar as respostas (que são indexadas pela posição na
+            // lista). Sem isso, um aluno que embaralhou a prova num
+            // aparelho e depois abriu o quiz num aparelho diferente (ou com
+            // o cache local limpo) via a ordem original do arquivo, não a
+            // embaralhada — aí cada resposta salva ficava colada, na
+            // reconciliação da Cobertura, a uma questão diferente da que
+            // foi de fato respondida, e respostas antigas pareciam "não
+            // contar" mesmo já tendo sido feitas.
+            if (aplicarOrdem(data.ordem)) {
+              orderApplied = true;
+              try { localStorage.setItem(STORAGE_KEY_ORDER, JSON.stringify(data.ordem)); } catch (e) {}
+            }
             userAnswers = data.respostas || {};
             discardedOptions = data.descartadas || {};
             if (data.modo) setMode(data.modo, false);
@@ -3874,6 +3894,16 @@ let questionsData = [
           notesCache = {};
           (notas || []).forEach(n => { notesCache[String(n.question_id)] = { texto: n.texto, atualizado_em: n.atualizado_em }; });
         } catch (e) { /* segue sem anotações carregadas */ }
+      }
+
+      // Se a nuvem não tinha ordem salva (primeira vez que este recurso
+      // roda pra este usuário, erro de rede, ou aluno deslogado), cai pra
+      // ordem salva só neste aparelho — igual ao comportamento de antes
+      // desta correção.
+      if (!orderApplied) {
+        try {
+          aplicarOrdem(JSON.parse(localStorage.getItem(STORAGE_KEY_ORDER) || 'null'));
+        } catch (e) { /* mantém a ordem original se der qualquer problema */ }
       }
 
       if (!loadedFromCloud) {
@@ -3898,6 +3928,7 @@ let questionsData = [
         respostas: userAnswers,
         descartadas: discardedOptions,
         modo: mode,
+        ordem: questionsData.map(q => q.id),
         atualizado_em: new Date().toISOString()
       }, { onConflict: 'user_id,quiz_id' });
     }
