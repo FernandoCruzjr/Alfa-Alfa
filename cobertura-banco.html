@@ -692,24 +692,41 @@
       } catch (e) {
         error = e;
       }
-      const detalhes = data;
+      const detalhes = data || [];
+
+      // Além do banco, junta o que está salvo localmente neste aparelho (ver
+      // recordAnswerLocal em gamification.js) — cada prova grava aí a questão
+      // respondida NA HORA, sem depender de rede. Isso faz a Cobertura mostrar
+      // o número certo mesmo que a gravação em nuvem tenha falhado por algum
+      // motivo (sessão, rede, cache antigo etc.) e mesmo que esta própria
+      // consulta ao banco tenha travado ou vindo vazia.
+      if (window.AlfaGamification && AlfaGamification.STORAGE_PREFIX_BY_QUIZ) {
+        Object.keys(AlfaGamification.STORAGE_PREFIX_BY_QUIZ).forEach(quizId => {
+          const prefix = AlfaGamification.STORAGE_PREFIX_BY_QUIZ[quizId];
+          const mapaLocal = AlfaGamification.getLocalAnsweredMap(prefix);
+          Object.keys(mapaLocal).forEach(questionId => {
+            detalhes.push({ quiz_id: quizId, question_id: questionId, subject: mapaLocal[questionId].subject });
+          });
+        });
+      }
 
       if (btn) { btn.disabled = false; btn.querySelector('i').classList.remove('fa-spin'); }
 
-      if (error) {
+      if (error && detalhes.length === 0) {
         document.getElementById('erro-cobertura').classList.remove('hidden');
         document.getElementById('resumo-geral').classList.add('hidden');
         document.getElementById('cards-grid').innerHTML = '';
         return;
       }
 
-      if (!detalhes || detalhes.length === 0) {
+      if (detalhes.length === 0) {
         document.getElementById('empty-state').classList.remove('hidden');
         document.getElementById('resumo-geral').classList.add('hidden');
         return;
       }
 
-      // Conta questões ÚNICAS respondidas por matéria (um mesmo question_id não conta 2x),
+      // Conta questões ÚNICAS respondidas por matéria (um mesmo question_id não conta 2x,
+      // nem quando vem tanto do banco quanto do local — o Set já cuida disso sozinho),
       // e também por tópico dentro de cada matéria (pra alimentar o "ver tópicos" dos cards).
       const uniquePorMateria = {};
       const uniquePorTopico = {}; // { quizId: { topicName: Set(question_id) } }

@@ -41,6 +41,29 @@
 
   var TOTAL_SUBJECTS = Object.keys(SUBJECTS).filter(function (k) { return k !== 'PROVA_SIMULADA'; }).length;
 
+  // Prefixo de localStorage usado por cada prova pra gravar o mapa de
+  // respostas local (ver recordAnswerLocal/getLocalAnsweredMap abaixo).
+  // Tem que bater exatamente com a constante STORAGE_KEY_PREFIX de cada
+  // arquivo de prova — é assim que cobertura-banco.html consegue ler o
+  // progresso salvo localmente em cada matéria sem precisar de rede.
+  var STORAGE_PREFIX_BY_QUIZ = {
+    PORTUGUES: 'portugues',
+    HISTORIA_NAVAL: 'historia_naval',
+    GEOGRAFIA: 'geografia',
+    MATEMATICA: 'matematica',
+    'CAAML-703': 'caaml_703',
+    CERIMONIAL: 'cerimonial',
+    ROSAS_VIRTUDES: 'rosas_virtudes',
+    JUSTICA_DISCIPLINA: 'justica_disciplina',
+    LIDERANCA: 'lideranca',
+    LIDERANCA_ATRIBUTOS: 'lideranca_atributos',
+    OGSA: 'ogsa',
+    CAMAAL_CAV: 'camaal_cav',
+    ESTATUTO_RDM: 'estatuto_rdm',
+    DOC_ADM_MB: 'doc_adm_mb',
+    PEM2040: 'pem2040'
+  };
+
   function labelFor(quizId) {
     return (SUBJECTS[quizId] && SUBJECTS[quizId].label) || quizId;
   }
@@ -634,6 +657,70 @@
   // política de INSERT exista (é a mesma que o código antigo já usava). Sem
   // essa rede, uma falha nesse ponto passava batido (silenciosa) e a questão
   // simplesmente nunca contava pra cobertura.
+  // ===================================================================
+  // Resposta local robusta — grava no localStorage do navegador NA HORA,
+  // sem nenhuma dependência de rede. É a fonte mais confiável que existe:
+  // nunca falha por causa de internet, sessão expirada, RLS ou cache do
+  // Service Worker desatualizado (motivos que já causaram uma questão
+  // respondida não ser contabilizada, mesmo com tudo "certo" no banco).
+  // cobertura-banco.html lê esse mapa direto, além do banco — então o
+  // número aparece certo NESTE aparelho na hora, não importa o que
+  // aconteça com a gravação em nuvem.
+  // ===================================================================
+  function answeredMapKey(storagePrefix) { return storagePrefix + '_answered_map'; }
+
+  function getLocalAnsweredMap(storagePrefix) {
+    try {
+      return JSON.parse(localStorage.getItem(answeredMapKey(storagePrefix)) || '{}') || {};
+    } catch (e) { return {}; }
+  }
+
+  function recordAnswerLocal(storagePrefix, questionId, acertou, subject) {
+    try {
+      var map = getLocalAnsweredMap(storagePrefix);
+      map[String(questionId)] = { acertou: !!acertou, subject: subject || null };
+      localStorage.setItem(answeredMapKey(storagePrefix), JSON.stringify(map));
+    } catch (e) { /* localStorage indisponível (modo privado etc.) — segue sem travar o quiz */ }
+  }
+
+  // Reenvia pro banco tudo que está salvo localmente pra essa matéria. Roda
+  // toda vez que a página carrega (além da gravação em tempo real a cada
+  // clique) — então, se a gravação em rede tiver falhado em algum momento
+  // (por qualquer motivo, mesmo um que a gente não consiga identificar),
+  // na próxima vez que o aluno abrir essa matéria a sincronização tenta de
+  // novo, com tudo que já tem localmente, não só a questão mais recente.
+  function syncLocalAnswers(sb, userId, quizId, storagePrefix) {
+    if (!sb || !userId || !quizId || !storagePrefix) return Promise.resolve();
+    var map = getLocalAnsweredMap(storagePrefix);
+    var ids = Object.keys(map);
+    if (ids.length === 0) return Promise.resolve();
+    var rows = ids.map(function (qid) {
+      return {
+        user_id: userId,
+        quiz_id: quizId,
+        subject: map[qid].subject,
+        question_id: qid,
+        acertou: map[qid].acertou
+      };
+    });
+    var LOTE = 200;
+    var chain = Promise.resolve();
+    var _loop = function (i) {
+      var lote = rows.slice(i, i + LOTE);
+      chain = chain.then(function () {
+        return sb.from('respostas_detalhadas')
+          .upsert(lote, { onConflict: 'user_id,quiz_id,question_id', ignoreDuplicates: true })
+          .then(function (res) {
+            if (res && res.error) return sb.from('respostas_detalhadas').insert(lote).catch(function () {});
+            return res;
+          })
+          .catch(function () {});
+      });
+    };
+    for (var i = 0; i < rows.length; i += LOTE) _loop(i);
+    return chain.catch(function () {});
+  }
+
   function logRespostaDetalhada(sb, row) {
     return sb.from('respostas_detalhadas')
       .upsert(row, { onConflict: 'user_id,quiz_id,question_id' })
@@ -747,6 +834,10 @@
     fetchApostilaLinks: fetchApostilaLinks,
     apostilaLinkHtml: apostilaLinkHtml,
     reconcileRespostasDetalhadas: reconcileRespostasDetalhadas,
-    logRespostaDetalhada: logRespostaDetalhada
+    logRespostaDetalhada: logRespostaDetalhada,
+    STORAGE_PREFIX_BY_QUIZ: STORAGE_PREFIX_BY_QUIZ,
+    getLocalAnsweredMap: getLocalAnsweredMap,
+    recordAnswerLocal: recordAnswerLocal,
+    syncLocalAnswers: syncLocalAnswers
   };
 })(window);

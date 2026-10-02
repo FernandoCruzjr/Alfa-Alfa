@@ -474,6 +474,10 @@
           </button>
         </div>
 
+        <button onclick="shuffleQuiz()" class="bg-amber-900/40 hover:bg-amber-800 text-amber-200 border border-amber-700/50 text-xs px-3 py-2 rounded-lg transition-all flex items-center gap-1.5" title="Embaralhar a ordem das questões (mantém suas respostas)">
+          <i class="fa-solid fa-shuffle"></i> Embaralhar
+        </button>
+
         <button onclick="resetQuiz()" class="bg-rose-900/40 hover:bg-rose-800 text-rose-200 border border-rose-700/50 text-xs px-3 py-2 rounded-lg transition-all flex items-center gap-1.5" title="Reiniciar Simulado">
           <i class="fa-solid fa-rotate-right"></i> Reiniciar
         </button>
@@ -671,7 +675,7 @@
   <!-- JavaScript Code -->
   <script>
     // Quiz Questions Dataset
-const questionsData = [
+let questionsData = [
       {
         id: 1,
         text: "Ao simplificar a expressão (π^(x+1) - π^x)/π^(x-4) + (π^(x+5) - π^(x+4))/π^(x+1), encontra-se:",
@@ -3488,11 +3492,13 @@ const questionsData = [
     let lastAnimatedIndex = -1; // ver comentário em renderQuestion() sobre o fix do clique
 
     // Local Storage Keys (cache local / fallback offline)
+    const STORAGE_KEY_PREFIX = 'matematica';
     const STORAGE_KEY_ANSWERS = 'matematica_answers';
     const STORAGE_KEY_MODE = 'matematica_mode';
     const STORAGE_KEY_DISCARDED = 'matematica_discarded_options';
     const STORAGE_KEY_START = 'matematica_elapsed_start';
     const STORAGE_KEY_CURRENT = 'matematica_current_index';
+    const STORAGE_KEY_ORDER = 'matematica_order';
 
     // --- Supabase: sessão vem da página inicial (index.html) ---
     const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
@@ -3579,9 +3585,23 @@ const questionsData = [
       document.getElementById('user-email').textContent = currentUser.email;
       await applySwitchMenuLocks();
 
+      // Se o aluno já embaralhou essa prova antes, restaura a mesma ordem —
+      // senão as respostas salvas (indexadas pela posição) ficariam coladas
+      // nas questões erradas depois de recarregar a página.
+      try {
+        const savedOrder = JSON.parse(localStorage.getItem(STORAGE_KEY_ORDER) || 'null');
+        if (Array.isArray(savedOrder) && savedOrder.length === questionsData.length) {
+          const byId = {};
+          questionsData.forEach(q => { byId[String(q.id)] = q; });
+          const reordered = savedOrder.map(id => byId[String(id)]).filter(Boolean);
+          if (reordered.length === questionsData.length) questionsData = reordered;
+        }
+      } catch (e) { /* mantém a ordem original se der qualquer problema */ }
+
       await loadSavedState();
       if (currentUser) {
         AlfaGamification.reconcileRespostasDetalhadas(sb, currentUser.id, QUIZ_ID, questionsData, userAnswers).then(() => {});
+        AlfaGamification.syncLocalAnswers(sb, currentUser.id, QUIZ_ID, STORAGE_KEY_PREFIX).then(() => {});
       }
       const savedIndex = parseInt(localStorage.getItem(STORAGE_KEY_CURRENT), 10);
       currentIndex = (!isNaN(savedIndex) && savedIndex >= 0 && savedIndex < questionsData.length) ? savedIndex : 0;
@@ -3744,7 +3764,7 @@ const questionsData = [
         descartadas: discardedOptions,
         modo: mode,
         atualizado_em: new Date().toISOString()
-      });
+      }, { onConflict: 'user_id,quiz_id' });
     }
 
     function saveState() {
@@ -4076,15 +4096,22 @@ const questionsData = [
       // reconferir, e nesse caso só atualizamos o acerto/erro mais recente, sem
       // duplicar linha nem depender de um estado local pra saber "já respondi essa
       // antes" (é esse estado local que fazia a cobertura ficar presa abaixo do real).
-      if (currentUser) {
+      {
         const q = questionsData[currentIndex];
-        AlfaGamification.logRespostaDetalhada(sb, {
-          user_id: currentUser.id,
-          quiz_id: QUIZ_ID,
-          subject: q.subject,
-          question_id: q.id,
-          acertou: optIndex === q.correct
-        }).then(() => {});
+        const acertou = optIndex === q.correct;
+        // Grava local primeiro — sempre funciona, não depende de rede, sessão
+        // ou cache. É isso que faz a Cobertura contar certo na hora neste
+        // aparelho mesmo que a gravação em nuvem abaixo falhe silenciosamente.
+        AlfaGamification.recordAnswerLocal(STORAGE_KEY_PREFIX, q.id, acertou, q.subject);
+        if (currentUser) {
+          AlfaGamification.logRespostaDetalhada(sb, {
+            user_id: currentUser.id,
+            quiz_id: QUIZ_ID,
+            subject: q.subject,
+            question_id: q.id,
+            acertou: acertou
+          }).then(() => {});
+        }
       }
       if (window.StudyRoom) StudyRoom.reportAnswer(currentIndex, optIndex);
     }
@@ -4108,12 +4135,13 @@ const questionsData = [
 
     function nextQuestion() {
       if (srNavLocked()) return;
-      if (currentIndex < questionsData.length - 1) {
-        currentIndex++;
-        localStorage.setItem(STORAGE_KEY_CURRENT, String(currentIndex));
-        renderQuestion();
-        renderGrid();
-      }
+      // Ao chegar na última questão, reinicia do começo em vez de travar —
+      // dá pra treinar em loop sem voltar manualmente, mesmo que nem todas
+      // as questões tenham sido respondidas ainda.
+      currentIndex = (currentIndex < questionsData.length - 1) ? currentIndex + 1 : 0;
+      localStorage.setItem(STORAGE_KEY_CURRENT, String(currentIndex));
+      renderQuestion();
+      renderGrid();
     }
 
     function setFilter(filter) {
@@ -4230,6 +4258,38 @@ const questionsData = [
         renderGrid();
         updateElapsedTimer();
       }
+    }
+
+    // Embaralha a ordem das questões mantendo cada resposta/descarte colado
+    // na questão certa (reordena os pares questão+estado juntos, não só o
+    // array de questões) — e salva essa ordem pra sobreviver a um reload.
+    function shuffleQuiz() {
+      if (window.StudyRoom && StudyRoom.isActive()) {
+        alert('Não é possível embaralhar durante uma sala de estudo sincronizada.');
+        return;
+      }
+      const paired = questionsData.map((q, idx) => ({ q, answer: userAnswers[idx], discarded: discardedOptions[idx] }));
+      for (let i = paired.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [paired[i], paired[j]] = [paired[j], paired[i]];
+      }
+      questionsData = paired.map(p => p.q);
+      const newAnswers = {};
+      const newDiscarded = {};
+      paired.forEach((p, idx) => {
+        if (p.answer !== undefined) newAnswers[idx] = p.answer;
+        if (p.discarded) newDiscarded[idx] = p.discarded;
+      });
+      userAnswers = newAnswers;
+      discardedOptions = newDiscarded;
+      currentIndex = 0;
+      try { localStorage.setItem(STORAGE_KEY_ORDER, JSON.stringify(questionsData.map(q => q.id))); } catch (e) {}
+      saveState();
+      localStorage.setItem(STORAGE_KEY_CURRENT, '0');
+      if (currentUser) syncProgressToCloud();
+      renderQuestion();
+      renderGrid();
+      updateTrackers();
     }
 
     function finishQuiz() {
