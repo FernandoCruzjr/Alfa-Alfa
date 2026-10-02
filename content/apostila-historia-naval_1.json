@@ -2453,6 +2453,18 @@
    "indent": 0
   },
   {
+   "type": "p",
+   "runs": [
+    {
+     "t": "Esta seção foi reorganizada em formato de revisão intensiva: cada subtópico traz, além da explicação do conceito, as datas, os comandantes (dos dois lados, quando identificados pelo autor) e os nomes de batalhas/operações citados no livro — e termina com um quadro-resumo consolidado (19.17) reunindo tudo em um só lugar, para revisão rápida antes da prova.",
+     "b": false,
+     "i": false
+    }
+   ],
+   "align": null,
+   "indent": 0
+  },
+  {
    "type": "h3",
    "text": "19.1 — A \"Abordagem Indireta\" (Strategy: The Indirect Approach)"
   },
@@ -2472,7 +2484,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "Liddell Hart recorre, logo no início do livro, a máximas sobre o engano e a dissimulação na guerra — a ideia de parecer fraco quando se está forte, parecer inativo quando se está em movimento, e usar engodos para atrair e desorganizar o inimigo antes de destruí-lo — como ilustração de que a vitória decisiva costuma depender menos da força bruta do que da capacidade de iludir a percepção do adversário sobre onde e quando o golpe real será desferido.",
+     "t": "Logo no início do livro, Liddell Hart recorre a máximas sobre o engano e a dissimulação na guerra — a ideia de parecer fraco quando se está forte, parecer inativo quando se está em movimento, fazer o inimigo crer que se está longe quando se está perto (e vice-versa), e usar engodos para atrair e desorganizar o inimigo antes de destruí-lo — como ilustração de que a vitória decisiva costuma depender menos da força bruta do que da capacidade de iludir a percepção do adversário sobre onde e quando o golpe real será desferido.",
      "b": false,
      "i": false
     }
@@ -2505,7 +2517,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "Liddell Hart situa as Guerras Médicas (greco-pérsicas) como o primeiro grande conflito da história europeia, quando as cidades-Estado gregas enfrentaram o império persa, muito superior em recursos. Na Batalha de Maratona (490 a.C.), o general ateniense Milcíades assegurou a vitória grega sobre os persas sobretudo pelo emprego tático: reforçou as alas do exército ateniense em detrimento do centro e ordenou um avanço rápido sobre o último trecho da planície, reduzindo o tempo de exposição de seus hoplitas ao tiro dos arqueiros persas antes do choque corpo a corpo.",
+     "t": "Liddell Hart situa as Guerras Médicas (greco-pérsicas, 492-449 a.C.) como o primeiro grande conflito da história europeia, quando as cidades-Estado gregas enfrentaram o império persa de Dario I e, depois, de Xerxes I — muito superior em recursos e homens. Na Batalha de Maratona (490 a.C.), o general ateniense Milcíades assegurou a vitória grega sobre os persas sobretudo pelo emprego tático: reforçou as alas do exército ateniense em detrimento do centro e ordenou um avanço rápido sobre o último trecho da planície, reduzindo o tempo de exposição de seus hoplitas ao tiro dos arqueiros persas antes do choque corpo a corpo.",
      "b": false,
      "i": false
     }
@@ -2517,7 +2529,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "Dez anos depois, os persas voltaram em força muito maior sob Xerxes; a vitória grega decisiva veio no mar, em Salamina (480 a.C.), pela iniciativa de Temístocles, que atraiu a frota persa para um estreito onde sua superioridade numérica deixava de ser vantagem. O episódio reforça a tese de Liddell Hart de que o poder marítimo — e não apenas as batalhas terrestres — foi decisivo nas guerras gregas.",
+     "t": "Dez anos depois (480 a.C.), os persas sob Xerxes I voltaram em força muito maior, por terra e por mar; a vitória grega decisiva veio no mar, na Batalha de Salamina, pela iniciativa do ateniense Temístocles, que atraiu a frota persa para um estreito onde sua superioridade numérica deixava de ser vantagem. O episódio reforça a tese de Liddell Hart de que o poder marítimo — e não apenas as batalhas terrestres — foi decisivo nas guerras gregas.",
      "b": false,
      "i": false
     }
@@ -2529,7 +2541,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "Décadas mais tarde, na Guerra do Peloponeso entre Atenas e Esparta, Liddell Hart identifica o verdadeiro \"calcanhar de Aquiles\" do império ateniense: sua dependência do mar para alimentar a cidade, já que Atenas importava grande parte de seu trigo através do Helesponto. Essa vulnerabilidade foi explorada de forma decisiva pelo almirante espartano Lisandro em 405 a.C., na Batalha de Egospótamos: surpreendeu a frota ateniense encalhada e mal guarnecida na praia, destruindo-a quase sem combate e abrindo caminho para o corte definitivo do suprimento de grãos a Atenas — golpe indireto que selou a derrota ateniense sem uma grande batalha campal.",
+     "t": "Décadas mais tarde, na Guerra do Peloponeso (431-404 a.C.) entre Atenas (liderando a Liga de Delos) e Esparta (liderando a Liga do Peloponeso), Liddell Hart identifica o verdadeiro \"calcanhar de Aquiles\" do império ateniense: sua dependência do mar para alimentar a cidade, já que Atenas importava grande parte de seu trigo do Mar Negro através do Helesponto. Essa vulnerabilidade foi explorada de forma decisiva pelo navarca (almirante) espartano Lisandro em 405 a.C., na Batalha de Egospótamos: surpreendeu a frota ateniense encalhada e mal guarnecida na praia do estreito do Helesponto, destruindo-a quase sem combate e abrindo caminho para o corte definitivo do suprimento de grãos a Atenas — golpe indireto que selou a derrota ateniense (capitulação em 404 a.C.) sem uma grande batalha campal decisiva.",
      "b": false,
      "i": false
     }
@@ -2546,7 +2558,7 @@
      "i": false
     },
     {
-     "t": "em Maratona, Milcíades venceu reforçando as alas e acelerando o avanço; em Salamina, Temístocles atraiu a frota persa a um estreito desfavorável; na Guerra do Peloponeso, o calcanhar de Aquiles ateniense foi sua dependência do trigo importado pelo mar, vulnerabilidade que Lisandro explorou em Egospótamos (405 a.C.) ao destruir a frota ateniense encalhada.",
+     "t": "Guerras Médicas: Maratona (490 a.C., Milcíades reforça as alas; Dario I) e Salamina (480 a.C., Temístocles atrai a frota de Xerxes I a um estreito); Guerra do Peloponeso (431-404 a.C., Atenas x Esparta): o calcanhar de Aquiles ateniense foi sua dependência do trigo importado pelo mar, vulnerabilidade que o almirante espartano Lisandro explorou em Egospótamos (405 a.C.) ao destruir a frota ateniense encalhada, levando à capitulação de Atenas em 404 a.C.",
      "b": false,
      "i": false
     }
@@ -2562,7 +2574,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "Liddell Hart destaca o general tebano Epaminondas como um precursor da concentração de forças no ponto decisivo: nas batalhas de Leuctra (371 a.C.) e Mantineia (362 a.C.) contra Esparta, abandonou a formação tradicional de linha uniforme e concentrou suas melhores tropas em uma das alas, recusando a ala oposta — rompendo a então invencível falange espartana por meio do peso local, e não da força total do exército.",
+     "t": "Liddell Hart destaca o general tebano Epaminondas como um precursor da concentração de forças no ponto decisivo: nas batalhas de Leuctra (371 a.C.) e Mantineia (362 a.C.), ambas contra Esparta, abandonou a formação tradicional de linha uniforme e concentrou suas melhores tropas (o \"Batalhão Sagrado\" de Tebas) em uma das alas em coluna oblíqua, recusando a ala oposta — rompendo a então invencível falange espartana pelo peso local, e não pela força total do exército. Mantineia (362 a.C.) foi também a batalha em que o próprio Epaminondas morreu, vitorioso.",
      "b": false,
      "i": false
     }
@@ -2574,7 +2586,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "A ascensão da Macedônia sob Filipe II culminou na Batalha de Queronéia (338 a.C.), em que o exército macedônico esmagou a coalizão das cidades-Estado gregas (Atenas e Tebas à frente). O resultado foi o fim definitivo da independência política das cidades-Estado gregas, que passaram a girar sob a hegemonia macedônica — abrindo caminho para que Filipe, e depois seu filho Alexandre, unificassem a Grécia sob um único comando antes de voltar-se contra a Pérsia.",
+     "t": "A ascensão da Macedônia sob Filipe II culminou na Batalha de Queronéia (338 a.C.), em que o exército macedônico — com um jovem Alexandre comandando a cavalaria em uma das alas — esmagou a coalizão das cidades-Estado gregas, lideradas por Atenas e Tebas. O resultado foi o fim definitivo da independência política das cidades-Estado gregas, que passaram a girar sob a hegemonia macedônica — abrindo caminho para que Filipe, e depois seu filho Alexandre, unificassem a Grécia sob um único comando antes de voltar-se contra a Pérsia.",
      "b": false,
      "i": false
     }
@@ -2586,7 +2598,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "Alexandre, o Grande, levou adiante as campanhas contra a Pérsia (Granico, Isso, o cerco de Tiro, Gaugamela, e a campanha até o rio Hidaspes, na Índia). Para Liddell Hart, as lições de Alexandre para a posteridade situam-se em dois campos distintos: como general, pela velocidade de deslocamento, pelo domínio da logística em território hostil e pelo emprego de manobras indiretas para desequilibrar exércitos persas numericamente superiores; e como estadista, pela sua política deliberada de fusão e assimilação cultural entre gregos e povos conquistados, que lançou as bases do mundo helenístico.",
+     "t": "Alexandre, o Grande (reinado 336-323 a.C.), levou adiante as campanhas contra a Pérsia do rei Dario III: a vitória no rio Granico (334 a.C.), Isso (333 a.C.), o longo cerco e tomada de Tiro (332 a.C.), a vitória decisiva em Gaugamela (331 a.C., que abriu caminho para Babilônia e Persépolis) e, por fim, a campanha até o rio Hidaspes, na Índia (326 a.C.), contra o rajá Poro. Para Liddell Hart, as lições de Alexandre para a posteridade situam-se em dois campos distintos: como general, pela velocidade de deslocamento, pelo domínio da logística em território hostil e pelo emprego de manobras indiretas para desequilibrar exércitos persas numericamente superiores; e como estadista, pela sua política deliberada de fusão e assimilação cultural entre gregos e povos conquistados, que lançou as bases do mundo helenístico.",
      "b": false,
      "i": false
     }
@@ -2603,7 +2615,7 @@
      "i": false
     },
     {
-     "t": "Epaminondas antecipou o princípio da concentração ao recusar uma ala e reforçar a outra em Leuctra e Mantineia; Queroneia (338 a.C.) encerrou a independência das cidades-Estado gregas sob a hegemonia macedônica; e Alexandre deixou lições tanto como general (velocidade, logística, manobra indireta) quanto como estadista (fusão cultural helenística).",
+     "t": "Epaminondas (morto em Mantineia, 362 a.C.) antecipou o princípio da concentração ao recusar uma ala e reforçar a outra em Leuctra (371 a.C.) e Mantineia; Queroneia (338 a.C., Filipe II e o jovem Alexandre) encerrou a independência das cidades-Estado gregas sob a hegemonia macedônica; e Alexandre, o Grande (contra Dario III: Granico 334, Isso 333, Tiro 332, Gaugamela 331, Hidaspes 326 a.C. contra Poro) deixou lições tanto como general quanto como estadista (fusão cultural helenística).",
      "b": false,
      "i": false
     }
@@ -2619,7 +2631,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "Na Segunda Guerra Púnica — destacada por Liddell Hart como a fase mais dramática da longa luta entre Roma e Cartago —, Aníbal cruzou os Alpes e infligiu a Roma desastres sucessivos, culminando na aniquiladora derrota romana em Canas (216 a.C.), um exemplo clássico de batalha de aniquilação por duplo envolvimento. Após esses desastres, porém, o ditador romano Quinto Fábio Máximo adotou uma estratégia de desgaste: evitar sistematicamente a batalha campal direta contra Aníbal, limitando-se a hostilizar sua retaguarda, cortar seus suprimentos e desgastá-lo pelo tempo e pelo terreno, sem arriscar outra derrota decisiva.",
+     "t": "Na Segunda Guerra Púnica (218-201 a.C.) — destacada por Liddell Hart como a fase mais dramática da longa luta entre Roma e Cartago —, o general cartaginês Aníbal Barca cruzou os Alpes em 218 a.C. e infligiu a Roma desastres sucessivos: o Trebia (218 a.C.), o Lago Trasimeno (217 a.C., onde aniquilou o exército do cônsul Caio Flamínio) e, por fim, Canas (216 a.C.), contra os cônsules Lúcio Emílio Paulo e Caio Terêncio Varrão — um exemplo clássico de batalha de aniquilação por duplo envolvimento, com dezenas de milhares de romanos mortos em um único dia.",
      "b": false,
      "i": false
     }
@@ -2631,7 +2643,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "Essa \"Estratégia Fabiana\" não era passividade, mas uma forma deliberada de ação indireta: recusar o combate decisivo enquanto se desgasta progressivamente a capacidade do inimigo de sustentar a guerra. A guerra só foi decidida quando Cipião, o Africano, inverteu a lógica espacial do conflito — levando a guerra à Espanha e depois à própria África, ameaçando Cartago em sua base —, forçando Aníbal a abandonar a Itália para defender sua pátria, o que culminou na vitória romana em Zama (202 a.C.).",
+     "t": "Após Canas, o ditador romano Quinto Fábio Máximo (\"Cunctator\", o Temporizador) já havia adotado, mesmo antes do desastre, uma estratégia de desgaste: evitar sistematicamente a batalha campal direta contra Aníbal, limitando-se a hostilizar sua retaguarda, cortar seus suprimentos e desgastá-lo pelo tempo e pelo terreno, sem arriscar outra derrota decisiva. Essa \"Estratégia Fabiana\" não era passividade, mas uma forma deliberada de ação indireta: recusar o combate decisivo enquanto se desgasta progressivamente a capacidade do inimigo de sustentar a guerra.",
      "b": false,
      "i": false
     }
@@ -2643,7 +2655,19 @@
    "type": "p",
    "runs": [
     {
-     "t": "Para Liddell Hart, o que efetivamente transformou Roma na potência dominante do Mediterrâneo não foi apenas a superioridade militar pontual em cada batalha, mas a combinação entre a eliminação de Cartago como rival naval e comercial e a política romana de assimilar progressivamente os povos vencidos ao seu sistema de alianças — convertendo antigos inimigos em súditos e aliados, e não apenas em territórios ocupados pela força.",
+     "t": "A guerra só foi decidida quando Públio Cornélio Cipião (depois chamado Cipião, o Africano) inverteu a lógica espacial do conflito — levando a guerra à Espanha e depois à própria África, ameaçando Cartago em sua base —, forçando Aníbal a abandonar a Itália para defender sua pátria, o que culminou na vitória romana de Cipião sobre Aníbal em Zama (202 a.C.). Para Liddell Hart, o que efetivamente transformou Roma na potência dominante do Mediterrâneo não foi apenas essa superioridade militar pontual, mas a combinação entre a eliminação de Cartago como rival naval e comercial (Terceira Guerra Púnica, destruição de Cartago em 146 a.C.) e a política romana de assimilar progressivamente os povos vencidos ao seu sistema de alianças.",
+     "b": false,
+     "i": false
+    }
+   ],
+   "align": null,
+   "indent": 0
+  },
+  {
+   "type": "p",
+   "runs": [
+    {
+     "t": "Já na Guerra Civil romana (49-45 a.C.), Júlio César enfrentou Pompeu, o Grande, em campanhas como Ilerda (49 a.C., na Espanha), Dirráquio (48 a.C., onde César sofreu um revés) e, decisivamente, Farsália (48 a.C., na Grécia), onde a vitória de César sobre Pompeu definiu o destino da República romana.",
      "b": false,
      "i": false
     }
@@ -2660,7 +2684,7 @@
      "i": false
     },
     {
-     "t": "em Canas, Aníbal aniquilou um exército romano por duplo envolvimento; a resposta romana foi a Estratégia Fabiana de Quinto Fábio Máximo (desgaste, evitar a batalha decisiva); a guerra só terminou quando Cipião levou a luta à África (Zama, 202 a.C.); e o domínio romano no Mediterrâneo veio da combinação entre eliminar Cartago e assimilar os povos vencidos.",
+     "t": "2ª Guerra Púnica (218-201 a.C.): Aníbal cruza os Alpes (218 a.C.), vence no Trasimeno (217 a.C.) e aniquila os romanos em Canas (216 a.C., duplo envolvimento); a resposta romana foi a Estratégia Fabiana de Quinto Fábio Máximo; a guerra terminou quando Cipião, o Africano, levou a luta à África (Zama, 202 a.C.); o domínio romano no Mediterrâneo veio de eliminar Cartago (destruída em 146 a.C.) e assimilar os povos vencidos; na Guerra Civil, César venceu Pompeu em Farsália (48 a.C.).",
      "b": false,
      "i": false
     }
@@ -2676,7 +2700,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "Liddell Hart observa que, na primeira metade do século VI, sob o imperador Justiniano, o domínio romano foi parcialmente revivido no Ocidente por iniciativa do Oriente: os generais bizantinos Belisário e, mais tarde, Narses reconquistaram o norte da África (dos vândalos) e a Itália (dos ostrogodos), demonstrando que o Império Bizantino ainda dispunha de capacidade ofensiva de longo alcance apesar de seus recursos limitados frente aos de Roma em seu apogeu.",
+     "t": "Liddell Hart observa que, na primeira metade do século VI, sob o imperador Justiniano I, o domínio romano foi parcialmente revivido no Ocidente por iniciativa do Oriente: o general bizantino Belisário, vitorioso já em Dara (530 d.C.) contra os persas, reconquistou o Norte da África dos vândalos (guerra vandálica, 533-534 d.C., com a tomada de Cartago) e, em seguida, boa parte da Itália dos ostrogodos (guerra gótica, a partir de 535 d.C.), incluindo a tomada de Ravena, capital ostrogoda, derrotando o rei Vítiges.",
      "b": false,
      "i": false
     }
@@ -2688,7 +2712,19 @@
    "type": "p",
    "runs": [
     {
-     "t": "A tática de Belisário — vitoriosa já em Daras (530) contra os persas — se fundamentava na exploração daquilo que os capítulos teóricos do livro definem como a característica mais importante da ação indireta: atrair o inimigo para fora de sua posição de força por meio de uma retirada ou um recuo simulado, fazendo-o perder a coesão e a disciplina na perseguição, para então golpeá-lo quando ele próprio estivesse desequilibrado e disperso — e não pela superioridade bruta de números.",
+     "t": "A tática de Belisário se fundamentava na exploração daquilo que os capítulos teóricos do livro definem como a característica mais importante da ação indireta: atrair o inimigo para fora de sua posição de força por meio de uma retirada ou um recuo simulado, fazendo-o perder a coesão e a disciplina na perseguição, para então golpeá-lo quando ele próprio estivesse desequilibrado e disperso — e não pela superioridade bruta de números. Depois da saída de Belisário, foi o eunuco e general Narses quem completou a reconquista da Itália, derrotando o rei ostrogodo Totila (batalhas de Tagina/Busta Gallorum e Monte Lactário, 552 d.C.).",
+     "b": false,
+     "i": false
+    }
+   ],
+   "align": null,
+   "indent": 0
+  },
+  {
+   "type": "p",
+   "runs": [
+    {
+     "t": "O capítulo também assinala o declínio posterior do poderio bizantino, simbolizado pela derrota na Batalha de Manzikert (1071 d.C.), na qual os turcos seljúcidas capturaram o imperador bizantino Romano IV Diógenes — marco do início da perda definitiva da Anatólia pelo Império Bizantino.",
      "b": false,
      "i": false
     }
@@ -2705,7 +2741,7 @@
      "i": false
     },
     {
-     "t": "sob Justiniano, Belisário e Narses reviveram parcialmente o domínio romano no Ocidente (Norte da África e Itália); a tática de Belisário se baseava em atrair o inimigo para fora de sua posição por meio de recuos simulados, explorando sua desorganização na perseguição — a essência da ação indireta aplicada ao campo de batalha.",
+     "t": "sob Justiniano I, Belisário (Dara 530; guerra vandálica 533-34, tomada de Cartago; guerra gótica a partir de 535, tomada de Ravena, derrota de Vítiges) e depois Narses (derrota de Totila, 552) reviveram parcialmente o domínio romano no Ocidente; a tática de Belisário se baseava em atrair o inimigo por meio de recuos simulados; e Manzikert (1071) marca o declínio bizantino diante dos turcos seljúcidas.",
      "b": false,
      "i": false
     }
@@ -2721,7 +2757,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "A invasão normanda da Inglaterra por Guilherme, o Conquistador, culminando na Batalha de Hastings (1066), foi beneficiada por uma diversão estratégica: um ataque simultâneo do rei norueguês Haroldo Hardrada ao norte da Inglaterra obrigou o rei saxão Haroldo a marchar apressadamente para enfrentar essa ameaça antes de se voltar, já desgastado, contra o desembarque normando no sul — Guilherme beneficiou-se, assim, de uma dispersão das forças inimigas que não havia planejado diretamente, mas que ilustra como diversões em frentes distintas enfraquecem a capacidade de reação do defensor.",
+     "t": "A invasão normanda da Inglaterra por Guilherme, duque da Normandia (\"o Conquistador\"), culminando na Batalha de Hastings (14 de outubro de 1066) contra o rei saxão Haroldo II, foi beneficiada por uma diversão estratégica: dias antes, um ataque simultâneo do rei norueguês Haroldo III (Hardrada) ao norte da Inglaterra (Batalha de Stamford Bridge, 25 de setembro de 1066) obrigou Haroldo II a marchar apressadamente para enfrentar essa ameaça antes de se voltar, já desgastado, contra o desembarque normando no sul — Guilherme beneficiou-se, assim, de uma dispersão das forças inimigas que ilustra como diversões em frentes distintas enfraquecem a capacidade de reação do defensor.",
      "b": false,
      "i": false
     }
@@ -2733,7 +2769,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "No século XII, o mesmo \"bom-senso normando\" para a guerra se manifestou, segundo Liddell Hart, em uma das campanhas mais espantosas da História: a conquista normanda do sul da Itália e da Sicília, liderada por aventureiros como Robert Guiscard, que com forças reduzidas e longe de sua base original souberam explorar rivalidades locais, a surpresa e a mobilidade para subjugar territórios muito mais extensos e populosos do que os próprios contingentes normandos.",
+     "t": "No século XII, o mesmo \"bom-senso normando\" para a guerra se manifestou, segundo Liddell Hart, em uma das campanhas mais espantosas da História: a conquista normanda do sul da Itália e da Sicília, liderada por aventureiros como Robert Guiscard e seu irmão Rogério, que com forças reduzidas e longe de sua base original souberam explorar rivalidades locais, a surpresa e a mobilidade para subjugar territórios muito mais extensos e populosos do que os próprios contingentes normandos.",
      "b": false,
      "i": false
     }
@@ -2745,7 +2781,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "Já na Guerra dos Cem Anos, as pesadas derrotas francesas em Crécy (1346) e Poitiers (1356) — nas quais o arco longo inglês dizimou a cavalaria pesada francesa em ataques frontais mal calculados — acabaram sendo vantajosas no longo prazo: elas forçaram a França, na fase seguinte do conflito, a abandonar a batalha campal direta e adotar, sob o condestável Bertrand Du Guesclin, uma doutrina deliberadamente fabiana — evitar o confronto aberto, reconquistar fortalezas isoladas uma a uma, cortar as linhas de comunicação e suprimento inglesas, e desgastar o invasor pelo tempo em vez de arriscar nova derrota decisiva.",
+     "t": "Já na Guerra dos Cem Anos (1337-1453) entre Inglaterra e França, as pesadas derrotas francesas em Crécy (26 de agosto de 1346) e Poitiers (19 de setembro de 1356, com a captura do rei francês João II) — nas quais o arco longo inglês dizimou a cavalaria pesada francesa em ataques frontais mal calculados — acabaram sendo vantajosas no longo prazo: elas forçaram a França, na fase seguinte do conflito, a abandonar a batalha campal direta e adotar, sob o condestável Bertrand Du Guesclin, uma doutrina deliberadamente fabiana — evitar o confronto aberto, reconquistar fortalezas isoladas uma a uma, cortar as linhas de comunicação e suprimento inglesas, e desgastar o invasor pelo tempo em vez de arriscar nova derrota decisiva. A guerra teve uma fase final marcada pela vitória inglesa em Azincourt (1415, sob Henrique V) antes de a maré finalmente virar a favor da França (com Joana d'Arc, a partir de 1429) até a expulsão quase completa dos ingleses em 1453.",
      "b": false,
      "i": false
     }
@@ -2762,7 +2798,7 @@
      "i": false
     },
     {
-     "t": "em Hastings (1066), Guilherme se beneficiou da diversão representada pelo ataque norueguês ao norte da Inglaterra; no século XII, a conquista normanda do sul da Itália repetiu o mesmo 'bom-senso' de guerra com poucos recursos; e, após as derrotas de Crécy e Poitiers, a França de Du Guesclin adotou uma doutrina fabiana de reconquista gradual em vez da batalha direta.",
+     "t": "Hastings (14 de outubro de 1066): Guilherme da Normandia venceu Haroldo II, beneficiado pela diversão de Haroldo Hardrada em Stamford Bridge; no século XII, a conquista normanda do sul da Itália (Robert Guiscard) repetiu o mesmo 'bom-senso' de guerra com poucos recursos; e, após as derrotas de Crécy (1346) e Poitiers (1356), a França de Du Guesclin adotou uma doutrina fabiana de reconquista gradual, na Guerra dos Cem Anos (1337-1453).",
      "b": false,
      "i": false
     }
@@ -2778,7 +2814,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "Liddell Hart dedica atenção especial à Guerra dos Trinta Anos (1618-1648), conflito religioso e dinástico que devastou a Europa Central e é tratado no livro como um marco de transição para a guerra \"moderna\" — pela escala da destruição, pela profissionalização dos exércitos e pelas inovações táticas do rei sueco Gustavo Adolfo, que combinou mobilidade de infantaria, artilharia leve e cavalaria de forma mais integrada do que seus adversários, antes de morrer em combate na Batalha de Lützen (1632).",
+     "t": "Liddell Hart dedica atenção especial à Guerra dos Trinta Anos (1618-1648), conflito religioso e dinástico que devastou a Europa Central e é tratado no livro como um marco de transição para a guerra \"moderna\" — pela escala da destruição, pela profissionalização dos exércitos e pelas inovações táticas do rei sueco Gustavo II Adolfo, que combinou mobilidade de infantaria, artilharia leve e cavalaria de forma mais integrada do que seus adversários, antes de morrer em combate contra as forças imperiais de Wallenstein na Batalha de Lützen (16 de novembro de 1632).",
      "b": false,
      "i": false
     }
@@ -2790,7 +2826,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "Já na Guerra Civil Inglesa, Oliver Cromwell e seu \"Novo Exército Modelo\" (New Model Army) combinaram disciplina, mobilidade e aproveitamento de oportunidades indiretas — como na campanha da Escócia, vencendo em Dunbar (1650) e Worcester (1651). Pouco depois, o marechal francês Turenne, nas campanhas da Alsácia (1674-75), reforçou a mesma lógica de manobra e deslocamento rápido para evitar o combate em condições desfavoráveis e forçar o inimigo a lutar nos termos escolhidos por ele.",
+     "t": "Já na Guerra Civil Inglesa (1642-1651), Oliver Cromwell e seu \"Novo Exército Modelo\" (New Model Army) combinaram disciplina, mobilidade e aproveitamento de oportunidades indiretas — vitórias em Marston Moor (1644) e Naseby (1645) contra as forças realistas do rei Carlos I —, e depois na campanha da Escócia, vencendo os escoceses em Dunbar (1650) e Worcester (1651). Pouco depois, o marechal francês Henri de Turenne, nas campanhas da Alsácia (1674-1675) contra os imperiais, reforçou a mesma lógica de manobra e deslocamento rápido para evitar o combate em condições desfavoráveis e forçar o inimigo a lutar nos termos escolhidos por ele.",
      "b": false,
      "i": false
     }
@@ -2807,7 +2843,7 @@
      "i": false
     },
     {
-     "t": "a Guerra dos Trinta Anos marca, para Liddell Hart, uma transição para a guerra em escala moderna, com Gustavo Adolfo renovando a combinação de infantaria, artilharia e cavalaria; já na Inglaterra, Cromwell (Dunbar, Worcester) e, na França, Turenne (Alsácia) exemplificam o uso da manobra para impor ao inimigo as condições do combate.",
+     "t": "a Guerra dos Trinta Anos (1618-1648) marca, para Liddell Hart, uma transição para a guerra em escala moderna, com Gustavo Adolfo (morto em Lützen, 1632) renovando a combinação de infantaria, artilharia e cavalaria; na Inglaterra, Cromwell venceu em Marston Moor (1644), Naseby (1645), Dunbar (1650) e Worcester (1651); na França, Turenne (Alsácia, 1674-75) exemplifica o uso da manobra para impor ao inimigo as condições do combate.",
      "b": false,
      "i": false
     }
@@ -2823,7 +2859,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "Na Guerra de Sucessão Espanhola, a marcha do duque de Marlborough do Reno até o Danúbio e a vitória de Blenheim (1704) sobre franceses e bávaros deram nome a uma batalha obtida a alto preço e com riscos ainda maiores — uma vitória, segundo Liddell Hart, cara em sangue, mas que terminou sendo vantajosa para a Inglaterra muito além dos limites estreitos daquele teatro de operações específico, porque a visão estratégica de Marlborough não se restringia à campanha imediata: ele enxergava o conjunto da guerra na Europa, obtendo ganhos territoriais e diplomáticos desproporcionais ao que a própria batalha, isoladamente, poderia sugerir.",
+     "t": "Na Guerra de Sucessão Espanhola (1701-1714), a marcha do duque de Marlborough (John Churchill) do Reno até o Danúbio e a vitória de Blenheim (13 de agosto de 1704) sobre franceses e bávaros — em aliança com o Príncipe Eugênio de Saboia — deram nome a uma batalha obtida a alto preço e com riscos ainda maiores — uma vitória, segundo Liddell Hart, cara em sangue, mas que terminou sendo vantajosa para a Inglaterra muito além dos limites estreitos daquele teatro de operações específico, porque a visão estratégica de Marlborough não se restringia à campanha imediata: ele enxergava o conjunto da guerra na Europa, obtendo ganhos territoriais e diplomáticos desproporcionais ao que a própria batalha, isoladamente, poderia sugerir.",
      "b": false,
      "i": false
     }
@@ -2835,7 +2871,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "Já Frederico, o Grande, da Prússia, na Guerra dos Sete Anos, tornou-se o exemplo clássico do uso de linhas interiores: cercado por inimigos em várias frentes (Áustria, Rússia, França), deslocava rapidamente seu exército de um front a outro, concentrando-se contra um adversário de cada vez antes que os demais pudessem coordenar-se — uma aplicação sistemática da economia de forças e da mobilidade como substitutos da superioridade numérica, que a Prússia não possuía.",
+     "t": "Já Frederico II, o Grande, rei da Prússia, na Guerra dos Sete Anos (1756-1763), tornou-se o exemplo clássico do uso de linhas interiores: cercado por inimigos em várias frentes (Áustria, Rússia, França), deslocava rapidamente seu exército de um front a outro, concentrando-se contra um adversário de cada vez antes que os demais pudessem coordenar-se — uma aplicação sistemática da economia de forças e da mobilidade como substitutos da superioridade numérica, que a Prússia não possuía.",
      "b": false,
      "i": false
     }
@@ -2852,7 +2888,7 @@
      "i": false
     },
     {
-     "t": "Blenheim (1704) foi uma vitória cara de Marlborough, mas vantajosa pela visão estratégica do duque, que ia além do teatro de operações imediato; Frederico, o Grande, na Guerra dos Sete Anos, usou linhas interiores para concentrar-se sucessivamente contra inimigos que o cercavam em várias frentes.",
+     "t": "Blenheim (13 de agosto de 1704, Marlborough e o Príncipe Eugênio de Saboia) foi uma vitória cara, mas vantajosa pela visão estratégica do duque, que ia além do teatro de operações imediato; Frederico II, o Grande, na Guerra dos Sete Anos (1756-1763), usou linhas interiores para concentrar-se sucessivamente contra inimigos que o cercavam em várias frentes.",
      "b": false,
      "i": false
     }
@@ -2868,7 +2904,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "A Revolução Francesa e, em seguida, Napoleão Bonaparte enfrentaram uma sucessão de coalizões formadas pelas potências europeias — tipicamente lideradas ou financiadas pela Grã-Bretanha — que se recompunham, se desfaziam e voltavam a se formar com composição variável ao longo de mais de duas décadas de guerra, à medida que a França revolucionária e depois napoleônica ia derrotando ou neutralizando seus membros isoladamente. Liddell Hart descreve esse período como o surgimento de um \"gênio\" da guerra que soube explorar, mais do que qualquer general anterior, a desunião entre os aliados de cada coalizão.",
+     "t": "A partir de 1792, a França revolucionária e, em seguida, Napoleão Bonaparte (general a partir de 1796, Primeiro Cônsul em 1799, Imperador em 1804) enfrentaram uma sucessão de coalizões formadas pelas potências europeias — tipicamente lideradas ou financiadas pela Grã-Bretanha — que se recompunham, se desfaziam e voltavam a se formar com composição variável ao longo de mais de duas décadas de guerra, à medida que a França revolucionária e depois napoleônica ia derrotando ou neutralizando seus membros isoladamente. Liddell Hart descreve esse período como o surgimento de um \"gênio\" da guerra que soube explorar, mais do que qualquer general anterior, a desunião entre os aliados de cada coalizão.",
      "b": false,
      "i": false
     }
@@ -2880,7 +2916,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "O método napoleônico clássico consistia em concentrar rapidamente suas forças, valendo-se de marchas aceleradas e da divisão do exército em corpos autônomos capazes de se reunir no campo de batalha, para derrotar os exércitos aliados separadamente antes que pudessem se unir — como em Ulm e Austerlitz (1805). O mesmo princípio de concentração contra objetivos dispersos, levado ao extremo em campanhas cada vez mais ambiciosas, terminou por expor a França a um desgaste insustentável, culminando no desastre da invasão da Rússia (1812) e no colapso final do Império.",
+     "t": "O método napoleônico clássico consistia em concentrar rapidamente suas forças, valendo-se de marchas aceleradas e da divisão do exército em corpos autônomos capazes de se reunir no campo de batalha, para derrotar os exércitos aliados separadamente antes que pudessem se unir — como na campanha de Ulm e na vitória de Austerlitz (2 de dezembro de 1805, contra austríacos e russos). O mesmo princípio de concentração contra objetivos dispersos, levado ao extremo em campanhas cada vez mais ambiciosas, terminou por expor a França a um desgaste insustentável, culminando no desastre da invasão da Rússia (1812) e no colapso final do Império (abdicação em 1814; derrota definitiva em Waterloo, 18 de junho de 1815, para britânicos sob Wellington e prussianos sob Blücher).",
      "b": false,
      "i": false
     }
@@ -2897,7 +2933,7 @@
      "i": false
     },
     {
-     "t": "a França revolucionária e napoleônica enfrentou sucessivas coalizões europeias de composição variável; o método de Napoleão era concentrar rapidamente suas forças para derrotar os aliados em separado (Ulm, Austerlitz), mas o mesmo padrão de campanhas cada vez mais ambiciosas acabou por desgastar a França até o colapso, culminando na invasão da Rússia em 1812.",
+     "t": "a França revolucionária e napoleônica (1792-1815) enfrentou sucessivas coalizões europeias de composição variável, lideradas/financiadas pela Grã-Bretanha; o método de Napoleão era concentrar rapidamente suas forças para derrotar os aliados em separado (Ulm, Austerlitz 1805), mas o mesmo padrão de campanhas cada vez mais ambiciosas desgastou a França até o colapso — invasão da Rússia (1812) e derrota final em Waterloo (1815).",
      "b": false,
      "i": false
     }
@@ -2913,7 +2949,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "No período entre a Guerra da Criméia e a Primeira Guerra Mundial, Liddell Hart analisa a estratégia do marechal prussiano Helmuth von Moltke, o Velho, nas guerras de unificação alemã: \"marchar separado, combater unido\" — avançar com os exércitos em colunas dispersas, usando a malha ferroviária e o telégrafo para coordenar sua convergência exatamente no campo de batalha, reunindo a massa de forças apenas no momento decisivo do combate, e não durante toda a marcha.",
+     "t": "No período entre a Guerra da Criméia (1853-1856, Rússia contra Grã-Bretanha, França, Otomanos e Piemonte-Sardenha) e a Primeira Guerra Mundial, Liddell Hart analisa a estratégia do marechal prussiano Helmuth von Moltke, o Velho, nas guerras de unificação alemã — a Guerra Austro-Prussiana (1866, decidida em Sadowa/Königgrätz) e a Guerra Franco-Prussiana (1870-1871, com a derrota francesa em Sedan e a captura do imperador Napoleão III): \"marchar separado, combater unido\" — avançar com os exércitos em colunas dispersas, usando a malha ferroviária e o telégrafo para coordenar sua convergência exatamente no campo de batalha, reunindo a massa de forças apenas no momento decisivo do combate, e não durante toda a marcha.",
      "b": false,
      "i": false
     }
@@ -2937,7 +2973,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "A Guerra Civil Americana (1861-1865) é lembrada sobretudo pela campanha do general nortista Sherman através da Geórgia — uma marcha indireta que evitava o confronto frontal com o grosso do exército confederado, optando por destruir sua capacidade econômica de sustentar a guerra. Já a Guerra Russo-Japonesa (1904-1905), com o cerco de Porto Artur e a destruição da esquadra russa em Tsushima, é tratada como o primeiro grande conflito do século XX entre potências industriais, antecipando vários aspectos táticos (trincheiras, artilharia pesada, metralhadoras) que se repetiriam em escala muito maior na Primeira Guerra Mundial.",
+     "t": "A Guerra Civil Americana (1861-1865) é lembrada sobretudo pela \"Marcha para o Mar\" do general nortista William T. Sherman através da Geórgia (1864) — uma marcha indireta que evitava o confronto frontal com o grosso do exército confederado, optando por destruir sua capacidade econômica de sustentar a guerra. Já a Guerra Russo-Japonesa (1904-1905), com o longo cerco de Porto Artur (1904) e a destruição da esquadra russa do Báltico pelo almirante japonês Tōgō Heihachirō no Estreito de Tsushima (27-28 de maio de 1905), é tratada como o primeiro grande conflito do século XX entre potências industriais, antecipando vários aspectos táticos (trincheiras, artilharia pesada, metralhadoras) que se repetiriam em escala muito maior na Primeira Guerra Mundial.",
      "b": false,
      "i": false
     }
@@ -2954,7 +2990,7 @@
      "i": false
     },
     {
-     "t": "Moltke, o Velho, sintetizou sua estratégia em 'marchar separado, combater unido', apoiado pela ferrovia e pelo telégrafo; esse período viu o primeiro grande uso logístico da ferrovia nas guerras; e a Guerra Russo-Japonesa (Porto Artur, Tsushima) antecipou táticas que marcariam a Primeira Guerra Mundial.",
+     "t": "Moltke, o Velho, venceu a Áustria (Sadowa, 1866) e a França (Sedan, 1870) sintetizando sua estratégia em 'marchar separado, combater unido', apoiado pela ferrovia e pelo telégrafo; esse período viu o primeiro grande uso logístico da ferrovia nas guerras; a Guerra Civil Americana teve a Marcha de Sherman (1864); e a Guerra Russo-Japonesa (Porto Artur 1904, Tsushima 1905, Almirante Tōgō) antecipou táticas que marcariam a Primeira Guerra Mundial.",
      "b": false,
      "i": false
     }
@@ -2997,13 +3033,13 @@
   },
   {
    "type": "h3",
-   "text": "19.12 — A Primeira Guerra Mundial (Parte II)"
+   "text": "19.12 — A Primeira Guerra Mundial, 1914-1918 (Parte II)"
   },
   {
    "type": "p",
    "runs": [
     {
-     "t": "Ao abrir a Primeira Guerra Mundial, Liddell Hart contrasta dois planos de ofensiva: o alemão Plano Schlieffen, que buscava envolver o exército francês por um amplo movimento através da Bélgica, e o francês Plano XVII, que previa justamente o oposto — uma ofensiva direta e maciça contra a Alsácia-Lorena, no ponto mais fortemente defendido pelos alemães, ignorando a ameaça ao flanco. O Plano XVII fracassou rapidamente com pesadíssimas baixas francesas, ao passo que o avanço alemão pela Bélgica quase decidiu a guerra já em 1914.",
+     "t": "Ao abrir a Primeira Guerra Mundial (28 de julho de 1914 — 11 de novembro de 1918), Liddell Hart contrasta dois planos de ofensiva: o alemão Plano Schlieffen (concebido pelo marechal Alfred von Schlieffen e adaptado por Helmuth von Moltke, o Jovem), que buscava envolver o exército francês por um amplo movimento através da Bélgica neutra, e o francês Plano XVII (do general Joseph Joffre), que previa justamente o oposto — uma ofensiva direta e maciça contra a Alsácia-Lorena, no ponto mais fortemente defendido pelos alemães, ignorando a ameaça ao flanco. O Plano XVII fracassou rapidamente com pesadíssimas baixas francesas logo em agosto de 1914, ao passo que o avanço alemão pela Bélgica quase decidiu a guerra já naquele primeiro mês.",
      "b": false,
      "i": false
     }
@@ -3015,7 +3051,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "A ofensiva alemã foi finalmente contida na Batalha do Marne (setembro de 1914), decidida, segundo Liddell Hart, por \"um golpe e uma brecha\": os aliados exploraram uma brecha aberta entre o Primeiro e o Segundo Exércitos alemães. O autor observa que, se Moltke, o Jovem, não tivesse enfraquecido a ala direita alemã com reduções de efetivo mal calculadas no curso da campanha, a situação alemã teria sido ainda mais favorável — repetindo, segundo ele, uma lição já esquecida da Guerra Civil Americana sobre os riscos de desguarnecer o braço decisivo de uma manobra envolvente no último momento.",
+     "t": "A ofensiva alemã foi finalmente contida na Primeira Batalha do Marne (5-12 de setembro de 1914), decidida, segundo Liddell Hart, por \"um golpe e uma brecha\": os aliados — sob o comando geral de Joffre, com o auxílio do corpo expedicionário britânico de Sir John French — exploraram uma brecha aberta entre o Primeiro Exército alemão (von Kluck) e o Segundo Exército alemão (von Bülow). O autor observa que, se Moltke, o Jovem, não tivesse enfraquecido a ala direita alemã com reduções de efetivo mal calculadas no curso da campanha, a situação alemã teria sido ainda mais favorável — repetindo, segundo ele, uma lição já esquecida da Guerra Civil Americana sobre os riscos de desguarnecer o braço decisivo de uma manobra envolvente no último momento.",
      "b": false,
      "i": false
     }
@@ -3027,7 +3063,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "Após o Marne, a guerra no front ocidental travou-se em uma paralisia de trincheiras que durou anos, marcada por ofensivas frontais de altíssimo custo humano (Verdun, Somme) — o exemplo máximo, para Liddell Hart, do fracasso da \"abordagem direta\". O front oriental foi mais fluido (Tannenberg, a ofensiva Brusilov), e a campanha de Galípoli/Dardanelos, concebida como tentativa de abordagem indireta contra o elo mais fraco dos Impérios Centrais, fracassou por falhas de execução — ao contrário da campanha de guerrilha de T. E. Lawrence na Arábia, citada como exemplo bem-sucedido de ação indireta contra as comunicações otomanas.",
+     "t": "Após o Marne, a guerra no front ocidental travou-se em uma paralisia de trincheiras que durou anos, marcada por ofensivas frontais de altíssimo custo humano — Verdun (fevereiro a dezembro de 1916, exércitos francês e alemão) e o Somme (julho a novembro de 1916, britânicos e franceses contra os alemães) — o exemplo máximo, para Liddell Hart, do fracasso da \"abordagem direta\". O front oriental foi mais fluido: a vitória alemã de Hindenburg e Ludendorff sobre os russos de Samsonov em Tannenberg (agosto de 1914) e, mais tarde, a ofensiva russa do general Aleksei Brusílov (1916) contra os austro-húngaros. A campanha de Galípoli/Dardanelos (1915-1916), concebida como tentativa de abordagem indireta contra o elo mais fraco dos Impérios Centrais (o Império Otomano), fracassou por falhas de execução — ao contrário da campanha de guerrilha de T. E. Lawrence (\"Lawrence da Arábia\") contra os otomanos na Arábia e na Palestina (1916-1918), citada como exemplo bem-sucedido de ação indireta contra as comunicações inimigas.",
      "b": false,
      "i": false
     }
@@ -3039,7 +3075,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "O \"término da guerra\" já havia sido decidido, segundo Liddell Hart, antes mesmo do armistício de novembro de 1918: em 29 de setembro daquele ano, o próprio Alto Comando alemão, com Ludendorff à frente, reconheceu internamente que a situação militar era insustentável. Quanto ao fato que deu aos Estados Unidos o impulso derradeiro para entrar na guerra, o autor aponta a combinação entre a guerra submarina irrestrita alemã contra navios neutros (como o afundamento do Lusitania) e a revelação do Telegrama Zimmermann, que propunha uma aliança entre Alemanha e México contra os EUA.",
+     "t": "O \"término da guerra\" já havia sido decidido, segundo Liddell Hart, antes mesmo do armistício de 11 de novembro de 1918: em 29 de setembro daquele ano, o próprio Alto Comando alemão, com o general Erich Ludendorff à frente, reconheceu internamente que a situação militar era insustentável. Quanto ao fato que deu aos Estados Unidos o impulso derradeiro para entrar na guerra (abril de 1917), o autor aponta a combinação entre a guerra submarina irrestrita alemã contra navios neutros — como o afundamento do transatlântico britânico Lusitania (7 de maio de 1915, por um U-Boot alemão) — e a revelação do Telegrama Zimmermann (janeiro de 1917), que propunha uma aliança entre Alemanha e México contra os EUA.",
      "b": false,
      "i": false
     }
@@ -3056,7 +3092,7 @@
      "i": false
     },
     {
-     "t": "o Plano XVII francês (ofensiva direta na Alsácia-Lorena) fracassou diante do Plano Schlieffen alemão; o Marne foi decidido por uma brecha explorada entre dois exércitos alemães; a guerra de trincheiras (Verdun, Somme) ilustra o fracasso da abordagem direta; e os EUA entraram na guerra após a combinação entre a guerra submarina irrestrita e o Telegrama Zimmermann.",
+     "t": "o Plano XVII francês (Joffre, ofensiva direta na Alsácia-Lorena) fracassou diante do Plano Schlieffen alemão; o Marne (set. 1914) foi decidido por uma brecha entre os exércitos de von Kluck e von Bülow; a guerra de trincheiras (Verdun e Somme, 1916) ilustra o fracasso da abordagem direta; no leste, Tannenberg (1914, Hindenburg/Ludendorff) e a ofensiva Brusílov (1916); Galípoli (1915-16) fracassou, Lawrence da Arábia (1916-18) teve sucesso; e os EUA entraram na guerra (1917) após o afundamento do Lusitania (1915) e o Telegrama Zimmermann (1917).",
      "b": false,
      "i": false
     }
@@ -3066,13 +3102,13 @@
   },
   {
    "type": "h3",
-   "text": "19.13 — A Estratégia de Hitler na Segunda Guerra Mundial (Parte III)"
+   "text": "19.13 — A Estratégia de Hitler na Segunda Guerra Mundial, 1939-1945 (Parte III)"
   },
   {
    "type": "p",
    "runs": [
     {
-     "t": "Antes mesmo de disparar o primeiro tiro contra a Polônia em 1939, Hitler obteve uma série de conquistas \"sem sangue\" — a remilitarização da Renânia, a anexação da Áustria e, por fim, dos Sudetos e do restante da Checoslováquia — por meio de blefe diplomático, intimidação militar e exploração da relutância das potências ocidentais em reagir. Liddell Hart observa que o \"princípio totalitário\" de Hitler exigia a subordinação completa de todos os meios do Estado — político, econômico, psicológico e militar — ao objetivo de guerra, borrando deliberadamente a distinção clássica entre objetivo político e objetivo militar.",
+     "t": "Antes mesmo de disparar o primeiro tiro contra a Polônia em 1º de setembro de 1939, Adolf Hitler obteve uma série de conquistas \"sem sangue\" — a remilitarização da Renânia (1936), a anexação da Áustria ou Anschluss (março de 1938), e por fim, após o Acordo de Munique (setembro de 1938), os Sudetos, seguidos da ocupação do restante da Checoslováquia (março de 1939) — por meio de blefe diplomático, intimidação militar e exploração da relutância das potências ocidentais (Grã-Bretanha de Chamberlain, França) em reagir. Liddell Hart observa que o \"princípio totalitário\" de Hitler exigia a subordinação completa de todos os meios do Estado — político, econômico, psicológico e militar — ao objetivo de guerra, borrando deliberadamente a distinção clássica entre objetivo político e objetivo militar.",
      "b": false,
      "i": false
     }
@@ -3084,7 +3120,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "A teoria de guerra do próprio Hitler, segundo Liddell Hart, baseava-se mais em sua intuição e em sua vontade pessoal do que na doutrina ortodoxa dos generais de Estado-Maior alemães — uma mistura de audácia psicológica e desprezo pelas regras convencionais que, enquanto trouxe vitórias fulminantes no início da guerra (a invasão da Polônia e, sobretudo, o colapso da França em 1940 pela Blitzkrieg — guerra-relâmpago baseada em concentração, velocidade e choque psicológico, não no desgaste lento), tornou-se cada vez mais temerária à medida que a guerra avançava, culminando nos erros estratégicos da invasão da União Soviética (Operação Barbarossa) e no desastre de Stalingrad.",
+     "t": "A teoria de guerra do próprio Hitler, segundo Liddell Hart, baseava-se mais em sua intuição e em sua vontade pessoal do que na doutrina ortodoxa dos generais de Estado-Maior alemães (como Franz Halder) — uma mistura de audácia psicológica e desprezo pelas regras convencionais que, enquanto trouxe vitórias fulminantes no início da guerra (a invasão da Polônia, setembro de 1939, e sobretudo o colapso da França em maio-junho de 1940 pela Blitzkrieg — guerra-relâmpago conduzida por generais como Heinz Guderian e Erwin Rommel, baseada em concentração, velocidade e choque psicológico, não no desgaste lento, seguida da evacuação britânica em Dunquerque, maio-junho de 1940, e da Batalha da Inglaterra, no ar, entre julho e outubro de 1940), tornou-se cada vez mais temerária à medida que a guerra avançava, culminando nos erros estratégicos da invasão da União Soviética — Operação Barbarossa, iniciada em 22 de junho de 1941 — e no desastre de Stalingrado (batalha de agosto de 1942 a fevereiro de 1943, com a rendição do marechal Friedrich Paulus e do Sexto Exército alemão).",
      "b": false,
      "i": false
     }
@@ -3096,7 +3132,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "A \"queda\" de Hitler, descrita nos capítulos finais da Parte III, resulta do acúmulo desses erros — a recusa em permitir retiradas táticas, a dispersão de esforços entre frentes distantes (Rússia, Norte da África, depois a Itália e a França) e a crescente desconexão entre sua vontade pessoal e a realidade do campo de batalha. Em paralelo, no Norte da África e no Pacífico, Liddell Hart acompanha campanhas que ilustram a mesma dinâmica entre abordagem direta e indireta em escala reduzida — temas retomados em detalhe no Apêndice I do livro.",
+     "t": "A \"queda\" de Hitler, descrita nos capítulos finais da Parte III, resulta do acúmulo desses erros — a recusa em permitir retiradas táticas, a dispersão de esforços entre frentes distantes (a derrota na Batalha de Kursk, julho de 1943, maior batalha de tanques da história; o Norte da África; depois a Itália e a França) e a crescente desconexão entre sua vontade pessoal e a realidade do campo de batalha, até o suicídio de Hitler em Berlim (30 de abril de 1945) e a rendição alemã (8 de maio de 1945). Em paralelo, no Norte da África e no Pacífico (Pearl Harbor, 7 de dezembro de 1941; a queda de Singapura para os japoneses, fevereiro de 1942), Liddell Hart acompanha campanhas que ilustram a mesma dinâmica entre abordagem direta e indireta em escala reduzida — temas retomados em detalhe no Apêndice I do livro.",
      "b": false,
      "i": false
     }
@@ -3113,7 +3149,7 @@
      "i": false
     },
     {
-     "t": "Hitler obteve conquistas 'sem sangue' antes de 1939 através de blefe e intimidação; seu 'princípio totalitário' subordinava todos os meios do Estado ao objetivo de guerra; sua teoria de guerra se baseava mais em intuição e vontade pessoal do que na doutrina do Estado-Maior; e seus erros estratégicos (Barbarossa, Stalingrad, recusa de retiradas táticas) levaram à sua queda.",
+     "t": "Hitler obteve conquistas 'sem sangue' antes de 1939 (Renânia 1936, Áustria mar.1938, Sudetos set.1938, Checoslováquia mar.1939); invadiu a Polônia em set.1939; a Blitzkrieg (Guderian, Rommel) derrubou a França em maio-jun.1940 (Dunquerque) e veio a Batalha da Inglaterra (jul-out.1940); a invasão da URSS (Barbarossa, 22 jun.1941) e Stalingrado (ago.1942-fev.1943, rendição de Paulus) foram os erros decisivos; Kursk (jul.1943) selou a derrota no leste; Hitler se suicidou em 30 abr.1945, rendição alemã em 8 mai.1945.",
      "b": false,
      "i": false
     }
@@ -3129,7 +3165,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "Na parte final e mais teórica do livro, Liddell Hart condensa a experiência histórica em um conjunto de máximas sobre a essência da estratégia e da tática, organizadas em positivas e negativas. Entre as positivas: ajustar o fim aos próprios meios disponíveis; manter o objetivo sempre em mente, mas adaptar o plano e a linha de ação às circunstâncias; escolher a linha de ação (ou a direção) de menor expectativa por parte do inimigo; explorar a linha de menor resistência uma vez identificada; adotar uma linha de ação que ofereça objetivos alternativos, mantendo o adversário em dúvida sobre qual deles será o real; e assegurar que tanto o plano quanto o dispositivo de forças sejam flexíveis o bastante para se adaptar às circunstâncias. Entre as negativas: não lançar o peso do esforço principal enquanto o inimigo ainda estiver em guarda e preparado para reagir; e não renovar um ataque pela mesma linha, ou na mesma forma, depois que ele já tiver fracassado uma vez.",
+     "t": "Na parte final e mais teórica do livro, Liddell Hart condensa a experiência histórica em oito máximas sobre a essência da estratégia e da tática — seis positivas e duas negativas —, reproduzidas de forma resumida no quadro abaixo, por serem um dos trechos mais cobrados em provas sobre o livro:",
      "b": false,
      "i": false
     }
@@ -3138,10 +3174,51 @@
    "indent": 0
   },
   {
+   "type": "table",
+   "rows": [
+    [
+     "Tipo",
+     "Máxima (resumo)"
+    ],
+    [
+     "Positiva 1",
+     "Ajustar o fim (objetivo) aos próprios meios disponíveis."
+    ],
+    [
+     "Positiva 2",
+     "Manter o objetivo sempre em mente, mas adaptar o plano e a linha de ação às circunstâncias."
+    ],
+    [
+     "Positiva 3",
+     "Escolher a linha de ação (ou direção) de menor expectativa por parte do inimigo."
+    ],
+    [
+     "Positiva 4",
+     "Explorar a linha de menor resistência, uma vez identificada."
+    ],
+    [
+     "Positiva 5",
+     "Adotar uma linha de ação que ofereça objetivos alternativos, mantendo o adversário em dúvida sobre qual será o real."
+    ],
+    [
+     "Positiva 6",
+     "Assegurar que tanto o plano quanto o dispositivo de forças sejam flexíveis, adaptáveis às circunstâncias."
+    ],
+    [
+     "Negativa 1",
+     "Não lançar o peso do esforço principal enquanto o inimigo ainda estiver em guarda e preparado para reagir."
+    ],
+    [
+     "Negativa 2",
+     "Não renovar um ataque pela mesma linha, ou na mesma forma, depois que ele já tiver fracassado uma vez."
+    ]
+   ]
+  },
+  {
    "type": "p",
    "runs": [
     {
-     "t": "Outro pilar teórico do livro é a distinção entre objetivo nacional e objetivo militar: para Liddell Hart, a guerra deve sempre permanecer subordinada à política, e o objetivo militar deve ser apenas o meio de alcançar o verdadeiro fim político, nunca um fim em si mesmo. Nesse contexto, o autor dedica páginas a uma crítica ao legado de Clausewitz, argumentando que a obra do teórico prussiano — morto antes de poder revisar e sistematizar plenamente seus próprios escritos — foi distorcida por discípulos rígidos de gerações posteriores em uma doutrina simplificada de \"guerra absoluta\", voltada apenas para a destruição total das forças inimigas em batalha decisiva, perdendo a nuance original de Clausewitz sobre a guerra como \"continuação da política por outros meios\".",
+     "t": "Outro pilar teórico do livro é a distinção entre objetivo nacional e objetivo militar: para Liddell Hart, a guerra deve sempre permanecer subordinada à política, e o objetivo militar deve ser apenas o meio de alcançar o verdadeiro fim político, nunca um fim em si mesmo. Nesse contexto, o autor dedica páginas a uma crítica ao legado do teórico prussiano Carl von Clausewitz (1780-1831, autor de \"Da Guerra\"), argumentando que sua obra — publicada postumamente pela viúva, já que Clausewitz morreu em 1831 antes de poder revisar e sistematizar plenamente seus próprios escritos — foi distorcida por discípulos rígidos de gerações posteriores (sobretudo no Estado-Maior alemão dos séculos XIX e XX) em uma doutrina simplificada de \"guerra absoluta\", voltada apenas para a destruição total das forças inimigas em batalha decisiva, perdendo a nuance original de Clausewitz sobre a guerra como \"continuação da política por outros meios\".",
      "b": false,
      "i": false
     }
@@ -3158,7 +3235,7 @@
      "i": false
     },
     {
-     "t": "os capítulos teóricos de Liddell Hart resumem a estratégia em máximas sobre concentração, flexibilidade e exploração da linha de menor resistência/expectativa, e defendem que o objetivo militar deve sempre servir ao objetivo político — crítica dirigida aos discípulos de Clausewitz, que teriam distorcido sua teoria em uma doutrina rígida de destruição total do inimigo.",
+     "t": "as oito máximas de Liddell Hart (seis positivas: ajustar fins a meios, manter o objetivo em mente com plano flexível, escolher a linha de menor expectativa, explorar a linha de menor resistência, manter objetivos alternativos, flexibilidade do plano e do dispositivo; duas negativas: não atacar com o inimigo em guarda, não repetir um ataque fracassado pela mesma linha) resumem a essência da estratégia; e o objetivo militar deve sempre servir ao objetivo político — crítica dirigida aos discípulos de Clausewitz (morto em 1831), que teriam distorcido sua teoria em uma doutrina rígida de destruição total do inimigo.",
      "b": false,
      "i": false
     }
@@ -3186,7 +3263,7 @@
    "type": "p",
    "runs": [
     {
-     "t": "Na parte final do livro, escrita após a Segunda Guerra Mundial, Liddell Hart revisita sua própria teoria à luz da nova era nuclear. Ele relata como, ao reexaminar criticamente a doutrina do \"objetivo estratégico\" diante dos resultados reais dos bombardeios estratégicos aliados contra a Alemanha, concluiu que a capacidade de destruição em massa tornava os conceitos de \"guerra total\" e de \"vitória\" como objetivos absolutos cada vez mais perigosos e ultrapassados — já que o custo de uma vitória total, na era da bomba atômica, poderia equivaler ao da própria destruição da civilização. O marechal da RAF Sir John Slessor é citado reforçando essa mesma convicção no período pós-1945: a de que a guerra total deixara de ser um instrumento político racional, dado o potencial de destruição mútua das novas armas.",
+     "t": "Na parte final do livro, escrita após a Segunda Guerra Mundial e a inauguração da era nuclear (os bombardeios atômicos de Hiroshima e Nagasaki, agosto de 1945), Liddell Hart revisita sua própria teoria à luz dessa nova realidade. Ele relata como, ao reexaminar criticamente a doutrina do \"objetivo estratégico\" diante dos resultados reais dos bombardeios estratégicos aliados contra a Alemanha, concluiu que a capacidade de destruição em massa tornava os conceitos de \"guerra total\" e de \"vitória\" como objetivos absolutos cada vez mais perigosos e ultrapassados — já que o custo de uma vitória total, na era da bomba atômica, poderia equivaler ao da própria destruição da civilização. O marechal da RAF Sir John Slessor é citado reforçando essa mesma convicção no período pós-1945: a de que a guerra total deixara de ser um instrumento político racional, dado o potencial de destruição mútua das novas armas.",
      "b": false,
      "i": false
     }
@@ -3203,7 +3280,7 @@
      "i": false
     },
     {
-     "t": "a grande estratégia coordena todos os recursos de uma nação (militares, econômicos, diplomáticos) em função do objetivo político e de uma paz estável; e, já na era nuclear, Liddell Hart — endossado pelo Marechal Slessor — concluiu que os conceitos de 'guerra total' e 'vitória' absoluta se tornaram perigosos e ultrapassados diante do poder de destruição das armas modernas.",
+     "t": "a grande estratégia coordena todos os recursos de uma nação (militares, econômicos, diplomáticos) em função do objetivo político e de uma paz estável; e, já na era nuclear (após Hiroshima e Nagasaki, ago.1945), Liddell Hart — endossado pelo Marechal da RAF Sir John Slessor — concluiu que os conceitos de 'guerra total' e 'vitória' absoluta se tornaram perigosos e ultrapassados diante do poder de destruição das armas modernas.",
      "b": false,
      "i": false
     }
@@ -3213,13 +3290,13 @@
   },
   {
    "type": "h3",
-   "text": "19.16 — Apêndices: a Ação Indireta na África do Norte (1940-42) e em Israel (1948)"
+   "text": "19.16 — Apêndice I: a Ação Indireta na África do Norte (1940-1942)"
   },
   {
    "type": "p",
    "runs": [
     {
-     "t": "O Apêndice I reproduz uma carta do General Eric Dorman-Smith, subchefe do Estado-Maior britânico no Oriente Médio, analisando a campanha do Norte da África (1940-1942) à luz direta dos princípios de Liddell Hart: a ofensiva do General O'Connor contra os italianos (culminando na captura de Beda Fomm, em 1941), a reviravolta trazida pela chegada de Rommel e do Afrika Korps, o cerco de Tobruk, a defensiva de Auchinleck em El Alamein e, por fim, a vitória de Montgomery — um estudo de caso real da alternância entre abordagem direta e indireta no deserto.",
+     "t": "O Apêndice I reproduz uma carta do General Eric Dorman-Smith, subchefe do Estado-Maior britânico no Oriente Médio, analisando a campanha do Norte da África (1940-1942) à luz direta dos princípios de Liddell Hart. A campanha passou por sucessivas fases de comando dos dois lados, resumidas no quadro a seguir:",
      "b": false,
      "i": false
     }
@@ -3228,10 +3305,70 @@
    "indent": 0
   },
   {
+   "type": "table",
+   "rows": [
+    [
+     "Data",
+     "Evento",
+     "Comandantes envolvidos"
+    ],
+    [
+     "9 dez. 1940",
+     "Início da ofensiva britânica contra os italianos em Sidi Barrani",
+     "Gen. Richard O'Connor (Reino Unido) x Marechal Rodolfo Graziani (Itália)"
+    ],
+    [
+     "fev. 1941",
+     "Captura de Beda Fomm; colapso do exército italiano na Cirenaica",
+     "Gen. O'Connor (Reino Unido) x forças italianas"
+    ],
+    [
+     "início 1941",
+     "Chegada de Rommel e do Afrika Korps à Líbia",
+     "Gen. Erwin Rommel (Alemanha)"
+    ],
+    [
+     "abr.-nov. 1941",
+     "Cerco de Tobruk",
+     "Guarnição aliada x Rommel (Alemanha/Itália)"
+    ],
+    [
+     "jun. 1941",
+     "Gen. Claude Auchinleck substitui o Gen. Archibald Wavell no comando britânico no Oriente Médio",
+     "Auchinleck no lugar de Wavell"
+    ],
+    [
+     "nov. 1941",
+     "Operação Crusader; alívio de Tobruk",
+     "8º Exército britânico (Gen. Cunningham/Ritchie) x Rommel"
+    ],
+    [
+     "jun. 1942",
+     "Batalha de Gazala e queda de Tobruk",
+     "Gen. Neil Ritchie (Reino Unido) x Rommel"
+    ],
+    [
+     "jul. 1942",
+     "Primeira Batalha de El Alamein (Rommel é contido)",
+     "Gen. Auchinleck (Reino Unido) x Rommel"
+    ],
+    [
+     "ago.-set. 1942",
+     "Batalha de Alam Halfa",
+     "Gen. Bernard Montgomery (Reino Unido, assume o 8º Exército em ago.1942) x Rommel"
+    ],
+    [
+     "out.-nov. 1942",
+     "Segunda Batalha de El Alamein — vitória decisiva aliada",
+     "Gen. Montgomery (Reino Unido) x Rommel (Alemanha/Itália)"
+    ]
+   ]
+  },
+  {
    "type": "p",
    "runs": [
     {
-     "t": "Já o Apêndice II traz um artigo do General Yigael Yadin, então chefe do Estado-Maior das forças armadas de Israel, descrevendo como o jovem exército israelense aplicou conscientemente os princípios da ação indireta durante a Guerra da Independência de 1948 — nas operações \"Dez Pragas\", \"Ayin\" e \"Hiram\" —, priorizando o corte das linhas de comunicação e dos centros administrativos do inimigo, em vez de buscar batalhas frontais de desgaste contra exércitos árabes nominalmente mais numerosos.",
+     "t": "O estudo de caso ilustra, segundo Dorman-Smith, como a vitória final (El Alamein, outubro-novembro de 1942) dependeu tanto da ação indireta (manobras de flanco, desorganização das linhas de suprimento do Eixo) quanto, finalmente, de uma concentração de poder de fogo e material que os britânicos só alcançaram depois de meses de reveses — um contraste explícito entre as fases de abordagem indireta e de confronto mais direto dentro de uma mesma campanha.",
      "b": false,
      "i": false
     }
@@ -3248,7 +3385,386 @@
      "i": false
     },
     {
-     "t": "os dois apêndices aplicam a teoria da ação indireta a campanhas reais do século XX: o General Dorman-Smith analisa a campanha do Norte da África (1940-42, O'Connor, Rommel, Tobruk, El Alamein); e o General Yadin descreve como Israel usou a ação indireta (corte de comunicações e centros administrativos) na Guerra da Independência de 1948.",
+     "t": "Apêndice I (carta do Gen. Dorman-Smith): campanha do Norte da África (1940-42) — O'Connor derrota os italianos de Graziani em Sidi Barrani (dez.1940) e Beda Fomm (fev.1941); chegada de Rommel (1941); cerco de Tobruk; Auchinleck substitui Wavell (jun.1941); Gazala e queda de Tobruk (jun.1942); 1ª El Alamein contém Rommel (jul.1942); Montgomery assume (ago.1942, Alam Halfa) e vence a 2ª Batalha de El Alamein (out.-nov.1942).",
+     "b": false,
+     "i": false
+    }
+   ],
+   "align": null,
+   "indent": 0
+  },
+  {
+   "type": "h3",
+   "text": "19.16b — Apêndice II: a Ação Indireta na Guerra da Independência de Israel (1948)"
+  },
+  {
+   "type": "p",
+   "runs": [
+    {
+     "t": "O Apêndice II traz um artigo do General Yigael Yadin, então chefe do Estado-Maior das Forças de Defesa de Israel, descrevendo como o jovem exército israelense aplicou conscientemente os princípios da ação indireta durante a Guerra da Independência de 1948 — priorizando o corte das linhas de comunicação e dos centros administrativos do inimigo, em vez de buscar batalhas frontais de desgaste contra exércitos árabes nominalmente mais numerosos. As três operações citadas estão resumidas no quadro abaixo:",
+     "b": false,
+     "i": false
+    }
+   ],
+   "align": null,
+   "indent": 0
+  },
+  {
+   "type": "table",
+   "rows": [
+    [
+     "Data",
+     "Operação",
+     "Objetivo / resultado"
+    ],
+    [
+     "15-21 out. 1948",
+     "Operação \"Dez Pragas\" (Yoav)",
+     "Rompimento do cerco egípcio no Negev; conquista de Beersheba (21 out.1948); isolamento do \"bolsão de Faluja\""
+    ],
+    [
+     "28-30 out. 1948",
+     "Operação \"Hiram\"",
+     "Ofensiva na Galileia contra o Exército de Libertação Árabe de Fawzi al-Qawuqji; conquista de Tarshiha e Sasa; expulsão das forças árabes irregulares do norte de Israel"
+    ],
+    [
+     "22 dez. 1948 – 7 jan. 1949",
+     "Operação \"Ayin\"",
+     "Avanço pelo Negev e Sinai contra os egípcios; conquista de El-Arish e Rafah; fim efetivo da frente egípcia"
+    ]
+   ]
+  },
+  {
+   "type": "p",
+   "runs": [
+    {
+     "t": "Resumo do tópico: ",
+     "b": true,
+     "i": false
+    },
+    {
+     "t": "Apêndice II (artigo do General Yigael Yadin): Guerra da Independência de Israel (1948) — Operação 'Dez Pragas'/Yoav (out.1948, conquista de Beersheba), Operação 'Hiram' (out.1948, Galileia, contra Fawzi al-Qawuqji), Operação 'Ayin' (dez.1948-jan.1949, Negev/Sinai, El-Arish e Rafah) — todas priorizando o corte de comunicações do inimigo em vez da batalha frontal.",
+     "b": false,
+     "i": false
+    }
+   ],
+   "align": null,
+   "indent": 0
+  },
+  {
+   "type": "h3",
+   "text": "19.17 — Quadro-Resumo Geral: Datas, Batalhas e Comandantes (revisão rápida)"
+  },
+  {
+   "type": "p",
+   "runs": [
+    {
+     "t": "Quadro consolidado com as principais datas, batalhas/operações e comandantes citados em \"As Grandes Guerras da História\", organizados cronologicamente, para revisão final antes da prova:",
+     "b": false,
+     "i": false
+    }
+   ],
+   "align": null,
+   "indent": 0
+  },
+  {
+   "type": "table",
+   "rows": [
+    [
+     "Período",
+     "Data",
+     "Batalha/Evento",
+     "Comandantes (lados)"
+    ],
+    [
+     "Grécia Antiga",
+     "490 a.C.",
+     "Maratona",
+     "Milcíades (Atenas) x Dario I (Pérsia)"
+    ],
+    [
+     "Grécia Antiga",
+     "480 a.C.",
+     "Salamina",
+     "Temístocles (Atenas) x Xerxes I (Pérsia)"
+    ],
+    [
+     "Grécia Antiga",
+     "405 a.C.",
+     "Egospótamos",
+     "Lisandro (Esparta) x Atenas"
+    ],
+    [
+     "Grécia Antiga",
+     "371 a.C.",
+     "Leuctra",
+     "Epaminondas (Tebas) x Esparta"
+    ],
+    [
+     "Grécia Antiga",
+     "362 a.C.",
+     "Mantineia (morte de Epaminondas)",
+     "Epaminondas (Tebas) x Esparta"
+    ],
+    [
+     "Grécia Antiga",
+     "338 a.C.",
+     "Queronéia",
+     "Filipe II e Alexandre (Macedônia) x Atenas/Tebas"
+    ],
+    [
+     "Alexandre",
+     "334-326 a.C.",
+     "Granico, Isso, Tiro, Gaugamela, Hidaspes",
+     "Alexandre, o Grande (Macedônia) x Dario III (Pérsia) / Poro (Índia)"
+    ],
+    [
+     "Roma",
+     "217 a.C.",
+     "Lago Trasimeno",
+     "Aníbal (Cartago) x Cônsul Flamínio (Roma)"
+    ],
+    [
+     "Roma",
+     "216 a.C.",
+     "Canas",
+     "Aníbal (Cartago) x Cônsules Paulo e Varrão (Roma)"
+    ],
+    [
+     "Roma",
+     "202 a.C.",
+     "Zama",
+     "Cipião, o Africano (Roma) x Aníbal (Cartago)"
+    ],
+    [
+     "Roma",
+     "48 a.C.",
+     "Farsália",
+     "Júlio César x Pompeu, o Grande"
+    ],
+    [
+     "Bizâncio",
+     "530 d.C.",
+     "Dara",
+     "Belisário (Bizâncio) x Persas"
+    ],
+    [
+     "Bizâncio",
+     "533-552 d.C.",
+     "Reconquista da África e da Itália",
+     "Belisário e depois Narses (Bizâncio) x Vândalos / Vítiges e Totila (Ostrogodos)"
+    ],
+    [
+     "Bizâncio",
+     "1071 d.C.",
+     "Manzikert",
+     "Romano IV Diógenes (Bizâncio) x Turcos Seljúcidas"
+    ],
+    [
+     "Idade Média",
+     "14 out. 1066",
+     "Hastings",
+     "Guilherme, o Conquistador (Normandia) x Haroldo II (Inglaterra)"
+    ],
+    [
+     "Idade Média",
+     "1346 / 1356",
+     "Crécy / Poitiers",
+     "Eduardo III / Príncipe Negro (Inglaterra) x França (João II capturado em Poitiers)"
+    ],
+    [
+     "Idade Média",
+     "séc. XIV-XV",
+     "Reconquista francesa (doutrina fabiana)",
+     "Bertrand Du Guesclin (França) x Inglaterra"
+    ],
+    [
+     "Séc. XVII",
+     "16 nov. 1632",
+     "Lützen (morte de Gustavo Adolfo)",
+     "Gustavo II Adolfo (Suécia) x Wallenstein (Império)"
+    ],
+    [
+     "Séc. XVII",
+     "1644-1651",
+     "Marston Moor, Naseby, Dunbar, Worcester",
+     "Oliver Cromwell (Parlamento/New Model Army) x Realistas e Escoceses"
+    ],
+    [
+     "Séc. XVIII",
+     "13 ago. 1704",
+     "Blenheim",
+     "Duque de Marlborough e Eugênio de Saboia x França/Baviera"
+    ],
+    [
+     "Séc. XVIII",
+     "1756-1763",
+     "Guerra dos Sete Anos",
+     "Frederico II, o Grande (Prússia) x Áustria, Rússia, França"
+    ],
+    [
+     "Napoleão",
+     "2 dez. 1805",
+     "Austerlitz",
+     "Napoleão Bonaparte (França) x Áustria e Rússia"
+    ],
+    [
+     "Napoleão",
+     "1812 / 18 jun. 1815",
+     "Invasão da Rússia / Waterloo",
+     "Napoleão x Rússia / Wellington e Blücher"
+    ],
+    [
+     "Séc. XIX",
+     "1870-71",
+     "Sedan (Guerra Franco-Prussiana)",
+     "Helmuth von Moltke, o Velho (Prússia) x Napoleão III (França)"
+    ],
+    [
+     "Séc. XIX",
+     "1864",
+     "Marcha de Sherman pela Geórgia",
+     "Gen. William T. Sherman (União, EUA)"
+    ],
+    [
+     "Séc. XIX/XX",
+     "1904-1905",
+     "Porto Artur e Tsushima",
+     "Almirante Tōgō Heihachirō (Japão) x Rússia"
+    ],
+    [
+     "1ª Guerra Mundial",
+     "ago.1914",
+     "Tannenberg",
+     "Hindenburg e Ludendorff (Alemanha) x Samsonov (Rússia)"
+    ],
+    [
+     "1ª Guerra Mundial",
+     "5-12 set.1914",
+     "1ª Batalha do Marne",
+     "Joffre (França) x von Kluck e von Bülow (Alemanha)"
+    ],
+    [
+     "1ª Guerra Mundial",
+     "1915-1916",
+     "Galípoli/Dardanelos",
+     "Aliados (Reino Unido/França/ANZAC) x Império Otomano"
+    ],
+    [
+     "1ª Guerra Mundial",
+     "fev.-dez.1916",
+     "Verdun",
+     "França x Alemanha"
+    ],
+    [
+     "1ª Guerra Mundial",
+     "jul.-nov.1916",
+     "Somme",
+     "Reino Unido/França x Alemanha"
+    ],
+    [
+     "1ª Guerra Mundial",
+     "1916",
+     "Ofensiva Brusílov",
+     "Gen. Aleksei Brusílov (Rússia) x Áustria-Hungria"
+    ],
+    [
+     "1ª Guerra Mundial",
+     "1916-1918",
+     "Campanha da Arábia",
+     "T. E. Lawrence (\"Lawrence da Arábia\") x Império Otomano"
+    ],
+    [
+     "1ª Guerra Mundial",
+     "11 nov.1918",
+     "Armistício",
+     "Ludendorff reconhece derrota em 29 set.1918"
+    ],
+    [
+     "2ª Guerra Mundial",
+     "1º set.1939",
+     "Invasão da Polônia",
+     "Alemanha (Hitler) x Polônia"
+    ],
+    [
+     "2ª Guerra Mundial",
+     "maio-jun.1940",
+     "Queda da França / Dunquerque",
+     "Guderian, Rommel (Alemanha) x França/Reino Unido"
+    ],
+    [
+     "2ª Guerra Mundial",
+     "jul.-out.1940",
+     "Batalha da Inglaterra",
+     "RAF (Reino Unido) x Luftwaffe (Alemanha)"
+    ],
+    [
+     "2ª Guerra Mundial",
+     "22 jun.1941",
+     "Operação Barbarossa (início)",
+     "Alemanha (Hitler) x URSS"
+    ],
+    [
+     "2ª Guerra Mundial",
+     "7 dez.1941",
+     "Pearl Harbor",
+     "Japão x Estados Unidos"
+    ],
+    [
+     "2ª Guerra Mundial",
+     "dez.1940-fev.1941",
+     "Sidi Barrani / Beda Fomm",
+     "Gen. O'Connor (Reino Unido) x Graziani (Itália)"
+    ],
+    [
+     "2ª Guerra Mundial",
+     "out.-nov.1942",
+     "2ª Batalha de El Alamein",
+     "Gen. Montgomery (Reino Unido) x Rommel (Alemanha/Itália)"
+    ],
+    [
+     "2ª Guerra Mundial",
+     "ago.1942-fev.1943",
+     "Stalingrado",
+     "URSS x Marechal Paulus (Alemanha, rendido)"
+    ],
+    [
+     "2ª Guerra Mundial",
+     "jul.1943",
+     "Kursk",
+     "URSS x Alemanha"
+    ],
+    [
+     "2ª Guerra Mundial",
+     "30 abr. / 8 mai.1945",
+     "Suicídio de Hitler / Rendição alemã",
+     "—"
+    ],
+    [
+     "Pós-guerra (1948)",
+     "15-21 out.1948",
+     "Operação Dez Pragas/Yoav",
+     "Israel (Gen. Yadin) x Egito — conquista de Beersheba"
+    ],
+    [
+     "Pós-guerra (1948)",
+     "28-30 out.1948",
+     "Operação Hiram",
+     "Israel x Fawzi al-Qawuqji (Galileia)"
+    ],
+    [
+     "Pós-guerra (1948-49)",
+     "22 dez.1948-7 jan.1949",
+     "Operação Ayin",
+     "Israel x Egito (Negev/Sinai, El-Arish, Rafah)"
+    ]
+   ]
+  },
+  {
+   "type": "p",
+   "runs": [
+    {
+     "t": "Observação: datas e nomes seguem a grafia e a periodização apresentadas no próprio livro de Liddell Hart; em caso de divergência pontual com outras fontes historiográficas, prevalece, para fins de prova sobre este livro, a versão do autor.",
      "b": false,
      "i": false
     }
