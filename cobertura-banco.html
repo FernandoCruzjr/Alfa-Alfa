@@ -386,10 +386,10 @@
     // Total de questões de cada matéria (o "100%" de cada uma)
     const TOTAL_QUESTOES = {
       'PORTUGUES': { label: 'Língua Portuguesa', total: 372 },
-      'HISTORIA_NAVAL': { label: 'História Militar Naval', total: 584 },
+      'HISTORIA_NAVAL': { label: 'História Militar Naval', total: 636 },
       'GEOGRAFIA': { label: 'Geografia', total: 200 },
       'MATEMATICA': { label: 'Matemática', total: 200 },
-      'CAAML-703': { label: 'CAAML-703 — Embarcações Miúdas', total: 200 },
+      'CAAML-703': { label: 'CAAML-703 — Embarcações Miúdas', total: 199 },
       'CERIMONIAL': { label: 'Cerimonial da Marinha', total: 280 },
       'ROSAS_VIRTUDES': { label: 'Rosas das Virtudes', total: 200 },
       'JUSTICA_DISCIPLINA': { label: 'Justiça e Disciplina', total: 200 },
@@ -681,18 +681,35 @@
       // instabilidade), mostra um erro com botão "Tentar de novo" em vez de
       // deixar a tela parada sem nenhuma explicação — era exatamente esse
       // silêncio que fazia parecer "não sei se está funcionando".
-      let data, error;
+      let data, error, progressoRows;
       try {
         const resultado = await Promise.race([
-          sb.from('respostas_detalhadas').select('quiz_id, question_id, subject').eq('user_id', currentUser.id),
+          Promise.all([
+            sb.from('respostas_detalhadas').select('quiz_id, question_id, subject').eq('user_id', currentUser.id),
+            sb.from('progresso').select('quiz_id, respostas').eq('user_id', currentUser.id),
+          ]),
           new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 10000)),
         ]);
-        data = resultado.data;
-        error = resultado.error;
+        data = resultado[0].data;
+        error = resultado[0].error;
+        progressoRows = resultado[1].data;
       } catch (e) {
         error = e;
       }
       const detalhes = data || [];
+
+      // Contagem "bruta" de questões respondidas por matéria, direto da coluna
+      // progresso.respostas — o mesmo número que já aparece como "X de Y
+      // respondidas" dentro de cada prova. Essa contagem não depende de saber
+      // QUAL questão foi respondida (só quantas posições têm resposta salva),
+      // então ela é imune ao descasamento de ordem embaralhada que afeta
+      // respostas_detalhadas — é só um reforço para o número principal de
+      // cada matéria não ficar abaixo do que a própria prova já mostra.
+      const respondidasPorProgresso = {};
+      (progressoRows || []).forEach(p => {
+        const qtd = p.respostas ? Object.keys(p.respostas).length : 0;
+        respondidasPorProgresso[p.quiz_id] = qtd;
+      });
 
       // Além do banco, junta o que está salvo localmente neste aparelho (ver
       // recordAnswerLocal em gamification.js) — cada prova grava aí a questão
@@ -719,7 +736,8 @@
         return;
       }
 
-      if (detalhes.length === 0) {
+      const totalRespondidoEmAlgumLugar = Object.values(respondidasPorProgresso).reduce((a, b) => a + b, 0);
+      if (detalhes.length === 0 && totalRespondidoEmAlgumLugar === 0) {
         document.getElementById('empty-state').classList.remove('hidden');
         document.getElementById('resumo-geral').classList.add('hidden');
         return;
@@ -749,7 +767,10 @@
       let totalBancoGeral = 0;
       Object.keys(TOTAL_QUESTOES).forEach(quizId => {
         const info = TOTAL_QUESTOES[quizId];
-        const respondidas = uniquePorMateria[quizId] ? uniquePorMateria[quizId].size : 0;
+        const respondidas = Math.max(
+          uniquePorMateria[quizId] ? uniquePorMateria[quizId].size : 0,
+          respondidasPorProgresso[quizId] || 0
+        );
         totalRespondidasGeral += Math.min(respondidas, info.total);
         totalBancoGeral += info.total;
       });
@@ -767,7 +788,10 @@
       grid.innerHTML = '';
       const materias = Object.keys(TOTAL_QUESTOES).map(quizId => {
         const info = TOTAL_QUESTOES[quizId];
-        const respondidas = Math.min(uniquePorMateria[quizId] ? uniquePorMateria[quizId].size : 0, info.total);
+        const respondidas = Math.min(Math.max(
+          uniquePorMateria[quizId] ? uniquePorMateria[quizId].size : 0,
+          respondidasPorProgresso[quizId] || 0
+        ), info.total);
         const pct = 100 * respondidas / info.total;
         return { quizId, label: info.label, total: info.total, respondidas, pct };
       }).sort((a, b) => a.pct - b.pct);
