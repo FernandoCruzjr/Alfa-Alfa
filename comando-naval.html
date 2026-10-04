@@ -474,6 +474,28 @@ main{max-width:720px; margin:0 auto; padding-bottom:48px}
 .feedback .badge .ico{vertical-align:-2.5px; margin-right:1px}
 .qopt .kind-ico{flex:none; color:var(--ink-dim)}
 .scene-card h2{font-size:clamp(20px,4.5vw,25px); margin-bottom:12px}
+.narrate-btn{
+  display:inline-flex; align-items:center; gap:7px;
+  font-family:var(--font-ui); font-weight:600; font-size:12px;
+  background:none; border:1px solid var(--line); color:var(--ink-dim);
+  border-radius:20px; padding:7px 13px; cursor:pointer;
+  transition:border-color .12s ease, color .12s ease;
+}
+.narrate-btn:hover{ color:var(--ink); border-color:var(--camp-color, var(--brass)) }
+.narrate-btn.speaking{ color:var(--camp-color, var(--brass)); border-color:var(--camp-color, var(--brass)) }
+.narrate-btn.speaking .ico{ animation:narrate-pulse 1.1s ease-in-out infinite }
+.narrate-btn.paused .ico{ animation:none }
+@keyframes narrate-pulse{ 0%,100%{opacity:.55} 50%{opacity:1} }
+.feedback .narrate-btn{ margin:2px 0 10px }
+.narrate-row{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:14px }
+.voice-select{
+  background:var(--surface-2); color:var(--ink-dim); border:1px solid var(--line);
+  border-radius:20px; font-family:var(--font-ui); font-size:11px; padding:6px 10px;
+  max-width:180px; cursor:pointer; appearance:auto;
+}
+.voice-select:hover{ color:var(--ink); border-color:var(--ink-dim) }
+.voice-select:disabled{ cursor:default; opacity:.6 }
+@media (max-width:480px){ .voice-select{ max-width:46vw } }
 .chiplist{display:flex; flex-wrap:wrap; gap:6px}
 .chip{font-family:var(--font-ui); font-size:11.5px; background:var(--surface-2); border:1px solid var(--line); color:var(--ink-dim); padding:3px 8px; border-radius:20px; white-space:nowrap}
 .narrative p{font-size:15.5px; line-height:1.68; margin:0 0 12px; max-width:66ch}
@@ -2295,7 +2317,9 @@ const ICONS = {
   swords:`<svg class="ico" viewBox="0 0 24 24" width="{s}" height="{s}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20L17 7M13.3 2.6l4 0 0 4-2.4 2.4-4-4z"/><path d="M20 20L7 7M10.7 2.6L6.7 2.6l0 4 2.4 2.4 4-4z"/></svg>`,
   scroll:`<svg class="ico" viewBox="0 0 24 24" width="{s}" height="{s}" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h11a2 2 0 012 2v1a2 2 0 01-2 2H8"/><path d="M6 4a2 2 0 00-2 2v12a2 2 0 002 2h11a2 2 0 002-2v-1"/><path d="M6 20a2 2 0 01-2-2V6"/><path d="M8 9h7M8 13h7"/></svg>`,
   gear:`<svg class="ico" viewBox="0 0 24 24" width="{s}" height="{s}" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.1"/><path d="M12 3v2.4M12 18.6V21M4.2 12H6.6M17.4 12h2.4M6.3 6.3l1.7 1.7M16 16l1.7 1.7M17.7 6.3L16 8M8 16l-1.7 1.7"/></svg>`,
-  compass:`<svg class="ico" viewBox="0 0 24 24" width="{s}" height="{s}" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M15 9l-2 6-4 2 2-6z" fill="currentColor" stroke="none"/></svg>`
+  compass:`<svg class="ico" viewBox="0 0 24 24" width="{s}" height="{s}" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M15 9l-2 6-4 2 2-6z" fill="currentColor" stroke="none"/></svg>`,
+  speaker:`<svg class="ico" viewBox="0 0 24 24" width="{s}" height="{s}" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5v5h4l5 4v-13l-5 4z"/><path d="M16.3 9.2a4.4 4.4 0 010 5.6"/><path d="M18.8 6.6a8 8 0 010 10.8"/></svg>`,
+  pause:`<svg class="ico" viewBox="0 0 24 24" width="{s}" height="{s}" fill="currentColor" stroke="none"><rect x="6" y="4.5" width="4.2" height="15" rx="1"/><rect x="13.8" y="4.5" width="4.2" height="15" rx="1"/></svg>`
 };
 function icon(name, size){ const s = size||14; const svg = ICONS[name]; return svg ? svg.replace(/\{s\}/g,s) : ''; }
 
@@ -2426,6 +2450,98 @@ const app = document.getElementById('app');
 
 function esc(s){ const d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
 
+/* =========================================================
+   NARRAÇÃO POR VOZ (Web Speech API) — lê em voz alta o texto da
+   cena ou da explicação histórica. Sem backend, sem custo: usa a
+   síntese de voz do próprio navegador, preferindo uma voz pt-BR
+   quando disponível. Inclui um "keep-alive" porque o Chrome tem um
+   bug conhecido que corta a fala sozinha depois de ~15s em textos
+   longos (pausar/retomar periodicamente evita isso).
+   ========================================================= */
+let ttsVoice = null;
+let ttsKeepAliveTimer = null;
+const TTS_VOICE_KEY = 'comando-naval-voice-v1';
+function loadSavedVoiceName(){ try{ return localStorage.getItem(TTS_VOICE_KEY) || ''; }catch(e){ return ''; } }
+function saveVoiceName(name){ try{ localStorage.setItem(TTS_VOICE_KEY, name || ''); }catch(e){} }
+function candidateVoices(){
+  if(!('speechSynthesis' in window)) return [];
+  const all = window.speechSynthesis.getVoices();
+  const pt = all.filter(v=>v.lang && v.lang.toLowerCase().startsWith('pt'));
+  return pt.length ? pt : all; // sem voz em pt disponível: oferece todas, melhor que nada
+}
+function pickPtVoice(){
+  const voices = candidateVoices();
+  if(!voices.length) return null;
+  const savedName = loadSavedVoiceName();
+  const saved = savedName && voices.find(v=>v.name===savedName);
+  if(saved) return saved;
+  return voices.find(v=>v.lang==='pt-BR')
+      || voices.find(v=>v.lang && v.lang.toLowerCase().startsWith('pt-br'))
+      || voices[0];
+}
+function refreshVoiceSelects(){
+  document.querySelectorAll('.voice-select').forEach(sel=>populateVoiceSelect(sel));
+}
+function populateVoiceSelect(sel){
+  const voices = candidateVoices();
+  if(!voices.length){
+    sel.innerHTML = '<option value="">Voz padrão do navegador</option>';
+    sel.disabled = true;
+    return;
+  }
+  sel.disabled = false;
+  sel.innerHTML = voices.map(v=>`<option value="${esc(v.name)}">${esc(v.name)} (${esc(v.lang)})</option>`).join('');
+  if(ttsVoice) sel.value = ttsVoice.name;
+}
+if('speechSynthesis' in window){
+  ttsVoice = pickPtVoice();
+  window.speechSynthesis.onvoiceschanged = () => { ttsVoice = pickPtVoice(); refreshVoiceSelects(); };
+}
+function startTtsKeepAlive(){
+  stopTtsKeepAlive();
+  ttsKeepAliveTimer = setInterval(()=>{
+    const synth = window.speechSynthesis;
+    if(synth.speaking && !synth.paused){ synth.pause(); synth.resume(); }
+  }, 12000);
+}
+function stopTtsKeepAlive(){
+  if(ttsKeepAliveTimer){ clearInterval(ttsKeepAliveTimer); ttsKeepAliveTimer = null; }
+}
+function setNarrateBtnState(btn, st){
+  btn.classList.remove('speaking','paused');
+  const label = btn.querySelector('.ntxt');
+  if(st==='speaking'){ btn.classList.add('speaking'); if(label) label.textContent='Pausar'; }
+  else if(st==='paused'){ btn.classList.add('speaking','paused'); if(label) label.textContent='Continuar'; }
+  else if(label) label.textContent = btn.dataset.label || 'Ouvir narração';
+}
+function stopNarration(){
+  if('speechSynthesis' in window) window.speechSynthesis.cancel();
+  stopTtsKeepAlive();
+  document.querySelectorAll('.narrate-btn').forEach(btn=>setNarrateBtnState(btn,'idle'));
+}
+function toggleNarration(btn, text){
+  if(!('speechSynthesis' in window)){
+    alert('Seu navegador não tem suporte a narração por voz.');
+    return;
+  }
+  const synth = window.speechSynthesis;
+  if(btn.classList.contains('speaking')){
+    if(synth.paused){ synth.resume(); setNarrateBtnState(btn,'speaking'); }
+    else { synth.pause(); setNarrateBtnState(btn,'paused'); }
+    return;
+  }
+  stopNarration();
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = ttsVoice ? ttsVoice.lang : 'pt-BR';
+  if(ttsVoice) utter.voice = ttsVoice;
+  utter.rate = 0.97;
+  utter.onend = () => { stopTtsKeepAlive(); setNarrateBtnState(btn,'idle'); };
+  utter.onerror = () => { stopTtsKeepAlive(); setNarrateBtnState(btn,'idle'); };
+  setNarrateBtnState(btn,'speaking');
+  startTtsKeepAlive();
+  synth.speak(utter);
+}
+
 function updateHUD(){
   const t = totals();
   document.getElementById('hud-precisao').textContent = t.count ? pct(t.precisao,t.count)+'%' : '—';
@@ -2440,6 +2556,7 @@ function updateHUD(){
 }
 
 function render(){
+  stopNarration();
   updateHUD();
   if(state.screen==='menu') renderMenu();
   else if(state.screen==='scene') renderScene();
@@ -2691,6 +2808,7 @@ function renderScene(){
     const pts = POINTS[chosen.type];
     feedbackHtml = `<div class="feedback" style="--badge-color:${badge.color}">
       <div class="badge">${icon(badge.icon,13)}${badge.label}</div>
+      <button class="narrate-btn" id="btn-narrate-feedback" type="button" data-label="Ouvir explicação">${icon('speaker',15)}<span class="ntxt">Ouvir explicação</span></button>
       <p>${esc(chosen.feedback)}</p>
       <div class="delta"><span>Precisão histórica <b>+${pts.precisao}</b></span><span>Tático &amp; tecnológico <b>+${pts.tatico}</b></span></div>
     </div>
@@ -2708,6 +2826,10 @@ function renderScene(){
     <div class="scene-card" style="--camp-color:${camp.color}">
       <div class="scene-meta">${metaBlocks.join('')}${chips('Navios / tecnologia em destaque', scene.ships, 'ship')}${chips('Comandantes em campo', scene.commanders, 'medal')}</div>
       <h2>${esc(scene.title)}</h2>
+      <div class="narrate-row">
+        <button class="narrate-btn" id="btn-narrate-scene" type="button" data-label="Ouvir narração">${icon('speaker',15)}<span class="ntxt">Ouvir narração</span></button>
+        <select class="voice-select" id="tts-voice-select" title="Escolher voz da narração"></select>
+      </div>
       <div class="narrative">${narrativeHtml}</div>
     </div>
     <div class="choices">${choicesHtml}</div>
@@ -2715,6 +2837,28 @@ function renderScene(){
   `;
 
   document.getElementById('btn-menu').addEventListener('click', ()=>{ state.screen='menu'; render(); });
+
+  const narrateSceneBtn = document.getElementById('btn-narrate-scene');
+  if(narrateSceneBtn){
+    narrateSceneBtn.addEventListener('click', ()=>{
+      toggleNarration(narrateSceneBtn, scene.title + '. ' + scene.narrative.join(' '));
+    });
+  }
+  const voiceSel = document.getElementById('tts-voice-select');
+  if(voiceSel){
+    populateVoiceSelect(voiceSel);
+    voiceSel.addEventListener('change', ()=>{
+      const chosen = candidateVoices().find(v=>v.name===voiceSel.value);
+      if(chosen){ ttsVoice = chosen; saveVoiceName(chosen.name); }
+    });
+  }
+  const narrateFeedbackBtn = document.getElementById('btn-narrate-feedback');
+  if(narrateFeedbackBtn){
+    const chosenForNarration = choices.find(c=>c.letter===state.chosenLetter);
+    narrateFeedbackBtn.addEventListener('click', ()=>{
+      toggleNarration(narrateFeedbackBtn, chosenForNarration.feedback);
+    });
+  }
 
   if(!state.chosenLetter){
     app.querySelectorAll('.choice-btn').forEach(btn=>{
