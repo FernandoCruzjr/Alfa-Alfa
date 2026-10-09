@@ -424,6 +424,7 @@
     }
 
     /* ===== Layout "cibernético" do painel: sidebar + topbar + hero ===== */
+    .sidebar-link.hidden { display: none; }
     .sidebar-link {
       display: flex; align-items: center; gap: 12px;
       padding: 10px 12px; border-radius: 10px;
@@ -697,7 +698,7 @@
         <a href="#prova-simulada" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-shuffle"></i></span><span>Prova Simulada</span><i class="fa-solid fa-chevron-right"></i></a>
         <a href="#" onclick="openJoinRoomPrompt(); return false;" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-people-group"></i></span><span>Entrar em sala de estudo</span><i class="fa-solid fa-chevron-right"></i></a>
         <a href="#banco-questoes" onclick="openBankPanel()" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-bars"></i></span><span>Banco de Questões</span><i class="fa-solid fa-chevron-right"></i></a>
-        <a href="provas.html" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-scroll"></i></span><span>Provas Anteriores</span><i class="fa-solid fa-chevron-right"></i></a>
+        <a href="provas.html" data-quiz-id="PROVAS_ANTERIORES" class="hidden sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-scroll"></i></span><span>Provas Anteriores</span><i class="fa-solid fa-chevron-right"></i></a>
         <a href="#flashcards" onclick="openFlashcardsPanel()" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-layer-group"></i></span><span>Flashcards</span><i class="fa-solid fa-chevron-right"></i></a>
 
         <p class="sidebar-section-title">Desempenho</p>
@@ -1035,7 +1036,7 @@
         <i class="fa-solid fa-compass text-navy-500"></i> Recursos de Estudo
       </h3>
       <div id="recursos-grid" class="grid grid-cols-2 md:grid-cols-4 gap-3">
-        <a href="provas.html" class="resource-card bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+        <a href="provas.html" data-quiz-id="PROVAS_ANTERIORES" class="resource-card hidden bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
           <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-scroll"></i></span>
           <span>
             <span class="block text-ink text-sm font-medium leading-tight">Provas Anteriores</span>
