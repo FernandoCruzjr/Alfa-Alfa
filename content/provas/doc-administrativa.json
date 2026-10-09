@@ -1,0 +1,773 @@
+{
+ "slug": "doc-administrativa",
+ "materia": "Documentação Administrativa (SGM-105)",
+ "icon": "fa-file-signature",
+ "cadernos": [
+  {
+   "fonte": "sgm105_comentado_2011_2025.pdf",
+   "titulo": "Documentação Administrativa (SGM-105 / NODAM e MaTDoc) comentada — CA-AA-AFN (CPA)",
+   "linhas": [
+    "2020–2025",
+    "Resolução comentada das questões de Documentação Administrativa da parte de Conhecimentos",
+    "Militares-Navais da prova Amarela dos candidatos oriundos do Corpo de Praças da Armada",
+    "(CPA), de 2011 a 2025. Entram aqui as questões que cobram a SGM-105 (Normas sobre",
+    "Documentação Administrativa e Arquivamento na Marinha, NODAM) e o Manual Técnico de",
+    "Produção de Documentos da MB (MaTDoc): tipos de Documento Administrativo (DA),",
+    "classificação quanto ao âmbito, à precedência e ao acesso, sigilo, arquivamento, documentos",
+    "digitais e regras de redação.",
+    "Para cada questão você encontra o enunciado e as alternativas, o gabarito oficial, a explicação de",
+    "por que cada alternativa está certa ou errada e uma análise de possível anulação (argumentos de",
+    "recurso).",
+    "OBSERVAÇÕES SOBRE AS FONTES",
+    "De 2011 a 2019 as provas do CPA não trouxeram nenhuma questão de documentação administrativa;",
+    "o tema aparece a partir de 2020. São 14 questões no total, listadas no quadro abaixo.",
+    "Gabaritos: 2020 a 2024 são os finais, publicados após os recursos. 2025 usa o gabarito preliminar",
+    "(publicado antes do julgamento dos recursos).",
+    "Base dos comentários: o texto da SGM-105 e do MaTDoc tal como as próprias provas o reproduzem,",
+    "a Lei nº 12.527/2011 (LAI) e os Decretos nº 7.724/2012 e nº 7.845/2012 (informação classificada). O",
+    "texto integral da SGM-105 e do MaTDoc não estava disponível para conferência; onde um comentário",
+    "depende de um detalhe que só o texto integral confirma, isso está dito no próprio comentário.",
+    "QUADRO DE QUESTÕES E GABARITOS (PROVA AMARELA, CPA)",
+    "Ano Nº Assunto Gabarito",
+    "2020 31 TIPOS DE DA — ORDEM DE SERVIÇO A",
+    "SIGILO E CLASSIFICAÇÃO — REPRODUÇÃO, EXTRATO, PRECEDÊNCIA E",
+    "2020 50 C",
+    "INFORMAÇÃO PESSOAL ",
+    "2021 31 TIPOS DE DA — DECLARATÓRIOS: CERTIDÃO E",
+    "2021 39 ARQUIVO E DOCUMENTOS DIGITAIS — SPAD: PERIODICIDADE E",
+    "ARQUIVO E DOCUMENTOS DIGITAIS — ASSINATURA DIGITAL, TRAMITAÇÃO E",
+    "2021 40 D",
+    "NATO DIGITAL ",
+    "2022 38 SIGILO E CLASSIFICAÇÃO — PRECEDÊNCIA A",
+    "2022 42 TIPOS DE DA — DECLARATÓRIOS: ATESTADO B",
+    "2023 33 SIGILO E CLASSIFICAÇÃO — TERMO DE CLASSIFICAÇÃO DE INFORMAÇÃO (TCI) B",
+    "2023 35 TIPOS DE DA — CORRESPONDÊNCIA: DESPACHO E",
+    "2023 45 TIPOS DE DA — LISTA DE VERIFICAÇÃO ANUAL (LVA) A",
+    "SIGILO E CLASSIFICAÇÃO — ACESSO, REPRODUÇÃO, EXTRATO E ANEXO",
+    "2024 48 D",
+    "SIGILOSO ",
+    "2024 50 TIPOS DE DA — NORMATIVOS (IN, INST, PORTARIA, ORDEM INTERNA) A",
+    "2025** 33 TIPOS DE DA — GRUPOS (NORMATIVOS, CORRESPONDÊNCIA, DECLARATÓRIOS) A*",
+    "2025** 34 MATDOC — DESTINATÁRIO, ORIGEM E VIA B*",
+    "** 2025: gabarito preliminar. Nenhuma questão do tema foi anulada.",
+    "Questões por assunto",
+    "TIPOS DE DOCUMENTO ADMINISTRATIVO (NORMATIVOS, CORRESPONDÊNCIA, DECLARATÓRIOS E",
+    "OUTROS) — 7 questões",
+    "2020 Q31; 2021 Q31; 2022 Q42; 2023 Q35; 2023 Q45; 2024 Q50; 2025 Q33.",
+    "CLASSIFICAÇÃO (ÂMBITO, PRECEDÊNCIA, ACESSO) E SIGILO — 4 questões",
+    "2020 Q50; 2022 Q38; 2023 Q33; 2024 Q48.",
+    "ARQUIVAMENTO E DOCUMENTOS DIGITAIS — 2 questões",
+    "2021 Q39; 2021 Q40.",
+    "MATDOC (REDAÇÃO E ENDEREÇAMENTO) — 1 questões",
+    "2025 Q34.",
+    "Para memorizar (o que mais cai):",
+    "• Classificação do DA: ÂMBITO = interno ou externo; PRECEDÊNCIA = urgente, especial ou rotina;",
+    "ACESSO = ostensivo, sigiloso (reservado, secreto, ultrassecreto) ou informação pessoal (tratada",
+    "como Reservado).",
+    "• Normativos: IN (só o Comandante da Marinha), NORM, INST, Portaria (políticas, diretrizes, planos,",
+    "programas e projetos) e Ordem Interna (normas internas da OM).",
+    "• Declaratórios: Certidão (fato que consta de documento da OM), Atestado (fato de que a autoridade",
+    "tem conhecimento) e Declaração.",
+    "• Despacho: correspondência interna da MB escrita em continuação ao Ofício. Ordem de Serviço:",
+    "determina serviços e ratifica atos de subordinados.",
+    "• Sigilo: reprodução (total ou parcial) tem o mesmo grau do original; extrato de ultrassecreto precisa",
+    "de permissão da autoridade CLASSIFICADORA; o DA sigiloso só por encaminhar anexo sigiloso é",
+    "desclassificado quando o anexo é retirado; o formulário é o TCI.",
+    "• Arquivo: a SPAD seleciona a documentação anualmente, de janeiro a abril, aplicando a TTDD. A",
+    "LVA lista o que permanece numa coletânea e não cancela nada. Nato digital nasce digital;",
+    "digitalizado é convertido do papel."
+   ]
+  }
+ ],
+ "provas": [
+  {
+   "ano": 2020,
+   "titulo": "Prova de 2020",
+   "intro": []
+  },
+  {
+   "ano": 2021,
+   "titulo": "Prova de 2021",
+   "intro": []
+  },
+  {
+   "ano": 2022,
+   "titulo": "Prova de 2022",
+   "intro": []
+  },
+  {
+   "ano": 2023,
+   "titulo": "Prova de 2023",
+   "intro": []
+  },
+  {
+   "ano": 2024,
+   "titulo": "Prova de 2024",
+   "intro": []
+  },
+  {
+   "ano": 2025,
+   "titulo": "Prova de 2025",
+   "intro": [
+    "Gabarito preliminar (publicado em 28/10/2025, antes do julgamento dos recursos)."
+   ]
+  }
+ ],
+ "questoes": [
+  {
+   "ano": 2020,
+   "numero": 31,
+   "pagina": 4,
+   "assunto": "TIPOS DE DA — ORDEM DE SERVIÇO",
+   "nota": [],
+   "enunciado": [
+    "Assinale a opção que apresenta o Documento Administrativo usado pelo Comandante da Marinha e Titulares de Organizações Militares para registrarem uma ratificação de atos de subordinados."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Ordem de Serviço."
+    },
+    {
+     "letra": "B",
+     "texto": "Ofício."
+    },
+    {
+     "letra": "C",
+     "texto": "Portaria."
+    },
+    {
+     "letra": "D",
+     "texto": "Comunicação Interna."
+    },
+    {
+     "letra": "E",
+     "texto": "Carta."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. Na SGM-105 a Ordem de Serviço (OS) é o DA pelo qual o Comandante da Marinha e os Titulares de OM determinam providências ou a execução de serviços e registram atos administrativos internos, entre eles a ratificação (confirmação) de atos praticados por subordinados. A OS entra no grupo dos “outros” DA, não no de correspondência.",
+    "(B) Errada. O Ofício é DA de correspondência: serve para comunicação entre autoridades (dentro e fora da MB), não para registrar atos internos.",
+    "(C) Errada. A Portaria é DA normativo (institui políticas, diretrizes, comissões, delegações de competência). Não é o instrumento de ratificação de atos de subordinados.",
+    "(D) Errada. A Comunicação Interna é correspondência entre setores da mesma OM.",
+    "(E) Errada. A Carta é correspondência de cunho social ou cerimonial dirigida a particulares ou autoridades, sem caráter de registro de ato administrativo."
+   ],
+   "anulacao": [
+    "Sem margem. A definição da OS citando a ratificação de atos de subordinados é a mais cobrada desse DA."
+   ],
+   "fonte": "sgm105_comentado_2011_2025",
+   "id": "doc-administrativa-2020-q31"
+  },
+  {
+   "ano": 2020,
+   "numero": 50,
+   "pagina": 4,
+   "assunto": "SIGILO E CLASSIFICAÇÃO — REPRODUÇÃO, EXTRATO, PRECEDÊNCIA E INFORMAÇÃO PESSOAL",
+   "nota": [],
+   "enunciado": [
+    "Com relação à Documentação Administrativa na MB, considere as afirmações abaixo:",
+    "I - A reprodução do todo ou de parte de DA sigiloso terá o mesmo grau de sigilo do original.",
+    "II - Um DA que contenha extrato de DA sigiloso classificado como Reservado só poderá ser ostensivo com a permissão da autoridade classificadora do DA sigiloso.",
+    "III - Documentos classificados com sigilo URGENTE exigem ação ou conhecimento imediato do recebedor.",
+    "IV - O DA de Informação Pessoal deverá ter o mesmo tratamento do grau de sigilo Reservado. Considerando o disposto na SGM-105, são verdadeiras apenas as afirmativas:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "I e II."
+    },
+    {
+     "letra": "B",
+     "texto": "I e III."
+    },
+    {
+     "letra": "C",
+     "texto": "I e IV."
+    },
+    {
+     "letra": "D",
+     "texto": "II e III."
+    },
+    {
+     "letra": "E",
+     "texto": "II e IV."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "Análise das afirmativas: I - Verdadeira. É a regra da SGM-105, que repete o Decreto nº 7.845/2012: a reprodução, total ou parcial, de documento sigiloso recebe o mesmo grau de sigilo do original. II - Falsa. Pela norma, o DA que contém extrato de DA sigiloso recebe a classificação do trecho extraído; a afirmativa inventa uma exceção (“só poderá ser ostensivo com permissão”) que não está no texto. A pegadinha é parecida com a da Questão 48 de 2024 (autoridade “certificadora” no lugar de “classificadora”). III - Falsa. “Urgente” não é grau de sigilo: é classificação quanto à PRECEDÊNCIA (urgente, especial, rotina). Sigilo é classificação quanto ao ACESSO (ostensivo ou sigiloso: reservado, secreto, ultrassecreto). IV - Verdadeira. A informação pessoal (Lei nº 12.527/2011, art. 31) não é grau de sigilo, mas a SGM-105 manda dar ao DA de Informação Pessoal o mesmo tratamento (guarda, trâmite, envelopes) do grau Reservado.",
+    "(A) Errada. Inclui a II, que é falsa.",
+    "(B) Errada. Inclui a III, que confunde precedência com sigilo.",
+    "(C) Correta. Apenas I e IV são verdadeiras.",
+    "(D) Errada. II e III são justamente as falsas.",
+    "(E) Errada. Inclui a II."
+   ],
+   "anulacao": [
+    "Margem pequena. Um recurso poderia discutir a II, porque a lógica do Decreto nº 7.845/2012 deixa à autoridade classificadora a decisão sobre desclassificação; mas a afirmativa condiciona o extrato ser ostensivo a uma permissão que a SGM-105 não prevê nesses termos, e a banca manteve o gabarito. Confira no texto integral da SGM-105 (capítulo de documentos sigilosos)."
+   ],
+   "fonte": "sgm105_comentado_2011_2025",
+   "id": "doc-administrativa-2020-q50"
+  },
+  {
+   "ano": 2021,
+   "numero": 31,
+   "pagina": 6,
+   "assunto": "TIPOS DE DA — DECLARATÓRIOS: CERTIDÃO",
+   "nota": [],
+   "enunciado": [
+    "Segundo a SGM-105 (Normas sobre Documentação Administrativa e Arquivamento na Marinha), como se denomina o Documento Administrativo Declaratório mediante o qual os Titulares de Organizações Militares declaram a existência de fatos com base em documentos existentes na OM?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Comunicação Interna."
+    },
+    {
+     "letra": "B",
+     "texto": "Parecer."
+    },
+    {
+     "letra": "C",
+     "texto": "Declaração."
+    },
+    {
+     "letra": "D",
+     "texto": "Comunicação Padronizada."
+    },
+    {
+     "letra": "E",
+     "texto": "Certidão."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. Comunicação Interna é DA de correspondência, não declaratório.",
+    "(B) Errada. Parecer é manifestação técnica ou jurídica sobre um assunto submetido a exame; não declara fatos com base em registros.",
+    "(C) Errada. É o distrator mais forte. A Declaração também é DA declaratório, mas não se apoia em documento arquivado na OM. O que caracteriza a CERTIDÃO é justamente a base documental: ela certifica o que consta dos registros e assentamentos da OM.",
+    "(D) Errada. Comunicação Padronizada é DA de correspondência com formato padronizado.",
+    "(E) Correta. Certidão: DA declaratório pelo qual o Titular de OM declara a existência de fatos com base em documentos existentes na OM (registros, assentamentos, livros). Compare com o Atestado (Questão 42 de 2022), que comprova fato de que a autoridade tenha conhecimento, sem precisar de documento."
+   ],
+   "anulacao": [
+    "Sem margem. Regra para memorizar os três declaratórios: Certidão = consta de documento da OM; Atestado = a autoridade tem conhecimento do fato; Declaração = afirma a existência ou inexistência de fato ou situação, fora dessas duas hipóteses."
+   ],
+   "fonte": "sgm105_comentado_2011_2025",
+   "id": "doc-administrativa-2021-q31"
+  },
+  {
+   "ano": 2021,
+   "numero": 39,
+   "pagina": 6,
+   "assunto": "ARQUIVO E DOCUMENTOS DIGITAIS — SPAD: PERIODICIDADE",
+   "nota": [],
+   "enunciado": [
+    "A periodicidade para que as Subcomissões Permanentes de Avaliação de Documentos (SPAD) selecionem e ordenem a documentação produzida e acumulada no âmbito de atuação da OM é:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "a cada 6 meses."
+    },
+    {
+     "letra": "B",
+     "texto": "anualmente no período compreendido entre maio a junho."
+    },
+    {
+     "letra": "C",
+     "texto": "a cada 3 meses."
+    },
+    {
+     "letra": "D",
+     "texto": "anualmente no período compreendido entre junho a outubro."
+    },
+    {
+     "letra": "E",
+     "texto": "anualmente no período compreendido entre janeiro a abril."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. A seleção pela SPAD é anual, não semestral.",
+    "(B) Errada. A periodicidade é anual, mas o período indicado está errado.",
+    "(C) Errada. Não há seleção trimestral.",
+    "(D) Errada. Período errado.",
+    "(E) Correta. Pela norma, a SPAD de cada OM seleciona e ordena anualmente, de janeiro a abril, a documentação produzida e acumulada, aplicando a Tabela de Temporalidade e Destinação de Documentos (TTDD) para separar o que vai para eliminação, guarda intermediária ou recolhimento ao arquivo permanente (DPHDM). Logo depois do encerramento do ano, a documentação do ano anterior é avaliada."
+   ],
+   "anulacao": [
+    "Sem margem. O detalhe (janeiro a abril) é literal da norma; a SGM-503 (gestão arquivística) trata do mesmo assunto."
+   ],
+   "fonte": "sgm105_comentado_2011_2025",
+   "id": "doc-administrativa-2021-q39"
+  },
+  {
+   "ano": 2021,
+   "numero": 40,
+   "pagina": 7,
+   "assunto": "ARQUIVO E DOCUMENTOS DIGITAIS — ASSINATURA DIGITAL, TRAMITAÇÃO E NATO DIGITAL",
+   "nota": [],
+   "enunciado": [
+    "Coloque V (verdadeiro) ou F (falso) nas afirmativas abaixo sobre os Documentos Digitais apresentados na SGM-105, assinalando a seguir a opção correta.",
+    "( ) Os Documentos Administrativos de âmbito interno poderão ter assinatura digital e não poderão sofrer alterações após terem sido assinados digitalmente.",
+    "( ) A DAdM e a RECIM estabelecem quais são os sistemas de correio eletrônico e quais são os procedimentos em vigor na MB.",
+    "( ) Os Documentos Administrativos expedidos e recebidos entre OM deverão tramitar obrigatoriamente entre os Centros de Informática.",
+    "( ) Após ter sido convertido para o formato PDF os arquivos deverão ser assinados individualmente, de forma a garantir a sua autenticidade.",
+    "( ) Documento nato digital é o documento obtido a partir da conversão de um documento não digital, gerando uma fiel representação em código digital."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "(F)(F)(V)(F)(V)"
+    },
+    {
+     "letra": "B",
+     "texto": "(F)(V)(F)(V)(V)"
+    },
+    {
+     "letra": "C",
+     "texto": "(V)(F)(V)(F)(F)"
+    },
+    {
+     "letra": "D",
+     "texto": "(V)(F)(F)(V)(F)"
+    },
+    {
+     "letra": "E",
+     "texto": "(V)(V)(F)(F)(V)"
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "Análise das afirmativas: 1ª - Verdadeira. O DA de âmbito interno pode ser assinado digitalmente, e a assinatura digital garante integridade: depois de assinado, o documento não pode ser alterado (qualquer mudança invalida a assinatura). 2ª - Falsa. Quem define os sistemas de correio eletrônico e os procedimentos de TI na MB é a área de tecnologia da informação (DCTIM, órgão técnico do setor), não a DAdM nem a RECIM. 3ª - Falsa. Não há obrigação de os DA tramitarem “entre os Centros de Informática”; a tramitação digital se faz pelos sistemas corporativos (como o SiGDEM) e pelo correio eletrônico oficial. 4ª - Verdadeira. Convertidos para PDF, os arquivos devem ser assinados um a um, para garantir a autenticidade de cada documento. 5ª - Falsa. A definição é a de documento DIGITALIZADO (convertido de um original não digital). Documento NATO DIGITAL é o que já nasce em formato digital.",
+    "(A) Errada. Marca a 1ª como falsa e a 5ª (definição trocada) como verdadeira.",
+    "(B) Errada. Dá como verdadeira a 2ª e a 5ª.",
+    "(C) Errada. Dá como verdadeira a 3ª (tramitação obrigatória pelos CI).",
+    "(D) Correta. V, F, F, V, F.",
+    "(E) Errada. Dá como verdadeiras a 2ª e a 5ª."
+   ],
+   "anulacao": [
+    "Margem pequena na 2ª afirmativa: o nome do órgão responsável pelos sistemas de correio eletrônico depende da revisão da SGM-105 em vigor na época (o texto integral confirma). A 5ª, que troca nato digital por digitalizado, decide a questão sozinha entre as opções."
+   ],
+   "fonte": "sgm105_comentado_2011_2025",
+   "id": "doc-administrativa-2021-q40"
+  },
+  {
+   "ano": 2022,
+   "numero": 38,
+   "pagina": 9,
+   "assunto": "SIGILO E CLASSIFICAÇÃO — PRECEDÊNCIA",
+   "nota": [],
+   "enunciado": [
+    "O Documento Administrativo é classificado quanto ao âmbito, à precedência e ao acesso. Assinale a opção que apresenta uma classificação referente à precedência."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Especial."
+    },
+    {
+     "letra": "B",
+     "texto": "Informação Pessoal."
+    },
+    {
+     "letra": "C",
+     "texto": "Reservado."
+    },
+    {
+     "letra": "D",
+     "texto": "Ostensivo."
+    },
+    {
+     "letra": "E",
+     "texto": "Sigiloso."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. Quanto à precedência, que indica a rapidez com que o DA deve ser tratado, o DA é classificado em Urgente, Especial ou Rotina.",
+    "(B) Errada. Informação Pessoal é classificação quanto ao ACESSO (restrição prevista na Lei nº 12.527/2011).",
+    "(C) Errada. Reservado é grau de sigilo, ou seja, classificação quanto ao acesso.",
+    "(D) Errada. Ostensivo também é quanto ao acesso (documento sem restrição).",
+    "(E) Errada. Sigiloso é quanto ao acesso (graus reservado, secreto e ultrassecreto)."
+   ],
+   "anulacao": [
+    "Sem margem. Esquema: ÂMBITO = interno ou externo; PRECEDÊNCIA = urgente, especial ou rotina; ACESSO = ostensivo, sigiloso (reservado, secreto, ultrassecreto) ou informação pessoal."
+   ],
+   "fonte": "sgm105_comentado_2011_2025",
+   "id": "doc-administrativa-2022-q38"
+  },
+  {
+   "ano": 2022,
+   "numero": 42,
+   "pagina": 9,
+   "assunto": "TIPOS DE DA — DECLARATÓRIOS: ATESTADO",
+   "nota": [],
+   "enunciado": [
+    "Como é chamado o Documento Administrativo (DA) declaratório pelo qual os Titulares de Organizações Militares (OM) ou autoridade delegada comprovam, a pedido, um fato ou situação de que tenham conhecimento?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Comunicação Padronizada."
+    },
+    {
+     "letra": "B",
+     "texto": "Atestado."
+    },
+    {
+     "letra": "C",
+     "texto": "Ofício."
+    },
+    {
+     "letra": "D",
+     "texto": "Certidão."
+    },
+    {
+     "letra": "E",
+     "texto": "Memorando."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. Comunicação Padronizada é DA de correspondência.",
+    "(B) Correta. Atestado: DA declaratório pelo qual o Titular de OM (ou autoridade delegada) comprova, a pedido, fato ou situação de que tenha conhecimento. A chave é “de que tenham conhecimento”.",
+    "(C) Errada. Ofício é DA de correspondência.",
+    "(D) Errada. A Certidão também é declaratória, mas se baseia em documentos existentes na OM (Questão 31 de 2021), e não no simples conhecimento da autoridade.",
+    "(E) Errada. Memorando é DA de correspondência."
+   ],
+   "anulacao": [
+    "Sem margem. Atestado = conhecimento; Certidão = documento da OM."
+   ],
+   "fonte": "sgm105_comentado_2011_2025",
+   "id": "doc-administrativa-2022-q42"
+  },
+  {
+   "ano": 2023,
+   "numero": 33,
+   "pagina": 11,
+   "assunto": "SIGILO E CLASSIFICAÇÃO — TERMO DE CLASSIFICAÇÃO DE INFORMAÇÃO (TCI)",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a SGM-105, qual é o formulário que formaliza a decisão de classificação, desclassificação, reclassificação ou redução do prazo de sigilo de informação classificada em qualquer grau de sigilo?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Anexo Sigiloso."
+    },
+    {
+     "letra": "B",
+     "texto": "Termo de Classificação de Informação (TCI)."
+    },
+    {
+     "letra": "C",
+     "texto": "Comunicação Padronizada de Processos Judiciais (CPPJ)."
+    },
+    {
+     "letra": "D",
+     "texto": "Parecer."
+    },
+    {
+     "letra": "E",
+     "texto": "Ordem de Serviço."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. Anexo sigiloso é o documento sigiloso que acompanha um DA; não formaliza decisão de classificação.",
+    "(B) Correta. O TCI é o formulário que formaliza a decisão de classificar, desclassificar, reclassificar ou reduzir o prazo de sigilo (Decreto nº 7.724/2012, art. 31, com modelo no Decreto nº 7.845/2012; a SGM-105 adota o mesmo formulário).",
+    "(C) Errada. A CPPJ é DA de correspondência usado para tratar de processos judiciais.",
+    "(D) Errada. Parecer é manifestação técnica ou jurídica.",
+    "(E) Errada. Ordem de Serviço é DA interno de determinação e registro de atos."
+   ],
+   "anulacao": [
+    "Sem margem. Atenção ao distrator de 2024 (Questão 48, E): “Termo de Documentação Sigilosa (TDS)” não existe; o nome correto é TCI."
+   ],
+   "fonte": "sgm105_comentado_2011_2025",
+   "id": "doc-administrativa-2023-q33"
+  },
+  {
+   "ano": 2023,
+   "numero": 35,
+   "pagina": 11,
+   "assunto": "TIPOS DE DA — CORRESPONDÊNCIA: DESPACHO",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a SGM-105, qual é o Documento Administrativo (DA) de correspondência utilizado exclusivamente no âmbito interno da Marinha do Brasil, em continuação ao Ofício?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Requerimento."
+    },
+    {
+     "letra": "B",
+     "texto": "Certidão."
+    },
+    {
+     "letra": "C",
+     "texto": "Atestado."
+    },
+    {
+     "letra": "D",
+     "texto": "Memorando."
+    },
+    {
+     "letra": "E",
+     "texto": "Despacho."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. Requerimento é o documento pelo qual se pede algo à Administração; não é escrito em continuação a Ofício.",
+    "(B) Errada. Certidão é DA declaratório.",
+    "(C) Errada. Atestado é DA declaratório.",
+    "(D) Errada pelo gabarito oficial. O Memorando é DA de correspondência de âmbito interno, mas é documento autônomo: não é redigido “em continuação” a outro. Alguns bancos de questões na internet trazem “D” para esta questão; o gabarito definitivo do SSPM (CPA/CAP, prova Amarela) é E.",
+    "(E) Correta. Despacho é o DA de correspondência, de uso exclusivo no âmbito interno da MB, redigido em continuação ao Ofício (ou a outro DA recebido), para encaminhá-lo, dar ordem ou opinar sem precisar de novo documento. A expressão “em continuação” é a marca do Despacho."
+   ],
+   "anulacao": [
+    "Margem pequena. Se houve recurso, foi pela confusão com o Memorando; a banca manteve E no gabarito final, de acordo com a definição de Despacho da SGM-105. O texto integral confirma a redação exata."
+   ],
+   "fonte": "sgm105_comentado_2011_2025",
+   "id": "doc-administrativa-2023-q35"
+  },
+  {
+   "ano": 2023,
+   "numero": 45,
+   "pagina": 12,
+   "assunto": "TIPOS DE DA — LISTA DE VERIFICAÇÃO ANUAL (LVA)",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a SGM-105, o que se destina a divulgar os documentos que devem permanecer em uma coletânea, dela fazendo parte, e por isso não lhe cabendo a finalidade de cancelar qualquer documento, mesmo que nela não tenha sido relacionado?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Lista de Verificação Anual (LVA)."
+    },
+    {
+     "letra": "B",
+     "texto": "Termo de Classificação de Informação (TCI)."
+    },
+    {
+     "letra": "C",
+     "texto": "Tabela de Temporalidade e Destinação de Documentos (TTDD)."
+    },
+    {
+     "letra": "D",
+     "texto": "Instrução Permanente (INST)."
+    },
+    {
+     "letra": "E",
+     "texto": "Circular (Circ)."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. A LVA é publicada periodicamente para relacionar os documentos que continuam em vigor numa coletânea (por exemplo, de Circulares ou de Instruções). Ela só informa o que permanece; não cancela nada. Para cancelar um documento é preciso um ato próprio.",
+    "(B) Errada. O TCI formaliza decisões sobre sigilo (Questão 33 de 2023).",
+    "(C) Errada. A TTDD define prazos de guarda e destinação (eliminação ou guarda permanente) dos documentos de arquivo.",
+    "(D) Errada. A INST é DA normativo que estabelece normas e procedimentos.",
+    "(E) Errada. A Circular é DA de correspondência com o mesmo conteúdo para vários destinatários."
+   ],
+   "anulacao": [
+    "Sem margem. O enunciado reproduz a definição da norma (a LVA “não tem a finalidade de cancelar qualquer documento”)."
+   ],
+   "fonte": "sgm105_comentado_2011_2025",
+   "id": "doc-administrativa-2023-q45"
+  },
+  {
+   "ano": 2024,
+   "numero": 48,
+   "pagina": 13,
+   "assunto": "SIGILO E CLASSIFICAÇÃO — ACESSO, REPRODUÇÃO, EXTRATO E ANEXO SIGILOSO",
+   "nota": [],
+   "enunciado": [
+    "Com relação à classificação dos documentos administrativos da Marinha do Brasil, é correto afirmar que:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "é classificado quanto ao acesso em: urgente, especial ou rotina."
+    },
+    {
+     "letra": "B",
+     "texto": "a reprodução de parte de um documento administrativo sigiloso terá um grau de sigilo menor que o original."
+    },
+    {
+     "letra": "C",
+     "texto": "a elaboração de extratos de documentos administrativos ultrassecretos depende da permissão de autoridade certificadora ou de autoridade hierarquicamente superior."
+    },
+    {
+     "letra": "D",
+     "texto": "o documento administrativo de correspondência classificado como sigiloso, unicamente por encaminhar anexo sigiloso, será desclassificado tão logo seja retirado esse anexo."
+    },
+    {
+     "letra": "E",
+     "texto": "o Termo de Documentação Sigilosa (TDS) é o formulário que formaliza a decisão de classificação e determina o prazo de sigilo da informação."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. Urgente, especial e rotina são classificações quanto à PRECEDÊNCIA. Quanto ao acesso, o DA é ostensivo ou sigiloso (ou de informação pessoal).",
+    "(B) Errada. A reprodução, total ou parcial, tem o MESMO grau de sigilo do original (Questão 50 de 2020, afirmativa I).",
+    "(C) Errada. A pegadinha é a palavra “certificadora”. A permissão para extrato de documento ultrassecreto é da autoridade CLASSIFICADORA (ou de autoridade hierarquicamente superior), como no Decreto nº 7.845/2012.",
+    "(D) Correta. O DA de correspondência que só é sigiloso porque encaminha anexo sigiloso é desclassificado automaticamente quando o anexo é retirado. Por isso esse DA costuma levar a anotação de que fica desclassificado quando separado do anexo.",
+    "(E) Errada. O formulário é o Termo de Classificação de Informação (TCI). “TDS” não existe na norma."
+   ],
+   "anulacao": [
+    "Sem margem. Questão de troca de palavras (certificadora/classificadora, TDS/TCI, acesso/precedência)."
+   ],
+   "fonte": "sgm105_comentado_2011_2025",
+   "id": "doc-administrativa-2024-q48"
+  },
+  {
+   "ano": 2024,
+   "numero": 50,
+   "pagina": 13,
+   "assunto": "TIPOS DE DA — NORMATIVOS (IN, INST, PORTARIA, ORDEM INTERNA)",
+   "nota": [],
+   "enunciado": [
+    "Com relação aos tipos de Documentos Administrativos da Marinha do Brasil, é correto afirmar que a:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Instrução Normativa é expedida, no âmbito da Marinha do Brasil (MB), exclusivamente pelo Comandante da Marinha (CM), em virtude de competência regimental ou delegada, para estabelecer instruções e procedimentos de caráter geral necessário à execução de normas, leis, decretos e regulamentos."
+    },
+    {
+     "letra": "B",
+     "texto": "Instrução Normativa é o documento administrativo normativo por meio do qual o Estado-Maior da Armada (EMA), os Órgãos de Direção Setorial (ODS), o Gabinete do Comandante da Marinha (GCM), as Organizações Militares Orientadoras Técnicas (OMOT) e as Organizações Militares (OM) com atribuições de Diretoria Especializada (DE) estabelecem normas e procedimentos sobre assuntos de sua competência, para toda a MB."
+    },
+    {
+     "letra": "C",
+     "texto": "Instrução Permanente é o documento administrativo normativo pelo qual os Almirantes, em cargo de Comando, Direção ou Chefia, bem como os Oficiais Superiores e os Oficiais Superiores Comandantes de Força estabelecem normas e procedimentos que serão cumpridos pelas OM que lhes são subordinadas."
+    },
+    {
+     "letra": "D",
+     "texto": "Portaria é o documento administrativo normativo pelo qual os Titulares de OM estabelecem normas e procedimentos no âmbito interno de suas OM."
+    },
+    {
+     "letra": "E",
+     "texto": "Ordem Interna é o documento administrativo normativo expedido em virtude de competência regimental ou delegada, para a institucionalização de políticas, diretrizes, planos, programas e projetos."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. A Instrução Normativa (IN) é privativa do Comandante da Marinha: só ele a expede, por competência regimental ou delegada, para dar instruções gerais de execução de leis, decretos e regulamentos.",
+    "(B) Errada. A definição descreve o DA pelo qual EMA, ODS, GCM, OMOT e DE baixam normas para toda a MB sobre assuntos de sua competência, que na SGM-105 é a Norma Permanente (NORM), e não a IN, que é exclusiva do CM.",
+    "(C) Errada. A INST é expedida por Almirantes em cargo de Comando, Direção ou Chefia e por Oficiais Superiores Comandantes de Força. A inclusão de “os Oficiais Superiores” de forma genérica amplia indevidamente quem pode expedi-la.",
+    "(D) Errada. Essa é a definição de ORDEM INTERNA (normas no âmbito interno da OM, baixadas pelo seu Titular).",
+    "(E) Errada. Essa é a definição de PORTARIA (institucionalização de políticas, diretrizes, planos, programas e projetos). As opções D e E trocaram as definições."
+   ],
+   "anulacao": [
+    "Margem pequena. A B e a C dependem do detalhe de quem expede NORM e INST na revisão em vigor da SGM-105 (o texto integral confirma a redação). A troca entre Portaria e Ordem Interna (D e E) é clara."
+   ],
+   "fonte": "sgm105_comentado_2011_2025",
+   "id": "doc-administrativa-2024-q50"
+  },
+  {
+   "ano": 2025,
+   "numero": 33,
+   "pagina": 15,
+   "assunto": "TIPOS DE DA — GRUPOS (NORMATIVOS, CORRESPONDÊNCIA, DECLARATÓRIOS)",
+   "nota": [],
+   "enunciado": [
+    "Segundo a SGM-105 (NODAM), documento é a unidade de registro de informações, qualquer que seja o suporte ou formato e está enquadrado nos seguintes grupos de documentos: Documentos Administrativos (DA), Documentos Operativos (DO), Publicações e Documentos Especiais. Assim, assinale a opção que apresenta corretamente os tipos de documentos quanto aos grupos."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "DA Normativos: Instrução Normativa (IN), Instrução Permanente (INST), Norma Permanente (NORM), Ordem Interna (OI) e Portaria (Port)."
+    },
+    {
+     "letra": "B",
+     "texto": "DA de Correspondência: Carta Precatória, Circular (Circ), Comunicação Padronizada (CP), Comunicação Interna (CI), Comunicação Padronizada de Processos Jurídicos (CPPJ) e Instrução Permanente (INST)."
+    },
+    {
+     "letra": "C",
+     "texto": "DA Declaratórios: Atestado, Certidão, Carta, Curriculum Vitae, Ordem do Dia (OD), Ordem Interna (OI), Ordem de Serviço (OS), Parecer, Termo e Declaração."
+    },
+    {
+     "letra": "D",
+     "texto": "DA de Correspondência: Despacho Decisório (DD), Memorando (Memo), Comunicação Padronizada de Processos Jurídicos (CPPJ), Ofício Circular (OfCirc), Ofício Externo (OfExt) e Ordem de Serviço (OS)."
+    },
+    {
+     "letra": "E",
+     "texto": "DA Declaratórios: Atestado, Certidão, Parecer, Curriculum Vitae, Plano do Dia (PD), Ordem interna (OI), Ordem de Serviço (OS), Parecer, Termo de Juntada por Anexação."
+    }
+   ],
+   "gabarito": "Gabarito: A (preliminar)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. Os DA normativos são os que estabelecem normas: IN, INST, NORM, OI e Portaria (veja a Questão 50 de 2024).",
+    "(B) Errada. A lista mistura a INST, que é normativa, com documentos de correspondência.",
+    "(C) Errada. Declaratórios são Atestado, Certidão e Declaração. Carta é correspondência, OI é normativa, e OD, OS, Parecer, Termo e Curriculum Vitae ficam em outros grupos.",
+    "(D) Errada. A Ordem de Serviço não é correspondência, e o “Despacho Decisório” não é o nome do DA de correspondência (o nome é Despacho, Questão 35 de 2023).",
+    "(E) Errada. Inclui no grupo declaratório Parecer, PD, OI, OS e Termo, que não são declaratórios (e repete “Parecer”)."
+   ],
+   "anulacao": [
+    "Gabarito preliminar. Sem margem relevante: só a A não mistura grupos."
+   ],
+   "fonte": "sgm105_comentado_2011_2025",
+   "id": "doc-administrativa-2025-q33"
+  },
+  {
+   "ano": 2025,
+   "numero": 34,
+   "pagina": 16,
+   "assunto": "MATDOC — DESTINATÁRIO, ORIGEM E VIA",
+   "nota": [],
+   "enunciado": [
+    "De acordo com o inciso 1.4.7 do Manual Técnico de Produção de Documentos da MB (MaTDoc), serão destinatários de Documentos Administrativos (DA) os titulares de Organizações Militares (OM) e o Vice-Chefe do Estado-Maior da Armada. Assim, quando um DA for endereçado a várias autoridades, estas serão relacionadas em sequência hierárquica, precedido de “Aos:”. Sobre o destinatário assinale a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Havendo mais de uma autoridade de mesmo posto, estas deverão ser apresentadas em ordem de antiguidade de seus cargos."
+    },
+    {
+     "letra": "B",
+     "texto": "Serão evitadas redundâncias na escrituração do destinatário. Assim, para não escrever “Agente da Agência” e casos similares nas Capitanias, Comandos, Delegacias e Diretorias será suprimida a primeira palavra do nome dessas OM."
+    },
+    {
+     "letra": "C",
+     "texto": "A ordem de tramitação “Via” independe da antiguidade das autoridades endereçadas, prevalecendo a necessidade de quem deve conhecer primeiro."
+    },
+    {
+     "letra": "D",
+     "texto": "O número de originais dos DA cujo trâmite dar-se-á fisicamente será igual ao número de destinatários menos a via do arquivo, sendo todos autenticados pela autoridade expedidora."
+    },
+    {
+     "letra": "E",
+     "texto": "Quando aplicável, a origem será escriturada usando-se a denominação oficial do cargo da autoridade expedidora, precedido de “Do:” ou “Da:”."
+    }
+   ],
+   "gabarito": "Gabarito: B (preliminar)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada pelo gabarito. O manual manda relacionar as autoridades em sequência hierárquica; o critério “antiguidade de seus cargos” para autoridades de mesmo posto não é o da norma (confira no texto integral qual critério o MaTDoc adota para esse desempate).",
+    "(B) Correta. O MaTDoc manda evitar redundâncias: em vez de “Ao Agente da Agência da Capitania...”, “Ao Comandante do Comando...” ou “Ao Diretor da Diretoria...”, suprime-se a primeira palavra do nome da OM (“Ao Agente da Capitania...”, “Ao Diretor de...”).",
+    "(C) Errada. A tramitação “Via” segue a cadeia hierárquica: o DA passa pelas autoridades intermediárias na ordem da hierarquia, e não pela “necessidade de quem deve conhecer primeiro”.",
+    "(D) Errada. No trâmite físico, cada destinatário recebe um original; a via do arquivo não é descontada desse número.",
+    "(E) Errada pelo gabarito preliminar. A redação é muito próxima da regra de escrituração da origem (cargo da autoridade expedidora precedido de “Do:”); o ponto que a banca deve ter considerado errado é a forma alternativa “Da:”."
+   ],
+   "anulacao": [
+    "Gabarito preliminar. Possível recurso contra a E, cuja redação é muito próxima da regra (cabe discutir se o MaTDoc admite “Da:”). Como o MaTDoc não está disponível no projeto, confira o inciso no texto integral antes de usar este argumento."
+   ],
+   "fonte": "sgm105_comentado_2011_2025",
+   "id": "doc-administrativa-2025-q34"
+  }
+ ]
+}

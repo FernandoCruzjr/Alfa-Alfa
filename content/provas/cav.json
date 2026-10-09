@@ -1,0 +1,2610 @@
+{
+ "slug": "cav",
+ "materia": "Controle de Avarias e Combate a Incêndio",
+ "icon": "fa-fire-extinguisher",
+ "cadernos": [
+  {
+   "fonte": "cav_comentado_2011_2025.pdf",
+   "titulo": "Controle de Avarias (CAv) e Combate a Incêndio comentado — CA-AA-AFN (CPA)",
+   "linhas": [
+    "2011–2025",
+    "Resolução comentada das questões de Controle de Avarias da parte de Conhecimentos",
+    "Militares-Navais da prova Amarela dos candidatos oriundos do Corpo de Praças da Armada",
+    "(CPA), de 2011 a 2025. Entram aqui as questões da Organização do Controle de Avarias",
+    "(CAAML-1201: Organização Administrativa e de Combate, reparos, TAR, Grupo de Socorro",
+    "Externo, medidas preliminares e após avaria) e do Manual de Combate a Incêndio (CAAML-1202:",
+    "teoria do fogo, métodos de extinção, dinâmica do incêndio, agentes extintores e extintores).",
+    "Para cada questão você encontra o enunciado e as alternativas, o gabarito oficial, a explicação de",
+    "por que cada alternativa está certa ou errada e uma análise de possível anulação (argumentos de",
+    "recurso).",
+    "OBSERVAÇÕES SOBRE AS FONTES",
+    "Foram encontradas 51 questões de CAv e combate a incêndio, presentes em todas as provas de",
+    "2011 a 2025 e listadas no quadro abaixo. A questão 48 de 2025 é mista (o enunciado fala em",
+    "Procedimentos Marinheiros, mas três dos cinco itens são de CAv) e foi incluída.",
+    "Gabaritos: 2011 não tem gabarito no projeto; nessas questões a resposta indicada é a do texto do",
+    "manual. 2012 a 2024 seguem os gabaritos publicados pela banca. 2025 usa o gabarito preliminar.",
+    "Três questões foram anuladas (2015 Q35, 2017 Q49 e 2018 Q35).",
+    "Base dos comentários: o texto das próprias provas, que reproduz trechos do CAAML-1201 e do",
+    "CAAML-1202, cruzado entre os anos e com os gabaritos oficiais (a banca repete muitas frases, ora",
+    "certas, ora adulteradas), e os conceitos gerais de combate a incêndio. O texto integral dos dois",
+    "manuais não estava disponível no projeto; onde um comentário depende de um número ou detalhe",
+    "que só o manual confirma, isso está dito no comentário.",
+    "QUADRO DE QUESTÕES E GABARITOS (PROVA AMARELA, CPA)",
+    "Ano Nº Assunto Gabarito",
+    "2011 35 AGENTES — ESTAÇÕES FIXAS DE ESPUMA: QUANDO GUARNECER (B)",
+    "2011 41 FOGO — COMPARTIMENTO INACESSÍVEL: ATAQUE INDIRETO (A)",
+    "2011 47 REPARO — ORGANIZAÇÃO DO CAV: AFIRMATIVA INCORRETA (E)",
+    "2012 31 FOGO — PONTOS DE TEMPERATURA: PONTO DE COMBUSTÃO A",
+    "2012 36 REPARO — CÂMERA DE IMAGEM TÉRMICA B",
+    "2012 39 GSE — LOCAL DE FORMATURA A BORDO C",
+    "2012 45 REPARO — TAR: QUEM ORGANIZA, QUALIFICA E ADESTRA D",
+    "2013 32 REPARO — COMPONENTES DO REPARO: AFIRMATIVA INCORRETA C",
+    "2013 35 AGENTES — ÁGUA, NEBLINA, ESPUMA E CO2 C",
+    "2013 41 FOGO — TETRAEDRO, COMBUSTÃO E PROPAGAÇÃO DO CALOR C",
+    "2013 45 ORGANIZAÇÃO — OA DO CAV: CORRELAÇÃO DE FUNÇÕES E TAREFAS C",
+    "2013 47 ORGANIZAÇÃO — CONCEITO, PROPÓSITO E MEDIDAS DO CAV (V/F) B",
+    "2013 48 GSE — FUNCIONAMENTO DO SOCORRO EXTERNO B",
+    "AGENTES — AGENTE POR EXCELÊNCIA DOS EXTINTORES PORTÁTEIS (CLASSES B",
+    "2014 31 D",
+    "E C) ",
+    "2014 32 ORGANIZAÇÃO — PROPÓSITO DO CAV B",
+    "2014 36 GSE — COMPOSIÇÃO MÍNIMA: TURMA DE INCÊNDIO B",
+    "2014 39 ORGANIZAÇÃO — MEDIDAS PRELIMINARES X MEDIDAS APÓS AVARIA C",
+    "2014 45 FOGO — DINÂMICA DO INCÊNDIO: FASE INICIAL D",
+    "Ano Nº Assunto Gabarito",
+    "2014 48 AGENTES — INSPEÇÃO DE EXTINTORES: PESAGEM DO CO2 C",
+    "AGENTES — GASES LIMPOS (ARGÔNIO, ARGONITE, HALOCARBONADOS, FM-200,",
+    "2015 33 D",
+    "NAF-SIII) ",
+    "2015 35 REPARO — ORGANIZAÇÃO DE COMBATE DO CAV Anulada",
+    "2015 48 REPARO — TURMA DE ATAQUE RÁPIDO (TAR) A",
+    "2016 34 REPARO — TURMAS DO REPARO COM MAIS DE 24 MILITARES E",
+    "2016 35 AGENTES — CARRETA DE ESPUMA MECÂNICA E",
+    "2016 37 GSE — ACIONAMENTO E PROCEDIMENTOS D",
+    "2016 47 AGENTES — PÓ QUÍMICO SECO: TRATAMENTO ANTI-HIGROSCÓPICO D",
+    "2017 41 ORGANIZAÇÃO — ENFERMARIAS DE COMBATE D",
+    "2017 42 REPARO — TAR: QUEM ORGANIZA, QUALIFICA E ADESTRA B",
+    "2017 49 FOGO — DINÂMICA DO INCÊNDIO: FASE DE DESENVOLVIMENTO (AFIRMATIVAS) Anulada",
+    "2018 35 AGENTES — EXTINTOR CLASSE K: COMO EXTINGUE Anulada",
+    "2018 43 ORGANIZAÇÃO — LIVRO DE CAV ATUALIZADO D",
+    "2018 45 FOGO — MÉTODOS DE EXTINÇÃO: ABAFAMENTO C",
+    "2018 49 GSE — LISTA DE DOTAÇÃO DE MATERIAL DE CAV B",
+    "2019 36 FOGO — DINÂMICA DO INCÊNDIO: FASE DE DESENVOLVIMENTO A",
+    "2019 41 AGENTES — EXTINTOR CLASSE K C",
+    "2019 43 ORGANIZAÇÃO — SUPERVISÃO GERAL DO CAV D",
+    "2019 48 ORGANIZAÇÃO — SOMENTE MEDIDAS PRELIMINARES A",
+    "2020 32 ORGANIZAÇÃO — ATRIBUIÇÃO DO ENCARREGADO DO CAV D",
+    "2021 32 FOGO — MÉTODOS DE EXTINÇÃO B",
+    "2021 49 REPARO — LÍDER DO REPARO (LÍDER DA CENA DE AÇÃO) C",
+    "2022 43 FOGO — SINAIS DE BACKDRAFT (V/F) A",
+    "2022 49 ORGANIZAÇÃO — OA DO CAV: CORRELAÇÃO DE FUNÇÕES E ATRIBUIÇÕES A",
+    "2023 38 AGENTES — COMPOSTOS HALOCARBONADOS E",
+    "2023 47 REPARO — TURMA DE MÁSCARAS: LIMITE POR CONTROLADOR C",
+    "2023 49 GSE — QUEM ACIONA A",
+    "2024 34 AGENTES — EXTINTOR CLASSE K: AGENTE E IDENTIFICAÇÃO E",
+    "2024 41 REPARO — BUSCA DE FERIDOS E RESFRIAMENTO DE PONTOS DE IGNIÇÃO C",
+    "2024 44 REPARO — FUNÇÕES NA ORGANIZAÇÃO DE COMBATE E",
+    "2025** 38 AGENTES — HALON: TOXICIDADE E PROPRIEDADES D*",
+    "2025** 48 ORGANIZAÇÃO — QUESTÃO MISTA (PROCEDIMENTOS MARINHEIROS E CAV) E*",
+    "REPARO — COMPARTIMENTO NÃO VENTILADO: SEM SEGURANÇA PARA O",
+    "2025** 49 C*",
+    "PESSOAL ",
+    "** 2025: gabarito preliminar. Entre parênteses (2011): sem gabarito oficial no projeto; resposta pelo texto do",
+    "manual. Em vermelho: anuladas.",
+    "Questões por assunto",
+    "ORGANIZAÇÃO DO CAV: PROPÓSITO, MEDIDAS, ORGANIZAÇÃO ADMINISTRATIVA E FUNÇÕES — 11",
+    "questões",
+    "2013 Q45; 2013 Q47; 2014 Q32; 2014 Q39; 2017 Q41; 2018 Q43; 2019 Q43; 2019 Q48; 2020",
+    "Q32; 2022 Q49; 2025 Q48.",
+    "REPARO E ORGANIZAÇÃO DE COMBATE: TURMAS, LÍDER DA CENA DE AÇÃO, TAR, MÁSCARAS — 13",
+    "questões",
+    "2011 Q47; 2012 Q36; 2012 Q45; 2013 Q32; 2015 Q35; 2015 Q48; 2016 Q34; 2017 Q42; 2021",
+    "Q49; 2023 Q47; 2024 Q41; 2024 Q44; 2025 Q49.",
+    "GRUPO DE SOCORRO EXTERNO (GSE) — 6 questões",
+    "2012 Q39; 2013 Q48; 2014 Q36; 2016 Q37; 2018 Q49; 2023 Q49.",
+    "TEORIA DO FOGO, MÉTODOS DE EXTINÇÃO E DINÂMICA DO INCÊNDIO — 9 questões",
+    "2011 Q41; 2012 Q31; 2013 Q41; 2014 Q45; 2017 Q49; 2018 Q45; 2019 Q36; 2021 Q32; 2022",
+    "Q43.",
+    "AGENTES EXTINTORES E EXTINTORES — 12 questões",
+    "2011 Q35; 2013 Q35; 2014 Q31; 2014 Q48; 2015 Q33; 2016 Q35; 2016 Q47; 2018 Q35; 2019",
+    "Q41; 2023 Q38; 2024 Q34; 2025 Q38.",
+    "Para memorizar (o que mais cai):",
+    "• Propósito do CAv: MANTER AO MÁXIMO O PODER COMBATENTE do navio. Atribuições =",
+    "medidas PRELIMINARES (antes: manter recursos de CAv, estabilidade e reserva de flutuabilidade,",
+    "fiscalizar condição de fechamento, reduzir riscos de incêndio, conservar equipamentos de",
+    "emergência) e medidas APÓS SOFRER AVARIAS (combater incêndio, controlar alagamento, socorrer",
+    "feridos, força em avaria, QBN).",
+    "• OA: Encarregado do CAv (subordinado ao Chefe de Máquinas) organiza, qualifica e adestra a TAR,",
+    "inspeciona o material dos reparos e mantém o livro de CAv. Fiel do navio coordena os Fiéis das",
+    "Divisões. Imediato supervisiona e provê pessoal e material de outros controles em grandes avarias.",
+    "Encarregado de Divisão: medidas preventivas (estanqueidade). Fiel da Divisão: inspeções diárias e",
+    "listas de verificação.",
+    "• Reparo: Líder do Reparo = Líder da Cena de Ação (com EPI). Câmera térmica: Líder da Turma de",
+    "Incêndio. Mensageiro: LCA ↔ Encarregado do REPARO. Investigador: adjacentes e busca de feridos.",
+    "Contenção: limites de incêndio. Rescaldo: resfria pontos de ignição. Máscaras: controlador + 2",
+    "ajudantes, até 8 militares. Mais de 24 militares: contenção, primeiros socorros, bombas e remoção de",
+    "escombros. Áreas dos reparos: Organização de COMBATE.",
+    "• TAR: atua no mar fora da Condição I. GSE: forma em local da Organização ADMINISTRATIVA;",
+    "acionado pelo Oficial de Serviço (porto) ou Oficial de Quarto (viagem); um militar vai antes ao navio",
+    "sinistrado com PRC; Turma de Incêndio mínima de 3; dotação de material pela DEN.",
+    "• Fogo: tetraedro = combustível, comburente, calor e reação em cadeia. Fulgor (chama não se",
+    "mantém) → combustão (se mantém) → ignição (sem fonte externa). Abafamento: O2 abaixo de 13%.",
+    "Combustível com oxigênio próprio: só resfriamento. Fases: inicial → desenvolvimento (espalhamento",
+    "repentino, flashover) → desenvolvido → queda. Backdraft: fumaça sob pressão, calor, vidros",
+    "enegrecidos, pouco ruído, ar SUGADO para dentro.",
+    "• Agentes: água age principalmente por resfriamento; CO2 é o agente dos portáteis para B e C (baixa",
+    "pressão = grandes quantidades); pó químico com tratamento ANTI-HIGROSCÓPICO; classe K =",
+    "acetato de potássio, resfriamento e efeito asfixiante da espuma (saponificação), quadrado preto com",
+    "K, para cozinhas; halon só em sistemas fixos, 5 vezes mais denso que o ar; halocarbonados = gases",
+    "limpos com F, Br, Cl ou I; FM-200 (heptafluoropropano) substitui o Halon 1301; pesagem do CO2:",
+    "semestral."
+   ]
+  }
+ ],
+ "provas": [
+  {
+   "ano": 2011,
+   "titulo": "Prova de 2011",
+   "intro": []
+  },
+  {
+   "ano": 2012,
+   "titulo": "Prova de 2012",
+   "intro": []
+  },
+  {
+   "ano": 2013,
+   "titulo": "Prova de 2013",
+   "intro": []
+  },
+  {
+   "ano": 2014,
+   "titulo": "Prova de 2014",
+   "intro": []
+  },
+  {
+   "ano": 2015,
+   "titulo": "Prova de 2015",
+   "intro": []
+  },
+  {
+   "ano": 2016,
+   "titulo": "Prova de 2016",
+   "intro": []
+  },
+  {
+   "ano": 2017,
+   "titulo": "Prova de 2017",
+   "intro": []
+  },
+  {
+   "ano": 2018,
+   "titulo": "Prova de 2018",
+   "intro": []
+  },
+  {
+   "ano": 2019,
+   "titulo": "Prova de 2019",
+   "intro": []
+  },
+  {
+   "ano": 2020,
+   "titulo": "Prova de 2020",
+   "intro": []
+  },
+  {
+   "ano": 2021,
+   "titulo": "Prova de 2021",
+   "intro": []
+  },
+  {
+   "ano": 2022,
+   "titulo": "Prova de 2022",
+   "intro": []
+  },
+  {
+   "ano": 2023,
+   "titulo": "Prova de 2023",
+   "intro": []
+  },
+  {
+   "ano": 2024,
+   "titulo": "Prova de 2024",
+   "intro": []
+  },
+  {
+   "ano": 2025,
+   "titulo": "Prova de 2025",
+   "intro": [
+    "Gabarito preliminar (publicado em 28/10/2025, antes do julgamento dos recursos)."
+   ]
+  }
+ ],
+ "questoes": [
+  {
+   "ano": 2011,
+   "numero": 35,
+   "pagina": 5,
+   "assunto": "AGENTES — ESTAÇÕES FIXAS DE ESPUMA: QUANDO GUARNECER",
+   "nota": [],
+   "enunciado": [
+    "De acordo com o Manual de Combate a Incêndio, CAAML 1202, três homens, no mínimo, guarnecem as estações fixas produtoras de espuma. Em que situação essas estações devem ser sempre guarnecidas?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Detalhe Especial para o Mar."
+    },
+    {
+     "letra": "B",
+     "texto": "Postos de Combate."
+    },
+    {
+     "letra": "C",
+     "texto": "Postos de Suspender e Fundear."
+    },
+    {
+     "letra": "D",
+     "texto": "Postos de Cruzeiro de Guerra."
+    },
+    {
+     "letra": "E",
+     "texto": "Postos de Abandono."
+    }
+   ],
+   "gabarito": "Gabarito: sem gabarito oficial no projeto (resposta pelo texto da norma: B)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. O DEM é um detalhe de manobra (entrada e saída de porto); o manual não manda guarnecer as estações de espuma nele como regra.",
+    "(B) Resposta esperada. Em Postos de Combate o navio guarnece toda a Organização de Combate do CAv, e as estações fixas de espuma (que atendem praças de máquinas, paióis de combustível e hangares) ficam guarnecidas para uso imediato.",
+    "(C) Errada. Postos de Suspender e Fundear são detalhes de manobra, não de combate a incêndio.",
+    "(D) Errada. Em Cruzeiro de Guerra o navio fica em condição de prontidão intermediária, com parte da tripulação em quartos; não é a situação indicada.",
+    "(E) Errada. No abandono o pessoal deixa o navio; não faz sentido guarnecer estação de espuma."
+   ],
+   "anulacao": [
+    "Prova de 2011 sem gabarito no projeto. A resposta sai pela lógica da Organização de Combate; o texto exato do CAAML-1202 não estava disponível para conferir."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2011-q35"
+  },
+  {
+   "ano": 2011,
+   "numero": 41,
+   "pagina": 5,
+   "assunto": "FOGO — COMPARTIMENTO INACESSÍVEL: ATAQUE INDIRETO",
+   "nota": [],
+   "enunciado": [
+    "Durante um incêndio, ocorrido após o expediente, altas temperaturas impedem o acesso ao compartimento sinistrado. Que procedimento deve ser adotado, conforme o Manual de Combate a Incêndio, para possibilitar o seu combate?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Furar o teto e a antepara do compartimento, para fazer o ataque indireto."
+    },
+    {
+     "letra": "B",
+     "texto": "Aplicar CO2 diretamente sobre as anteparas do compartimento."
+    },
+    {
+     "letra": "C",
+     "texto": "Fazer um furo para aplicação de CO2 para distribuição do calor."
+    },
+    {
+     "letra": "D",
+     "texto": "Fazer um furo em um acessório e retirar o material de seu interior."
+    },
+    {
+     "letra": "E",
+     "texto": "Direcionar a neblina de alta da abertura para a contenção superior."
+    }
+   ],
+   "gabarito": "Gabarito: sem gabarito oficial no projeto (resposta pelo texto da norma: A)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Resposta esperada. Quando o calor impede a entrada, faz-se uma abertura (furo) no teto ou na antepara e introduz-se o aplicador de neblina: é o ataque indireto, em que a água vira vapor dentro do compartimento, resfria e abafa sem expor o pessoal.",
+    "(B) Errada. CO2 sobre as anteparas não extingue o fogo dentro do compartimento; o resfriamento de anteparas se faz com água, pela Turma de Contenção, nos compartimentos adjacentes.",
+    "(C) Errada. CO2 não “distribui calor”; ele age por abafamento, e o procedimento do manual para compartimento inacessível é o ataque indireto com neblina.",
+    "(D) Errada. Retirar material por um furo em acessório não é técnica de combate.",
+    "(E) Errada. A frase não corresponde a nenhuma técnica do manual."
+   ],
+   "anulacao": [
+    "Prova de 2011 sem gabarito no projeto; resposta pela técnica do ataque indireto descrita no CAAML-1202."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2011-q41"
+  },
+  {
+   "ano": 2011,
+   "numero": 47,
+   "pagina": 6,
+   "assunto": "REPARO — ORGANIZAÇÃO DO CAV: AFIRMATIVA INCORRETA",
+   "nota": [],
+   "enunciado": [
+    "Em relação à Organização do Controle de Avarias, CAAML-1201, assinale a opção INCORRETA."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Dois dos homens da Turma de Bombas podem auxiliar em qualquer faina, após a bomba ser colocada em funcionamento (bomba portátil de CBINC ou bomba submersível). O outro homem permanece junto à bomba."
+    },
+    {
+     "letra": "B",
+     "texto": "O comando é exercido de um local físico específico denominado Estação de Controle."
+    },
+    {
+     "letra": "C",
+     "texto": "A Turma de Máscaras é constituída por pelo menos três homens: o Controlador de Máscaras e mais dois ajudantes."
+    },
+    {
+     "letra": "D",
+     "texto": "Ao Imediato compete prover material e pessoal de outros controles para o auxílio do CAv, nos casos de grandes avarias, obedecendo as prioridades do Comando."
+    },
+    {
+     "letra": "E",
+     "texto": "As áreas sob responsabilidade de cada estação de reparo são determinadas dentro da Organização Administrativa (OA) dos navios."
+    }
+   ],
+   "gabarito": "Gabarito: sem gabarito oficial no projeto (resposta pelo texto da norma: E)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Correta (não é a resposta). A Turma de Bombas tem três homens; com a bomba funcionando, um fica junto a ela e dois ficam livres para outras fainas.",
+    "(B) Correta pelo sentido geral: o CAv é comandado de uma estação de controle (a Estação Central de CAv). Ver a nota de anulação.",
+    "(C) Correta. É a mesma composição que a prova de 2024 (Q44, B) repete: Controlador de Máscaras e mais dois ajudantes.",
+    "(D) Correta. É atribuição do Imediato, confirmada pelo gabarito de 2022 (Q49, item IV).",
+    "(E) INCORRETA, portanto a resposta. As áreas de responsabilidade das estações de reparo são definidas na Organização de COMBATE (OC), que é a organização que funciona quando o navio guarnece os reparos. A troca de OC por OA é a pegadinha clássica do tema."
+   ],
+   "anulacao": [
+    "Prova de 2011 sem gabarito no projeto. Atenção: a mesma frase da letra E reaparece em 2015 (Q35, B), questão que acabou anulada. Isso mostra que a banca hesitou sobre OA ou OC; só o texto integral do CAAML-1201 resolve."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2011-q47"
+  },
+  {
+   "ano": 2012,
+   "numero": 31,
+   "pagina": 7,
+   "assunto": "FOGO — PONTOS DE TEMPERATURA: PONTO DE COMBUSTÃO",
+   "nota": [],
+   "enunciado": [
+    "Ao atingir uma determinada temperatura, o combustível desprende gases em quantidade suficiente para serem inflamados por uma fonte externa de calor e continuarem queimando, mesmo quando retirada esta fonte. A definição acima descrita refere-se:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Ao Ponto de Combustão."
+    },
+    {
+     "letra": "B",
+     "texto": "À Temperatura de Ignição."
+    },
+    {
+     "letra": "C",
+     "texto": "Ao Ponto de Fulgor."
+    },
+    {
+     "letra": "D",
+     "texto": "À Temperatura de Combustão."
+    },
+    {
+     "letra": "E",
+     "texto": "Ao Ponto de Ignição."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. Ponto de combustão: os gases se inflamam com fonte externa e a chama SE MANTÉM mesmo retirada a fonte.",
+    "(B) Errada. Temperatura de ignição: os gases se inflamam só pelo contato com o oxigênio do ar, SEM fonte externa de calor.",
+    "(C) Errada. Ponto de fulgor: os gases se inflamam com fonte externa, mas a chama NÃO se mantém quando a fonte é retirada (há só um “flash”).",
+    "(D) Errada. Termo que não está entre as três temperaturas do manual.",
+    "(E) Errada. Termo inexistente na classificação do manual (confusão com temperatura de ignição)."
+   ],
+   "anulacao": [
+    "Sem margem: definição clássica e literal. Ordem para decorar: fulgor (chama não se mantém) → combustão (chama se mantém) → ignição (sem fonte externa)."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2012-q31"
+  },
+  {
+   "ano": 2012,
+   "numero": 36,
+   "pagina": 7,
+   "assunto": "REPARO — CÂMERA DE IMAGEM TÉRMICA",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a publicação CAAML-1201/2005, assinale a opção que apresenta o militar que na cena de ação é o encarregado da operação da Câmera de Imagem Térmica, em um Navio, conforme a função por ele exercida no reparo de CAV."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Líder da Cena de Ação."
+    },
+    {
+     "letra": "B",
+     "texto": "Líder da Turma de Incêndio (Suporte A ou B)."
+    },
+    {
+     "letra": "C",
+     "texto": "Investigador."
+    },
+    {
+     "letra": "D",
+     "texto": "Líder do Reparo."
+    },
+    {
+     "letra": "E",
+     "texto": "O mais experiente em CAV ou que melhor conhece a área sinistrada."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. O Líder da Cena de Ação coordena a faina no local; não opera a câmera. A prova de 2013 (Q48, E) usou esta mesma afirmação como alternativa errada.",
+    "(B) Correta. A câmera de imagem térmica fica com o Líder da Turma de Incêndio (Suporte A ou B), que vai à frente da mangueira e precisa localizar o foco através da fumaça.",
+    "(C) Errada. O Investigador percorre os compartimentos adjacentes para avaliar a avaria e buscar feridos.",
+    "(D) Errada. O Líder do Reparo é o próprio Líder da Cena de Ação.",
+    "(E) Errada. O manual atribui a câmera a uma função definida, não a um critério de experiência."
+   ],
+   "anulacao": [
+    "Sem margem: atribuição literal do manual, confirmada pela prova de 2013."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2012-q36"
+  },
+  {
+   "ano": 2012,
+   "numero": 39,
+   "pagina": 8,
+   "assunto": "GSE — LOCAL DE FORMATURA A BORDO",
+   "nota": [],
+   "enunciado": [
+    "O Oficial de Serviço de um navio que se encontrava atracado no porto recebeu um chamado de emergência de um outro navio, que também se encontrava atracado nas proximidades, para atendimento a uma ocorrência de sinistro a bordo. Constatada a situação de emergência o Oficial de Serviço acionou o Grupo de Socorro Externo (GSE) do Navio em que servia. De acordo com a publicação CAAML 1201/2005, este grupo, que possui uma estrutura de reparo de CAV, deve formar a bordo:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "em local determinado pelo Oficial de Serviço."
+    },
+    {
+     "letra": "B",
+     "texto": "no portaló, próximo à prancha de acesso ao cais."
+    },
+    {
+     "letra": "C",
+     "texto": "em local determinado pela Organização Administrativa."
+    },
+    {
+     "letra": "D",
+     "texto": "na antepraça do reparo de CAV."
+    },
+    {
+     "letra": "E",
+     "texto": "em local determinado pela Organização de Combate."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. O Oficial de Serviço aciona o GSE, mas o local de formatura já está previsto.",
+    "(B) Errada. O portaló não é o local fixado pela norma.",
+    "(C) Correta. O GSE funciona com o navio em situação administrativa (porto, sem postos de combate); por isso seu local de formatura está na Organização ADMINISTRATIVA.",
+    "(D) Errada. Antepraça do reparo é local da Organização de Combate.",
+    "(E) Errada. A prova de 2013 (Q48, A) usou esta troca (OC no lugar de OA) como alternativa errada."
+   ],
+   "anulacao": [
+    "Sem margem. Repare que aqui é OA (o GSE é administrativo), ao contrário das áreas dos reparos, que são da OC."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2012-q39"
+  },
+  {
+   "ano": 2012,
+   "numero": 45,
+   "pagina": 8,
+   "assunto": "REPARO — TAR: QUEM ORGANIZA, QUALIFICA E ADESTRA",
+   "nota": [],
+   "enunciado": [
+    "Que militar possui a responsabilidade de organizar, qualificar e adestrar o pessoal que compõe a Turma de Ataque Rápido (TAR), conforme a Organização Administrativa do CAV (CAAML-1201/2005)?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Oficial de Adestramento de bordo."
+    },
+    {
+     "letra": "B",
+     "texto": "Fiel de CAV do navio."
+    },
+    {
+     "letra": "C",
+     "texto": "Líder do Reparo."
+    },
+    {
+     "letra": "D",
+     "texto": "Encarregado do CAV."
+    },
+    {
+     "letra": "E",
+     "texto": "Senhor Mestre do navio."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. O Oficial de Adestramento não tem essa atribuição no CAAML-1201.",
+    "(B) Errada. É a pegadinha que voltou em 2015 (Q48, D) e 2017 (Q42, E): o Fiel cuida do material, não da TAR.",
+    "(C) Errada. O Líder do Reparo atua na cena de ação, em postos de combate.",
+    "(D) Correta. O Encarregado do CAv organiza a TAR e qualifica e adestra seu pessoal (mesma resposta em 2017, Q42).",
+    "(E) Errada. O Mestre não tem atribuição de CAv."
+   ],
+   "anulacao": [
+    "Sem margem: cobrada três vezes com a mesma resposta."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2012-q45"
+  },
+  {
+   "ano": 2013,
+   "numero": 32,
+   "pagina": 10,
+   "assunto": "REPARO — COMPONENTES DO REPARO: AFIRMATIVA INCORRETA",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a publicação CAAML-1201, Organização do Controle de Avarias, assinale a opção INCORRETA em relação à atribuição de responsabilidade dos componentes do Reparo."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "A função de Encarregado do Reparo será exercida por um oficial, suboficial ou sargento, que supervisiona a atuação do Reparo."
+    },
+    {
+     "letra": "B",
+     "texto": "O Líder da Cena de Ação é o líder do Reparo, responsável pelas ações na área do sinistro, já em Postos de Combate."
+    },
+    {
+     "letra": "C",
+     "texto": "O Telefonista e plotador do quadro de Avarias estabelece a troca de informações entre o Líder na Cena de Ação e o Encarregado do Reparo."
+    },
+    {
+     "letra": "D",
+     "texto": "Em condição normal de viagem ou no porto, a Turma de Ataque é a primeira turma a chegar na área da avaria, e é composta pelo Líder do Reparo, um eletricista e mais duas praças."
+    },
+    {
+     "letra": "E",
+     "texto": "A Turma de Contenção deverá, sob as ordens do investigador, controlar a situação dos compartimentos adjacentes ao avariado, estabelecendo os Limites de Incêndio conforme ordenado."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Correta (não é a resposta). O Encarregado do Reparo pode ser oficial, SO ou SG e supervisiona o Reparo.",
+    "(B) Correta. É a definição que a prova de 2021 (Q49) cobrou de novo.",
+    "(C) INCORRETA, portanto a resposta. Quem leva as informações entre o Líder da Cena de Ação e o Encarregado do Reparo é o MENSAGEIRO, que se desloca entre os locais. O telefonista/plotador fica na estação do reparo, nos circuitos e no quadro de avarias.",
+    "(D) Correta. Composição da Turma de Ataque fora de postos de combate.",
+    "(E) Correta. A Turma de Contenção, sob o Investigador, cuida dos compartimentos adjacentes e estabelece os limites de incêndio."
+   ],
+   "anulacao": [
+    "Sem margem. Ligação com 2024 (Q44, C): lá o Mensageiro ligava o LCA ao Encarregado do CAv, e por isso estava errado; o certo é Encarregado do REPARO."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2013-q32"
+  },
+  {
+   "ano": 2013,
+   "numero": 35,
+   "pagina": 10,
+   "assunto": "AGENTES — ÁGUA, NEBLINA, ESPUMA E CO2",
+   "nota": [],
+   "enunciado": [
+    "Em relação aos Agentes Extintores é correto afirmar que:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "as neblinas, na ausência de espuma, são altamente eficientes na extinção de incêndios classe \"A\"."
+    },
+    {
+     "letra": "B",
+     "texto": "a água, que é o agente extintor mais comum, extingue o incêndio principalmente por abafamento e secundariamente por resfriamento."
+    },
+    {
+     "letra": "C",
+     "texto": "na composição da espuma mecânica, a água entra com aproximadamente 85% (em peso), tendo um efeito secundário na extinção do incêndio."
+    },
+    {
+     "letra": "D",
+     "texto": "na total ausência de agentes extintores adequados, a água salgada poderá ser usada, sob a forma de neblina de baixa velocidade, devendo-se manter uma distância de pelo menos dois metros dos equipamentos elétricos."
+    },
+    {
+     "letra": "E",
+     "texto": "o CO2 é um agente limpo que pode ser configurado com sistemas de alta ou baixa pressão. O sistema de baixa pressão é recomendado para aplicações onde são necessárias pequenas quantidades de CO2."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. A frase do manual é sobre a classe B: na falta de espuma, a neblina é eficiente em líquidos inflamáveis. Para a classe A a água já é o agente principal, em jato ou neblina; a frase foi adulterada.",
+    "(B) Errada por inversão: a água age principalmente por RESFRIAMENTO e secundariamente por abafamento (o vapor desloca o oxigênio).",
+    "(C) Correta, segundo o gabarito. A espuma age principalmente por abafamento (cobre a superfície); a água que ela contém dá o efeito secundário de resfriamento.",
+    "(D) Errada. Em equipamento elétrico energizado a água, mesmo em neblina, só em último caso e com cuidados; o detalhe da distância e do tipo de neblina não confere com o manual.",
+    "(E) Errada por inversão: o sistema de BAIXA pressão é para GRANDES quantidades de CO2 (tanque refrigerado); o de alta pressão (cilindros) é para pequenas quantidades."
+   ],
+   "anulacao": [
+    "O percentual de 85% chama atenção (na espuma pronta a água costuma ser bem mais de 90% do volume), mas a banca reproduziu o número do manual e manteve o gabarito. Só o texto integral do CAAML-1202 confirmaria o número."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2013-q35"
+  },
+  {
+   "ano": 2013,
+   "numero": 41,
+   "pagina": 11,
+   "assunto": "FOGO — TETRAEDRO, COMBUSTÃO E PROPAGAÇÃO DO CALOR",
+   "nota": [],
+   "enunciado": [
+    "Em relação ao Manual de Combate a Incêndio (CAAML-1202), assinale a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "O tetraedro do fogo representa a união dos quatro elementos essenciais do fogo: a temperatura de ignição, o combustível, o comburente e o ponto de combustão."
+    },
+    {
+     "letra": "B",
+     "texto": "A combustão completa é aquela em que a queima produz calor e chamas e se processa em ambiente pobre em oxigênio."
+    },
+    {
+     "letra": "C",
+     "texto": "Condução é a transmissão de calor que se faz de molécula para molécula, através de um movimento vibratório que as anima e permite a comunicação de uma para outra."
+    },
+    {
+     "letra": "D",
+     "texto": "Irradiação é a transmissão de calor que se processa com a necessidade de continuidade molecular entre a fonte calorífica e o corpo que recebe calor."
+    },
+    {
+     "letra": "E",
+     "texto": "Comburente é toda substância capaz de queimar e alimentar a combustão."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. Os quatro lados do tetraedro são COMBUSTÍVEL, COMBURENTE (oxigênio), CALOR e REAÇÃO EM CADEIA.",
+    "(B) Errada. Combustão completa ocorre em ambiente RICO em oxigênio; em ambiente pobre a combustão é incompleta (produz CO e fumaça).",
+    "(C) Correta. Condução: o calor passa de molécula para molécula, por contato, através do próprio corpo (ex.: antepara aquecida).",
+    "(D) Errada. Irradiação dispensa continuidade molecular: o calor viaja por ondas, até no vácuo. Quem precisa de meio contínuo é a condução.",
+    "(E) Errada. “Capaz de queimar” é o COMBUSTÍVEL. Comburente é o que alimenta a combustão (o oxigênio)."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2013-q41"
+  },
+  {
+   "ano": 2013,
+   "numero": 45,
+   "pagina": 12,
+   "assunto": "ORGANIZAÇÃO — OA DO CAV: CORRELAÇÃO DE FUNÇÕES E TAREFAS",
+   "nota": [],
+   "enunciado": [
+    "De acordo com o que preceitua a publicação CAAML-1201, em relação à Organização Administrativa do CAv, correlacione as funções do pessoal do CAv às suas respectivas tarefas, e assinale a opção que apresenta a sequência correta. FUNÇÕES: I - Encarregado do CAv; II - Encarregado de Divisão; III - Imediato; IV - Fiel do CAv do Navio; V - Fiel de CAv da Divisão. TAREFAS:",
+    "( ) Coordena os Fiéis de Avarias das Divisões na manutenção dos equipamentos de CAv.",
+    "( ) Nos navios em que não há Oficial de Serviço no Departamento de Máquinas, ele será o responsável pela segurança do navio, atuando como o Encarregado do CAv.",
+    "( ) Mantém informado o Chefe do Departamento de Máquinas de qualquer situação ou prática que diminua o grau de prontidão do Controle de Avarias do navio.",
+    "( ) É responsável por adotar medidas preventivas em suas áreas de responsabilidade, tais como manutenção da estanqueidade à água e aos gases.",
+    "( ) Mantém-se familiarizado com o desempenho do CAv nos exercícios no porto e no mar.",
+    "( ) Auxilia na preparação e na atualização das listas de verificação de todos os compartimentos sob sua responsabilidade."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "(I) (II) (III) (-) (V) (IV)"
+    },
+    {
+     "letra": "B",
+     "texto": "(IV) (II) (V) (-) (III) (I)"
+    },
+    {
+     "letra": "C",
+     "texto": "(IV) (-) (I) (II) (III) (V)"
+    },
+    {
+     "letra": "D",
+     "texto": "(I) (-) (II) (V) (III) (IV)"
+    },
+    {
+     "letra": "E",
+     "texto": "(IV) (-) (I) (III) (II) (V)"
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "Análise das afirmativas: 1º Fiel do CAv do Navio (IV): coordena os Fiéis das Divisões. 2º Nenhuma das funções listadas (-): a tarefa é do militar de serviço que responde pela segurança do navio, figura que não está na lista. 3º Encarregado do CAv (I): informa o Chefe de Máquinas (a quem é subordinado) sobre queda de prontidão. 4º Encarregado de Divisão (II): medidas preventivas na sua área (estanqueidade, prevenção de incêndio). 5º Imediato (III): acompanha o desempenho do CAv nos exercícios. 6º Fiel de CAv da Divisão (V): ajuda nas listas de verificação dos compartimentos da divisão.",
+    "(A) Errada. Já começa dando ao Encarregado do CAv a coordenação dos Fiéis, que é do Fiel do navio.",
+    "(B) Errada. Dá ao Encarregado de Divisão a segurança do navio e ao Imediato as medidas preventivas.",
+    "(C) Correta. (IV) (-) (I) (II) (III) (V).",
+    "(D) Errada. Começa pelo Encarregado do CAv.",
+    "(E) Errada. Inverte Imediato e Encarregado de Divisão nos itens 4 e 5."
+   ],
+   "anulacao": [
+    "Sem margem pelo gabarito. Dica: o 1º item (Fiel do navio) já elimina A e D, e o 4º (Encarregado de Divisão, medidas preventivas) separa C de E. A mesma tabela de funções voltou em 2022 (Q49)."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2013-q45"
+  },
+  {
+   "ano": 2013,
+   "numero": 47,
+   "pagina": 13,
+   "assunto": "ORGANIZAÇÃO — CONCEITO, PROPÓSITO E MEDIDAS DO CAV (V/F)",
+   "nota": [],
+   "enunciado": [
+    "Coloque V (verdadeiro) ou F (falso) nas afirmativas abaixo, em relação à Organização de Combate do CAv, CAAML-1201 - Organização do Controle de Avarias, assinalando, a seguir, a opção que apresenta a sequência correta.",
+    "( ) Manter ao máximo o poder combatente do navio é uma atribuição do CAv.",
+    "( ) O Controle de Avarias é o conjunto de recursos (humanos e materiais) necessários para a preservação ou restabelecimento da capacidade de manobra, poder combatente do navio, estanqueidade e estabilidade.",
+    "( ) As atribuições do CAv são classificadas em medidas preliminares e medidas de emergência.",
+    "( ) As medidas preliminares são adotadas no porto antes de suspender, antes de entrar em zona de mau tempo e, principalmente, depois do combate.",
+    "( ) São atribuições do CAv: planejar, preparar, supervisionar e executar as fainas específicas do CAv antes e após a ocorrência do sinistro."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "(F) (F) (V) (V) (F)"
+    },
+    {
+     "letra": "B",
+     "texto": "(F) (V) (F) (F) (V)"
+    },
+    {
+     "letra": "C",
+     "texto": "(V) (F) (F) (F) (V)"
+    },
+    {
+     "letra": "D",
+     "texto": "(F) (V) (V) (V) (F)"
+    },
+    {
+     "letra": "E",
+     "texto": "(F) (V) (F) (V) (V)"
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "Análise das afirmativas: 1ª FALSA: manter ao máximo o poder combatente é o PROPÓSITO do CAv (2014, Q32), não uma “atribuição”. 2ª VERDADEIRA: é a definição de CAv. 3ª FALSA: as atribuições se dividem em medidas PRELIMINARES e medidas APÓS SOFRER AVARIAS (2019, Q48), não “de emergência”. 4ª FALSA: medidas preliminares são tomadas ANTES do combate (e antes de suspender ou de entrar em mau tempo), não depois. 5ª VERDADEIRA: planejar, preparar, supervisionar e executar as fainas antes e após o sinistro.",
+    "(A) Errada. Marca como verdadeiras a 3ª e a 4ª e nega a definição de CAv.",
+    "(B) Correta. F V F F V.",
+    "(C) Errada. Toma o propósito por atribuição e nega a definição.",
+    "(D) Errada. Aceita “medidas de emergência” e “depois do combate”.",
+    "(E) Errada. Aceita “depois do combate”."
+   ],
+   "anulacao": [
+    "Sem margem. A sutileza de chamar o propósito de “atribuição” é a única discutível, mas a banca manteve."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2013-q47"
+  },
+  {
+   "ano": 2013,
+   "numero": 48,
+   "pagina": 14,
+   "assunto": "GSE — FUNCIONAMENTO DO SOCORRO EXTERNO",
+   "nota": [],
+   "enunciado": [
+    "Em relação ao Grupo de Socorro Externo (GSE), é correto afirmar que:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "o GSE, possuindo uma estrutura de reparo de CAv, formará a bordo em local determinado pela Organização de Combate."
+    },
+    {
+     "letra": "B",
+     "texto": "na ocorrência de um sinistro com o navio atracado ao cais um militar do GSE deverá se dirigir ao navio sinistrado, munido de um PRC para levantar as reais necessidades de material e pessoal, enquanto o restante do GSE se prepara a bordo."
+    },
+    {
+     "letra": "C",
+     "texto": "o navio com sinistro a bordo deverá possuir, no portaló ou outra estação conforme a situação, um Fiel de CAv responsável pela atribuição de prioridades para o emprego a bordo do pessoal e do material enviado pelos GSE."
+    },
+    {
+     "letra": "D",
+     "texto": "o GSE deve ser acionado a bordo pelo Imediato no porto ou pelo Oficial de Quarto no passadiço em viagem, ao ser constatada a situação de emergência externa."
+    },
+    {
+     "letra": "E",
+     "texto": "o líder da Cena de Ação é o responsável pela Câmera de Imagem Térmica."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. O local de formatura é o da Organização ADMINISTRATIVA (2012, Q39).",
+    "(B) Correta. Com o navio atracado, um militar do GSE vai na frente, com rádio portátil (PRC), avaliar o que o navio sinistrado precisa; o restante se prepara a bordo. A prova de 2016 (Q37, B) negou essa ida e ficou errada.",
+    "(C) Errada. Quem recebe e distribui o socorro no navio sinistrado não é um Fiel de CAv; a distribuição cabe à estrutura de comando do CAv do próprio navio.",
+    "(D) Errada. No porto quem aciona é o Oficial de SERVIÇO, não o Imediato (2016, Q37 e 2023, Q49).",
+    "(E) Errada. A câmera fica com o Líder da Turma de Incêndio (2012, Q36)."
+   ],
+   "anulacao": [
+    "Sem margem. Repare que as letras A, D e E são pegadinhas que a banca reaproveita em outros anos."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2013-q48"
+  },
+  {
+   "ano": 2014,
+   "numero": 31,
+   "pagina": 15,
+   "assunto": "AGENTES — AGENTE POR EXCELÊNCIA DOS EXTINTORES PORTÁTEIS (CLASSES B E C)",
+   "nota": [],
+   "enunciado": [
+    "Conforme apresentado no Manual de Combate a Incêndio, CAAML 1202, na Marinha, atualmente, qual é o agente extintor por excelência para extintores portáteis, sendo empregado em incêndios das classes \"B\" e \"C\"?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Água."
+    },
+    {
+     "letra": "B",
+     "texto": "Espuma."
+    },
+    {
+     "letra": "C",
+     "texto": "Vapor."
+    },
+    {
+     "letra": "D",
+     "texto": "Gás Carbônico (CO2)."
+    },
+    {
+     "letra": "E",
+     "texto": "Halon."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. Água conduz eletricidade (classe C) e espalha líquido inflamável (classe B).",
+    "(B) Errada. Espuma é boa para classe B, mas conduz eletricidade: não serve para classe C.",
+    "(C) Errada. Vapor não é agente de extintor portátil.",
+    "(D) Correta. O CO2 age por abafamento, não conduz eletricidade e não deixa resíduo; por isso é o agente por excelência dos portáteis para B e C a bordo.",
+    "(E) Errada. O halon hoje é usado só em sistemas fixos (ver 2025, Q38), por causa do dano à camada de ozônio."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2014-q31"
+  },
+  {
+   "ano": 2014,
+   "numero": 32,
+   "pagina": 15,
+   "assunto": "ORGANIZAÇÃO — PROPÓSITO DO CAV",
+   "nota": [],
+   "enunciado": [
+    "Conforme apresentado no CAAML 1201, qual é o propósito do Controle de Avarias (CAv)?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Combater incêndios a bordo."
+    },
+    {
+     "letra": "B",
+     "texto": "Manter ao máximo o poder combatente do Navio."
+    },
+    {
+     "letra": "C",
+     "texto": "Controlar alagamentos a bordo."
+    },
+    {
+     "letra": "D",
+     "texto": "Recuperar a estanqueidade e a flutuabilidade por meio de reparos de emergência na estrutura e/ou nos sistemas avariados."
+    },
+    {
+     "letra": "E",
+     "texto": "Fiscalizar o cumprimento da condição de fechamento do material em todo o navio."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. Combater incêndio é uma das medidas após sofrer avaria, não o propósito.",
+    "(B) Correta. O propósito do CAv é manter ao máximo o poder combatente do navio. Tudo o mais (incêndio, alagamento, estanqueidade) serve a isso.",
+    "(C) Errada. Controlar alagamentos é medida após sofrer avaria.",
+    "(D) Errada. Reparos de emergência são meio, não propósito.",
+    "(E) Errada. Fiscalizar a condição de fechamento é medida preliminar."
+   ],
+   "anulacao": [
+    "Sem margem. Lembre de 2013 (Q47): o mesmo texto chamado de “atribuição” foi considerado FALSO."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2014-q32"
+  },
+  {
+   "ano": 2014,
+   "numero": 36,
+   "pagina": 16,
+   "assunto": "GSE — COMPOSIÇÃO MÍNIMA: TURMA DE INCÊNDIO",
+   "nota": [],
+   "enunciado": [
+    "Considerando a composição mínima do Grupo de Socorro Externo (GSE) para o tipo de avaria \"Incêndio\", a Turma de Incêndio deverá possuir quantos componentes?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "2"
+    },
+    {
+     "letra": "B",
+     "texto": "3"
+    },
+    {
+     "letra": "C",
+     "texto": "5"
+    },
+    {
+     "letra": "D",
+     "texto": "6"
+    },
+    {
+     "letra": "E",
+     "texto": "10"
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. Dois militares não guarnecem uma linha de mangueira com segurança.",
+    "(B) Correta, pelo gabarito: a Turma de Incêndio do GSE tem no mínimo 3 componentes (esguicho, ajudante e mangueira).",
+    "(C) Errada.",
+    "(D) Errada.",
+    "(E) Errada. Dez é ordem de grandeza do GSE inteiro, não da turma."
+   ],
+   "anulacao": [
+    "Número literal do quadro de composição mínima do GSE no CAAML-1201; o gabarito foi mantido e não há base para recurso sem o texto integral."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2014-q36"
+  },
+  {
+   "ano": 2014,
+   "numero": 39,
+   "pagina": 16,
+   "assunto": "ORGANIZAÇÃO — MEDIDAS PRELIMINARES X MEDIDAS APÓS AVARIA",
+   "nota": [],
+   "enunciado": [
+    "Assinale a opção que é considerada medida preliminar do Controle de Avarias (CAv)."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Detectar, confinar e remover os efeitos dos agentes químicos, biológicos ou radioativos."
+    },
+    {
+     "letra": "B",
+     "texto": "Controlar alagamentos."
+    },
+    {
+     "letra": "C",
+     "texto": "Manter a estabilidade e a reserva de flutuabilidade do navio."
+    },
+    {
+     "letra": "D",
+     "texto": "Socorrer o pessoal ferido."
+    },
+    {
+     "letra": "E",
+     "texto": "Manter operando os equipamentos elétricos vitais, através do sistema de força em avaria."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. Remover efeitos de agentes QBN é medida após sofrer avaria.",
+    "(B) Errada. Controlar alagamento é medida após avaria.",
+    "(C) Correta. Manter a estabilidade e a reserva de flutuabilidade é feito ANTES do sinistro (lastro, distribuição de pesos, fechamento), por isso é medida preliminar. Aparece de novo em 2019 (Q48, A).",
+    "(D) Errada. Socorrer feridos é medida após avaria.",
+    "(E) Errada. Usar o sistema de força em avaria pressupõe a avaria já ocorrida."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2014-q39"
+  },
+  {
+   "ano": 2014,
+   "numero": 45,
+   "pagina": 17,
+   "assunto": "FOGO — DINÂMICA DO INCÊNDIO: FASE INICIAL",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a Dinâmica do Incêndio prevista no CAAML 1202, em que fase a temperatura média do compartimento ainda não está muito elevada, e o fogo está localizado próximo ao foco do incêndio?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Fase de Desenvolvimento."
+    },
+    {
+     "letra": "B",
+     "texto": "Fase Final."
+    },
+    {
+     "letra": "C",
+     "texto": "Incêndio Desenvolvido."
+    },
+    {
+     "letra": "D",
+     "texto": "Fase Inicial."
+    },
+    {
+     "letra": "E",
+     "texto": "Fase de Queda de Intensidade."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. Na fase de desenvolvimento as chamas se espalham pelo material do compartimento (2019, Q36).",
+    "(B) Errada. “Fase final” não é um dos quatro estágios.",
+    "(C) Errada. No incêndio desenvolvido todo o compartimento queima e as chamas saem pelas aberturas.",
+    "(D) Correta. Fase inicial: fogo junto ao foco e temperatura média ainda baixa. É a melhor hora para o ataque.",
+    "(E) Errada. Na queda de intensidade o combustível já está se esgotando."
+   ],
+   "anulacao": [
+    "Sem margem. Os quatro estágios: inicial → desenvolvimento → incêndio desenvolvido → queda de intensidade."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2014-q45"
+  },
+  {
+   "ano": 2014,
+   "numero": 48,
+   "pagina": 17,
+   "assunto": "AGENTES — INSPEÇÃO DE EXTINTORES: PESAGEM DO CO2",
+   "nota": [],
+   "enunciado": [
+    "Considerando o previsto na publicação CAAML 1202, com relação à manutenção e inspeção de extintores portáteis, deve-se verificar periodicamente o peso do extintor de CO2 e do cilindro de gás comprimido. Esse tipo de inspeção deve ser realizada com que frequência?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Semanal."
+    },
+    {
+     "letra": "B",
+     "texto": "Mensal."
+    },
+    {
+     "letra": "C",
+     "texto": "Semestral."
+    },
+    {
+     "letra": "D",
+     "texto": "Anual."
+    },
+    {
+     "letra": "E",
+     "texto": "Quinquenal."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. Inspeção semanal é visual (lacre, pino, acesso), não pesagem.",
+    "(B) Errada.",
+    "(C) Correta, pelo gabarito: a pesagem do extintor de CO2 e do cilindro de gás comprimido é semestral.",
+    "(D) Errada.",
+    "(E) Errada. Prazo quinquenal é de teste hidrostático do cilindro, não de pesagem."
+   ],
+   "anulacao": [
+    "Periodicidade literal do CAAML-1202; sem margem de recurso sem o texto integral."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2014-q48"
+  },
+  {
+   "ano": 2015,
+   "numero": 33,
+   "pagina": 19,
+   "assunto": "AGENTES — GASES LIMPOS (ARGÔNIO, ARGONITE, HALOCARBONADOS, FM-200, NAF-SIII)",
+   "nota": [],
+   "enunciado": [
+    "Assinale a opção correta com relação aos agentes extintores."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "A concentração máxima de argônio, normalmente, está entre 34% e 52% do volume, o que corresponde a níveis de oxigênio de 13.2% a 10%. A concentração de projeto para um incêndio típico da classe A é 36,8% de Argônio, o que corresponde a um nível de oxigênio de 13.3%."
+    },
+    {
+     "letra": "B",
+     "texto": "Uma descarga de argonite criará um efeito enevoado, obscurecendo a visão. É uma mistura de dois gases inertes (50:50), achada naturalmente na atmosfera, e é usada, normalmente, em ambientes não ocupados."
+    },
+    {
+     "letra": "C",
+     "texto": "O gás halocarbonado é um agente extintor que tem como componentes primários um ou mais componentes orgânicos que contenham um ou mais dos seguintes elementos: fluorino, bromino, clorino ou iodino. Esse agente extintor se decompõe a 5000°C (9000F), é considerado um gás limpo, pois não deixa resíduo após a evaporação quando na supressão do incêndio e não é condutor elétrico."
+    },
+    {
+     "letra": "D",
+     "texto": "O Heptafluoropropano é considerado o substituto mais eficiente do Halon 1301, pois não altera significativamente o nível de O2, resfria a nível molecular (físico-químico) e possibilita um reduzido espaço de armazenamento por ser armazenado liquefeito."
+    },
+    {
+     "letra": "E",
+     "texto": "O NAF-SIII possui como agente o HCFC Blend A (NAF-SIII), sua designação química é o diclorofluoretano, é um gás limpo e é usado para sistemas de inundação total em áreas normalmente não ocupadas."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. Os números são de gás inerte, mas a combinação de concentrações e níveis de oxigênio não confere com o manual. É a alternativa “decoreba” que a banca alterou.",
+    "(B) Errada. A argonite (nitrogênio e argônio, 50:50) NÃO forma névoa nem tira a visibilidade; e, por manter oxigênio suficiente para respirar por pouco tempo, é usada também em áreas ocupadas.",
+    "(C) Errada. A definição de halocarbonado está certa (a prova de 2023, Q38, cobrou essa mesma definição), mas a temperatura de decomposição “5000 °C (9000 °F)” é absurda; o dado do manual é da ordem de centenas de graus.",
+    "(D) Correta. O heptafluoropropano (FM-200, HFC-227ea) é o substituto mais usado do Halon 1301: quase não reduz o oxigênio (serve em área ocupada), age por resfriamento e é guardado liquefeito, ocupando pouco espaço.",
+    "(E) Errada. O NAF-S-III é uma mistura de HCFCs (não um só “diclorofluoretano”) e é usado também em áreas ocupadas."
+   ],
+   "anulacao": [
+    "Sem margem pela alternativa D. As letras A e E dependem de números e nomes do texto integral do CAAML-1202, que não estava disponível."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2015-q33"
+  },
+  {
+   "ano": 2015,
+   "numero": 35,
+   "pagina": 20,
+   "assunto": "REPARO — ORGANIZAÇÃO DE COMBATE DO CAV",
+   "nota": [],
+   "enunciado": [
+    "Com relação à Organização de Combate do CAV, assinale a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Verificar o cumprimento da condição de fechamento do material em todo o navio, bem como zelar pela sua manutenção, é uma atribuição do CAV e é parte das medidas após sofrer avaria."
+    },
+    {
+     "letra": "B",
+     "texto": "As áreas sob responsabilidade de cada estação de controle de avarias são determinadas dentro da Organização Administrativa (OA) dos navios. Em face das peculiaridades de cada classe de navio, algumas estações poderão ser suprimidas, podendo também existir alterações relativas às áreas de responsabilidade."
+    },
+    {
+     "letra": "C",
+     "texto": "Grupo é o conjunto de militares com funções e tarefas administrativas diversas, entretanto suas atribuições convergem para a consecução de objetivos comuns dentro da Organização Administrativa do Navio."
+    },
+    {
+     "letra": "D",
+     "texto": "Certificar-se de que os controladores de máscaras estão cumprindo suas funções corretamente, sem colocar em risco a vida dos homens com máscaras, é atribuição do Suporte \"B\"."
+    },
+    {
+     "letra": "E",
+     "texto": "Quando é soado o alarme devido à ocorrência de um incêndio, o Líder da Cena de Ação vai para o local e, junto à sua turma (turma de ataque), inicia o combate ao incêndio. Ele deve procurar, assim que possível e pelos meios disponíveis no local, informar à Estação Central do Controle de Avarias."
+    }
+   ],
+   "gabarito": "Gabarito: ANULADA (resposta esperada pelo texto da norma: E)",
+   "resposta": "ANULADA",
+   "comentario": [
+    "(A) Errada. Fiscalizar a condição de fechamento é medida PRELIMINAR (antes da avaria), não medida após avaria.",
+    "(B) Errada pelo raciocínio de 2011 (Q47, E): áreas das estações de reparo são da Organização de COMBATE. Mas é a frase que provavelmente levou à anulação.",
+    "(C) Errada no contexto: a pergunta é sobre a Organização de Combate, e a definição fala da Organização Administrativa.",
+    "(D) Errada. Supervisionar os controladores de máscaras é atribuição do Encarregado/Líder do Reparo, não do Suporte B, que é uma turma de mangueira.",
+    "(E) Provável resposta pretendida: o Líder da Cena de Ação vai ao local com a turma de ataque, inicia o combate e informa a Estação Central de CAv assim que puder. Repare, porém, que em postos de combate ele informa o Encarregado do REPARO (via mensageiro), e não a Estação Central."
+   ],
+   "anulacao": [
+    "ANULADA no gabarito oficial. A causa mais provável é a ambiguidade: a letra E mistura a sequência do alarme fora de postos com a Organização de Combate, e a letra B usa a mesma frase que a banca deu como errada em 2011. Sem o texto integral não dá para dizer qual delas a banca pretendia."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2015-q35"
+  },
+  {
+   "ano": 2015,
+   "numero": 48,
+   "pagina": 21,
+   "assunto": "REPARO — TURMA DE ATAQUE RÁPIDO (TAR)",
+   "nota": [],
+   "enunciado": [
+    "Com relação à TAR (Turma de Ataque Rápido no mar), assinale a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Se for organizada em serviço permanente ou em serviço por quartos, responderá por todas as avarias no mar quando o navio estiver numa condição diferente da Condição I."
+    },
+    {
+     "letra": "B",
+     "texto": "Caso a Turma de Ataque Rápido seja organizada somente como parte de um detalhe para manobras especiais, como em Detalhe Especial para o Mar, esta deverá permanecer no local da avaria até ser rendida pelo pessoal do Suporte \"B\"."
+    },
+    {
+     "letra": "C",
+     "texto": "Os Comandantes de Navio, Força e Esquadrão deverão determinar, nas suas classes de navio, a existência da Turma de Ataque Rápido constante na Organização Administrativa e a Organização de Combate, detalhada em quartos de serviço ou como parte de um detalhe organizado para manobras especiais."
+    },
+    {
+     "letra": "D",
+     "texto": "O Fiel de Avarias de bordo é o responsável pela organização da Turma de Ataque Rápido no Mar e pela qualificação e adestramento do pessoal que a compõe."
+    },
+    {
+     "letra": "E",
+     "texto": "Uma fração da Turma de Ataque Rápido no Mar poderá ser incorporada na organização do Controle de Avarias do navio durante a Condição III, em um ou mais Grupos de Reparo."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. A TAR atende às avarias no mar sempre que o navio não está em Condição I (postos de combate); em Condição I quem atua são os reparos guarnecidos.",
+    "(B) Errada. A TAR fica no local até ser rendida pelo pessoal do REPARO que for guarnecido, não por uma turma específica como o Suporte B.",
+    "(C) Errada. A frase mistura as autoridades; a existência da TAR por classe de navio não é atribuída aos Comandantes de Navio, Força e Esquadrão juntos.",
+    "(D) Errada. Quem organiza, qualifica e adestra a TAR é o ENCARREGADO do CAv (2012, Q45; 2017, Q42).",
+    "(E) Errada. A incorporação de parte da TAR aos reparos acontece quando o navio guarnece postos de combate (Condição I), não na Condição III."
+   ],
+   "anulacao": [
+    "Sem recurso conhecido; o gabarito foi mantido. As letras B, C e E dependem de detalhes do texto integral do CAAML-1201."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2015-q48"
+  },
+  {
+   "ano": 2016,
+   "numero": 34,
+   "pagina": 22,
+   "assunto": "REPARO — TURMAS DO REPARO COM MAIS DE 24 MILITARES",
+   "nota": [],
+   "enunciado": [
+    "Com relação à composição de um reparo de CAV, se um navio possuir mais de 24 militares, estes serão distribuídos pelas seguintes turmas:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "de contenção, de ataque rápido, de primeiros socorros e de remoção de escombros."
+    },
+    {
+     "letra": "B",
+     "texto": "de contenção, de resfriamento, de bombas e de remoção de escombros."
+    },
+    {
+     "letra": "C",
+     "texto": "de contenção, de evacuação, primeiros socorros e de bombas."
+    },
+    {
+     "letra": "D",
+     "texto": "de resfriamento, de ataque rápido, de bombas e de remoção de escombros."
+    },
+    {
+     "letra": "E",
+     "texto": "de contenção, de primeiros socorros, de bombas e de remoção de escombros."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. A TAR não é turma do reparo; é a turma que atua FORA de postos de combate.",
+    "(B) Errada. Não existe “turma de resfriamento” no reparo; resfriar anteparas é tarefa da contenção.",
+    "(C) Errada. Não existe “turma de evacuação”.",
+    "(D) Errada. Junta duas turmas inexistentes no reparo (resfriamento e ataque rápido).",
+    "(E) Correta. Contenção, primeiros socorros, bombas e remoção de escombros."
+   ],
+   "anulacao": [
+    "Sem margem. Truque: elimine as alternativas com TAR, resfriamento ou evacuação."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2016-q34"
+  },
+  {
+   "ano": 2016,
+   "numero": 35,
+   "pagina": 22,
+   "assunto": "AGENTES — CARRETA DE ESPUMA MECÂNICA",
+   "nota": [],
+   "enunciado": [
+    "O extintor do tipo carreta de espuma mecânica tem as seguintes características:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "9 litros de capacidade e alcance médio do jato de 5 metros."
+    },
+    {
+     "letra": "B",
+     "texto": "10 litros de capacidade e alcance médio do jato de 7,5 metros."
+    },
+    {
+     "letra": "C",
+     "texto": "25 a 50 litros de capacidade e alcance médio do jato de 3 metros."
+    },
+    {
+     "letra": "D",
+     "texto": "50 a 75 litros de capacidade e alcance médio do jato de 13 metros."
+    },
+    {
+     "letra": "E",
+     "texto": "75 a 150 litros de capacidade e alcance médio do jato de 7,5 metros."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. 9 a 10 litros é a faixa do extintor PORTÁTIL, não da carreta.",
+    "(B) Errada. Também é capacidade de portátil.",
+    "(C) Errada. Capacidade e alcance não conferem.",
+    "(D) Errada. Capacidade e alcance não conferem.",
+    "(E) Correta, pelo gabarito: carreta de 75 a 150 litros, com alcance médio de 7,5 m."
+   ],
+   "anulacao": [
+    "Números literais do quadro de extintores do CAAML-1202; sem margem de recurso."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2016-q35"
+  },
+  {
+   "ano": 2016,
+   "numero": 37,
+   "pagina": 23,
+   "assunto": "GSE — ACIONAMENTO E PROCEDIMENTOS",
+   "nota": [],
+   "enunciado": [
+    "Assinale a opção correta com relação ao Grupo de Socorro Externo (GSE)."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Quando muitas unidades navais estiverem reunidas e a Força não estiver sob ameaças, se ocorrer uma situação de emergência em alguma delas, não será necessária a mobilização do socorro externo nas demais."
+    },
+    {
+     "letra": "B",
+     "texto": "Na ocorrência de um sinistro com o navio atracado ao cais, não será necessário que um militar do GSE se dirija ao navio sinistrado, porém, o GSE deverá se preparar a bordo para um eventual socorro, caso seja solicitado."
+    },
+    {
+     "letra": "C",
+     "texto": "Deve existir um detalhe fixo do GSE para toda a guarnição a bordo. Porém, somente no caso de incêndio, deverá estar prevista a rendição dos componentes do GSE, caso estejam de serviço no horário em que o GSE for acionado."
+    },
+    {
+     "letra": "D",
+     "texto": "O GSE deve ser acionado a bordo pelo Oficial de Serviço, no porto, ou pelo Oficial de Quarto no passadiço, em viagem, ao ser constatada a situação de emergência externa."
+    },
+    {
+     "letra": "E",
+     "texto": "O GSE deverá subir a bordo de um navio sinistrado sem a necessidade de o mais antigo do grupo se apresentar naquele navio para pedir permissão para tal, por se tratar de uma situação de emergência."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. É justamente com unidades reunidas que o socorro mútuo se organiza.",
+    "(B) Errada. Um militar do GSE DEVE ir ao navio sinistrado levantar as necessidades (2013, Q48, B).",
+    "(C) Errada. A rendição de quem está de serviço deve estar prevista para qualquer tipo de avaria, não só incêndio.",
+    "(D) Correta. Porto: Oficial de Serviço. Viagem: Oficial de Quarto no passadiço. Mesma resposta em 2023 (Q49).",
+    "(E) Errada. O mais antigo do GSE se apresenta ao navio sinistrado; ninguém sobe a bordo sem a autorização de quem comanda o socorro lá."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2016-q37"
+  },
+  {
+   "ano": 2016,
+   "numero": 47,
+   "pagina": 23,
+   "assunto": "AGENTES — PÓ QUÍMICO SECO: TRATAMENTO ANTI-HIGROSCÓPICO",
+   "nota": [],
+   "enunciado": [
+    "Os pós químicos secos são substâncias constituídas de bicarbonato de sódio, bicarbonato de potássio ou cloreto de potássio, que, pulverizadas, formam uma nuvem de pó sobre o fogo, extinguindo-o por quebra da reação em cadeia e por abafamento. Estes pós deverão receber um tratamento:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "antiparticularização."
+    },
+    {
+     "letra": "B",
+     "texto": "anti-hidroscópico."
+    },
+    {
+     "letra": "C",
+     "texto": "antissedimentação."
+    },
+    {
+     "letra": "D",
+     "texto": "anti-higroscópico."
+    },
+    {
+     "letra": "E",
+     "texto": "antirresfriamento."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. Termo inexistente.",
+    "(B) Errada. Pegadinha de grafia: “hidroscópico” não é o termo técnico.",
+    "(C) Errada. Não é o tratamento previsto.",
+    "(D) Correta. Anti-higroscópico: impede o pó de absorver umidade do ar e empedrar no extintor.",
+    "(E) Errada. Termo sem sentido técnico."
+   ],
+   "anulacao": [
+    "Sem margem. Atenção à grafia: higroscópico (absorve umidade), não “hidroscópico”."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2016-q47"
+  },
+  {
+   "ano": 2017,
+   "numero": 41,
+   "pagina": 25,
+   "assunto": "ORGANIZAÇÃO — ENFERMARIAS DE COMBATE",
+   "nota": [],
+   "enunciado": [
+    "Segundo a publicação CAAML-1201, o navio deve possuir um mínimo de duas enfermarias de combate com capacidade de atender, em emergência, pessoal acidentado em combate, se tiver tripulação acima de"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "150 homens."
+    },
+    {
+     "letra": "B",
+     "texto": "200 homens."
+    },
+    {
+     "letra": "C",
+     "texto": "250 homens."
+    },
+    {
+     "letra": "D",
+     "texto": "300 homens."
+    },
+    {
+     "letra": "E",
+     "texto": "350 homens."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada.",
+    "(B) Errada.",
+    "(C) Errada.",
+    "(D) Correta. Com tripulação acima de 300 homens, o navio deve ter no mínimo duas enfermarias de combate (assim um único impacto não deixa o navio sem atendimento).",
+    "(E) Errada."
+   ],
+   "anulacao": [
+    "Número literal do CAAML-1201; sem margem."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2017-q41"
+  },
+  {
+   "ano": 2017,
+   "numero": 42,
+   "pagina": 25,
+   "assunto": "REPARO — TAR: QUEM ORGANIZA, QUALIFICA E ADESTRA",
+   "nota": [],
+   "enunciado": [
+    "Na fase inicial de uma avaria, estando o navio em regime de viagem, o combate inicial deverá ser dado por uma Turma de Ataque Rápido (TAR), enquanto não for julgado necessário, de acordo com a evolução da situação, o guarnecimento de postos de combate. De acordo com o CAAML-1201, o responsável pela organização da TAR e pela qualificação e adestramento do pessoal que a compõe é o"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Chefe do Departamento de Máquinas."
+    },
+    {
+     "letra": "B",
+     "texto": "Encarregado do CAv."
+    },
+    {
+     "letra": "C",
+     "texto": "Fiel de CAv da divisão."
+    },
+    {
+     "letra": "D",
+     "texto": "Imediato do navio."
+    },
+    {
+     "letra": "E",
+     "texto": "Fiel de CAv do navio."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. O Chefe de Máquinas é o superior administrativo do Encarregado do CAv, mas a TAR é do Encarregado.",
+    "(B) Correta. Mesma resposta de 2012 (Q45).",
+    "(C) Errada. O Fiel da divisão cuida do material da sua divisão.",
+    "(D) Errada. O Imediato provê pessoal e material de outros controles em grandes avarias.",
+    "(E) Errada. É a pegadinha recorrente (2015, Q48, D)."
+   ],
+   "anulacao": [
+    "Sem margem: terceira vez que a mesma resposta é cobrada."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2017-q42"
+  },
+  {
+   "ano": 2017,
+   "numero": 49,
+   "pagina": 26,
+   "assunto": "FOGO — DINÂMICA DO INCÊNDIO: FASE DE DESENVOLVIMENTO (AFIRMATIVAS)",
+   "nota": [],
+   "enunciado": [
+    "Com relação à dinâmica do Incêndio, especificamente a fase de desenvolvimento, analise as afirmativas abaixo.",
+    "I - É a fase de transição entre a fase inicial e a do incêndio totalmente desenvolvido.",
+    "II - Ocorre em um período relativamente curto de tempo e não é considerado um evento do incêndio.",
+    "III - A fumaça proveniente da combustão forma uma camada quente apenas na parte superior do compartimento.",
+    "IV - Trata-se do momento no qual a temperatura da camada superior de fumaça atinge 800ºC.",
+    "Assinale a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Apenas as afirmativas II e IV estão corretas."
+    },
+    {
+     "letra": "B",
+     "texto": "Apenas as afirmativas I e III estão corretas."
+    },
+    {
+     "letra": "C",
+     "texto": "Apenas as afirmativas I e II estão corretas."
+    },
+    {
+     "letra": "D",
+     "texto": "Apenas as afirmativas II e III estão corretas."
+    },
+    {
+     "letra": "E",
+     "texto": "Apenas as afirmativas I e IV estão corretas."
+    }
+   ],
+   "gabarito": "Gabarito: ANULADA (resposta esperada pelo texto da norma: B)",
+   "resposta": "ANULADA",
+   "comentario": [
+    "Análise das afirmativas: I - Correta: a fase de desenvolvimento é a transição entre a fase inicial e o incêndio desenvolvido. II - Duvidosa: a frase lembra a descrição do flashover (curto período), mas a parte “não é considerado um evento” não bate com a ideia de que a fase é justamente marcada por esse evento. III - Correta na ideia (a fumaça quente se acumula em camada junto ao teto), embora o “apenas” seja discutível. IV - Errada no número: a referência usual para o flashover é a camada de fumaça perto de 600 °C, não 800 °C.",
+    "(A) Errada. Inclui a IV.",
+    "(B) Provável resposta pretendida (I e III).",
+    "(C) Errada pela leitura mais provável (inclui a II).",
+    "(D) Errada pela leitura mais provável.",
+    "(E) Errada. Inclui a IV."
+   ],
+   "anulacao": [
+    "ANULADA no gabarito oficial. As afirmativas II e III têm redação ambígua (“não é considerado um evento”, “apenas na parte superior”), o que impede uma única resposta segura. A temperatura de referência do flashover vem da literatura de combate a incêndio; o número exato do CAAML-1202 só o texto integral confirma."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2017-q49"
+  },
+  {
+   "ano": 2018,
+   "numero": 35,
+   "pagina": 27,
+   "assunto": "AGENTES — EXTINTOR CLASSE K: COMO EXTINGUE",
+   "nota": [],
+   "enunciado": [
+    "De acordo com o Manual de Combate a Incêndios, os extintores de agente úmido Classe K contêm uma solução especial de Acetato de Potássio diluída em água, que, quando acionado o extintor, é descarregada com um jato tipo neblina (pulverização) como em um sistema fixo. Esse extintor extingue o fogo por:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "resfriamento e quebra da reação em cadeia."
+    },
+    {
+     "letra": "B",
+     "texto": "abafamento e efeito asfixiante da espuma."
+    },
+    {
+     "letra": "C",
+     "texto": "resfriamento e abafamento."
+    },
+    {
+     "letra": "D",
+     "texto": "quebra da reação em cadeia."
+    },
+    {
+     "letra": "E",
+     "texto": "resfriamento e efeito asfixiante da espuma."
+    }
+   ],
+   "gabarito": "Gabarito: ANULADA (resposta esperada pelo texto da norma: E)",
+   "resposta": "ANULADA",
+   "comentario": [
+    "(A) Errada. Quebra da reação em cadeia é o mecanismo do pó químico e do halon.",
+    "(B) Errada. Falta o resfriamento, que é o efeito principal da água da solução.",
+    "(C) Também defensável: efeito asfixiante da espuma é, na prática, abafamento. É o motivo provável da anulação.",
+    "(D) Errada. Não é o mecanismo do agente úmido.",
+    "(E) Resposta do manual: resfriamento e efeito asfixiante da espuma (saponificação). É a mesma frase dada como certa em 2019 (Q41, C) e 2024 (Q34, E)."
+   ],
+   "anulacao": [
+    "ANULADA no gabarito oficial. Provável motivo: as letras C (resfriamento e abafamento) e E (resfriamento e efeito asfixiante da espuma) dizem a mesma coisa com palavras diferentes. Para a prova, decore a frase do manual: resfriamento e efeito asfixiante da espuma (saponificação)."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2018-q35"
+  },
+  {
+   "ano": 2018,
+   "numero": 43,
+   "pagina": 27,
+   "assunto": "ORGANIZAÇÃO — LIVRO DE CAV ATUALIZADO",
+   "nota": [],
+   "enunciado": [
+    "Considerando a Organização Administrativa do CAV, o Controle de Avarias possui como tarefas a instrução e o adestramento dos militares do navio, a manutenção do material e a execução de serviços de manutenção corretiva. Assinale a afirmativa que, de acordo com o CAAML-1201 (Organização do Controle de Avarias), apresenta o responsável por manter atualizado o livro de CAV conforme as alterações feitas no navio."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Fiel de CAV do navio."
+    },
+    {
+     "letra": "B",
+     "texto": "Fiel de CAV da Divisão."
+    },
+    {
+     "letra": "C",
+     "texto": "Encarregado da Divisão."
+    },
+    {
+     "letra": "D",
+     "texto": "Encarregado do CAV."
+    },
+    {
+     "letra": "E",
+     "texto": "Imediato."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. O Fiel do navio cuida do material e coordena os Fiéis das divisões, mas não responde pelo livro.",
+    "(B) Errada. O Fiel da divisão atua só na sua divisão.",
+    "(C) Errada. O Encarregado de Divisão cuida das medidas preventivas na sua área.",
+    "(D) Correta. O Encarregado do CAv mantém o livro de CAv atualizado com as alterações do navio.",
+    "(E) Errada. O Imediato supervisiona; não mantém o livro."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2018-q43"
+  },
+  {
+   "ano": 2018,
+   "numero": 45,
+   "pagina": 28,
+   "assunto": "FOGO — MÉTODOS DE EXTINÇÃO: ABAFAMENTO",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a publicação CAAML-1202 (Manual de Combate a Incêndio), como se denomina o método de extinção de incêndio que consiste em reduzir a quantidade de oxigênio abaixo do limite de 13%?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Resfriamento."
+    },
+    {
+     "letra": "B",
+     "texto": "Isolamento."
+    },
+    {
+     "letra": "C",
+     "texto": "Abafamento."
+    },
+    {
+     "letra": "D",
+     "texto": "Quebra da Reação em Cadeia."
+    },
+    {
+     "letra": "E",
+     "texto": "Alagamento."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. Resfriamento retira o CALOR.",
+    "(B) Errada. Isolamento retira o COMBUSTÍVEL.",
+    "(C) Correta. Abafamento retira o COMBURENTE: abaixo de cerca de 13% de oxigênio a combustão com chama não se mantém.",
+    "(D) Errada. A quebra da reação em cadeia age sobre o quarto lado do tetraedro, com agentes químicos.",
+    "(E) Errada. Alagamento não é método de extinção da classificação."
+   ],
+   "anulacao": [
+    "Sem margem. Tetraedro × método: calor → resfriamento; combustível → isolamento; oxigênio → abafamento; reação em cadeia → quebra (inibição química)."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2018-q45"
+  },
+  {
+   "ano": 2018,
+   "numero": 49,
+   "pagina": 28,
+   "assunto": "GSE — LISTA DE DOTAÇÃO DE MATERIAL DE CAV",
+   "nota": [],
+   "enunciado": [
+    "O material específico para o Grupo de Socorro Externo (GSE) deve ser separado de acordo com a lista de dotação do material de CAV da classe do navio, acondicionado em sacos de lona numerados e pelo tipo de avaria a combater. De acordo com a publicação CAAML-1201 (Organização do Controle de Avarias), quem é responsável por elaborar a lista de dotação de material do CAv?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "DHN."
+    },
+    {
+     "letra": "B",
+     "texto": "DEN."
+    },
+    {
+     "letra": "C",
+     "texto": "CAAML."
+    },
+    {
+     "letra": "D",
+     "texto": "DPC."
+    },
+    {
+     "letra": "E",
+     "texto": "DAbM."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. A DHN cuida de hidrografia e navegação.",
+    "(B) Correta. A Diretoria de Engenharia Naval (DEN) elabora as listas de dotação de material de CAv, por ser a responsável técnica pelos navios.",
+    "(C) Errada. O CAAML (Centro de Adestramento Almirante Marques de Leão) produz as publicações e o adestramento, não a dotação.",
+    "(D) Errada. A DPC cuida de portos e costas (Marinha Mercante).",
+    "(E) Errada. A DAbM cuida de abastecimento: fornece o material, mas não define a dotação."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2018-q49"
+  },
+  {
+   "ano": 2019,
+   "numero": 36,
+   "pagina": 30,
+   "assunto": "FOGO — DINÂMICA DO INCÊNDIO: FASE DE DESENVOLVIMENTO",
+   "nota": [],
+   "enunciado": [
+    "Os incêndios podem ser separados em quatro diferentes estágios: fase inicial, fase de desenvolvimento, incêndio desenvolvido e fase de queda de intensidade. Marque a opção que define corretamente a Fase de Desenvolvimento."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "A característica principal dessa fase é o repentino espalhamento das chamas em todo o material combustível existente no compartimento."
+    },
+    {
+     "letra": "B",
+     "texto": "Chamas podem sair por qualquer abertura, e os gases combustíveis existentes na fumaça se queimam assim que encontram ar fresco."
+    },
+    {
+     "letra": "C",
+     "texto": "A temperatura média do compartimento ainda não está muito elevada, e o fogo está localizado próximo ao foco do incêndio."
+    },
+    {
+     "letra": "D",
+     "texto": "Esse fenômeno, conhecido pelo nome de \"flashover\" ou \"lean flashover\", é um dos principais causadores de acidentes graves com o pessoal envolvido no combate ao incêndio."
+    },
+    {
+     "letra": "E",
+     "texto": "Incêndios em praças de máquinas ou provocados pelo impacto de armamento inimigo atingem esse estágio rapidamente."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. A marca da fase de desenvolvimento é o espalhamento repentino das chamas por todo o material combustível do compartimento.",
+    "(B) Errada. Chamas saindo pelas aberturas e gases queimando ao achar ar fresco descrevem o INCÊNDIO DESENVOLVIDO.",
+    "(C) Errada. É a definição da FASE INICIAL (2014, Q45).",
+    "(D) Errada como definição: fala do fenômeno (o flashover e sua variante), não define a fase.",
+    "(E) Errada. A frase sobre praças de máquinas e impacto de armamento se refere ao incêndio desenvolvido."
+   ],
+   "anulacao": [
+    "Margem pequena de recurso: o flashover (letra D) acontece justamente nessa fase, e o “repentino espalhamento das chamas” da letra A é o próprio flashover. A banca manteve A por ser a única redigida como definição."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2019-q36"
+  },
+  {
+   "ano": 2019,
+   "numero": 41,
+   "pagina": 30,
+   "assunto": "AGENTES — EXTINTOR CLASSE K",
+   "nota": [],
+   "enunciado": [
+    "Em relação aos extintores classe \"K\", marque a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Seu tempo de descarga é de 60 segundos."
+    },
+    {
+     "letra": "B",
+     "texto": "Sua capacidade é de 1 a 4 kg ou de 4 a 12 kg."
+    },
+    {
+     "letra": "C",
+     "texto": "O fogo é extinto por resfriamento e pelo efeito asfixiante da espuma (saponificação)."
+    },
+    {
+     "letra": "D",
+     "texto": "Os extintores de agente úmido Classe K contêm uma solução especial de Carbonato de Cálcio, diluída em água que, quando acionado o extintor, é descarregada com um jato tipo neblina (pulverização) como em um sistema fixo."
+    },
+    {
+     "letra": "E",
+     "texto": "Esse equipamento é dotado de um aplicador, que permite ao operador se posicionar de forma segura da superfície em chamas, não espalhando óleo. Em relação à extinção de incêndio e à segurança do pessoal é o melhor extintor portátil para praças de máquinas e tanques de combustíveis."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. O tempo de descarga não confere com o manual.",
+    "(B) Errada. Faixas em kg são de extintores de pó ou CO2; o classe K é medido em litros.",
+    "(C) Correta. Resfriamento e efeito asfixiante da espuma, formada pela saponificação do óleo.",
+    "(D) Errada. A solução é de ACETATO DE POTÁSSIO, não carbonato de cálcio.",
+    "(E) Errada no final: é o melhor extintor para COZINHAS (óleo e gordura de cocção), não para praças de máquinas e tanques."
+   ],
+   "anulacao": [
+    "Sem margem pela letra C."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2019-q41"
+  },
+  {
+   "ano": 2019,
+   "numero": 43,
+   "pagina": 31,
+   "assunto": "ORGANIZAÇÃO — SUPERVISÃO GERAL DO CAV",
+   "nota": [],
+   "enunciado": [
+    "Referente à Organização Administrativa do CAV, manter a supervisão geral de todas as ações relacionadas ao CAV, incluindo os exercícios, sob um ponto de vista específico e discriminado, compete:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "ao Encarregado de Divisão."
+    },
+    {
+     "letra": "B",
+     "texto": "ao Fiel de CAV do Navio."
+    },
+    {
+     "letra": "C",
+     "texto": "ao Encarregado do CAV."
+    },
+    {
+     "letra": "D",
+     "texto": "ao Imediato."
+    },
+    {
+     "letra": "E",
+     "texto": "ao Fiel de CAV da Divisão."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. O Encarregado de Divisão só responde pela sua área.",
+    "(B) Errada. O Fiel do navio cuida do material.",
+    "(C) Errada. O Encarregado do CAv executa e coordena; a supervisão geral fica acima dele.",
+    "(D) Correta. O Imediato supervisiona todas as ações do CAv, inclusive os exercícios (na prova de 2013, Q45, era ele quem se mantinha familiarizado com o desempenho do CAv nos exercícios).",
+    "(E) Errada."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2019-q43"
+  },
+  {
+   "ano": 2019,
+   "numero": 48,
+   "pagina": 32,
+   "assunto": "ORGANIZAÇÃO — SOMENTE MEDIDAS PRELIMINARES",
+   "nota": [],
+   "enunciado": [
+    "Em relação às atribuições do CAV, o Encarregado do CAV é o responsável perante o Comandante pelas atribuições de planejar, preparar e executar as fainas específicas do CAV antes e após a ocorrência do sinistro. Essas atribuições podem ser classificadas em \"medidas preliminares\" e \"medidas após sofrer avarias\". Sendo assim, assinale a opção que apresenta apenas medidas preliminares."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Manter, nas melhores condições possíveis, os recursos de CAV, manter a estabilidade e a reserva de flutuabilidade do navio e conservar e distribuir os equipamentos de emergência."
+    },
+    {
+     "letra": "B",
+     "texto": "Combater incêndios, fiscalizar o cumprimento da condição de fechamento do material em todo o navio e reduzir os riscos de incêndio."
+    },
+    {
+     "letra": "C",
+     "texto": "Manter a estabilidade e a reserva de flutuabilidade do navio, socorrer o pessoal ferido e controlar alagamentos."
+    },
+    {
+     "letra": "D",
+     "texto": "Controlar alagamentos, reduzir os riscos de incêndio e conservar e distribuir os equipamentos de emergência."
+    },
+    {
+     "letra": "E",
+     "texto": "Reduzir os riscos de incêndio, combater incêndios e controlar alagamentos."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. As três são medidas preliminares (antes do sinistro).",
+    "(B) Errada. “Combater incêndios” é medida após avaria; as outras duas são preliminares.",
+    "(C) Errada. Socorrer feridos e controlar alagamentos são medidas após avaria.",
+    "(D) Errada. Controlar alagamentos é medida após avaria.",
+    "(E) Errada. Só “reduzir riscos de incêndio” é preliminar."
+   ],
+   "anulacao": [
+    "Sem margem. Regra prática: o que pressupõe o sinistro já ocorrido (combater, controlar, socorrer, restabelecer) é medida APÓS avaria; o resto é preliminar."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2019-q48"
+  },
+  {
+   "ano": 2020,
+   "numero": 32,
+   "pagina": 33,
+   "assunto": "ORGANIZAÇÃO — ATRIBUIÇÃO DO ENCARREGADO DO CAV",
+   "nota": [],
+   "enunciado": [
+    "O Encarregado do CAv, administrativamente subordinado ao Chefe do Departamento de Máquinas, é o responsável no porto pela coordenação da manutenção do material, realizada pelos Encarregados de Divisões, e pela instrução e o adestramento de toda a tripulação. De acordo com o CAAML-1201, assinale a opção que apresenta uma outra atribuição do Encarregado do CAv."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Coordenar os Fiéis de Avarias das Divisões na manutenção dos equipamentos de CAv."
+    },
+    {
+     "letra": "B",
+     "texto": "Familiarizar-se com todas as fases dos procedimentos de controle de avarias e combate a incêndios."
+    },
+    {
+     "letra": "C",
+     "texto": "Manter uma patrulha contínua e irregular em todo o navio de acordo com uma lista de verificação."
+    },
+    {
+     "letra": "D",
+     "texto": "Conduzir inspeções periódicas no material de CAv dos reparos do navio."
+    },
+    {
+     "letra": "E",
+     "texto": "Manter o Comandante informado do estado de prontidão do CAv do navio, tanto em termos de material quanto em termos de pessoal."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. É do Fiel de CAv do NAVIO (2013, Q45 e 2022, Q49).",
+    "(B) Errada. Familiarizar-se com os procedimentos é exigência genérica, não a atribuição listada para o Encarregado.",
+    "(C) Errada. A patrulha contínua é da ronda de segurança, não do Encarregado do CAv.",
+    "(D) Correta. O Encarregado do CAv conduz inspeções periódicas no material dos reparos (2022, Q49, 1º item).",
+    "(E) Errada pelo gabarito. Quem mantém o Comandante informado da prontidão do CAv é o Chefe do Departamento de Máquinas, a quem o Encarregado informa (2013, Q45, 3º item). A prova de 2024 (Q44, A) deu a mesma frase ao Imediato, também errada."
+   ],
+   "anulacao": [
+    "Margem pequena: a letra E soa como atribuição do Encarregado. A leitura do gabarito é que ele informa o Chefe de Máquinas, e este informa o Comandante. Essa cadeia é inferida das provas; o texto integral do CAAML-1201 é que confirma."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2020-q32"
+  },
+  {
+   "ano": 2021,
+   "numero": 32,
+   "pagina": 34,
+   "assunto": "FOGO — MÉTODOS DE EXTINÇÃO",
+   "nota": [],
+   "enunciado": [
+    "Considerando o Manual de Combate a Incêndio, assinale a opção correta em relação aos métodos de extinção de incêndio."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "O primeiro método básico de extinção de incêndios é o abafamento, que consiste em aumentar a quantidade de oxigênio acima do limite de 13%."
+    },
+    {
+     "letra": "B",
+     "texto": "Somente por resfriamento podem ser extintos os incêndios de combustíveis que tenham comburente em sua estrutura íntima."
+    },
+    {
+     "letra": "C",
+     "texto": "O isolamento consiste na retirada do combustível, o que geralmente é utilizado quando dispomos de equipamentos adequados para combater o incêndio."
+    },
+    {
+     "letra": "D",
+     "texto": "O abafamento é o processo de extinção de incêndios em que determinadas substâncias são introduzidas na reação química da combustão, com o propósito de inibi-la."
+    },
+    {
+     "letra": "E",
+     "texto": "A diminuição do oxigênio em contato com o combustível vai tornando a combustão mais rápida."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. Abafamento é REDUZIR o oxigênio para ABAIXO de 13% (2018, Q45).",
+    "(B) Correta. Combustíveis que têm o próprio oxigênio na molécula (pólvoras, nitrocelulose, propelentes) queimam mesmo sem ar: abafar não adianta, só o resfriamento extingue.",
+    "(C) Errada. O isolamento é usado justamente quando NÃO se dispõe de meios adequados de combate (ou para impedir a propagação).",
+    "(D) Errada. Inibir a reação química é a QUEBRA DA REAÇÃO EM CADEIA, não abafamento.",
+    "(E) Errada. Menos oxigênio torna a combustão mais LENTA."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2021-q32"
+  },
+  {
+   "ano": 2021,
+   "numero": 49,
+   "pagina": 34,
+   "assunto": "REPARO — LÍDER DO REPARO (LÍDER DA CENA DE AÇÃO)",
+   "nota": [],
+   "enunciado": [
+    "De acordo com o CAAML-1201, o militar responsável pelas ações na área do sinistro, já em Postos de Combate e capacitado pelo C-EXP-CBINC, é chamado de:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "líder da turma do incêndio."
+    },
+    {
+     "letra": "B",
+     "texto": "encarregado do reparo."
+    },
+    {
+     "letra": "C",
+     "texto": "líder do reparo."
+    },
+    {
+     "letra": "D",
+     "texto": "investigador."
+    },
+    {
+     "letra": "E",
+     "texto": "militar de contenção."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. O líder da turma de incêndio comanda a mangueira e opera a câmera térmica (2012, Q36).",
+    "(B) Errada. O Encarregado do Reparo supervisiona da estação do reparo.",
+    "(C) Correta. O Líder do Reparo é o Líder da Cena de Ação: responde pelas ações no local do sinistro em postos de combate (2013, Q32, B).",
+    "(D) Errada. O investigador percorre os adjacentes.",
+    "(E) Errada. A contenção cuida dos limites de incêndio."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2021-q49"
+  },
+  {
+   "ano": 2022,
+   "numero": 43,
+   "pagina": 36,
+   "assunto": "FOGO — SINAIS DE BACKDRAFT (V/F)",
+   "nota": [],
+   "enunciado": [
+    "Em relação às condições que podem indicar uma situação de \"Backdraft\", coloque F (falso) ou V (verdadeiro) nas afirmativas abaixo e assinale a opção que apresenta a sequência correta.",
+    "( ) Fumaça sem pressão, num ambiente fechado.",
+    "( ) Calor excessivo (nota-se pela temperatura na porta).",
+    "( ) Resíduos da fumaça impregnando o vidro das janelas.",
+    "( ) Muito ruído em ambientes fechados onde houve um incêndio.",
+    "( ) Movimento de ar para fora do ambiente quando alguma abertura é feita (em alguns casos ouve-se o ar assoviando ao passar pelas frestas)."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "(F) (V) (V) (F) (F)"
+    },
+    {
+     "letra": "B",
+     "texto": "(V) (V) (F) (F) (V)"
+    },
+    {
+     "letra": "C",
+     "texto": "(V) (V) (F) (V) (F)"
+    },
+    {
+     "letra": "D",
+     "texto": "(F) (F) (V) (V) (V)"
+    },
+    {
+     "letra": "E",
+     "texto": "(V) (F) (V) (F) (F)"
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "Análise das afirmativas: 1º FALSO: o sinal é fumaça SOB PRESSÃO saindo pelas frestas. 2º VERDADEIRO: porta e anteparas muito quentes. 3º VERDADEIRO: vidros escurecidos por resíduos de fumaça. 4º FALSO: o sinal é POUCO ruído (fogo abafado, sem chama visível). 5º FALSO: o ar entra, é SUGADO PARA DENTRO pela abertura (às vezes assoviando), porque o ambiente consumiu o oxigênio.",
+    "(A) Correta. F V V F F.",
+    "(B) Errada. Aceita fumaça sem pressão e ar saindo.",
+    "(C) Errada. Aceita fumaça sem pressão e muito ruído.",
+    "(D) Errada. Nega o calor excessivo.",
+    "(E) Errada. Aceita fumaça sem pressão e nega o calor."
+   ],
+   "anulacao": [
+    "Sem margem. Backdraft: ambiente fechado, sem oxigênio, cheio de gases quentes; ao abrir, o ar entra e tudo explode. Por isso os sinais são fumaça sob pressão, calor, vidros enegrecidos, silêncio e ar sendo SUGADO."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2022-q43"
+  },
+  {
+   "ano": 2022,
+   "numero": 49,
+   "pagina": 36,
+   "assunto": "ORGANIZAÇÃO — OA DO CAV: CORRELAÇÃO DE FUNÇÕES E ATRIBUIÇÕES",
+   "nota": [],
+   "enunciado": [
+    "Correlacione as funções exercidas no Grupo de CAv de acordo com a Organização Administrativa do CAV, às suas atribuições e assinale a opção correta. FUNÇÕES: I - Fiel de CAv da Divisão; II - Encarregado de Divisão; III - Fiel de CAv do navio; IV - Imediato; V - Encarregado do CAv. ATRIBUIÇÕES:",
+    "( ) Conduzir inspeções periódicas no material de CAv dos reparos do navio.",
+    "( ) Coordenar os Fiéis de Avarias das Divisões na manutenção dos equipamentos de CAv.",
+    "( ) Realizar inspeções diárias nas incumbências da Divisão para eliminar riscos de incêndios.",
+    "( ) Fazer inspeções periódicas de acessórios de CAv, verificar a condição de fechamento de material em vigor, incluindo o escurecimento do navio, informando qualquer discrepância.",
+    "( ) Prover material e pessoal de outros controles para o auxílio do CAv, nos casos de grandes avarias, obedecendo as prioridades do Comando.",
+    "( ) Adotar medidas preventivas, em suas áreas de responsabilidade, tais como a manutenção da estanqueidade à água e aos gases, a prevenção de incêndios, a peiação do material e a manutenção dos equipamentos de emergência."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "(V) (III) (I) (-) (IV) (II)"
+    },
+    {
+     "letra": "B",
+     "texto": "(IV) (II) (-) (I) (III) (V)"
+    },
+    {
+     "letra": "C",
+     "texto": "(III) (V) (I) (-) (IV) (II)"
+    },
+    {
+     "letra": "D",
+     "texto": "(I) (-) (V) (IV) (II) (III)"
+    },
+    {
+     "letra": "E",
+     "texto": "(-) (II) (IV) (III) (I) (V)"
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "Análise das afirmativas: 1º Encarregado do CAv (V): inspeções periódicas no material dos reparos (2020, Q32). 2º Fiel de CAv do navio (III): coordena os Fiéis das Divisões (2013, Q45). 3º Fiel de CAv da Divisão (I): inspeções diárias nas incumbências da divisão. 4º Nenhuma das funções listadas (-): inspeção de acessórios e da condição de fechamento é tarefa da ronda/patrulha de CAv. 5º Imediato (IV): provê pessoal e material de outros controles em grandes avarias (2011, Q47, D). 6º Encarregado de Divisão (II): medidas preventivas na sua área (2013, Q45).",
+    "(A) Correta. (V) (III) (I) (-) (IV) (II).",
+    "(B) Errada. Começa pelo Imediato.",
+    "(C) Errada. Troca o Encarregado do CAv com o Fiel do navio nos dois primeiros itens.",
+    "(D) Errada.",
+    "(E) Errada."
+   ],
+   "anulacao": [
+    "Sem margem. O 2º item (Fiel do navio coordena os Fiéis das Divisões) e o 5º (Imediato) já deixam só a letra A."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2022-q49"
+  },
+  {
+   "ano": 2023,
+   "numero": 38,
+   "pagina": 38,
+   "assunto": "AGENTES — COMPOSTOS HALOCARBONADOS",
+   "nota": [],
+   "enunciado": [
+    "Qual é o agente extintor que tem como componentes primários um ou mais componentes orgânicos que contenham um ou mais dos seguintes elementos: fluorino, bromino, clorino ou iodino, e que são considerados gases limpos, pois não deixam resíduo após a evaporação quando na supressão do incêndio, além de serem não condutores elétricos?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Pó químico."
+    },
+    {
+     "letra": "B",
+     "texto": "Compostos halogenados."
+    },
+    {
+     "letra": "C",
+     "texto": "Gás Carbônico."
+    },
+    {
+     "letra": "D",
+     "texto": "Espuma mecânica."
+    },
+    {
+     "letra": "E",
+     "texto": "Compostos halocarbonados."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. O pó deixa resíduo.",
+    "(B) Errada, mas é a pegadinha: “halogenados” é o nome que o manual usa para os halons (2025, Q38). A definição transcrita no enunciado é a dos HALOCARBONADOS.",
+    "(C) Errada. CO2 não contém flúor, bromo, cloro ou iodo.",
+    "(D) Errada. Espuma deixa resíduo e conduz eletricidade.",
+    "(E) Correta. É a definição literal de compostos halocarbonados (a mesma de 2015, Q33, C)."
+   ],
+   "anulacao": [
+    "Há um argumento de recurso: química e tecnicamente, halons também são compostos orgânicos com halogênios, então B e E se sobrepõem. A banca seguiu o rótulo literal do manual e manteve E."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2023-q38"
+  },
+  {
+   "ano": 2023,
+   "numero": 47,
+   "pagina": 38,
+   "assunto": "REPARO — TURMA DE MÁSCARAS: LIMITE POR CONTROLADOR",
+   "nota": [],
+   "enunciado": [
+    "Segundo o CAAML-1201, em relação à turma de máscaras, o controlador controla o tempo de uso das máscaras de seu Reparo. Qual o limite máximo de militares ele pode controlar, para a segurança dos utilizadores?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "6"
+    },
+    {
+     "letra": "B",
+     "texto": "7"
+    },
+    {
+     "letra": "C",
+     "texto": "8"
+    },
+    {
+     "letra": "D",
+     "texto": "9"
+    },
+    {
+     "letra": "E",
+     "texto": "10"
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada.",
+    "(B) Errada.",
+    "(C) Correta, pelo gabarito: até 8 militares por controlador de máscaras. Acima disso o controle do tempo de ar de cada um fica inseguro.",
+    "(D) Errada.",
+    "(E) Errada."
+   ],
+   "anulacao": [
+    "Número literal do CAAML-1201; sem margem. Lembre: Turma de Máscaras = Controlador + 2 ajudantes (2011, Q47, C; 2024, Q44, B)."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2023-q47"
+  },
+  {
+   "ano": 2023,
+   "numero": 49,
+   "pagina": 39,
+   "assunto": "GSE — QUEM ACIONA",
+   "nota": [],
+   "enunciado": [
+    "Segundo o CAAML-1201, quem aciona o Grupo de Socorro Externo (GSE) ao ser constatada a situação de emergência externa?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "A bordo pelo Oficial de Serviço no porto ou pelo Oficial de Quarto no passadiço em viagem."
+    },
+    {
+     "letra": "B",
+     "texto": "A bordo pelo CHEMAQ no porto ou pelo Encarregado do CAV no passadiço em viagem."
+    },
+    {
+     "letra": "C",
+     "texto": "A bordo pelo Imediato no porto ou pelo Oficial de Quarto no passadiço em viagem."
+    },
+    {
+     "letra": "D",
+     "texto": "A bordo pelo Oficial de Serviço no porto ou pelo CHEOPE no passadiço em viagem."
+    },
+    {
+     "letra": "E",
+     "texto": "A bordo pelo EGA no porto ou pelo Oficial de Quarto no passadiço em viagem."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. Porto: Oficial de Serviço. Viagem: Oficial de Quarto. Terceira vez cobrada (2013, Q48 e 2016, Q37).",
+    "(B) Errada. Chefe de Máquinas e Encarregado do CAv não acionam o GSE.",
+    "(C) Errada. A troca do Oficial de Serviço pelo Imediato já foi pegadinha em 2013.",
+    "(D) Errada. O Chefe de Operações não está no passadiço de quarto.",
+    "(E) Errada. O EGA não é a autoridade prevista; quem aciona no porto é o Oficial de Serviço."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2023-q49"
+  },
+  {
+   "ano": 2024,
+   "numero": 34,
+   "pagina": 40,
+   "assunto": "AGENTES — EXTINTOR CLASSE K: AGENTE E IDENTIFICAÇÃO",
+   "nota": [],
+   "enunciado": [
+    "Conforme CAAML-1202, assinale a opção correta sobre os extintores classe \"K\"."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "O extintor de agente úmido classe K contém uma solução especial de acetato de cálcio, diluída em água que, quando acionado, é descarregado com um jato tipo neblina (pulverização), como em um sistema fixo, e são identificados por meio de um quadrado preto contendo a letra K."
+    },
+    {
+     "letra": "B",
+     "texto": "Em relação à extinção e à segurança do pessoal é o melhor extintor portátil para cozinhas comerciais/industriais e praças de máquinas devido à presença de óleos, e são identificados por meio de um triângulo verde contendo a letra K."
+    },
+    {
+     "letra": "C",
+     "texto": "Este equipamento é dotado de um aplicador, que permite ao operador se posicionar de forma segura da superfície em chamas, não espalhando óleo quente ou gordura, e são identificados por meio de um quadrado branco contendo a letra K."
+    },
+    {
+     "letra": "D",
+     "texto": "O fogo é extinto por resfriamento e pelo efeito do abafamento da espuma (saponificação), e os extintores são identificados por meio de um quadrado contendo a letra K."
+    },
+    {
+     "letra": "E",
+     "texto": "O fogo é extinto por resfriamento e pelo efeito asfixiante da espuma (saponificação), e os extintores são identificados por meio de um quadrado preto contendo a letra K."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. A solução é de acetato de POTÁSSIO, não de cálcio.",
+    "(B) Errada duas vezes: não é para praças de máquinas (2019, Q41, E) e o símbolo não é um triângulo verde.",
+    "(C) Errada. O quadrado é PRETO, não branco.",
+    "(D) Errada pelo detalhe: troca “efeito asfixiante” por “abafamento” e omite a cor do quadrado.",
+    "(E) Correta. Resfriamento e efeito asfixiante da espuma (saponificação), com símbolo de quadrado preto com a letra K."
+   ],
+   "anulacao": [
+    "Recurso possível contra a letra D, que diz o mesmo com outras palavras (foi essa ambiguidade que anulou a questão de 2018). A banca manteve E por ser a cópia literal do manual."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2024-q34"
+  },
+  {
+   "ano": 2024,
+   "numero": 41,
+   "pagina": 40,
+   "assunto": "REPARO — BUSCA DE FERIDOS E RESFRIAMENTO DE PONTOS DE IGNIÇÃO",
+   "nota": [],
+   "enunciado": [
+    "Conforme CAAML-1201, durante uma faina de combate a incêndio, a quem compete realizar busca a feridos nos compartimentos adjacentes ao sinistro, especialmente se for em uma área habitável, e resfriar os pontos de ignição em potencial, respectivamente?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Investigador e Turma de Contenção."
+    },
+    {
+     "letra": "B",
+     "texto": "Turma de Primeiros Socorros e Turma de Contenção."
+    },
+    {
+     "letra": "C",
+     "texto": "Investigador e Turma de Rescaldo."
+    },
+    {
+     "letra": "D",
+     "texto": "Eletricista e Turma de Contenção."
+    },
+    {
+     "letra": "E",
+     "texto": "Turma de Primeiros Socorros e Turma de Rescaldo."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada no 2º termo, pelo gabarito: a contenção estabelece e mantém os limites de incêndio nos adjacentes; resfriar os pontos de ignição em potencial depois do fogo é do rescaldo.",
+    "(B) Errada. A Turma de Primeiros Socorros atende os feridos que lhe são trazidos; a busca nos adjacentes é do Investigador.",
+    "(C) Correta. Investigador busca feridos nos adjacentes; Turma de Rescaldo resfria os pontos de ignição em potencial para evitar reignição.",
+    "(D) Errada. O eletricista isola a parte elétrica.",
+    "(E) Errada. Primeiros socorros não fazem a busca."
+   ],
+   "anulacao": [
+    "Margem de recurso na 2ª parte: a contenção também resfria anteparas para evitar propagação, e isso se confunde com “resfriar pontos de ignição”. A banca manteve o Rescaldo."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2024-q41"
+  },
+  {
+   "ano": 2024,
+   "numero": 44,
+   "pagina": 41,
+   "assunto": "REPARO — FUNÇÕES NA ORGANIZAÇÃO DE COMBATE",
+   "nota": [],
+   "enunciado": [
+    "Conforme CAAML-1201, assinale a opção correta referente às principais funções e suas respectivas competências de acordo com a Organização de Combate (OC) do Controle de Avarias (CAv)."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Ao Imediato compete manter o Comandante informado do estado de prontidão do CAv do navio, tanto em termos de material quanto em termos de pessoal."
+    },
+    {
+     "letra": "B",
+     "texto": "A Turma de Máscaras é constituída por, pelo menos, três militares, o Controlador de Máscaras e mais dois ajudantes, cabendo a ela sob as ordens do Investigador, controlar a situação dos compartimentos adjacentes ao avariado, cumprindo os Limites de Incêndio conforme ordenado."
+    },
+    {
+     "letra": "C",
+     "texto": "O Mensageiro deverá estabelecer a troca de informações entre o Líder da Cena de Ação e o Encarregado do CAv, movimentando-se entre os locais."
+    },
+    {
+     "letra": "D",
+     "texto": "O Líder da Cena de Ação deverá escolher a posição de controle da faina, posicionar-se no melhor local para tal, considerando a presença da fumaça, facilidade de acesso do pessoal do Reparo a este ponto, não necessitando, portanto, estar vestido com Equipamento de Proteção Individual (EPI)."
+    },
+    {
+     "letra": "E",
+     "texto": "O Encarregado do Reparo deverá ter um papel ativo no adestramento do pessoal, bem como conhecer profundamente as deficiências logísticas (pessoal e material) na área de responsabilidade do seu Reparo."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. Informar o Comandante da prontidão do CAv não é do Imediato (ver 2020, Q32, E).",
+    "(B) Errada. A composição está certa, mas a tarefa descrita (adjacentes e limites de incêndio, sob o Investigador) é da Turma de CONTENÇÃO (2013, Q32, E).",
+    "(C) Errada. O Mensageiro liga o Líder da Cena de Ação ao Encarregado do REPARO, não ao Encarregado do CAv.",
+    "(D) Errada. O Líder da Cena de Ação está na área do sinistro e precisa estar com EPI.",
+    "(E) Correta. O Encarregado do Reparo participa ativamente do adestramento e conhece as deficiências de pessoal e material do seu reparo."
+   ],
+   "anulacao": [
+    "Sem margem. Questão “colagem”: cada alternativa errada pega uma frase verdadeira de outro trecho e troca a função."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2024-q44"
+  },
+  {
+   "ano": 2025,
+   "numero": 38,
+   "pagina": 42,
+   "assunto": "AGENTES — HALON: TOXICIDADE E PROPRIEDADES",
+   "nota": [],
+   "enunciado": [
+    "Os compostos halogenados são utilizados atualmente apenas em sistemas fixos. O mais conhecido e utilizado na Marinha do Brasil é o halon. Referente a esse composto halogenado, assinale a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "O halon 1211, em concentração entre 4 e 5%, não causa efeito danoso caso a exposição seja de até cinco minutos."
+    },
+    {
+     "letra": "B",
+     "texto": "Para o halon 1301, em uma concentração entre 7 e 10%, em caso de exposição por um período de um minuto, alguns sintomas se fazem notar, como perda da coordenação motora e redução da acuidade visual, sem, contudo, ocorrer a incapacitação do indivíduo."
+    },
+    {
+     "letra": "C",
+     "texto": "O halon se decompõe a 500 ºF (900 ºC), formando diversos elementos tóxicos que podem causar a morte quase instantânea."
+    },
+    {
+     "letra": "D",
+     "texto": "Para o halon 1211, em uma concentração de até 4%, é aceitável a permanência no ambiente por cinco minutos, no máximo."
+    },
+    {
+     "letra": "E",
+     "texto": "Quando liberado, o halon forma uma nuvem de gás, com aspecto incolor, inodoro e densidade cinco vezes menor que a do ar."
+    }
+   ],
+   "gabarito": "Gabarito: D (preliminar)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. Entre 4 e 5% de halon 1211 já há efeitos; o limite de permanência aceitável é com até 4% (letra D).",
+    "(B) Errada pelo gabarito preliminar, mas ver a nota: a faixa de 7 a 10% para o halon 1301, com sintomas sem incapacitação em exposição curta, é muito próxima do que o manual diz. A banca deve ter alterado algum detalhe (sintomas ou tempo).",
+    "(C) Errada. Inverte as unidades: a decomposição é por volta de 900 °F (cerca de 480–500 °C), não 900 °C.",
+    "(D) Correta pelo gabarito preliminar: com halon 1211 até 4%, permanência aceitável de no máximo cinco minutos.",
+    "(E) Errada. O halon é cerca de cinco vezes MAIS DENSO que o ar (acumula-se embaixo)."
+   ],
+   "anulacao": [
+    "Gabarito PRELIMINAR. Há bom argumento de recurso contra a letra B, que reproduz quase literalmente a faixa de 7–10% do halon 1301. Se o texto do CAAML-1202 trouxer os mesmos sintomas citados na letra B, a questão teria duas corretas. Só o texto integral decide."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2025-q38"
+  },
+  {
+   "ano": 2025,
+   "numero": 48,
+   "pagina": 43,
+   "assunto": "ORGANIZAÇÃO — QUESTÃO MISTA (PROCEDIMENTOS MARINHEIROS E CAV)",
+   "nota": [],
+   "enunciado": [
+    "Sobre os Procedimentos Marinheiros, analise as afirmativas abaixo.",
+    "I - Na montagem da escada de prático para navios com borda-livre menor ou igual a nove metros, o travessão deve possuir o mínimo de 180 cm de comprimento e a quantidade máxima de degraus entre os travessões deverá ser de nove degraus. A distância entre degraus varia entre 31 a 35 cm.",
+    "II - Encontra-se na obra Arte Naval a descrição de itens pertencentes à palamenta de uma embarcação miúda e, mais especificamente para a MB, o CAAML 1212 - Manual de Sobrevivência no Mar descreve a palamenta geral para embarcações orgânicas empregadas para salvamento e sobrevivência e embarcações de cascos rígidos, semirrígido ou infláveis (botes).",
+    "III - Quando não puder ser evitado o armazenamento de material combustível no convés principal ou na superestrutura, esse material deverá ser acondicionado e posicionado de forma que possa ser lançado facilmente ao mar. Tal medida refere-se à eliminação do material desnecessário à operação militar do navio.",
+    "IV - O Encarregado do CAv deve estar intimamente familiarizado com o navio, com a condição de prontidão do material e com os procedimentos de emergência. Para isso deve estar preparado para analisar a situação e adotar, pronta e corretamente, os procedimentos iniciais para controlar incêndios ou avarias.",
+    "V - Para a realização de faina de controle de alagamento, os componentes da Turma de Serviços Gerais devem portar botas de borracha de cano longo, capacetes de aba total, luvas de raspa e óculos de proteção. Devem estar qualificados para realizar fainas de percintagem, escoramento e tamponamento/bujonamento.",
+    "Assinale a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Apenas as afirmativas I, II e V são verdadeiras."
+    },
+    {
+     "letra": "B",
+     "texto": "Apenas as afirmativas IV e V são verdadeiras."
+    },
+    {
+     "letra": "C",
+     "texto": "Apenas as afirmativas I, II, III e V são verdadeiras."
+    },
+    {
+     "letra": "D",
+     "texto": "Apenas a afirmativa I é verdadeira."
+    },
+    {
+     "letra": "E",
+     "texto": "Apenas as afirmativas I e V são verdadeiras."
+    }
+   ],
+   "gabarito": "Gabarito: E (preliminar)",
+   "resposta": "E",
+   "comentario": [
+    "Análise das afirmativas: I - Verdadeira pelo gabarito (dados da escada de prático do CAAML-703). II - Falsa pelo gabarito: a referência citada para a palamenta não confere com o manual. III - Falsa pelo gabarito: guardar combustível de modo a poder alijá-lo é medida de REDUÇÃO DO RISCO DE INCÊNDIO, e não de “eliminação de material desnecessário”. IV - Falsa pelo gabarito: a descrição (familiarizado com o navio, pronto para adotar os procedimentos iniciais) é a do militar de serviço/patrulha que primeiro reage à avaria, não a do Encarregado do CAv. V - Verdadeira: EPI e qualificação (percintagem, escoramento, tamponamento) da turma que combate alagamento.",
+    "(A) Errada. Inclui a II.",
+    "(B) Errada. Inclui a IV e deixa de fora a I.",
+    "(C) Errada. Inclui a II e a III.",
+    "(D) Errada. Deixa de fora a V.",
+    "(E) Correta pelo gabarito preliminar: I e V."
+   ],
+   "anulacao": [
+    "Gabarito PRELIMINAR. Questão fora do padrão (o enunciado fala em Procedimentos Marinheiros, mas três itens são de CAv). A afirmativa IV é o ponto mais frágil: a frase é plausível para o Encarregado do CAv, e só o texto integral do CAAML-1201 diz a quem ela se refere. Candidata a recurso."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2025-q48"
+  },
+  {
+   "ano": 2025,
+   "numero": 49,
+   "pagina": 44,
+   "assunto": "REPARO — COMPARTIMENTO NÃO VENTILADO: SEM SEGURANÇA PARA O PESSOAL",
+   "nota": [],
+   "enunciado": [
+    "De acordo com o campo \"Condições de Segurança para o Pessoal\" do \"Modelo de Papeleta de Controle de Compartimento Não-Ventilado\" (Pág. 8-28) do CAAML-1201, referente aos itens a serem verificados em um compartimento sem segurança para o pessoal, assinale a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Há espaços adjacentes não protegidos; há deficiência de oxigênio e há risco de explosão."
+    },
+    {
+     "letra": "B",
+     "texto": "Há risco de explosão pela presença de gases combustíveis; há risco de incêndio pela presença de resíduos combustíveis e há espaços adjacentes protegidos."
+    },
+    {
+     "letra": "C",
+     "texto": "Há presença de gases tóxicos; há deficiência de oxigênio e há presença de gases que podem causar mal-estar se inalados por muito tempo."
+    },
+    {
+     "letra": "D",
+     "texto": "Há presença de gases; há presença de bolsões de ar e há risco de explosão ambiental."
+    },
+    {
+     "letra": "E",
+     "texto": "Há compartimento alagado, não há presença de bolsões de ar e o compartimento está pressurizado com gás inerte."
+    }
+   ],
+   "gabarito": "Gabarito: C (preliminar)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. “Espaços adjacentes não protegidos” não é item do campo de segurança para o PESSOAL (é condição de segurança para trabalho a quente).",
+    "(B) Errada. Mistura riscos de incêndio/explosão (segurança do compartimento) e termina com uma condição favorável (adjacentes protegidos).",
+    "(C) Correta. Para o pessoal, o que torna o compartimento inseguro é a atmosfera: gases tóxicos, falta de oxigênio e gases que causam mal-estar com exposição prolongada.",
+    "(D) Errada. “Bolsões de ar” e “explosão ambiental” não são itens da papeleta.",
+    "(E) Errada. Descreve outra situação (alagamento e inertização)."
+   ],
+   "anulacao": [
+    "Gabarito preliminar. Questão de memória do formulário; sem margem visível."
+   ],
+   "fonte": "cav_comentado_2011_2025",
+   "id": "cav-2025-q49"
+  }
+ ]
+}

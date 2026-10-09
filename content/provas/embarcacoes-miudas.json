@@ -1,0 +1,1276 @@
+{
+ "slug": "embarcacoes-miudas",
+ "materia": "Embarcações Miúdas e Procedimentos Marinheiros",
+ "icon": "fa-sailboat",
+ "cadernos": [
+  {
+   "fonte": "embarcacoes_miudas_comentado_2011_2025.pdf",
+   "titulo": "Embarcações Miúdas e Procedimentos Marinheiros comentados — CA-AA-AFN (CPA)",
+   "linhas": [
+    "Manual de Procedimentos Marinheiros: CAAML-703 (antigo CAAML-3002) · provas de",
+    "2011 a 2025",
+    "Resolução comentada das questões do Manual de Procedimentos Marinheiros da parte de",
+    "Conhecimentos Militares-Navais da prova Amarela dos candidatos oriundos do Corpo de Praças",
+    "da Armada (CPA), de 2011 a 2025: embarcações miúdas (tipos, cuidados com o material, turcos,",
+    "faina de arriar e içar, atracação), segurança das fainas marinheiras e apresentação marinheira.",
+    "Para cada questão você encontra o enunciado e as alternativas, o gabarito oficial, a explicação de",
+    "por que cada alternativa está certa ou errada e uma análise de possível anulação (argumentos de",
+    "recurso).",
+    "OBSERVAÇÕES SOBRE AS FONTES",
+    "O manual mudou de número. Até 2017 as provas citam o CAAML-3002 — Manual de",
+    "Procedimentos Marinheiros; a partir de 2019 citam o CAAML-703 (2019: “CAAML-703 MOD. 1”;",
+    "2022: “CAAML-703 de 2017”), com o mesmo nome e o mesmo conteúdo cobrado (os turcos, por",
+    "exemplo, aparecem nas duas numerações). Esta apostila reúne as questões dos dois números.",
+    "Foram encontradas 23 questões (quadro abaixo). Entram as que citam o CAAML-3002, o",
+    "CAAML-703 ou o “Manual de Procedimentos Marinheiros”, e as que, sem citar a fonte, cobram",
+    "assunto exclusivo desse manual (apresentação marinheira, recolhimento de homem ao mar, cores de",
+    "capacetes); essas trazem a observação na própria questão. Ficaram de fora as questões de",
+    "embarcações de salvamento e sobrevivência (CAAML-1212), as de sinais de embarcações e bandeiras",
+    "em embarcações (Cerimonial da Marinha) e as de Controle de Avarias e Combate a Incêndio",
+    "(CAAML-1201 e 1202). 2018 e 2023 não tiveram questão do tema.",
+    "Gabaritos: 2011 não tem gabarito no projeto; nessas questões a resposta indicada é a do",
+    "raciocínio pelo conteúdo do manual, sinalizada. 2012 a 2024 são os gabaritos oficiais (finais). 2025",
+    "usa o gabarito preliminar.",
+    "Base dos comentários: o texto do CAAML-703/CAAML-3002 não está no projeto e não foi encontrado",
+    "em fonte aberta. Os comentários se apoiam no gabarito oficial, no que as próprias provas repetem de",
+    "um ano para outro (as mesmas frases do manual voltam em anos diferentes) e nos conceitos de",
+    "marinharia (Arte Naval). Onde um comentário depende de um detalhe que só o texto integral",
+    "confirma, isso está dito no comentário.",
+    "QUADRO DE QUESTÕES E GABARITOS (PROVA AMARELA, CPA)",
+    "Ano Nº Assunto Gabarito",
+    "2011 38 SEGURANÇA — RECOLHIMENTO DE HOMEM AO MAR E NÁUFRAGOS (D)",
+    "2011 46 FAINA DA EMBARCAÇÃO — AVARIA NO MATERIAL: A QUEM COMUNICAR (B)",
+    "2011 49 SEGURANÇA — FAINAS COM ESPIAS E CABOS (C)",
+    "2012 33 APRESENTAÇÃO MARINHEIRA — HASTEAMENTO DA BANDEIRA NACIONAL Anulada",
+    "2012 35 SEGURANÇA — RECOLHIMENTO DE HOMEM AO MAR E NÁUFRAGOS Anulada",
+    "2012 41 FAINA DA EMBARCAÇÃO — ATRACAÇÃO À ESCADA DE PORTALÓ COM CORRENTE Anulada",
+    "2013 38 SEGURANÇA — FAINA DE REBOQUE D",
+    "2014 40 SEGURANÇA — SEGURANÇA DA TRIPULAÇÃO NAS FAINAS MARINHEIRAS C",
+    "2015 47 APRESENTAÇÃO MARINHEIRA — INSPEÇÕES E SINAIS DE ROTINA D",
+    "2016 33 APRESENTAÇÃO MARINHEIRA — INSPEÇÃO NO PORTO APÓS O EXPEDIENTE B",
+    "2017 34 EMBARCAÇÕES MIÚDAS — CUIDADOS DA GUARNIÇÃO COM O MATERIAL E",
+    "Ano Nº Assunto Gabarito",
+    "2017 43 TURCOS — TIPOS A",
+    "2019 33 SEGURANÇA — CORES DOS CAPACETES NAS FAINAS MARINHEIRAS E",
+    "2019 40 TURCOS — QUADRANTAL E",
+    "2020 37 EMBARCAÇÕES MIÚDAS — EMBARCAÇÃO DE CASCO SEMIRRÍGIDO C",
+    "2020 43 FAINA DA EMBARCAÇÃO — LISTA DE VERIFICAÇÃO PARA ARRIAR E",
+    "2020 47 FAINA DA EMBARCAÇÃO — SINAIS DE BANDEIRA PARA ARRIAR D",
+    "D",
+    "2021 38 FAINA DA EMBARCAÇÃO — FUNÇÕES NA LISTA DE VERIFICAÇÃO ",
+    "(alterada)",
+    "2021 43 APRESENTAÇÃO MARINHEIRA — REGRAS GERAIS Anulada",
+    "2022 44 TURCOS — QUADRANTAL E",
+    "2024 37 TURCOS — TIPOS B",
+    "2024 46 SEGURANÇA — OPERAÇÕES AÉREAS D",
+    "SEGURANÇA — ESCADA DE PRÁTICO, PALAMENTA E ITENS DE OUTRAS",
+    "2025** 48 E",
+    "PUBLICAÇÕES ",
+    "** 2025: gabarito preliminar. Entre parênteses (2011): sem gabarito oficial no projeto; resposta pelo conteúdo do",
+    "manual. Anuladas: 2012 Q33, Q35 e Q41; 2021 Q43. Alterada após recurso: 2021 Q38.",
+    "Questões por assunto",
+    "EMBARCAÇÕES MIÚDAS: TIPOS E CUIDADOS COM O MATERIAL — 2 questões",
+    "2017 Q34; 2020 Q37.",
+    "TURCOS — 4 questões",
+    "2017 Q43; 2019 Q40; 2022 Q44; 2024 Q37.",
+    "FAINA DA EMBARCAÇÃO: ARRIAR, IÇAR, ATRACAR E COMUNICAR AVARIAS — 5 questões",
+    "2011 Q46; 2012 Q41; 2020 Q43; 2020 Q47; 2021 Q38.",
+    "SEGURANÇA DAS FAINAS MARINHEIRAS (ANEXO DE SEGURANÇA DA TRIPULAÇÃO) — 8 questões",
+    "2011 Q38; 2011 Q49; 2012 Q35; 2013 Q38; 2014 Q40; 2019 Q33; 2024 Q46; 2025 Q48.",
+    "APRESENTAÇÃO MARINHEIRA — 4 questões",
+    "2012 Q33; 2015 Q47; 2016 Q33; 2021 Q43.",
+    "Para memorizar (o que mais cai):",
+    "• TURCOS (caiu em 2017, 2019, 2022 e 2024): COMUM, DE REBATER, QUADRANTAL e ROLANTE",
+    "(ou DESLIZANTE). Setor dentado no pé + cremalheira no convés = QUADRANTAL. “Hidráulico”,",
+    "“triangular”, “de botes” não são tipos.",
+    "• LISTA DE VERIFICAÇÃO PARA ARRIAR (2020 e 2021): Contramestre = EPI do pessoal; Patrão =",
+    "apresentação marinheira da lancha; Proeiro/Popeiro = boças reservas; Motorista = equipamentos de",
+    "combate a incêndio. O motorista obedece ao patrão.",
+    "• SINAIS DE BANDEIRA: verde na manobra = arriar (ordem de executar).",
+    "• SEMIRRÍGIDO: opera em mar pior, manuseio rápido, boa manobrabilidade, amplo campo de visão",
+    "do patrão.",
+    "• Avaria no material da embarcação: comunica-se pela cadeia da incumbência (patrão, Encarregado),",
+    "nunca “diretamente ao Imediato”.",
+    "• RECOLHIMENTO DE HOMEM AO MAR: colete, luvas e capacete; balaustrada passada; atirador",
+    "com fuzil; cabo de recolhimento flutuante (polipropileno); nadador com palamenta completa; em",
+    "guerra, homens armados em posição elevada ao recolher inimigo.",
+    "• REBOQUE: enfermeiro com kit de primeiros socorros na área. TRANSFERÊNCIA NO MAR:",
+    "antiderrapante na estação, projeções rebatidas, NWP 4-01.4, nunca pisar no estropo.",
+    "• CABOS: socairo seguro, fusível nas espias, ninguém dentro do seio de cabo que labora por retorno,",
+    "luvas de raspa. Capacete do raqueteiro/telefonista: VERDE.",
+    "• OPERAÇÕES AÉREAS: nenhum material solto no convés de voo, sem exceção; crache a postos no",
+    "abastecimento; ASAv assessora o Comandante (Programa de PREVENÇÃO de Acidentes",
+    "Aeronáuticos).",
+    "• APRESENTAÇÃO MARINHEIRA: no porto, após o expediente, inspecionam o Oficial de Serviço e o",
+    "Sargento-Polícia; sinais de rotina por apito e quartos pelo sino."
+   ]
+  }
+ ],
+ "provas": [
+  {
+   "ano": 2011,
+   "titulo": "Prova de 2011",
+   "intro": []
+  },
+  {
+   "ano": 2012,
+   "titulo": "Prova de 2012",
+   "intro": []
+  },
+  {
+   "ano": 2013,
+   "titulo": "Prova de 2013",
+   "intro": []
+  },
+  {
+   "ano": 2014,
+   "titulo": "Prova de 2014",
+   "intro": []
+  },
+  {
+   "ano": 2015,
+   "titulo": "Prova de 2015",
+   "intro": []
+  },
+  {
+   "ano": 2016,
+   "titulo": "Prova de 2016",
+   "intro": []
+  },
+  {
+   "ano": 2017,
+   "titulo": "Prova de 2017",
+   "intro": []
+  },
+  {
+   "ano": 2019,
+   "titulo": "Prova de 2019",
+   "intro": []
+  },
+  {
+   "ano": 2020,
+   "titulo": "Prova de 2020",
+   "intro": []
+  },
+  {
+   "ano": 2021,
+   "titulo": "Prova de 2021",
+   "intro": []
+  },
+  {
+   "ano": 2022,
+   "titulo": "Prova de 2022",
+   "intro": []
+  },
+  {
+   "ano": 2024,
+   "titulo": "Prova de 2024",
+   "intro": []
+  },
+  {
+   "ano": 2025,
+   "titulo": "Prova de 2025",
+   "intro": [
+    "Gabarito preliminar (publicado em 28/10/2025, antes do julgamento dos recursos)."
+   ]
+  }
+ ],
+ "questoes": [
+  {
+   "ano": 2011,
+   "numero": 38,
+   "pagina": 5,
+   "assunto": "SEGURANÇA — RECOLHIMENTO DE HOMEM AO MAR E NÁUFRAGOS",
+   "nota": [
+    "Fonte: A prova não cita a publicação, mas a Q35 de 2012 atribui o mesmo assunto ao anexo de Segurança da Tripulação a Bordo do CAAML-3002, e repete um dos itens."
+   ],
+   "enunciado": [
+    "Coloque F (Falso) ou V (Verdadeiro) nas afirmativas abaixo, em relação às Fainas de recolhimento de homem ao mar e náufragos, assinalando, a seguir, a opção correta.",
+    "( ) Os homens que guarnecem as estações para o recolhimento devem portar coletes de flutuabilidade permanente ou auto-infláveis, luvas e capacetes.",
+    "( ) A balaustrada de segurança em viagem não deve estar passada.",
+    "( ) Um atirador armado com fuzil guarnecerá a estação de recolhimento ou a lancha, pronto a atirar em tubarões que se aproximem do homem sendo recolhido.",
+    "( ) Usar cabo de recolhimento de flutuabilidade positiva (polipropileno).",
+    "( ) O nadador deve vestir apenas a roupa de neoprene, sem a sua palamenta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "(F) (F) (V) (F) (V)"
+    },
+    {
+     "letra": "B",
+     "texto": "(V) (F) (F) (V) (F)"
+    },
+    {
+     "letra": "C",
+     "texto": "(F) (V) (V) (V) (V)"
+    },
+    {
+     "letra": "D",
+     "texto": "(V) (F) (V) (V) (F)"
+    },
+    {
+     "letra": "E",
+     "texto": "(V) (V) (F) (F) (F)"
+    }
+   ],
+   "gabarito": "Gabarito: sem gabarito oficial no projeto (resposta pelo conteúdo do manual: D)",
+   "resposta": "D",
+   "comentario": [
+    "Análise das afirmativas: 1ª Verdadeira. Quem trabalha no costado, junto à água, usa colete (de flutuabilidade permanente ou autoinflável), luvas e capacete; é a regra geral de EPI das fainas marinheiras em conveses abertos (veja a Q40 de 2014). 2ª Falsa. É o contrário: em viagem a balaustrada de segurança deve estar passada (a Q38 de 2013 traz a frase correta). 3ª Verdadeira. A lista de precauções do manual prevê o atirador com fuzil na estação de recolhimento ou na lancha, como proteção contra tubarões. 4ª Verdadeira. O cabo de recolhimento deve flutuar (polipropileno), para o náufrago alcançá-lo; a mesma frase reaparece na Q35 de 2012. 5ª Falsa. O nadador de resgate entra na água com a roupa e com a sua palamenta completa (máscara, nadadeiras, colete, faca etc.), não só com o neoprene.",
+    "(A) Errada. Marca a 1ª e a 4ª como falsas.",
+    "(B) Errada. Marca o atirador (3ª) como falso.",
+    "(C) Errada. Aceita a balaustrada desarmada e o nadador sem palamenta.",
+    "(D) Correta pelo texto: V F V V F.",
+    "(E) Errada. Aceita a balaustrada desarmada e nega o atirador e o cabo flutuante."
+   ],
+   "anulacao": [
+    "Sem gabarito oficial no projeto. A resposta D sai das outras provas que repetem os mesmos itens (2012 Q35 e 2013 Q38). O único ponto que só o texto integral confirma é o atirador com fuzil (3ª afirmativa); se o manual não o previsse, nenhuma opção restaria com V F F V F."
+   ],
+   "fonte": "embarcacoes_miudas_comentado_2011_2025",
+   "id": "embarcacoes-miudas-2011-q38"
+  },
+  {
+   "ano": 2011,
+   "numero": 46,
+   "pagina": 6,
+   "assunto": "FAINA DA EMBARCAÇÃO — AVARIA NO MATERIAL: A QUEM COMUNICAR",
+   "nota": [],
+   "enunciado": [
+    "Em uma determinada OM, um marinheiro, componente da faxina do Mestre, ao ajudar a içar uma embarcação, utilizando turco tipo rolante, verificou que alguns materiais dessa embarcação encontravam-se avariados. Esse marinheiro, conhecedor do Manual de Procedimentos Marinheiros, CAAML-3002, comunicou o fato ao"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "patrão da embarcação e ao Oficial de Serviço."
+    },
+    {
+     "letra": "B",
+     "texto": "Encarregado de Incumbência e ao patrão da embarcação."
+    },
+    {
+     "letra": "C",
+     "texto": "Encarregado de Incumbência e ao Oficial de Serviço."
+    },
+    {
+     "letra": "D",
+     "texto": "mais antigo da faina e ao Oficial de Serviço."
+    },
+    {
+     "letra": "E",
+     "texto": "mais antigo da faina e ao patrão da embarcação."
+    }
+   ],
+   "gabarito": "Gabarito: sem gabarito oficial no projeto (resposta pelo conteúdo do manual: B)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. O Oficial de Serviço não é o responsável pelo material da embarcação; a avaria segue a cadeia da incumbência.",
+    "(B) Correta pelo texto. A embarcação é uma incumbência: quem responde pelo material é o Encarregado da Incumbência, e quem responde pela embarcação no dia a dia é o patrão. A avaria vai para os dois.",
+    "(C) Errada. Deixa de fora o patrão, que é o primeiro responsável pela embarcação e pela sua palamenta.",
+    "(D) Errada. O mais antigo da faina só coordena a manobra de içar; não responde pelo material.",
+    "(E) Errada. Mesmo motivo: falta o Encarregado da Incumbência."
+   ],
+   "anulacao": [
+    "Sem gabarito oficial. A resposta B é a que segue a lógica do manual (a Q34 de 2017 mostra que a banca considera errado “informar diretamente ao Imediato”), mas a frase exata sobre a quem comunicar só o texto integral do CAAML-3002 confirma."
+   ],
+   "fonte": "embarcacoes_miudas_comentado_2011_2025",
+   "id": "embarcacoes-miudas-2011-q46"
+  },
+  {
+   "ano": 2011,
+   "numero": 49,
+   "pagina": 6,
+   "assunto": "SEGURANÇA — FAINAS COM ESPIAS E CABOS",
+   "nota": [],
+   "enunciado": [
+    "De acordo com o CAAML-3002, deve-se observar os procedimentos que aumentam a segurança da faina, quando trabalhando com espias e cabos. Em relação a esse assunto, assinale a opção que apresenta um procedimento INCORRETO."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "O primeiro homem, que guarnecer qualquer cabo sob tensão, deve manter um socairo seguro de um cabrestante, cabeço ou buzina."
+    },
+    {
+     "letra": "B",
+     "texto": "Todas as espias e cabos de reboque devem possuir fusível."
+    },
+    {
+     "letra": "C",
+     "texto": "Todos os envolvidos na faina devem ficar pelo lado interno (vivo) dos cabos que estejam laborando por qualquer retorno."
+    },
+    {
+     "letra": "D",
+     "texto": "O pessoal envolvido nas fainas de dobrar a amarração deverá permanecer com o colete adequadamente vestido."
+    },
+    {
+     "letra": "E",
+     "texto": "Usar luvas do tipo “raspa de coco” quando laborando cabos."
+    }
+   ],
+   "gabarito": "Gabarito: sem gabarito oficial no projeto (resposta pelo conteúdo do manual: C)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Procedimento correto. O socairo (voltas de folga controlada no cabrestante, cabeço ou buzina) impede que o cabo corra e arraste o homem.",
+    "(B) Procedimento correto. O fusível é o elo fraco que rompe antes da espia, controlando onde ela parte e reduzindo o chicoteio.",
+    "(C) É o INCORRETO (resposta). O lado de dentro do seio de um cabo que labora por um retorno (patesca, buzina) é a zona de perigo: se o retorno ceder ou o cabo partir, ele varre esse espaço. O pessoal deve ficar FORA do seio.",
+    "(D) Procedimento correto. Quem trabalha em conveses abertos, perto da borda, usa colete.",
+    "(E) Procedimento correto. Luvas de raspa protegem as mãos ao laborar cabos (a prova escreveu “raspa de coco”, evidente erro de digitação)."
+   ],
+   "anulacao": [
+    "Sem gabarito oficial. A resposta C é a única que contraria uma regra básica de segurança com cabos, então a margem é pequena."
+   ],
+   "fonte": "embarcacoes_miudas_comentado_2011_2025",
+   "id": "embarcacoes-miudas-2011-q49"
+  },
+  {
+   "ano": 2012,
+   "numero": 33,
+   "pagina": 8,
+   "assunto": "APRESENTAÇÃO MARINHEIRA — HASTEAMENTO DA BANDEIRA NACIONAL",
+   "nota": [],
+   "enunciado": [
+    "De acordo com o anexo A, capítulo I, do Manual de Procedimentos Marinheiros (CAAML-3002), assinale a opção INCORRETA em relação à apresentação marinheira por ocasião do Cerimonial de Hasteamento da Bandeira Nacional."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "O galhardete “PREP” deve ser colocado na adriça e içado no início do cerimonial para a bandeira e retirado tão logo encerrado o cerimonial."
+    },
+    {
+     "letra": "B",
+     "texto": "A Bandeira Nacional não pode estar dobrada na base de seu mastro aguardando o hasteamento, antes do toque de “sinal para bandeira”."
+    },
+    {
+     "letra": "C",
+     "texto": "Após o toque “sinal para bandeira”, a Bandeira Nacional deve passar a ser portada nos ombros do militar responsável pelo seu hasteamento."
+    },
+    {
+     "letra": "D",
+     "texto": "Durante o cerimonial, o militar responsável pelo hasteamento do Pavilhão Nacional não deve permitir que este pavilhão toque o solo."
+    },
+    {
+     "letra": "E",
+     "texto": "A “substituta” não deve se encontrar dobrada na base do mastro e presa na sua respectiva adriça aguardando o içamento, quando da saída de bordo do Comandante."
+    }
+   ],
+   "gabarito": "Gabarito: ANULADA (resposta que o conteúdo indica: C (provável))",
+   "resposta": "ANULADA",
+   "comentario": [
+    "(A) Em tese correta: o galhardete Prep marca o cerimonial e só fica içado enquanto ele dura.",
+    "(B) Correta. A bandeira deixada dobrada ao pé do mastro, à espera, é exatamente a falha de apresentação marinheira que o anexo condena.",
+    "(C) Provável INCORRETA. O militar porta a bandeira dobrada nos braços, à frente do corpo, e não “nos ombros”; o detalhe exato só o texto integral confirma.",
+    "(D) Correta. A Bandeira Nacional nunca toca o solo.",
+    "(E) Correta, pelo mesmo raciocínio da alternativa B: nada fica “de prontidão” dobrado ao pé do mastro."
+   ],
+   "anulacao": [
+    "ANULADA no gabarito oficial. O motivo não foi publicado; o mais provável é que a alternativa considerada errada pela banca (A ou C) tenha sido contestada com o texto do Cerimonial, que regula o mesmo assunto com detalhes diferentes. Estude o conteúdo, não a letra."
+   ],
+   "fonte": "embarcacoes_miudas_comentado_2011_2025",
+   "id": "embarcacoes-miudas-2012-q33"
+  },
+  {
+   "ano": 2012,
+   "numero": 35,
+   "pagina": 8,
+   "assunto": "SEGURANÇA — RECOLHIMENTO DE HOMEM AO MAR E NÁUFRAGOS",
+   "nota": [],
+   "enunciado": [
+    "Um Capitão-Tenente (AA), Agente de uma Capitania dos Portos, foi acionado para atender a uma ocorrência de naufrágio de uma embarcação com a existência de homem ao mar. Dentre as opções abaixo, assinale aquela que representa uma ação inerente às precauções de segurança nas fainas marinheiras, referente ao recolhimento de homem ao mar e náufragos, que deverá ser observada pelo respectivo Agente, de acordo com o anexo “B” (Segurança da Tripulação a Bordo) do Manual de Procedimentos Marinheiros (CAAML-3002)."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Manter um enfermeiro com “kit” de primeiros socorros na área."
+    },
+    {
+     "letra": "B",
+     "texto": "Manter socairo mínimo de dois metros."
+    },
+    {
+     "letra": "C",
+     "texto": "As projeções móveis, localizadas no bordo da faina, devem ser rebatidas e peiadas."
+    },
+    {
+     "letra": "D",
+     "texto": "A boia salva-vidas deve ser atada a um cabo flutuante para, em caso de emergência, quando arremessada, ter seu chicote a bordo."
+    },
+    {
+     "letra": "E",
+     "texto": "Usar cabo de recolhimento de flutuabilidade positiva (polipropileno)."
+    }
+   ],
+   "gabarito": "Gabarito: ANULADA (resposta que o conteúdo indica: D ou E (duas corretas))",
+   "resposta": "ANULADA",
+   "comentario": [
+    "(A) Errada. O enfermeiro com kit é precaução da faina de REBOQUE (é a resposta da Q38 de 2013).",
+    "(B) Errada. Socairo é cuidado de faina com espias e cabos, e não há “socairo mínimo de dois metros”.",
+    "(C) Errada. Rebater e peiar projeções móveis é precaução de fainas de transferência e reboque no costado.",
+    "(D) Plausível. Boia com retinida flutuante, chicote a bordo, é medida típica de recolhimento.",
+    "(E) Correta. É frase literal da lista de recolhimento de homem ao mar (aparece também na Q38 de 2011)."
+   ],
+   "anulacao": [
+    "ANULADA no gabarito oficial. O motivo mais provável é haver duas respostas defensáveis (D e E). Há ainda um erro de enunciado: um Agente da Capitania não comanda faina de recolhimento a bordo de navio. Para estudo, guarde a lista: colete, luvas e capacete; balaustrada passada; atirador na estação; cabo flutuante de polipropileno; nadador com palamenta completa."
+   ],
+   "fonte": "embarcacoes_miudas_comentado_2011_2025",
+   "id": "embarcacoes-miudas-2012-q35"
+  },
+  {
+   "ano": 2012,
+   "numero": 41,
+   "pagina": 9,
+   "assunto": "FAINA DA EMBARCAÇÃO — ATRACAÇÃO À ESCADA DE PORTALÓ COM CORRENTE",
+   "nota": [],
+   "enunciado": [
+    "O Oficial de Serviço de um navio se encontrava posicionado no patim superior da escada de portaló de boreste e, ao recepcionar o Comandante deste navio, que era conduzido por embarcação miúda do navio, percebeu que no momento da atracação por bombordo na escada de portaló, com corrente de maré, ou seja, paralela ao costado do navio, fundeado, no sentido proa/popa, o proeiro guarneceu a boça de vante, mas a embarcação caiu muito para vante. O patrão esqueceu de usar o leme, fazendo a embarcação girar e atingir o costado do navio, e o popeiro ficou impossibilitado de puxar a popa para junto da escada de portaló. Que manobra corretiva deveria ser executada pelo patrão da embarcação para a atracação na escada de portaló, conforme Manual de Procedimentos Marinheiros (CAAML-3002)?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Cair a ré. Carregar o leme para bombordo até que a embarcação miúda adquirisse seguimento contra a corrente e afastada da escada; e, então, dirigir a embarcação até que ela fosse para contrabordo da escada suavemente."
+    },
+    {
+     "letra": "B",
+     "texto": "Carregar o leme para bombordo, deixar a embarcação miúda cair a vante e depois a ré e aproximar-se novamente a contrabordo da escada de portaló."
+    },
+    {
+     "letra": "C",
+     "texto": "Cair a ré com máquinas e reinvestir para nova atracação, com leme carregado para boreste e com pouco seguimento."
+    },
+    {
+     "letra": "D",
+     "texto": "Carregar o leme para boreste até que a proa girasse para fora e dirigir a embarcação de modo que fique paralela ao costado do navio."
+    },
+    {
+     "letra": "E",
+     "texto": "Carregar o leme para boreste e fazer a aproximação, sempre, em baixa velocidade, mantendo a embarcação em uma posição safa, considerando uma falha quando for usar a máquina para quebrar o seguimento."
+    }
+   ],
+   "gabarito": "Gabarito: ANULADA (resposta que o conteúdo indica: C ou D (duas defensáveis))",
+   "resposta": "ANULADA",
+   "comentario": [
+    "Análise das afirmativas: Raciocínio da manobra: a embarcação atraca com o BOMBORDO na escada; o navio fica, então, do lado esquerdo dela. Para afastar a proa do costado, o leme vai para BORESTE (a proa gira para fora). A aproximação é feita aproando à corrente e com pouco seguimento.",
+    "(A) Errada. Leme a bombordo leva a proa para o costado, repetindo a batida.",
+    "(B) Errada. Mesmo erro de leme, e “cair a vante” agrava a situação descrita.",
+    "(C) Defensável. Dar atrás para safar e reinvestir com leme a boreste e pouco seguimento é a correção clássica.",
+    "(D) Defensável. Leme a boreste, proa para fora, e embarcação paralela ao costado também resolve a situação descrita.",
+    "(E) Errada. Mistura recomendações gerais e não descreve uma manobra corretiva."
+   ],
+   "anulacao": [
+    "ANULADA no gabarito oficial. O provável motivo é que C e D descrevem manobras corretas para o mesmo problema. A redação do manual sobre esta situação só o texto integral confirma."
+   ],
+   "fonte": "embarcacoes_miudas_comentado_2011_2025",
+   "id": "embarcacoes-miudas-2012-q41"
+  },
+  {
+   "ano": 2013,
+   "numero": 38,
+   "pagina": 11,
+   "assunto": "SEGURANÇA — FAINA DE REBOQUE",
+   "nota": [],
+   "enunciado": [
+    "De acordo com o anexo B da publicação CAAML-3002 - Manual de Procedimentos Marinheiros, assinale a opção correta quanto às precauções em relação à faina de reboque (rebocador e rebocado)."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "O convés, nas proximidades da estação de transferência, deve ser tratado com material antiderrapante."
+    },
+    {
+     "letra": "B",
+     "texto": "As projeções móveis, localizadas no bordo da faina, devem ser rebatidas e peiadas."
+    },
+    {
+     "letra": "C",
+     "texto": "A balaustrada de segurança em viagem deve estar passada."
+    },
+    {
+     "letra": "D",
+     "texto": "Manter um enfermeiro com “kit” de primeiros socorros na área."
+    },
+    {
+     "letra": "E",
+     "texto": "Cumprir os procedimentos de segurança do NWP 4-01.4 relativos à passagem da retinida, visando à proteção da guarnição do outro navio."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. “Estação de transferência” é termo da faina de TRANSFERÊNCIA no mar, não do reboque.",
+    "(B) Errada. Rebater projeções móveis no bordo da faina é precaução de transferência no mar (navios a contrabordo).",
+    "(C) Errada. Precaução de caráter geral em viagem e da faina de recolhimento de homem ao mar.",
+    "(D) Correta. Na faina de reboque o manual manda manter enfermeiro com kit de primeiros socorros na área, pelo risco de ruptura do cabo de reboque.",
+    "(E) Errada. O NWP 4-01.4 é a publicação de reabastecimento no mar (transferência)."
+   ],
+   "anulacao": [
+    "Pequena margem: algumas precauções se repetem entre as fainas do anexo B. A banca separou pelas palavras-chave (estação de transferência, NWP 4-01.4)."
+   ],
+   "fonte": "embarcacoes_miudas_comentado_2011_2025",
+   "id": "embarcacoes-miudas-2013-q38"
+  },
+  {
+   "ano": 2014,
+   "numero": 40,
+   "pagina": 12,
+   "assunto": "SEGURANÇA — SEGURANÇA DA TRIPULAÇÃO NAS FAINAS MARINHEIRAS",
+   "nota": [
+    "Fonte: A prova cita o “Manual de Procedimentos Marinheiros”, sem número."
+   ],
+   "enunciado": [
+    "Considerando o que preceitua o Manual de Procedimentos Marinheiros referente à segurança de tripulação, é correto afirmar que:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "nas fainas marinheiras em conveses abertos, o uso do colete de flutuabilidade permanente (tradicionalmente conhecido como colete de paina) ou autoinflável é facultativo."
+    },
+    {
+     "letra": "B",
+     "texto": "nas fainas de transferência no mar, o pessoal que trabalha com a carga deve pisar em um estropo da rede que estiver talingado no gato."
+    },
+    {
+     "letra": "C",
+     "texto": "nas fainas de recolhimento de homem ao mar e náufragos, em situação de guerra, no caso de recolhimento de inimigo, devem-se manter homens armados postados em local elevado e próximo à estação de recolhimento, de modo a se prevenir contra eventual ação adversa."
+    },
+    {
+     "letra": "D",
+     "texto": "é obrigatório o posicionamento de ampolas de oxigênio e/ou acetileno no interior de espaços confinados (exceção feita à ampola de oxigênio da Enfermaria)."
+    },
+    {
+     "letra": "E",
+     "texto": "as ordens de fogo são expedidas mediante autorização do Encarregado de Divisão, do Encarregado do CAV ou seu substituto legal, que assinam a papeleta de autorização."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. O colete é OBRIGATÓRIO nas fainas em conveses abertos.",
+    "(B) Errada. É proibido pisar no estropo ou na rede talingada no gato: se o guincho puxar, o homem vai junto.",
+    "(C) Correta. No recolhimento de inimigo, em guerra, homens armados ficam em posição elevada junto à estação de recolhimento.",
+    "(D) Errada. É PROIBIDO deixar ampolas de oxigênio ou acetileno em espaços confinados (a exceção da Enfermaria é que existe).",
+    "(E) Errada. A papeleta de trabalho a quente (ordem de fogo) é autorizada pela cadeia do CAv; o Encarregado de Divisão não está entre os autorizados."
+   ],
+   "anulacao": [
+    "Sem margem relevante. Na alternativa E, quem exatamente assina a papeleta só o texto integral confirma, mas as outras três erradas são claras."
+   ],
+   "fonte": "embarcacoes_miudas_comentado_2011_2025",
+   "id": "embarcacoes-miudas-2014-q40"
+  },
+  {
+   "ano": 2015,
+   "numero": 47,
+   "pagina": 13,
+   "assunto": "APRESENTAÇÃO MARINHEIRA — INSPEÇÕES E SINAIS DE ROTINA",
+   "nota": [
+    "Fonte: A prova não cita a publicação; a apresentação marinheira é o anexo A do Manual de Procedimentos Marinheiros."
+   ],
+   "enunciado": [
+    "De maneira geral, despende-se muito tempo a bordo corrigindo falhas relacionadas à apresentação do navio. É comum que ocorram as “viradas” às vésperas de eventos importantes, sacrificando-se, desnecessariamente, a tripulação. Sendo assim, com relação à apresentação marinheira de uma OM, é correto afirmar que:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "em viagem, somente o Contramestre de Quarto e o Sargento-Polícia exercerão, no que couber, essas atribuições, empregando o Grupo de Limpeza e Fainas Marinheiras para a manutenção da limpeza e aspecto marinheiro do navio."
+    },
+    {
+     "letra": "B",
+     "texto": "após o expediente, o contramestre de serviço inspecionará o navio, empregando o quarto de serviço para mantê-lo limpo e com boa apresentação marinheira."
+    },
+    {
+     "letra": "C",
+     "texto": "no porto, durante o expediente, o Oficial de Serviço, o Contramestre e o Sargento-Polícia inspecionarão frequentemente o navio, verificando a limpeza, a arrumação dos compartimentos e o aspecto marinheiro."
+    },
+    {
+     "letra": "D",
+     "texto": "os sinais de rotina, como os de rancho, e de uniforme, entre a alvorada e o silêncio deverão ser executados por apito, com correção, e os quartos marcados pelo sino de bordo."
+    },
+    {
+     "letra": "E",
+     "texto": "nem mesmo o fato de o navio encontrar-se guarnecido em postos de combate ou em DEM (Detalhe Especial para o Mar) justifica a degradação na sua apresentação marinheira."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. O “somente” estraga: em viagem a responsabilidade não fica só com Contramestre de Quarto e Sargento-Polícia.",
+    "(B) Errada. Após o expediente quem inspeciona é o Oficial de Serviço com o Sargento-Polícia (resposta da Q33 de 2016), não o contramestre sozinho.",
+    "(C) Errada. Pela Q33 de 2016, a inspeção do Oficial de Serviço com o Sargento-Polícia é a de APÓS o expediente; durante o expediente o aspecto marinheiro fica com as divisões e incumbências (a redação exata só o texto integral confirma).",
+    "(D) Correta. Sinais de rotina (rancho, uniforme) entre alvorada e silêncio são dados por apito, com correção, e os quartos marcados pelo sino.",
+    "(E) Errada. O manual admite que, em postos de combate ou DEM, a apresentação marinheira ceda lugar à faina; o exagero “nem mesmo” é a pegadinha."
+   ],
+   "anulacao": [
+    "Margem pequena: o candidato pode alegar que a alternativa E é uma boa prática. O gabarito seguiu a redação do manual, que ressalva as situações de combate e DEM."
+   ],
+   "fonte": "embarcacoes_miudas_comentado_2011_2025",
+   "id": "embarcacoes-miudas-2015-q47"
+  },
+  {
+   "ano": 2016,
+   "numero": 33,
+   "pagina": 14,
+   "assunto": "APRESENTAÇÃO MARINHEIRA — INSPEÇÃO NO PORTO APÓS O EXPEDIENTE",
+   "nota": [
+    "Fonte: A prova não cita a publicação; o assunto é o anexo A do Manual de Procedimentos Marinheiros."
+   ],
+   "enunciado": [
+    "Com relação à apresentação marinheira, os navios no porto, após o expediente, serão inspecionados pelo"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Cabo Auxiliar e Sargento-Polícia."
+    },
+    {
+     "letra": "B",
+     "texto": "Oficial de Serviço e Sargento-Polícia."
+    },
+    {
+     "letra": "C",
+     "texto": "Ajudante do Oficial de Serviço e Cabo Auxiliar."
+    },
+    {
+     "letra": "D",
+     "texto": "Contramestre de Quarto e Oficial de Serviço."
+    },
+    {
+     "letra": "E",
+     "texto": "Mestre, Oficial de Serviço e Contramestre de Quarto."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. O Cabo Auxiliar não faz essa inspeção.",
+    "(B) Correta. No porto, após o expediente: Oficial de Serviço e Sargento-Polícia.",
+    "(C) Errada.",
+    "(D) Errada. Contramestre de Quarto é figura do serviço em viagem.",
+    "(E) Errada. O Mestre não está de serviço após o expediente."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "embarcacoes_miudas_comentado_2011_2025",
+   "id": "embarcacoes-miudas-2016-q33"
+  },
+  {
+   "ano": 2017,
+   "numero": 34,
+   "pagina": 15,
+   "assunto": "EMBARCAÇÕES MIÚDAS — CUIDADOS DA GUARNIÇÃO COM O MATERIAL",
+   "nota": [],
+   "enunciado": [
+    "Segundo a publicação CAAML-3002, são cuidados que devem ser observados pela guarnição de embarcações miúdas para a manutenção do material, EXCETO:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "verificar constantemente o estado e a validade da palamenta da embarcação."
+    },
+    {
+     "letra": "B",
+     "texto": "arejar os coletes salva-vidas após tempo úmido, ou quando forem molhados."
+    },
+    {
+     "letra": "C",
+     "texto": "manter o material livre de sujeira, corrosão e ferrugem."
+    },
+    {
+     "letra": "D",
+     "texto": "reparar ou informar pequenos danos imediatamente."
+    },
+    {
+     "letra": "E",
+     "texto": "informar diretamente ao imediato qualquer dano à embarcação."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Cuidado previsto. A palamenta (remos, croque, boças, balde, bujão, lanterna etc.) é verificada sempre, inclusive validades.",
+    "(B) Cuidado previsto. Coletes molhados são arejados para não apodrecer.",
+    "(C) Cuidado previsto.",
+    "(D) Cuidado previsto.",
+    "(E) É a EXCEÇÃO (resposta). A comunicação segue a cadeia da incumbência (patrão e Encarregado), não vai “diretamente ao Imediato”."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "embarcacoes_miudas_comentado_2011_2025",
+   "id": "embarcacoes-miudas-2017-q34"
+  },
+  {
+   "ano": 2017,
+   "numero": 43,
+   "pagina": 15,
+   "assunto": "TURCOS — TIPOS",
+   "nota": [],
+   "enunciado": [
+    "Os turcos são aparelhos montados aos pares, que servem apenas às embarcações por eles sustentadas, e têm a função de içar e arriar embarcações miúdas a bordo. Assinale a opção que todas as palavras representam apenas os tipos de turcos especificados na publicação CAAML-3002."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Comum, de rebater, quadrantal e rolante ou deslizante."
+    },
+    {
+     "letra": "B",
+     "texto": "De convés, triangular, fixo e comum."
+    },
+    {
+     "letra": "C",
+     "texto": "Lanchas, de botes, triangular e redondo."
+    },
+    {
+     "letra": "D",
+     "texto": "Trapezoidal, de olhal, de chalanas e deslizante."
+    },
+    {
+     "letra": "E",
+     "texto": "De botes, triangular e deslizante."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. Os tipos do manual são: COMUM, DE REBATER, QUADRANTAL e ROLANTE (ou DESLIZANTE).",
+    "(B) Errada. “De convés”, “triangular” e “fixo” não são tipos de turco do manual.",
+    "(C) Errada. “Lanchas” e “de botes” nomeiam embarcações, não turcos.",
+    "(D) Errada. Só “deslizante” é tipo de turco.",
+    "(E) Errada. Só “deslizante” é tipo de turco."
+   ],
+   "anulacao": [
+    "Sem margem. Mesma lista cobrada em 2019, 2022 e 2024."
+   ],
+   "fonte": "embarcacoes_miudas_comentado_2011_2025",
+   "id": "embarcacoes-miudas-2017-q43"
+  },
+  {
+   "ano": 2019,
+   "numero": 33,
+   "pagina": 17,
+   "assunto": "SEGURANÇA — CORES DOS CAPACETES NAS FAINAS MARINHEIRAS",
+   "nota": [
+    "Fonte: A prova não cita a publicação; a codificação de cores dos capacetes está no anexo de segurança do Manual de Procedimentos Marinheiros."
+   ],
+   "enunciado": [
+    "Nas fainas marinheiras em que houver a necessidade de uso de capacetes, estes deverão seguir a codificação de cores. Assinale dentre as opções abaixo, a cor do capacete utilizado pelo Raqueteiro/Telefonista."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Laranja."
+    },
+    {
+     "letra": "B",
+     "texto": "Azul."
+    },
+    {
+     "letra": "C",
+     "texto": "Púrpura."
+    },
+    {
+     "letra": "D",
+     "texto": "Branca."
+    },
+    {
+     "letra": "E",
+     "texto": "Verde."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. Cor de outra função na tabela do manual.",
+    "(B) Errada. Cor de outra função.",
+    "(C) Errada. Cor de outra função.",
+    "(D) Errada. Cor de outra função.",
+    "(E) Correta. Raqueteiro (sinaleiro de raquetes) e telefonista usam capacete VERDE."
+   ],
+   "anulacao": [
+    "Sem margem pelo gabarito. Guarde: raqueteiro e telefonista = VERDE. A tabela completa (a cor de cada uma das outras funções) só o texto integral do manual confirma."
+   ],
+   "fonte": "embarcacoes_miudas_comentado_2011_2025",
+   "id": "embarcacoes-miudas-2019-q33"
+  },
+  {
+   "ano": 2019,
+   "numero": 40,
+   "pagina": 17,
+   "assunto": "TURCOS — QUADRANTAL",
+   "nota": [],
+   "enunciado": [
+    "De acordo com o CAAML-703 MOD. 1, o tipo de turco que é recolhido ou disparado inclinando-se sobre um setor dentado que constitui seu pé e engraza numa cremalheira sobre o convés é o:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "comum."
+    },
+    {
+     "letra": "B",
+     "texto": "rolante."
+    },
+    {
+     "letra": "C",
+     "texto": "de rebater."
+    },
+    {
+     "letra": "D",
+     "texto": "deslizante."
+    },
+    {
+     "letra": "E",
+     "texto": "quadrantal."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. O turco comum é um braço curvo que GIRA em torno do próprio eixo vertical.",
+    "(B) Errada. O rolante (ou deslizante) corre sobre trilhos/calhas inclinados, levando a embarcação para fora.",
+    "(C) Errada. O de rebater gira em torno de um pino na base (como uma dobradiça), sem setor dentado.",
+    "(D) Errada. Deslizante é outro nome do rolante.",
+    "(E) Correta. QUADRANTAL: o pé é um setor dentado (um quadrante) que engraza numa cremalheira no convés; o turco inclina sobre esse setor."
+   ],
+   "anulacao": [
+    "Sem margem. Mesma definição cobrada em 2022 (Q44)."
+   ],
+   "fonte": "embarcacoes_miudas_comentado_2011_2025",
+   "id": "embarcacoes-miudas-2019-q40"
+  },
+  {
+   "ano": 2020,
+   "numero": 37,
+   "pagina": 19,
+   "assunto": "EMBARCAÇÕES MIÚDAS — EMBARCAÇÃO DE CASCO SEMIRRÍGIDO",
+   "nota": [],
+   "enunciado": [
+    "Segundo o Manual de Procedimentos Marinheiros, existe uma embarcação miúda que apresenta, dentre outras, as seguintes vantagens: podem operar em condições piores de mar, manuseio mais rápido e fácil, apresentam boa manobrabilidade e conferem ao patrão amplo campo de visão. Assinale a opção que corresponde a essa embarcação miúda."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Botes Infláveis."
+    },
+    {
+     "letra": "B",
+     "texto": "Balsas Salva-Vidas."
+    },
+    {
+     "letra": "C",
+     "texto": "Embarcações de casco semi-rígido."
+    },
+    {
+     "letra": "D",
+     "texto": "Lanchas."
+    },
+    {
+     "letra": "E",
+     "texto": "Chalanas."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. O bote inflável é leve, mas não é o que opera em mar pior nem dá ao patrão amplo campo de visão.",
+    "(B) Errada. Balsa salva-vidas é meio de abandono; não tem propulsão nem patrão.",
+    "(C) Correta. A embarcação de casco semirrígido (fundo rígido e flutuadores infláveis) opera com mar pior, é de manuseio rápido, manobra bem e o patrão, no console, tem amplo campo de visão.",
+    "(D) Errada. A lancha é mais pesada e de manuseio mais lento.",
+    "(E) Errada. Chalana é embarcação de fundo chato, para serviço junto ao costado e em águas abrigadas."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "embarcacoes_miudas_comentado_2011_2025",
+   "id": "embarcacoes-miudas-2020-q37"
+  },
+  {
+   "ano": 2020,
+   "numero": 43,
+   "pagina": 19,
+   "assunto": "FAINA DA EMBARCAÇÃO — LISTA DE VERIFICAÇÃO PARA ARRIAR",
+   "nota": [],
+   "enunciado": [
+    "Segundo o Manual de Procedimentos Marinheiros, a faina para arriar uma embarcação é mais rápida, segura e precisa, se sua guarnição executar a manobra de forma coordenada e disciplinada. Os preparativos para a faina são realizados seguindo uma lista de verificação abrangendo todas as ações a serem tomadas pelo pessoal que executa a manobra. Sendo assim, é correto afirmar que, de acordo com o referido manual:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "o Contra-Mestre verifica se foi cumprida a lista de verificação da embarcação pelo motorista da lancha."
+    },
+    {
+     "letra": "B",
+     "texto": "o Patrão verifica a boça de viagem."
+    },
+    {
+     "letra": "C",
+     "texto": "o Motorista cumpre as determinações do contramestre em relação ao regime de máquinas."
+    },
+    {
+     "letra": "D",
+     "texto": "o Patrão verifica os equipamentos de combate a incêndio."
+    },
+    {
+     "letra": "E",
+     "texto": "o Proeiro e o Popeiro verificam se estão a bordo as boças reservas."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. O Contramestre verifica o EPI do pessoal da faina; a lista da embarcação é do patrão.",
+    "(B) Errada. Boças são com o proeiro e o popeiro.",
+    "(C) Errada. O motorista obedece ao PATRÃO, que comanda a embarcação, e não ao contramestre.",
+    "(D) Errada. Os equipamentos de combate a incêndio são verificados pelo MOTORISTA.",
+    "(E) Correta. Proeiro e popeiro verificam se as boças reservas estão a bordo."
+   ],
+   "anulacao": [
+    "Sem margem. A divisão de tarefas é a mesma da Q38 de 2021: Contramestre = EPI; Patrão = apresentação marinheira da lancha; Proeiro/Popeiro = boças reservas; Motorista = combate a incêndio."
+   ],
+   "fonte": "embarcacoes_miudas_comentado_2011_2025",
+   "id": "embarcacoes-miudas-2020-q43"
+  },
+  {
+   "ano": 2020,
+   "numero": 47,
+   "pagina": 20,
+   "assunto": "FAINA DA EMBARCAÇÃO — SINAIS DE BANDEIRA PARA ARRIAR",
+   "nota": [],
+   "enunciado": [
+    "Um método simples e eficiente que pode ser empregado pela Manobra para se comunicar com a estação da lancha ou do bote, ou com a própria embarcação, tanto para o arriamento quanto para o içamento, é a utilização de bandeiras nas proximidades da asa do Passadiço e da estação da embarcação empregada. Desse modo, assinale a opção correta que corresponde ao emprego da bandeira e sua respectiva manobra quando se está “ARRIANDO UMA EMBARCAÇÃO”."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Bandeira encarnada na manobra corresponde à preparação da embarcação para arriar."
+    },
+    {
+     "letra": "B",
+     "texto": "Bandeira verde na estação corresponde à preparação para arriar a embarcação."
+    },
+    {
+     "letra": "C",
+     "texto": "Bandeira encarnada na estação corresponde à embarcação a contrabordo."
+    },
+    {
+     "letra": "D",
+     "texto": "Bandeira verde na manobra corresponde a arriar a embarcação."
+    },
+    {
+     "letra": "E",
+     "texto": "Bandeira encarnada na manobra corresponde à embarcação pronta para ser arriada."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "Análise das afirmativas: Lógica do sistema: a MANOBRA (passadiço) autoriza; a ESTAÇÃO da embarcação informa. VERDE é a autorização para executar; ENCARNADA é preparar/aguardar.",
+    "(A) Errada. A encarnada na manobra não é “preparação”, que é iniciativa da estação.",
+    "(B) Errada. A estação não sinaliza “preparar para arriar” com verde.",
+    "(C) Errada. A embarcação a contrabordo é situação do içamento, não do arriamento.",
+    "(D) Correta. Bandeira VERDE na MANOBRA = arriar a embarcação (o passadiço dá a ordem de executar).",
+    "(E) Errada. Quem informa “pronta para arriar” é a estação, não a manobra."
+   ],
+   "anulacao": [
+    "Sem margem pelo gabarito. A tabela completa de sinais (para arriar e para içar) só o texto integral confirma; guarde que verde na manobra é a ordem de executar."
+   ],
+   "fonte": "embarcacoes_miudas_comentado_2011_2025",
+   "id": "embarcacoes-miudas-2020-q47"
+  },
+  {
+   "ano": 2021,
+   "numero": 38,
+   "pagina": 21,
+   "assunto": "FAINA DA EMBARCAÇÃO — FUNÇÕES NA LISTA DE VERIFICAÇÃO",
+   "nota": [],
+   "enunciado": [
+    "A faina para arriar uma embarcação é mais rápida, segura e precisa, se sua guarnição executar a manobra de forma coordenada e disciplinada. Assinale a opção que apresenta a respectiva correlação da função dos militares às ações a serem tomadas na lista de verificação para a execução da manobra. FUNÇÃO: 1 - Contramestre; 2 - Patrão; 3 - Proeiro/Popeiro; 4 - Motorista (MO). AÇÃO:",
+    "( ) Verificar se estão a bordo as boças reservas.",
+    "( ) Verificar se o pessoal envolvido na faina está utilizando equipamento de proteção individual (EPI) adequado.",
+    "( ) Verificar os equipamentos de combate a incêndio.",
+    "( ) Verificar a apresentação marinheira da lancha, corrigindo as discrepâncias."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "(4) (1) (3) (2)"
+    },
+    {
+     "letra": "B",
+     "texto": "(1) (2) (3) (4)"
+    },
+    {
+     "letra": "C",
+     "texto": "(3) (2) (4) (1)"
+    },
+    {
+     "letra": "D",
+     "texto": "(3) (1) (4) (2)"
+    },
+    {
+     "letra": "E",
+     "texto": "(2) (1) (4) (3)"
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, ALTERADO após os recursos)",
+   "resposta": "D",
+   "comentario": [
+    "Análise das afirmativas: Boças reservas: PROEIRO/POPEIRO (3). EPI do pessoal da faina: CONTRAMESTRE (1), que dirige a manobra no convés. Combate a incêndio: MOTORISTA (4). Apresentação marinheira da lancha: PATRÃO (2). Sequência: 3, 1, 4, 2.",
+    "(A) Errada. Dá as boças ao motorista.",
+    "(B) Errada.",
+    "(C) Errada. Inverte Contramestre e Patrão (esta era, provavelmente, a resposta preliminar).",
+    "(D) Correta: (3) (1) (4) (2).",
+    "(E) Errada."
+   ],
+   "anulacao": [
+    "O gabarito foi ALTERADO para D após os recursos. A troca entre Contramestre e Patrão (EPI × apresentação da lancha) é o ponto que gerou o recurso; a versão final segue o manual: quem cuida do pessoal no convés é o Contramestre, quem cuida da lancha é o Patrão."
+   ],
+   "fonte": "embarcacoes_miudas_comentado_2011_2025",
+   "id": "embarcacoes-miudas-2021-q38"
+  },
+  {
+   "ano": 2021,
+   "numero": 43,
+   "pagina": 21,
+   "assunto": "APRESENTAÇÃO MARINHEIRA — REGRAS GERAIS",
+   "nota": [],
+   "enunciado": [
+    "Com relação ao Manual de Procedimentos Marinheiros, assinale a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Galhardetes e Bandeiras Insígnias enrascadas em adriças, quando içadas, comprometem o aspecto marinheiro da Organização Militar. Quando se trata do Pavilhão Nacional, isso passa a ser aceitável."
+    },
+    {
+     "letra": "B",
+     "texto": "O passadiço é o “cartão de visita” do navio e como tal tem que estar rigorosamente limpo e arrumado."
+    },
+    {
+     "letra": "C",
+     "texto": "Embarcações não devem ser mantidas atracadas ao portaló dos navios ou às escadas do cais."
+    },
+    {
+     "letra": "D",
+     "texto": "Não é demérito para nenhum militar de bordo, qualquer que seja a sua antiguidade, abaixar-se para recolher um resto de cigarro que algum descuidado deixou cair no piso e levá-lo à lixeira."
+    },
+    {
+     "letra": "E",
+     "texto": "O rondar do vento ou o rabeio do navio isentam o Oficial de Serviço da responsabilidade pelo mau aspecto da Bandeira Nacional não-atopetada ou enroscada no respectivo mastro e adriça."
+    }
+   ],
+   "gabarito": "Gabarito: ANULADA (resposta que o conteúdo indica: D (e C também defensável))",
+   "resposta": "ANULADA",
+   "comentario": [
+    "(A) Errada. Bandeira enrascada é falha sempre; com o Pavilhão Nacional é ainda mais grave, nunca “aceitável”.",
+    "(B) Errada. O “cartão de visita” do navio é o PORTALÓ, por onde chegam as visitas, não o passadiço.",
+    "(C) Defensável. O manual condena embarcações deixadas atracadas ao portaló ou às escadas sem necessidade; se a frase for tomada como regra, também está certa.",
+    "(D) Correta. É frase do manual: recolher a ponta de cigarro do chão não diminui ninguém, qualquer que seja a antiguidade.",
+    "(E) Errada. Vento e rabeio não isentam o Oficial de Serviço; ele deve mandar safar a bandeira."
+   ],
+   "anulacao": [
+    "ANULADA no gabarito oficial. O motivo mais provável é que C e D estejam ambas de acordo com o manual."
+   ],
+   "fonte": "embarcacoes_miudas_comentado_2011_2025",
+   "id": "embarcacoes-miudas-2021-q43"
+  },
+  {
+   "ano": 2022,
+   "numero": 44,
+   "pagina": 23,
+   "assunto": "TURCOS — QUADRANTAL",
+   "nota": [],
+   "enunciado": [
+    "De acordo com Manual de Procedimentos Marinheiros (CAAML-703 de 2017), qual o nome do turco que é recolhido ou disparado inclinando-se sobre um setor dentado que constitui seu pé e engraza numa cremalheira sobre o convés?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Simples."
+    },
+    {
+     "letra": "B",
+     "texto": "De rebater."
+    },
+    {
+     "letra": "C",
+     "texto": "Rolante ou deslizante."
+    },
+    {
+     "letra": "D",
+     "texto": "Comum."
+    },
+    {
+     "letra": "E",
+     "texto": "Quadrantal."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. “Simples” não é tipo de turco do manual.",
+    "(B) Errada. O de rebater gira sobre um pino na base.",
+    "(C) Errada. O rolante corre sobre trilhos.",
+    "(D) Errada. O comum gira em torno do eixo vertical.",
+    "(E) Correta. Setor dentado + cremalheira = QUADRANTAL."
+   ],
+   "anulacao": [
+    "Sem margem. Repete a Q40 de 2019."
+   ],
+   "fonte": "embarcacoes_miudas_comentado_2011_2025",
+   "id": "embarcacoes-miudas-2022-q44"
+  },
+  {
+   "ano": 2024,
+   "numero": 37,
+   "pagina": 24,
+   "assunto": "TURCOS — TIPOS",
+   "nota": [],
+   "enunciado": [
+    "Conforme preconizado no CAAML-703, assinale a opção que NÃO apresenta um tipo de turco."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Quadrantal."
+    },
+    {
+     "letra": "B",
+     "texto": "Hidráulico."
+    },
+    {
+     "letra": "C",
+     "texto": "Comum."
+    },
+    {
+     "letra": "D",
+     "texto": "Rolante ou deslizante."
+    },
+    {
+     "letra": "E",
+     "texto": "De rebater."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) É tipo de turco.",
+    "(B) NÃO é tipo de turco (resposta). Hidráulico é a forma de acionamento de um guincho ou turco, não um dos quatro tipos do manual.",
+    "(C) É tipo de turco.",
+    "(D) É tipo de turco.",
+    "(E) É tipo de turco."
+   ],
+   "anulacao": [
+    "Margem pequena: existem turcos acionados hidraulicamente, mas o manual classifica por funcionamento mecânico (comum, de rebater, quadrantal, rolante/deslizante), e é essa lista que a banca cobra desde 2017."
+   ],
+   "fonte": "embarcacoes_miudas_comentado_2011_2025",
+   "id": "embarcacoes-miudas-2024-q37"
+  },
+  {
+   "ano": 2024,
+   "numero": 46,
+   "pagina": 24,
+   "assunto": "SEGURANÇA — OPERAÇÕES AÉREAS",
+   "nota": [],
+   "enunciado": [
+    "Segundo CAAML-703, coloque F (falso) ou V (verdadeiro) nas sentenças a seguir, em relação às precauções de segurança nas operações aéreas, assinalando em seguida a opção correta.",
+    "( ) A rede de proteção permanece içada durante a movimentação da aeronave do hangar para a plataforma (espotagem) ou da plataforma para o hangar (hangaragem), e enquanto estiverem sendo executados serviços na aeronave sem virada de motor (inclusive dobragem e desdobragem das pás).",
+    "( ) Por ocasião da partida do motor, um componente da Equipe de Manobra e Crache guarnece uma linha de mangueira de combate a incêndio e mantém-se próximo à descarga do motor.",
+    "( ) Não se usa cobertura ou qualquer outro tipo de material solto que possa “voar”, tais como papéis, pedaços de pano, no convés de voo ou nos locais abertos que lhe dão acesso, com exceção do piloto mais antigo do Destacamento Aéreo Embarcado (DAE).",
+    "( ) Durante as fainas de abastecimento, a Equipe de Crache deve estar a postos, com equipamento de combate a incêndio pronto para ser usado.",
+    "( ) O Agente de Segurança da Aviação (ASAv) assessora diretamente o Imediato nos assuntos relativos à segurança da aviação de sua organização militar, respondendo por todas as atividades desenvolvidas em cumprimento ao Programa de Publicação de Acidentes Aeronáuticos (PPAA)."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "(F) (V) (V) (F) (F)"
+    },
+    {
+     "letra": "B",
+     "texto": "(V) (F) (V) (F) (F)"
+    },
+    {
+     "letra": "C",
+     "texto": "(F) (V) (F) (V) (V)"
+    },
+    {
+     "letra": "D",
+     "texto": "(V) (F) (F) (V) (F)"
+    },
+    {
+     "letra": "E",
+     "texto": "(F) (F) (V) (F) (V)"
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "Análise das afirmativas: 1ª Verdadeira. A rede de proteção do convés de voo fica içada na espotagem, na hangaragem e nos serviços sem motor girando. 2ª Falsa. Na partida do motor o pessoal de crache fica pronto com o meio de combate a incêndio, mas ninguém se posiciona junto à DESCARGA do motor, que é zona de perigo (jato quente e gases). 3ª Falsa. Não há exceção: nenhuma cobertura ou material solto no convés de voo, nem para o piloto mais antigo. O dano por objeto estranho (FOD) não escolhe posto. 4ª Verdadeira. No abastecimento de aeronave a Equipe de Crache fica a postos com o equipamento de combate a incêndio pronto. 5ª Falsa. O ASAv assessora o COMANDANTE, e o programa é de PREVENÇÃO de Acidentes Aeronáuticos (PPAA), não de “publicação”.",
+    "(A) Errada.",
+    "(B) Errada. Aceita a exceção do piloto.",
+    "(C) Errada.",
+    "(D) Correta: V F F V F.",
+    "(E) Errada."
+   ],
+   "anulacao": [
+    "Margem pequena. Na 2ª afirmativa, a razão exata da falsidade (posição junto à descarga ou o equipamento guarnecido) só o texto integral do CAAML-703 confirma, mas a 3ª e a 5ª são claramente falsas e só a D combina com elas."
+   ],
+   "fonte": "embarcacoes_miudas_comentado_2011_2025",
+   "id": "embarcacoes-miudas-2024-q46"
+  },
+  {
+   "ano": 2025,
+   "numero": 48,
+   "pagina": 26,
+   "assunto": "SEGURANÇA — ESCADA DE PRÁTICO, PALAMENTA E ITENS DE OUTRAS PUBLICAÇÕES (CAAML-1201).",
+   "nota": [
+    "Fonte: A prova cita “Procedimentos Marinheiros”, mas as afirmativas IV e V tratam de Controle de Avarias"
+   ],
+   "enunciado": [
+    "Sobre os Procedimentos Marinheiros, analise as afirmativas abaixo.",
+    "I - Na montagem da escada de prático para navios com borda-livre menor ou igual a nove metros, o travessão deve possuir o mínimo de 180 cm de comprimento e a quantidade máxima de degraus entre os travessões deverá ser de nove degraus. A distância entre degraus varia entre 31 a 35 cm.",
+    "II - Encontra-se na obra Arte Naval a descrição de itens pertencentes à palamenta de uma embarcação miúda e, mais especificamente para a MB, o CAAML 1212 - Manual de Sobrevivência no Mar descreve a palamenta geral para embarcações orgânicas empregadas para salvamento e sobrevivência e embarcações de cascos rígidos, semirrígido ou infláveis (botes).",
+    "III - Quando não puder ser evitado o armazenamento de material combustível no convés principal ou na superestrutura, esse material deverá ser acondicionado e posicionado de forma que possa ser lançado facilmente ao mar. Tal medida refere-se à eliminação do material desnecessário à operação militar do navio.",
+    "IV - O Encarregado do CAv deve estar intimamente familiarizado com o navio, com a condição de prontidão do material e com os procedimentos de emergência. Para isso deve estar preparado para analisar a situação e adotar, pronta e corretamente, os procedimentos iniciais para controlar incêndios ou avarias.",
+    "V - Para a realização de faina de controle de alagamento, os componentes da Turma de Serviços Gerais devem portar botas de borracha de cano longo, capacetes de aba total, luvas de raspa e óculos de proteção. Devem estar qualificados para realizar fainas de percintagem, escoramento e tamponamento/bujonamento.",
+    "Assinale a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Apenas as afirmativas I, II e V são verdadeiras."
+    },
+    {
+     "letra": "B",
+     "texto": "Apenas as afirmativas IV e V são verdadeiras."
+    },
+    {
+     "letra": "C",
+     "texto": "Apenas as afirmativas I, II, III e V são verdadeiras."
+    },
+    {
+     "letra": "D",
+     "texto": "Apenas a afirmativa I é verdadeira."
+    },
+    {
+     "letra": "E",
+     "texto": "Apenas as afirmativas I e V são verdadeiras."
+    }
+   ],
+   "gabarito": "Gabarito: E (preliminar)",
+   "resposta": "E",
+   "comentario": [
+    "Análise das afirmativas: I - Verdadeira. São as medidas da escada de prático (padrão SOLAS/IMO): travessões (espalhadores) de no mínimo 180 cm, no máximo 9 degraus entre travessões, degraus espaçados de 31 a 35 cm. II - Falsa para a banca. A ideia (Arte Naval e CAAML-1212 tratam de palamenta) é razoável; a banca deve ter considerado errada a atribuição feita ao CAAML-1212 de descrever a palamenta de TODAS as embarcações de casco rígido, semirrígido e inflável. Só o texto integral confirma o ponto exato. III - Falsa para a banca. A medida de deixar o combustível pronto para alijar é de PREVENÇÃO DE INCÊNDIO, não de “eliminação de material desnecessário”. A banca trocou a finalidade. IV - Falsa para a banca. A descrição (familiarizado com o navio e pronto para os procedimentos iniciais) corresponde, no CAAML-1201, a atribuição de outra função de CAv (provavelmente o Fiel de CAv ou o pessoal de serviço), não do Encarregado do CAv. V - Verdadeira. É a descrição da Turma de Serviços Gerais no controle de alagamento: botas de cano longo, capacete de aba total, luvas de raspa, óculos; qualificados em percintagem, escoramento e tamponamento.",
+    "(A) Errada. Inclui a II.",
+    "(B) Errada. Inclui a IV e exclui a I.",
+    "(C) Errada. Inclui II e III.",
+    "(D) Errada. Exclui a V.",
+    "(E) Correta pelo gabarito preliminar: apenas I e V."
+   ],
+   "anulacao": [
+    "BOA MARGEM DE RECURSO. (1) A questão diz tratar dos Procedimentos Marinheiros, mas cobra IV e V do CAAML-1201 (Controle de Avarias); (2) a II tem redação que pode ser defendida como verdadeira; (3) a III só é falsa por um detalhe de finalidade. Confira no gabarito definitivo de 2025 se houve anulação ou alteração."
+   ],
+   "fonte": "embarcacoes_miudas_comentado_2011_2025",
+   "id": "embarcacoes-miudas-2025-q48"
+  }
+ ]
+}

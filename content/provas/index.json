@@ -1,0 +1,179 @@
+[
+ {
+  "slug": "portugues",
+  "materia": "Língua Portuguesa",
+  "icon": "fa-spell-check",
+  "total": 120,
+  "exercicios": 0,
+  "anos": [
+   2011,
+   2012,
+   2013,
+   2014,
+   2015,
+   2016,
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024,
+   2025
+  ]
+ },
+ {
+  "slug": "historia",
+  "materia": "História",
+  "icon": "fa-landmark",
+  "total": 106,
+  "exercicios": 0,
+  "anos": [
+   2011,
+   2012,
+   2013,
+   2014,
+   2015,
+   2016,
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024,
+   2025
+  ]
+ },
+ {
+  "slug": "geografia",
+  "materia": "Geografia",
+  "icon": "fa-earth-americas",
+  "total": 113,
+  "exercicios": 0,
+  "anos": [
+   2011,
+   2012,
+   2013,
+   2014,
+   2015,
+   2016,
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024,
+   2025
+  ]
+ },
+ {
+  "slug": "embarcacoes-miudas",
+  "materia": "Embarcações Miúdas e Procedimentos Marinheiros",
+  "icon": "fa-sailboat",
+  "total": 23,
+  "exercicios": 0,
+  "anos": [
+   2011,
+   2012,
+   2013,
+   2014,
+   2015,
+   2016,
+   2017,
+   2019,
+   2020,
+   2021,
+   2022,
+   2024,
+   2025
+  ]
+ },
+ {
+  "slug": "cav",
+  "materia": "Controle de Avarias e Combate a Incêndio",
+  "icon": "fa-fire-extinguisher",
+  "total": 51,
+  "exercicios": 0,
+  "anos": [
+   2011,
+   2012,
+   2013,
+   2014,
+   2015,
+   2016,
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024,
+   2025
+  ]
+ },
+ {
+  "slug": "ogsa",
+  "materia": "OGSA",
+  "icon": "fa-book",
+  "total": 49,
+  "exercicios": 0,
+  "anos": [
+   2011,
+   2012,
+   2013,
+   2014,
+   2015,
+   2016,
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024,
+   2025
+  ]
+ },
+ {
+  "slug": "justica-disciplina",
+  "materia": "Justiça e Disciplina (DGPM-315)",
+  "icon": "fa-scale-balanced",
+  "total": 42,
+  "exercicios": 113,
+  "anos": [
+   2015,
+   2016,
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024,
+   2025
+  ]
+ },
+ {
+  "slug": "doc-administrativa",
+  "materia": "Documentação Administrativa (SGM-105)",
+  "icon": "fa-file-signature",
+  "total": 14,
+  "exercicios": 0,
+  "anos": [
+   2020,
+   2021,
+   2022,
+   2023,
+   2024,
+   2025
+  ]
+ }
+]

@@ -15,7 +15,7 @@
 //    Precisam de rede de verdade; se estiver offline elas simplesmente falham (o app já cai pro
 //    cache local via localStorage nesse caso).
 
-const CACHE_VERSION = 'v7';
+const CACHE_VERSION = 'v8';
 const CACHE_NAME = `caaa-afn-${CACHE_VERSION}`;
 
 // Páginas do site a pré-cachear na instalação (exclui páginas órfãs sem link ativo no menu).
@@ -63,6 +63,7 @@ const PRECACHE_URLS = [
   'pem2040.html',
   'portugues.html',
   'prova-simulada.html',
+  'provas.html',
   'ranking.html',
   'redacao.html',
   'rosas-virtudes.html',

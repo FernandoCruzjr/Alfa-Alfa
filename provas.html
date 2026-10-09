@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>
+    // Aplica o tema salvo (ou escuro por padrão) antes de qualquer coisa renderizar,
+    // pra evitar um "flash" da cor errada ao carregar a página.
+    (function() {
+      try {
+        var saved = localStorage.getItem('site_theme');
+        var theme = saved === 'light' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0b1b30">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Aprovação Oficial">
+  <title>Provas Anteriores · Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Provas anteriores comentadas (2011–2025), separadas por matéria, para resolver com gabarito e comentários.">
+  <link rel="icon" type="image/png" href="icons/favicon-32.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0"></script>
+  <script src="gamification.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: {
+              100: 'rgb(var(--tw-navy-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-navy-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-navy-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-navy-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-navy-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-navy-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-navy-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-navy-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-navy-900) / <alpha-value>)'
+            },
+            ink: 'rgb(var(--tw-ink) / <alpha-value>)',
+            slate: {
+              50: 'rgb(var(--tw-slate-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-slate-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-slate-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-slate-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-slate-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-slate-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-slate-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-slate-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-slate-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-slate-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-slate-950) / <alpha-value>)'
+            },
+            emerald: {
+              50: 'rgb(var(--tw-emerald-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-emerald-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-emerald-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-emerald-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-emerald-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-emerald-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-emerald-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-emerald-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-emerald-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-emerald-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-emerald-950) / <alpha-value>)'
+            },
+            rose: {
+              50: 'rgb(var(--tw-rose-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-rose-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-rose-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-rose-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-rose-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-rose-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-rose-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-rose-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-rose-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-rose-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-rose-950) / <alpha-value>)'
+            },
+            amber: {
+              50: 'rgb(var(--tw-amber-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-amber-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-amber-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-amber-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-amber-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-amber-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-amber-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-amber-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-amber-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-amber-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-amber-950) / <alpha-value>)'
+            },
+            cyan: {
+              50: 'rgb(var(--tw-cyan-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-cyan-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-cyan-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-cyan-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-cyan-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-cyan-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-cyan-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-cyan-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-cyan-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-cyan-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-cyan-950) / <alpha-value>)'
+            },
+            sky: { 400: 'rgb(var(--tw-sky-400) / <alpha-value>)' },
+            lime: { 400: 'rgb(var(--tw-lime-400) / <alpha-value>)' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+:root {
+  --tw-slate-50: 248 250 252;
+  --tw-slate-100: 241 245 249;
+  --tw-slate-200: 226 232 240;
+  --tw-slate-300: 203 213 225;
+  --tw-slate-400: 148 163 184;
+  --tw-slate-500: 100 116 139;
+  --tw-slate-600: 71 85 105;
+  --tw-slate-700: 51 65 85;
+  --tw-slate-800: 30 41 59;
+  --tw-slate-900: 15 23 42;
+  --tw-slate-950: 2 6 23;
+  --tw-emerald-50: 236 253 245;
+  --tw-emerald-100: 209 250 229;
+  --tw-emerald-200: 167 243 208;
+  --tw-emerald-300: 110 231 183;
+  --tw-emerald-400: 52 211 153;
+  --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 5 150 105;
+  --tw-emerald-700: 4 120 87;
+  --tw-emerald-800: 6 95 70;
+  --tw-emerald-900: 6 78 59;
+  --tw-emerald-950: 2 44 34;
+  --tw-rose-50: 255 241 242;
+  --tw-rose-100: 255 228 230;
+  --tw-rose-200: 254 205 211;
+  --tw-rose-300: 253 164 175;
+  --tw-rose-400: 251 113 133;
+  --tw-rose-500: 244 63 94;
+  --tw-rose-600: 225 29 72;
+  --tw-rose-700: 190 18 60;
+  --tw-rose-800: 159 18 57;
+  --tw-rose-900: 136 19 55;
+  --tw-rose-950: 76 5 25;
+  --tw-amber-50: 255 251 235;
+  --tw-amber-100: 254 243 199;
+  --tw-amber-200: 253 230 138;
+  --tw-amber-300: 252 211 77;
+  --tw-amber-400: 251 191 36;
+  --tw-amber-500: 245 158 11;
+  --tw-amber-600: 217 119 6;
+  --tw-amber-700: 180 83 9;
+  --tw-amber-800: 146 64 14;
+  --tw-amber-900: 120 53 15;
+  --tw-amber-950: 69 26 3;
+  --tw-cyan-50: 236 254 255;
+  --tw-cyan-100: 207 250 254;
+  --tw-cyan-200: 165 243 252;
+  --tw-cyan-300: 103 232 249;
+  --tw-cyan-400: 34 211 238;
+  --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 8 145 178;
+  --tw-cyan-700: 14 116 144;
+  --tw-cyan-800: 21 94 117;
+  --tw-cyan-900: 22 78 99;
+  --tw-cyan-950: 8 51 68;
+  --tw-sky-400: 56 189 248;
+  --tw-lime-400: 163 230 53;
+  --tw-navy-100: 230 240 250;
+  --tw-navy-200: 192 219 245;
+  --tw-navy-300: 143 193 238;
+  --tw-navy-400: 77 158 224;
+  --tw-navy-500: 0 102 204;
+  --tw-navy-600: 30 86 160;
+  --tw-navy-700: 30 62 98;
+  --tw-navy-800: 11 25 44;
+  --tw-navy-900: 0 15 38;
+  --tw-ink: 255 255 255;
+}
+
+[data-theme="light"] {
+  --tw-slate-50: 2 6 23;
+  --tw-slate-100: 15 23 42;
+  --tw-slate-200: 30 41 59;
+  --tw-slate-300: 51 65 85;
+  --tw-slate-400: 71 85 105;
+  --tw-slate-500: 100 116 139;
+  --tw-slate-600: 148 163 184;
+  --tw-slate-700: 203 213 225;
+  --tw-slate-800: 226 232 240;
+  --tw-slate-900: 241 245 249;
+  --tw-slate-950: 248 250 252;
+  --tw-emerald-50: 2 44 34;
+  --tw-emerald-100: 6 78 59;
+  --tw-emerald-200: 6 95 70;
+  --tw-emerald-300: 4 120 87;
+  --tw-emerald-400: 5 150 105;
+  --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 52 211 153;
+  --tw-emerald-700: 110 231 183;
+  --tw-emerald-800: 167 243 208;
+  --tw-emerald-900: 209 250 229;
+  --tw-emerald-950: 236 253 245;
+  --tw-rose-50: 76 5 25;
+  --tw-rose-100: 136 19 55;
+  --tw-rose-200: 159 18 57;
+  --tw-rose-300: 190 18 60;
+  --tw-rose-400: 225 29 72;
+  --tw-rose-500: 244 63 94;
+  --tw-rose-600: 251 113 133;
+  --tw-rose-700: 253 164 175;
+  --tw-rose-800: 254 205 211;
+  --tw-rose-900: 255 228 230;
+  --tw-rose-950: 255 241 242;
+  --tw-amber-50: 69 26 3;
+  --tw-amber-100: 120 53 15;
+  --tw-amber-200: 146 64 14;
+  --tw-amber-300: 180 83 9;
+  --tw-amber-400: 217 119 6;
+  --tw-amber-500: 245 158 11;
+  --tw-amber-600: 251 191 36;
+  --tw-amber-700: 252 211 77;
+  --tw-amber-800: 253 230 138;
+  --tw-amber-900: 254 243 199;
+  --tw-amber-950: 255 251 235;
+  --tw-cyan-50: 8 51 68;
+  --tw-cyan-100: 22 78 99;
+  --tw-cyan-200: 21 94 117;
+  --tw-cyan-300: 14 116 144;
+  --tw-cyan-400: 8 145 178;
+  --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 34 211 238;
+  --tw-cyan-700: 103 232 249;
+  --tw-cyan-800: 165 243 252;
+  --tw-cyan-900: 207 250 254;
+  --tw-cyan-950: 236 254 255;
+  --tw-sky-400: 56 189 248;
+  --tw-lime-400: 163 230 53;
+  --tw-navy-100: 0 15 38;
+  --tw-navy-200: 11 25 44;
+  --tw-navy-300: 30 62 98;
+  --tw-navy-400: 30 86 160;
+  --tw-navy-500: 0 102 204;
+  --tw-navy-600: 77 158 224;
+  --tw-navy-700: 143 193 238;
+  --tw-navy-800: 192 219 245;
+  --tw-navy-900: 230 240 250;
+  --tw-ink: 11 25 44;
+}
+
+    @keyframes access-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shake {
+      10%, 90% { transform: translateX(-1px); }
+      20%, 80% { transform: translateX(2px); }
+      30%, 50%, 70% { transform: translateX(-4px); }
+      40%, 60% { transform: translateX(4px); }
+    }
+    .shake { animation: shake .5s; }
+    @media (prefers-reduced-motion: reduce) {
+      #access-card, .shake { animation: none !important; }
+      .lightning-flash, .rain-drop, #vortex-swirl { animation: none !important; }
+      #access-screen.exiting { animation: none !important; opacity: 0; }
+    }
+
+    /* ===== "Chrome" do cabeçalho: fica sempre navy escuro, independente do tema ===== */
+    .chrome-bg-900 { background-color: #000F26 !important; }
+    .chrome-bg-800 { background-color: #0B192C !important; }
+    .chrome-bg-600 { background-color: #1E56A0 !important; }
+    .chrome-border-700 { border-color: #1E3E62 !important; }
+    .chrome-border-600 { border-color: #1E56A0 !important; }
+    .chrome-text-white { color: #FFFFFF !important; }
+    .chrome-text-slate-400 { color: #94A3B8 !important; }
+    .chrome-text-slate-200 { color: #E2E8F0 !important; }
+    .chrome-hover-border-500:hover { border-color: #0066CC !important; }
+    .chrome-hover-text-white:hover { color: #FFFFFF !important; }
+
+    @keyframes access-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    #access-card { animation: access-in .5s ease-out .1s forwards; }
+    button:focus-visible, select:focus-visible, a:focus-visible { outline: 2px solid #2384d6; outline-offset: 2px; }
+    /* ===== Provas Anteriores ===== */
+    .alt-btn { transition: border-color .15s, background-color .15s; }
+    .alt-btn.correct { border-color: rgb(var(--tw-emerald-500)) !important; background: rgb(var(--tw-emerald-500) / .12) !important; }
+    .alt-btn.wrong { border-color: rgb(var(--tw-rose-500)) !important; background: rgb(var(--tw-rose-500) / .12) !important; }
+    .alt-btn.correct .alt-letter { background: rgb(var(--tw-emerald-500)); color: #fff; border-color: transparent; }
+    .alt-btn.wrong .alt-letter { background: rgb(var(--tw-rose-500)); color: #fff; border-color: transparent; }
+    .chip { font-size: 12px; padding: 6px 12px; border-radius: 999px; border: 1px solid rgb(var(--tw-navy-700)); color: rgb(var(--tw-slate-300)); white-space: nowrap; }
+    .chip.active { background: rgb(var(--tw-navy-500)); border-color: rgb(var(--tw-navy-500)); color: #fff; }
+    .chip:hover:not(.active) { border-color: rgb(var(--tw-navy-500)); }
+    .chips-scroll { overflow-x: auto; scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
+    .q-text p + p { margin-top: .5rem; }
+    .raw-lines { white-space: pre-wrap; font-size: 12px; line-height: 1.55; }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">📜</div>
+      <div class="font-serif font-semibold text-[26px] text-ink tracking-tight">Provas Anteriores</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial para acessar as provas.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-ink text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-ink underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="chrome-bg-900 border-b chrome-border-700 sticky top-0 z-30 shadow-lg">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center gap-3">
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="chrome-bg-600 chrome-text-white p-2.5 rounded-lg shadow flex-shrink-0">
+          <i class="fa-solid fa-scroll text-2xl"></i>
+        </div>
+        <div class="min-w-0">
+          <h1 class="font-serif text-xl font-semibold chrome-text-white tracking-wide truncate">Provas Anteriores</h1>
+          <p id="header-sub" class="text-xs chrome-text-slate-400 truncate">Provas comentadas 2011–2025, por matéria</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 flex-shrink-0">
+        <button id="theme-toggle-btn" onclick="toggleTheme()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors" title="Alternar entre modo claro e escuro" aria-label="Alternar tema claro/escuro"><i class="fa-solid fa-moon text-sm" id="theme-toggle-icon-moon"></i><i class="fa-solid fa-sun text-sm hidden" id="theme-toggle-icon-sun"></i></button>
+        <a href="index.html" class="chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 chrome-hover-border-500 transition-colors">
+          <i class="fa-solid fa-house"></i><span class="hidden sm:inline"> Painel geral</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 md:px-6 py-6">
+
+    <!-- ===== Lista de matérias ===== -->
+    <section id="view-hub" class="hidden">
+      <p class="text-sm text-slate-300 mb-5">Questões das provas Amarela (CPA) de 2011 a 2025, com enunciado, alternativas, gabarito, comentário de cada alternativa e análise de possível anulação, conforme o material comentado. Escolha a matéria:</p>
+      <div id="hub-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+    </section>
+
+    <!-- ===== Matéria ===== -->
+    <section id="view-materia" class="hidden">
+      <a href="provas.html" class="text-xs text-navy-400 hover:text-navy-300 inline-flex items-center gap-1.5 mb-3"><i class="fa-solid fa-arrow-left"></i> Todas as matérias</a>
+      <h2 id="m-title" class="font-serif text-2xl font-semibold text-ink mb-1"></h2>
+      <p id="m-sub" class="text-xs text-slate-400 mb-4"></p>
+
+      <!-- Abas: provas x exercícios -->
+      <div id="m-tabs" class="hidden mb-4 flex gap-2">
+        <button data-tab="provas" class="tab-btn chip active">Provas anteriores</button>
+        <button data-tab="exercicios" class="tab-btn chip">Exercícios inéditos</button>
+      </div>
+
+      <!-- Sobre o material -->
+      <details class="mb-4 bg-navy-800/60 border border-navy-700 rounded-xl">
+        <summary class="cursor-pointer px-4 py-3 text-sm text-slate-200 font-medium flex items-center gap-2"><i class="fa-solid fa-circle-info text-navy-400"></i> Sobre este material (fontes e quadro de gabaritos)</summary>
+        <div id="m-about" class="px-4 pb-4 text-slate-300"></div>
+      </details>
+
+      <!-- Filtros -->
+      <div class="mb-3">
+        <div id="f-groups" class="chips-scroll flex gap-2 pb-2"></div>
+      </div>
+      <div class="mb-4 flex flex-wrap items-center gap-3">
+        <div class="relative flex-1 min-w-[200px]">
+          <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+          <input id="f-search" type="search" placeholder="Buscar no enunciado, alternativas ou assunto" class="w-full bg-navy-800 border border-navy-700 text-slate-200 text-sm rounded-lg pl-8 pr-3 py-2 outline-none focus:ring-2 focus:ring-navy-500">
+        </div>
+        <label class="text-xs text-slate-300 flex items-center gap-2 cursor-pointer select-none">
+          <input id="f-study" type="checkbox" class="accent-[#0066CC] w-4 h-4"> Modo estudo (mostrar gabarito e comentários)
+        </label>
+        <button id="f-reset" class="text-xs text-slate-400 hover:text-rose-300 flex items-center gap-1.5"><i class="fa-solid fa-rotate-left"></i> Limpar respostas</button>
+      </div>
+
+      <div id="m-score" class="mb-4 text-sm text-slate-300"></div>
+      <div id="m-list" class="space-y-4"></div>
+      <div id="m-empty" class="hidden text-center py-12 text-slate-400 text-sm">Nenhuma questão encontrada com esses filtros.</div>
+    </section>
+
+    <div id="loading-state" class="text-center py-16 text-slate-400">
+      <i class="fa-solid fa-circle-notch fa-spin text-2xl"></i>
+    </div>
+  </main>
+
+  <footer class="max-w-5xl w-full mx-auto px-4 md:px-6 pb-6 pt-2 text-center text-[11px] text-slate-500">
+    Plataforma de Estudos · CA-AA/AFN
+  </footer>
+
+  <script>
+    const SUPABASE_URL = 'https://doioejeyihuhfqhzdbbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jERifRcO4VPPITWcT3rHzw_KBrY--dH';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const ANSWERS_KEY = 'provas_respostas_v1';
+    applyThemeIcon();
+
+    let currentUser = null;
+    let data = null;            // matéria carregada
+    let tab = 'provas';         // 'provas' | 'exercicios'
+    let group = 'all';          // ano (provas) ou seção (exercícios)
+    let answers = loadAnswers();
+
+    function applyThemeIcon() {
+      const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+      document.getElementById('theme-toggle-icon-moon').classList.toggle('hidden', theme === 'light');
+      document.getElementById('theme-toggle-icon-sun').classList.toggle('hidden', theme !== 'light');
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('site_theme', next); } catch (e) { /* ignora se indisponível */ }
+      applyThemeIcon();
+    }
+
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    function loadAnswers() {
+      try { return JSON.parse(localStorage.getItem(ANSWERS_KEY)) || {}; } catch (e) { return {}; }
+    }
+    function saveAnswers() {
+      try { localStorage.setItem(ANSWERS_KEY, JSON.stringify(answers)); } catch (e) { /* ignora */ }
+    }
+
+    const esc = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    const parasHtml = arr => (arr || []).map(p => `<p>${esc(p)}</p>`).join('');
+
+    // ---------- Lista de matérias ----------
+    async function renderHub() {
+      const idx = await (await fetch('content/provas/index.json')).json();
+      document.getElementById('hub-grid').innerHTML = idx.map(m => {
+        const feitas = Object.keys(answers).filter(k => k.startsWith(m.slug + '-')).length;
+        const total = m.total + m.exercicios;
+        const pct = total ? Math.round(feitas / total * 100) : 0;
+        return `
+        <a href="provas.html?materia=${m.slug}" class="bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex items-start gap-3">
+          <span class="bg-navy-700 text-ink w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"><i class="fa-solid ${m.icon}"></i></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-ink text-sm font-semibold leading-tight">${esc(m.materia)}</span>
+            <span class="block text-[11px] text-slate-400 mt-1">${m.total} questões · ${m.anos[0]}–${m.anos[m.anos.length - 1]}${m.exercicios ? ` · ${m.exercicios} exercícios inéditos` : ''}</span>
+            <span class="mt-2 h-1.5 rounded-full bg-navy-700 overflow-hidden block"><span class="block h-full bg-navy-500" style="width:${pct}%"></span></span>
+            <span class="block text-[10px] text-slate-500 mt-1">${feitas} de ${total} respondidas</span>
+          </span>
+        </a>`;
+      }).join('');
+      document.getElementById('view-hub').classList.remove('hidden');
+    }
+
+    // ---------- Matéria ----------
+    async function renderMateria(slug) {
+      const res = await fetch(`content/provas/${encodeURIComponent(slug)}.json`);
+      if (!res.ok) { location.href = 'provas.html'; return; }
+      data = await res.json();
+      document.title = `${data.materia} · Provas Anteriores`;
+      document.getElementById('header-sub').textContent = data.materia;
+      document.getElementById('m-title').textContent = data.materia;
+      const anos = [...new Set(data.questoes.map(q => q.ano))];
+      document.getElementById('m-sub').textContent =
+        `${data.questoes.length} questões de ${anos.length} provas (${anos[0]}–${anos[anos.length - 1]})` +
+        (data.exercicios ? ` · ${data.exercicios.questoes.length} exercícios inéditos` : '');
+      if (data.exercicios) document.getElementById('m-tabs').classList.remove('hidden');
+
+      const params = new URLSearchParams(location.search);
+      if (params.get('aba') === 'exercicios' && data.exercicios) tab = 'exercicios';
+      if (params.get('ano')) group = params.get('ano');
+      try { document.getElementById('f-study').checked = localStorage.getItem('provas_modo_estudo') === '1'; } catch (e) {}
+
+      document.querySelectorAll('.tab-btn').forEach(b => b.addEventListener('click', () => { tab = b.dataset.tab; group = 'all'; renderAll(); }));
+      document.getElementById('f-search').addEventListener('input', renderList);
+      document.getElementById('f-study').addEventListener('change', e => {
+        try { localStorage.setItem('provas_modo_estudo', e.target.checked ? '1' : '0'); } catch (err) {}
+        renderList();
+      });
+      document.getElementById('f-reset').addEventListener('click', () => {
+        if (!confirm('Apagar as respostas marcadas nesta matéria?')) return;
+        Object.keys(answers).forEach(k => { if (k.startsWith(data.slug + '-')) delete answers[k]; });
+        saveAnswers(); renderList();
+      });
+      document.getElementById('view-materia').classList.remove('hidden');
+      renderAll();
+    }
+
+    function currentQuestions() {
+      return tab === 'exercicios' ? data.exercicios.questoes : data.questoes;
+    }
+
+    function renderAll() {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+      // Sobre o material
+      const src = tab === 'exercicios' ? [data.exercicios] : data.cadernos;
+      document.getElementById('m-about').innerHTML = src.map(c =>
+        `<p class="text-xs text-slate-500 mb-2">${esc(c.titulo)} · <span class="italic">${esc(c.fonte)}</span></p><div class="raw-lines">${esc((c.linhas || []).join('\n'))}</div>`).join('');
+      // Filtro de ano / seção
+      const qs = currentQuestions();
+      const groups = tab === 'exercicios' ? [...new Set(qs.map(q => q.secao))] : [...new Set(qs.map(q => String(q.ano)))];
+      if (group !== 'all' && !groups.includes(group)) group = 'all';
+      const label = tab === 'exercicios' ? 'Todas as seções' : 'Todos os anos';
+      document.getElementById('f-groups').innerHTML =
+        [`<button class="chip ${group === 'all' ? 'active' : ''}" data-g="all">${label}</button>`]
+          .concat(groups.map(g => `<button class="chip ${group === g ? 'active' : ''}" data-g="${esc(g)}">${esc(g)}</button>`)).join('');
+      document.querySelectorAll('#f-groups .chip').forEach(b => b.addEventListener('click', () => { group = b.dataset.g; renderAll(); }));
+      renderList();
+    }
+
+    function matches(q, term) {
+      if (!term) return true;
+      const hay = [q.assunto, q.secao, ...(q.enunciado || []), ...(q.alternativas || []).map(a => a.texto)].join(' ').toLowerCase();
+      return hay.includes(term);
+    }
+
+    function renderList() {
+      const term = document.getElementById('f-search').value.trim().toLowerCase();
+      const study = document.getElementById('f-study').checked;
+      const qs = currentQuestions().filter(q => (group === 'all' || String(tab === 'exercicios' ? q.secao : q.ano) === group) && matches(q, term));
+      const list = document.getElementById('m-list');
+      let html = '', lastGroup = null;
+      for (const q of qs) {
+        const g = tab === 'exercicios' ? q.secao : q.ano;
+        if (g !== lastGroup) {
+          lastGroup = g;
+          html += tab === 'exercicios'
+            ? `<h3 class="font-serif text-lg font-semibold text-ink pt-2">${esc(g)}</h3>`
+            : provaHeader(g);
+        }
+        html += questionCard(q, study);
+      }
+      list.innerHTML = html;
+      document.getElementById('m-empty').classList.toggle('hidden', qs.length > 0);
+      list.querySelectorAll('.alt-btn').forEach(b => b.addEventListener('click', onAnswer));
+      list.querySelectorAll('.reveal-btn').forEach(b => b.addEventListener('click', () => {
+        document.getElementById('ans-' + b.dataset.id).classList.remove('hidden'); b.remove();
+      }));
+      renderScore(qs);
+    }
+
+    function provaHeader(ano) {
+      const p = data.provas.find(p => p.ano === ano);
+      const intro = p && p.intro && p.intro.length
+        ? `<details class="mt-2 bg-navy-800/40 border border-navy-700 rounded-xl"><summary class="cursor-pointer px-4 py-2.5 text-xs text-slate-300 font-medium"><i class="fa-solid fa-file-lines text-navy-400 mr-1.5"></i>${esc(p.intro[0].length < 40 ? p.intro[0] : 'Informações da prova')}</summary><div class="q-text px-4 pb-4 text-sm text-slate-300">${parasHtml(p.intro.length && p.intro[0].length < 40 ? p.intro.slice(1) : p.intro)}</div></details>`
+        : '';
+      return `<div class="pt-2"><h3 class="font-serif text-lg font-semibold text-ink">${esc(p ? p.titulo : 'Prova de ' + ano)}</h3>${intro}</div>`;
+    }
+
+    function questionCard(q, study) {
+      const picked = answers[q.id];
+      const answered = picked !== undefined;
+      const show = study || answered;
+      const anulada = q.resposta === 'ANULADA';
+      const titulo = tab === 'exercicios' ? `Exercício ${q.numero}` : `Prova ${q.ano} · Questão ${q.numero}`;
+      const alts = (q.alternativas || []).map(a => {
+        let cls = '';
+        if (show && q.resposta === a.letra) cls = 'correct';
+        else if (answered && picked === a.letra && q.resposta !== a.letra) cls = 'wrong';
+        return `<button class="alt-btn ${cls} w-full text-left flex items-start gap-3 bg-navy-900/40 border border-navy-700 hover:border-navy-500 rounded-lg px-3 py-2.5 text-sm text-slate-200" data-id="${q.id}" data-l="${a.letra}">
+          <span class="alt-letter w-6 h-6 rounded-full border border-navy-600 flex items-center justify-center text-[11px] font-bold flex-shrink-0 mt-px">${a.letra}</span>
+          <span class="flex-1">${esc(a.texto)}</span></button>`;
+      }).join('');
+      let status = '';
+      if (answered) {
+        status = anulada ? `<span class="text-[11px] font-semibold text-amber-300"><i class="fa-solid fa-ban"></i> Questão anulada</span>`
+          : !q.resposta ? `<span class="text-[11px] font-semibold text-amber-300"><i class="fa-solid fa-circle-question"></i> Sem gabarito definido</span>`
+          : picked === q.resposta ? `<span class="text-[11px] font-semibold text-emerald-400"><i class="fa-solid fa-check"></i> Acertou</span>`
+          : `<span class="text-[11px] font-semibold text-rose-400"><i class="fa-solid fa-xmark"></i> Errou (marcou ${picked})</span>`;
+      }
+      const answer = `
+        <div id="ans-${q.id}" class="${show ? '' : 'hidden'} mt-4 border-t border-navy-700 pt-4 space-y-3">
+          ${q.gabarito ? `<p class="text-sm font-semibold ${anulada ? 'text-amber-300' : 'text-emerald-400'}">${esc(q.gabarito)}</p>` : ''}
+          ${q.comentario && q.comentario.length ? `<div><p class="text-[11px] font-bold uppercase tracking-wide text-navy-400 mb-1.5">Comentário</p><div class="q-text text-sm text-slate-300">${parasHtml(q.comentario)}</div></div>` : ''}
+          ${q.anulacao && q.anulacao.length ? `<div class="bg-amber-500/10 border border-amber-500/30 rounded-lg px-3 py-2.5"><p class="text-[11px] font-bold uppercase tracking-wide text-amber-300 mb-1.5"><i class="fa-solid fa-gavel"></i> Possível anulação</p><div class="q-text text-sm text-slate-300">${parasHtml(q.anulacao)}</div></div>` : ''}
+        </div>`;
+      return `
+      <article class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 md:p-5" id="q-${q.id}">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+          <span class="text-[11px] font-bold uppercase tracking-wide text-navy-400">${esc(titulo)}</span>
+          ${status}
+        </div>
+        ${q.assunto ? `<p class="text-[11px] text-slate-400 uppercase tracking-wide mb-2">${esc(q.assunto)}</p>` : ''}
+        ${q.nota && q.nota.length ? `<div class="q-text text-xs text-slate-400 italic mb-2">${parasHtml(q.nota)}</div>` : ''}
+        <div class="q-text text-sm text-slate-100 leading-relaxed mb-3">${q.enunciado && q.enunciado.length ? parasHtml(q.enunciado) : '<p class="italic text-slate-400">Enunciado não disponível no material.</p>'}</div>
+        <div class="space-y-2">${alts}</div>
+        ${!show ? `<button class="reveal-btn mt-3 text-xs text-navy-400 hover:text-navy-300 inline-flex items-center gap-1.5" data-id="${q.id}"><i class="fa-solid fa-eye"></i> Ver gabarito e comentário</button>` : ''}
+        ${answer}
+      </article>`;
+    }
+
+    function onAnswer(e) {
+      const b = e.currentTarget;
+      const id = b.dataset.id;
+      if (answers[id] !== undefined) return; // primeira resposta vale
+      answers[id] = b.dataset.l;
+      saveAnswers();
+      const q = currentQuestions().find(x => x.id === id);
+      const study = document.getElementById('f-study').checked;
+      const art = document.getElementById('q-' + id);
+      art.outerHTML = questionCard(q, study);
+      const fresh = document.getElementById('q-' + id);
+      fresh.querySelectorAll('.alt-btn').forEach(x => x.addEventListener('click', onAnswer));
+      renderScore(currentQuestions().filter(x => (group === 'all' || String(tab === 'exercicios' ? x.secao : x.ano) === group)));
+    }
+
+    function renderScore(qs) {
+      const done = qs.filter(q => answers[q.id] !== undefined);
+      const valid = done.filter(q => q.resposta && q.resposta !== 'ANULADA');
+      const ok = valid.filter(q => answers[q.id] === q.resposta).length;
+      document.getElementById('m-score').innerHTML = done.length
+        ? `<i class="fa-solid fa-bullseye text-navy-400"></i> ${done.length} de ${qs.length} respondidas · <span class="text-emerald-400 font-semibold">${ok} acertos</span>${valid.length ? ` (${Math.round(ok / valid.length * 100)}%)` : ''}`
+        : `<i class="fa-solid fa-hand-pointer text-navy-400"></i> ${qs.length} questões. Clique numa alternativa para responder.`;
+    }
+
+    async function start() {
+      document.getElementById('access-screen').classList.add('hidden');
+      const slug = new URLSearchParams(location.search).get('materia');
+      try {
+        if (slug) await renderMateria(slug); else await renderHub();
+      } finally {
+        document.getElementById('loading-state').classList.add('hidden');
+      }
+    }
+
+    let started = false;
+    sb.auth.onAuthStateChange((event, session) => {
+      if (session && session.user) {
+        currentUser = session.user;
+        onUserAuthenticated();
+      } else {
+        currentUser = null;
+        showGate('gate-logged-out');
+      }
+    });
+
+    async function onUserAuthenticated() {
+      const aprovado = await AlfaGamification.fetchAprovado(sb, currentUser.id);
+      if (!aprovado) {
+        showGate('gate-pending');
+        return;
+      }
+      if (started) return;
+      started = true;
+      await start();
+    }
+  </script>
+  <script>
+    // Registro do Service Worker (PWA instalável, com cache offline).
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch((err) => {
+          console.warn('Falha ao registrar o Service Worker:', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

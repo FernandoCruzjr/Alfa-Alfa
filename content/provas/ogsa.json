@@ -1,0 +1,2509 @@
+{
+ "slug": "ogsa",
+ "materia": "OGSA",
+ "icon": "fa-book",
+ "cadernos": [
+  {
+   "fonte": "ogsa_comentado_2011_2025.pdf",
+   "titulo": "Ordenança Geral para o Serviço da Armada (OGSA) comentada — CA-AA-AFN (CPA)",
+   "linhas": [
+    "2011–2025",
+    "Resolução comentada das questões de OGSA da parte de Conhecimentos Militares-Navais da",
+    "prova Amarela dos candidatos oriundos do Corpo de Praças da Armada (CPA), de 2011 a 2025:",
+    "organização das forças, navios e OM de terra, normas sobre pessoal, atribuições (Comandante,",
+    "Imediato, Chefe de Departamento, Encarregado de Divisão, Estado-Maior e Gabinete), serviço de",
+    "oficiais e mostras.",
+    "Para cada questão você encontra o enunciado e as alternativas, o gabarito oficial, a explicação de",
+    "por que cada alternativa está certa ou errada e uma análise de possível anulação (argumentos de",
+    "recurso).",
+    "OBSERVAÇÕES SOBRE AS FONTES",
+    "Foram encontradas 49 questões de OGSA, presentes em todas as provas de 2011 a 2025 e listadas",
+    "no quadro abaixo. Ficaram de fora as questões de apresentação marinheira, que as provas atribuem",
+    "ao Manual de Procedimentos Marinheiros (CAAML-3002).",
+    "Gabaritos: 2011 não tem gabarito no projeto; nessas questões a resposta indicada é a do texto da",
+    "norma. 2012 a 2024 são os gabaritos finais, publicados após os recursos. 2025 usa o gabarito",
+    "preliminar.",
+    "Base dos comentários: o texto oficial da OGSA aprovada pelo Decreto nº 95.480/1987 (disponível na",
+    "base de legislação da Câmara), que traz os capítulos de organização e pessoal citados com número",
+    "de artigo, e o próprio texto da OGSA (2009) reproduzido nas provas. Os capítulos de serviço e de",
+    "Estado-Maior e Gabinete da edição atual não estavam disponíveis; onde um comentário depende de",
+    "um detalhe que só o texto integral confirma, isso está dito no comentário.",
+    "QUADRO DE QUESTÕES E GABARITOS (PROVA AMARELA, CPA)",
+    "Ano Nº Assunto Gabarito",
+    "2011 33 MOSTRAS E TRADIÇÕES — MOSTRA DE DESARMAMENTO: PRESIDÊNCIA (A)",
+    "2011 40 ORGANIZAÇÃO — CLASSES DE NAVIOS: PROPÓSITO (D)",
+    "FUNÇÕES — COMANDANTE, IMEDIATO, CHEFE DE GABINETE E CHEFE DE",
+    "2011 42 (C)",
+    "DEPARTAMENTO ",
+    "2011 44 PESSOAL — BARBA E LESÃO FISIONÔMICA (E)",
+    "2011 45 ORGANIZAÇÃO — OM DE TERRA: QUEM BAIXA AS NORMAS DE ELABORAÇÃO (C)",
+    "2011 48 PESSOAL — POSTOS: CHEFIA DE DEPARTAMENTO EM NAVIO DE 1ª CLASSE (B)",
+    "2012 38 ORGANIZAÇÃO — OM DE TERRA: ATO DE CRIAÇÃO E",
+    "2012 43 FUNÇÕES — IMEDIATO: FECHAMENTO DO MATERIAL E ESCURECIMENTO C",
+    "2012 44 SERVIÇO — SERVIÇO POR QUARTOS, SERVIÇO DE ESTADO E OFICIAL DE SERVIÇO A",
+    "2012 46 PESSOAL — NORMAS SOBRE PESSOAL: POSTOS E APRESENTAÇÃO B",
+    "2012 47 SERVIÇO — OFICIAL DE QUARTO: ORDEM QUE OFERECE RISCO A",
+    "2012 50 MOSTRAS E TRADIÇÕES — TERMO DA MOSTRA DE DESARMAMENTO D",
+    "2013 33 PESSOAL — PRAZO DE APRESENTAÇÃO DOS OFICIAIS C",
+    "2013 34 FUNÇÕES — CHEFE DE GABINETE A",
+    "2013 36 FUNÇÕES — ASSISTENTE D",
+    "2013 42 ORGANIZAÇÃO — OM DE TERRA: TRÊS DOCUMENTOS FUNDAMENTAIS C",
+    "2013 49 FUNÇÕES — OFICIAIS DO ESTADO-MAIOR EMBARCADOS A",
+    "Ano Nº Assunto Gabarito",
+    "2013 50 ORGANIZAÇÃO — ORGANIZAÇÃO DE COMBATE E",
+    "2014 33 FUNÇÕES — ENCARREGADO DE DIVISÃO E",
+    "2014 42 ORGANIZAÇÃO — ARMADA, FORÇA, ESQUADRA, FORÇA NAVAL E AERONAVAL C",
+    "2014 46 ORGANIZAÇÃO — NAVIO SOLTO, ISOLADO, DESTACADO, ESCOTEIRO E CAPITÂNIA D",
+    "2014 47 SERVIÇO — OFICIAL DE QUARTO: SINAIS SEM ORDEM DO COMANDANTE B",
+    "ORGANIZAÇÃO — QUEM BAIXA AS NORMAS DAS ORGANIZAÇÕES DE FORÇAS E",
+    "2014 49 E",
+    "NAVIOS ",
+    "2014 50 PESSOAL — ATRIBUTOS MORAIS E PROFISSIONAIS E",
+    "2015 32 SERVIÇO — OFICIAL DE SERVIÇO, OFICIAL DE QUARTO E SERVIÇO DE ESTADO C",
+    "2015 39 FUNÇÕES — CHEFE DO ESTADO-MAIOR D",
+    "2015 42 FUNÇÕES — IMEDIATO: FISCALIZAR O LICENCIAMENTO C",
+    "2016 36 PESSOAL — ATRIBUTOS PROFISSIONAIS C",
+    "2016 38 ORGANIZAÇÃO — OM DE TERRA: REGIMENTO INTERNO C",
+    "2017 33 MOSTRAS E TRADIÇÕES — TRADIÇÕES NAVAIS D",
+    "2018 32 ORGANIZAÇÃO — OM DE TERRA: REGIMENTO INTERNO D",
+    "2018 36 PESSOAL — DEVERES ESPECÍFICOS DO OFICIAL B",
+    "2018 47 SERVIÇO — DIVISÕES DE SERVIÇO EM VIAGEM E",
+    "2019 32 SERVIÇO — ESCALA DE OFICIAL DE QUARTO B",
+    "2019 39 ORGANIZAÇÃO — OM DE TERRA: DOCUMENTOS E COMPETÊNCIAS D",
+    "2020 48 PESSOAL — ATRIBUTOS PROFISSIONAIS C",
+    "2020 49 SERVIÇO — DURAÇÃO DOS QUARTOS E",
+    "2021 33 FUNÇÕES — CHEFE DE DEPARTAMENTO (ART. 6-4-5) D",
+    "2021 35 ORGANIZAÇÃO — OM DE TERRA: DOCUMENTOS B",
+    "2022 35 FUNÇÕES — ENCARREGADO DE DIVISÃO E",
+    "2022 39 SERVIÇO — OFICIAL DE SERVIÇO: CHAMAR O COMANDANTE E O IMEDIATO C",
+    "2022 40 PESSOAL — ATRIBUTOS PROFISSIONAIS B",
+    "2022 41 ORGANIZAÇÃO — OM DE TERRA: QUEM BAIXA AS NORMAS DE ELABORAÇÃO D",
+    "2023 32 PESSOAL — DEVERES DO SUPERIOR, DO SUBORDINADO E DE TODOS D",
+    "2023 48 ORGANIZAÇÃO — OM DE TERRA: REGULAMENTO A",
+    "2024 32 SERVIÇO — DISPOSIÇÕES GERAIS DO SERVIÇO DE OFICIAIS D",
+    "2024 38 PESSOAL — DEVERES DAS PRAÇAS POR GRADUAÇÃO C",
+    "2025** 37 FUNÇÕES — ASSISTENTE E*",
+    "2025** 39 SERVIÇO — REGIME E SERVIÇO DE VIAGEM C*",
+    "** 2025: gabarito preliminar. Entre parênteses (2011): sem gabarito oficial no projeto; resposta pelo texto da",
+    "norma. Nenhuma questão do tema foi anulada.",
+    "Questões por assunto",
+    "ORGANIZAÇÃO: ARMADA, FORÇAS, NAVIOS E OM DE TERRA — 14 questões",
+    "2011 Q40; 2011 Q45; 2012 Q38; 2013 Q42; 2013 Q50; 2014 Q42; 2014 Q46; 2014 Q49; 2016",
+    "Q38; 2018 Q32; 2019 Q39; 2021 Q35; 2022 Q41; 2023 Q48.",
+    "NORMAS SOBRE PESSOAL: POSTOS, APRESENTAÇÃO, DEVERES E ATRIBUTOS — 11 questões",
+    "2011 Q44; 2011 Q48; 2012 Q46; 2013 Q33; 2014 Q50; 2016 Q36; 2018 Q36; 2020 Q48; 2022",
+    "Q40; 2023 Q32; 2024 Q38.",
+    "FUNÇÕES: IMEDIATO, CHEFE DE DEPARTAMENTO, ENCARREGADO DE DIVISÃO, ESTADO-MAIOR E",
+    "GABINETE — 11 questões",
+    "2011 Q42; 2012 Q43; 2013 Q34; 2013 Q36; 2013 Q49; 2014 Q33; 2015 Q39; 2015 Q42; 2021",
+    "Q33; 2022 Q35; 2025 Q37.",
+    "SERVIÇO DE OFICIAIS (SERVIÇO POR QUARTOS, DE ESTADO, OFICIAL DE SERVIÇO E DE QUARTO) —",
+    "10 questões",
+    "2012 Q44; 2012 Q47; 2014 Q47; 2015 Q32; 2018 Q47; 2019 Q32; 2020 Q49; 2022 Q39; 2024",
+    "Q32; 2025 Q39.",
+    "MOSTRAS E TRADIÇÕES NAVAIS — 3 questões",
+    "2011 Q33; 2012 Q50; 2017 Q33.",
+    "Para memorizar (o que mais cai):",
+    "• OM de terra: ATO DE CRIAÇÃO (propósito, subordinação, sede, posto do Comandante) →",
+    "REGULAMENTO (complementa o Ato; missão, organização, estrutura; âmbito geral) → REGIMENTO",
+    "INTERNO (complementa o Regulamento; rotina; âmbito interno). Normas de elaboração: EMA.",
+    "Aprovação: Comandante da Marinha ou autoridade delegada.",
+    "• Forças: só a “Força” é para fins operativos ou administrativos; Força Naval, Aeronaval e de",
+    "Fuzileiros são para fins administrativos. Classes de navios (1ª a 4ª): fins administrativos.",
+    "• Navio SOLTO: fora de Força Naval. ISOLADO: da MB, não incorporado à Armada. DESTACADO:",
+    "separa-se da Força temporariamente. ESCOTEIRO: cumpre missão sozinho. CAPITÂNIA: aloja o",
+    "Comandante da Força.",
+    "• Serviço: por quartos até 6 h; de estado de 6 h a 24 h; duração dos quartos pelo COMIMSUP. Oficial",
+    "de Serviço representa o Comandante e informa Comandante e Imediato; em viagem, no controle da",
+    "manobra, é o Oficial de QUARTO.",
+    "• Apresentação de oficiais: 24 h. Suboficiais e Mestre: apresentados ao Comandante. Barba por",
+    "lesão: autorização do Comandante.",
+    "• Atributos PROFISSIONAIS: inteligência, liderança, iniciativa, capacidade de decisão, capacidade",
+    "profissional e administrativa, aptidão para o serviço, cultura geral. Os demais (lealdade, probidade,",
+    "discrição, critério, coragem moral, conduta militar, cooperação) são MORAIS."
+   ]
+  }
+ ],
+ "provas": [
+  {
+   "ano": 2011,
+   "titulo": "Prova de 2011",
+   "intro": []
+  },
+  {
+   "ano": 2012,
+   "titulo": "Prova de 2012",
+   "intro": []
+  },
+  {
+   "ano": 2013,
+   "titulo": "Prova de 2013",
+   "intro": []
+  },
+  {
+   "ano": 2014,
+   "titulo": "Prova de 2014",
+   "intro": []
+  },
+  {
+   "ano": 2015,
+   "titulo": "Prova de 2015",
+   "intro": []
+  },
+  {
+   "ano": 2016,
+   "titulo": "Prova de 2016",
+   "intro": []
+  },
+  {
+   "ano": 2017,
+   "titulo": "Prova de 2017",
+   "intro": []
+  },
+  {
+   "ano": 2018,
+   "titulo": "Prova de 2018",
+   "intro": []
+  },
+  {
+   "ano": 2019,
+   "titulo": "Prova de 2019",
+   "intro": []
+  },
+  {
+   "ano": 2020,
+   "titulo": "Prova de 2020",
+   "intro": []
+  },
+  {
+   "ano": 2021,
+   "titulo": "Prova de 2021",
+   "intro": []
+  },
+  {
+   "ano": 2022,
+   "titulo": "Prova de 2022",
+   "intro": []
+  },
+  {
+   "ano": 2023,
+   "titulo": "Prova de 2023",
+   "intro": []
+  },
+  {
+   "ano": 2024,
+   "titulo": "Prova de 2024",
+   "intro": []
+  },
+  {
+   "ano": 2025,
+   "titulo": "Prova de 2025",
+   "intro": [
+    "Gabarito preliminar (publicado em 28/10/2025, antes do julgamento dos recursos)."
+   ]
+  }
+ ],
+ "questoes": [
+  {
+   "ano": 2011,
+   "numero": 33,
+   "pagina": 5,
+   "assunto": "MOSTRAS E TRADIÇÕES — MOSTRA DE DESARMAMENTO: PRESIDÊNCIA",
+   "nota": [],
+   "enunciado": [
+    "Quem é o responsável por presidir ou delegar a presidência da Mostra de Desarmamento?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Chefe do Estado-Maior da Armada."
+    },
+    {
+     "letra": "B",
+     "texto": "Comandante de Operações Navais."
+    },
+    {
+     "letra": "C",
+     "texto": "Comandante de Força a que pertencer o navio."
+    },
+    {
+     "letra": "D",
+     "texto": "Comandante da Marinha."
+    },
+    {
+     "letra": "E",
+     "texto": "Comandante-em-Chefe da Esquadra."
+    }
+   ],
+   "gabarito": "Gabarito: sem gabarito oficial no projeto (resposta pelo texto da norma: A)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta pelo texto da OGSA (Decreto nº 95.480/1987, art. 1-3-4): a Mostra de Desarmamento é presidida pelo Chefe do Estado-Maior da Armada ou por seu delegado. É a autoridade que também baixa as normas de organização (EMA), o que ajuda a lembrar.",
+    "(B) Errada. O ComOpNav não é a autoridade indicada para presidir a Mostra de Desarmamento.",
+    "(C) Errada. O Comandante da Força pode ser o delegado, mas não é o titular da presidência.",
+    "(D) Errada. O Comandante da Marinha não preside a mostra.",
+    "(E) Errada. O CEMA preside, e não o ComemCh."
+   ],
+   "anulacao": [
+    "Prova de 2011 sem gabarito no projeto; resposta pelo texto da OGSA de 1987. Se a edição de 2009 tiver mudado a autoridade, o texto integral é que decide."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2011-q33"
+  },
+  {
+   "ano": 2011,
+   "numero": 40,
+   "pagina": 5,
+   "assunto": "ORGANIZAÇÃO — CLASSES DE NAVIOS: PROPÓSITO",
+   "nota": [],
+   "enunciado": [
+    "A OGSA estabelece que os navios, segundo seu tipo, porte, armamento e eventualmente a missão que lhes for atribuída, serão classificados em quatro categorias denominadas classes. Essa classificação tem propósito"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "logístico."
+    },
+    {
+     "letra": "B",
+     "texto": "executivo."
+    },
+    {
+     "letra": "C",
+     "texto": "operativo."
+    },
+    {
+     "letra": "D",
+     "texto": "administrativo."
+    },
+    {
+     "letra": "E",
+     "texto": "ilustrativo."
+    }
+   ],
+   "gabarito": "Gabarito: sem gabarito oficial no projeto (resposta pelo texto da norma: D)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. Não é classificação logística.",
+    "(B) Errada. Termo sem base na norma.",
+    "(C) Errada. A classificação por prontidão operativa (categorias especiais) é outra coisa; as classes não têm fim operativo.",
+    "(D) Correta. O art. 1-2-1 da OGSA tem o título “Classificação para fins administrativos”: 1ª, 2ª,",
+    "3ª e 4ª classe. A classe define, por exemplo, o posto do Comandante, do Imediato e dos Chefes de Departamento.",
+    "(E) Errada. Termo sem base na norma."
+   ],
+   "anulacao": [
+    "Prova de 2011 sem gabarito no projeto; resposta literal do art. 1-2-1."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2011-q40"
+  },
+  {
+   "ano": 2011,
+   "numero": 42,
+   "pagina": 6,
+   "assunto": "FUNÇÕES — COMANDANTE, IMEDIATO, CHEFE DE GABINETE E CHEFE DE DEPARTAMENTO",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a OGSA, correlacione as funções às suas respectivas atribuições e, a seguir, assinale a opção correta. FUNÇÕES: I - Comandante; II - Imediato; III - Chefe de Gabinete; IV - Chefe de Departamento. ATRIBUIÇÕES:",
+    "( ) Preparar ou fazer preparar, bem como distribuir Ordens do Dia, Ordens de Serviço, portarias e demais documentos.",
+    "( ) Cumprir e fazer cumprir as instruções técnicas em vigor, baixando, com aprovação do Comandante, instruções complementares.",
+    "( ) Determinar e orientar os serviços, manobras, exercícios e fainas necessários à eficiência da unidade, observadas as normas, instruções e ordens existentes.",
+    "( ) Fiscalizar o desembarque e entrega dos bens da Fazenda Nacional às OM que os devam receber, ao desarmar o navio.",
+    "( ) Solucionar divergências entre seus subordinados sobre assuntos administrativos e operativos, depois de ouvi-los.",
+    "( ) Fazer cumprir a rotina de bordo, observar o asseio, o aspecto marinheiro da OM e a correção dos uniformes do pessoal, especialmente dos licenciados."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "(II) (III) (-) (IV) (II) (-)"
+    },
+    {
+     "letra": "B",
+     "texto": "(I) (III) (II) (-) (II) (-)"
+    },
+    {
+     "letra": "C",
+     "texto": "(III) (IV) (I) (II) (I) (-)"
+    },
+    {
+     "letra": "D",
+     "texto": "(II) (III) (II) (IV) (-) (IV)"
+    },
+    {
+     "letra": "E",
+     "texto": "(III) (II) (-) (-) (I) (IV)"
+    }
+   ],
+   "gabarito": "Gabarito: sem gabarito oficial no projeto (resposta pelo texto da norma: C)",
+   "resposta": "C",
+   "comentario": [
+    "Análise das afirmativas: 1º - Chefe de Gabinete (III): cuida da expedição de Ordens do Dia, Ordens de Serviço e portarias do Almirante. 2º - Chefe de Departamento (IV): é a atribuição que a própria prova de 2021 (Q33, afirmativa I) atribui ao Chefe de Departamento. 3º - Comandante (I): determina e orienta serviços, manobras, exercícios e fainas. 4º - Imediato (II): fiscaliza a entrega dos bens da Fazenda Nacional no desarmamento. 5º - Comandante (I): soluciona divergências entre subordinados depois de ouvi-los. 6º - nenhuma das funções listadas, na chave da questão.",
+    "(A) Errada. Já erra o 2º item (instruções técnicas são do Chefe de Departamento).",
+    "(B) Errada. Também não dá o 2º item ao Chefe de Departamento.",
+    "(C) Correta. É a única opção que dá ao Chefe de Departamento as instruções técnicas complementares, e o restante da sequência é coerente.",
+    "(D) Errada. Instruções técnicas não são do Chefe de Gabinete.",
+    "(E) Errada. Instruções técnicas não são do Imediato."
+   ],
+   "anulacao": [
+    "Prova de 2011 sem gabarito no projeto. A resposta sai por eliminação (o 2º item é inequívoco). O 6º item, que costuma ser atribuição do Imediato, está como “(-)” na opção C: um recurso teria margem aí."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2011-q42"
+  },
+  {
+   "ano": 2011,
+   "numero": 44,
+   "pagina": 7,
+   "assunto": "PESSOAL — BARBA E LESÃO FISIONÔMICA",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a OGSA, o militar que necessitar encobrir uma lesão fisionômica poderá usar barba, bigode, cavanhaque ou cabelo fora das normas em vigor, desde que esteja autorizado pelo"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "médico que o atendeu."
+    },
+    {
+     "letra": "B",
+     "texto": "seu respectivo Encarregado de Divisão."
+    },
+    {
+     "letra": "C",
+     "texto": "seu respectivo Chefe de Departamento."
+    },
+    {
+     "letra": "D",
+     "texto": "seu respectivo Imediato."
+    },
+    {
+     "letra": "E",
+     "texto": "seu respectivo Comandante."
+    }
+   ],
+   "gabarito": "Gabarito: sem gabarito oficial no projeto (resposta pelo texto da norma: E)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. O médico pode atestar a lesão, mas quem autoriza é o Comandante.",
+    "(B) Errada. O Encarregado de Divisão não tem essa competência.",
+    "(C) Errada. Também não é competência do Chefe de Departamento.",
+    "(D) Errada. O Imediato não autoriza; a norma fala no Comandante.",
+    "(E) Correta. Art. 4-1-39 da OGSA: a exceção para encobrir lesão fisionômica depende de autorização do respectivo Comandante."
+   ],
+   "anulacao": [
+    "Prova de 2011 sem gabarito no projeto; resposta literal do art. 4-1-39."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2011-q44"
+  },
+  {
+   "ano": 2011,
+   "numero": 45,
+   "pagina": 7,
+   "assunto": "ORGANIZAÇÃO — OM DE TERRA: QUEM BAIXA AS NORMAS DE ELABORAÇÃO",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a OGSA, a elaboração dos Regulamentos e Regimentos Internos das OM de terra será pautada em normas baixadas"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "pelo Comando de Operações Navais."
+    },
+    {
+     "letra": "B",
+     "texto": "pela Secretaria-Geral da Marinha."
+    },
+    {
+     "letra": "C",
+     "texto": "pelo Estado-Maior da Armada."
+    },
+    {
+     "letra": "D",
+     "texto": "pelo Comandante da Marinha."
+    },
+    {
+     "letra": "E",
+     "texto": "pela Diretoria-Geral do Material da Marinha."
+    }
+   ],
+   "gabarito": "Gabarito: sem gabarito oficial no projeto (resposta pelo texto da norma: C)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. O ComOpNav não baixa essas normas.",
+    "(B) Errada. A SGM não é a autoridade indicada.",
+    "(C) Correta. Art. 2-1-7 da OGSA: as normas de elaboração de Regulamentos e Regimentos Internos são baixadas pelo Estado-Maior da Armada. Caiu de novo em 2019 (Q39) e 2022 (Q41).",
+    "(D) Errada. O Comandante da Marinha (ou autoridade com delegação) APROVA os Regulamentos e Regimentos; quem baixa as normas de elaboração é o EMA.",
+    "(E) Errada. A DGMM não é a autoridade indicada."
+   ],
+   "anulacao": [
+    "Prova de 2011 sem gabarito no projeto; resposta literal do art. 2-1-7."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2011-q45"
+  },
+  {
+   "ano": 2011,
+   "numero": 48,
+   "pagina": 8,
+   "assunto": "PESSOAL — POSTOS: CHEFIA DE DEPARTAMENTO EM NAVIO DE 1ª CLASSE",
+   "nota": [],
+   "enunciado": [
+    "Assinale a opção que completa corretamente as lacunas da sentença abaixo. Como previsto na OGSA, tanto o ________ como o ________ podem assumir a Chefia de Departamento em navio de 1ª classe."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Capitão de Mar e Guerra / Capitão de Fragata"
+    },
+    {
+     "letra": "B",
+     "texto": "Capitão de Fragata / Capitão de Corveta"
+    },
+    {
+     "letra": "C",
+     "texto": "Capitão de Corveta / Capitão-Tenente"
+    },
+    {
+     "letra": "D",
+     "texto": "Capitão-Tenente / Primeiro-Tenente"
+    },
+    {
+     "letra": "E",
+     "texto": "Primeiro-Tenente / Segundo-Tenente"
+    }
+   ],
+   "gabarito": "Gabarito: sem gabarito oficial no projeto (resposta pelo texto da norma: B)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. O CMG comanda navio de 1ª classe; não é chefe de departamento.",
+    "(B) Correta. Arts. 3-1-6 e 3-1-7: ao CF compete a chefia de departamento em navio de 1ª classe, e ao CC a chefia de departamento em navio de 1ª e 2ª classes.",
+    "(C) Errada. O CT chefia departamento em navios de 2ª e 3ª classes (art. 3-1-8), não de 1ª.",
+    "(D) Errada. Postos baixos demais para navio de 1ª classe.",
+    "(E) Errada. Idem."
+   ],
+   "anulacao": [
+    "Prova de 2011 sem gabarito no projeto; resposta literal dos arts. 3-1-6 a 3-1-8."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2011-q48"
+  },
+  {
+   "ano": 2012,
+   "numero": 38,
+   "pagina": 9,
+   "assunto": "ORGANIZAÇÃO — OM DE TERRA: ATO DE CRIAÇÃO",
+   "nota": [],
+   "enunciado": [
+    "Assinale a opção que completa corretamente as lacunas da sentença abaixo. De acordo com a OGSA, Ato de Criação de uma OM é o documento que especifica ________, ________, à sede, ________ e, quando necessário, a constituição de um núcleo de implantação."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "a organização / a estrutura / o posto do comandante"
+    },
+    {
+     "letra": "B",
+     "texto": "a estrutura / o propósito / a missão"
+    },
+    {
+     "letra": "C",
+     "texto": "a missão / a subordinação / a rotina da OM"
+    },
+    {
+     "letra": "D",
+     "texto": "a rotina da OM / a organização / a subordinação"
+    },
+    {
+     "letra": "E",
+     "texto": "o propósito / a subordinação / o posto do Comandante"
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. Organização e estrutura são assuntos do Regulamento.",
+    "(B) Errada. Estrutura e missão também são do Regulamento.",
+    "(C) Errada. Missão é do Regulamento, e a rotina é do Regimento Interno.",
+    "(D) Errada. Rotina (Regimento Interno) e organização (Regulamento) não estão no Ato de Criação.",
+    "(E) Correta. Art. 2-1-6: o Ato de Criação especifica o propósito, a subordinação, a sede, o posto do Comandante e, quando necessário, a constituição de um núcleo de implantação."
+   ],
+   "anulacao": [
+    "Sem margem. Esquema dos três documentos: ATO DE CRIAÇÃO = propósito, subordinação, sede, posto do Comandante; REGULAMENTO = complementa o Ato de Criação (missão, organização, estrutura, em âmbito geral); REGIMENTO INTERNO = complementa o Regulamento (rotina, em âmbito interno)."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2012-q38"
+  },
+  {
+   "ano": 2012,
+   "numero": 43,
+   "pagina": 9,
+   "assunto": "FUNÇÕES — IMEDIATO: FECHAMENTO DO MATERIAL E ESCURECIMENTO",
+   "nota": [],
+   "enunciado": [
+    "Segundo a OGSA, fazer observar as condições de fechamento do material e de escurecimento do navio em viagem é atribuição do"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Chefe do Departamento de Máquinas."
+    },
+    {
+     "letra": "B",
+     "texto": "Fiel de CAv do navio."
+    },
+    {
+     "letra": "C",
+     "texto": "Imediato."
+    },
+    {
+     "letra": "D",
+     "texto": "Encarregado da Divisão de Máquinas."
+    },
+    {
+     "letra": "E",
+     "texto": "Mestre do navio."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. O Chefe de Máquinas cuida do material de seu departamento, não da condição de fechamento do navio inteiro.",
+    "(B) Errada. O Fiel de CAv auxilia no material de controle de avarias, mas a atribuição é do Imediato.",
+    "(C) Correta. A OGSA dá ao Imediato a atribuição de fazer observar as condições de fechamento do material e de escurecimento do navio em viagem (e de estabilidade e peação do material volante).",
+    "(D) Errada. O Encarregado de Divisão não tem essa atribuição.",
+    "(E) Errada. O Mestre auxilia na manutenção e na faina, mas não é o responsável indicado."
+   ],
+   "anulacao": [
+    "Sem margem. A mesma atribuição aparece como distrator para o Encarregado de Divisão em 2014 (Q33, B)."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2012-q43"
+  },
+  {
+   "ano": 2012,
+   "numero": 44,
+   "pagina": 10,
+   "assunto": "SERVIÇO — SERVIÇO POR QUARTOS, SERVIÇO DE ESTADO E OFICIAL DE SERVIÇO",
+   "nota": [],
+   "enunciado": [
+    "Coloque V (Verdadeiro) ou F (Falso) nas afirmativas abaixo, em relação ao Serviço de Oficiais, assinalando, a seguir, a opção correta.",
+    "( ) Serviço por Quartos é o serviço executado por períodos de duração igual ou inferior a quatro horas.",
+    "( ) Serviço de Estado é o serviço executado por período de duração superior a seis horas, não podendo ultrapassar vinte e quatro horas.",
+    "( ) O Oficial de Serviço é o responsável pelo exato cumprimento da rotina de bordo.",
+    "( ) O Oficial de Serviço a bordo de navio, em regime de viagem, na estação de controle da manobra, denomina-se Oficial de Manobra.",
+    "( ) O Oficial de Serviço, na presença do Comandante ou do Imediato, não ordenará qualquer faina ou formatura sem lhe pedir licença."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "(F) (V) (V) (F) (V)"
+    },
+    {
+     "letra": "B",
+     "texto": "(V) (V) (F) (V) (F)"
+    },
+    {
+     "letra": "C",
+     "texto": "(V) (F) (V) (V) (F)"
+    },
+    {
+     "letra": "D",
+     "texto": "(F) (F) (V) (F) (V)"
+    },
+    {
+     "letra": "E",
+     "texto": "(V) (F) (V) (F) (V)"
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "Análise das afirmativas: 1ª - Falsa. Serviço por Quartos é o de duração igual ou inferior a SEIS horas (veja 2020, Q49). 2ª - Verdadeira. Serviço de Estado: mais de seis horas, até vinte e quatro horas. 3ª - Verdadeira. O Oficial de Serviço responde pelo exato cumprimento da rotina. 4ª - Falsa. Em viagem, na estação de controle da manobra, ele se chama Oficial de QUARTO. 5ª - Verdadeira. Na presença do Comandante ou do Imediato, o Oficial de Serviço pede licença antes de ordenar faina ou formatura.",
+    "(A) Correta. F, V, V, F, V.",
+    "(B) Errada. Dá como verdadeiros os quatro horas e o “Oficial de Manobra”.",
+    "(C) Errada. Mesmo erro, e ainda nega o Serviço de Estado.",
+    "(D) Errada. Nega o Serviço de Estado (6 a 24 horas), que está correto.",
+    "(E) Errada. Aceita “quatro horas” e nega o Serviço de Estado."
+   ],
+   "anulacao": [
+    "Sem margem. 6 horas é o divisor: até 6 h = por quartos; de 6 h a 24 h = de estado."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2012-q44"
+  },
+  {
+   "ano": 2012,
+   "numero": 46,
+   "pagina": 11,
+   "assunto": "PESSOAL — NORMAS SOBRE PESSOAL: POSTOS E APRESENTAÇÃO",
+   "nota": [],
+   "enunciado": [
+    "Em relação às Normas sobre Pessoal, previstas na OGSA, é correto afirmar que:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "compete ao Primeiro-Tenente a Imediatice de navio de 3ª classe."
+    },
+    {
+     "letra": "B",
+     "texto": "os Suboficiais e o Mestre, ao embarcarem, devem ser também apresentados ao Comandante da OM."
+    },
+    {
+     "letra": "C",
+     "texto": "o Suboficial mais antigo, ao embarcar, deve ser apresentado aos outros Suboficiais pelo Encarregado do Setor de Pessoal da OM."
+    },
+    {
+     "letra": "D",
+     "texto": "a apresentação dos Oficiais às autoridades, às quais ficarão subordinados, deve ser feita nas quarenta e oito horas contadas do desligamento, ou da chegada ao local em que estiver a OM em que for servir, salvo ordem especial."
+    },
+    {
+     "letra": "E",
+     "texto": "não compete ao Capitão de Corveta o Comando de Força."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. A Imediatice de navio de 3ª (e 4ª) classe é do Capitão-Tenente (art. 3-1-8).",
+    "(B) Correta. Art. 3-3-2: Suboficiais e Mestre são apresentados ao Comandante da OM e depois, em parada, ao setor em que forem servir.",
+    "(C) Errada. A norma não prevê essa apresentação pelo Encarregado do Setor de Pessoal.",
+    "(D) Errada. O prazo é de VINTE E QUATRO horas (art. 3-2-4; é a Q33 de 2013).",
+    "(E) Errada. Ao CC compete, sim, o Comando de Força (art. 3-1-7)."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2012-q46"
+  },
+  {
+   "ano": 2012,
+   "numero": 47,
+   "pagina": 11,
+   "assunto": "SERVIÇO — OFICIAL DE QUARTO: ORDEM QUE OFERECE RISCO",
+   "nota": [],
+   "enunciado": [
+    "Um Oficial de Quarto, de um navio de 1ª classe, recebeu uma ordem de seu Comandante de “sair da Derrota”, com a finalidade de navegar bem próximo a uma ilha. Conforme preceitua a OGSA, qual deve ser a atitude correta deste Oficial de Quarto, ao perceber que tal ordem oferecerá risco à segurança da navegação?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Ponderar respeitosamente, expondo as razões em que se fundamenta, por assim o entender."
+    },
+    {
+     "letra": "B",
+     "texto": "Obedecer de pronto e lealmente."
+    },
+    {
+     "letra": "C",
+     "texto": "Obedecer e depois ponderar."
+    },
+    {
+     "letra": "D",
+     "texto": "Obedecer e solicitar a presença do Imediato ao Passadiço."
+    },
+    {
+     "letra": "E",
+     "texto": "Não obedecer."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. A OGSA manda o subordinado que julgar uma ordem inconveniente ou perigosa ponderar respeitosamente ao superior, expondo as razões; se o superior mantiver a ordem, ela será cumprida e a responsabilidade é de quem a deu.",
+    "(B) Errada. Obedecer sem ponderar ignora o dever de alertar sobre o risco à segurança.",
+    "(C) Errada. A ponderação vem antes da execução, e não depois do dano.",
+    "(D) Errada. Chamar o Imediato não substitui a ponderação ao próprio Comandante, que está dando a ordem.",
+    "(E) Errada. A recusa pura não é a conduta prevista; o Oficial de Quarto pondera e, mantida a ordem, cumpre."
+   ],
+   "anulacao": [
+    "Sem margem relevante."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2012-q47"
+  },
+  {
+   "ano": 2012,
+   "numero": 50,
+   "pagina": 12,
+   "assunto": "MOSTRAS E TRADIÇÕES — TERMO DA MOSTRA DE DESARMAMENTO",
+   "nota": [],
+   "enunciado": [
+    "Após o encerramento da Mostra de Desarmamento, deve ser lavrado e assinado pelas autoridades presentes um Termo circunstanciado, no qual deverão constar os seguintes elementos essenciais, EXCETO:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "data, local do Desarmamento, ato e motivo da desincorporação."
+    },
+    {
+     "letra": "B",
+     "texto": "nome e local do estabelecimento ao qual o navio for entregue."
+    },
+    {
+     "letra": "C",
+     "texto": "total de milhas navegadas e dias de mar."
+    },
+    {
+     "letra": "D",
+     "texto": "nome do Comandante e relação nominal da tripulação."
+    },
+    {
+     "letra": "E",
+     "texto": "operações ou comissões de guerra de que o navio tenha participado."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Consta do termo (art. 1-3-5).",
+    "(B) Consta do termo.",
+    "(C) Consta do termo.",
+    "(D) Resposta (é o EXCETO). O termo registra os nomes dos Comandantes que o navio teve, mas não a relação nominal da tripulação.",
+    "(E) Consta do termo."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2012-q50"
+  },
+  {
+   "ano": 2013,
+   "numero": 33,
+   "pagina": 13,
+   "assunto": "PESSOAL — PRAZO DE APRESENTAÇÃO DOS OFICIAIS",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a OGSA, qual é o prazo para a apresentação dos oficiais às autoridades às quais ficarão subordinados, contando a partir do desligamento de sua OM ou da chegada ao local em que estiver a OM em que for servir, salvo ordem especial?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "72h"
+    },
+    {
+     "letra": "B",
+     "texto": "48h"
+    },
+    {
+     "letra": "C",
+     "texto": "24h"
+    },
+    {
+     "letra": "D",
+     "texto": "07 dias"
+    },
+    {
+     "letra": "E",
+     "texto": "10 dias"
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada.",
+    "(B) Errada. Foi o distrator da Q46 de 2012.",
+    "(C) Correta. Art. 3-2-4: vinte e quatro horas contadas do desligamento ou da chegada ao local da nova OM, salvo ordem especial.",
+    "(D) Errada.",
+    "(E) Errada."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2013-q33"
+  },
+  {
+   "ano": 2013,
+   "numero": 34,
+   "pagina": 13,
+   "assunto": "FUNÇÕES — CHEFE DE GABINETE",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a OGSA, assinale a opção que apresenta atribuição do Chefe de Gabinete."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Programar e dirigir o cerimonial e as solenidades oficiais."
+    },
+    {
+     "letra": "B",
+     "texto": "Administrar o rancho do Almirante."
+    },
+    {
+     "letra": "C",
+     "texto": "Ter a seu cargo a secretaria do Comando/Gabinete."
+    },
+    {
+     "letra": "D",
+     "texto": "Fazer o detalhe de serviço das Praças do Estado-Maior/Gabinete."
+    },
+    {
+     "letra": "E",
+     "texto": "Organizar a agenda do Almirante ou Comandante de Força."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. Programar e dirigir o cerimonial e as solenidades oficiais é atribuição do Chefe de Gabinete.",
+    "(B) Errada. Tarefa de apoio pessoal ao Almirante, de outro integrante do gabinete.",
+    "(C) Errada. A secretaria fica a cargo de outro oficial do gabinete (Secretário).",
+    "(D) Errada. É atribuição do Assistente (é a resposta da Q36 da mesma prova).",
+    "(E) Errada. Tarefa de apoio pessoal (Ajudante de Ordens)."
+   ],
+   "anulacao": [
+    "Margem pequena. As opções B, C e E são atribuições de outros membros do gabinete; os nomes exatos estão no capítulo de Estado-Maior e Gabinete da OGSA."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2013-q34"
+  },
+  {
+   "ano": 2013,
+   "numero": 36,
+   "pagina": 14,
+   "assunto": "FUNÇÕES — ASSISTENTE",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a OGSA é atribuição do Assistente:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "organizar a agenda do Almirante."
+    },
+    {
+     "letra": "B",
+     "texto": "organizar a documentação histórica da OM."
+    },
+    {
+     "letra": "C",
+     "texto": "preparar e processar a correspondência funcional do Almirante."
+    },
+    {
+     "letra": "D",
+     "texto": "fazer o detalhe de serviço das praças do gabinete."
+    },
+    {
+     "letra": "E",
+     "texto": "administrar o rancho do Almirante."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. Agenda é apoio pessoal (Ajudante de Ordens).",
+    "(B) Errada. Não é atribuição listada para o Assistente.",
+    "(C) Errada. Correspondência funcional é do Secretário.",
+    "(D) Correta. Fazer o detalhe de serviço das praças do gabinete está entre as atribuições do Assistente. Ele também acompanha o Almirante em suas inspeções (Q37 de 2025).",
+    "(E) Errada. Apoio pessoal ao Almirante, não é do Assistente."
+   ],
+   "anulacao": [
+    "Margem pequena; mesma observação da Q34."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2013-q36"
+  },
+  {
+   "ano": 2013,
+   "numero": 42,
+   "pagina": 14,
+   "assunto": "ORGANIZAÇÃO — OM DE TERRA: TRÊS DOCUMENTOS FUNDAMENTAIS",
+   "nota": [],
+   "enunciado": [
+    "Segundo a OGSA, as OM de terra são estruturadas com base em três documentos fundamentais, que são:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Ato de Criação, Termo de Armamento e Regimento Interno."
+    },
+    {
+     "letra": "B",
+     "texto": "Ato de Criação, Regulamento e Termo de Armamento."
+    },
+    {
+     "letra": "C",
+     "texto": "Ato de Criação, Regulamento e Regimento Interno."
+    },
+    {
+     "letra": "D",
+     "texto": "Regulamento, Tabela de Lotação e Regimento Interno."
+    },
+    {
+     "letra": "E",
+     "texto": "Tabela de Lotação, Termo de Armamento e RDM."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. Termo de Armamento é de navio.",
+    "(B) Errada. Idem.",
+    "(C) Correta. Art. 2-1-6: Ato de Criação, Regulamento e Regimento Interno.",
+    "(D) Errada. Tabela de Lotação não é um dos três.",
+    "(E) Errada. Nenhum dos três."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2013-q42"
+  },
+  {
+   "ano": 2013,
+   "numero": 49,
+   "pagina": 15,
+   "assunto": "FUNÇÕES — OFICIAIS DO ESTADO-MAIOR EMBARCADOS",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a OGSA, assinale a opção que completa corretamente as lacunas da sentença abaixo. Os Oficiais do Estado-Maior não poderão intervir nas atividades inerentes aos navios em que estiverem embarcados, inclusive naquelas relativas ao Cerimonial, a não ser por determinação do ________ e com o conhecimento do ________."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Comandante de Força / Comandante do Navio"
+    },
+    {
+     "letra": "B",
+     "texto": "Comandante de Força / Oficial de Serviço"
+    },
+    {
+     "letra": "C",
+     "texto": "Comandante do Navio / Imediato"
+    },
+    {
+     "letra": "D",
+     "texto": "Imediato / Oficial de Serviço"
+    },
+    {
+     "letra": "E",
+     "texto": "Comandante do Navio / Comandante de Força"
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. O Estado-Maior serve ao Comandante da Força; só por determinação dele pode intervir no navio, e sempre com o conhecimento do Comandante do Navio, que não perde a autoridade sobre a sua unidade.",
+    "(B) Errada. O conhecimento é do Comandante do Navio, não do Oficial de Serviço.",
+    "(C) Errada. O Comandante do Navio não dá ordens ao Estado-Maior da Força.",
+    "(D) Errada. Inverte totalmente a cadeia.",
+    "(E) Errada. Inverte a ordem das autoridades."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2013-q49"
+  },
+  {
+   "ano": 2013,
+   "numero": 50,
+   "pagina": 15,
+   "assunto": "ORGANIZAÇÃO — ORGANIZAÇÃO DE COMBATE",
+   "nota": [],
+   "enunciado": [
+    "A preparação dos navios, unidades aéreas e unidades de Fuzileiros Navais para combate e sua conduta durante o mesmo serão regidas por"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "um Tratado de Combate."
+    },
+    {
+     "letra": "B",
+     "texto": "um Plano de Combate."
+    },
+    {
+     "letra": "C",
+     "texto": "uma Organização Administrativa."
+    },
+    {
+     "letra": "D",
+     "texto": "um Regulamento de Combate."
+    },
+    {
+     "letra": "E",
+     "texto": "uma Organização de Combate."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. Documento inexistente na OGSA.",
+    "(B) Errada. Não é o nome do documento.",
+    "(C) Errada. A Organização Administrativa rege as atividades administrativas (art. 2-1-2).",
+    "(D) Errada. Não é o nome do documento.",
+    "(E) Correta. Art. 2-1-1: a Organização de Combate regula a preparação para o combate e a conduta durante ele. As normas para essas organizações são baixadas pelo EMA (art. 2-1-4; Q49 de 2014)."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2013-q50"
+  },
+  {
+   "ano": 2014,
+   "numero": 33,
+   "pagina": 17,
+   "assunto": "FUNÇÕES — ENCARREGADO DE DIVISÃO",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a OGSA, é atribuição do Encarregado de Divisão:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "cumprir e fazer cumprir as instruções técnicas em vigor, baixando, com aprovação do Comandante, instruções complementares."
+    },
+    {
+     "letra": "B",
+     "texto": "fazer observar as condições de fechamento do material e escurecimento do navio."
+    },
+    {
+     "letra": "C",
+     "texto": "verificar a manutenção das condições de estabilidade e a peação do material volante."
+    },
+    {
+     "letra": "D",
+     "texto": "coordenar e controlar o preparo e o adestramento do pessoal subordinado."
+    },
+    {
+     "letra": "E",
+     "texto": "detalhar diariamente as fainas rotineiras e, bem assim, as demais tarefas que lhe forem determinadas."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. É atribuição do Chefe de Departamento (2021, Q33, I).",
+    "(B) Errada. É do Imediato (2012, Q43).",
+    "(C) Errada. Também do Imediato.",
+    "(D) Errada. Coordenar e controlar o preparo e o adestramento é do Chefe de Departamento (nível acima). Esse item voltou como distrator em 2022 (Q35, D).",
+    "(E) Correta. O Encarregado de Divisão detalha diariamente as fainas rotineiras e as demais tarefas determinadas, e responde diretamente pela disciplina de seus subordinados (2022, Q35)."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2014-q33"
+  },
+  {
+   "ano": 2014,
+   "numero": 42,
+   "pagina": 17,
+   "assunto": "ORGANIZAÇÃO — ARMADA, FORÇA, ESQUADRA, FORÇA NAVAL E AERONAVAL",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a OGSA, as Forças e Navios recebem conceituações que as diferenciam. Sendo assim, é INCORRETO afirmar que:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Força é uma parcela da Armada, posta sob Comando único e constituída para fins operativos ou administrativos."
+    },
+    {
+     "letra": "B",
+     "texto": "Esquadra é o conjunto de Forças e navios soltos, posto sob Comando único, para fins administrativos."
+    },
+    {
+     "letra": "C",
+     "texto": "Força Naval é a Força constituída por navios, para fins operativos."
+    },
+    {
+     "letra": "D",
+     "texto": "Armada é a totalidade de navios, meios aéreos e de fuzileiros, destinados ao serviço naval, pertencentes ao Estado e incorporados à Marinha do Brasil."
+    },
+    {
+     "letra": "E",
+     "texto": "Força Aeronaval é a Força constituída por unidades aéreas ou por navios e unidades aéreas, para fins administrativos."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Correta a afirmação (art. 1-1-2).",
+    "(B) Correta a afirmação (art. 1-1-3).",
+    "(C) Resposta (é a INCORRETA). Pelo art. 1-1-4, a Força Naval é constituída por navios para fins ADMINISTRATIVOS (Flotilhas, Divisões, Esquadrões). A troca por “operativos” é o erro.",
+    "(D) Correta a afirmação (art. 1-1-1).",
+    "(E) Correta a afirmação (art. 1-1-5)."
+   ],
+   "anulacao": [
+    "Sem margem. Só a “Força” (genérica) é “para fins operativos ou administrativos”; Força Naval, Aeronaval e de Fuzileiros são para fins administrativos."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2014-q42"
+  },
+  {
+   "ano": 2014,
+   "numero": 46,
+   "pagina": 18,
+   "assunto": "ORGANIZAÇÃO — NAVIO SOLTO, ISOLADO, DESTACADO, ESCOTEIRO E CAPITÂNIA",
+   "nota": [],
+   "enunciado": [
+    "De acordo com o que preceitua a OGSA, os navios e aeronaves, em função da condição de prontidão operativa em que se encontrem, serão classificados em categorias especiais, de acordo com as normas em vigor. Correlacione as categorias em que os Navios podem encontrar-se a suas respectivas definições, e assinale a opção que apresenta a sequência correta. CATEGORIAS: I - Navio Isolado; II - Navio Destacado; III - Navio Capitânia; IV - Navio Solto; V - Navio Escoteiro. DEFINIÇÕES:",
+    "( ) Todo navio da Armada não pertencente a uma Força Naval.",
+    "( ) Todo navio pertencente à Marinha do Brasil, não incorporado à Armada.",
+    "( ) Todo navio da Armada que pertencendo a uma Força dela se separa temporariamente para cumprir missão.",
+    "( ) Todo navio da Armada designado para cumprir, isoladamente, uma missão.",
+    "( ) Navio que aloja ou está indicado para alojar o Comandante da Força e seu Estado-Maior.",
+    "( ) Navio de 1ª Classe."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "(IV) (I) (V) (III) (-) (II)"
+    },
+    {
+     "letra": "B",
+     "texto": "(II) (V) (III) (-) (I) (IV)"
+    },
+    {
+     "letra": "C",
+     "texto": "(IV) (V) (II) (I) (III) (-)"
+    },
+    {
+     "letra": "D",
+     "texto": "(IV) (I) (II) (V) (III) (-)"
+    },
+    {
+     "letra": "E",
+     "texto": "(II) (V) (-) (III) (I) (IV)"
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "Análise das afirmativas: Arts. 1-2-3 a 1-2-7: SOLTO = não pertence a Força Naval (IV); ISOLADO = da MB, mas não incorporado à Armada (I); DESTACADO = separa-se temporariamente da Força para uma missão (II); ESCOTEIRO = designado para cumprir isoladamente uma missão (V); CAPITÂNIA = aloja o Comandante da Força e seu Estado-Maior (III). “Navio de 1ª classe” é classe (fins administrativos), não categoria: fica sem número.",
+    "(A) Errada.",
+    "(B) Errada.",
+    "(C) Errada. Troca Isolado e Escoteiro.",
+    "(D) Correta. IV, I, II, V, III, (-).",
+    "(E) Errada."
+   ],
+   "anulacao": [
+    "Sem margem. Atenção à pegadinha clássica: “isolado” NÃO é o que cumpre missão sozinho (esse é o escoteiro); isolado é o navio não incorporado à Armada."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2014-q46"
+  },
+  {
+   "ano": 2014,
+   "numero": 47,
+   "pagina": 19,
+   "assunto": "SERVIÇO — OFICIAL DE QUARTO: SINAIS SEM ORDEM DO COMANDANTE",
+   "nota": [],
+   "enunciado": [
+    "Segundo a OGSA, o Oficial de Quarto é sempre aquele que, independente de sua antiguidade, estiver de serviço na estação de controle da manobra do navio, em viagem. O Oficial de Quarto pode, sem ordem do Comandante, mandar fazer os seguintes sinais, EXCETO:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "sinais de Emergência."
+    },
+    {
+     "letra": "B",
+     "texto": "sinais ordenados pelo Imediato."
+    },
+    {
+     "letra": "C",
+     "texto": "sinais de navegação, de marcha ou manobra do navio."
+    },
+    {
+     "letra": "D",
+     "texto": "sinais de reconhecimento."
+    },
+    {
+     "letra": "E",
+     "texto": "sinais que o Comandante da Força, no Capitânia, ordenar."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Pode fazer: emergência não espera ordem.",
+    "(B) Resposta (é o EXCETO). O Imediato não está na lista de quem autoriza sinais do Oficial de Quarto sem ordem do Comandante.",
+    "(C) Pode fazer: sinais de navegação, marcha e manobra são inerentes ao quarto.",
+    "(D) Pode fazer: sinais de reconhecimento.",
+    "(E) Pode fazer: os sinais que o Comandante da Força, no Capitânia, ordenar."
+   ],
+   "anulacao": [
+    "Sem margem relevante."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2014-q47"
+  },
+  {
+   "ano": 2014,
+   "numero": 49,
+   "pagina": 19,
+   "assunto": "ORGANIZAÇÃO — QUEM BAIXA AS NORMAS DAS ORGANIZAÇÕES DE FORÇAS E NAVIOS",
+   "nota": [],
+   "enunciado": [
+    "A elaboração das organizações das forças, navios, unidades aéreas e unidades de fuzileiros navais será pautada em normas baixadas pelo:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Comando em Chefe da Esquadra."
+    },
+    {
+     "letra": "B",
+     "texto": "Comando da Marinha."
+    },
+    {
+     "letra": "C",
+     "texto": "Comando de Operações Navais."
+    },
+    {
+     "letra": "D",
+     "texto": "Comandante Imediatamente Superior."
+    },
+    {
+     "letra": "E",
+     "texto": "Estado-Maior da Armada."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada.",
+    "(B) Errada.",
+    "(C) Errada. O ComOpNav emprega os meios, mas as normas de organização vêm do EMA.",
+    "(D) Errada.",
+    "(E) Correta. Art. 2-1-4: as normas são baixadas pelo Estado-Maior da Armada. O EMA também baixa as normas dos Regulamentos e Regimentos Internos das OM de terra (art. 2-1-7)."
+   ],
+   "anulacao": [
+    "Sem margem. Regra para memorizar: quem baixa normas de organização, na OGSA, é sempre o EMA."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2014-q49"
+  },
+  {
+   "ano": 2014,
+   "numero": 50,
+   "pagina": 20,
+   "assunto": "PESSOAL — ATRIBUTOS MORAIS E PROFISSIONAIS",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a OGSA, os Oficiais e Praças, ao longo da carreira, deverão empenhar-se permanentemente no aprimoramento dos atributos morais e profissionais indispensáveis para cidadãos que devem servir à Pátria e à Marinha. Dentre os principais atributos, relacionados abaixo, que devem ter os Oficiais e Praças, assinale aquele que é um atributo profissional."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Lealdade."
+    },
+    {
+     "letra": "B",
+     "texto": "Discrição."
+    },
+    {
+     "letra": "C",
+     "texto": "Critério."
+    },
+    {
+     "letra": "D",
+     "texto": "Probidade."
+    },
+    {
+     "letra": "E",
+     "texto": "Liderança."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. Atributo moral.",
+    "(B) Errada. Atributo moral.",
+    "(C) Errada. Atributo moral.",
+    "(D) Errada. Atributo moral.",
+    "(E) Correta. Liderança é atributo profissional."
+   ],
+   "anulacao": [
+    "Sem margem. Pelas provas: PROFISSIONAIS = inteligência, liderança, iniciativa, capacidade de decisão, capacidade profissional, capacidade administrativa, aptidão para o serviço, cultura geral. MORAIS = lealdade, probidade, discrição, critério, coragem moral, conduta militar, cooperação."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2014-q50"
+  },
+  {
+   "ano": 2015,
+   "numero": 32,
+   "pagina": 21,
+   "assunto": "SERVIÇO — OFICIAL DE SERVIÇO, OFICIAL DE QUARTO E SERVIÇO DE ESTADO",
+   "nota": [],
+   "enunciado": [
+    "Analise as afirmativas abaixo com relação ao serviço de Oficiais.",
+    "I - O Oficial Superior de Pernoite, no exercício de suas atribuições, é o representante do Comandante e, como tal, tem plena autoridade sobre tudo que se relacionar com o serviço.",
+    "II - O Oficial de Serviço a bordo de navio, em regime de viagem, na estação de controle da manobra, denomina-se Oficial de Quarto.",
+    "III - O Oficial Superior de Pernoite dará conhecimento ao Comandante e ao Imediato das ocorrências mais importantes e das providências que tomar a respeito.",
+    "IV - Serviço de Estado é o serviço executado por período de duração superior a seis horas, não podendo ultrapassar vinte e quatro horas.",
+    "Assinale a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Apenas as afirmativas I, II e III são verdadeiras."
+    },
+    {
+     "letra": "B",
+     "texto": "Apenas as afirmativas I e III são verdadeiras."
+    },
+    {
+     "letra": "C",
+     "texto": "Apenas as afirmativas II e IV são verdadeiras."
+    },
+    {
+     "letra": "D",
+     "texto": "Apenas a afirmativa IV é verdadeira."
+    },
+    {
+     "letra": "E",
+     "texto": "Apenas a afirmativa III é verdadeira."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "Análise das afirmativas: I - Falsa. Quem é o representante do Comandante, com plena autoridade sobre o serviço, é o OFICIAL DE SERVIÇO (é a resposta da Q32 de 2024). II - Verdadeira. Em viagem, na estação de controle da manobra, o Oficial de Serviço é o Oficial de Quarto. III - Falsa. Também é dever do OFICIAL DE SERVIÇO dar conhecimento ao Comandante e ao Imediato das ocorrências importantes. A banca trocou o sujeito. IV - Verdadeira. Serviço de Estado: mais de 6 h, até 24 h.",
+    "(A) Errada. Inclui I e III.",
+    "(B) Errada. I e III são justamente as falsas.",
+    "(C) Correta. Apenas II e IV.",
+    "(D) Errada. A II também é verdadeira.",
+    "(E) Errada. A III é falsa."
+   ],
+   "anulacao": [
+    "Margem pequena. A banca usa o mesmo truque nas afirmativas I e III: atribuições do Oficial de Serviço dadas ao Oficial Superior de Pernoite."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2015-q32"
+  },
+  {
+   "ano": 2015,
+   "numero": 39,
+   "pagina": 22,
+   "assunto": "FUNÇÕES — CHEFE DO ESTADO-MAIOR",
+   "nota": [],
+   "enunciado": [
+    "A quem compete analisar e apresentar ao Comandante da Força os documentos elaborados pelos Oficiais do Estado-Maior, bem como, devidamente apreciadas, as soluções dadas pelos Comandantes para problemas operativos, técnicos e administrativos?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Imediato."
+    },
+    {
+     "letra": "B",
+     "texto": "Oficial de Pessoal."
+    },
+    {
+     "letra": "C",
+     "texto": "Oficial de Logística."
+    },
+    {
+     "letra": "D",
+     "texto": "Chefe do Estado-Maior."
+    },
+    {
+     "letra": "E",
+     "texto": "Chefe de Gabinete."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. O Imediato é o segundo do navio, não integra o Estado-Maior da Força.",
+    "(B) Errada. O Oficial de Pessoal é um dos oficiais do Estado-Maior cujos documentos são analisados.",
+    "(C) Errada. Mesmo caso.",
+    "(D) Correta. O Chefe do Estado-Maior coordena os oficiais do EM, analisa seus trabalhos e os apresenta ao Comandante da Força, junto com as soluções dos Comandantes subordinados.",
+    "(E) Errada. O Chefe de Gabinete cuida de cerimonial e expediente do Almirante, não da análise de documentos do EM."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2015-q39"
+  },
+  {
+   "ano": 2015,
+   "numero": 42,
+   "pagina": 22,
+   "assunto": "FUNÇÕES — IMEDIATO: FISCALIZAR O LICENCIAMENTO",
+   "nota": [],
+   "enunciado": [
+    "A quem compete fiscalizar o licenciamento, de forma que este se faça dentro das normas prescritas pelo Comandante?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Oficial de Pessoal."
+    },
+    {
+     "letra": "B",
+     "texto": "Oficial de Serviço."
+    },
+    {
+     "letra": "C",
+     "texto": "Imediato."
+    },
+    {
+     "letra": "D",
+     "texto": "Contramestre."
+    },
+    {
+     "letra": "E",
+     "texto": "Sargento-Polícia."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. Oficial de Pessoal é função de Estado-Maior.",
+    "(B) Errada. O Oficial de Serviço executa o licenciamento no dia, mas a fiscalização das normas é do Imediato.",
+    "(C) Correta. Entre as atribuições do Imediato está fiscalizar o licenciamento para que se faça dentro das normas fixadas pelo Comandante (o Imediato é o executor das ordens do Comandante quanto a rotina e disciplina).",
+    "(D) Errada.",
+    "(E) Errada. O Sargento-Polícia auxilia na disciplina, mas não fiscaliza o licenciamento."
+   ],
+   "anulacao": [
+    "Sem margem relevante."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2015-q42"
+  },
+  {
+   "ano": 2016,
+   "numero": 36,
+   "pagina": 24,
+   "assunto": "PESSOAL — ATRIBUTOS PROFISSIONAIS",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a OGSA, para que haja máxima uniformidade quanto aos procedimentos de avaliação de desempenho do pessoal, serão elaborados documentos de avaliação nos quais sejam perfeitamente delineados e definidos os principais atributos de ordem moral e profissional. São exemplos de atributos profissionais:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Lealdade, Coragem Moral e Conduta Militar."
+    },
+    {
+     "letra": "B",
+     "texto": "Conduta Pessoal, Aptidão para o Serviço e Cooperação."
+    },
+    {
+     "letra": "C",
+     "texto": "Liderança, Iniciativa e Capacidade de Decisão."
+    },
+    {
+     "letra": "D",
+     "texto": "Presença de Ânimo, Discrição e Capacidade Profissional."
+    },
+    {
+     "letra": "E",
+     "texto": "Critério, Probidade e Cultura Geral."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. Os três são atributos morais.",
+    "(B) Errada. Aptidão para o serviço é profissional, mas conduta pessoal e cooperação são morais.",
+    "(C) Correta. Liderança, iniciativa e capacidade de decisão são atributos profissionais.",
+    "(D) Errada. Discrição é moral (só a capacidade profissional é profissional).",
+    "(E) Errada. Cultura geral é profissional, mas critério e probidade são morais."
+   ],
+   "anulacao": [
+    "Sem margem. A banca monta listas mistas; basta um atributo moral para eliminar a opção."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2016-q36"
+  },
+  {
+   "ano": 2016,
+   "numero": 38,
+   "pagina": 24,
+   "assunto": "ORGANIZAÇÃO — OM DE TERRA: REGIMENTO INTERNO",
+   "nota": [],
+   "enunciado": [
+    "Com relação à Organização das OM de terra, qual é o ato administrativo que complementa o Regulamento, ordenando seu detalhamento e permitindo que, em âmbito interno, sejam disciplinadas todas as atividades rotineiras das OM?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Ordem Interna."
+    },
+    {
+     "letra": "B",
+     "texto": "Organograma de funções."
+    },
+    {
+     "letra": "C",
+     "texto": "Regimento Interno."
+    },
+    {
+     "letra": "D",
+     "texto": "Tabela mestra."
+    },
+    {
+     "letra": "E",
+     "texto": "Ato de Criação."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. Ordem Interna é DA normativo (SGM-105), não é um dos três documentos estruturais.",
+    "(B) Errada.",
+    "(C) Correta. Art. 2-1-6: o Regimento Interno complementa o Regulamento e disciplina, em âmbito interno, as atividades rotineiras.",
+    "(D) Errada.",
+    "(E) Errada. O Ato de Criação é o primeiro documento (propósito, subordinação, sede, posto)."
+   ],
+   "anulacao": [
+    "Sem margem. Mesma pergunta em 2018 (Q32)."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2016-q38"
+  },
+  {
+   "ano": 2017,
+   "numero": 33,
+   "pagina": 26,
+   "assunto": "MOSTRAS E TRADIÇÕES — TRADIÇÕES NAVAIS",
+   "nota": [],
+   "enunciado": [
+    "Com relação ao que preconiza a OGSA, analise as afirmativas abaixo.",
+    "I - Os usos, costumes e linguagem das tradições navais devem ser preservados e cultuados por todos na Marinha.",
+    "II - Deve ser dada especial atenção, nos estabelecimentos de formação de Oficiais e praças, à divulgação da tradição naval, com ênfase às suas motivações históricas.",
+    "III - O incentivo à prática dos usos, costumes e linguagem das tradições navais deve ser preocupação constante de todo Comandante, Diretor ou Encarregado de OM.",
+    "IV - Em toda OM deverão existir instruções, elaboradas à luz da tradição naval, para o emprego correto de ordens e notícias, especialmente as relacionadas às fainas marinheiras.",
+    "Assinale a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Apenas as afirmativas III e IV estão corretas."
+    },
+    {
+     "letra": "B",
+     "texto": "Apenas as afirmativas I e III estão corretas."
+    },
+    {
+     "letra": "C",
+     "texto": "Apenas as afirmativas I e II estão corretas."
+    },
+    {
+     "letra": "D",
+     "texto": "Apenas as afirmativas II e III estão corretas."
+    },
+    {
+     "letra": "E",
+     "texto": "Apenas as afirmativas I e IV estão corretas."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "Análise das afirmativas: II e III reproduzem a OGSA (ensino da tradição nas escolas de formação; incentivo como preocupação do Comandante, Diretor ou Encarregado). Para a banca, I e IV alteram o texto: a I generaliza o dever (“por todos na Marinha”), e a IV cria uma obrigação de instruções escritas em toda OM que a norma não prevê nesses termos.",
+    "(A) Errada. Inclui a IV.",
+    "(B) Errada. Inclui a I.",
+    "(C) Errada. Inclui a I.",
+    "(D) Correta. Apenas II e III.",
+    "(E) Errada. I e IV são as consideradas incorretas."
+   ],
+   "anulacao": [
+    "Há margem. A redação da I parece um princípio geral verdadeiro, e só o texto integral da OGSA mostra exatamente o que foi alterado na I e na IV. Bom candidato a recurso na época, mas o gabarito definitivo manteve D."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2017-q33"
+  },
+  {
+   "ano": 2018,
+   "numero": 32,
+   "pagina": 27,
+   "assunto": "ORGANIZAÇÃO — OM DE TERRA: REGIMENTO INTERNO",
+   "nota": [],
+   "enunciado": [
+    "Assinale a opção que apresenta o ato administrativo que complementa o Regulamento, ordenando seu detalhamento e permitindo que, em âmbito interno, sejam disciplinadas todas as atividades rotineiras da Organização Militar."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Ato de Criação."
+    },
+    {
+     "letra": "B",
+     "texto": "Regulamento."
+    },
+    {
+     "letra": "C",
+     "texto": "Organização de Combate."
+    },
+    {
+     "letra": "D",
+     "texto": "Regimento Interno."
+    },
+    {
+     "letra": "E",
+     "texto": "Organização Administrativa."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. Primeiro documento (propósito, subordinação, sede, posto).",
+    "(B) Errada. É o documento que está sendo complementado.",
+    "(C) Errada. A Organização de Combate é dos navios e forças (preparação para o combate).",
+    "(D) Correta. Regimento Interno (art. 2-1-6). Repetição da Q38 de 2016.",
+    "(E) Errada. Organização Administrativa é dos navios e forças."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2018-q32"
+  },
+  {
+   "ano": 2018,
+   "numero": 36,
+   "pagina": 27,
+   "assunto": "PESSOAL — DEVERES ESPECÍFICOS DO OFICIAL",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a Ordenança Geral para o Serviço da Armada (OGSA), são deveres específicos de todo Oficial da Marinha, EXCETO:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "exercitar os atributos de iniciativa, lealdade, sinceridade e discrição."
+    },
+    {
+     "letra": "B",
+     "texto": "participar dos exercícios de cultura física e desportos."
+    },
+    {
+     "letra": "C",
+     "texto": "habituar-se a analisar os problemas realisticamente e com isenção de ânimo."
+    },
+    {
+     "letra": "D",
+     "texto": "esforçar-se para manter e aprimorar sua higidez."
+    },
+    {
+     "letra": "E",
+     "texto": "colocar os interesses da Marinha acima dos pessoais."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) É dever específico do Oficial.",
+    "(B) Resposta (é o EXCETO). Participar dos exercícios de cultura física e desportos é dever de todo militar, previsto entre os deveres gerais, e não entre os específicos do Oficial. O dever específico do Oficial é o da D (manter e aprimorar a higidez).",
+    "(C) É dever específico do Oficial.",
+    "(D) É dever específico do Oficial.",
+    "(E) É dever específico do Oficial."
+   ],
+   "anulacao": [
+    "Margem pequena. A distinção entre deveres gerais e específicos é literal da norma; o texto integral confirma em qual artigo cada item está."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2018-q36"
+  },
+  {
+   "ano": 2018,
+   "numero": 47,
+   "pagina": 28,
+   "assunto": "SERVIÇO — DIVISÕES DE SERVIÇO EM VIAGEM",
+   "nota": [],
+   "enunciado": [
+    "Serviço de Oficiais é toda atribuição dada pelo Comandante da Organização Militar (OM) para determinado Oficial, para ser executada por período limitado de tempo. Em viagem, os Oficiais serão escalados por Divisões de Serviço que se sucederão continuadamente em:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Serviço de Divisão."
+    },
+    {
+     "letra": "B",
+     "texto": "Regime de Serviço."
+    },
+    {
+     "letra": "C",
+     "texto": "Quartos de Divisão."
+    },
+    {
+     "letra": "D",
+     "texto": "Serviço Diário."
+    },
+    {
+     "letra": "E",
+     "texto": "Serviço de Quartos."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada.",
+    "(B) Errada.",
+    "(C) Errada.",
+    "(D) Errada. Serviço diário (de estado) é típico do porto.",
+    "(E) Correta. Em viagem, as Divisões de Serviço se sucedem continuamente em Serviço de Quartos (períodos de até 6 horas)."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2018-q47"
+  },
+  {
+   "ano": 2019,
+   "numero": 32,
+   "pagina": 29,
+   "assunto": "SERVIÇO — ESCALA DE OFICIAL DE QUARTO",
+   "nota": [],
+   "enunciado": [
+    "No que concerne ao Serviço em navio em viagem, relativo à Escala de Serviço de Oficial de Quarto, assinale a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "No serviço de Oficial de Quarto, com o navio em viagem, não poderá haver mais do que duas Divisões de Serviço."
+    },
+    {
+     "letra": "B",
+     "texto": "Concorrem à Escala de Serviço de Oficial de Quarto os Oficiais Intermediários e Subalternos, do Corpo da Armada, da unidade."
+    },
+    {
+     "letra": "C",
+     "texto": "Quando ocasionalmente o número de Oficiais ficar reduzido a dois, o Comandante, sendo Oficial Superior, entrará na Escala de Serviço de Oficial de Quarto."
+    },
+    {
+     "letra": "D",
+     "texto": "Em situações especiais, Oficiais de outros Corpos e Quadros poderão, a critério do Imediato e desde que devidamente qualificados, concorrer à Escala de Serviço de Oficial de Quarto."
+    },
+    {
+     "letra": "E",
+     "texto": "Se o navio, incluindo o Imediato, só contar com dois Oficiais, poderão concorrer à Escala de Serviço de Oficial de Quarto, em travessias menores de doze horas, os Guardas-Marinha e, na falta destes, o CHEOPE do navio."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. A norma não limita a duas Divisões (o número é fixado pelo Comandante).",
+    "(B) Correta. Concorrem à escala de Oficial de Quarto os Oficiais Intermediários e Subalternos do Corpo da Armada da unidade.",
+    "(C) Errada. O Comandante não entra na escala; a redução do número de oficiais é suprida pelos meios que a norma prevê (Imediato, Guardas-Marinha, praça qualificada).",
+    "(D) Errada. A decisão é do Comandante, e não do Imediato.",
+    "(E) Errada. A hipótese existe, mas com outros termos (veja 2025, Q39, B): o prazo de travessia e a praça indicada foram alterados."
+   ],
+   "anulacao": [
+    "Margem pequena nas distratoras C, D e E, que mexem em detalhes (quem decide, prazo, quem substitui). Só o texto integral confirma cada número; a B é a regra geral e não deixa dúvida."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2019-q32"
+  },
+  {
+   "ano": 2019,
+   "numero": 39,
+   "pagina": 29,
+   "assunto": "ORGANIZAÇÃO — OM DE TERRA: DOCUMENTOS E COMPETÊNCIAS",
+   "nota": [],
+   "enunciado": [
+    "As Organizações Militares (OM) de terra são estruturadas com base em três documentos fundamentais: Ato de Criação, Regulamento e Regimento Interno. De acordo com a OGSA, assinale a opção correta sobre esses documentos."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Regulamento é o documento que especifica o propósito, a subordinação, a sede, o posto do Comandante e a constituição de um núcleo de implantação, quando necessário."
+    },
+    {
+     "letra": "B",
+     "texto": "Regimento Interno é o ato administrativo que complementa o Ato de Criação permitindo que, em âmbito geral, possam ser conhecidas a sua missão, organização, estrutura e outros dados de interesse."
+    },
+    {
+     "letra": "C",
+     "texto": "O Ato de Criação é o ato administrativo que complementa o Regulamento, ordenando seu detalhamento e permitindo que, em âmbito interno, sejam disciplinadas todas as atividades rotineiras da OM."
+    },
+    {
+     "letra": "D",
+     "texto": "A elaboração dos Regulamentos e Regimentos Internos das OM de terra será pautada em normas baixadas pelo Estado-Maior da Armada."
+    },
+    {
+     "letra": "E",
+     "texto": "É da competência do Ministro da Defesa ou das Autoridades que tenham recebido expressa delegação de competência para tal a aprovação dos Regulamentos e Regimentos Internos das OM de terra."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. Essa é a definição do ATO DE CRIAÇÃO.",
+    "(B) Errada. Essa é a definição do REGULAMENTO.",
+    "(C) Errada. Essa é a definição do REGIMENTO INTERNO.",
+    "(D) Correta. Art. 2-1-7: normas baixadas pelo EMA.",
+    "(E) Errada. A aprovação é do Comandante da Marinha (Ministro da Marinha na redação de 1987) ou de autoridade com delegação, e não do Ministro da Defesa."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2019-q39"
+  },
+  {
+   "ano": 2020,
+   "numero": 48,
+   "pagina": 31,
+   "assunto": "PESSOAL — ATRIBUTOS PROFISSIONAIS",
+   "nota": [],
+   "enunciado": [
+    "Para que haja máxima uniformidade quanto aos procedimentos de avaliação de desempenho do pessoal, serão elaborados documentos nos quais sejam perfeitamente delineados e definidos os principais atributos para avaliação do desempenho de oficiais e praças. Marque a opção que apresenta um atributo profissional de acordo com a OGSA."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Coragem moral."
+    },
+    {
+     "letra": "B",
+     "texto": "Discrição."
+    },
+    {
+     "letra": "C",
+     "texto": "Inteligência."
+    },
+    {
+     "letra": "D",
+     "texto": "Cooperação."
+    },
+    {
+     "letra": "E",
+     "texto": "Conduta militar."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. Atributo moral.",
+    "(B) Errada. Atributo moral.",
+    "(C) Correta. Inteligência é atributo profissional.",
+    "(D) Errada. Atributo moral.",
+    "(E) Errada. Atributo moral (veja 2022, Q40)."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2020-q48"
+  },
+  {
+   "ano": 2020,
+   "numero": 49,
+   "pagina": 31,
+   "assunto": "SERVIÇO — DURAÇÃO DOS QUARTOS",
+   "nota": [],
+   "enunciado": [
+    "O serviço de Oficiais por Quartos é o serviço executado por períodos de duração igual ou inferior a seis horas. De acordo com a Ordenança Geral para o Serviço da Armada, a duração dos quartos será fixada pelo:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Comandante do Distrito."
+    },
+    {
+     "letra": "B",
+     "texto": "Imediato."
+    },
+    {
+     "letra": "C",
+     "texto": "Comandante da Marinha."
+    },
+    {
+     "letra": "D",
+     "texto": "Comandante."
+    },
+    {
+     "letra": "E",
+     "texto": "COMIMSUP."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada.",
+    "(B) Errada.",
+    "(C) Errada.",
+    "(D) Errada pelo gabarito definitivo. É o distrator mais forte: o Comandante fixa o NÚMERO de Divisões de Serviço, mas a duração dos quartos fica a cargo do escalão acima.",
+    "(E) Correta pelo gabarito: a duração dos quartos é fixada pelo Comandante Imediatamente Superior (COMIMSUP). Em 2024 (Q32, B) a banca voltou a tratar como errada a ideia de que o Comandante da OM fixa essa duração."
+   ],
+   "anulacao": [
+    "Há margem. Muitos candidatos marcam D; a banca manteve E no gabarito final e repetiu o entendimento em 2024. Confira a redação no texto integral da OGSA (capítulo do Serviço de Oficiais)."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2020-q49"
+  },
+  {
+   "ano": 2021,
+   "numero": 33,
+   "pagina": 33,
+   "assunto": "FUNÇÕES — CHEFE DE DEPARTAMENTO (ART. 6-4-5)",
+   "nota": [],
+   "enunciado": [
+    "Os cargos para Oficiais nas Organizações Militares serão distribuídos por Departamentos, Grupos, Divisões, Seções e Encargos Colaterais, cuja existência e número dependerão do tipo e porte da OM, bem como da natureza e vulto dos encargos. Analise as afirmativas abaixo, em relação às atribuições do Chefe de Departamento, segundo o Art. 6-4-5 da OGSA.",
+    "I - Cumprir e fazer cumprir as instruções técnicas em vigor, baixando, com aprovação do Comandante, instruções complementares.",
+    "II - Acompanhar o Comandante nas mostras e inspeções passadas em sua Divisão.",
+    "III - Assessorar diretamente o Comandante quando solicitado.",
+    "IV - Supervisionar a elaboração dos pedidos de suprimentos e reparos referentes ao material do seu Departamento, bem como seu atendimento pelos órgãos supridores e reparadores.",
+    "V - Estar pronto a informar ao Comandante sobre a situação dos mantimentos, aguada, sobressalentes e combustíveis.",
+    "Assinale a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Apenas as afirmativas I, II e IV estão corretas."
+    },
+    {
+     "letra": "B",
+     "texto": "Apenas as afirmativas I e V estão corretas."
+    },
+    {
+     "letra": "C",
+     "texto": "Apenas as afirmativas III, IV e V estão corretas."
+    },
+    {
+     "letra": "D",
+     "texto": "Apenas as afirmativas I, III e IV estão corretas."
+    },
+    {
+     "letra": "E",
+     "texto": "Apenas as afirmativas II, III e IV estão corretas."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "Análise das afirmativas: I, III e IV são atribuições do Chefe de Departamento. II é do Encarregado de DIVISÃO (acompanha o Comandante nas mostras da sua divisão). V é do Imediato, que responde pela situação geral do navio (mantimentos, aguada, sobressalentes, combustíveis).",
+    "(A) Errada. Inclui a II.",
+    "(B) Errada. Inclui a V e deixa de fora III e IV.",
+    "(C) Errada. Inclui a V.",
+    "(D) Correta. I, III e IV.",
+    "(E) Errada. Inclui a II."
+   ],
+   "anulacao": [
+    "Sem margem relevante."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2021-q33"
+  },
+  {
+   "ano": 2021,
+   "numero": 35,
+   "pagina": 34,
+   "assunto": "ORGANIZAÇÃO — OM DE TERRA: DOCUMENTOS",
+   "nota": [],
+   "enunciado": [
+    "Sabendo que, de acordo com a OGSA, as OM de terra são estruturadas com base em três documentos fundamentais: Ato de Criação, Regulamento e Regimento Interno, é correto afirmar que:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Regimento Interno é o documento que especifica o propósito, a subordinação, a sede, o posto do Comandante e a constituição de um núcleo de implantação quando necessário."
+    },
+    {
+     "letra": "B",
+     "texto": "Regimento Interno é o ato administrativo que complementa o Regulamento, ordenando seu detalhamento e permitindo que, em âmbito interno, sejam disciplinadas todas as atividades rotineiras da OM."
+    },
+    {
+     "letra": "C",
+     "texto": "Ato de Criação é o ato administrativo que complementa o Regimento Interno, permitindo que, em âmbito geral, possam ser conhecidas a sua missão, organização, estrutura e outros dados de interesse."
+    },
+    {
+     "letra": "D",
+     "texto": "Regulamento é o ato administrativo que complementa o Ato de Criação, ordenando seu detalhamento e permitindo que, em âmbito interno, sejam disciplinadas todas as atividades rotineiras da OM."
+    },
+    {
+     "letra": "E",
+     "texto": "Regulamento é o documento que especifica o propósito, a subordinação, a sede, o posto do Comandante e a constituição de um núcleo de implantação quando necessário."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. Definição do Ato de Criação.",
+    "(B) Correta. Definição literal do Regimento Interno.",
+    "(C) Errada. Mistura: o que complementa o Ato de Criação, em âmbito geral, é o Regulamento.",
+    "(D) Errada. O Regulamento é de âmbito GERAL (missão, organização, estrutura); a rotina interna é do Regimento.",
+    "(E) Errada. Definição do Ato de Criação."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2021-q35"
+  },
+  {
+   "ano": 2022,
+   "numero": 35,
+   "pagina": 35,
+   "assunto": "FUNÇÕES — ENCARREGADO DE DIVISÃO",
+   "nota": [],
+   "enunciado": [
+    "Segundo a OGSA (2009), assinale a opção que apresenta uma atribuição do Encarregado de Divisão, em navio onde haja Chefe de Departamento."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Promover permanentemente a atualização do arquivo operativo e técnico."
+    },
+    {
+     "letra": "B",
+     "texto": "Responder pela correta escrituração dos livros, modelos e demais documentos."
+    },
+    {
+     "letra": "C",
+     "texto": "Assessorar diretamente o Comandante, independente de solicitação deste."
+    },
+    {
+     "letra": "D",
+     "texto": "Coordenar e controlar o preparo e o adestramento do pessoal subordinado."
+    },
+    {
+     "letra": "E",
+     "texto": "Ser o responsável direto pela disciplina de seus subordinados."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. Atribuição de nível de Departamento.",
+    "(B) Errada. Também de nível de Departamento, onde há Chefe de Departamento.",
+    "(C) Errada. Assessorar diretamente o Comandante é do Chefe de Departamento, e “quando solicitado” (2021, Q33, III), e não “independente de solicitação”.",
+    "(D) Errada. Coordenar e controlar o adestramento é do Chefe de Departamento; o Encarregado de Divisão executa.",
+    "(E) Correta. O Encarregado de Divisão é o responsável direto pela disciplina de seus subordinados."
+   ],
+   "anulacao": [
+    "Sem margem relevante. A expressão “em navio onde haja Chefe de Departamento” serve justamente para tirar do Encarregado de Divisão as tarefas de departamento."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2022-q35"
+  },
+  {
+   "ano": 2022,
+   "numero": 39,
+   "pagina": 35,
+   "assunto": "SERVIÇO — OFICIAL DE SERVIÇO: CHAMAR O COMANDANTE E O IMEDIATO",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a OGSA (2009), assinale a opção que completa corretamente as lacunas da sentença abaixo: “O ________ mandará participar ao ________ a necessidade de sua presença no local de serviço quando lhe parecer haver risco para a segurança da OM. Da mesma forma procederá com o ________ nos casos referentes às atribuições deste.”"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Contramestre / Oficial de Serviço / Imediato"
+    },
+    {
+     "letra": "B",
+     "texto": "Oficial de Serviço / Imediato / Comandante"
+    },
+    {
+     "letra": "C",
+     "texto": "Oficial de Serviço / Comandante / Imediato"
+    },
+    {
+     "letra": "D",
+     "texto": "Comandante / Imediato / Oficial de Serviço"
+    },
+    {
+     "letra": "E",
+     "texto": "Contramestre / Comandante / Oficial de Serviço"
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. Quem chama é o Oficial de Serviço.",
+    "(B) Errada. Inverte: em caso de risco à segurança da OM chama-se o Comandante; o Imediato, nos assuntos de suas atribuições.",
+    "(C) Correta. O Oficial de Serviço manda participar ao Comandante quando houver risco para a segurança da OM, e ao Imediato nos casos referentes às atribuições deste.",
+    "(D) Errada.",
+    "(E) Errada."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2022-q39"
+  },
+  {
+   "ano": 2022,
+   "numero": 40,
+   "pagina": 36,
+   "assunto": "PESSOAL — ATRIBUTOS PROFISSIONAIS",
+   "nota": [],
+   "enunciado": [
+    "São atributos profissionais de Oficiais e Praças, constantes em documentos de avaliação, EXCETO:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "inteligência."
+    },
+    {
+     "letra": "B",
+     "texto": "conduta militar."
+    },
+    {
+     "letra": "C",
+     "texto": "capacidade administrativa."
+    },
+    {
+     "letra": "D",
+     "texto": "aptidão para o serviço."
+    },
+    {
+     "letra": "E",
+     "texto": "cultura geral."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Profissional.",
+    "(B) Resposta (é o EXCETO). Conduta militar é atributo MORAL.",
+    "(C) Profissional.",
+    "(D) Profissional.",
+    "(E) Profissional."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2022-q40"
+  },
+  {
+   "ano": 2022,
+   "numero": 41,
+   "pagina": 36,
+   "assunto": "ORGANIZAÇÃO — OM DE TERRA: QUEM BAIXA AS NORMAS DE ELABORAÇÃO",
+   "nota": [],
+   "enunciado": [
+    "A elaboração dos Regulamentos e Regimentos Internos das Organizações Militares (OM) de terra será pautada em normas de responsabilidade:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "do Comandante da Organização Militar."
+    },
+    {
+     "letra": "B",
+     "texto": "do Comandante da Marinha."
+    },
+    {
+     "letra": "C",
+     "texto": "da Diretoria-Geral do Pessoal da Marinha."
+    },
+    {
+     "letra": "D",
+     "texto": "do Estado-Maior da Armada."
+    },
+    {
+     "letra": "E",
+     "texto": "da Diretoria do Pessoal Militar da Marinha."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada.",
+    "(B) Errada. O Comandante da Marinha aprova; as normas de elaboração são do EMA.",
+    "(C) Errada.",
+    "(D) Correta. Estado-Maior da Armada (art. 2-1-7). Mesma resposta de 2011 (Q45) e 2019 (Q39, D).",
+    "(E) Errada."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2022-q41"
+  },
+  {
+   "ano": 2023,
+   "numero": 32,
+   "pagina": 38,
+   "assunto": "PESSOAL — DEVERES DO SUPERIOR, DO SUBORDINADO E DE TODOS",
+   "nota": [],
+   "enunciado": [
+    "Correlacione os seguintes agentes aos seus respectivos deveres/responsabilidades, de acordo com a OGSA, e assinale a opção que apresenta a sequência correta. AGENTES: I - Superior; II - Subordinado; III - Todos os militares (individualmente, dentro de sua esfera de ação). DEVERES/RESPONSABILIDADES:",
+    "( ) Responsabilizar-se por prejuízos causados à Fazenda Nacional.",
+    "( ) Responsabilizar-se pelas consequências da omissão de ordens, nos casos em que for de seu dever providenciar.",
+    "( ) Usar sempre expressões respeitosas em suas relações verbais ou escritas com os subordinados.",
+    "( ) Exigir o respeito e a obediência que lhe são devidos por seus subordinados.",
+    "( ) Obedecer às ordens dos superiores.",
+    "( ) Executar as ordens que receber."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "(-) (I) (III) (II) (II) (I)"
+    },
+    {
+     "letra": "B",
+     "texto": "(I) (I) (-) (III) (III) (II)"
+    },
+    {
+     "letra": "C",
+     "texto": "(III) (II) (-) (II) (I) (III)"
+    },
+    {
+     "letra": "D",
+     "texto": "(III) (I) (-) (I) (II) (II)"
+    },
+    {
+     "letra": "E",
+     "texto": "(II) (-) (I) (I) (II) (III)"
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "Análise das afirmativas: Prejuízos à Fazenda Nacional: todos os militares, cada um na sua esfera (III). Omissão de ordens que devia dar: superior (I). Expressões respeitosas “com os subordinados”: sem correspondência na chave (-); a OGSA trata do tratamento respeitoso nas relações com SUPERIORES como dever do subordinado, e a troca de palavra deixou o item sem número. Exigir respeito e obediência: superior (I). Obedecer e executar ordens: subordinado (II e II).",
+    "(A) Errada.",
+    "(B) Errada.",
+    "(C) Errada.",
+    "(D) Correta. III, I, -, I, II, II.",
+    "(E) Errada."
+   ],
+   "anulacao": [
+    "Margem pequena no 3º item: um recurso poderia sustentar que o superior também deve tratar com respeito os subordinados. A banca manteve D; as demais opções erram itens indiscutíveis (obedecer é do subordinado)."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2023-q32"
+  },
+  {
+   "ano": 2023,
+   "numero": 48,
+   "pagina": 39,
+   "assunto": "ORGANIZAÇÃO — OM DE TERRA: REGULAMENTO",
+   "nota": [],
+   "enunciado": [
+    "Segundo a OGSA, qual ato administrativo complementa o Ato de Criação permitindo que, em âmbito geral, possam ser conhecidas a sua missão, organização, estrutura e outros dados de interesse?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Regulamento."
+    },
+    {
+     "letra": "B",
+     "texto": "Regimento Interno."
+    },
+    {
+     "letra": "C",
+     "texto": "Ordem Interna."
+    },
+    {
+     "letra": "D",
+     "texto": "Portaria de Criação."
+    },
+    {
+     "letra": "E",
+     "texto": "Termo de Referência."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. O Regulamento complementa o Ato de Criação, em âmbito geral (art. 2-1-6).",
+    "(B) Errada. O Regimento Interno complementa o Regulamento, em âmbito interno.",
+    "(C) Errada. DA normativo da SGM-105, não é documento estrutural da OM.",
+    "(D) Errada.",
+    "(E) Errada. Documento de licitação."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2023-q48"
+  },
+  {
+   "ano": 2024,
+   "numero": 32,
+   "pagina": 40,
+   "assunto": "SERVIÇO — DISPOSIÇÕES GERAIS DO SERVIÇO DE OFICIAIS",
+   "nota": [],
+   "enunciado": [
+    "Com relação às disposições gerais dos serviços de Oficiais, à luz da OGSA, é correto afirmar que:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "o Serviço de Estado é o serviço executado por período de duração superior a quatro horas, não podendo ultrapassar vinte e quatro horas."
+    },
+    {
+     "letra": "B",
+     "texto": "a duração dos quartos será fixada pelo Comandante da Organização Militar (OM), não podendo ser inferior a duas horas para navios em viagem."
+    },
+    {
+     "letra": "C",
+     "texto": "o Oficial de Serviço a bordo de navio, em regime de viagem, na estação de controle da manobra, denomina-se Oficial de Manobra."
+    },
+    {
+     "letra": "D",
+     "texto": "o Oficial de Serviço, no exercício de suas atribuições, é o representante do Comandante e, como tal, tem plena autoridade sobre tudo que se relacionar com o serviço."
+    },
+    {
+     "letra": "E",
+     "texto": "o Oficial de Serviço dará conhecimento ao Comandante e ao Chefe de Máquinas das ocorrências mais importantes e das providências que tomar a respeito."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. Superior a SEIS horas.",
+    "(B) Errada. A duração dos quartos é fixada pelo COMIMSUP (2020, Q49).",
+    "(C) Errada. Oficial de QUARTO.",
+    "(D) Correta. O Oficial de Serviço é o representante do Comandante, com plena autoridade sobre o que se relaciona com o serviço.",
+    "(E) Errada. Ele dá conhecimento ao Comandante e ao IMEDIATO."
+   ],
+   "anulacao": [
+    "Sem margem. Questão de troca de palavras; todas as pegadinhas já tinham caído antes (2012 Q44, 2015 Q32, 2020 Q49)."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2024-q32"
+  },
+  {
+   "ano": 2024,
+   "numero": 38,
+   "pagina": 40,
+   "assunto": "PESSOAL — DEVERES DAS PRAÇAS POR GRADUAÇÃO",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a OGSA, em relação aos deveres das Praças, conforme suas graduações, é correto afirmar que os:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Cabos serão auxiliares diretos dos Suboficiais, ou dos Oficiais, conforme a Organização Militar (OM) em que servirem, em todos os atos de serviço e na execução das fainas que aqueles auxiliarem ou dirigirem."
+    },
+    {
+     "letra": "B",
+     "texto": "Sargentos serão auxiliares diretos dos Oficiais em todos os atos de serviço e na execução das fainas que aqueles dirigirem."
+    },
+    {
+     "letra": "C",
+     "texto": "Sargentos serão auxiliares diretos dos Suboficiais, ou dos Oficiais, conforme a Organização Militar (OM) em que servirem, em todos os atos de serviço e na execução das fainas que aqueles auxiliarem ou dirigirem."
+    },
+    {
+     "letra": "D",
+     "texto": "Suboficiais, quando no exercício do comando, impõem penas disciplinares."
+    },
+    {
+     "letra": "E",
+     "texto": "Praças Especiais, quando matriculadas em escola de formação, não têm a obrigação de se impor às Praças mais modernas."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. A redação é a dos SARGENTOS; os Cabos auxiliam os Sargentos.",
+    "(B) Errada. Incompleta: omite os Suboficiais e a referência à OM em que servirem.",
+    "(C) Correta. Redação da OGSA para os Sargentos.",
+    "(D) Errada. Imposição de pena disciplinar é da autoridade com competência do RDM, e não do Suboficial por estar no exercício do comando de uma faina ou fração.",
+    "(E) Errada. As Praças Especiais devem impor-se às praças mais modernas pela correção de atitudes."
+   ],
+   "anulacao": [
+    "Sem margem relevante."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2024-q38"
+  },
+  {
+   "ano": 2025,
+   "numero": 37,
+   "pagina": 42,
+   "assunto": "FUNÇÕES — ASSISTENTE",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a OGSA, referente às atribuições e habilitação do Assistente, assinale a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Elaborar documentos decorrentes da decisão do Almirante e submetê-los ao Chefe de Gabinete."
+    },
+    {
+     "letra": "B",
+     "texto": "Preparar e processar a correspondência funcional e pessoal do Almirante."
+    },
+    {
+     "letra": "C",
+     "texto": "Ser do posto de Capitão de Corveta, preferencialmente do mesmo Corpo ou Quadro a que pertencer o Almirante ou Comandante de Força no Gabinete no qual for servir, e possuir o Curso de Altos Estudos Militares exigido para a função."
+    },
+    {
+     "letra": "D",
+     "texto": "Assistir à recepção e à despedida de todos os Comandantes de Forças, navios e outras pessoas em visita ao Almirante ou Comandante de Força."
+    },
+    {
+     "letra": "E",
+     "texto": "Acompanhar o Almirante ou Comandante de Força em suas inspeções."
+    }
+   ],
+   "gabarito": "Gabarito: E (preliminar)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. Elaborar documentos e submetê-los ao Chefe de Gabinete é tarefa de outro membro do gabinete (Secretário).",
+    "(B) Errada. A correspondência é do Secretário (2013, Q36, C).",
+    "(C) Errada. A habilitação descrita não é a do Assistente: posto e curso foram trocados.",
+    "(D) Errada. Recepção e despedida de visitantes é do Ajudante de Ordens.",
+    "(E) Correta. O Assistente acompanha o Almirante ou Comandante de Força em suas inspeções (e faz o detalhe de serviço das praças do gabinete, 2013, Q36)."
+   ],
+   "anulacao": [
+    "Gabarito preliminar. Margem pequena: as distratoras A, B e D são atribuições de outros oficiais do gabinete, que só o texto integral nomeia com exatidão."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2025-q37"
+  },
+  {
+   "ano": 2025,
+   "numero": 39,
+   "pagina": 42,
+   "assunto": "SERVIÇO — REGIME E SERVIÇO DE VIAGEM",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a OGSA, assinale a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "O Oficial de Serviço provará a amostra de rancho da tripulação antes de mandar distribuí-lo e evitará, durante o tempo das refeições e repouso subsequente, empregar a Divisão e Quarto de Serviço em qualquer faina que não seja exigida por circunstância importante e urgente."
+    },
+    {
+     "letra": "B",
+     "texto": "Se o navio, incluindo o Imediato, só contar com dois Oficiais, poderão concorrer à Escala de Serviço de Oficial de Quarto, em travessias maiores de vinte e quatro horas, os Guardas-Marinha e, na falta destes, o Mestre do navio, desde que devida e formalmente qualificados."
+    },
+    {
+     "letra": "C",
+     "texto": "O regime e o serviço de viagem serão cumpridos a partir da hora que for estabelecida ou a partir do início do quarto em que estiver compreendida a hora marcada para o navio suspender, ou, em caso de suspender imprevisto, logo depois dessa faina; cessará na hora que for determinada ou no fim do quarto em que o navio fundear, amarrar ou atracar."
+    },
+    {
+     "letra": "D",
+     "texto": "O regime e o serviço de viagem serão cumpridos a partir da hora que for estabelecida ou a partir do início do quarto em que estiver compreendida a hora marcada para o navio suspender. Quando o navio fundear, amarrar ou atracar, por menos de doze horas, o regime e o serviço de viagem poderão, a critério do Comandante, não ser interrompidos."
+    },
+    {
+     "letra": "E",
+     "texto": "O número de Divisões de Serviço em viagem será fixado pelo Comandante e não deverá ser menor do que três nem maior do que oito. Os Oficiais que concorrem à Escala de Serviço serão distribuídos por Divisões de Serviço, que se sucederão continuamente no serviço, cabendo a cada Divisão o serviço por período de vinte e quatro horas, iniciado às oito horas de cada dia."
+    }
+   ],
+   "gabarito": "Gabarito: C (preliminar)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada pelo gabarito. Mistura atribuições: a prova do rancho e o cuidado com o descanso da guarnição não são, nesses termos, atribuições do Oficial de Serviço.",
+    "(B) Errada. A hipótese de só dois oficiais existe, mas a banca alterou o prazo da travessia e a praça indicada (compare com 2019, Q32, E).",
+    "(C) Correta. Reproduz a regra do início e do fim do regime e do serviço de viagem.",
+    "(D) Errada. A primeira parte é verdadeira, mas a segunda frase (manter o regime de viagem em paradas de menos de doze horas) não é a da norma.",
+    "(E) Errada. Mistura viagem e porto: o serviço de 24 horas iniciado às 8 h é o do porto; em viagem, as Divisões se sucedem em quartos (2018, Q47)."
+   ],
+   "anulacao": [
+    "Gabarito preliminar. Margem pequena na A e na D, que dependem de detalhes de redação; o texto integral da OGSA (capítulo do Serviço em Viagem) confirma."
+   ],
+   "fonte": "ogsa_comentado_2011_2025",
+   "id": "ogsa-2025-q39"
+  }
+ ]
+}
