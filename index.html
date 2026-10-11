@@ -280,7 +280,7 @@
     @media (prefers-reduced-motion: reduce) {
       #access-card, .shake { animation: none !important; }
       #access-screen.exiting { animation: none !important; opacity: 0; }
-      #splash-logo, #splash-ring, #splash-dots span { animation: none !important; }
+      .sp-halo, .sp-runner, #splash-dots span { animation: none !important; }
     }
 
     /* ===== Tela de abertura (splash) — logo animando por ~3s antes do login ===== */
@@ -293,43 +293,46 @@
       align-items: center;
       justify-content: center;
       gap: 22px;
-      background: linear-gradient(135deg, #061326, #08182b 55%, #0b1b30);
+      background: radial-gradient(ellipse at 50% 40%, #0b1a30 0%, #050c18 75%);
       transition: opacity .6s ease;
     }
     #splash-screen.splash-hide {
       opacity: 0;
       pointer-events: none;
     }
-    #splash-logo-wrap {
-      position: relative;
-      width: 112px;
-      height: 112px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    /* Emblema 3D (AA + âncora) girando — camadas empilhadas em Z dão espessura ao metal */
+    #splash-emblem { display: flex; flex-direction: column; align-items: center; }
+    .sp-stage { width: 150px; height: 150px; position: relative; perspective: 800px; }
+    .sp-halo {
+      position: absolute; inset: -34px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(95,243,255,.16) 0%, rgba(226,182,90,.10) 40%, transparent 70%);
+      animation: splash-halo 3.2s ease-in-out infinite;
     }
-    #splash-ring {
-      position: absolute;
-      inset: -11px;
-      border-radius: 30px;
-      border: 2px solid rgba(201, 164, 76, .18);
-      border-top-color: #c9a44c;
-      border-right-color: #c9a44c;
-      animation: splash-spin 1.15s linear infinite;
+    .sp-coin { position: absolute; inset: 0; transform-style: preserve-3d; will-change: transform; }
+    .sp-layer { position: absolute; inset: 0; }
+    .sp-layer svg { width: 100%; height: 100%; display: block; overflow: visible; }
+    .sp-edge { filter: brightness(.42) saturate(1.1); }
+    .sp-anchor-edge { filter: brightness(.5); }
+    .sp-anchor-face { filter: drop-shadow(0 2px 5px rgba(0,0,0,.55)); }
+    .sp-sheen {
+      position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+      clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
     }
-    #splash-logo {
-      width: 100%;
-      height: 100%;
-      border-radius: 22px;
-      box-shadow: 0 14px 40px rgba(0, 0, 0, .45), 0 0 0 1px rgba(201, 164, 76, .35);
-      animation: splash-pulse 1.8s ease-in-out infinite;
+    .sp-sheen i {
+      position: absolute; top: -50%; left: -80%; width: 45%; height: 200%; opacity: 0;
+      background: linear-gradient(100deg, transparent, rgba(255,246,214,.6), transparent);
+      transform: rotate(15deg);
     }
-    @keyframes splash-spin {
-      to { transform: rotate(360deg); }
+    .sp-runner { stroke-dasharray: 7 93; animation: splash-run 2.2s linear infinite; }
+    @keyframes splash-run { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+    .sp-shadow {
+      width: 120px; height: 14px; margin-top: 22px; border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 70%);
+      will-change: transform, opacity;
     }
-    @keyframes splash-pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.045); }
+    @keyframes splash-halo {
+      0%, 100% { opacity: .6; transform: scale(.95); }
+      50% { opacity: 1; transform: scale(1.05); }
     }
     #splash-dots {
       display: inline-flex;
@@ -581,9 +584,95 @@
 
   <!-- Tela de abertura (splash): logo animando por ~3s antes de mostrar o login -->
   <div id="splash-screen" aria-hidden="true">
-    <div id="splash-logo-wrap">
-      <div id="splash-ring"></div>
-      <img id="splash-logo" src="icons/icon-192.png" alt="" width="112" height="112">
+    <!-- Peças do emblema (definidas uma vez, reutilizadas nas camadas) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <linearGradient id="sp-goldF" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#fff1c1"/>
+          <stop offset=".35" stop-color="#e2b65a"/>
+          <stop offset=".7" stop-color="#a8782a"/>
+          <stop offset="1" stop-color="#f3d58a"/>
+        </linearGradient>
+        <linearGradient id="sp-goldA" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#fff1c1"/>
+          <stop offset=".4" stop-color="#e2b65a"/>
+          <stop offset=".8" stop-color="#a8782a"/>
+          <stop offset="1" stop-color="#f3d58a"/>
+        </linearGradient>
+        <filter id="sp-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="1.6" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <!-- só o metal dos dois A (usado na espessura) -->
+        <symbol id="sp-aaGold" viewBox="0 0 120 120" overflow="visible">
+          <g fill="none" stroke="url(#sp-goldF)" stroke-width="6" stroke-linejoin="miter">
+            <polyline points="6,57 60,3 114,57"/>
+            <rect x="46" y="22" width="28" height="4" fill="url(#sp-goldF)" stroke="none"/>
+            <polyline points="6,63 60,117 114,63"/>
+            <rect x="46" y="94" width="28" height="4" fill="url(#sp-goldF)" stroke="none"/>
+          </g>
+          <g fill="url(#sp-goldF)">
+            <polygon points="-6,53 24,53 24,57 -2,57"/>
+            <polygon points="126,53 96,53 96,57 122,57"/>
+            <polygon points="-6,67 24,67 24,63 -2,63"/>
+            <polygon points="126,67 96,67 96,63 122,63"/>
+          </g>
+        </symbol>
+        <!-- face completa: vidro + metal + neon + circuito -->
+        <symbol id="sp-aaFace" viewBox="0 0 120 120" overflow="visible">
+          <polygon points="60,3 114,57 6,57" fill="rgba(95,243,255,.05)"/>
+          <polygon points="60,117 114,63 6,63" fill="rgba(95,243,255,.05)"/>
+          <use href="#sp-aaGold"/>
+          <g fill="none" stroke="#5ff3ff" stroke-width="1.4" filter="url(#sp-glow)" opacity=".8">
+            <polyline points="18,51 60,10 102,51"/>
+            <polyline points="18,69 60,110 102,69"/>
+          </g>
+          <g stroke="#5ff3ff" stroke-width=".7" opacity=".45" fill="none">
+            <path d="M28 60 h10 l3 -3 h5"/><path d="M92 60 h-10 l-3 -3 h-5"/>
+            <circle cx="46" cy="57" r="1"/><circle cx="74" cy="57" r="1"/>
+          </g>
+        </symbol>
+        <!-- âncora -->
+        <symbol id="sp-anchor" viewBox="0 0 120 120" overflow="visible">
+          <g transform="translate(30 28) scale(.6)" fill="url(#sp-goldA)" stroke="url(#sp-goldA)">
+            <circle cx="50" cy="12" r="6" fill="none" stroke-width="4"/>
+            <rect x="48" y="17" width="4" height="66" rx="1.5" stroke="none"/>
+            <polygon points="26,30 74,30 71,34.5 29,34.5" stroke="none"/>
+            <path d="M50 94 L22 76 L11 63 L20 66 L27 63 L30 72 L50 83 L70 72 L73 63 L80 66 L89 63 L78 76 Z" stroke="none"/>
+          </g>
+        </symbol>
+      </defs>
+    </svg>
+
+    <div id="splash-emblem">
+      <div class="sp-stage">
+        <div class="sp-halo"></div>
+        <div class="sp-coin" id="sp-coin">
+          <!-- verso -->
+          <div class="sp-layer" style="transform:translateZ(-3px)"><svg viewBox="0 0 120 120"><use href="#sp-aaFace"/></svg></div>
+          <!-- espessura -->
+          <div class="sp-layer sp-edge" style="transform:translateZ(-2px)"><svg viewBox="0 0 120 120"><use href="#sp-aaGold"/></svg></div>
+          <div class="sp-layer sp-edge" style="transform:translateZ(-1px)"><svg viewBox="0 0 120 120"><use href="#sp-aaGold"/></svg></div>
+          <!-- âncora no miolo -->
+          <div class="sp-layer sp-anchor-edge" style="transform:translateZ(-.6px)"><svg viewBox="0 0 120 120"><use href="#sp-anchor"/></svg></div>
+          <div class="sp-layer sp-anchor-face" style="transform:translateZ(0)"><svg viewBox="0 0 120 120"><use href="#sp-anchor"/></svg></div>
+          <div class="sp-layer sp-anchor-edge" style="transform:translateZ(.6px)"><svg viewBox="0 0 120 120"><use href="#sp-anchor"/></svg></div>
+          <div class="sp-layer sp-edge" style="transform:translateZ(1px)"><svg viewBox="0 0 120 120"><use href="#sp-aaGold"/></svg></div>
+          <div class="sp-layer sp-edge" style="transform:translateZ(2px)"><svg viewBox="0 0 120 120"><use href="#sp-aaGold"/></svg></div>
+          <!-- frente -->
+          <div class="sp-layer" id="sp-front" style="transform:translateZ(3px)">
+            <svg viewBox="0 0 120 120">
+              <use href="#sp-aaFace"/>
+              <g fill="none" stroke="#c9fdff" stroke-width="1.8" stroke-linecap="round" filter="url(#sp-glow)">
+                <polyline class="sp-runner" pathLength="100" points="18,51 60,10 102,51"/>
+                <polyline class="sp-runner" pathLength="100" points="102,69 60,110 18,69"/>
+              </g>
+            </svg>
+            <div class="sp-sheen"><i id="sp-sheen"></i></div>
+          </div>
+        </div>
+      </div>
+      <div class="sp-shadow" id="sp-shadow"></div>
     </div>
     <div class="text-center">
       <div class="font-serif font-semibold text-[22px] text-ink tracking-wide">Aprovação Oficial</div>
@@ -598,11 +687,46 @@
     // página leva pra carregar, e some com um fade suave — roda assim que o parser chega
     // aqui, antes do resto do body, pra contar o tempo certo desde o início real da visita.
     (function () {
+      var running = true;
+
+      // Giro do emblema: 60% do ciclo girando, 40% parado de frente
+      (function () {
+        var coin = document.getElementById('sp-coin');
+        var front = document.getElementById('sp-front');
+        var shadow = document.getElementById('sp-shadow');
+        var sheen = document.getElementById('sp-sheen');
+        if (!coin || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var PERIOD = 3200, SPIN = 0.6;
+        var ease = function (p) { return p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2; };
+        function frame(now) {
+          if (!running) return;
+          var t = (now % PERIOD) / PERIOD;
+          var angle = t < SPIN ? ease(t / SPIN) * 360 : 0;
+          var c = Math.cos(angle * Math.PI / 180);
+          coin.style.transform = 'rotateY(' + angle + 'deg)';
+          // sombra encolhe de perfil e cresce de frente
+          shadow.style.transform = 'scaleX(' + (.3 + .7 * Math.abs(c)) + ')';
+          shadow.style.opacity = .45 + .55 * Math.abs(c);
+          // metal fica mais claro quando encara a luz
+          front.style.filter = 'brightness(' + (.8 + .3 * Math.max(c, 0)) + ')';
+          // reflexo passa quando a peça termina de virar para a frente
+          if (t < SPIN && angle > 280) {
+            var k = (angle - 280) / 80;
+            sheen.style.left = (-80 + k * 220) + '%';
+            sheen.style.opacity = Math.sin(k * Math.PI);
+          } else {
+            sheen.style.opacity = 0;
+          }
+          requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+      })();
+
       setTimeout(function () {
         var splash = document.getElementById('splash-screen');
         if (!splash) return;
         splash.classList.add('splash-hide');
-        setTimeout(function () { splash.style.display = 'none'; }, 650);
+        setTimeout(function () { splash.style.display = 'none'; running = false; }, 650);
       }, 3000);
     })();
   </script>
