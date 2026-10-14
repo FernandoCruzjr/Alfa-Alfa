@@ -308,6 +308,30 @@
     .chips-scroll { overflow-x: auto; scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
     .q-text p + p { margin-top: .5rem; }
     .raw-lines { white-space: pre-wrap; font-size: 12px; line-height: 1.55; }
+
+    /* ===== Menu de questões (lateral direita) ===== */
+    .q-card { scroll-margin-top: 84px; transition: box-shadow .2s, border-color .2s; }
+    .q-card.flash { border-color: rgb(var(--tw-navy-400)) !important; box-shadow: 0 0 0 3px rgb(var(--tw-navy-500) / .35); }
+    .nav-btn { width: 34px; height: 30px; border-radius: 8px; font-size: 12px; font-weight: 600; border: 1px solid rgb(var(--tw-navy-700));
+      color: rgb(var(--tw-slate-300)); background: rgb(var(--tw-navy-900) / .4); display: inline-flex; align-items: center; justify-content: center; transition: all .12s; }
+    .nav-btn:hover { border-color: rgb(var(--tw-navy-400)); color: rgb(var(--tw-ink)); }
+    .nav-btn.ok { background: rgb(var(--tw-emerald-500)); border-color: rgb(var(--tw-emerald-500)); color: #fff; }
+    .nav-btn.err { background: rgb(var(--tw-rose-500)); border-color: rgb(var(--tw-rose-500)); color: #fff; }
+    .nav-btn.anul { background: rgb(var(--tw-amber-500)); border-color: rgb(var(--tw-amber-500)); color: #fff; }
+    .nav-btn.current { outline: 2px solid rgb(var(--tw-navy-400)); outline-offset: 2px; }
+    .nav-dot { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+    #q-nav-scroll { scrollbar-width: thin; }
+    @media (max-width: 1023px) {
+      #q-nav { position: fixed; top: 0; right: 0; bottom: 0; width: min(320px, 88vw); z-index: 60; transform: translateX(100%);
+        transition: transform .25s ease; border-radius: 0; }
+      #q-nav.open { transform: translateX(0); }
+      #q-nav-backdrop.open { display: block; }
+    }
+    @media (min-width: 1024px) {
+      #q-nav { position: sticky; top: 84px; max-height: calc(100vh - 100px); }
+      #q-nav-fab, #q-nav-close { display: none !important; }
+    }
+    @media (prefers-reduced-motion: reduce) { #q-nav { transition: none; } }
   </style>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
@@ -348,7 +372,7 @@
 
   <!-- Header -->
   <header class="chrome-bg-900 border-b chrome-border-700 sticky top-0 z-30 shadow-lg">
-    <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center gap-3">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 flex justify-between items-center gap-3">
       <div class="flex items-center gap-3 min-w-0">
         <div class="chrome-bg-600 chrome-text-white p-2.5 rounded-lg shadow flex-shrink-0">
           <i class="fa-solid fa-scroll text-2xl"></i>
@@ -367,16 +391,17 @@
     </div>
   </header>
 
-  <main class="flex-1 max-w-5xl w-full mx-auto px-4 md:px-6 py-6">
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 md:px-6 py-6">
 
     <!-- ===== Lista de matérias ===== -->
-    <section id="view-hub" class="hidden">
+    <section id="view-hub" class="hidden max-w-5xl mx-auto">
       <p class="text-sm text-slate-300 mb-5">Questões das provas Amarela (CPA) de 2011 a 2025, com enunciado, alternativas, gabarito, comentário de cada alternativa e análise de possível anulação, conforme o material comentado. Escolha a matéria:</p>
       <div id="hub-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
     </section>
 
     <!-- ===== Matéria ===== -->
-    <section id="view-materia" class="hidden">
+    <section id="view-materia" class="hidden lg:grid lg:grid-cols-[minmax(0,1fr)_290px] lg:gap-6 lg:items-start">
+     <div class="min-w-0">
       <a href="provas.html" class="text-xs text-navy-400 hover:text-navy-300 inline-flex items-center gap-1.5 mb-3"><i class="fa-solid fa-arrow-left"></i> Todas as matérias</a>
       <h2 id="m-title" class="font-serif text-2xl font-semibold text-ink mb-1"></h2>
       <p id="m-sub" class="text-xs text-slate-400 mb-4"></p>
@@ -411,6 +436,31 @@
       <div id="m-score" class="mb-4 text-sm text-slate-300"></div>
       <div id="m-list" class="space-y-4"></div>
       <div id="m-empty" class="hidden text-center py-12 text-slate-400 text-sm">Nenhuma questão encontrada com esses filtros.</div>
+     </div>
+
+      <!-- ===== Menu de questões (direita no computador; gaveta no celular) ===== -->
+      <div id="q-nav-backdrop" class="hidden fixed inset-0 z-50 bg-black/50 lg:hidden" onclick="toggleNav(false)"></div>
+      <aside id="q-nav" class="bg-navy-800 lg:bg-navy-800/70 border-l lg:border border-navy-700 lg:rounded-xl flex flex-col overflow-hidden" aria-label="Menu de questões">
+        <div class="px-4 pt-4 pb-3 border-b border-navy-700">
+          <div class="flex items-center justify-between gap-2">
+            <p class="text-sm font-semibold text-ink flex items-center gap-2"><i class="fa-solid fa-list-ol text-navy-400"></i> Questões</p>
+            <button id="q-nav-close" onclick="toggleNav(false)" class="text-slate-400 hover:text-ink w-8 h-8 flex items-center justify-center" aria-label="Fechar menu"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <div id="q-nav-stats" class="mt-2 text-[11px] text-slate-400"></div>
+          <div class="mt-2 h-1.5 rounded-full bg-navy-700 overflow-hidden"><div id="q-nav-bar" class="h-full bg-navy-500" style="width:0%"></div></div>
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-[10px] text-slate-400">
+            <span class="flex items-center gap-1"><span class="nav-dot bg-emerald-500"></span>Acertou</span>
+            <span class="flex items-center gap-1"><span class="nav-dot bg-rose-500"></span>Errou</span>
+            <span class="flex items-center gap-1"><span class="nav-dot bg-amber-500"></span>Anulada</span>
+            <span class="flex items-center gap-1"><span class="nav-dot border border-navy-600"></span>Não respondida</span>
+          </div>
+          <button id="q-nav-next" class="mt-3 w-full text-xs font-semibold bg-navy-600 hover:bg-navy-500 text-white rounded-lg py-2 flex items-center justify-center gap-2"><i class="fa-solid fa-forward"></i> Próxima não respondida</button>
+        </div>
+        <div id="q-nav-scroll" class="flex-1 overflow-y-auto px-4 py-3 space-y-3"></div>
+      </aside>
+      <button id="q-nav-fab" onclick="toggleNav(true)" class="lg:hidden fixed bottom-5 right-4 z-40 bg-navy-600 hover:bg-navy-500 text-white rounded-full shadow-xl px-4 h-12 flex items-center gap-2 text-sm font-semibold" aria-label="Abrir menu de questões">
+        <i class="fa-solid fa-list-ol"></i> <span id="q-nav-fab-label">Questões</span>
+      </button>
     </section>
 
     <div id="loading-state" class="text-center py-16 text-slate-400">
@@ -418,7 +468,7 @@
     </div>
   </main>
 
-  <footer class="max-w-5xl w-full mx-auto px-4 md:px-6 pb-6 pt-2 text-center text-[11px] text-slate-500">
+  <footer class="max-w-7xl w-full mx-auto px-4 md:px-6 pb-6 pt-2 text-center text-[11px] text-slate-500">
     Plataforma de Estudos · CA-AA/AFN
   </footer>
 
@@ -573,11 +623,106 @@
       list.innerHTML = html;
       document.getElementById('m-empty').classList.toggle('hidden', qs.length > 0);
       list.querySelectorAll('.alt-btn').forEach(b => b.addEventListener('click', onAnswer));
-      list.querySelectorAll('.reveal-btn').forEach(b => b.addEventListener('click', () => {
-        document.getElementById('ans-' + b.dataset.id).classList.remove('hidden'); b.remove();
-      }));
+      list.querySelectorAll('.reveal-btn').forEach(b => b.addEventListener('click', onReveal));
       renderScore(qs);
+      renderNav(qs);
     }
+
+    function onReveal(e) {
+      const b = e.currentTarget;
+      document.getElementById('ans-' + b.dataset.id).classList.remove('hidden'); b.remove();
+    }
+
+    // ---------- Menu de questões ----------
+    let visibleQs = [];
+    let navObserver = null;
+
+    function navState(q) {
+      const picked = answers[q.id];
+      if (picked === undefined) return '';
+      if (q.resposta === 'ANULADA' || !q.resposta) return 'anul';
+      return picked === q.resposta ? 'ok' : 'err';
+    }
+
+    function renderNav(qs) {
+      visibleQs = qs;
+      const box = document.getElementById('q-nav-scroll');
+      const byGroup = [];
+      for (const q of qs) {
+        const g = tab === 'exercicios' ? q.secao : q.ano;
+        if (!byGroup.length || byGroup[byGroup.length - 1].g !== g) byGroup.push({ g, qs: [] });
+        byGroup[byGroup.length - 1].qs.push(q);
+      }
+      box.innerHTML = byGroup.length ? byGroup.map(({ g, qs }) => `
+        <div>
+          <p class="text-[11px] font-bold uppercase tracking-wide text-slate-400 mb-1.5">${esc(tab === 'exercicios' ? g : 'Prova ' + g)}</p>
+          <div class="flex flex-wrap gap-1.5">${qs.map(q =>
+            `<button class="nav-btn ${navState(q)}" data-id="${q.id}" title="${esc((tab === 'exercicios' ? 'Exercício ' : 'Questão ') + q.numero + (q.assunto ? ' · ' + q.assunto : ''))}">${q.numero}</button>`).join('')}</div>
+        </div>`).join('') : '<p class="text-xs text-slate-500">Nenhuma questão.</p>';
+      box.querySelectorAll('.nav-btn').forEach(b => b.addEventListener('click', () => goToQuestion(b.dataset.id)));
+      updateNavStats();
+      observeCards();
+    }
+
+    function updateNavStats() {
+      const qs = visibleQs;
+      const done = qs.filter(q => answers[q.id] !== undefined);
+      const ok = done.filter(q => navState(q) === 'ok').length;
+      const err = done.filter(q => navState(q) === 'err').length;
+      document.getElementById('q-nav-stats').innerHTML =
+        `<span class="text-slate-200 font-semibold">${done.length}</span> de ${qs.length} respondidas · ` +
+        `<span class="text-emerald-400 font-semibold">${ok}</span> certas · <span class="text-rose-400 font-semibold">${err}</span> erradas`;
+      document.getElementById('q-nav-bar').style.width = (qs.length ? Math.round(done.length / qs.length * 100) : 0) + '%';
+      document.getElementById('q-nav-fab-label').textContent = `${done.length}/${qs.length}`;
+    }
+
+    function goToQuestion(id) {
+      const el = document.getElementById('q-' + id);
+      if (!el) return;
+      toggleNav(false);
+      // salto longo vai direto; curto, com rolagem suave
+      const far = Math.abs(el.getBoundingClientRect().top) > 4000;
+      el.scrollIntoView({ behavior: far ? 'auto' : 'smooth', block: 'start' });
+      el.classList.add('flash');
+      setTimeout(() => el.classList.remove('flash'), 1200);
+      setCurrent(id);
+    }
+
+    function setCurrent(id) {
+      document.querySelectorAll('#q-nav-scroll .nav-btn.current').forEach(b => b.classList.remove('current'));
+      const btn = document.querySelector(`#q-nav-scroll .nav-btn[data-id="${id}"]`);
+      if (!btn) return;
+      btn.classList.add('current');
+      // mantém o botão atual visível dentro do menu
+      const box = document.getElementById('q-nav-scroll');
+      const r = btn.getBoundingClientRect(), rb = box.getBoundingClientRect();
+      if (r.top < rb.top || r.bottom > rb.bottom) box.scrollTop += r.top - rb.top - rb.height / 2;
+    }
+
+    // Destaca no menu a questão que está no topo da tela
+    function observeCards() {
+      if (navObserver) navObserver.disconnect();
+      if (!('IntersectionObserver' in window)) return;
+      navObserver = new IntersectionObserver(entries => {
+        const vis = entries.filter(e => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (vis.length) setCurrent(vis[0].target.id.slice(2));
+      }, { rootMargin: '-90px 0px -60% 0px' });
+      document.querySelectorAll('#m-list .q-card').forEach(c => navObserver.observe(c));
+    }
+
+    function toggleNav(open) {
+      document.getElementById('q-nav').classList.toggle('open', open);
+      document.getElementById('q-nav-backdrop').classList.toggle('open', open);
+    }
+
+    document.getElementById('q-nav-next').addEventListener('click', () => {
+      const cur = document.querySelector('#q-nav-scroll .nav-btn.current');
+      const start = cur ? visibleQs.findIndex(q => q.id === cur.dataset.id) : -1;
+      const order = visibleQs.slice(start + 1).concat(visibleQs.slice(0, start + 1));
+      const next = order.find(q => answers[q.id] === undefined);
+      if (next) goToQuestion(next.id);
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleNav(false); });
 
     function provaHeader(ano) {
       const p = data.provas.find(p => p.ano === ano);
@@ -608,14 +753,26 @@
           : picked === q.resposta ? `<span class="text-[11px] font-semibold text-emerald-400"><i class="fa-solid fa-check"></i> Acertou</span>`
           : `<span class="text-[11px] font-semibold text-rose-400"><i class="fa-solid fa-xmark"></i> Errou (marcou ${picked})</span>`;
       }
+      const ap = q.apostila;
+      const apLink = ap ? `
+          <a href="apostila-leitura.html?slug=${encodeURIComponent(ap.slug)}#blk-${ap.block}" target="_blank" rel="opener"
+             class="flex items-start gap-3 bg-amber-500/10 border border-amber-500/30 hover:border-amber-400 rounded-lg px-3 py-2.5 transition-colors group">
+            <i class="fa-solid fa-book-open text-amber-300 mt-0.5"></i>
+            <span class="flex-1 min-w-0">
+              <span class="block text-[11px] font-bold uppercase tracking-wide text-amber-300">${ap.secao ? 'Teoria na apostila' : 'Fundamento na apostila'}</span>
+              <span class="block text-xs text-slate-300 mt-0.5">${ap.secao ? 'Abre a seção da apostila sobre o assunto cobrado nesta questão.' : 'Abre a apostila no trecho que sustenta a alternativa correta, destacado.'}</span>
+            </span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[11px] text-amber-300/70 group-hover:text-amber-200 mt-1"></i>
+          </a>` : '';
       const answer = `
         <div id="ans-${q.id}" class="${show ? '' : 'hidden'} mt-4 border-t border-navy-700 pt-4 space-y-3">
           ${q.gabarito ? `<p class="text-sm font-semibold ${anulada ? 'text-amber-300' : 'text-emerald-400'}">${esc(q.gabarito)}</p>` : ''}
+          ${apLink}
           ${q.comentario && q.comentario.length ? `<div><p class="text-[11px] font-bold uppercase tracking-wide text-navy-400 mb-1.5">Comentário</p><div class="q-text text-sm text-slate-300">${parasHtml(q.comentario)}</div></div>` : ''}
           ${q.anulacao && q.anulacao.length ? `<div class="bg-amber-500/10 border border-amber-500/30 rounded-lg px-3 py-2.5"><p class="text-[11px] font-bold uppercase tracking-wide text-amber-300 mb-1.5"><i class="fa-solid fa-gavel"></i> Possível anulação</p><div class="q-text text-sm text-slate-300">${parasHtml(q.anulacao)}</div></div>` : ''}
         </div>`;
       return `
-      <article class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 md:p-5" id="q-${q.id}">
+      <article class="q-card bg-navy-800/80 border border-navy-700 rounded-xl p-4 md:p-5" id="q-${q.id}">
         <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
           <span class="text-[11px] font-bold uppercase tracking-wide text-navy-400">${esc(titulo)}</span>
           ${status}
@@ -641,7 +798,13 @@
       art.outerHTML = questionCard(q, study);
       const fresh = document.getElementById('q-' + id);
       fresh.querySelectorAll('.alt-btn').forEach(x => x.addEventListener('click', onAnswer));
-      renderScore(currentQuestions().filter(x => (group === 'all' || String(tab === 'exercicios' ? x.secao : x.ano) === group)));
+      fresh.querySelectorAll('.reveal-btn').forEach(x => x.addEventListener('click', onReveal));
+      if (navObserver) navObserver.observe(fresh);
+      renderScore(visibleQs);
+      const nb = document.querySelector(`#q-nav-scroll .nav-btn[data-id="${id}"]`);
+      if (nb) nb.className = `nav-btn ${navState(q)}`;
+      setCurrent(id);
+      updateNavStats();
     }
 
     function renderScore(qs) {
