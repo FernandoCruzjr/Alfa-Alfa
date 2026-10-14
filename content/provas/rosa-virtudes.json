@@ -1,0 +1,282 @@
+{
+ "slug": "rosa-virtudes",
+ "materia": "Rosa das Virtudes",
+ "icon": "fa-compass",
+ "cadernos": [
+  {
+   "fonte": "rosa_das_virtudes_comentado_2011_2025.pdf",
+   "titulo": "Rosa das Virtudes e Ética Militar Naval comentadas — CA-AA-AFN (CPA)",
+   "linhas": [
+    "2014–2024",
+    "Resolução comentada das questões sobre a Rosa das Virtudes e a Ética Militar Naval da parte de",
+    "Conhecimentos Militares-Navais da prova Amarela dos candidatos oriundos do Corpo de Praças",
+    "da Armada (CPA), de 2011 a 2025. A Rosa das Virtudes é o código de valores da Marinha e é",
+    "cobrada dentro da Doutrina de Liderança da Marinha (EMA-137), no capítulo da Ética Militar",
+    "Naval; por isso as questões sobre o conceito de Ética Militar Naval também estão aqui.",
+    "Para cada questão você encontra o enunciado e as alternativas, o gabarito oficial, a explicação de",
+    "por que cada alternativa está certa ou errada, com a base na norma, e uma análise de possível",
+    "anulação (argumentos de recurso).",
+    "OBSERVAÇÕES SOBRE AS FONTES",
+    "São 4 questões, listadas no quadro abaixo: duas sobre o conceito de Ética Militar Naval (2014 e",
+    "2016) e duas sobre a definição de virtudes da Rosa (2019 e 2024). As demais questões do EMA-137",
+    "estão na apostila de Liderança.",
+    "Gabaritos: 2014 a 2024 são os finais, publicados após os recursos. Nenhuma questão desta matéria",
+    "foi anulada.",
+    "Base dos comentários: o texto da Rosa das Virtudes divulgado pela Marinha (definições das 16",
+    "virtudes, conferidas na página oficial da Marinha) e o texto do EMA-137 tal como as provas o",
+    "reproduzem. O texto integral do EMA-137 não está no projeto.",
+    "QUADRO DE QUESTÕES E GABARITOS (PROVA AMARELA, CPA)",
+    "Ano Nº Assunto Gabarito",
+    "2014 41 ÉTICA MILITAR NAVAL — CONCEITO E",
+    "2016 46 ÉTICA MILITAR NAVAL — ROSA DAS VIRTUDES E BASE DA LIDERANÇA E",
+    "2019 38 ROSA DAS VIRTUDES — ABNEGAÇÃO E",
+    "2024 35 ROSA DAS VIRTUDES — TENACIDADE A",
+    "Questões por assunto",
+    "ÉTICA MILITAR NAVAL (CONCEITO E BASE DA LIDERANÇA) — 2 questões",
+    "2014 Q41; 2016 Q46.",
+    "VIRTUDES DA ROSA (DEFINIÇÕES) — 2 questões",
+    "2019 Q38; 2024 Q35.",
+    "Para memorizar (o que mais cai):",
+    "• Ética Militar Naval = conjunto dos princípios, valores, costumes, tradições, normas estatutárias e",
+    "regulamentos que regem o juízo de conduta do militar da Marinha. Inclui o código de honra da Rosa",
+    "das Virtudes e o juramento à Bandeira, e é a base do exercício da liderança naval.",
+    "• As 16 virtudes: Honra, Lealdade, Iniciativa, Cooperação, Espírito de Sacrifício, Zelo, Coragem,",
+    "Ordem, Fidelidade, Fogo Sagrado, Tenacidade, Decisão, Abnegação, Espírito Militar, Disciplina e",
+    "Patriotismo.",
+    "• Frases-chave que a banca copia: HONRA = prática do Bem, da Justiça e da Moral; prestigiar a",
+    "própria personalidade; misto de brio e valor; virtude por excelência. ABNEGAÇÃO = renegação de si",
+    "mesmo e disposição de colocar-se a serviço dos outros com sacrifício dos próprios interesses.",
+    "ESPÍRITO DE SACRIFÍCIO = oferecer espontaneamente interesses, comodidades, vida, tudo, em prol",
+    "do dever. TENACIDADE = saber querer longamente, sem desfalecimento e sem trégua; presença de",
+    "ânimo perante qualquer obstáculo. FOGO SAGRADO = paixão, fé, entusiasmo; força misteriosa que",
+    "domina a alma do verdadeiro marinheiro. ZELO = não poupar esforços para o bom desempenho das",
+    "funções. INICIATIVA = ânimo pronto para conceber e executar. COOPERAÇÃO = auxiliar eficiente e",
+    "desinteressadamente. CORAGEM = dominar o medo e enfrentar qualquer perigo."
+   ]
+  }
+ ],
+ "provas": [
+  {
+   "ano": 2014,
+   "titulo": "Prova de 2014",
+   "intro": []
+  },
+  {
+   "ano": 2016,
+   "titulo": "Prova de 2016",
+   "intro": []
+  },
+  {
+   "ano": 2019,
+   "titulo": "Prova de 2019",
+   "intro": []
+  },
+  {
+   "ano": 2024,
+   "titulo": "Prova de 2024",
+   "intro": []
+  }
+ ],
+ "questoes": [
+  {
+   "ano": 2014,
+   "numero": 41,
+   "pagina": 4,
+   "assunto": "ÉTICA MILITAR NAVAL — CONCEITO",
+   "nota": [],
+   "enunciado": [
+    "Como se denomina o conjunto dos princípios, valores, costumes, tradições, normas estatutárias e regulamentos que regem o juízo de conduta do militar da Marinha?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Valor Militar."
+    },
+    {
+     "letra": "B",
+     "texto": "Liderança Militar Naval."
+    },
+    {
+     "letra": "C",
+     "texto": "Etnocentrismo."
+    },
+    {
+     "letra": "D",
+     "texto": "Hedonismo."
+    },
+    {
+     "letra": "E",
+     "texto": "Ética Militar Naval."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. Valor militar é o conjunto de manifestações do art. 27 do Estatuto dos Militares (patriotismo, civismo, espírito de corpo etc.).",
+    "(B) Errada. Liderança é o processo de influenciar pessoas; ela se apoia na ética, mas não é o conjunto de regras de conduta.",
+    "(C) Errada. Etnocentrismo é julgar outras culturas pelos padrões da própria; não tem relação com o conceito.",
+    "(D) Errada. Hedonismo é a doutrina que põe o prazer como bem supremo.",
+    "(E) Correta. É a definição de Ética Militar Naval do EMA-137, repetida como alternativa correta em 2016 (Q46, E)."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "rosa_das_virtudes_comentado_2011_2025",
+   "id": "rosa-virtudes-2014-q41",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 155
+   }
+  },
+  {
+   "ano": 2016,
+   "numero": 46,
+   "pagina": 5,
+   "assunto": "ÉTICA MILITAR NAVAL — ROSA DAS VIRTUDES E BASE DA LIDERANÇA",
+   "nota": [],
+   "enunciado": [
+    "Com relação à Ética Militar Naval, assinale a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "É um atributo que induz ao atendimento das regras de conduta, mas não se aplica ao comportamento militar naval desejado."
+    },
+    {
+     "letra": "B",
+     "texto": "Não fazem parte da Ética Militar Naval o código de honra expresso na “Rosa das Virtudes” e os dizeres do juramento à Bandeira."
+    },
+    {
+     "letra": "C",
+     "texto": "Os preceitos da Ética Militar Naval não constituem a base para o exercício da liderança naval, mas devem ser cultivados e exaltados."
+    },
+    {
+     "letra": "D",
+     "texto": "A vigilância e a observância constante dos princípios da Ética, por todos os integrantes da MB, irão incentivar o carreirismo na instituição."
+    },
+    {
+     "letra": "E",
+     "texto": "É o conjunto dos princípios, valores, costumes, tradições, normas estatutárias e regulamentos que regem o juízo de conduta do militar da Marinha."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. A ética é justamente o que orienta o comportamento militar naval desejado; a letra nega isso.",
+    "(B) Errada. A Rosa das Virtudes e o juramento à Bandeira FAZEM parte da Ética Militar Naval: são o seu código de honra.",
+    "(C) Errada. Os preceitos da ética CONSTITUEM a base do exercício da liderança naval.",
+    "(D) Errada. A observância da ética serve para COIBIR o carreirismo, não para incentivá-lo.",
+    "(E) Correta. Mesma definição dada como certa em 2014 (Q41)."
+   ],
+   "anulacao": [
+    "Sem margem: as erradas são negações diretas do texto."
+   ],
+   "fonte": "rosa_das_virtudes_comentado_2011_2025",
+   "id": "rosa-virtudes-2016-q46",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 155
+   }
+  },
+  {
+   "ano": 2019,
+   "numero": 38,
+   "pagina": 6,
+   "assunto": "ROSA DAS VIRTUDES — ABNEGAÇÃO",
+   "nota": [],
+   "enunciado": [
+    "Os Valores organizacionais representam os princípios que devem nortear as ações e a conduta de colaboradores, gerentes e autoridades ligados a uma instituição pública. Na MB, esses valores são traduzidos por meio do conjunto dos princípios e costumes expressos na “Rosa das Virtudes”, que devem ser fomentados pelas práticas de gestão de pessoal. Sendo assim, qual valor da Rosa das Virtudes consiste na renegação de si mesmo e na disposição de se colocar a serviço dos outros com o sacrifício dos próprios interesses?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Fogo Sagrado."
+    },
+    {
+     "letra": "B",
+     "texto": "Coragem."
+    },
+    {
+     "letra": "C",
+     "texto": "Tenacidade."
+    },
+    {
+     "letra": "D",
+     "texto": "Lealdade."
+    },
+    {
+     "letra": "E",
+     "texto": "Abnegação."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. Fogo Sagrado é a paixão, a fé e o entusiasmo com que o militar se dedica à carreira.",
+    "(B) Errada. Coragem é a disposição que permite dominar o medo e enfrentar qualquer perigo.",
+    "(C) Errada. Tenacidade é saber querer longamente, sem desfalecimento e sem trégua.",
+    "(D) Errada. Lealdade é o devotamento verdadeiro, espontâneo e incansável a uma causa.",
+    "(E) Correta. É a definição literal de Abnegação na Rosa das Virtudes: “a renegação de si mesmo e a disposição de colocar-se a serviço dos outros com o sacrifício dos próprios interesses”."
+   ],
+   "anulacao": [
+    "Sem margem. Cuidado para não confundir com Espírito de Sacrifício (oferecer interesses, comodidades, vida, tudo, em prol do dever), que não estava entre as opções."
+   ],
+   "fonte": "rosa_das_virtudes_comentado_2011_2025",
+   "id": "rosa-virtudes-2019-q38",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 270
+   }
+  },
+  {
+   "ano": 2024,
+   "numero": 35,
+   "pagina": 7,
+   "assunto": "ROSA DAS VIRTUDES — TENACIDADE",
+   "nota": [],
+   "enunciado": [
+    "A tenacidade é apresentada como um dos valores que compõe a Rosa das Virtudes. Segundo a Doutrina de Liderança da Marinha, esse valor pode ser definido como:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "a presença de ânimo perante qualquer obstáculo ou dificuldade, a vontade constante de tudo superar e bem desempenhar a tarefa ou função, de caráter operativo ou administrativo."
+    },
+    {
+     "letra": "B",
+     "texto": "a disposição para estudar tanto o material em si como também a maneira de utilizá-lo. É a força misteriosa que, dominando a alma do verdadeiro marinheiro, o conduz sempre ao sacrifício com inexcedível vibração e estoica resignação."
+    },
+    {
+     "letra": "C",
+     "texto": "o sentimento que induz o indivíduo à prática do Bem, da Justiça e da Moral. É a força que o impele a prestigiar sua própria personalidade, como um sentimento de seu patrimônio moral, um misto de brio e valor."
+    },
+    {
+     "letra": "D",
+     "texto": "o querer saber longamente, sem desfalecimento e sem trégua. A disposição sincera de realmente oferecer, espontaneamente, interesses, comodidades, vida, tudo, em prol do cumprimento do dever."
+    },
+    {
+     "letra": "E",
+     "texto": "o sentimento que leva a não poupar esforços para o bom desempenho das funções que lhes são atribuídas. É o sentimento que conduz à dedicação ao serviço, como autêntica expressão do dever."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. É o trecho da definição de Tenacidade: “a presença de ânimo perante qualquer obstáculo ou dificuldade”, com a vontade constante de tudo superar.",
+    "(B) Errada. Mistura duas virtudes: a primeira frase (estudar o material e a maneira de utilizá-lo) está no texto da Tenacidade, mas a segunda (“força misteriosa que, dominando a alma do verdadeiro marinheiro”) é do Fogo Sagrado.",
+    "(C) Errada. É a definição de Honra (prática do Bem, da Justiça e da Moral; prestigiar a própria personalidade; misto de brio e valor).",
+    "(D) Errada. Também mistura duas virtudes, e com troca de palavras: o texto da Tenacidade é “SABER QUERER longamente” (não “querer saber”), e a segunda frase é a definição de Espírito de Sacrifício.",
+    "(E) Errada. É a definição de Zelo (não poupar esforços para o bom desempenho das funções)."
+   ],
+   "anulacao": [
+    "Margem pequena: a letra B começa com uma frase que pertence à Tenacidade. Mas só a A é inteiramente da Tenacidade, sem mistura; gabarito mantido."
+   ],
+   "fonte": "rosa_das_virtudes_comentado_2011_2025",
+   "id": "rosa-virtudes-2024-q35",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 293
+   }
+  }
+ ]
+}

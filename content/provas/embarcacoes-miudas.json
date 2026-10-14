@@ -228,7 +228,11 @@
     "Sem gabarito oficial no projeto. A resposta D sai das outras provas que repetem os mesmos itens (2012 Q35 e 2013 Q38). O único ponto que só o texto integral confirma é o atirador com fuzil (3ª afirmativa); se o manual não o previsse, nenhuma opção restaria com V F F V F."
    ],
    "fonte": "embarcacoes_miudas_comentado_2011_2025",
-   "id": "embarcacoes-miudas-2011-q38"
+   "id": "embarcacoes-miudas-2011-q38",
+   "apostila": {
+    "slug": "caaml-703",
+    "block": 289
+   }
   },
   {
    "ano": 2011,
@@ -320,7 +324,11 @@
     "Sem gabarito oficial. A resposta C é a única que contraria uma regra básica de segurança com cabos, então a margem é pequena."
    ],
    "fonte": "embarcacoes_miudas_comentado_2011_2025",
-   "id": "embarcacoes-miudas-2011-q49"
+   "id": "embarcacoes-miudas-2011-q49",
+   "apostila": {
+    "slug": "caaml-703",
+    "block": 240
+   }
   },
   {
    "ano": 2012,
@@ -366,7 +374,11 @@
     "ANULADA no gabarito oficial. O motivo não foi publicado; o mais provável é que a alternativa considerada errada pela banca (A ou C) tenha sido contestada com o texto do Cerimonial, que regula o mesmo assunto com detalhes diferentes. Estude o conteúdo, não a letra."
    ],
    "fonte": "embarcacoes_miudas_comentado_2011_2025",
-   "id": "embarcacoes-miudas-2012-q33"
+   "id": "embarcacoes-miudas-2012-q33",
+   "apostila": {
+    "slug": "caaml-703",
+    "block": 186
+   }
   },
   {
    "ano": 2012,
@@ -412,7 +424,11 @@
     "ANULADA no gabarito oficial. O motivo mais provável é haver duas respostas defensáveis (D e E). Há ainda um erro de enunciado: um Agente da Capitania não comanda faina de recolhimento a bordo de navio. Para estudo, guarde a lista: colete, luvas e capacete; balaustrada passada; atirador na estação; cabo flutuante de polipropileno; nadador com palamenta completa."
    ],
    "fonte": "embarcacoes_miudas_comentado_2011_2025",
-   "id": "embarcacoes-miudas-2012-q35"
+   "id": "embarcacoes-miudas-2012-q35",
+   "apostila": {
+    "slug": "caaml-703",
+    "block": 280
+   }
   },
   {
    "ano": 2012,
@@ -459,7 +475,11 @@
     "ANULADA no gabarito oficial. O provável motivo é que C e D descrevem manobras corretas para o mesmo problema. A redação do manual sobre esta situação só o texto integral confirma."
    ],
    "fonte": "embarcacoes_miudas_comentado_2011_2025",
-   "id": "embarcacoes-miudas-2012-q41"
+   "id": "embarcacoes-miudas-2012-q41",
+   "apostila": {
+    "slug": "caaml-703",
+    "block": 99
+   }
   },
   {
    "ano": 2013,
@@ -505,7 +525,11 @@
     "Pequena margem: algumas precauções se repetem entre as fainas do anexo B. A banca separou pelas palavras-chave (estação de transferência, NWP 4-01.4)."
    ],
    "fonte": "embarcacoes_miudas_comentado_2011_2025",
-   "id": "embarcacoes-miudas-2013-q38"
+   "id": "embarcacoes-miudas-2013-q38",
+   "apostila": {
+    "slug": "caaml-703",
+    "block": 276
+   }
   },
   {
    "ano": 2014,
@@ -553,7 +577,11 @@
     "Sem margem relevante. Na alternativa E, quem exatamente assina a papeleta só o texto integral confirma, mas as outras três erradas são claras."
    ],
    "fonte": "embarcacoes_miudas_comentado_2011_2025",
-   "id": "embarcacoes-miudas-2014-q40"
+   "id": "embarcacoes-miudas-2014-q40",
+   "apostila": {
+    "slug": "caaml-703",
+    "block": 288
+   }
   },
   {
    "ano": 2015,
@@ -601,7 +629,11 @@
     "Margem pequena: o candidato pode alegar que a alternativa E é uma boa prática. O gabarito seguiu a redação do manual, que ressalva as situações de combate e DEM."
    ],
    "fonte": "embarcacoes_miudas_comentado_2011_2025",
-   "id": "embarcacoes-miudas-2015-q47"
+   "id": "embarcacoes-miudas-2015-q47",
+   "apostila": {
+    "slug": "caaml-703",
+    "block": 164
+   }
   },
   {
    "ano": 2016,
@@ -649,7 +681,11 @@
     "Sem margem."
    ],
    "fonte": "embarcacoes_miudas_comentado_2011_2025",
-   "id": "embarcacoes-miudas-2016-q33"
+   "id": "embarcacoes-miudas-2016-q33",
+   "apostila": {
+    "slug": "caaml-703",
+    "block": 162
+   }
   },
   {
    "ano": 2017,
@@ -695,7 +731,11 @@
     "Sem margem."
    ],
    "fonte": "embarcacoes_miudas_comentado_2011_2025",
-   "id": "embarcacoes-miudas-2017-q34"
+   "id": "embarcacoes-miudas-2017-q34",
+   "apostila": {
+    "slug": "caaml-703",
+    "block": 24
+   }
   },
   {
    "ano": 2017,
@@ -789,7 +829,11 @@
     "Sem margem pelo gabarito. Guarde: raqueteiro e telefonista = VERDE. A tabela completa (a cor de cada uma das outras funções) só o texto integral do manual confirma."
    ],
    "fonte": "embarcacoes_miudas_comentado_2011_2025",
-   "id": "embarcacoes-miudas-2019-q33"
+   "id": "embarcacoes-miudas-2019-q33",
+   "apostila": {
+    "slug": "caaml-703",
+    "block": 232
+   }
   },
   {
    "ano": 2019,
@@ -835,7 +879,11 @@
     "Sem margem. Mesma definição cobrada em 2022 (Q44)."
    ],
    "fonte": "embarcacoes_miudas_comentado_2011_2025",
-   "id": "embarcacoes-miudas-2019-q40"
+   "id": "embarcacoes-miudas-2019-q40",
+   "apostila": {
+    "slug": "caaml-703",
+    "block": 40
+   }
   },
   {
    "ano": 2020,
@@ -881,7 +929,11 @@
     "Sem margem."
    ],
    "fonte": "embarcacoes_miudas_comentado_2011_2025",
-   "id": "embarcacoes-miudas-2020-q37"
+   "id": "embarcacoes-miudas-2020-q37",
+   "apostila": {
+    "slug": "caaml-703",
+    "block": 11
+   }
   },
   {
    "ano": 2020,
@@ -927,7 +979,11 @@
     "Sem margem. A divisão de tarefas é a mesma da Q38 de 2021: Contramestre = EPI; Patrão = apresentação marinheira da lancha; Proeiro/Popeiro = boças reservas; Motorista = combate a incêndio."
    ],
    "fonte": "embarcacoes_miudas_comentado_2011_2025",
-   "id": "embarcacoes-miudas-2020-q43"
+   "id": "embarcacoes-miudas-2020-q43",
+   "apostila": {
+    "slug": "caaml-703",
+    "block": 67
+   }
   },
   {
    "ano": 2020,
@@ -974,7 +1030,11 @@
     "Sem margem pelo gabarito. A tabela completa de sinais (para arriar e para içar) só o texto integral confirma; guarde que verde na manobra é a ordem de executar."
    ],
    "fonte": "embarcacoes_miudas_comentado_2011_2025",
-   "id": "embarcacoes-miudas-2020-q47"
+   "id": "embarcacoes-miudas-2020-q47",
+   "apostila": {
+    "slug": "caaml-703",
+    "block": 138
+   }
   },
   {
    "ano": 2021,
@@ -1025,7 +1085,11 @@
     "O gabarito foi ALTERADO para D após os recursos. A troca entre Contramestre e Patrão (EPI × apresentação da lancha) é o ponto que gerou o recurso; a versão final segue o manual: quem cuida do pessoal no convés é o Contramestre, quem cuida da lancha é o Patrão."
    ],
    "fonte": "embarcacoes_miudas_comentado_2011_2025",
-   "id": "embarcacoes-miudas-2021-q38"
+   "id": "embarcacoes-miudas-2021-q38",
+   "apostila": {
+    "slug": "caaml-703",
+    "block": 45
+   }
   },
   {
    "ano": 2021,
@@ -1117,7 +1181,11 @@
     "Sem margem. Repete a Q40 de 2019."
    ],
    "fonte": "embarcacoes_miudas_comentado_2011_2025",
-   "id": "embarcacoes-miudas-2022-q44"
+   "id": "embarcacoes-miudas-2022-q44",
+   "apostila": {
+    "slug": "caaml-703",
+    "block": 40
+   }
   },
   {
    "ano": 2024,
@@ -1163,7 +1231,11 @@
     "Margem pequena: existem turcos acionados hidraulicamente, mas o manual classifica por funcionamento mecânico (comum, de rebater, quadrantal, rolante/deslizante), e é essa lista que a banca cobra desde 2017."
    ],
    "fonte": "embarcacoes_miudas_comentado_2011_2025",
-   "id": "embarcacoes-miudas-2024-q37"
+   "id": "embarcacoes-miudas-2024-q37",
+   "apostila": {
+    "slug": "caaml-703",
+    "block": 43
+   }
   },
   {
    "ano": 2024,
@@ -1215,7 +1287,11 @@
     "Margem pequena. Na 2ª afirmativa, a razão exata da falsidade (posição junto à descarga ou o equipamento guarnecido) só o texto integral do CAAML-703 confirma, mas a 3ª e a 5ª são claramente falsas e só a D combina com elas."
    ],
    "fonte": "embarcacoes_miudas_comentado_2011_2025",
-   "id": "embarcacoes-miudas-2024-q46"
+   "id": "embarcacoes-miudas-2024-q46",
+   "apostila": {
+    "slug": "caaml-703",
+    "block": 578
+   }
   },
   {
    "ano": 2025,

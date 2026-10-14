@@ -1,0 +1,831 @@
+{
+ "slug": "cerimonial",
+ "materia": "Cerimonial da Marinha",
+ "icon": "fa-flag",
+ "cadernos": [
+  {
+   "fonte": "cerimonial_comentado_2011_2025.pdf",
+   "titulo": "Cerimonial da Marinha do Brasil comentado — CA-AA-AFN (CPA)",
+   "linhas": [
+    "2020–2025",
+    "Resolução comentada das questões do Cerimonial da Marinha do Brasil da parte de",
+    "Conhecimentos Militares-Navais da prova Amarela dos candidatos oriundos do Corpo de Praças",
+    "da Armada (CPA), de 2011 a 2025. Entram aqui as questões sobre Bandeira Nacional, Bandeira",
+    "do Cruzeiro, flâmulas e bandeiras-insígnias, continência individual, salvas, honras de recepção",
+    "(boys), sinais sonoros das embarcações e honras fúnebres.",
+    "Para cada questão você encontra o enunciado e as alternativas, o gabarito oficial, a explicação de",
+    "por que cada alternativa está certa ou errada, com a base na norma, e uma análise de possível",
+    "anulação (argumentos de recurso).",
+    "OBSERVAÇÕES SOBRE AS FONTES",
+    "De 2011 a 2019 as provas do CPA não trouxeram questão de Cerimonial; ele aparece em 2020 e volta",
+    "todos os anos desde então. São 14 questões, listadas no quadro abaixo. Duas delas (2020 Q39 e",
+    "2025 Q45) tratam de sinais de embarcações e ficaram de fora da apostila de Embarcações Miúdas",
+    "justamente por serem de Cerimonial.",
+    "Gabaritos: 2020 a 2024 são os finais, publicados após os recursos. 2025 usa o gabarito preliminar",
+    "(publicado antes do julgamento dos recursos). Nenhuma questão desta matéria foi anulada.",
+    "Base dos comentários: o texto do Cerimonial da Marinha tal como as próprias provas o reproduzem",
+    "(a banca repete frases entre os anos), o Regulamento de Continências, Honras e Sinais de Respeito",
+    "das Forças Armadas (números de tiros das salvas e casos de honras fúnebres, conferidos no texto do",
+    "Decreto nº 2.243/1997, base do regulamento atual) e os gabaritos oficiais. O texto integral do",
+    "Cerimonial da Marinha não estava disponível no projeto nem acessível pela rede do ambiente; onde",
+    "um comentário depende de um detalhe que só ele confirma, isso está dito no próprio comentário.",
+    "QUADRO DE QUESTÕES E GABARITOS (PROVA AMARELA, CPA)",
+    "Ano Nº Assunto Gabarito",
+    "2020 36 BANDEIRA NACIONAL — LOCAL DE HASTEAMENTO COM O NAVIO EM MOVIMENTO D",
+    "2020 39 BANDEIRA DO CRUZEIRO — USO C",
+    "2020 40 FLÂMULA DE FIM DE COMISSÃO — DESCRIÇÃO E",
+    "2020 41 SALVAS — NÚMERO DE TIROS POR AUTORIDADE E",
+    "2020 46 CONTINÊNCIA INDIVIDUAL — QUANDO É DEVIDA E",
+    "2021 36 CONTINÊNCIA INDIVIDUAL — QUEM NÃO É DISPENSADO C",
+    "2021 46 INSÍGNIAS — CARÁTER PERMANENTE, TRANSITÓRIO E EVENTUAL (V/F) B",
+    "2022 46 FÚNEBRES — QUANDO AS HONRAS PODEM SER DISPENSADAS D",
+    "2023 31 BANDEIRA NACIONAL — HASTEAMENTO, ARRIAMENTO E LOCAL (INCORRETA) A",
+    "2023 43 FÚNEBRES — PRESCRIÇÕES PARA DIAS DE FUNERAL E LUTO OFICIAL E",
+    "2024 36 HONRAS DE RECEPÇÃO — ANUNCIADOS PELO CARGO E NÚMERO DE BOYS D",
+    "2024 40 BANDEIRA ESTRANGEIRA NO TOPE DO MASTRO PRINCIPAL (ART. 8-1-4) B",
+    "2025 43 FÚNEBRES — ALMIRANTES NA INATIVIDADE (ART. 9-3-3) A*",
+    "2025 45 SINAIS SONOROS DAS EMBARCAÇÕES (PRECEDÊNCIA DA AUTORIDADE) E*",
+    "* 2025: gabarito preliminar.",
+    "Questões por assunto",
+    "BANDEIRA NACIONAL E BANDEIRA DO CRUZEIRO — 4 questões",
+    "2020 Q36; 2020 Q39; 2023 Q31; 2024 Q40.",
+    "FLÂMULAS E BANDEIRAS-INSÍGNIAS — 2 questões",
+    "2020 Q40; 2021 Q46.",
+    "CONTINÊNCIA INDIVIDUAL — 2 questões",
+    "2020 Q46; 2021 Q36.",
+    "SALVAS, HONRAS DE RECEPÇÃO E SINAIS DE EMBARCAÇÕES — 3 questões",
+    "2020 Q41; 2024 Q36; 2025 Q45.",
+    "HONRAS FÚNEBRES E LUTO — 3 questões",
+    "2022 Q46; 2023 Q43; 2025 Q43.",
+    "Para memorizar (o que mais cai):",
+    "• Bandeira Nacional: hasteada diariamente às 8h, com cerimonial; arriada ao pôr do sol nas OM com",
+    "serviço ininterrupto. Local: pau da bandeira, à popa, com o navio no dique, fundeado, atracado ou",
+    "amarrado; PENOL DA CARANGUEJA com o navio em movimento; mastro da fachada ou penol da",
+    "carangueja nas OM de terra.",
+    "• Bandeira do Cruzeiro: acompanha a Bandeira Nacional; vai à meia adriça quando ela estiver à meia",
+    "adriça (luto). O pau de proa onde é hasteada é o pau da bandeira de proa (pau do jeque).",
+    "• Bandeiras-insígnias: PERMANENTE no navio, unidade ou estabelecimento da autoridade que",
+    "exerce o comando (e no capitânia, a do Comandante de Força); TRANSITÓRIO na OM visitada por",
+    "autoridade superior da cadeia de comando; EVENTUAL em honra a autoridade visitante de fora da",
+    "cadeia de comando.",
+    "• Continência individual: dispensados o militar de sentinela armado de fuzil, o que faz parte de tropa",
+    "armada e os que estão em postos de continência ou de parada. NÃO são dispensados os Oficiais,",
+    "mesmo armados ou em formatura, durante as honras de portaló.",
+    "• Salvas: Presidente 21 tiros; Ministro de Estado 19; Almirante de Esquadra 17; Vice-Almirante 15;",
+    "Contra-Almirante 13.",
+    "• Anunciados pelo cargo, com 8 boys: Comandante da Marinha, Chefe do Estado-Maior da Armada,",
+    "Comandante de Operações Navais, Comandante-Geral do CFN e Comandante em Chefe da Esquadra.",
+    "• Honras fúnebres podem ser dispensadas quando o falecido as dispensou em vida, a pedido da",
+    "família ou com tempo adverso. Almirante inativo: guarda fúnebre de um PELOTÃO em alas, grupo de",
+    "combate para as descargas, comissão chefiada por CONTRA-ALMIRANTE e honras de portaló."
+   ]
+  }
+ ],
+ "provas": [
+  {
+   "ano": 2020,
+   "titulo": "Prova de 2020",
+   "intro": []
+  },
+  {
+   "ano": 2021,
+   "titulo": "Prova de 2021",
+   "intro": []
+  },
+  {
+   "ano": 2022,
+   "titulo": "Prova de 2022",
+   "intro": []
+  },
+  {
+   "ano": 2023,
+   "titulo": "Prova de 2023",
+   "intro": []
+  },
+  {
+   "ano": 2024,
+   "titulo": "Prova de 2024",
+   "intro": []
+  },
+  {
+   "ano": 2025,
+   "titulo": "Prova de 2025",
+   "intro": [
+    "Gabarito preliminar (publicado em 28/10/2025, antes do julgamento dos recursos)."
+   ]
+  }
+ ],
+ "questoes": [
+  {
+   "ano": 2020,
+   "numero": 36,
+   "pagina": 4,
+   "assunto": "BANDEIRA NACIONAL — LOCAL DE HASTEAMENTO COM O NAVIO EM MOVIMENTO",
+   "nota": [],
+   "enunciado": [
+    "A Bandeira Nacional é hasteada diariamente, às 8h, mediante cerimonial específico. Nos navios em movimento, o local de hasteamento é o:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Pau da bandeira."
+    },
+    {
+     "letra": "B",
+     "texto": "Pau de surriola."
+    },
+    {
+     "letra": "C",
+     "texto": "Mastro da fachada."
+    },
+    {
+     "letra": "D",
+     "texto": "Penol da carangueja."
+    },
+    {
+     "letra": "E",
+     "texto": "Pau do jeque."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. O pau da bandeira, à popa, é o local com o navio no dique, fundeado, atracado ou amarrado (2023, Q31, D).",
+    "(B) Errada. Pau de surriola é a peça usada para amarrar embarcações ao costado com o navio fundeado; não é local de bandeira.",
+    "(C) Errada. Mastro da fachada é das OM de terra (2023, Q31, E).",
+    "(D) Correta. Em movimento, a Bandeira Nacional vai no penol da carangueja.",
+    "(E) Errada. O pau do jeque (pau da bandeira de proa) é onde se iça a Bandeira do Cruzeiro, não a Bandeira Nacional."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "cerimonial_comentado_2011_2025",
+   "id": "cerimonial-2020-q36",
+   "apostila": {
+    "slug": "cerimonial",
+    "block": 769
+   }
+  },
+  {
+   "ano": 2020,
+   "numero": 39,
+   "pagina": 4,
+   "assunto": "BANDEIRA DO CRUZEIRO — USO",
+   "nota": [],
+   "enunciado": [
+    "A Bandeira do Cruzeiro é usada na seguinte condição:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "hasteada no tope do mastro principal nos navios incorporados à MB, substituindo a Flâmula de Comando."
+    },
+    {
+     "letra": "B",
+     "texto": "hasteada na proa das embarcações miúdas empregadas em serviços de saúde e das embarcações-hospital de forças de desembarque."
+    },
+    {
+     "letra": "C",
+     "texto": "hasteada à meia adriça quando assim o for a Bandeira Nacional, por motivo de luto ou funeral."
+    },
+    {
+     "letra": "D",
+     "texto": "hasteada no tope do mastro principal dos navios e OM de terra ou no lais da verga de boreste."
+    },
+    {
+     "letra": "E",
+     "texto": "em haste apropriada, denominada pau da flâmula, na proa das embarcações miúdas."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. No tope do mastro principal fica a Flâmula de Comando ou a bandeira-insígnia; a Bandeira do Cruzeiro não a substitui.",
+    "(B) Errada. Embarcações empregadas em serviço de saúde usam bandeira própria de saúde; não é a Bandeira do Cruzeiro.",
+    "(C) Correta. A Bandeira do Cruzeiro acompanha a Bandeira Nacional: quando esta vai à meia adriça (luto ou funeral), a do Cruzeiro também vai.",
+    "(D) Errada. Tope do mastro principal e lais da verga são lugares de flâmulas, insígnias e sinais, não da Bandeira do Cruzeiro, que vai no pau da bandeira de proa (pau do jeque).",
+    "(E) Errada. O pau da flâmula, na proa das embarcações miúdas, leva a flâmula ou a insígnia da autoridade embarcada."
+   ],
+   "anulacao": [
+    "Sem margem quanto à C. A destinação exata das bandeiras citadas nas letras A, B, D e E só o texto integral do Cerimonial confirma."
+   ],
+   "fonte": "cerimonial_comentado_2011_2025",
+   "id": "cerimonial-2020-q39",
+   "apostila": {
+    "slug": "cerimonial",
+    "block": 278
+   }
+  },
+  {
+   "ano": 2020,
+   "numero": 40,
+   "pagina": 5,
+   "assunto": "FLÂMULA DE FIM DE COMISSÃO — DESCRIÇÃO",
+   "nota": [],
+   "enunciado": [
+    "Sobre a Flâmula de Fim de Comissão, pode-se afirmar que:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Tem cor azul-marinho, forma retangular, metade do número de panos da Bandeira Nacional que for hasteada, dividida em quatro quadriláteros iguais por uma série de estrelas brancas."
+    },
+    {
+     "letra": "B",
+     "texto": "Tem cor branca, forma retangular, com uma cruz grega de cor vermelha no centro e os ramos paralelos aos lados da bandeira."
+    },
+    {
+     "letra": "C",
+     "texto": "Possui a forma retangular, farpada, da cor amarela da Bandeira Nacional, com vinte e uma estrelas azuis dispostas em cruz."
+    },
+    {
+     "letra": "D",
+     "texto": "É retangular, da cor verde da Bandeira Nacional, com as Armas Nacionais no centro."
+    },
+    {
+     "letra": "E",
+     "texto": "Tem cor azul-marinho, forma triangular, alongada, cuja base coincide com a tralha, sendo a altura igual à metade da guinda do mastro principal, ocupada por vinte e uma estrelas brancas, igualmente espaçadas entre si."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. Retangular, com estrelas brancas formando uma cruz e tamanho ligado aos panos da Bandeira Nacional: é a descrição da Bandeira do Cruzeiro, não de uma flâmula.",
+    "(B) Errada. Branca com cruz vermelha é a bandeira de saúde.",
+    "(C) Errada. Flâmula não é retangular; a descrição não é a da Flâmula de Fim de Comissão.",
+    "(D) Errada. Não é a Flâmula de Fim de Comissão.",
+    "(E) Correta. Flâmula é sempre triangular e alongada; a de Fim de Comissão é azul-marinho, com 21 estrelas brancas, e muito comprida (altura igual à metade da guinda do mastro principal)."
+   ],
+   "anulacao": [
+    "Sem margem quanto à E (a única triangular). A identificação das bandeiras das letras B, C e D é dada como provável; só o texto integral do Cerimonial a confirma."
+   ],
+   "fonte": "cerimonial_comentado_2011_2025",
+   "id": "cerimonial-2020-q40",
+   "apostila": {
+    "slug": "cerimonial",
+    "block": 1019
+   }
+  },
+  {
+   "ano": 2020,
+   "numero": 41,
+   "pagina": 6,
+   "assunto": "SALVAS — NÚMERO DE TIROS POR AUTORIDADE",
+   "nota": [],
+   "enunciado": [
+    "Salva é a honra prestada, por meio de tiros de canhão, à terra, navio, autoridade ou em data festiva. Quando devida, cabe a seguinte salva à autoridade:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Presidente da República - dezenove tiros."
+    },
+    {
+     "letra": "B",
+     "texto": "Vice-Almirante - dezessete tiros."
+    },
+    {
+     "letra": "C",
+     "texto": "Contra-Almirante - quinze tiros."
+    },
+    {
+     "letra": "D",
+     "texto": "Patrono da Marinha - vinte e um tiros."
+    },
+    {
+     "letra": "E",
+     "texto": "Ministro de Estado - dezenove tiros."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. Presidente da República: 21 tiros.",
+    "(B) Errada. Vice-Almirante: 15 tiros (17 é do Almirante de Esquadra).",
+    "(C) Errada. Contra-Almirante: 13 tiros (15 é do Vice-Almirante).",
+    "(D) Errada. Não há salva de 21 tiros prevista para o Patrono da Marinha; 21 tiros são do Presidente da República (e das salvas nacionais).",
+    "(E) Correta. Ministro de Estado: 19 tiros."
+   ],
+   "anulacao": [
+    "Sem margem. Escada para decorar: 21 (Presidente), 19 (Ministro de Estado), 17 (Almirante de Esquadra), 15 (Vice), 13 (Contra)."
+   ],
+   "fonte": "cerimonial_comentado_2011_2025",
+   "id": "cerimonial-2020-q41",
+   "apostila": {
+    "slug": "cerimonial",
+    "block": 416
+   }
+  },
+  {
+   "ano": 2020,
+   "numero": 46,
+   "pagina": 6,
+   "assunto": "CONTINÊNCIA INDIVIDUAL — QUANDO É DEVIDA",
+   "nota": [],
+   "enunciado": [
+    "A continência individual é a forma de saudação que o militar isolado, quando uniformizado, com ou sem cobertura, deve aos símbolos, à tropa formada e às autoridades.",
+    "Marque a alternativa em que a continência individual deve ser executada pelo militar."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Militar de sentinela e armado de fuzil."
+    },
+    {
+     "letra": "B",
+     "texto": "Fazendo parte de tropa armada."
+    },
+    {
+     "letra": "C",
+     "texto": "Em postos de continência."
+    },
+    {
+     "letra": "D",
+     "texto": "Em postos de Parada."
+    },
+    {
+     "letra": "E",
+     "texto": "Integrando formatura comandada, em honra à Bandeira Nacional."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. A sentinela armada de fuzil é dispensada da continência individual: saúda com a arma.",
+    "(B) Errada. Quem faz parte de tropa armada é dispensado; a tropa presta a continência por comando.",
+    "(C) Errada. Em postos de continência o militar está dispensado da continência individual.",
+    "(D) Errada. Em postos de parada também está dispensado.",
+    "(E) Correta pelo gabarito: em honra à Bandeira Nacional a continência individual é devida mesmo por quem integra formatura comandada."
+   ],
+   "anulacao": [
+    "Margem pequena: a regra geral é que militar em formatura saúda por comando; a letra E é a exceção que o Cerimonial prevê para a Bandeira Nacional. A redação exata dessa exceção só o texto integral confirma. Gabarito mantido."
+   ],
+   "fonte": "cerimonial_comentado_2011_2025",
+   "id": "cerimonial-2020-q46",
+   "apostila": {
+    "slug": "cerimonial",
+    "block": 55
+   }
+  },
+  {
+   "ano": 2021,
+   "numero": 36,
+   "pagina": 8,
+   "assunto": "CONTINÊNCIA INDIVIDUAL — QUEM NÃO É DISPENSADO",
+   "nota": [],
+   "enunciado": [
+    "A continência individual é a forma de saudação que o militar isolado, quando uniformizado, com ou sem cobertura, deve aos símbolos, à tropa formada e às autoridades. NÃO são dispensados de continência:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "os militares de sentinela, armados de fuzil."
+    },
+    {
+     "letra": "B",
+     "texto": "os Oficiais praticando esportes."
+    },
+    {
+     "letra": "C",
+     "texto": "os Oficiais, mesmo armados ou em formatura, durante as honras de portaló."
+    },
+    {
+     "letra": "D",
+     "texto": "os militares fazendo parte de tropa armada."
+    },
+    {
+     "letra": "E",
+     "texto": "os militares em postos de continência ou de Parada."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. São dispensados (mesma lista de 2020, Q46).",
+    "(B) Errada. Oficiais praticando esportes são dispensados.",
+    "(C) Correta. Nas honras de portaló, os Oficiais fazem a continência individual mesmo armados ou em formatura.",
+    "(D) Errada. São dispensados.",
+    "(E) Errada. São dispensados."
+   ],
+   "anulacao": [
+    "Sem margem. Leia junto com 2020 (Q46): a banca cobra a mesma lista de dispensas e as exceções."
+   ],
+   "fonte": "cerimonial_comentado_2011_2025",
+   "id": "cerimonial-2021-q36",
+   "apostila": {
+    "slug": "cerimonial",
+    "block": 70
+   }
+  },
+  {
+   "ano": 2021,
+   "numero": 46,
+   "pagina": 8,
+   "assunto": "INSÍGNIAS — CARÁTER PERMANENTE, TRANSITÓRIO E EVENTUAL (V/F)",
+   "nota": [],
+   "enunciado": [
+    "As bandeiras destinadas a assinalar a presença de determinada autoridade em OM da MB, bem como distinguir os cargos de autoridades militares ou civis são denominadas bandeiras insígnias. Assim, coloque V (verdadeiro) ou F (falso) nas afirmativas abaixo, em relação ao hasteamento das bandeiras insígnias, assinalando a seguir a opção correta.",
+    "( ) São mantidas hasteadas em caráter transitório, nos navios capitânias, quando referente ao Comandante de Força embarcado.",
+    "( ) São mantidas hasteadas em caráter transitório, na respectiva OM de terra, quando referente à autoridade exercendo o cargo de comando, enquanto esta permanecer a bordo.",
+    "( ) São mantidas hasteadas em caráter permanente, no respectivo navio, unidade ou estabelecimento quando referente à autoridade exercendo o cargo de comando.",
+    "( ) São mantidas hasteadas em caráter permanente, na OM visitada, quando referente à autoridade superior pertencente à cadeia de comando, substituindo a bandeira insígnia da autoridade exercendo o cargo de comando ou direção.",
+    "( ) São mantidas hasteadas em caráter eventual, na OM visitada, em honra à autoridade visitante não pertencente à cadeia de comando."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "(V)(F)(V)(V)(V)"
+    },
+    {
+     "letra": "B",
+     "texto": "(F)(F)(V)(F)(V)"
+    },
+    {
+     "letra": "C",
+     "texto": "(F)(V)(F)(F)(V)"
+    },
+    {
+     "letra": "D",
+     "texto": "(V)(V)(F)(V)(F)"
+    },
+    {
+     "letra": "E",
+     "texto": "(F)(V)(F)(V)(V)"
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "Análise das afirmativas: 1ª (F): no capitânia, a insígnia do Comandante de Força embarcado é PERMANENTE, não transitória. 2ª (F): a insígnia da autoridade que exerce o comando é permanente na sua OM; a afirmativa troca por transitório. 3ª (V): caráter permanente no respectivo navio, unidade ou estabelecimento. 4ª (F): na OM visitada por autoridade superior da cadeia de comando o caráter é TRANSITÓRIO (enquanto ela estiver presente), não permanente.",
+    "5ª (V): caráter eventual, em honra a autoridade visitante que não pertence à cadeia de comando. Sequência: F, F, V, F, V.",
+    "(A) Errada. A 1ª e a 4ª são falsas.",
+    "(B) Correta. F, F, V, F, V.",
+    "(C) Errada. A 2ª é falsa e a 3ª é verdadeira.",
+    "(D) Errada. Só a 3ª e a 5ª são verdadeiras.",
+    "(E) Errada. A 2ª e a 4ª são falsas e a 3ª é verdadeira."
+   ],
+   "anulacao": [
+    "Sem margem. Regra para decorar: permanente = quem comanda (e o Comandante de Força no capitânia); transitório = superior da cadeia de comando em visita; eventual = visitante de fora da cadeia."
+   ],
+   "fonte": "cerimonial_comentado_2011_2025",
+   "id": "cerimonial-2021-q46",
+   "apostila": {
+    "slug": "cerimonial",
+    "block": 336
+   }
+  },
+  {
+   "ano": 2022,
+   "numero": 46,
+   "pagina": 10,
+   "assunto": "FÚNEBRES — QUANDO AS HONRAS PODEM SER DISPENSADAS",
+   "nota": [],
+   "enunciado": [
+    "De acordo com o Cerimonial da Marinha do Brasil, as honras fúnebres podem ser dispensadas, a critério da autoridade competente:",
+    "I - quando o falecido as houver dispensado em vida;",
+    "II - quando solicitação nesse sentido partir da própria família;",
+    "III - nos dias de grande gala do país estrangeiro, em cujo porto se encontrar navio da Marinha do Brasil;",
+    "IV - nos dias de festa nacional; e",
+    "V - em condições adversas de tempo.",
+    "Assinale a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Apenas as afirmativas I e IV são verdadeiras."
+    },
+    {
+     "letra": "B",
+     "texto": "Apenas as afirmativas III e V são verdadeiras."
+    },
+    {
+     "letra": "C",
+     "texto": "Apenas as afirmativas III e IV são verdadeiras."
+    },
+    {
+     "letra": "D",
+     "texto": "Apenas as afirmativas I, II e V são verdadeiras."
+    },
+    {
+     "letra": "E",
+     "texto": "Apenas a afirmativa IV é verdadeira."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "Análise das afirmativas: I (V), II (V) e V (V): são os casos em que a autoridade PODE dispensar as honras fúnebres. III e IV (F para esta pergunta): dias de festa nacional e de grande gala não são casos de dispensa “a critério da autoridade”; nesses dias as honras simplesmente não são prestadas ou são adiadas, por regra do próprio cerimonial (o Regulamento de Continências também lista o dia de Festa Nacional entre os casos em que não há honras fúnebres).",
+    "(A) Errada. Inclui a IV e deixa de fora a II e a V.",
+    "(B) Errada. Inclui a III e deixa de fora a I e a II.",
+    "(C) Errada. As duas são as situações que não dependem do critério da autoridade.",
+    "(D) Correta. I, II e V.",
+    "(E) Errada."
+   ],
+   "anulacao": [
+    "Há argumento de recurso: no Regulamento de Continências o dia de Festa Nacional aparece entre os casos sem honras fúnebres, e um candidato pode ter marcado a IV. A banca separou “podem ser dispensadas a critério da autoridade” (I, II e V) dos casos em que as honras não se prestam por regra. A redação exata do Cerimonial só o texto integral confirma; gabarito mantido."
+   ],
+   "fonte": "cerimonial_comentado_2011_2025",
+   "id": "cerimonial-2022-q46"
+  },
+  {
+   "ano": 2023,
+   "numero": 31,
+   "pagina": 11,
+   "assunto": "BANDEIRA NACIONAL — HASTEAMENTO, ARRIAMENTO E LOCAL (INCORRETA)",
+   "nota": [],
+   "enunciado": [
+    "Assinale a opção INCORRETA em relação à Bandeira Nacional."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "A Bandeira Nacional é arriada diariamente ao pôr do sol, mediante cerimonial específico, nas demais Organizações Militares que não mantenham serviço ininterrupto."
+    },
+    {
+     "letra": "B",
+     "texto": "A Bandeira Nacional é arriada diariamente ao pôr do sol, mediante cerimonial específico, em todas as Organizações Militares que mantenham serviço ininterrupto."
+    },
+    {
+     "letra": "C",
+     "texto": "A Bandeira Nacional é hasteada diariamente, às 8h, mediante cerimonial específico."
+    },
+    {
+     "letra": "D",
+     "texto": "Salvo quando o Cerimonial da Marinha dispuser em contrário, o local de hasteamento é o pau da bandeira, disposto à popa, nos navios no dique, fundeados, atracados ou amarrados."
+    },
+    {
+     "letra": "E",
+     "texto": "Salvo quando o Cerimonial da Marinha dispuser em contrário, o local de hasteamento é o mastro da fachada principal do edifício ou penol da carangueja do mastro para esse fim destinado, nas Organizações Militares de terra."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta (é a INCORRETA). O arriamento ao pôr do sol vale para as OM que mantêm serviço ininterrupto (letra B). Nas demais OM a Bandeira é arriada em outro momento (no fim do expediente), não ao pôr do sol.",
+    "(B) Verdadeira. É a regra geral do arriamento.",
+    "(C) Verdadeira. Hasteamento diário às 8h (mesma frase de 2020, Q36).",
+    "(D) Verdadeira. Pau da bandeira, à popa, com o navio parado (no dique, fundeado, atracado ou amarrado).",
+    "(E) Verdadeira. Nas OM de terra: mastro da fachada principal ou penol da carangueja do mastro destinado a esse fim."
+   ],
+   "anulacao": [
+    "Sem margem: A e B são a mesma frase com a condição invertida. O momento exato do arriamento nas OM sem serviço ininterrupto só o texto integral do Cerimonial confirma."
+   ],
+   "fonte": "cerimonial_comentado_2011_2025",
+   "id": "cerimonial-2023-q31",
+   "apostila": {
+    "slug": "cerimonial",
+    "block": 147
+   }
+  },
+  {
+   "ano": 2023,
+   "numero": 43,
+   "pagina": 11,
+   "assunto": "FÚNEBRES — PRESCRIÇÕES PARA DIAS DE FUNERAL E LUTO OFICIAL",
+   "nota": [],
+   "enunciado": [
+    "Segundo o Cerimonial da Marinha do Brasil, é considerada uma prescrição especial para os dias de funeral e luto oficial:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "serão executados toques de continência e dadas salvas especificamente autorizadas pelos Comandantes de OM."
+    },
+    {
+     "letra": "B",
+     "texto": "é executado o Hino Nacional."
+    },
+    {
+     "letra": "C",
+     "texto": "a Bandeira do Cruzeiro é hasteada à meia adriça acompanhando o galhardete Prep."
+    },
+    {
+     "letra": "D",
+     "texto": "nas OM onde se realizem honras fúnebres, o oficial de serviço e contramestre têm as armas em funeral."
+    },
+    {
+     "letra": "E",
+     "texto": "a Bandeira Nacional é hasteada à meia adriça, sendo observado o cerimonial completo, com todas as honras e toques de continência."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. Em dias de luto as salvas e os toques festivos ficam restritos ao que a autoridade superior determinar; a letra transfere a decisão aos Comandantes de OM.",
+    "(B) Errada. O luto não prevê a execução do Hino Nacional como prescrição especial.",
+    "(C) Errada. A Bandeira do Cruzeiro vai à meia adriça acompanhando a Bandeira Nacional (2020, Q39), não o galhardete Prep.",
+    "(D) Errada. A prescrição não é essa; “armas em funeral” é posição da guarda e da tropa nas honras fúnebres.",
+    "(E) Correta. A prescrição típica do luto é a Bandeira Nacional à meia adriça, mantido o cerimonial de hasteamento e arriamento."
+   ],
+   "anulacao": [
+    "Atenção: o texto integral do Cerimonial não estava disponível; os motivos de erro das letras A e D são inferidos da lógica do cerimonial e do gabarito. Gabarito mantido em E."
+   ],
+   "fonte": "cerimonial_comentado_2011_2025",
+   "id": "cerimonial-2023-q43",
+   "apostila": {
+    "slug": "cerimonial",
+    "block": 931
+   }
+  },
+  {
+   "ano": 2024,
+   "numero": 36,
+   "pagina": 13,
+   "assunto": "HONRAS DE RECEPÇÃO — ANUNCIADOS PELO CARGO E NÚMERO DE BOYS",
+   "nota": [],
+   "enunciado": [
+    "De acordo com o vocativo e o número de “boys” estabelecidos no Cerimonial da Marinha do Brasil, assinale a opção que apresenta corretamente os Oficiais que são anunciados pelo cargo que exercem e o respectivo número de “boys” nas honras de recepção e despedida."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "O Chefe do Estado-Maior da Armada, o Chefe do Estado-Maior da Esquadra, o Comandante de Operações Navais, o Comandante da Marinha e o Comandante-Geral do Corpo de Fuzileiros Navais com 6 “boys”."
+    },
+    {
+     "letra": "B",
+     "texto": "O Comandante da Marinha, o Chefe do Estado-Maior da Esquadra, o Comandante de Operações Navais, o Comandante-Geral do Corpo de Fuzileiros Navais e o Comandante em Chefe da Esquadra com 8 “boys”."
+    },
+    {
+     "letra": "C",
+     "texto": "O Chefe do Estado-Maior da Armada, o Comandante em Chefe da Esquadra, o Comandante de Operações Marítimas e Proteção da Amazônia Azul, o Comandante-Geral do Corpo de Fuzileiros Navais e o Comandante da Marinha com 8 “boys”."
+    },
+    {
+     "letra": "D",
+     "texto": "O Comandante em Chefe da Esquadra, o Comandante de Operações Navais, o Chefe do Estado-Maior da Armada, o Comandante-Geral do Corpo de Fuzileiros Navais e o Comandante da Marinha com 8 “boys”."
+    },
+    {
+     "letra": "E",
+     "texto": "O Comandante em Chefe da Esquadra, o Comandante de Operações Navais, o Diretor Geral do Pessoal da Marinha, o Comandante-Geral do Corpo de Fuzileiros Navais e o Comandante da Marinha com 8 “boys”."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. Inclui o Chefe do Estado-Maior da Esquadra e dá 6 boys.",
+    "(B) Errada. Troca o Chefe do Estado-Maior da Armada pelo Chefe do Estado-Maior da Esquadra.",
+    "(C) Errada. Troca o Comandante de Operações Navais pelo Comandante de Operações Marítimas e Proteção da Amazônia Azul.",
+    "(D) Correta. Comandante da Marinha, CEMA, ComOpNav, CGCFN e Comandante em Chefe da Esquadra: anunciados pelo cargo e recebidos com 8 boys.",
+    "(E) Errada. Troca o CEMA pelo Diretor-Geral do Pessoal."
+   ],
+   "anulacao": [
+    "Sem margem. Cada errada troca um único cargo; decore os cinco."
+   ],
+   "fonte": "cerimonial_comentado_2011_2025",
+   "id": "cerimonial-2024-q36",
+   "apostila": {
+    "slug": "cerimonial",
+    "block": 539
+   }
+  },
+  {
+   "ano": 2024,
+   "numero": 40,
+   "pagina": 13,
+   "assunto": "BANDEIRA ESTRANGEIRA NO TOPE DO MASTRO PRINCIPAL (ART. 8-1-4)",
+   "nota": [],
+   "enunciado": [
+    "De acordo com o art. 8-1-4 do Cerimonial da Marinha do Brasil, assinale a opção correta que apresenta uma situação em que a bandeira de nação estrangeira é hasteada no tope do mastro principal."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Para prestar honras de salva a autoridade civil ou militar da respectiva nação que tenha direito a salva menor que vinte e um tiros."
+    },
+    {
+     "letra": "B",
+     "texto": "Em substituição à Bandeira Nacional, por ocasião de embandeiramento em arco ou nos topes, em homenagem à nação estrangeira."
+    },
+    {
+     "letra": "C",
+     "texto": "Em substituição à bandeira-insígnia da nação, quando esta, sendo reconhecida pelo governo brasileiro como independente e possuindo bandeira-insígnia própria, faz uso de bandeira de guerra da comunidade, império ou federação da qual é parte ou domínio."
+    },
+    {
+     "letra": "D",
+     "texto": "Para prestar honras de salva a autoridade civil ou militar da respectiva nação que tenha direito a salva maior que vinte e um tiros."
+    },
+    {
+     "letra": "E",
+     "texto": "Quando a nação, por mandato ou representante, não exerce o governo de outra nação que tenha bandeira nacional própria."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. O número de tiros está trocado: a bandeira estrangeira no tope acompanha a salva à nação ou à autoridade com direito a salva de 21 tiros, não a salvas menores.",
+    "(B) Correta pelo gabarito: no embandeiramento (em arco ou nos topes) em homenagem a nação estrangeira, a bandeira dessa nação ocupa o tope do mastro principal, no lugar que nesse embandeiramento caberia à Bandeira Nacional.",
+    "(C) Errada. A regra da nação que usa a bandeira da comunidade ou federação de que faz parte trata de QUAL bandeira usar, não de içá-la no tope.",
+    "(D) Errada. Não existe salva maior que 21 tiros.",
+    "(E) Errada. A frase está invertida em relação à regra (que trata da nação que, por mandato, EXERCE o governo de outra)."
+   ],
+   "anulacao": [
+    "Atenção: o texto integral do art. 8-1-4 não estava disponível; os motivos de erro das letras A, C e E são inferidos. A letra D é falsa com certeza (21 tiros é a maior salva). Gabarito mantido em B."
+   ],
+   "fonte": "cerimonial_comentado_2011_2025",
+   "id": "cerimonial-2024-q40",
+   "apostila": {
+    "slug": "cerimonial",
+    "block": 803
+   }
+  },
+  {
+   "ano": 2025,
+   "numero": 43,
+   "pagina": 15,
+   "assunto": "FÚNEBRES — ALMIRANTES NA INATIVIDADE (ART. 9-3-3)",
+   "nota": [],
+   "enunciado": [
+    "Honras fúnebres são homenagens póstumas prestadas aos despojos mortais de militar ou de autoridade civil, de acordo com a posição hierárquica que ocupava. Conforme o art. 9-3-3 (Falecimento de Militares da MB Inativos) do Cerimonial da Marinha, mediante solicitação expressa da família do militar falecido na situação de inatividade, os Comandantes de Distrito Naval podem autorizar que sejam prestadas honras fúnebres. Sobre esse tema, quais são as honras prestadas aos Almirantes quando na inatividade?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Guarda fúnebre com o efetivo de um pelotão, formado em alas no interior da necrópole, e grupo de combate nas proximidades da sepultura, o qual realiza as descargas de fuzilaria; comissão de representação designada pelo Comandante de Distrito Naval, em cuja área de jurisdição se situa a necrópole, chefiada por Contra-Almirante; e honras de portaló ao alcançar o féretro a guarda fúnebre."
+    },
+    {
+     "letra": "B",
+     "texto": "Guarda fúnebre, com o efetivo de uma companhia, formada em alas no interior da necrópole, e grupo de combate nas proximidades da sepultura, o qual realiza as descargas de fuzilaria, comissão de representação designada e chefiada pelo Comandante de Distrito Naval na área de jurisdição do Distrito Naval onde se situa a necrópole; honras de portaló ao alcançar o féretro a guarda fúnebre."
+    },
+    {
+     "letra": "C",
+     "texto": "Guarda fúnebre, com o efetivo de um grupo de combate, nas proximidades da sepultura, o qual realiza as descargas de fuzilaria; e comissão de representação designada pelo Comandante de Distrito Naval, em cuja área de jurisdição se situa a necrópole, chefiada por oficial superior."
+    },
+    {
+     "letra": "D",
+     "texto": "Guarda fúnebre com o efetivo de uma companhia, formado em alas no interior da necrópole, e grupo de combate nas proximidades da sepultura, o qual realiza as descargas de fuzilaria; comissão de representação designada pelo COMAP na área de jurisdição do Distrito Naval onde se situa a necrópole, chefiada por Contra-Almirante; e honras de portaló ao alcançar o féretro a guarda fúnebre."
+    },
+    {
+     "letra": "E",
+     "texto": "Guarda fúnebre com o efetivo de um pelotão, formado em alas no interior da necrópole, e grupo de combate nas proximidades da sepultura, o qual realiza as descargas de fuzilaria, comissão de representação designada pelo Comandante de Distrito Naval, em cuja área de jurisdição se situa a necrópole, chefiada por Oficial Superior, e honras de portaló ao alcançar o féretro a guarda fúnebre."
+    }
+   ],
+   "gabarito": "Gabarito: A (preliminar)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. Pelotão em alas, grupo de combate para as descargas, comissão designada pelo Comandante do Distrito Naval e chefiada por Contra-Almirante, e honras de portaló.",
+    "(B) Errada. Efetivo de companhia e comissão chefiada pelo próprio Comandante do Distrito: exagera as honras.",
+    "(C) Errada. Só grupo de combate e comissão chefiada por oficial superior: é o padrão de honras menores, não o de Almirante.",
+    "(D) Errada. Companhia e comissão designada pelo COMAP (o Distrito Naval é quem designa).",
+    "(E) Errada. Igual à A, mas com comissão chefiada por Oficial Superior; para Almirante, a chefia é de Contra-Almirante."
+   ],
+   "anulacao": [
+    "A diferença entre A e E está só em quem chefia a comissão, detalhe literal do art. 9-3-3. Gabarito preliminar; confira o definitivo."
+   ],
+   "fonte": "cerimonial_comentado_2011_2025",
+   "id": "cerimonial-2025-q43",
+   "apostila": {
+    "slug": "cerimonial",
+    "block": 999
+   }
+  },
+  {
+   "ano": 2025,
+   "numero": 45,
+   "pagina": 16,
+   "assunto": "SINAIS SONOROS DAS EMBARCAÇÕES (PRECEDÊNCIA DA AUTORIDADE)",
+   "nota": [],
+   "enunciado": [
+    "A embarcação da Marinha do Brasil que se aproximar de navio ou estabelecimento para atracar, mas que não traga arvorada bandeira-insígnia de autoridade nela embarcada, emitirá, independentemente do horário, os seguintes sinais sonoros de apito ou buzina, indicando a precedência ou posto da referida autoridade. Conforme o Cerimonial da Marinha, assinale a opção correta de acordo com o Posto e/ou Função e sinal sonoro."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Oficial Intermediário ou Subalterno - dois sinais curtos."
+    },
+    {
+     "letra": "B",
+     "texto": "Chefe de Estado-Maior de Força - dois sinais curtos."
+    },
+    {
+     "letra": "C",
+     "texto": "Oficial Superior, COMAPEM - dois sinais longos e um curto."
+    },
+    {
+     "letra": "D",
+     "texto": "Oficial Superior, Comandante de Força ao se aproximar de navio subordinado - três sinais curtos."
+    },
+    {
+     "letra": "E",
+     "texto": "Oficial Superior, Comandante, ao se aproximar do navio por ele comandado - quatro sinais curtos."
+    }
+   ],
+   "gabarito": "Gabarito: E (preliminar)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. O número de sinais está trocado para oficiais intermediários e subalternos (o sinal deles é o menor da escala).",
+    "(B) Errada. O sinal do Chefe de Estado-Maior de Força não é dois curtos.",
+    "(C) Errada. A combinação de longos e curtos não corresponde ao COMAPEM.",
+    "(D) Errada. O número de sinais do Comandante de Força está trocado.",
+    "(E) Correta pelo gabarito preliminar: o Comandante (oficial superior) que se aproxima do próprio navio é anunciado com quatro sinais curtos."
+   ],
+   "anulacao": [
+    "Atenção: a tabela completa de sinais sonoros não estava disponível no projeto; os erros das letras A a D estão indicados só pelo gabarito. Gabarito preliminar; confira o definitivo e a tabela do Cerimonial antes da prova."
+   ],
+   "fonte": "cerimonial_comentado_2011_2025",
+   "id": "cerimonial-2025-q45",
+   "apostila": {
+    "slug": "cerimonial",
+    "block": 395
+   }
+  }
+ ]
+}

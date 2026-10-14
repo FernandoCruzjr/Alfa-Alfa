@@ -175,5 +175,101 @@
    2024,
    2025
   ]
+ },
+ {
+  "slug": "cerimonial",
+  "materia": "Cerimonial da Marinha",
+  "icon": "fa-flag",
+  "total": 14,
+  "exercicios": 0,
+  "anos": [
+   2020,
+   2021,
+   2022,
+   2023,
+   2024,
+   2025
+  ]
+ },
+ {
+  "slug": "estatuto",
+  "materia": "Estatuto dos Militares",
+  "icon": "fa-id-card",
+  "total": 9,
+  "exercicios": 0,
+  "anos": [
+   2016,
+   2021,
+   2022,
+   2023,
+   2024,
+   2025
+  ]
+ },
+ {
+  "slug": "rdm",
+  "materia": "Regulamento Disciplinar para a Marinha (RDM)",
+  "icon": "fa-gavel",
+  "total": 10,
+  "exercicios": 0,
+  "anos": [
+   2021,
+   2022,
+   2023,
+   2024,
+   2025
+  ]
+ },
+ {
+  "slug": "lideranca",
+  "materia": "Liderança (EMA-137)",
+  "icon": "fa-people-group",
+  "total": 46,
+  "exercicios": 0,
+  "anos": [
+   2011,
+   2012,
+   2013,
+   2014,
+   2015,
+   2016,
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024,
+   2025
+  ]
+ },
+ {
+  "slug": "rosa-virtudes",
+  "materia": "Rosa das Virtudes",
+  "icon": "fa-compass",
+  "total": 4,
+  "exercicios": 0,
+  "anos": [
+   2014,
+   2016,
+   2019,
+   2024
+  ]
+ },
+ {
+  "slug": "pem2040",
+  "materia": "PEM 2040, PND e END",
+  "icon": "fa-chess-rook",
+  "total": 30,
+  "exercicios": 0,
+  "anos": [
+   2015,
+   2016,
+   2017,
+   2018,
+   2019,
+   2025
+  ]
  }
 ]

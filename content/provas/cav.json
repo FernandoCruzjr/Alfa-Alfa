@@ -357,7 +357,11 @@
     "Prova de 2011 sem gabarito no projeto. Atenção: a mesma frase da letra E reaparece em 2015 (Q35, B), questão que acabou anulada. Isso mostra que a banca hesitou sobre OA ou OC; só o texto integral do CAAML-1201 resolve."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2011-q47"
+   "id": "cav-2011-q47",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 64
+   }
   },
   {
    "ano": 2012,
@@ -449,7 +453,11 @@
     "Sem margem: atribuição literal do manual, confirmada pela prova de 2013."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2012-q36"
+   "id": "cav-2012-q36",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 302
+   }
   },
   {
    "ano": 2012,
@@ -495,7 +503,11 @@
     "Sem margem. Repare que aqui é OA (o GSE é administrativo), ao contrário das áreas dos reparos, que são da OC."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2012-q39"
+   "id": "cav-2012-q39",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 290
+   }
   },
   {
    "ano": 2012,
@@ -541,7 +553,11 @@
     "Sem margem: cobrada três vezes com a mesma resposta."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2012-q45"
+   "id": "cav-2012-q45",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 215
+   }
   },
   {
    "ano": 2013,
@@ -587,7 +603,11 @@
     "Sem margem. Ligação com 2024 (Q44, C): lá o Mensageiro ligava o LCA ao Encarregado do CAv, e por isso estava errado; o certo é Encarregado do REPARO."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2013-q32"
+   "id": "cav-2013-q32",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 131
+   }
   },
   {
    "ano": 2013,
@@ -633,7 +653,11 @@
     "O percentual de 85% chama atenção (na espuma pronta a água costuma ser bem mais de 90% do volume), mas a banca reproduziu o número do manual e manteve o gabarito. Só o texto integral do CAAML-1202 confirmaria o número."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2013-q35"
+   "id": "cav-2013-q35",
+   "apostila": {
+    "slug": "caaml-1202",
+    "block": 169
+   }
   },
   {
    "ano": 2013,
@@ -679,7 +703,11 @@
     "Sem margem."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2013-q41"
+   "id": "cav-2013-q41",
+   "apostila": {
+    "slug": "caaml-1202",
+    "block": 211
+   }
   },
   {
    "ano": 2013,
@@ -784,7 +812,11 @@
     "Sem margem. A sutileza de chamar o propósito de “atribuição” é a única discutível, mas a banca manteve."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2013-q47"
+   "id": "cav-2013-q47",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 9
+   }
   },
   {
    "ano": 2013,
@@ -830,7 +862,11 @@
     "Sem margem. Repare que as letras A, D e E são pegadinhas que a banca reaproveita em outros anos."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2013-q48"
+   "id": "cav-2013-q48",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 293
+   }
   },
   {
    "ano": 2014,
@@ -876,7 +912,11 @@
     "Sem margem."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2014-q31"
+   "id": "cav-2014-q31",
+   "apostila": {
+    "slug": "caaml-1202",
+    "block": 183
+   }
   },
   {
    "ano": 2014,
@@ -922,7 +962,11 @@
     "Sem margem. Lembre de 2013 (Q47): o mesmo texto chamado de “atribuição” foi considerado FALSO."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2014-q32"
+   "id": "cav-2014-q32",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 2
+   }
   },
   {
    "ano": 2014,
@@ -1014,7 +1058,11 @@
     "Sem margem."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2014-q39"
+   "id": "cav-2014-q39",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 13
+   }
   },
   {
    "ano": 2014,
@@ -1060,7 +1108,11 @@
     "Sem margem. Os quatro estágios: inicial → desenvolvimento → incêndio desenvolvido → queda de intensidade."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2014-q45"
+   "id": "cav-2014-q45",
+   "apostila": {
+    "slug": "caaml-1202",
+    "block": 7
+   }
   },
   {
    "ano": 2014,
@@ -1106,7 +1158,11 @@
     "Periodicidade literal do CAAML-1202; sem margem de recurso sem o texto integral."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2014-q48"
+   "id": "cav-2014-q48",
+   "apostila": {
+    "slug": "caaml-1202",
+    "block": 342
+   }
   },
   {
    "ano": 2015,
@@ -1152,7 +1208,11 @@
     "Sem margem pela alternativa D. As letras A e E dependem de números e nomes do texto integral do CAAML-1202, que não estava disponível."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2015-q33"
+   "id": "cav-2015-q33",
+   "apostila": {
+    "slug": "caaml-1202",
+    "block": 209
+   }
   },
   {
    "ano": 2015,
@@ -1198,7 +1258,11 @@
     "ANULADA no gabarito oficial. A causa mais provável é a ambiguidade: a letra E mistura a sequência do alarme fora de postos com a Organização de Combate, e a letra B usa a mesma frase que a banca deu como errada em 2011. Sem o texto integral não dá para dizer qual delas a banca pretendia."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2015-q35"
+   "id": "cav-2015-q35",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 2
+   }
   },
   {
    "ano": 2015,
@@ -1244,7 +1308,11 @@
     "Sem recurso conhecido; o gabarito foi mantido. As letras B, C e E dependem de detalhes do texto integral do CAAML-1201."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2015-q48"
+   "id": "cav-2015-q48",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 213
+   }
   },
   {
    "ano": 2016,
@@ -1290,7 +1358,11 @@
     "Sem margem. Truque: elimine as alternativas com TAR, resfriamento ou evacuação."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2016-q34"
+   "id": "cav-2016-q34",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 297
+   }
   },
   {
    "ano": 2016,
@@ -1336,7 +1408,11 @@
     "Números literais do quadro de extintores do CAAML-1202; sem margem de recurso."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2016-q35"
+   "id": "cav-2016-q35",
+   "apostila": {
+    "slug": "caaml-1202",
+    "block": 333
+   }
   },
   {
    "ano": 2016,
@@ -1382,7 +1458,11 @@
     "Sem margem."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2016-q37"
+   "id": "cav-2016-q37",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 289
+   }
   },
   {
    "ano": 2016,
@@ -1428,7 +1508,11 @@
     "Sem margem. Atenção à grafia: higroscópico (absorve umidade), não “hidroscópico”."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2016-q47"
+   "id": "cav-2016-q47",
+   "apostila": {
+    "slug": "caaml-1202",
+    "block": 221
+   }
   },
   {
    "ano": 2017,
@@ -1474,7 +1558,11 @@
     "Número literal do CAAML-1201; sem margem."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2017-q41"
+   "id": "cav-2017-q41",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 106
+   }
   },
   {
    "ano": 2017,
@@ -1520,7 +1608,11 @@
     "Sem margem: terceira vez que a mesma resposta é cobrada."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2017-q42"
+   "id": "cav-2017-q42",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 215
+   }
   },
   {
    "ano": 2017,
@@ -1572,7 +1664,11 @@
     "ANULADA no gabarito oficial. As afirmativas II e III têm redação ambígua (“não é considerado um evento”, “apenas na parte superior”), o que impede uma única resposta segura. A temperatura de referência do flashover vem da literatura de combate a incêndio; o número exato do CAAML-1202 só o texto integral confirma."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2017-q49"
+   "id": "cav-2017-q49",
+   "apostila": {
+    "slug": "caaml-1202",
+    "block": 10
+   }
   },
   {
    "ano": 2018,
@@ -1618,7 +1714,11 @@
     "ANULADA no gabarito oficial. Provável motivo: as letras C (resfriamento e abafamento) e E (resfriamento e efeito asfixiante da espuma) dizem a mesma coisa com palavras diferentes. Para a prova, decore a frase do manual: resfriamento e efeito asfixiante da espuma (saponificação)."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2018-q35"
+   "id": "cav-2018-q35",
+   "apostila": {
+    "slug": "caaml-1202",
+    "block": 324
+   }
   },
   {
    "ano": 2018,
@@ -1664,7 +1764,11 @@
     "Sem margem."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2018-q43"
+   "id": "cav-2018-q43",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 220
+   }
   },
   {
    "ano": 2018,
@@ -1710,7 +1814,11 @@
     "Sem margem. Tetraedro × método: calor → resfriamento; combustível → isolamento; oxigênio → abafamento; reação em cadeia → quebra (inibição química)."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2018-q45"
+   "id": "cav-2018-q45",
+   "apostila": {
+    "slug": "caaml-1202",
+    "block": 49
+   }
   },
   {
    "ano": 2018,
@@ -1756,7 +1864,11 @@
     "Sem margem."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2018-q49"
+   "id": "cav-2018-q49",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 290
+   }
   },
   {
    "ano": 2019,
@@ -1802,7 +1914,11 @@
     "Margem pequena de recurso: o flashover (letra D) acontece justamente nessa fase, e o “repentino espalhamento das chamas” da letra A é o próprio flashover. A banca manteve A por ser a única redigida como definição."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2019-q36"
+   "id": "cav-2019-q36",
+   "apostila": {
+    "slug": "caaml-1202",
+    "block": 11
+   }
   },
   {
    "ano": 2019,
@@ -1848,7 +1964,11 @@
     "Sem margem pela letra C."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2019-q41"
+   "id": "cav-2019-q41",
+   "apostila": {
+    "slug": "caaml-1202",
+    "block": 324
+   }
   },
   {
    "ano": 2019,
@@ -1894,7 +2014,11 @@
     "Sem margem."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2019-q43"
+   "id": "cav-2019-q43",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 237
+   }
   },
   {
    "ano": 2019,
@@ -1940,7 +2064,11 @@
     "Sem margem. Regra prática: o que pressupõe o sinistro já ocorrido (combater, controlar, socorrer, restabelecer) é medida APÓS avaria; o resto é preliminar."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2019-q48"
+   "id": "cav-2019-q48",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 4
+   }
   },
   {
    "ano": 2020,
@@ -1986,7 +2114,11 @@
     "Margem pequena: a letra E soa como atribuição do Encarregado. A leitura do gabarito é que ele informa o Chefe de Máquinas, e este informa o Comandante. Essa cadeia é inferida das provas; o texto integral do CAAML-1201 é que confirma."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2020-q32"
+   "id": "cav-2020-q32",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 226
+   }
   },
   {
    "ano": 2021,
@@ -2032,7 +2164,11 @@
     "Sem margem."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2021-q32"
+   "id": "cav-2021-q32",
+   "apostila": {
+    "slug": "caaml-1202",
+    "block": 57
+   }
   },
   {
    "ano": 2021,
@@ -2078,7 +2214,11 @@
     "Sem margem."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2021-q49"
+   "id": "cav-2021-q49",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 134
+   }
   },
   {
    "ano": 2022,
@@ -2130,7 +2270,11 @@
     "Sem margem. Backdraft: ambiente fechado, sem oxigênio, cheio de gases quentes; ao abrir, o ar entra e tudo explode. Por isso os sinais são fumaça sob pressão, calor, vidros enegrecidos, silêncio e ar sendo SUGADO."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2022-q43"
+   "id": "cav-2022-q43",
+   "apostila": {
+    "slug": "caaml-1202",
+    "block": 25
+   }
   },
   {
    "ano": 2022,
@@ -2183,7 +2327,11 @@
     "Sem margem. O 2º item (Fiel do navio coordena os Fiéis das Divisões) e o 5º (Imediato) já deixam só a letra A."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2022-q49"
+   "id": "cav-2022-q49",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 284
+   }
   },
   {
    "ano": 2023,
@@ -2229,7 +2377,11 @@
     "Há um argumento de recurso: química e tecnicamente, halons também são compostos orgânicos com halogênios, então B e E se sobrepõem. A banca seguiu o rótulo literal do manual e manteve E."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2023-q38"
+   "id": "cav-2023-q38",
+   "apostila": {
+    "slug": "caaml-1202",
+    "block": 199
+   }
   },
   {
    "ano": 2023,
@@ -2275,7 +2427,11 @@
     "Número literal do CAAML-1201; sem margem. Lembre: Turma de Máscaras = Controlador + 2 ajudantes (2011, Q47, C; 2024, Q44, B)."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2023-q47"
+   "id": "cav-2023-q47",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 169
+   }
   },
   {
    "ano": 2023,
@@ -2321,7 +2477,11 @@
     "Sem margem."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2023-q49"
+   "id": "cav-2023-q49",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 289
+   }
   },
   {
    "ano": 2024,
@@ -2367,7 +2527,11 @@
     "Recurso possível contra a letra D, que diz o mesmo com outras palavras (foi essa ambiguidade que anulou a questão de 2018). A banca manteve E por ser a cópia literal do manual."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2024-q34"
+   "id": "cav-2024-q34",
+   "apostila": {
+    "slug": "caaml-1202",
+    "block": 372
+   }
   },
   {
    "ano": 2024,
@@ -2413,7 +2577,11 @@
     "Margem de recurso na 2ª parte: a contenção também resfria anteparas para evitar propagação, e isso se confunde com “resfriar pontos de ignição”. A banca manteve o Rescaldo."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2024-q41"
+   "id": "cav-2024-q41",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 161
+   }
   },
   {
    "ano": 2024,
@@ -2459,7 +2627,11 @@
     "Sem margem. Questão “colagem”: cada alternativa errada pega uma frase verdadeira de outro trecho e troca a função."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2024-q44"
+   "id": "cav-2024-q44",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 123
+   }
   },
   {
    "ano": 2025,
@@ -2505,7 +2677,11 @@
     "Gabarito PRELIMINAR. Há bom argumento de recurso contra a letra B, que reproduz quase literalmente a faixa de 7–10% do halon 1301. Se o texto do CAAML-1202 trouxer os mesmos sintomas citados na letra B, a questão teria duas corretas. Só o texto integral decide."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2025-q38"
+   "id": "cav-2025-q38",
+   "apostila": {
+    "slug": "caaml-1202",
+    "block": 196
+   }
   },
   {
    "ano": 2025,
@@ -2558,7 +2734,11 @@
     "Gabarito PRELIMINAR. Questão fora do padrão (o enunciado fala em Procedimentos Marinheiros, mas três itens são de CAv). A afirmativa IV é o ponto mais frágil: a frase é plausível para o Encarregado do CAv, e só o texto integral do CAAML-1201 diz a quem ela se refere. Candidata a recurso."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2025-q48"
+   "id": "cav-2025-q48",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 190
+   }
   },
   {
    "ano": 2025,
@@ -2604,7 +2784,11 @@
     "Gabarito preliminar. Questão de memória do formulário; sem margem visível."
    ],
    "fonte": "cav_comentado_2011_2025",
-   "id": "cav-2025-q49"
+   "id": "cav-2025-q49",
+   "apostila": {
+    "slug": "caaml-1201",
+    "block": 307
+   }
   }
  ]
 }

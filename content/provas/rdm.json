@@ -1,0 +1,607 @@
+{
+ "slug": "rdm",
+ "materia": "Regulamento Disciplinar para a Marinha (RDM)",
+ "icon": "fa-gavel",
+ "cadernos": [
+  {
+   "fonte": "rdm_comentado_2011_2025.pdf",
+   "titulo": "RDM (Regulamento Disciplinar para a Marinha) comentado — CA-AA-AFN (CPA)",
+   "linhas": [
+    "2021–2025",
+    "Resolução comentada das questões do Regulamento Disciplinar para a Marinha (RDM, Decreto",
+    "nº 88.545/1983) da parte de Conhecimentos Militares-Navais da prova Amarela dos candidatos",
+    "oriundos do Corpo de Praças da Armada (CPA), de 2011 a 2025. Entram aqui as questões sobre",
+    "contravenções, circunstâncias agravantes e atenuantes, penas disciplinares e seu cumprimento,",
+    "parte, voz de prisão, reconsideração e recurso.",
+    "Para cada questão você encontra o enunciado e as alternativas, o gabarito oficial, a explicação de",
+    "por que cada alternativa está certa ou errada, com a base na norma, e uma análise de possível",
+    "anulação (argumentos de recurso).",
+    "OBSERVAÇÕES SOBRE AS FONTES",
+    "De 2011 a 2020 as provas do CPA não trouxeram questão só de RDM; o tema aparece a partir de",
+    "2021. São 10 questões, listadas no quadro abaixo. São as mesmas questões de RDM já comentadas",
+    "na apostila de DGPM-315 (Justiça e Disciplina), reunidas aqui para estudo separado. A questão 41 de",
+    "2015 mistura RDM com sindicância e IPM e continua só na apostila de DGPM-315.",
+    "Gabaritos: 2021 a 2024 são os finais, publicados após os recursos. 2025 usa o gabarito preliminar",
+    "(publicado antes do julgamento dos recursos). Nenhuma questão desta matéria foi anulada.",
+    "Base legal dos comentários: o texto oficial do RDM (Decreto nº 88.545/1983, conferido em",
+    "legis.senado.leg.br) e a DGPM-315, que o aplica. Onde um comentário depende de um detalhe que só",
+    "o texto integral da DGPM-315 confirma, isso está dito no próprio comentário.",
+    "QUADRO DE QUESTÕES E GABARITOS (PROVA AMARELA, CPA)",
+    "Ano Nº Assunto Gabarito",
+    "2021 44 RDM — CIRCUNSTÂNCIAS AGRAVANTES (ART. 10) C",
+    "2021 50 RDM — PARTE, VOZ DE PRISÃO E RECONSIDERAÇÃO A",
+    "2022 31 RDM — LIVRO EM QUE SE LANÇA A PARTE A",
+    "2022 32 RDM — PRAZO DO RECURSO B",
+    "2022 50 RDM — O QUE NÃO É AGRAVANTE (ART. 10) D",
+    "2023 41 RDM — CIRCUNSTÂNCIAS ATENUANTES (ART. 11) A",
+    "2023 44 RDM — EM NOME DE QUEM SE DÁ A VOZ DE PRISÃO (ART. 41) B",
+    "2024 42 RDM — PENAS DISCIPLINARES POR CÍRCULO (ART. 14) B",
+    "2024 45 RDM — FORMAS DE APLICAR A REPREENSÃO (ART. 21) B",
+    "2025 41 RDM — CUMPRIMENTO DAS PENAS DISCIPLINARES (V/F) A*",
+    "* 2025: gabarito preliminar.",
+    "Questões por assunto",
+    "CIRCUNSTÂNCIAS AGRAVANTES E ATENUANTES (ARTS. 10 E 11) — 3 questões",
+    "2021 Q44; 2022 Q50; 2023 Q41.",
+    "PENAS DISCIPLINARES E SEU CUMPRIMENTO (ARTS. 14, 21 E SEGUINTES) — 3 questões",
+    "2024 Q42; 2024 Q45; 2025 Q41.",
+    "PARTE, VOZ DE PRISÃO, RECONSIDERAÇÃO E RECURSO — 4 questões",
+    "2021 Q50; 2022 Q31; 2022 Q32; 2023 Q44.",
+    "Para memorizar (o que mais cai):",
+    "• Agravantes (art. 10): entre elas, ter cometido a falta em presença de subordinado (alínea “j”). A",
+    "provocação NÃO é agravante: é atenuante (art. 11, “f”).",
+    "• Penas (art. 14) variam por círculo: Sargento não tem serviço extraordinário (só Cabos, Marinheiros",
+    "e Soldados); para o oficial da reserva em atividade, a pena correspondente é a dispensa das funções",
+    "de atividade.",
+    "• Repreensão (art. 21): pode ser aplicada em particular ou não; ao Suboficial, verbalmente, nos",
+    "círculos de Oficiais a Suboficiais. Reclusão a camarote, com ou sem sentinela, não é agravação da",
+    "pena (art. 25).",
+    "• Parte: lançada no livro próprio (art. 40, parágrafo único). Voz de prisão: art. 41. Recurso: após o",
+    "cumprimento da pena e dentro de oito dias úteis (art. 46, § 1º)."
+   ]
+  }
+ ],
+ "provas": [
+  {
+   "ano": 2021,
+   "titulo": "Prova de 2021",
+   "intro": []
+  },
+  {
+   "ano": 2022,
+   "titulo": "Prova de 2022",
+   "intro": []
+  },
+  {
+   "ano": 2023,
+   "titulo": "Prova de 2023",
+   "intro": []
+  },
+  {
+   "ano": 2024,
+   "titulo": "Prova de 2024",
+   "intro": []
+  },
+  {
+   "ano": 2025,
+   "titulo": "Prova de 2025",
+   "intro": [
+    "Gabarito preliminar (publicado em 28/10/2025, antes do julgamento dos recursos)."
+   ]
+  }
+ ],
+ "questoes": [
+  {
+   "ano": 2021,
+   "numero": 44,
+   "pagina": 4,
+   "assunto": "RDM — CIRCUNSTÂNCIAS AGRAVANTES (ART. 10)",
+   "nota": [],
+   "enunciado": [
+    "O artigo 6º do Regulamento Disciplinar para a Marinha define contravenção disciplinar como toda ação ou omissão contrária às obrigações ou aos deveres militares estatuídos nas leis, nos regulamentos, nas normas e nas disposições em vigor que fundamentam a Organização Militar, desde que não incidindo no que é capitulado pelo Código Penal Militar como crime. Sendo assim, é circunstância agravante da contravenção disciplinar:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "ignorância plenamente comprovada da ordem transgredida."
+    },
+    {
+     "letra": "B",
+     "texto": "força maior ou caso fortuito plenamente comprovado."
+    },
+    {
+     "letra": "C",
+     "texto": "ter cometido a falta em presença de subordinado."
+    },
+    {
+     "letra": "D",
+     "texto": "provocação."
+    },
+    {
+     "letra": "E",
+     "texto": "tratamento em serviço ordinário com rigor não autorizado pelos regulamentos militares."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. É circunstância justificativa (dirimente), art. 12, “a”, do RDM.",
+    "(B) Errada. Também é justificativa, art. 12, “b”.",
+    "(C) Correta. Art. 10, “j”, do RDM: “ter cometido a falta em presença de subordinado”.",
+    "(D) Errada. Provocação é atenuante, art. 11, “f”.",
+    "(E) Errada. É atenuante, art. 11, “e”."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "rdm_comentado_2011_2025",
+   "id": "rdm-2021-q44",
+   "apostila": {
+    "slug": "estatuto-rdm",
+    "block": 397
+   }
+  },
+  {
+   "ano": 2021,
+   "numero": 50,
+   "pagina": 4,
+   "assunto": "RDM — PARTE, VOZ DE PRISÃO E RECONSIDERAÇÃO",
+   "nota": [],
+   "enunciado": [
+    "Com relação ao que preconiza o Regulamento Disciplinar para a Marinha, assinale a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "O superior deverá também dar voz de prisão imediata ao contraventor e fazê-lo recolher-se à sua Organização Militar quando a contravenção ou suas circunstâncias assim o exigirem, a bem da ordem pública, da disciplina ou da regularidade do serviço."
+    },
+    {
+     "letra": "B",
+     "texto": "Servindo superior e subalterno na mesma Organização Militar e sendo o subalterno Praça de graduação inferior a Suboficial, será efetuado o lançamento da parte no livro de quarto do estabelecimento."
+    },
+    {
+     "letra": "C",
+     "texto": "Caso o contraventor se recuse a declarar a Organização Militar em que serve, a voz de prisão será dada em nome do Comandante da Marinha."
+    },
+    {
+     "letra": "D",
+     "texto": "Todo superior que tiver conhecimento direto ou indireto de contravenção cometida por qualquer subalterno deverá dar parte oral do fato à autoridade sob cujas ordens estiver."
+    },
+    {
+     "letra": "E",
+     "texto": "A quem deu parte assiste o direito de pedir à respectiva autoridade, dentro de seis dias úteis, pelos meios legais, a reconsideração da solução, se julgar que esta deprime sua pessoa ou a dignidade de seu posto, não podendo o pedido ficar sem despacho."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. É o texto do art. 41 do RDM.",
+    "(B) Errada. O lançamento é feito no Livro de Registro de Contravenções Disciplinares (art. 40, parágrafo único), não no livro de quarto (2022, Q31).",
+    "(C) Errada. Nesse caso a voz de prisão é dada em nome do Comandante do Distrito Naval ou do Comando Naval em cuja jurisdição ocorrer a prisão (art. 41).",
+    "(D) Errada. O art. 40 exige parte ESCRITA, não oral.",
+    "(E) Errada. O prazo do art. 42, parágrafo único, é de oito dias úteis, não seis."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "rdm_comentado_2011_2025",
+   "id": "rdm-2021-q50",
+   "apostila": {
+    "slug": "estatuto-rdm",
+    "block": 517
+   }
+  },
+  {
+   "ano": 2022,
+   "numero": 31,
+   "pagina": 6,
+   "assunto": "RDM — LIVRO EM QUE SE LANÇA A PARTE",
+   "nota": [],
+   "enunciado": [
+    "De acordo com Regulamento Disciplinar da Marinha (RDM de 2009), servindo superior e subalterno na mesma Organização Militar (OM) e sendo o subalterno Praça de graduação inferior a Suboficial, será efetuado o lançamento da parte no Livro de:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Registro de Contravenções Disciplinares."
+    },
+    {
+     "letra": "B",
+     "texto": "Registro de Presos e Impedidos."
+    },
+    {
+     "letra": "C",
+     "texto": "Registro de Partes de Ocorrência."
+    },
+    {
+     "letra": "D",
+     "texto": "Quarto do Oficial de Serviço."
+    },
+    {
+     "letra": "E",
+     "texto": "Registro do Departamento Pessoal."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. Art. 40, parágrafo único, do RDM.",
+    "(B) Errada. Livro não previsto para esse fim no RDM.",
+    "(C) Errada. Livro inexistente no RDM.",
+    "(D) Errada. O livro de quarto não é o registro disciplinar.",
+    "(E) Errada. Livro inexistente no RDM."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "rdm_comentado_2011_2025",
+   "id": "rdm-2022-q31",
+   "apostila": {
+    "slug": "estatuto-rdm",
+    "block": 516
+   }
+  },
+  {
+   "ano": 2022,
+   "numero": 32,
+   "pagina": 6,
+   "assunto": "RDM — PRAZO DO RECURSO",
+   "nota": [],
+   "enunciado": [
+    "De acordo com Regulamento Disciplinar da Marinha (RDM de 2009), sobre os recursos da parte ou prisão imediata, o recurso deve ser interposto após o cumprimento da pena e dentro do prazo de:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "oito dias corridos."
+    },
+    {
+     "letra": "B",
+     "texto": "oito dias úteis."
+    },
+    {
+     "letra": "C",
+     "texto": "quinze dias corridos."
+    },
+    {
+     "letra": "D",
+     "texto": "quinze dias úteis."
+    },
+    {
+     "letra": "E",
+     "texto": "trinta dias corridos."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. O prazo é contado em dias úteis.",
+    "(B) Correta. Art. 46, § 1º, do RDM: após o cumprimento da pena e dentro de oito dias úteis.",
+    "(C) Errada.",
+    "(D) Errada.",
+    "(E) Errada."
+   ],
+   "anulacao": [
+    "Pequena margem: o enunciado fala em “recursos da parte ou prisão imediata”, mas o prazo de oito dias úteis do art. 46 é o do recurso contra pena imposta. Gabarito mantido."
+   ],
+   "fonte": "rdm_comentado_2011_2025",
+   "id": "rdm-2022-q32",
+   "apostila": {
+    "slug": "estatuto-rdm",
+    "block": 526
+   }
+  },
+  {
+   "ano": 2022,
+   "numero": 50,
+   "pagina": 7,
+   "assunto": "RDM — O QUE NÃO É AGRAVANTE (ART. 10)",
+   "nota": [],
+   "enunciado": [
+    "De acordo com o Art. 10 do Regulamento Disciplinar da Marinha (RDM de 2009), NÃO é uma circunstância agravante da contravenção disciplinar:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "conluio de duas ou mais pessoas."
+    },
+    {
+     "letra": "B",
+     "texto": "premeditação."
+    },
+    {
+     "letra": "C",
+     "texto": "maus antecedentes militares."
+    },
+    {
+     "letra": "D",
+     "texto": "provocação."
+    },
+    {
+     "letra": "E",
+     "texto": "reincidência."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada (é agravante). Art. 10, “c”.",
+    "(B) Errada (é agravante). Art. 10, “d”.",
+    "(C) Errada (é agravante). Art. 10, “h”.",
+    "(D) Correta. Provocação é atenuante (art. 11, “f”), não agravante.",
+    "(E) Errada (é agravante). Art. 10, “b”."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "rdm_comentado_2011_2025",
+   "id": "rdm-2022-q50",
+   "apostila": {
+    "slug": "estatuto-rdm",
+    "block": 387
+   }
+  },
+  {
+   "ano": 2023,
+   "numero": 41,
+   "pagina": 8,
+   "assunto": "RDM — CIRCUNSTÂNCIAS ATENUANTES (ART. 11)",
+   "nota": [],
+   "enunciado": [
+    "De acordo com o Regulamento Disciplinar para a Marinha (RDM), as contravenções disciplinares são classificadas em graves e leves - conforme o dano - grave ou leve - que causarem à disciplina ou ao serviço, em virtude da sua natureza intrínseca, ou das consequências que delas advierem, ou puderem advir, pelas circunstâncias em que forem cometidas. No entanto, algumas circunstâncias podem ser atenuantes da contravenção disciplinar. Sendo assim, assinale a opção que apresenta uma dessas circunstâncias."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Prestação anterior de serviços relevantes já reconhecidos."
+    },
+    {
+     "letra": "B",
+     "texto": "Ignorância plenamente comprovada da ordem transgredida."
+    },
+    {
+     "letra": "C",
+     "texto": "Força maior ou caso fortuito plenamente comprovado."
+    },
+    {
+     "letra": "D",
+     "texto": "Ordem de superior hierárquico."
+    },
+    {
+     "letra": "E",
+     "texto": "Legítima defesa, própria ou de outrem."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. Art. 11, “d”, do RDM.",
+    "(B) Errada. É justificativa (dirimente), art. 12, “a”: afasta a punição, não apenas a atenua.",
+    "(C) Errada. Justificativa, art. 12, “b”.",
+    "(D) Errada. Justificativa, art. 12, “d”.",
+    "(E) Errada. Justificativa, art. 12, “e”."
+   ],
+   "anulacao": [
+    "Sem margem. Dica: as quatro alternativas erradas são exatamente as justificativas do art. 12."
+   ],
+   "fonte": "rdm_comentado_2011_2025",
+   "id": "rdm-2023-q41",
+   "apostila": {
+    "slug": "estatuto-rdm",
+    "block": 384
+   }
+  },
+  {
+   "ano": 2023,
+   "numero": 44,
+   "pagina": 8,
+   "assunto": "RDM — EM NOME DE QUEM SE DÁ A VOZ DE PRISÃO (ART. 41)",
+   "nota": [],
+   "enunciado": [
+    "De acordo com o Regulamento Disciplinar para a Marinha (RDM), o superior deverá dar voz de prisão imediata ao contraventor e fazê-lo recolher-se à sua Organização Militar quando a contravenção ou suas circunstâncias assim o exigirem, a bem da ordem pública, da disciplina ou da regularidade do serviço. Essa voz de prisão será dada em nome:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "da autoridade a que o contraventor estiver diretamente subordinado, mesmo quando esta for menos graduada ou antiga do que quem dá a voz."
+    },
+    {
+     "letra": "B",
+     "texto": "da autoridade a que o contraventor estiver diretamente subordinado, ou, quando esta for menos graduada ou antiga do que quem dá a voz, em nome da que se lhe seguir em escala ascendente."
+    },
+    {
+     "letra": "C",
+     "texto": "da autoridade a que o contraventor estiver diretamente subordinado, ou, quando esta for menos graduada ou antiga do que quem dá a voz, a voz de prisão será dada em nome do Comandante do Distrito Naval ou do Comando Naval em cuja jurisdição ocorrer a prisão."
+    },
+    {
+     "letra": "D",
+     "texto": "da autoridade a que o contraventor estiver diretamente subordinado, ou, quando esta for mais graduada ou antiga do que quem dá a voz, a voz de prisão será dada em nome do Comandante do Distrito Naval ou do Comando Naval em cuja jurisdição ocorrer a prisão."
+    },
+    {
+     "letra": "E",
+     "texto": "do Comandante do Distrito Naval ou do Comando Naval em cuja jurisdição ocorrer a prisão."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. Quando a autoridade direta é menos graduada que quem dá a voz, usa-se a seguinte na escala ascendente.",
+    "(B) Correta. Texto do art. 41 do RDM.",
+    "(C) Errada. O Comandante do Distrito Naval só entra quando o contraventor se recusa a declarar a OM em que serve.",
+    "(D) Errada. Inverte a condição (“mais graduada”) e aplica a regra da recusa fora do lugar.",
+    "(E) Errada. Isso vale apenas para a recusa em declarar a OM, não como regra geral."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "rdm_comentado_2011_2025",
+   "id": "rdm-2023-q44",
+   "apostila": {
+    "slug": "estatuto-rdm",
+    "block": 518
+   }
+  },
+  {
+   "ano": 2024,
+   "numero": 42,
+   "pagina": 10,
+   "assunto": "RDM — PENAS DISCIPLINARES POR CÍRCULO (ART. 14)",
+   "nota": [],
+   "enunciado": [
+    "O decreto nº 88.545/1983, Regulamento Disciplinar para a Marinha, define contravenção disciplinar como toda ação ou omissão contrária às obrigações ou aos deveres militares estatuídos nas leis, nos regulamentos, nas normas e nas disposições em vigor que fundamentam a Organização Militar, desde que não incidindo no que é capitulado pelo Código Penal Militar como crime. Com relação à classificação e extensão das penas disciplinares, analise as afirmativas abaixo e assinale a opção correta.",
+    "I- para Oficiais da ativa: repreensão; prisão simples, até 10 dias; e prisão rigorosa, até 10 dias.",
+    "II- para Oficiais da reserva que exerçam funções de atividade: repreensão; prisão simples, até 10 dias; prisão rigorosa, até 10 dias; e dispensa das funções de atividade e licenciamento ou exclusão do serviço ativo, a bem da disciplina.",
+    "III- para os Oficiais da reserva remunerada que não exerçam funções de atividade e os reformados: repreensão; prisão simples, até 10 dias; e prisão rigorosa, até 10 dias.",
+    "IV- para Suboficiais: repreensão; prisão simples, até 10 dias; prisão rigorosa, até 10 dias; e exclusão do serviço ativo, a bem da disciplina.",
+    "V- para Sargentos: repreensão; impedimento, até 30 dias; prisão simples, até 10 dias; prisão rigorosa, até 10 dias; serviço extraordinário, até 10 dias; e licenciamento ou exclusão do serviço ativo, a bem da disciplina.",
+    "VI- para Cabos, Marinheiros e Soldados: repreensão; impedimento, até 30 dias; serviço extraordinário, até 10 dias; prisão simples, até 10 dias; prisão rigorosa, até 10 dias; e licenciamento ou exclusão do serviço ativo, a bem da disciplina."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "As afirmativas I, II, III, IV, V e VI estão corretas."
+    },
+    {
+     "letra": "B",
+     "texto": "As afirmativas I, III, IV e VI estão corretas."
+    },
+    {
+     "letra": "C",
+     "texto": "As afirmativas III e VI estão corretas."
+    },
+    {
+     "letra": "D",
+     "texto": "As afirmativas II, III e V estão corretas."
+    },
+    {
+     "letra": "E",
+     "texto": "As afirmativas IV, V e VI estão corretas."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "Análise das afirmativas: Compare com o art. 14 do RDM. I (V): alínea “a”. II (F): para oficial da reserva em função de atividade a 4ª pena é só “dispensa das funções de atividade” (alínea “b”); “licenciamento ou exclusão” é invenção. III (V): alínea “c”. IV (V): alínea “d”. V (F): Sargento NÃO tem serviço extraordinário (alínea “e”); essa pena é só de Cabos, Marinheiros e Soldados. VI (V): alínea “f”.",
+    "(A) Errada. II e V estão erradas.",
+    "(B) Correta. I, III, IV e VI.",
+    "(C) Errada. Deixa de fora I e IV, que estão corretas.",
+    "(D) Errada. Inclui II e V.",
+    "(E) Errada. Inclui V e exclui I e III."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "rdm_comentado_2011_2025",
+   "id": "rdm-2024-q42",
+   "apostila": {
+    "slug": "estatuto-rdm",
+    "block": 420
+   }
+  },
+  {
+   "ano": 2024,
+   "numero": 45,
+   "pagina": 11,
+   "assunto": "RDM — FORMAS DE APLICAR A REPREENSÃO (ART. 21)",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a lei nº 88.545/1983, Regulamento Disciplinar para a Marinha, a repreensão consistirá na declaração formal de que o contraventor é assim punido por haver cometido determinada contravenção. Sobre a repreensão, essa pode ser aplicada:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "apenas em particular ou por escrito em ofício confidencial, quando se tratar de Oficial."
+    },
+    {
+     "letra": "B",
+     "texto": "verbalmente ao Suboficial, nos círculos de Oficiais e Suboficiais."
+    },
+    {
+     "letra": "C",
+     "texto": "por escrito às Praças de graduação inferior a Sargento, em formatura da guarnição, ou parte dela, e fixada em quadro de avisos do círculo a que pertencer o contraventor."
+    },
+    {
+     "letra": "D",
+     "texto": "quando em particular, diretamente pelo subordinado que a impuser; verbalmente, na presença do Encarregado, Sargenteante Geral e do contraventor; por escrito, em ofício ostensivo a ele dirigido."
+    },
+    {
+     "letra": "E",
+     "texto": "verbalmente ao Oficial, na presença de Oficiais do mesmo círculo e, quando a Oficiais Superiores, somente por Almirantes."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. Ao Oficial a repreensão também pode ser pública (art. 21, § 2º, “a”, 1), e o ofício da repreensão em particular é “reservado”, não “confidencial”.",
+    "(B) Correta. Art. 21, § 2º, “a”, 2: ao Suboficial, verbalmente, nos círculos de Oficiais a Suboficiais.",
+    "(C) Errada. Às praças abaixo de Sargento a repreensão pública VERBAL é dada em formatura; a escrita é dada a conhecer aos mesmos círculos. “Fixada em quadro de avisos” não está no RDM.",
+    "(D) Errada. Em particular, é aplicada pelo SUPERIOR que a impuser, verbalmente na presença ÚNICA do contraventor, ou por escrito em ofício RESERVADO (art. 21, § 1º).",
+    "(E) Errada. Ao Oficial, na presença de Oficiais do mesmo posto ou superiores; não existe a regra “somente por Almirantes”."
+   ],
+   "anulacao": [
+    "Possível argumento formal: o enunciado chama o Decreto nº 88.545/1983 de “lei”. Não afeta a resposta."
+   ],
+   "fonte": "rdm_comentado_2011_2025",
+   "id": "rdm-2024-q45",
+   "apostila": {
+    "slug": "estatuto-rdm",
+    "block": 445
+   }
+  },
+  {
+   "ano": 2025,
+   "numero": 41,
+   "pagina": 12,
+   "assunto": "RDM — CUMPRIMENTO DAS PENAS DISCIPLINARES (V/F)",
+   "nota": [],
+   "enunciado": [
+    "Coloque F (falso) ou V (verdadeiro) nas afirmativas abaixo, em relação ao cumprimento das penas disciplinares, assinalando a seguir a opção correta.",
+    "( ) Não será considerada agravação da pena do Art. 25 (Pena de Prisão Rigorosa) a reclusão do Oficial, Suboficial ou Sargento a camarote, com ou sem sentinela, quando sua liberdade puder causar dano à ordem ou à disciplina.",
+    "( ) A pena de prisão simples consiste no recolhimento da Praça, à sua coberta na Organização Militar ou outro local determinado, sem prejuízo dos serviços internos que lhe couberem, salvo os de grande capacidade técnica e confiança.",
+    "( ) A pena de serviço extraordinário consistirá no desempenho pelo contraventor de qualquer serviço interno, inclusive faina, em dias e horas em que não lhe competir esse serviço.",
+    "( ) A pena consistirá na declaração formal de que o contraventor é assim punido por haver cometido determinada contravenção, sendo aplicada em particular.",
+    "( ) A critério da autoridade que as impôs, as penas de prisão simples e prisão rigorosa poderão ser cumpridas pelas Praças como determina o Art. 22, computando-se dois (2) dias de impedimento para cada dia de prisão simples e três (3) dias de impedimento para cada dia de prisão rigorosa."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "(V) (F) (V) (F) (V)"
+    },
+    {
+     "letra": "B",
+     "texto": "(F) (V) (V) (F) (V)"
+    },
+    {
+     "letra": "C",
+     "texto": "(V) (F) (F) (V) (F)"
+    },
+    {
+     "letra": "D",
+     "texto": "(F) (F) (V) (V) (F)"
+    },
+    {
+     "letra": "E",
+     "texto": "(V) (F) (F) (F) (V)"
+    }
+   ],
+   "gabarito": "Gabarito: A (preliminar)",
+   "resposta": "A",
+   "comentario": [
+    "Análise das afirmativas: 1ª (V): o art. 25 do RDM admite a reclusão a camarote, com ou sem sentinela, quando a liberdade do preso puder causar dano à ordem ou à disciplina, sem que isso seja agravação. 2ª (F): o art. 24, “b”, ressalva os serviços “de responsabilidade e confiança”, e não os “de grande capacidade técnica e confiança”. 3ª (V): texto do art. 23. 4ª (F): o art. 21 diz que a repreensão PODE ser aplicada em particular OU NÃO; a afirmativa a restringe ao particular. 5ª (V): art. 25, § 2º: dois dias de impedimento por dia de prisão simples e três por dia de prisão rigorosa. Sequência: V, F, V, F, V.",
+    "(A) Correta. V, F, V, F, V.",
+    "(B) Errada. A 1ª é verdadeira e a 2ª é falsa.",
+    "(C) Errada. A 3ª e a 5ª são verdadeiras e a 4ª é falsa.",
+    "(D) Errada. A 1ª e a 5ª são verdadeiras e a 4ª é falsa.",
+    "(E) Errada. A 3ª é verdadeira."
+   ],
+   "anulacao": [
+    "Gabarito preliminar. Sem margem relevante."
+   ],
+   "fonte": "rdm_comentado_2011_2025",
+   "id": "rdm-2025-q41",
+   "apostila": {
+    "slug": "estatuto-rdm",
+    "block": 458
+   }
+  }
+ ]
+}

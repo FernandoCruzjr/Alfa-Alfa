@@ -248,7 +248,11 @@
     "Prova de 2011 sem gabarito no projeto; resposta pelo texto da OGSA de 1987. Se a edição de 2009 tiver mudado a autoridade, o texto integral é que decide."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2011-q33"
+   "id": "ogsa-2011-q33",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 17
+   }
   },
   {
    "ano": 2011,
@@ -348,7 +352,11 @@
     "Prova de 2011 sem gabarito no projeto. A resposta sai por eliminação (o 2º item é inequívoco). O 6º item, que costuma ser atribuição do Imediato, está como “(-)” na opção C: um recurso teria margem aí."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2011-q42"
+   "id": "ogsa-2011-q42",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 319
+   }
   },
   {
    "ano": 2011,
@@ -394,7 +402,11 @@
     "Prova de 2011 sem gabarito no projeto; resposta literal do art. 4-1-39."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2011-q44"
+   "id": "ogsa-2011-q44",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 122
+   }
   },
   {
    "ano": 2011,
@@ -440,7 +452,11 @@
     "Prova de 2011 sem gabarito no projeto; resposta literal do art. 2-1-7."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2011-q45"
+   "id": "ogsa-2011-q45",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 17
+   }
   },
   {
    "ano": 2011,
@@ -486,7 +502,11 @@
     "Prova de 2011 sem gabarito no projeto; resposta literal dos arts. 3-1-6 a 3-1-8."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2011-q48"
+   "id": "ogsa-2011-q48",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 230
+   }
   },
   {
    "ano": 2012,
@@ -532,7 +552,11 @@
     "Sem margem. Esquema dos três documentos: ATO DE CRIAÇÃO = propósito, subordinação, sede, posto do Comandante; REGULAMENTO = complementa o Ato de Criação (missão, organização, estrutura, em âmbito geral); REGIMENTO INTERNO = complementa o Regulamento (rotina, em âmbito interno)."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2012-q38"
+   "id": "ogsa-2012-q38",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 14
+   }
   },
   {
    "ano": 2012,
@@ -578,7 +602,11 @@
     "Sem margem. A mesma atribuição aparece como distrator para o Encarregado de Divisão em 2014 (Q33, B)."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2012-q43"
+   "id": "ogsa-2012-q43",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 294
+   }
   },
   {
    "ano": 2012,
@@ -630,7 +658,11 @@
     "Sem margem. 6 horas é o divisor: até 6 h = por quartos; de 6 h a 24 h = de estado."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2012-q44"
+   "id": "ogsa-2012-q44",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 388
+   }
   },
   {
    "ano": 2012,
@@ -722,7 +754,11 @@
     "Sem margem relevante."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2012-q47"
+   "id": "ogsa-2012-q47",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 79
+   }
   },
   {
    "ano": 2012,
@@ -814,7 +850,11 @@
     "Sem margem."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2013-q33"
+   "id": "ogsa-2013-q33",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 388
+   }
   },
   {
    "ano": 2013,
@@ -860,7 +900,11 @@
     "Margem pequena. As opções B, C e E são atribuições de outros membros do gabinete; os nomes exatos estão no capítulo de Estado-Maior e Gabinete da OGSA."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2013-q34"
+   "id": "ogsa-2013-q34",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 226
+   }
   },
   {
    "ano": 2013,
@@ -906,7 +950,11 @@
     "Margem pequena; mesma observação da Q34."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2013-q36"
+   "id": "ogsa-2013-q36",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 236
+   }
   },
   {
    "ano": 2013,
@@ -952,7 +1000,11 @@
     "Sem margem."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2013-q42"
+   "id": "ogsa-2013-q42",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 13
+   }
   },
   {
    "ano": 2013,
@@ -998,7 +1050,11 @@
     "Sem margem."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2013-q49"
+   "id": "ogsa-2013-q49",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 36
+   }
   },
   {
    "ano": 2013,
@@ -1044,7 +1100,11 @@
     "Sem margem."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2013-q50"
+   "id": "ogsa-2013-q50",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 0
+   }
   },
   {
    "ano": 2014,
@@ -1090,7 +1150,11 @@
     "Sem margem."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2014-q33"
+   "id": "ogsa-2014-q33",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 348
+   }
   },
   {
    "ano": 2014,
@@ -1235,7 +1299,11 @@
     "Sem margem relevante."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2014-q47"
+   "id": "ogsa-2014-q47",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 482
+   }
   },
   {
    "ano": 2014,
@@ -1281,7 +1349,11 @@
     "Sem margem. Regra para memorizar: quem baixa normas de organização, na OGSA, é sempre o EMA."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2014-q49"
+   "id": "ogsa-2014-q49",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 11
+   }
   },
   {
    "ano": 2014,
@@ -1327,7 +1399,11 @@
     "Sem margem. Pelas provas: PROFISSIONAIS = inteligência, liderança, iniciativa, capacidade de decisão, capacidade profissional, capacidade administrativa, aptidão para o serviço, cultura geral. MORAIS = lealdade, probidade, discrição, critério, coragem moral, conduta militar, cooperação."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2014-q50"
+   "id": "ogsa-2014-q50",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 543
+   }
   },
   {
    "ano": 2015,
@@ -1379,7 +1455,11 @@
     "Margem pequena. A banca usa o mesmo truque nas afirmativas I e III: atribuições do Oficial de Serviço dadas ao Oficial Superior de Pernoite."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2015-q32"
+   "id": "ogsa-2015-q32",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 388
+   }
   },
   {
    "ano": 2015,
@@ -1425,7 +1505,11 @@
     "Sem margem."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2015-q39"
+   "id": "ogsa-2015-q39",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 179
+   }
   },
   {
    "ano": 2015,
@@ -1471,7 +1555,11 @@
     "Sem margem relevante."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2015-q42"
+   "id": "ogsa-2015-q42",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 283
+   }
   },
   {
    "ano": 2016,
@@ -1517,7 +1605,11 @@
     "Sem margem. A banca monta listas mistas; basta um atributo moral para eliminar a opção."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2016-q36"
+   "id": "ogsa-2016-q36",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 547
+   }
   },
   {
    "ano": 2016,
@@ -1563,7 +1655,11 @@
     "Sem margem. Mesma pergunta em 2018 (Q32)."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2016-q38"
+   "id": "ogsa-2016-q38",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 16
+   }
   },
   {
    "ano": 2017,
@@ -1615,7 +1711,11 @@
     "Há margem. A redação da I parece um princípio geral verdadeiro, e só o texto integral da OGSA mostra exatamente o que foi alterado na I e na IV. Bom candidato a recurso na época, mas o gabarito definitivo manteve D."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2017-q33"
+   "id": "ogsa-2017-q33",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 553
+   }
   },
   {
    "ano": 2018,
@@ -1661,7 +1761,11 @@
     "Sem margem."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2018-q32"
+   "id": "ogsa-2018-q32",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 16
+   }
   },
   {
    "ano": 2018,
@@ -1707,7 +1811,11 @@
     "Margem pequena. A distinção entre deveres gerais e específicos é literal da norma; o texto integral confirma em qual artigo cada item está."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2018-q36"
+   "id": "ogsa-2018-q36",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 165
+   }
   },
   {
    "ano": 2018,
@@ -1753,7 +1861,11 @@
     "Sem margem."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2018-q47"
+   "id": "ogsa-2018-q47",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 447
+   }
   },
   {
    "ano": 2019,
@@ -1799,7 +1911,11 @@
     "Margem pequena nas distratoras C, D e E, que mexem em detalhes (quem decide, prazo, quem substitui). Só o texto integral confirma cada número; a B é a regra geral e não deixa dúvida."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2019-q32"
+   "id": "ogsa-2019-q32",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 443
+   }
   },
   {
    "ano": 2019,
@@ -1845,7 +1961,11 @@
     "Sem margem."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2019-q39"
+   "id": "ogsa-2019-q39",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 17
+   }
   },
   {
    "ano": 2020,
@@ -1891,7 +2011,11 @@
     "Sem margem."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2020-q48"
+   "id": "ogsa-2020-q48",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 547
+   }
   },
   {
    "ano": 2020,
@@ -1937,7 +2061,11 @@
     "Há margem. Muitos candidatos marcam D; a banca manteve E no gabarito final e repetiu o entendimento em 2024. Confira a redação no texto integral da OGSA (capítulo do Serviço de Oficiais)."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2020-q49"
+   "id": "ogsa-2020-q49",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 385
+   }
   },
   {
    "ano": 2021,
@@ -1990,7 +2118,11 @@
     "Sem margem relevante."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2021-q33"
+   "id": "ogsa-2021-q33",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 304
+   }
   },
   {
    "ano": 2021,
@@ -2036,7 +2168,11 @@
     "Sem margem."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2021-q35"
+   "id": "ogsa-2021-q35",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 16
+   }
   },
   {
    "ano": 2022,
@@ -2082,7 +2218,11 @@
     "Sem margem relevante. A expressão “em navio onde haja Chefe de Departamento” serve justamente para tirar do Encarregado de Divisão as tarefas de departamento."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2022-q35"
+   "id": "ogsa-2022-q35",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 338
+   }
   },
   {
    "ano": 2022,
@@ -2128,7 +2268,11 @@
     "Sem margem."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2022-q39"
+   "id": "ogsa-2022-q39",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 394
+   }
   },
   {
    "ano": 2022,
@@ -2174,7 +2318,11 @@
     "Sem margem."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2022-q40"
+   "id": "ogsa-2022-q40",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 548
+   }
   },
   {
    "ano": 2022,
@@ -2220,7 +2368,11 @@
     "Sem margem."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2022-q41"
+   "id": "ogsa-2022-q41",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 17
+   }
   },
   {
    "ano": 2023,
@@ -2319,7 +2471,11 @@
     "Sem margem."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2023-q48"
+   "id": "ogsa-2023-q48",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 15
+   }
   },
   {
    "ano": 2024,
@@ -2365,7 +2521,11 @@
     "Sem margem. Questão de troca de palavras; todas as pegadinhas já tinham caído antes (2012 Q44, 2015 Q32, 2020 Q49)."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2024-q32"
+   "id": "ogsa-2024-q32",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 391
+   }
   },
   {
    "ano": 2024,
@@ -2411,7 +2571,11 @@
     "Sem margem relevante."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2024-q38"
+   "id": "ogsa-2024-q38",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 168
+   }
   },
   {
    "ano": 2025,
@@ -2457,7 +2621,11 @@
     "Gabarito preliminar. Margem pequena: as distratoras A, B e D são atribuições de outros oficiais do gabinete, que só o texto integral nomeia com exatidão."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2025-q37"
+   "id": "ogsa-2025-q37",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 235
+   }
   },
   {
    "ano": 2025,
@@ -2503,7 +2671,11 @@
     "Gabarito preliminar. Margem pequena na A e na D, que dependem de detalhes de redação; o texto integral da OGSA (capítulo do Serviço em Viagem) confirma."
    ],
    "fonte": "ogsa_comentado_2011_2025",
-   "id": "ogsa-2025-q39"
+   "id": "ogsa-2025-q39",
+   "apostila": {
+    "slug": "ogsa",
+    "block": 375
+   }
   }
  ]
 }

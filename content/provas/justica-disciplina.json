@@ -208,7 +208,11 @@
     "Sem margem. A nomenclatura “Autuação” é a do modelo da norma e o enunciado descreve exatamente esse termo."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2015-q40"
+   "id": "justica-disciplina-2015-q40",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 376
+   }
   },
   {
    "ano": 2015,
@@ -259,7 +263,11 @@
     "A questão foi ANULADA no gabarito oficial. O motivo provável é a 1ª afirmativa: a expressão “em nenhuma hipótese” e a confusão entre “processo administrativo” e “procedimento” deixam margem para considerá-la falsa, o que eliminaria todas as alternativas. A 3ª afirmativa também omite “nas normas” do texto do art. 6º do RDM, o que foi outro argumento de recurso."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2015-q41"
+   "id": "justica-disciplina-2015-q41",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 7
+   }
   },
   {
    "ano": 2015,
@@ -305,7 +313,11 @@
     "Pouca margem. A alternativa A reproduz o procedimento da norma; as demais têm erros objetivos de prazo, de competência ou de acréscimo de condição."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2015-q43"
+   "id": "justica-disciplina-2015-q43",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 588
+   }
   },
   {
    "ano": 2015,
@@ -351,7 +363,11 @@
     "Sem margem relevante; a alternativa E reproduz a norma."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2015-q49"
+   "id": "justica-disciplina-2015-q49",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 187
+   }
   },
   {
    "ano": 2016,
@@ -397,7 +413,11 @@
     "Sem margem; a alternativa B é cópia do CPPM."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2016-q32"
+   "id": "justica-disciplina-2016-q32",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 37
+   }
   },
   {
    "ano": 2016,
@@ -443,7 +463,11 @@
     "Possível argumento de recurso na alternativa E: se a edição da DGPM-315 em vigor em 2016 trouxesse 20 dias prorrogáveis até 40, a E também estaria correta. Confira o prazo na edição que você vai estudar. O gabarito oficial manteve a A."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2016-q39"
+   "id": "justica-disciplina-2016-q39",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 3
+   }
   },
   {
    "ano": 2016,
@@ -489,7 +513,11 @@
     "Sem margem; a regra do D+1 é cobrada da mesma forma em 2017, 2021, 2022 e 2025."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2016-q49"
+   "id": "justica-disciplina-2016-q49",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 541
+   }
   },
   {
    "ano": 2017,
@@ -536,7 +564,11 @@
     "Sem margem; é o mesmo método de 2016 (Q49), 2021 (Q48) e 2022 (Q48)."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2017-q32"
+   "id": "justica-disciplina-2017-q32",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 542
+   }
   },
   {
    "ano": 2017,
@@ -582,7 +614,11 @@
     "Sem margem."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2017-q35"
+   "id": "justica-disciplina-2017-q35",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 279
+   }
   },
   {
    "ano": 2017,
@@ -628,7 +664,11 @@
     "Sem margem."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2017-q37"
+   "id": "justica-disciplina-2017-q37",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 341
+   }
   },
   {
    "ano": 2018,
@@ -674,7 +714,11 @@
     "Sem margem."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2018-q31"
+   "id": "justica-disciplina-2018-q31",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 535
+   }
   },
   {
    "ano": 2018,
@@ -720,7 +764,11 @@
     "Sem margem para a edição de 2018. Atenção: em 2016 (Q39) a prova trouxe 20 + 20 = 40 como alternativa errada, o que confirma que os números da edição cobrada são 40/60."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2018-q40"
+   "id": "justica-disciplina-2018-q40",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 274
+   }
   },
   {
    "ano": 2019,
@@ -772,7 +820,11 @@
     "Pequena margem na 5ª afirmativa: o CPPM fala em “pessoa idônea” sem o rótulo “ad hoc”, mas a DGPM-315 usa essa expressão. Gabarito mantido."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2019-q46"
+   "id": "justica-disciplina-2019-q46",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 345
+   }
   },
   {
    "ano": 2019,
@@ -818,7 +870,11 @@
     "Sem margem."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2019-q50"
+   "id": "justica-disciplina-2019-q50",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 204
+   }
   },
   {
    "ano": 2020,
@@ -869,7 +925,11 @@
     "Pequena margem: a afirmativa III depende do destinatário exato da comunicação na edição da norma. O gabarito oficial foi mantido em B."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2020-q38"
+   "id": "justica-disciplina-2020-q38",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 50
+   }
   },
   {
    "ano": 2020,
@@ -915,7 +975,11 @@
     "Sem margem."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2020-q44"
+   "id": "justica-disciplina-2020-q44",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 338
+   }
   },
   {
    "ano": 2020,
@@ -961,7 +1025,11 @@
     "Sem margem."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2020-q45"
+   "id": "justica-disciplina-2020-q45",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 166
+   }
   },
   {
    "ano": 2021,
@@ -1007,7 +1075,11 @@
     "Sem margem."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2021-q44"
+   "id": "justica-disciplina-2021-q44",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 7
+   }
   },
   {
    "ano": 2021,
@@ -1053,7 +1125,11 @@
     "A questão foi ANULADA. Mais de uma alternativa pode ser defendida como correta (C e, conforme a leitura do CPPM, B ou A), o que justifica a anulação."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2021-q45"
+   "id": "justica-disciplina-2021-q45",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 308
+   }
   },
   {
    "ano": 2021,
@@ -1099,7 +1175,11 @@
     "Sem margem. Cuidado para não confundir com o IPM, em que o indiciado é ouvido em Termo de Interrogatório e as testemunhas em Termo de Inquirição (2022, Q36)."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2021-q47"
+   "id": "justica-disciplina-2021-q47",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 210
+   }
   },
   {
    "ano": 2021,
@@ -1145,7 +1225,11 @@
     "Sem margem."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2021-q48"
+   "id": "justica-disciplina-2021-q48",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 540
+   }
   },
   {
    "ano": 2021,
@@ -1237,7 +1321,11 @@
     "Sem margem."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2022-q31"
+   "id": "justica-disciplina-2022-q31",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 285
+   }
   },
   {
    "ano": 2022,
@@ -1283,7 +1371,11 @@
     "Pequena margem: o enunciado fala em “recursos da parte ou prisão imediata”, mas o prazo de oito dias úteis do art. 46 é o do recurso contra pena imposta. Gabarito mantido."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2022-q32"
+   "id": "justica-disciplina-2022-q32",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 533
+   }
   },
   {
    "ano": 2022,
@@ -1329,7 +1421,11 @@
     "Margem pequena: um candidato poderia alegar que testemunha “depõe”, mas a DGPM-315 reserva o Termo de Depoimento para a sindicância."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2022-q36"
+   "id": "justica-disciplina-2022-q36",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 386
+   }
   },
   {
    "ano": 2022,
@@ -1375,7 +1471,11 @@
     "Sem margem."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2022-q47"
+   "id": "justica-disciplina-2022-q47",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 341
+   }
   },
   {
    "ano": 2022,
@@ -1422,7 +1522,11 @@
     "Sem margem."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2022-q48"
+   "id": "justica-disciplina-2022-q48",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 542
+   }
   },
   {
    "ano": 2022,
@@ -1468,7 +1572,11 @@
     "Sem margem."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2022-q50"
+   "id": "justica-disciplina-2022-q50",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 285
+   }
   },
   {
    "ano": 2023,
@@ -1514,7 +1622,11 @@
     "Sem margem."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2023-q39"
+   "id": "justica-disciplina-2023-q39",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 638
+   }
   },
   {
    "ano": 2023,
@@ -1606,7 +1718,11 @@
     "Pequena margem na alternativa A, que depende da redação exata da norma sobre quem confere a documentação. Gabarito mantido em D."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2023-q42"
+   "id": "justica-disciplina-2023-q42",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 806
+   }
   },
   {
    "ano": 2023,
@@ -1698,7 +1814,11 @@
     "Sem margem."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2023-q50"
+   "id": "justica-disciplina-2023-q50",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 204
+   }
   },
   {
    "ano": 2024,
@@ -1744,7 +1864,11 @@
     "Sem margem relevante."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2024-q33"
+   "id": "justica-disciplina-2024-q33",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 399
+   }
   },
   {
    "ano": 2024,
@@ -1790,7 +1914,11 @@
     "Pequena margem: a prisão decorrente de pronúncia e de sentença recorrível deixaram de existir como modalidades autônomas no processo penal comum, mas a DGPM-315 as lista. Gabarito mantido."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2024-q39"
+   "id": "justica-disciplina-2024-q39",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 759
+   }
   },
   {
    "ano": 2024,
@@ -1889,7 +2017,11 @@
     "Possível argumento formal: o enunciado chama o Decreto nº 88.545/1983 de “lei”. Não afeta a resposta."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2024-q45"
+   "id": "justica-disciplina-2024-q45",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 551
+   }
   },
   {
    "ano": 2024,
@@ -1935,7 +2067,11 @@
     "Sem margem."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2024-q47"
+   "id": "justica-disciplina-2024-q47",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 27
+   }
   },
   {
    "ano": 2025,
@@ -2087,7 +2223,11 @@
     "Gabarito preliminar. Há argumento de recurso na alternativa B: a leitura “sediada no local onde (...) se encontre residindo” pode ser defendida como correta, o que daria duas respostas."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2025-q44"
+   "id": "justica-disciplina-2025-q44",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 206
+   }
   },
   {
    "ano": 2025,
@@ -2133,7 +2273,11 @@
     "Gabarito preliminar, com bom argumento de recurso: o enunciado pergunta o que o Comandante faz AO RECEBER a Parte de Ausência, mas a alternativa E descreve como essa parte é feita (momento anterior). A alternativa B descreve uma providência posterior de localização, que se encaixa melhor no comando da questão. Possível anulação ou troca para B."
    ],
    "fonte": "dgpm315_comentado_2011_2025",
-   "id": "justica-disciplina-2025-q50"
+   "id": "justica-disciplina-2025-q50",
+   "apostila": {
+    "slug": "justica-disciplina",
+    "block": 548
+   }
   }
  ],
  "exercicios": {
@@ -2204,7 +2348,11 @@
      "(D) Errada. O encarregado não assume por Termo de Compromisso, e a Conclusão registra a ida dos autos ao encarregado para despacho, não a abertura dos autos.",
      "(E) Errada. A sindicância não começa por Ordem de Serviço, e a Portaria de Instauração é da autoridade nomeante, não do encarregado."
     ],
-    "id": "justica-disciplina-ex-q1"
+    "id": "justica-disciplina-ex-q1",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 341
+    }
    },
    {
     "numero": 2,
@@ -2243,7 +2391,11 @@
      "(D) Errada. O primeiro termo confere, mas o segundo não: a sindicância apura fatos que podem ser contravenção; o que ela não abrange, a princípio, é o crime militar.",
      "(E) Errada. A sindicância é procedimento administrativo, conduzido pela própria Administração Naval, e não judicial."
     ],
-    "id": "justica-disciplina-ex-q2"
+    "id": "justica-disciplina-ex-q2",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 3
+    }
    },
    {
     "numero": 3,
@@ -2293,7 +2445,11 @@
      "(D) Errada. Erra a 4ª afirmativa.",
      "(E) Correta. É a sequência V, V, F, V, F."
     ],
-    "id": "justica-disciplina-ex-q3"
+    "id": "justica-disciplina-ex-q3",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 161
+    }
    },
    {
     "numero": 4,
@@ -2332,7 +2488,11 @@
      "(D) Errada. Não existe essa competência automática do mais antigo presente; quem instaura é o titular da OM ou o oficial a quem ele delegou.",
      "(E) Correta. É a regra da norma (2016 Q39 e 2020 Q45), que segue o mesmo modelo do art. 7º, § 1º, do CPPM para a delegação das atribuições de polícia judiciária militar."
     ],
-    "id": "justica-disciplina-ex-q4"
+    "id": "justica-disciplina-ex-q4",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 166
+    }
    },
    {
     "numero": 5,
@@ -2371,7 +2531,11 @@
      "(D) Errada. 40 + 30 = 70 dias, acima do limite de 60.",
      "(E) Errada. 40 + 40 = 80 dias, bem acima do limite."
     ],
-    "id": "justica-disciplina-ex-q5"
+    "id": "justica-disciplina-ex-q5",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 274
+    }
    },
    {
     "numero": 6,
@@ -2410,7 +2574,11 @@
      "(D) Errada. O primeiro confere; mas Termo de Compromisso não é termo de oitiva de testemunha na sindicância.",
      "(E) Correta. Na sindicância, segundo a DGPM-315: ofendido em Termo de Declarações, sindicado em Termo de Inquirição e testemunhas em Termo de Depoimento (2021 Q47). Não confundir com o IPM, em que o indiciado é ouvido em Termo de Interrogatório e as testemunhas em Termo de Inquirição."
     ],
-    "id": "justica-disciplina-ex-q6"
+    "id": "justica-disciplina-ex-q6",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 210
+    }
    },
    {
     "numero": 7,
@@ -2455,7 +2623,11 @@
      "(D) Correta. São verdadeiras I, III e IV.",
      "(E) Errada. Inclui II, que é falsa."
     ],
-    "id": "justica-disciplina-ex-q7"
+    "id": "justica-disciplina-ex-q7",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 386
+    }
    },
    {
     "numero": 8,
@@ -2494,7 +2666,11 @@
      "(D) Correta. É a ordem preferencial indicada pela norma (a alternativa E de 2025 Q44 trazia a ordem certa e errava só os nomes dos termos). Ouvir o sindicado por último permite que ele se manifeste sobre tudo o que já foi apurado.",
      "(E) Errada. Quem conduz as oitivas é o encarregado, e a norma indica uma ordem preferencial."
     ],
-    "id": "justica-disciplina-ex-q8"
+    "id": "justica-disciplina-ex-q8",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 208
+    }
    },
    {
     "numero": 9,
@@ -2533,7 +2709,11 @@
      "(D) Errada. Precatória é o meio de ouvir alguém que está em outra localidade.",
      "(E) Errada. Não existe termo com esse nome na norma."
     ],
-    "id": "justica-disciplina-ex-q9"
+    "id": "justica-disciplina-ex-q9",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 204
+    }
    },
    {
     "numero": 10,
@@ -2572,7 +2752,11 @@
      "(D) Errada. O Termo de Conclusão é lavrado pelo escrivão; a ordem do encarregado é o Despacho.",
      "(E) Correta. É a redação da norma cobrada em 2015 (Q49, alternativa correta): as ordens do encarregado ao escrivão são dadas por Despacho, lançado em continuação aos documentos ou no verso deles."
     ],
-    "id": "justica-disciplina-ex-q10"
+    "id": "justica-disciplina-ex-q10",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 187
+    }
    },
    {
     "numero": 11,
@@ -2611,7 +2795,11 @@
      "(D) Errada. As solicitações externas são formais, por ofício.",
      "(E) Errada. Ordem de Serviço é ato interno da OM e não serve para solicitar algo a órgão externo."
     ],
-    "id": "justica-disciplina-ex-q11"
+    "id": "justica-disciplina-ex-q11",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 186
+    }
    },
    {
     "numero": 12,
@@ -2650,7 +2838,11 @@
      "(D) Errada. Carta da testemunha não substitui a oitiva, e Termo de Declarações é o termo do ofendido.",
      "(E) Correta. Precatória é o meio de ouvir testemunha, sindicado ou ofendido que se encontre em cidade diferente daquela em que corre o procedimento. O ofício vai à autoridade militar, de preferência da MB, do local onde a pessoa está ou reside, no caso de civil ou militar da reserva (2025 Q44 errou justamente ao trocar esse local)."
     ],
-    "id": "justica-disciplina-ex-q12"
+    "id": "justica-disciplina-ex-q12",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 212
+    }
    },
    {
     "numero": 13,
@@ -2689,7 +2881,11 @@
      "(D) Correta. É a regra cobrada em 2017 (Q35). Ela casa com o art. 10, alínea “f”, do CPPM: o IPM pode ser instaurado quando, de sindicância feita em âmbito de jurisdição militar, resulte indício de infração penal militar.",
      "(E) Errada. Não há arquivamento: os autos servem de base para o IPM."
     ],
-    "id": "justica-disciplina-ex-q13"
+    "id": "justica-disciplina-ex-q13",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 279
+    }
    },
    {
     "numero": 14,
@@ -2728,7 +2924,11 @@
      "(D) Errada. A sindicância não admite prisão ou detenção, e um CT não dá voz de prisão a um superior.",
      "(E) Errada. O encaminhamento é à autoridade nomeante, e a sindicância não é encerrada por esse motivo."
     ],
-    "id": "justica-disciplina-ex-q14"
+    "id": "justica-disciplina-ex-q14",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 173
+    }
    },
    {
     "numero": 15,
@@ -2776,7 +2976,11 @@
      "(D) Errada. Erra a 3ª afirmativa.",
      "(E) Errada. Erra a 2ª e a 3ª afirmativas."
     ],
-    "id": "justica-disciplina-ex-q15"
+    "id": "justica-disciplina-ex-q15",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 171
+    }
    },
    {
     "numero": 16,
@@ -2815,7 +3019,11 @@
      "(D) Correta. É a regra cobrada em 2025 (Q44, alternativa correta). Ela reflete o Estatuto da Advocacia (art. 7º, XIV e XXI, da Lei nº 8.906/1994) e a Súmula Vinculante 14 do STF, sobre o acesso do defensor aos elementos de prova já documentados.",
      "(E) Errada. Não há essa exigência: bastam a carteira da OAB e, para autos sigilosos, a procuração."
     ],
-    "id": "justica-disciplina-ex-q16"
+    "id": "justica-disciplina-ex-q16",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 206
+    }
    },
    {
     "numero": 17,
@@ -2854,7 +3062,11 @@
      "(D) Errada. Ordem e posição inexistentes na norma.",
      "(E) Errada. A ordem confere, mas a posição da numeração não."
     ],
-    "id": "justica-disciplina-ex-q17"
+    "id": "justica-disciplina-ex-q17",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 202
+    }
    },
    {
     "numero": 18,
@@ -2893,7 +3105,11 @@
      "(D) Correta. É a definição cobrada em 2015 (Q40) e em 2025 (Q44, A, que errou ao atribuir o termo ao encarregado). Quem lavra e assina a Autuação é o escrivão, e os documentos são os que o encarregado lhe entregou.",
      "(E) Errada. Isso é a Juntada."
     ],
-    "id": "justica-disciplina-ex-q18"
+    "id": "justica-disciplina-ex-q18",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 200
+    }
    },
    {
     "numero": 19,
@@ -2932,7 +3148,11 @@
      "(D) Errada. Acareação é o confronto entre pessoas cujas declarações divergem.",
      "(E) Errada. Assentada é o registro de abertura de uma oitiva (data, hora e local), não o envio dos autos ao encarregado."
     ],
-    "id": "justica-disciplina-ex-q19"
+    "id": "justica-disciplina-ex-q19",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 196
+    }
    },
    {
     "numero": 20,
@@ -2971,7 +3191,11 @@
      "(D) Errada. Autuação é o termo inicial dos autos.",
      "(E) Errada. A sindicância não admite prisão ou detenção dos envolvidos."
     ],
-    "id": "justica-disciplina-ex-q20"
+    "id": "justica-disciplina-ex-q20",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 239
+    }
    },
    {
     "numero": 21,
@@ -3016,7 +3240,11 @@
      "(D) Errada. Inclui IV, que é falsa; deixa de fora I, que é verdadeira.",
      "(E) Errada. Inclui IV, que é falsa; deixa de fora II e III, que são verdadeiras."
     ],
-    "id": "justica-disciplina-ex-q21"
+    "id": "justica-disciplina-ex-q21",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 577
+    }
    },
    {
     "numero": 22,
@@ -3055,7 +3283,11 @@
      "(D) Errada. A norma não exige essa homologação.",
      "(E) Errada. A norma fala em oficiais da ativa, sem restringir ao Imediato."
     ],
-    "id": "justica-disciplina-ex-q22"
+    "id": "justica-disciplina-ex-q22",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 166
+    }
    },
    {
     "numero": 23,
@@ -3094,7 +3326,11 @@
      "(D) Errada. Termo inexistente; a medida é vedada.",
      "(E) Errada. Não se trata de prisão judicial; a sindicância, como tal, não comporta detenção."
     ],
-    "id": "justica-disciplina-ex-q23"
+    "id": "justica-disciplina-ex-q23",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 162
+    }
    },
    {
     "numero": 24,
@@ -3133,7 +3369,11 @@
      "(D) Correta. É o que prevê o art. 26 do RDM. A sindicância é o instrumento normal para esclarecer fatos que podem ser contravenção; se houver indício de crime, o caminho é o IPM.",
      "(E) Errada. A admoestação não é pena disciplinar (art. 15 do RDM)."
     ],
-    "id": "justica-disciplina-ex-q24"
+    "id": "justica-disciplina-ex-q24",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 494
+    }
    },
    {
     "numero": 25,
@@ -3183,7 +3423,11 @@
      "(D) Errada. Erra a 1ª e a 5ª afirmativas.",
      "(E) Errada. Erra a 4ª afirmativa."
     ],
-    "id": "justica-disciplina-ex-q25"
+    "id": "justica-disciplina-ex-q25",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 204
+    }
    },
    {
     "numero": 26,
@@ -3222,7 +3466,11 @@
      "(D) Errada. Correta: 2018 Q40.",
      "(E) Errada. Correta: 2017 Q35."
     ],
-    "id": "justica-disciplina-ex-q26"
+    "id": "justica-disciplina-ex-q26",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 341
+    }
    },
    {
     "numero": 27,
@@ -3261,7 +3509,11 @@
      "(D) Errada. Não existe essa vinculação; a pena é dosada conforme a contravenção e as circunstâncias.",
      "(E) Errada. A instauração de sindicância não desloca a competência para punir."
     ],
-    "id": "justica-disciplina-ex-q27"
+    "id": "justica-disciplina-ex-q27",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 494
+    }
    },
    {
     "numero": 28,
@@ -3300,7 +3552,11 @@
      "(D) Errada. O primeiro termo confere, mas o IPM não é processo judicial: ele antecede a ação penal.",
      "(E) Errada. “Argumentativo” foi a pegadinha de 2015 Q41; e a instrução do IPM é provisória."
     ],
-    "id": "justica-disciplina-ex-q28"
+    "id": "justica-disciplina-ex-q28",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 577
+    }
    },
    {
     "numero": 29,
@@ -3379,7 +3635,11 @@
      "(D) Errada. A prorrogação é de mais 20 dias, não de mais 40.",
      "(E) Errada. Nem o total nem o marco inicial conferem com o CPPM."
     ],
-    "id": "justica-disciplina-ex-q30"
+    "id": "justica-disciplina-ex-q30",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 482
+    }
    },
    {
     "numero": 31,
@@ -3418,7 +3678,11 @@
      "(D) Errada. Prazo do CPP comum para indiciado preso, não do CPPM.",
      "(E) Errada. 48 horas é o prazo da DGPM-315 para baixar a Portaria de Instauração, não para concluir o IPM."
     ],
-    "id": "justica-disciplina-ex-q31"
+    "id": "justica-disciplina-ex-q31",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 482
+    }
    },
    {
     "numero": 32,
@@ -3457,7 +3721,11 @@
      "(D) Correta. Quando o indiciado for oficial, o escrivão é oficial subalterno (segundo ou primeiro-tenente); nos demais casos, sargento, subtenente ou suboficial (art. 11 do CPPM; 2019 Q46, 5ª afirmativa).",
      "(E) Errada. O escrivão ad hoc só é admitido na falta dos militares previstos."
     ],
-    "id": "justica-disciplina-ex-q32"
+    "id": "justica-disciplina-ex-q32",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 345
+    }
    },
    {
     "numero": 33,
@@ -3496,7 +3764,11 @@
      "(D) Errada. A delegação recai em oficiais da ativa (art. 7º, § 1º).",
      "(E) Errada. Mesmo posto só se for mais antigo; urgência não afasta a regra."
     ],
-    "id": "justica-disciplina-ex-q33"
+    "id": "justica-disciplina-ex-q33",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 337
+    }
    },
    {
     "numero": 34,
@@ -3535,7 +3807,11 @@
      "(D) Errada. É a alínea “c” do art. 12.",
      "(E) Errada. É a alínea “d” do art. 12."
     ],
-    "id": "justica-disciplina-ex-q34"
+    "id": "justica-disciplina-ex-q34",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 438
+    }
    },
    {
     "numero": 35,
@@ -3585,7 +3861,11 @@
      "(D) Errada. Erra a 1ª e a 5ª afirmativas.",
      "(E) Errada. Erra a 4ª afirmativa."
     ],
-    "id": "justica-disciplina-ex-q35"
+    "id": "justica-disciplina-ex-q35",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 43
+    }
    },
    {
     "numero": 36,
@@ -3624,7 +3904,11 @@
      "(D) Errada. Solução é a decisão da autoridade nomeante, não a peça do encarregado.",
      "(E) Errada. Despacho é ordem do encarregado ao escrivão; e prisão disciplinar não se confunde com a preventiva."
     ],
-    "id": "justica-disciplina-ex-q36"
+    "id": "justica-disciplina-ex-q36",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 486
+    }
    },
    {
     "numero": 37,
@@ -3663,7 +3947,11 @@
      "(D) Errada. Nem a autoridade nem o encarregado podem arquivar o IPM.",
      "(E) Correta. É o que prevê o § 1º do art. 22. Pelo § 2º, se discordar da solução, a autoridade pode avocar o inquérito e dar solução diferente."
     ],
-    "id": "justica-disciplina-ex-q37"
+    "id": "justica-disciplina-ex-q37",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 492
+    }
    },
    {
     "numero": 38,
@@ -3702,7 +3990,11 @@
      "(D) Errada. O destino é a Auditoria da Justiça Militar, não o STJ.",
      "(E) Correta. Arts. 23 e 24 do CPPM: os autos do IPM são remetidos à Justiça Militar, e a autoridade militar não pode determinar seu arquivamento. Quem decide pelo arquivamento é o juiz, a pedido do Ministério Público."
     ],
-    "id": "justica-disciplina-ex-q38"
+    "id": "justica-disciplina-ex-q38",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 508
+    }
    },
    {
     "numero": 39,
@@ -3741,7 +4033,11 @@
      "(D) Errada. A autoridade militar não arquiva; os autos seguem à Justiça Militar.",
      "(E) Errada. Não há essa conversão."
     ],
-    "id": "justica-disciplina-ex-q39"
+    "id": "justica-disciplina-ex-q39",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 335
+    }
    },
    {
     "numero": 40,
@@ -3819,7 +4115,11 @@
      "(D) Errada. A Súmula Vinculante 14 garante o acesso já durante a investigação, quanto às provas documentadas.",
      "(E) Errada. O sigilo não dispensa nenhuma diligência; o indiciado deve ser ouvido (art. 13, “c”, do CPPM)."
     ],
-    "id": "justica-disciplina-ex-q41"
+    "id": "justica-disciplina-ex-q41",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 363
+    }
    },
    {
     "numero": 42,
@@ -3858,7 +4158,11 @@
      "(D) Errada. O período confere, mas o limite é de quatro horas e o descanso, de meia hora.",
      "(E) Correta. É o art. 19 e seu § 2º do CPPM. A alternativa A de 2024 Q33 trocou esses números (18 às 7 horas, oito horas e 45 minutos)."
     ],
-    "id": "justica-disciplina-ex-q42"
+    "id": "justica-disciplina-ex-q42",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 391
+    }
    },
    {
     "numero": 43,
@@ -3897,7 +4201,11 @@
      "(D) Errada. Não há essa exigência.",
      "(E) Errada. Termo de Interrogatório é o do indiciado."
     ],
-    "id": "justica-disciplina-ex-q43"
+    "id": "justica-disciplina-ex-q43",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 399
+    }
    },
    {
     "numero": 44,
@@ -3984,7 +4292,11 @@
      "(D) Errada. Erra a 1ª afirmativa.",
      "(E) Errada. Erra a 4ª afirmativa."
     ],
-    "id": "justica-disciplina-ex-q45"
+    "id": "justica-disciplina-ex-q45",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 734
+    }
    },
    {
     "numero": 46,
@@ -4023,7 +4335,11 @@
      "(D) Errada. Não existe essa transformação.",
      "(E) Correta. Mudando a condição da pessoa, muda o termo: o indiciado é ouvido em Termo de Interrogatório. A alternativa C de 2024 Q33 errou ao misturar com o “relatório parcial”, que é providência da sindicância que encontra crime."
     ],
-    "id": "justica-disciplina-ex-q46"
+    "id": "justica-disciplina-ex-q46",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 395
+    }
    },
    {
     "numero": 47,
@@ -4062,7 +4378,11 @@
      "(D) Errada. O Ministério Público pode requisitar o IPM, mas não o preside.",
      "(E) Correta. O art. 7º, alínea “h”, do CPPM inclui os comandantes de forças, unidades ou navios entre as autoridades que exercem a polícia judiciária militar. As atribuições podem ser delegadas a oficiais da ativa, para fins especificados e por tempo limitado (§ 1º)."
     ],
-    "id": "justica-disciplina-ex-q47"
+    "id": "justica-disciplina-ex-q47",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 166
+    }
    },
    {
     "numero": 48,
@@ -4101,7 +4421,11 @@
      "(D) Errada. Contaria os dias a partir da licença, em 07/03.",
      "(E) Errada. Passa um dia do momento da consumação."
     ],
-    "id": "justica-disciplina-ex-q48"
+    "id": "justica-disciplina-ex-q48",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 542
+    }
    },
    {
     "numero": 49,
@@ -4140,7 +4464,11 @@
      "(D) Errada. 29/02 é apenas o sétimo dia de ausência.",
      "(E) Errada. Passa dois dias da consumação."
     ],
-    "id": "justica-disciplina-ex-q49"
+    "id": "justica-disciplina-ex-q49",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 542
+    }
    },
    {
     "numero": 50,
@@ -4179,7 +4507,11 @@
      "(D) Errada. Soma dez dias sem base na regra.",
      "(E) Errada. Daria apenas sete dias de ausência."
     ],
-    "id": "justica-disciplina-ex-q50"
+    "id": "justica-disciplina-ex-q50",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 541
+    }
    },
    {
     "numero": 51,
@@ -4218,7 +4550,11 @@
      "(D) Errada. Daria apenas sete dias de ausência.",
      "(E) Errada. É o oitavo dia de ausência."
     ],
-    "id": "justica-disciplina-ex-q51"
+    "id": "justica-disciplina-ex-q51",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 541
+    }
    },
    {
     "numero": 52,
@@ -4307,7 +4643,11 @@
      "(D) Errada. A atenuante do art. 189 do CPM só se aplica a deserção consumada; aqui não houve consumação.",
      "(E) Errada. Deserção especial é a do art. 190 do CPM (falta no momento da partida do navio ou da aeronave)."
     ],
-    "id": "justica-disciplina-ex-q53"
+    "id": "justica-disciplina-ex-q53",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 541
+    }
    },
    {
     "numero": 54,
@@ -4346,7 +4686,11 @@
      "(D) Correta. É o texto do art. 189, I, do CPM, aplicável à deserção do art. 187 e aos casos assimilados do art. 188, I a III. O inciso II traz a agravante especial: deserção em unidade estacionada em fronteira ou país estrangeiro, pena agravada de um terço.",
      "(E) Errada. Fração e condição inexistentes no art. 189."
     ],
-    "id": "justica-disciplina-ex-q54"
+    "id": "justica-disciplina-ex-q54",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 533
+    }
    },
    {
     "numero": 55,
@@ -4385,7 +4729,11 @@
      "(D) Correta. É a deserção especial do art. 190 do CPM, que se consuma no próprio momento da partida (2018 Q31). Por isso o CPPM manda que, nesse caso, a lavratura do termo também seja imediata, sem a contagem dos oito dias.",
      "(E) Errada. Não existe prazo de 48 horas para a deserção especial."
     ],
-    "id": "justica-disciplina-ex-q55"
+    "id": "justica-disciplina-ex-q55",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 546
+    }
    },
    {
     "numero": 56,
@@ -4463,7 +4811,11 @@
      "(D) Errada. O termo não é processo administrativo; exclusão ou agregação é efeito da consumação, não o objeto da frase.",
      "(E) Errada. A inspeção de saúde ocorre na apresentação ou captura, não é a sujeição prevista no artigo."
     ],
-    "id": "justica-disciplina-ex-q57"
+    "id": "justica-disciplina-ex-q57",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 638
+    }
    },
    {
     "numero": 58,
@@ -4502,7 +4854,11 @@
      "(D) Errada. Não há homologação pelo Distrito Naval.",
      "(E) Correta. É o texto do § 3º do art. 456 do CPPM, que regula a deserção de praça."
     ],
-    "id": "justica-disciplina-ex-q58"
+    "id": "justica-disciplina-ex-q58",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 562
+    }
    },
    {
     "numero": 59,
@@ -4541,7 +4897,11 @@
      "(D) Errada. A consumação já produz a exclusão ou a agregação.",
      "(E) Correta. Consumada a deserção de praça especial ou de praça sem estabilidade, ela é excluída do serviço ativo; se praça estável, é agregada. Em ambos os casos o termo é publicado em boletim e os autos vão à Auditoria. A 4ª afirmativa de 2019 Q46 trazia essa regra invertida."
     ],
-    "id": "justica-disciplina-ex-q59"
+    "id": "justica-disciplina-ex-q59",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 570
+    }
    },
    {
     "numero": 60,
@@ -4580,7 +4940,11 @@
      "(D) Errada. Ele já foi excluído na consumação; a inspeção decide sobre a reinclusão.",
      "(E) Errada. Deserção é crime e é julgada pela Justiça Militar."
     ],
-    "id": "justica-disciplina-ex-q60"
+    "id": "justica-disciplina-ex-q60",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 590
+    }
    },
    {
     "numero": 61,
@@ -4619,7 +4983,11 @@
      "(D) Errada. Redução de metade é a atenuante do art. 189 do CPM, ligada à apresentação voluntária, não à demora.",
      "(E) Errada. O CPPM fixa justamente o limite de sessenta dias."
     ],
-    "id": "justica-disciplina-ex-q61"
+    "id": "justica-disciplina-ex-q61",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 581
+    }
    },
    {
     "numero": 62,
@@ -4658,7 +5026,11 @@
      "(D) Correta. É o tipo da deserção comum (art. 187 do CPM): mais de oito dias de ausência, pena de detenção de seis meses a dois anos, agravada se o desertor for oficial.",
      "(E) Errada. Prisão simples é pena disciplinar do RDM, e o prazo é de oito dias."
     ],
-    "id": "justica-disciplina-ex-q62"
+    "id": "justica-disciplina-ex-q62",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 530
+    }
    },
    {
     "numero": 63,
@@ -4697,7 +5069,11 @@
      "(D) Correta. Art. 188, I, do CPM. Também são assimilados: deixar de se apresentar dentro de oito dias após terminada ou cassada a licença ou agregação, ou declarado o estado de sítio ou de guerra (II); deixar de se apresentar, cumprida a pena, dentro de oito dias (III); conseguir exclusão do serviço ativo ou inatividade criando ou simulando incapacidade (IV).",
      "(E) Errada. Isso é favorecimento a desertor (art. 193 do CPM)."
     ],
-    "id": "justica-disciplina-ex-q63"
+    "id": "justica-disciplina-ex-q63",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 531
+    }
    },
    {
     "numero": 64,
@@ -4736,7 +5112,11 @@
      "(D) Errada. O próprio concerto é crime (art. 191, I).",
      "(E) Errada. Favorecimento é dar asilo, transporte ou ocultação a desertor (art. 193)."
     ],
-    "id": "justica-disciplina-ex-q64"
+    "id": "justica-disciplina-ex-q64",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 538
+    }
    },
    {
     "numero": 65,
@@ -4775,7 +5155,11 @@
      "(D) Correta. Art. 193 do CPM: dar asilo a desertor, tomá-lo a seu serviço ou facilitar-lhe transporte ou ocultação, sabendo ou tendo razão para saber da deserção, é crime (detenção de quatro meses a um ano). O parágrafo único isenta de pena o ascendente, o descendente, o cônjuge ou o irmão.",
      "(E) Errada. A isenção alcança só ascendente, descendente, cônjuge ou irmão."
     ],
-    "id": "justica-disciplina-ex-q65"
+    "id": "justica-disciplina-ex-q65",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 688
+    }
    },
    {
     "numero": 66,
@@ -4814,7 +5198,11 @@
      "(D) Errada. Deserção especial é a falta na partida do navio ou aeronave.",
      "(E) Errada. Abandono de posto é deixar, sem ordem, o posto ou o serviço."
     ],
-    "id": "justica-disciplina-ex-q66"
+    "id": "justica-disciplina-ex-q66",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 7
+    }
    },
    {
     "numero": 67,
@@ -4853,7 +5241,11 @@
      "(D) Errada. Não há férias no caso; a hipótese é de fuga.",
      "(E) Errada. A conduta é crime militar tipificado."
     ],
-    "id": "justica-disciplina-ex-q67"
+    "id": "justica-disciplina-ex-q67",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 536
+    }
    },
    {
     "numero": 68,
@@ -4892,7 +5284,11 @@
      "(D) Errada. Os encarregados estão trocados.",
      "(E) Errada. O Distrito Naval não participa da lavratura da Parte de Ausência."
     ],
-    "id": "justica-disciplina-ex-q68"
+    "id": "justica-disciplina-ex-q68",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 548
+    }
    },
    {
     "numero": 69,
@@ -4931,7 +5327,11 @@
      "(D) Errada. Todo militar tem o dever de prender o desertor.",
      "(E) Errada. É o contrário: o militar deve prender."
     ],
-    "id": "justica-disciplina-ex-q69"
+    "id": "justica-disciplina-ex-q69",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 653
+    }
    },
    {
     "numero": 70,
@@ -5009,7 +5409,11 @@
      "(D) Errada. A apresentação voluntária não isenta de pena.",
      "(E) Errada. A virada do ano não tem relevância; deserção especial é a do art. 190."
     ],
-    "id": "justica-disciplina-ex-q71"
+    "id": "justica-disciplina-ex-q71",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 542
+    }
    },
    {
     "numero": 72,
@@ -5260,7 +5664,11 @@
      "(D) Errada. Não há escolha: prevalece a do crime.",
      "(E) Errada. Não há isenção: aplica-se a pena do crime."
     ],
-    "id": "justica-disciplina-ex-q77"
+    "id": "justica-disciplina-ex-q77",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 137
+    }
    },
    {
     "numero": 78,
@@ -5299,7 +5707,11 @@
      "(D) Errada. Classificação inexistente no RDM.",
      "(E) Correta. É o art. 8º do RDM (reproduzido no enunciado de 2023 Q41). O RDM classifica as contravenções em apenas duas categorias, pelo dano à disciplina ou ao serviço."
     ],
-    "id": "justica-disciplina-ex-q78"
+    "id": "justica-disciplina-ex-q78",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 285
+    }
    },
    {
     "numero": 79,
@@ -5338,7 +5750,11 @@
      "(D) Errada. Os reformados também estão incluídos.",
      "(E) Errada. O RDM aplica-se a oficiais e praças."
     ],
-    "id": "justica-disciplina-ex-q79"
+    "id": "justica-disciplina-ex-q79",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 337
+    }
    },
    {
     "numero": 80,
@@ -5503,7 +5919,11 @@
      "(D) Errada. Números sem base no art. 14.",
      "(E) Errada. As prisões vão até 10 dias."
     ],
-    "id": "justica-disciplina-ex-q83"
+    "id": "justica-disciplina-ex-q83",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 482
+    }
    },
    {
     "numero": 84,
@@ -5665,7 +6085,11 @@
      "(D) Errada. Essa é a forma para o Suboficial.",
      "(E) Errada. O Sargento não é repreendido perante as praças de graduação inferior."
     ],
-    "id": "justica-disciplina-ex-q87"
+    "id": "justica-disciplina-ex-q87",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 551
+    }
    },
    {
     "numero": 88,
@@ -5704,7 +6128,11 @@
      "(D) Correta. É a regra do art. 28 do RDM. Ela conversa com o art. 40, parágrafo único: a parte contra Praça de graduação inferior a Suboficial é lançada no Livro de Registro de Contravenções Disciplinares (2022 Q31).",
      "(E) Errada. Suboficiais seguem a regra dos Oficiais (Ordem de Serviço)."
     ],
-    "id": "justica-disciplina-ex-q88"
+    "id": "justica-disciplina-ex-q88",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 175
+    }
    },
    {
     "numero": 89,
@@ -5743,7 +6171,11 @@
      "(D) Correta. O art. 20 do RDM resolve o conflito pela antiguidade: julga a mais antiga, podendo o superior determinar que a mais moderna o faça. Isso também evita duas punições pelo mesmo fato (art. 17).",
      "(E) Errada. O critério é a antiguidade, não a instauração de sindicância."
     ],
-    "id": "justica-disciplina-ex-q89"
+    "id": "justica-disciplina-ex-q89",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 137
+    }
    },
    {
     "numero": 90,
@@ -5782,7 +6214,11 @@
      "(D) Errada. O Marinheiro não é subordinado a essa autoridade.",
      "(E) Errada. O RDM resolve exatamente esse caso."
     ],
-    "id": "justica-disciplina-ex-q90"
+    "id": "justica-disciplina-ex-q90",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 435
+    }
    },
    {
     "numero": 91,
@@ -5949,7 +6385,11 @@
      "(D) Errada. O RDM fixa o limite de cento e vinte dias.",
      "(E) Correta. É o prazo de revisão do art. 38 do RDM. Não confundir com os prazos de oito dias úteis, que são os do pedido de reconsideração e do recurso, atos do próprio punido."
     ],
-    "id": "justica-disciplina-ex-q94"
+    "id": "justica-disciplina-ex-q94",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 482
+    }
    },
    {
     "numero": 95,
@@ -5988,7 +6428,11 @@
      "(D) Errada. O próprio RDM não capitula crimes.",
      "(E) Correta. É a definição do art. 6º do RDM (enunciados de 2021 Q44 e 2024 Q42). Se o fato é crime previsto no CPM, não se trata de contravenção."
     ],
-    "id": "justica-disciplina-ex-q95"
+    "id": "justica-disciplina-ex-q95",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 7
+    }
    },
    {
     "numero": 96,
@@ -6072,7 +6516,11 @@
      "(D) Errada. Pena exclusiva de Cabos, Marinheiros e Soldados.",
      "(E) Errada. O oficial da reserva já não está no serviço ativo; a pena prevista é a dispensa das funções."
     ],
-    "id": "justica-disciplina-ex-q97"
+    "id": "justica-disciplina-ex-q97",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 35
+    }
    },
    {
     "numero": 98,
@@ -6150,7 +6598,11 @@
      "(D) Errada. Trata-se de pena disciplinar, sem intervenção judicial.",
      "(E) Errada. Não há conversão; a pena continua sendo de prisão rigorosa."
     ],
-    "id": "justica-disciplina-ex-q99"
+    "id": "justica-disciplina-ex-q99",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 845
+    }
    },
    {
     "numero": 100,
@@ -6189,7 +6641,11 @@
      "(D) Errada. Perseguição logo após o fato (alínea “c”).",
      "(E) Errada. Encontrado logo depois com objetos que façam presumir sua participação (alínea “d”)."
     ],
-    "id": "justica-disciplina-ex-q100"
+    "id": "justica-disciplina-ex-q100",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 642
+    }
    },
    {
     "numero": 101,
@@ -6228,7 +6684,11 @@
      "(D) Errada. O preso é interrogado; não é testemunha de si mesmo.",
      "(E) Errada. Sindicância não substitui o auto de prisão em flagrante e não admite prisão."
     ],
-    "id": "justica-disciplina-ex-q101"
+    "id": "justica-disciplina-ex-q101",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 654
+    }
    },
    {
     "numero": 102,
@@ -6267,7 +6727,11 @@
      "(D) Errada. O preso não presta compromisso.",
      "(E) Correta. É o texto do art. 247 do CPPM. A nota de culpa informa ao preso por que está preso e quem o prendeu, em consonância com o art. 5º, LXIV, da Constituição."
     ],
-    "id": "justica-disciplina-ex-q102"
+    "id": "justica-disciplina-ex-q102",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 711
+    }
    },
    {
     "numero": 103,
@@ -6317,7 +6781,11 @@
      "(D) Errada. Erra a 3ª afirmativa.",
      "(E) Errada. Erra a 1ª e a 5ª afirmativas."
     ],
-    "id": "justica-disciplina-ex-q103"
+    "id": "justica-disciplina-ex-q103",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 583
+    }
    },
    {
     "numero": 104,
@@ -6356,7 +6824,11 @@
      "(D) Errada. Não há essa exigência; a justificativa é por escrito, caso a caso.",
      "(E) Errada. Não existe essa distinção."
     ],
-    "id": "justica-disciplina-ex-q104"
+    "id": "justica-disciplina-ex-q104",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 812
+    }
    },
    {
     "numero": 105,
@@ -6404,7 +6876,11 @@
      "(D) Correta. É a sequência V, V, V, F.",
      "(E) Errada. Erra a 3ª afirmativa."
     ],
-    "id": "justica-disciplina-ex-q105"
+    "id": "justica-disciplina-ex-q105",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 806
+    }
    },
    {
     "numero": 106,
@@ -6450,7 +6926,11 @@
      "(D) Errada. Deixa de fora I, que é verdadeira.",
      "(E) Errada. Inclui II, que é falsa."
     ],
-    "id": "justica-disciplina-ex-q106"
+    "id": "justica-disciplina-ex-q106",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 50
+    }
    },
    {
     "numero": 107,
@@ -6489,7 +6969,11 @@
      "(D) Errada. É prisão provisória: ainda cabe recurso.",
      "(E) Correta. Depois do trânsito em julgado a prisão é prisão-pena (definitiva), não cautelar. São subespécies da prisão provisória a prisão em flagrante, a preventiva, a temporária e as decorrentes de pronúncia e de sentença condenatória recorrível (2024 Q39, D)."
     ],
-    "id": "justica-disciplina-ex-q107"
+    "id": "justica-disciplina-ex-q107",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 759
+    }
    },
    {
     "numero": 108,
@@ -6528,7 +7012,11 @@
      "(D) Correta. A prisão preventiva é decretada pela autoridade judiciária (juiz ou Conselho de Justiça), de ofício, a requerimento do Ministério Público ou mediante representação da autoridade encarregada do IPM (art. 254 do CPPM). À polícia judiciária militar cabe representar (art. 8º, “d”).",
      "(E) Errada. Prisão rigorosa é pena disciplinar e não serve como medida cautelar do inquérito."
     ],
-    "id": "justica-disciplina-ex-q108"
+    "id": "justica-disciplina-ex-q108",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 40
+    }
    },
    {
     "numero": 109,
@@ -6567,7 +7055,11 @@
      "(D) Errada. Não há essa distinção.",
      "(E) Correta. É o texto do § 2º do art. 142 da CF. A jurisprudência do STF admite o habeas corpus apenas para examinar a legalidade da punição (competência da autoridade, previsão da pena, forma), mas não o seu mérito."
     ],
-    "id": "justica-disciplina-ex-q109"
+    "id": "justica-disciplina-ex-q109",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 495
+    }
    },
    {
     "numero": 110,
@@ -6654,7 +7146,11 @@
      "(D) Correta. É a sequência V, V, F, V.",
      "(E) Errada. Erra a 4ª afirmativa."
     ],
-    "id": "justica-disciplina-ex-q111"
+    "id": "justica-disciplina-ex-q111",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 324
+    }
    },
    {
     "numero": 112,
@@ -6693,7 +7189,11 @@
      "(D) Correta. Art. 102 (STF, guarda da Constituição) e art. 105 (STJ, recurso especial e ordinário) da CF, conforme a alternativa correta de 2024 Q47. O STM julga os crimes militares em segundo grau na Justiça Militar da União.",
      "(E) Errada. O recurso especial vai ao STJ, e a guarda da Constituição é do STF."
     ],
-    "id": "justica-disciplina-ex-q112"
+    "id": "justica-disciplina-ex-q112",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 27
+    }
    },
    {
     "numero": 113,
@@ -6732,7 +7232,11 @@
      "(D) Errada. As causas trabalhistas são exceção expressa.",
      "(E) Errada. Crimes militares são da Justiça Militar (art. 124 da CF)."
     ],
-    "id": "justica-disciplina-ex-q113"
+    "id": "justica-disciplina-ex-q113",
+    "apostila": {
+     "slug": "justica-disciplina",
+     "block": 23
+    }
    }
   ]
  }

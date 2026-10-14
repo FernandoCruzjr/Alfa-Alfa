@@ -209,7 +209,11 @@
     "Margem pequena. Um recurso poderia discutir a II, porque a lógica do Decreto nº 7.845/2012 deixa à autoridade classificadora a decisão sobre desclassificação; mas a afirmativa condiciona o extrato ser ostensivo a uma permissão que a SGM-105 não prevê nesses termos, e a banca manteve o gabarito. Confira no texto integral da SGM-105 (capítulo de documentos sigilosos)."
    ],
    "fonte": "sgm105_comentado_2011_2025",
-   "id": "doc-administrativa-2020-q50"
+   "id": "doc-administrativa-2020-q50",
+   "apostila": {
+    "slug": "doc-adm-mb",
+    "block": 68
+   }
   },
   {
    "ano": 2021,
@@ -255,7 +259,11 @@
     "Sem margem. Regra para memorizar os três declaratórios: Certidão = consta de documento da OM; Atestado = a autoridade tem conhecimento do fato; Declaração = afirma a existência ou inexistência de fato ou situação, fora dessas duas hipóteses."
    ],
    "fonte": "sgm105_comentado_2011_2025",
-   "id": "doc-administrativa-2021-q31"
+   "id": "doc-administrativa-2021-q31",
+   "apostila": {
+    "slug": "doc-adm-mb",
+    "block": 316
+   }
   },
   {
    "ano": 2021,
@@ -353,7 +361,11 @@
     "Margem pequena na 2ª afirmativa: o nome do órgão responsável pelos sistemas de correio eletrônico depende da revisão da SGM-105 em vigor na época (o texto integral confirma). A 5ª, que troca nato digital por digitalizado, decide a questão sozinha entre as opções."
    ],
    "fonte": "sgm105_comentado_2011_2025",
-   "id": "doc-administrativa-2021-q40"
+   "id": "doc-administrativa-2021-q40",
+   "apostila": {
+    "slug": "doc-adm-mb",
+    "block": 154
+   }
   },
   {
    "ano": 2022,
@@ -399,7 +411,11 @@
     "Sem margem. Esquema: ÂMBITO = interno ou externo; PRECEDÊNCIA = urgente, especial ou rotina; ACESSO = ostensivo, sigiloso (reservado, secreto, ultrassecreto) ou informação pessoal."
    ],
    "fonte": "sgm105_comentado_2011_2025",
-   "id": "doc-administrativa-2022-q38"
+   "id": "doc-administrativa-2022-q38",
+   "apostila": {
+    "slug": "doc-adm-mb",
+    "block": 48
+   }
   },
   {
    "ano": 2022,
@@ -445,7 +461,11 @@
     "Sem margem. Atestado = conhecimento; Certidão = documento da OM."
    ],
    "fonte": "sgm105_comentado_2011_2025",
-   "id": "doc-administrativa-2022-q42"
+   "id": "doc-administrativa-2022-q42",
+   "apostila": {
+    "slug": "doc-adm-mb",
+    "block": 314
+   }
   },
   {
    "ano": 2023,
@@ -491,7 +511,11 @@
     "Sem margem. Atenção ao distrator de 2024 (Questão 48, E): “Termo de Documentação Sigilosa (TDS)” não existe; o nome correto é TCI."
    ],
    "fonte": "sgm105_comentado_2011_2025",
-   "id": "doc-administrativa-2023-q33"
+   "id": "doc-administrativa-2023-q33",
+   "apostila": {
+    "slug": "doc-adm-mb",
+    "block": 80
+   }
   },
   {
    "ano": 2023,
@@ -537,7 +561,11 @@
     "Margem pequena. Se houve recurso, foi pela confusão com o Memorando; a banca manteve E no gabarito final, de acordo com a definição de Despacho da SGM-105. O texto integral confirma a redação exata."
    ],
    "fonte": "sgm105_comentado_2011_2025",
-   "id": "doc-administrativa-2023-q35"
+   "id": "doc-administrativa-2023-q35",
+   "apostila": {
+    "slug": "doc-adm-mb",
+    "block": 286
+   }
   },
   {
    "ano": 2023,
@@ -583,7 +611,11 @@
     "Sem margem. O enunciado reproduz a definição da norma (a LVA “não tem a finalidade de cancelar qualquer documento”)."
    ],
    "fonte": "sgm105_comentado_2011_2025",
-   "id": "doc-administrativa-2023-q45"
+   "id": "doc-administrativa-2023-q45",
+   "apostila": {
+    "slug": "doc-adm-mb",
+    "block": 146
+   }
   },
   {
    "ano": 2024,
@@ -629,7 +661,11 @@
     "Sem margem. Questão de troca de palavras (certificadora/classificadora, TDS/TCI, acesso/precedência)."
    ],
    "fonte": "sgm105_comentado_2011_2025",
-   "id": "doc-administrativa-2024-q48"
+   "id": "doc-administrativa-2024-q48",
+   "apostila": {
+    "slug": "doc-adm-mb",
+    "block": 88
+   }
   },
   {
    "ano": 2024,
@@ -675,7 +711,11 @@
     "Margem pequena. A B e a C dependem do detalhe de quem expede NORM e INST na revisão em vigor da SGM-105 (o texto integral confirma a redação). A troca entre Portaria e Ordem Interna (D e E) é clara."
    ],
    "fonte": "sgm105_comentado_2011_2025",
-   "id": "doc-administrativa-2024-q50"
+   "id": "doc-administrativa-2024-q50",
+   "apostila": {
+    "slug": "doc-adm-mb",
+    "block": 215
+   }
   },
   {
    "ano": 2025,
@@ -721,7 +761,11 @@
     "Gabarito preliminar. Sem margem relevante: só a A não mistura grupos."
    ],
    "fonte": "sgm105_comentado_2011_2025",
-   "id": "doc-administrativa-2025-q33"
+   "id": "doc-administrativa-2025-q33",
+   "apostila": {
+    "slug": "doc-adm-mb",
+    "block": 18
+   }
   },
   {
    "ano": 2025,
@@ -767,7 +811,11 @@
     "Gabarito preliminar. Possível recurso contra a E, cuja redação é muito próxima da regra (cabe discutir se o MaTDoc admite “Da:”). Como o MaTDoc não está disponível no projeto, confira o inciso no texto integral antes de usar este argumento."
    ],
    "fonte": "sgm105_comentado_2011_2025",
-   "id": "doc-administrativa-2025-q34"
+   "id": "doc-administrativa-2025-q34",
+   "apostila": {
+    "slug": "doc-adm-mb",
+    "block": 505
+   }
   }
  ]
 }

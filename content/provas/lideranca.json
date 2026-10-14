@@ -1,0 +1,2504 @@
+{
+ "slug": "lideranca",
+ "materia": "Liderança (EMA-137)",
+ "icon": "fa-people-group",
+ "cadernos": [
+  {
+   "fonte": "lideranca_ema137_comentado_2011_2025.pdf",
+   "titulo": "Liderança (EMA-137, Doutrina de Liderança da Marinha) comentada — CA-AA-AFN (CPA)",
+   "linhas": [
+    "2011–2025",
+    "Resolução comentada das questões de Liderança da parte de Conhecimentos Militares-Navais da",
+    "prova Amarela dos candidatos oriundos do Corpo de Praças da Armada (CPA), de 2011 a 2025.",
+    "Entram aqui as questões da Doutrina de Liderança da Marinha (EMA-137): conceito de",
+    "liderança, chefia e comando, níveis de liderança, estilos, aspectos filosóficos, psicológicos e",
+    "sociológicos, atributos do líder, liderança em tarefas conjuntas e expedição de ordens (normas de",
+    "Beckman, Anexo C). As questões sobre Ética Militar Naval e Rosa das Virtudes estão na apostila",
+    "própria.",
+    "Para cada questão você encontra o enunciado e as alternativas, o gabarito oficial, a explicação de",
+    "por que cada alternativa está certa ou errada, com a base na norma, e uma análise de possível",
+    "anulação (argumentos de recurso).",
+    "OBSERVAÇÕES SOBRE AS FONTES",
+    "Liderança cai em todas as provas de 2011 a 2025. São 46 questões, listadas no quadro abaixo.",
+    "Gabaritos: 2012 a 2024 são os finais, publicados após os recursos; 2011 não tem gabarito no",
+    "projeto (a resposta indicada é a do texto da norma). 2025 usa o gabarito preliminar (publicado",
+    "antes do julgamento dos recursos). Questões anuladas: 2014 Q38, 2015 Q34, 2017 Q31, 2017 Q44 (o",
+    "comentário indica a resposta esperada).",
+    "Base dos comentários: o texto do EMA-137 tal como as próprias provas o reproduzem, cruzado entre",
+    "os anos e com os gabaritos oficiais (a banca repete muitas frases, ora certas, ora adulteradas). A",
+    "prova de 2022 cita o EMA-137 de 2013; as de 2012 e 2013 cobram “atributos da Liderança Direta”,",
+    "provavelmente de uma edição anterior. O texto integral do EMA-137 não estava disponível no",
+    "projeto; onde um comentário depende de um detalhe que só ele confirma, isso está dito no",
+    "comentário.",
+    "QUADRO DE QUESTÕES E GABARITOS (PROVA AMARELA, CPA)",
+    "Ano Nº Assunto Gabarito",
+    "2011 32 NÍVEIS — OS TRÊS NÍVEIS DE LIDERANÇA (B)",
+    "2011 34 ATRIBUTOS — DEFINIÇÕES E TAREFAS CONJUNTAS (CORRETA) (D)",
+    "2011 50 ATRIBUTOS — EXEMPLO (A)",
+    "2012 32 ASPECTOS — PSICOLOGIA E RELAÇÃO LÍDER-LIDERADOS A",
+    "2012 37 ATRIBUTOS — EXEMPLO C",
+    "2012 40 ATRIBUTOS — ATRIBUTO DA LIDERANÇA DIRETA A",
+    "2012 42 CONCEITOS — DEFINIÇÃO DE LIDERANÇA C",
+    "CONCEITOS — APRIMORAMENTO DA CAPACIDADE DE LIDERANÇA (NÃO",
+    "2012 49 B",
+    "COMPLETA) ",
+    "2013 31 ATRIBUTOS — EXEMPLO (TIRINHA) D",
+    "2013 39 ASPECTOS — RELAÇÕES ENTRE LÍDER E LIDERADOS (INCORRETA) E",
+    "2013 40 NÍVEIS — LIDERANÇA DIRETA A",
+    "2013 43 ATRIBUTOS — DEDICAÇÃO E TATO A",
+    "2013 44 CONCEITOS — EXERCÍCIO DA LIDERANÇA NA MB E",
+    "2014 35 ATRIBUTOS — HUMILDADE D",
+    "2014 37 ESTILOS — CLASSIFICAÇÃO NOS TRÊS EIXOS A",
+    "Ano Nº Assunto Gabarito",
+    "2014 38 ASPECTOS — PSICOLÓGICOS: REQUISITOS EM QUE A PSICOLOGIA AJUDA O LÍDER Anulada",
+    "2014 44 ASPECTOS — SOCIOLÓGICOS: COMPETIÇÃO IMPESSOAL C",
+    "2015 34 ORDENS — DEVERES DO CHEFE AO EXPEDIR UMA ORDEM Anulada",
+    "2015 38 ASPECTOS — FILOSÓFICO (VALORES) B",
+    "2015 50 TAREFAS — LÍDER EM TAREFAS CONJUNTAS D",
+    "2016 42 ESTILOS — AUTOCRÁTICA A",
+    "2016 44 ORDENS — QUANDO USAR ORDEM ESCRITA (BECKMAN) B",
+    "2017 31 ATRIBUTOS — DEFINIÇÕES (CORRETA) Anulada",
+    "2017 38 CONCEITOS — COMANDAR = CHEFIA + LIDERANÇA A",
+    "2017 44 ATRIBUTOS — EXEMPLO E INICIATIVA Anulada",
+    "2018 33 ESTILOS — PARTICIPATIVA OU DEMOCRÁTICA A",
+    "2018 34 ASPECTOS — SOCIOLÓGICOS: PROCESSOS SOCIAIS D",
+    "2018 38 ATRIBUTOS — INICIATIVA C",
+    "2019 35 ESTILOS — TRANSFORMACIONAL (BARRETT) C",
+    "2019 42 TAREFAS — O QUE O LÍDER NÃO PRECISA OBSERVAR C",
+    "2019 44 ATRIBUTOS — CAPACIDADE DE RELACIONAMENTO INTERPESSOAL (GOLEMAN) E",
+    "2020 33 ATRIBUTOS — EXEMPLO (ESCRIBAS E FARISEUS) C",
+    "2020 35 ORDENS — EVITAR ORDENS CONTRADITÓRIAS D",
+    "2020 42 ESTILOS — CENTRALIZADORA X PARTICIPATIVA E",
+    "2021 34 ASPECTOS — SOCIOLÓGICOS: COOPERAÇÃO, COMPETIÇÃO E CONFLITO E",
+    "2021 42 ESTILOS — EIXO TIPO DE INCENTIVO B",
+    "2022 33 NÍVEIS — OS TRÊS NÍVEIS DE LIDERANÇA A",
+    "2022 37 ESTILOS — DELEGATIVA E",
+    "2022 45 ORDENS — NORMAS DE BECKMAN (EXCETO) D",
+    "2023 37 ATRIBUTOS — COMPETÊNCIA PROFISSIONAL E CAPACIDADE DECISÓRIA E",
+    "2023 40 ASPECTOS — PRINCÍPIOS QUE REGEM O COMPORTAMENTO HUMANO C",
+    "2023 46 ORDENS — QUANDO A ORDEM DEVE SER ESCRITA (BECKMAN) B",
+    "2024 31 ESTILOS — PARTICIPATIVA B",
+    "2025 40 ESTILOS — PARTICIPATIVA (ÊXITO CONDICIONADO) B*",
+    "2025 46 CONCEITOS — PONTO DE REFERÊNCIA X INCENTIVOS (ITEM 2.4) E*",
+    "2025 47 ORDENS — NORMAS DE BECKMAN (INCORRETA) D*",
+    "* 2025: gabarito preliminar. Entre parênteses (2011): sem gabarito oficial no projeto; resposta pelo texto da norma.",
+    "Em vermelho: anuladas.",
+    "Questões por assunto",
+    "CONCEITOS: LIDERANÇA, CHEFIA, COMANDO E EXERCÍCIO DA LIDERANÇA NA MB — 5 questões",
+    "2012 Q42; 2012 Q49; 2013 Q44; 2017 Q38; 2025 Q46.",
+    "NÍVEIS DE LIDERANÇA (DIRETA, ORGANIZACIONAL E ESTRATÉGICA) — 3 questões",
+    "2011 Q32; 2013 Q40; 2022 Q33.",
+    "ESTILOS DE LIDERANÇA — 9 questões",
+    "2014 Q37; 2016 Q42; 2018 Q33; 2019 Q35; 2020 Q42; 2021 Q42; 2022 Q37; 2024 Q31; 2025",
+    "Q40.",
+    "ASPECTOS FILOSÓFICOS, PSICOLÓGICOS E SOCIOLÓGICOS — 8 questões",
+    "2012 Q32; 2013 Q39; 2014 Q38; 2014 Q44; 2015 Q38; 2018 Q34; 2021 Q34; 2023 Q40.",
+    "ATRIBUTOS DO LÍDER — 13 questões",
+    "2011 Q34; 2011 Q50; 2012 Q37; 2012 Q40; 2013 Q31; 2013 Q43; 2014 Q35; 2017 Q31; 2017",
+    "Q44; 2018 Q38; 2019 Q44; 2020 Q33; 2023 Q37.",
+    "LIDERANÇA EM TAREFAS CONJUNTAS COM AS DEMAIS FORÇAS — 2 questões",
+    "2015 Q50; 2019 Q42.",
+    "EXPEDIÇÃO DE ORDENS (NORMAS DE BECKMAN) — 6 questões",
+    "2015 Q34; 2016 Q44; 2020 Q35; 2022 Q45; 2023 Q46; 2025 Q47.",
+    "Para memorizar (o que mais cai):",
+    "• Liderança = processo de influenciar pessoas para motivá-las e obter seu comprometimento na",
+    "realização de empreendimentos e na consecução dos objetivos da organização. Comandar = exercer",
+    "a chefia e a liderança, a fim de conduzir EFICAZMENTE a organização no cumprimento da missão.",
+    "• Níveis: DIRETA, ORGANIZACIONAL e ESTRATÉGICA. O líder direto usa comunicação e",
+    "supervisão, instrui e aconselha, e vê o resultado de suas ações quase imediatamente.",
+    "• Estilos (sete, em três eixos): grau de CENTRALIZAÇÃO = autocrática, participativa (democrática) e",
+    "delegativa; TIPO DE INCENTIVO = transacional e transformacional; FOCO DO LÍDER = orientada",
+    "para tarefa e orientada para relacionamento. Participativa: êxito condicionado pelas características",
+    "pessoais, conhecimento técnico-profissional e engajamento do grupo. Delegativa: assuntos técnicos,",
+    "pessoas altamente qualificadas e motivadas; saber delegar sem perder o controle. Transformacional:",
+    "crise, pressão e mudança; trabalho com significado (Barrett). Autocrática: disciplina rígida,",
+    "afastamento, controle por inspeções.",
+    "• Princípios que regem o comportamento humano: FILOSÓFICOS (valores, axiologia: honestidade,",
+    "honra, lealdade), PSICOLÓGICOS (autoconhecimento e conhecer os subordinados; noções mínimas",
+    "de psicologia, sem “psicologia intuitiva”) e SOCIOLÓGICOS (processos sociais: cooperação,",
+    "competição e conflito; competição impessoal quando os rivais não se conhecem).",
+    "• Atributos que mais caem: EXEMPLO (comportamento firme, permanente e coerente; confiança,",
+    "respeito e admiração), DEDICAÇÃO (empenho e prazos), TATO (oportuno nas palavras e críticas),",
+    "HUMILDADE (pode não saber tudo), INICIATIVA (deliberar acertadamente na ausência dos",
+    "superiores), CAPACIDADE DE RELACIONAMENTO INTERPESSOAL (mentor, feedback).",
+    "• Tarefas conjuntas: atenção à terminologia, regulamentos, costumes e tradições, relacionamento",
+    "entre níveis hierárquicos e atividades do marinheiro, do soldado e do aviador (não às diferenças",
+    "culturais e religiosas).",
+    "• Beckman: ordem por escrito quando o trabalhador tem compreensão vagarosa ou é “esquecido” e",
+    "quando envolve números precisos ou pormenores complicados; evitar ordens contraditórias e",
+    "simultâneas; repetir a ordem não entendida; não dar mais trabalho do que pode ser feito."
+   ]
+  }
+ ],
+ "provas": [
+  {
+   "ano": 2011,
+   "titulo": "Prova de 2011",
+   "intro": [
+    "O gabarito de 2011 não está no projeto. A resposta indicada em cada questão é a do texto da norma."
+   ]
+  },
+  {
+   "ano": 2012,
+   "titulo": "Prova de 2012",
+   "intro": []
+  },
+  {
+   "ano": 2013,
+   "titulo": "Prova de 2013",
+   "intro": []
+  },
+  {
+   "ano": 2014,
+   "titulo": "Prova de 2014",
+   "intro": []
+  },
+  {
+   "ano": 2015,
+   "titulo": "Prova de 2015",
+   "intro": []
+  },
+  {
+   "ano": 2016,
+   "titulo": "Prova de 2016",
+   "intro": []
+  },
+  {
+   "ano": 2017,
+   "titulo": "Prova de 2017",
+   "intro": []
+  },
+  {
+   "ano": 2018,
+   "titulo": "Prova de 2018",
+   "intro": []
+  },
+  {
+   "ano": 2019,
+   "titulo": "Prova de 2019",
+   "intro": []
+  },
+  {
+   "ano": 2020,
+   "titulo": "Prova de 2020",
+   "intro": []
+  },
+  {
+   "ano": 2021,
+   "titulo": "Prova de 2021",
+   "intro": []
+  },
+  {
+   "ano": 2022,
+   "titulo": "Prova de 2022",
+   "intro": []
+  },
+  {
+   "ano": 2023,
+   "titulo": "Prova de 2023",
+   "intro": []
+  },
+  {
+   "ano": 2024,
+   "titulo": "Prova de 2024",
+   "intro": []
+  },
+  {
+   "ano": 2025,
+   "titulo": "Prova de 2025",
+   "intro": [
+    "Gabarito preliminar (publicado em 28/10/2025, antes do julgamento dos recursos)."
+   ]
+  }
+ ],
+ "questoes": [
+  {
+   "ano": 2011,
+   "numero": 32,
+   "pagina": 5,
+   "assunto": "NÍVEIS — OS TRÊS NÍVEIS DE LIDERANÇA",
+   "nota": [],
+   "enunciado": [
+    "Quais são os três níveis de liderança adotados pela Marinha do Brasil?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Operacional, Tático e Político."
+    },
+    {
+     "letra": "B",
+     "texto": "Direta, Organizacional e Estratégica."
+    },
+    {
+     "letra": "C",
+     "texto": "Operacional, Tático e Estratégica."
+    },
+    {
+     "letra": "D",
+     "texto": "Autocrática, Democrática e Situacional."
+    },
+    {
+     "letra": "E",
+     "texto": "Autoritária, Participativa e Delegativa."
+    }
+   ],
+   "gabarito": "Gabarito: sem gabarito oficial no projeto (resposta pelo texto da norma: B)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. Operacional, tático e político são níveis de decisão e de condução da guerra, não de liderança.",
+    "(B) Correta. Os níveis de liderança do EMA-137 são Direta, Organizacional e Estratégica (mesma resposta em 2022, Q33, A).",
+    "(C) Errada. Mistura níveis de condução da guerra com o nível estratégico.",
+    "(D) Errada. São estilos (e “situacional” nem está entre os sete do EMA-137).",
+    "(E) Errada. São estilos do eixo grau de centralização (autocrática, participativa e delegativa)."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2011-q32",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 120
+   }
+  },
+  {
+   "ano": 2011,
+   "numero": 34,
+   "pagina": 5,
+   "assunto": "ATRIBUTOS — DEFINIÇÕES E TAREFAS CONJUNTAS (CORRETA)",
+   "nota": [],
+   "enunciado": [
+    "Em relação à Doutrina de Liderança da Marinha, tratada no EMA-137, assinale a afirmativa correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Realizar as atividades com empenho, esforçar-se por concluí-las corretamente, dentro dos prazos estabelecidos, é um atributo de liderança conhecido por entusiasmo."
+    },
+    {
+     "letra": "B",
+     "texto": "Persistência é a capacidade de agir face a situações inesperadas, sem depender de ordem ou decisão superior."
+    },
+    {
+     "letra": "C",
+     "texto": "O adestramento demonstra ser o melhor meio para o desenvolvimento do atributo pensamento crítico, apesar de suas limitações em relação à situação real."
+    },
+    {
+     "letra": "D",
+     "texto": "Com militares das demais Forças Armadas Brasileiras, é possível abordar o Estatuto dos Militares na aplicação da liderança, uma vez que eles também o seguem como parâmetro legal."
+    },
+    {
+     "letra": "E",
+     "texto": "A responsabilidade moral tem limites fixados. Está na consciência de cada um e no senso de moralidade."
+    }
+   ],
+   "gabarito": "Gabarito: sem gabarito oficial no projeto (resposta pelo texto da norma: D)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. Essa é a definição de DEDICAÇÃO (2013, Q43, A), não de entusiasmo.",
+    "(B) Errada. Agir diante do inesperado sem depender de ordem é INICIATIVA, não persistência.",
+    "(C) Errada pela leitura mais provável: a banca costuma montar essas frases trocando o atributo de uma definição verdadeira; confira no EMA-137 a qual atributo o texto liga o adestramento.",
+    "(D) Resposta mais provável. Na liderança de tarefas conjuntas, o EMA-137 lembra que o Estatuto dos Militares é comum às três Forças e serve de parâmetro legal comum.",
+    "(E) Errada. A responsabilidade moral NÃO tem limites fixados: está na consciência de cada um. A frase nega o texto."
+   ],
+   "anulacao": [
+    "Não há gabarito de 2011 no projeto. A letra D é a indicada por exclusão: A, B e E são definições trocadas ou negadas com segurança; a C depende de uma frase do EMA-137 da época que só o texto integral confirma."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2011-q34",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 184
+   }
+  },
+  {
+   "ano": 2011,
+   "numero": 50,
+   "pagina": 6,
+   "assunto": "ATRIBUTOS — EXEMPLO",
+   "nota": [],
+   "enunciado": [
+    "Que atributo principal refere-se ao comportamento firme, permanente e coerente do líder, que se materializa pelos valores inerentes à ética militar?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Exemplo."
+    },
+    {
+     "letra": "B",
+     "texto": "Discrição."
+    },
+    {
+     "letra": "C",
+     "texto": "Disciplina consciente."
+    },
+    {
+     "letra": "D",
+     "texto": "Desprendimento."
+    },
+    {
+     "letra": "E",
+     "texto": "Competência."
+    }
+   ],
+   "gabarito": "Gabarito: sem gabarito oficial no projeto (resposta pelo texto da norma: A)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. É a definição de Exemplo: comportamento firme, permanente e coerente, pautado pelos valores da ética militar (cobrada de novo em 2012, Q37).",
+    "(B) Errada. Discrição é manifestar-se comedidamente e saber calar quando convém.",
+    "(C) Errada. Disciplina consciente é cumprir normas mesmo sem ser observado.",
+    "(D) Errada. Desprendimento é o esquecimento voluntário do que há de egoístico, em proveito de uma causa.",
+    "(E) Errada. Competência é o domínio técnico-profissional."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2011-q50",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 209
+   }
+  },
+  {
+   "ano": 2012,
+   "numero": 32,
+   "pagina": 7,
+   "assunto": "ASPECTOS — PSICOLOGIA E RELAÇÃO LÍDER-LIDERADOS",
+   "nota": [],
+   "enunciado": [
+    "De acordo com a Publicação EMA-137 - Doutrina de Liderança da Marinha, assinale a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Para obter êxito na condução de seres humanos, é necessário que se tenha noções mínimas de psicologia."
+    },
+    {
+     "letra": "B",
+     "texto": "A psicologia intuitiva substitui os conhecimentos básicos necessários para o relacionamento interpessoal."
+    },
+    {
+     "letra": "C",
+     "texto": "O fato de um chefe sempre ser o mais antigo em um determinado grupo não acarretará risco de os subordinados o surpreenderem com respostas, comportamentos e atitudes impróprias."
+    },
+    {
+     "letra": "D",
+     "texto": "Considerando que a Marinha do Brasil é baseada na Hierarquia e na Disciplina, o processo de liderança não necessita ser constantemente submetido a uma reavaliação."
+    },
+    {
+     "letra": "E",
+     "texto": "Em um agrupamento humano, o indivíduo com mais tempo de efetivo serviço passa a ser candidato em potencial para assumir a liderança."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. O EMA-137 afirma que o líder precisa ter noções mínimas de psicologia.",
+    "(B) Errada. É o contrário: a “psicologia intuitiva” NÃO substitui esses conhecimentos (2013, Q39, A).",
+    "(C) Errada. Ser o mais antigo não protege o chefe de ser surpreendido por atitudes impróprias; por isso ele precisa conhecer os subordinados.",
+    "(D) Errada. O processo de liderança deve ser constantemente reavaliado, mesmo numa instituição hierarquizada.",
+    "(E) Errada. O candidato natural à liderança é quem personifica a vontade do grupo (credibilidade e persuasão), não quem tem mais tempo de serviço."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2012-q32"
+  },
+  {
+   "ano": 2012,
+   "numero": 37,
+   "pagina": 7,
+   "assunto": "ATRIBUTOS — EXEMPLO",
+   "nota": [],
+   "enunciado": [
+    "Atributo de um Líder que corresponde ao comportamento do mais antigo, estando ou não na função de chefe, perante os subordinados. Pode-se citar ainda, que esse comportamento, indispensável quando no desempenho da Liderança, deve ser pontuado pelos valores inerentes à ética militar, aceitos e respeitados pelo grupo. Este atributo é relacionado a um comportamento que deve ser firme, permanente e coerente. O trecho acima refere-se a que atributo?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Entusiasmo."
+    },
+    {
+     "letra": "B",
+     "texto": "Espírito de cooperação."
+    },
+    {
+     "letra": "C",
+     "texto": "Exemplo."
+    },
+    {
+     "letra": "D",
+     "texto": "Expressão oral."
+    },
+    {
+     "letra": "E",
+     "texto": "Ligação."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. Entusiasmo é executar as tarefas com ânimo elevado e vibração.",
+    "(B) Errada. Espírito de cooperação é auxiliar o grupo em prol do objetivo comum.",
+    "(C) Correta. É a definição de Exemplo (mesma de 2011, Q50).",
+    "(D) Errada. Expressão oral é a capacidade de se comunicar falando.",
+    "(E) Errada. Ligação não é o atributo descrito."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2012-q37",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 209
+   }
+  },
+  {
+   "ano": 2012,
+   "numero": 40,
+   "pagina": 8,
+   "assunto": "ATRIBUTOS — ATRIBUTO DA LIDERANÇA DIRETA",
+   "nota": [],
+   "enunciado": [
+    "A Liderança Direta é a primeira linha de liderança. Ela ocorre em organizações onde os subordinados estão acostumados a ver seus chefes frequentemente: seções, divisões, departamentos, navios, batalhões, companhias, pelotões e esquadras de tiro. Para serem eficazes, os líderes diretos devem possuir muitas habilidades interpessoais, conceituais, técnicas e táticas. Os líderes diretos aplicam os atributos conceituais de pensamento crítico-lógico e pensamento criativo para determinar a melhor maneira de cumprir a missão.",
+    "Assinale a opção que apresenta um atributo da Liderança Direta, conforme apresentado no EMA-137 - Doutrina de Liderança da Marinha."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Aprendizagem."
+    },
+    {
+     "letra": "B",
+     "texto": "Bondade."
+    },
+    {
+     "letra": "C",
+     "texto": "Competência."
+    },
+    {
+     "letra": "D",
+     "texto": "Compostura."
+    },
+    {
+     "letra": "E",
+     "texto": "Confiança."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. Aprendizagem aparecia na lista de atributos (habilidades) da Liderança Direta do EMA-137 da época, junto com comunicação, supervisão e aconselhamento.",
+    "(B) Errada. Bondade não está na lista.",
+    "(C) Errada. Competência é atributo geral do líder, mas não figura na lista de atributos da Liderança Direta cobrada.",
+    "(D) Errada. Não está na lista.",
+    "(E) Errada. Confiança é efeito do exemplo, não atributo da lista."
+   ],
+   "anulacao": [
+    "A lista exata de atributos da Liderança Direta era da edição anterior do EMA-137 e só o texto daquela edição confirma; a letra C (competência) poderia ser defendida em recurso. Gabarito mantido em A."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2012-q40",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 125
+   }
+  },
+  {
+   "ano": 2012,
+   "numero": 42,
+   "pagina": 9,
+   "assunto": "CONCEITOS — DEFINIÇÃO DE LIDERANÇA",
+   "nota": [],
+   "enunciado": [
+    "Em relação à liderança, assinale a opção correta considerando os conceitos aplicados na Marinha do Brasil, segundo o EMA-137 - Doutrina de Liderança da Marinha:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Os melhores resultados no tocante à liderança ocorrem quando ela é executada de maneira impositiva."
+    },
+    {
+     "letra": "B",
+     "texto": "A liderança na MB deve ser entendida como um processo dinâmico e progressivo de aprendizado, desenvolvido somente nos cursos de carreira dos militares da Marinha do Brasil."
+    },
+    {
+     "letra": "C",
+     "texto": "Liderança é o processo de influenciar pessoas para motivá-las e obter seu comprometimento na realização de empreendimentos e na consecução dos objetivos da organização."
+    },
+    {
+     "letra": "D",
+     "texto": "Chefia e liderança são processos alternativos, não ocorrem de maneira simultânea e não são complementares."
+    },
+    {
+     "letra": "E",
+     "texto": "No desempenho de suas funções, os mais antigos desempenham somente o papel funcional de Chefe."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. Liderança é influência e comprometimento, não imposição.",
+    "(B) Errada. O aprendizado da liderança é contínuo, ao longo de toda a carreira, não “somente” nos cursos.",
+    "(C) Correta. É a definição de liderança do EMA-137.",
+    "(D) Errada. Chefia e liderança são complementares e devem ocorrer juntas; comandar é exercer as duas (2017, Q38).",
+    "(E) Errada. O mais antigo deve ser chefe E líder."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2012-q42",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 2
+   }
+  },
+  {
+   "ano": 2012,
+   "numero": 49,
+   "pagina": 9,
+   "assunto": "CONCEITOS — APRIMORAMENTO DA CAPACIDADE DE LIDERANÇA (NÃO COMPLETA)",
+   "nota": [],
+   "enunciado": [
+    "De acordo com EMA-137 - Doutrina de Liderança da Marinha, assinale a opção que NÃO completa corretamente a sentença abaixo. Todos os militares devem ser incentivados a aprimorar sua capacidade de liderança, buscando"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "a constante atualização técnico-profissional de forma a ser referência em determinado campo de conhecimento."
+    },
+    {
+     "letra": "B",
+     "texto": "mudar aleatoriamente o estilo de liderança a ser exercido, de maneira a manter os subordinados atentos."
+    },
+    {
+     "letra": "C",
+     "texto": "aprimorar o relacionamento com outras Instituições, nacionais e estrangeiras."
+    },
+    {
+     "letra": "D",
+     "texto": "o conhecimento da conjuntura econômica e social."
+    },
+    {
+     "letra": "E",
+     "texto": "a sensibilidade no trato com os subordinados."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Completa corretamente: constante atualização técnico-profissional (cobrada de novo em 2025, Q46).",
+    "(B) É a que NÃO completa. O texto fala em capacidade de PERCEBER A SITUAÇÃO e mudar ADEQUADAMENTE o estilo de liderança; “aleatoriamente” e “manter atentos” foram inventados.",
+    "(C) Completa corretamente.",
+    "(D) Completa corretamente.",
+    "(E) Completa corretamente."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2012-q49",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 178
+   }
+  },
+  {
+   "ano": 2013,
+   "numero": 31,
+   "pagina": 11,
+   "assunto": "ATRIBUTOS — EXEMPLO (TIRINHA)",
+   "nota": [],
+   "enunciado": [
+    "Analise as figuras a seguir. [Tirinha do Recruta Zero, de Mort Walker: o personagem pergunta se o lugar é um salão de beleza, um escritório ou um campo de golfe, criticando o chefe que não faz o que exige dos subordinados.] A mensagem apresentada acima critica (demonstra a ausência), de forma jocosa, qual atributo da Liderança Direta?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Aprendizagem."
+    },
+    {
+     "letra": "B",
+     "texto": "Criatividade."
+    },
+    {
+     "letra": "C",
+     "texto": "Objetividade."
+    },
+    {
+     "letra": "D",
+     "texto": "Exemplo."
+    },
+    {
+     "letra": "E",
+     "texto": "Flexibilidade."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. A tirinha não trata de aprender.",
+    "(B) Errada.",
+    "(C) Errada.",
+    "(D) Correta. A crítica é ao chefe que não dá o exemplo: cobra trabalho, mas usa o tempo com outras coisas.",
+    "(E) Errada."
+   ],
+   "anulacao": [
+    "Sem margem. A tirinha não pôde ser transcrita (é imagem); o sentido está descrito entre colchetes."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2013-q31"
+  },
+  {
+   "ano": 2013,
+   "numero": 39,
+   "pagina": 11,
+   "assunto": "ASPECTOS — RELAÇÕES ENTRE LÍDER E LIDERADOS (INCORRETA)",
+   "nota": [],
+   "enunciado": [
+    "Sobre os princípios que envolvem as relações entre o líder e os liderados é INCORRETO afirmar que:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "o líder necessita ter noções mínimas de psicologia e não poderá substituí-las pelo uso de “psicologia intuitiva”."
+    },
+    {
+     "letra": "B",
+     "texto": "valores como honra, honestidade e amor à pátria, devem ser praticados e transmitidos permanentemente pelo líder aos seus subordinados."
+    },
+    {
+     "letra": "C",
+     "texto": "credibilidade e persuasão são atributos pessoais necessários para qualificar alguém que personifica a vontade coletiva de um grupo."
+    },
+    {
+     "letra": "D",
+     "texto": "o ser humano precisa receber uma educação adequada para ser capaz de valorizar a vida humana, a Pátria, e a dignidade."
+    },
+    {
+     "letra": "E",
+     "texto": "o líder deve ser capaz de compreender o processo psicológico do “estímulo - comportamento - atitude”, que permite moldar e avaliar os liderados em diversas tarefas, exceto aquelas que envolvem risco de vida."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Correta (texto do EMA-137; ver 2012, Q32).",
+    "(B) Correta. É o aspecto filosófico (axiológico) da liderança.",
+    "(C) Correta. Credibilidade e persuasão qualificam quem personifica a vontade do grupo.",
+    "(D) Correta. Também do aspecto filosófico.",
+    "(E) É a INCORRETA. A ressalva “exceto aquelas que envolvem risco de vida” foi inventada: o processo vale para todas as tarefas, inclusive as de risco."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2013-q39"
+  },
+  {
+   "ano": 2013,
+   "numero": 40,
+   "pagina": 12,
+   "assunto": "NÍVEIS — LIDERANÇA DIRETA",
+   "nota": [],
+   "enunciado": [
+    "A publicação EMA-137 estabelece três níveis de liderança. Em relação ao nível de Liderança Direta, é correto afirmar que os líderes"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "empregam os atributos interpessoais de comunicação e supervisão para realizar seu trabalho, desenvolvendo seus liderados por instruções e aconselhamentos. Eles vêem o resultado de suas ações quase imediatamente."
+    },
+    {
+     "letra": "B",
+     "texto": "expedem suas políticas e diretivas e motivam seus liderados por meio de seu “staff” e comandantes subordinados."
+    },
+    {
+     "letra": "C",
+     "texto": "trabalham para deixar, hoje, a Instituição pronta para o amanhã, para enfrentar os desafios do futuro."
+    },
+    {
+     "letra": "D",
+     "texto": "exercem influência continuamente. Eles planejam e preparam as atividades, deixando a execução e o controle dos resultados sob a responsabilidade de seus subordinados."
+    },
+    {
+     "letra": "E",
+     "texto": "devem trabalhar para criar e desenvolver a próxima geração de Líderes Diretos, montar a estrutura para o futuro e pesquisar os novos sistemas que contribuirão para a obtenção do sucesso."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. O líder direto atua face a face: comunicação, supervisão, instrução e aconselhamento, vendo o resultado quase imediatamente.",
+    "(B) Errada. Agir por meio de “staff” e comandantes subordinados é característica da liderança organizacional.",
+    "(C) Errada. Preparar a Instituição para o futuro é da liderança estratégica.",
+    "(D) Errada. O líder direto acompanha também a execução e o controle; não os entrega aos subordinados.",
+    "(E) Errada. Criar a próxima geração de líderes e montar a estrutura para o futuro é papel dos níveis organizacional e estratégico."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2013-q40",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 126
+   }
+  },
+  {
+   "ano": 2013,
+   "numero": 43,
+   "pagina": 13,
+   "assunto": "ATRIBUTOS — DEDICAÇÃO E TATO",
+   "nota": [],
+   "enunciado": [
+    "Analise a situação fictícia a seguir. O 1º Tenente (AA) Albuquerque foi movimentado para outra OM. O Comandante, após analisar sua conduta durante o período em que ali serviu, registrou em Ordem de Serviço o seguinte trecho: “Após 2 anos e 3 meses servindo nesta OM, desembarca hoje o Primeiro-Tenente Auxiliar da Armada Albuquerque. Durante este período exerceu a função de Ajudante do Chefe do Departamento de Administração, realizando suas atividades com empenho, sempre esforçando-se por concluí-las corretamente, dentro dos prazos estabelecidos. Sua habilidade em tratar e resolver questões com outras pessoas, sendo oportuno nas palavras, gestos, nas ordens, soluções e elogios, bem como nas críticas, angariou o respeito e a consideração de seus subordinados. Neste momento, em meu nome e de toda a tripulação, apresento meus sinceros agradecimentos e votos de muitas felicidades na próxima Comissão”. No texto acima pode-se identificar dois Atributos de um Líder, que são:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Dedicação e Tato."
+    },
+    {
+     "letra": "B",
+     "texto": "Iniciativa e Expressão escrita."
+    },
+    {
+     "letra": "C",
+     "texto": "Coragem e Dedicação."
+    },
+    {
+     "letra": "D",
+     "texto": "Competência e Iniciativa."
+    },
+    {
+     "letra": "E",
+     "texto": "Apresentação Pessoal e Tato."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. “Realizar as atividades com empenho... dentro dos prazos” é DEDICAÇÃO; “habilidade em tratar com outras pessoas, sendo oportuno nas palavras... e nas críticas” é TATO.",
+    "(B) Errada. O texto não descreve iniciativa nem expressão escrita.",
+    "(C) Errada. Não há coragem descrita.",
+    "(D) Errada.",
+    "(E) Errada. Tato está certo, mas apresentação pessoal não aparece."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2013-q43"
+  },
+  {
+   "ano": 2013,
+   "numero": 44,
+   "pagina": 13,
+   "assunto": "CONCEITOS — EXERCÍCIO DA LIDERANÇA NA MB",
+   "nota": [],
+   "enunciado": [
+    "Em relação ao exercício da liderança pelo pessoal da MB, assinale a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "A Liderança Naval é exercida somente no âmbito externo, condicionada às normas estatutárias da hierarquia e da disciplina."
+    },
+    {
+     "letra": "B",
+     "texto": "A Liderança Militar comporta uma variada gama de fatores que compõem o perfil do líder. O domínio de alguns deles assegura o êxito, assim como a inexistência de outros indica a falta de condições para ser líder."
+    },
+    {
+     "letra": "C",
+     "texto": "A condução do pessoal - Liderança Naval - é um processo de influenciação utilizado por alguns escalões, notadamente os mais elevados, no trato com os subordinados em busca da harmonia entre os objetivos da Instituição e os interesses pessoais, fundamentada em leis e tradições navais."
+    },
+    {
+     "letra": "D",
+     "texto": "Para se aperfeiçoarem como líderes, os militares da Marinha devem focar no conhecimento sobre os deveres específicos de sua incumbência, evitando aqueles de postos/graduações acima da sua."
+    },
+    {
+     "letra": "E",
+     "texto": "O exercício da liderança na Marinha está centrado, basicamente, na capacidade profissional dos militares, alinhado a outros atributos, tendo como responsabilidade básica o desenvolvimento, o ajustamento e a orientação dos subordinados."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. A liderança é exercida em todos os âmbitos, não “somente no externo”.",
+    "(B) Errada. O EMA-137 diz o contrário: o domínio de alguns fatores NÃO assegura o êxito, nem a falta de outros impede alguém de ser líder.",
+    "(C) Errada. A liderança é exercida por TODOS os escalões, não só pelos mais elevados.",
+    "(D) Errada. O militar deve conhecer também os deveres dos postos e graduações acima do seu, para se preparar para eles.",
+    "(E) Correta. É o texto do item sobre o exercício da liderança na MB (repetido, com troca de palavras, em 2015, Q50, C)."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2013-q44",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 161
+   }
+  },
+  {
+   "ano": 2014,
+   "numero": 35,
+   "pagina": 15,
+   "assunto": "ATRIBUTOS — HUMILDADE",
+   "nota": [],
+   "enunciado": [
+    "A qual atributo de um Líder corresponde a sentença: “É ter consciência de que o líder pode não saber tudo sobre determinado assunto, que pode estar equivocado em seu julgamento ou sua posição e que mais modernos, ou mais antigos, com suas experiências, podem saber mais e ajudá-lo no cumprimento da missão”?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Integridade Ética."
+    },
+    {
+     "letra": "B",
+     "texto": "Lealdade."
+    },
+    {
+     "letra": "C",
+     "texto": "Caráter."
+    },
+    {
+     "letra": "D",
+     "texto": "Humildade."
+    },
+    {
+     "letra": "E",
+     "texto": "Competência Profissional."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. Integridade ética é agir de acordo com os valores morais.",
+    "(B) Errada. Lealdade é fidelidade a superiores, pares, subordinados e à Instituição.",
+    "(C) Errada. Caráter é a firmeza de princípios.",
+    "(D) Correta. É a definição de Humildade do EMA-137.",
+    "(E) Errada. Competência profissional é o domínio do conhecimento da função."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2014-q35",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 222
+   }
+  },
+  {
+   "ano": 2014,
+   "numero": 37,
+   "pagina": 15,
+   "assunto": "ESTILOS — CLASSIFICAÇÃO NOS TRÊS EIXOS",
+   "nota": [],
+   "enunciado": [
+    "Os diferentes estilos de liderança, propostos à luz das diversas teorias, enquadram-se em três principais critérios de classificação. Com relação aos estilos de liderança, classifique os itens abaixo quanto ao grau de centralização (C), quanto ao tipo de incentivo (I) e quanto ao foco do líder (F), e assinale a opção que apresenta a sequência correta.",
+    "( ) Liderança Delegativa.",
+    "( ) Liderança Orientada para Tarefa.",
+    "( ) Liderança Participativa.",
+    "( ) Liderança Transacional.",
+    "( ) Liderança Orientada para Relacionamento."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "(C) (F) (C) (I) (F)"
+    },
+    {
+     "letra": "B",
+     "texto": "(C) (I) (F) (I) (F)"
+    },
+    {
+     "letra": "C",
+     "texto": "(I) (F) (C) (C) (F)"
+    },
+    {
+     "letra": "D",
+     "texto": "(I) (F) (C) (I) (F)"
+    },
+    {
+     "letra": "E",
+     "texto": "(C) (F) (F) (I) (I)"
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "Análise das afirmativas: Delegativa: grau de centralização (C). Orientada para Tarefa: foco do líder (F). Participativa: grau de centralização (C). Transacional: tipo de incentivo (I). Orientada para Relacionamento: foco do líder (F). Sequência: C, F, C, I, F.",
+    "(A) Correta. C, F, C, I, F.",
+    "(B) Errada. Tarefa é foco (F), não incentivo, e participativa é centralização (C).",
+    "(C) Errada. Delegativa é centralização e transacional é incentivo.",
+    "(D) Errada. Delegativa é centralização (C), não incentivo.",
+    "(E) Errada. Participativa é centralização e relacionamento é foco."
+   ],
+   "anulacao": [
+    "Sem margem. Os três eixos: centralização (autocrática, participativa, delegativa), incentivo (transacional, transformacional) e foco (tarefa, relacionamento)."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2014-q37",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 59
+   }
+  },
+  {
+   "ano": 2014,
+   "numero": 38,
+   "pagina": 16,
+   "assunto": "ASPECTOS — PSICOLÓGICOS: REQUISITOS EM QUE A PSICOLOGIA AJUDA O LÍDER",
+   "nota": [],
+   "enunciado": [
+    "Considerando os Aspectos Psicológicos, assinale a opção que apresenta os dois requisitos para os quais a psicologia pode oferecer ferramentas úteis para o líder."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Axiologia e autoconhecimento."
+    },
+    {
+     "letra": "B",
+     "texto": "Autoconhecimento e conhecer bem seus subordinados."
+    },
+    {
+     "letra": "C",
+     "texto": "Conhecimento profissional e axiologia."
+    },
+    {
+     "letra": "D",
+     "texto": "Conhecimento profissional e autocontrole."
+    },
+    {
+     "letra": "E",
+     "texto": "Autoconhecimento e autocontrole."
+    }
+   ],
+   "gabarito": "Gabarito: ANULADA (resposta esperada pelo texto da norma: B)",
+   "resposta": "ANULADA",
+   "comentario": [
+    "(A) Errada. Axiologia (estudo dos valores) pertence ao aspecto filosófico.",
+    "(B) Resposta esperada: a psicologia ajuda o líder a conhecer a si mesmo e a conhecer bem os seus subordinados.",
+    "(C) Errada. Nem conhecimento profissional nem axiologia são requisitos do aspecto psicológico.",
+    "(D) Errada.",
+    "(E) Defensável: autocontrole é resultado do autoconhecimento, o que pode ter levado à anulação."
+   ],
+   "anulacao": [
+    "ANULADA no gabarito oficial. Provável motivo: as letras B e E podem ser defendidas, já que autocontrole e autoconhecimento andam juntos no texto do aspecto psicológico. Para a prova, guarde o par do EMA-137: autoconhecimento e conhecer bem os subordinados."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2014-q38",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 37
+   }
+  },
+  {
+   "ano": 2014,
+   "numero": 44,
+   "pagina": 16,
+   "assunto": "ASPECTOS — SOCIOLÓGICOS: COMPETIÇÃO IMPESSOAL",
+   "nota": [],
+   "enunciado": [
+    "Considerando os Aspectos Sociológicos apresentados no EMA-137, qual tipo de competição ocorre quando o número de rivais é tal que se torna impossível o conhecimento entre eles?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Pessoal."
+    },
+    {
+     "letra": "B",
+     "texto": "Intrapessoal."
+    },
+    {
+     "letra": "C",
+     "texto": "Impessoal."
+    },
+    {
+     "letra": "D",
+     "texto": "Interpessoal."
+    },
+    {
+     "letra": "E",
+     "texto": "Extrapessoal."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. Competição pessoal é aquela em que os rivais se conhecem.",
+    "(B) Errada. Não é tipo de competição do texto.",
+    "(C) Correta. Quando os rivais são tantos que não se conhecem, a competição é impessoal.",
+    "(D) Errada. Não é a classificação do EMA-137.",
+    "(E) Errada. Termo inexistente."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2014-q44",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 45
+   }
+  },
+  {
+   "ano": 2015,
+   "numero": 34,
+   "pagina": 18,
+   "assunto": "ORDENS — DEVERES DO CHEFE AO EXPEDIR UMA ORDEM",
+   "nota": [],
+   "enunciado": [
+    "Segundo o EMA-137, ao expedir uma ordem, o chefe deve"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "expedi-la em tom imperativo, pois tem um efeito imediato para com o subordinado."
+    },
+    {
+     "letra": "B",
+     "texto": "escolher cuidadosamente as palavras, principalmente as faladas, de tal forma que signifiquem a mesma coisa para ele e para os subordinados."
+    },
+    {
+     "letra": "C",
+     "texto": "caso haja necessidade de se modificar uma ordem, até mesmo em sentido contrário, o subordinado deve estar ciente de que o chefe sabe o que está fazendo e tem fundada razão para assim agir."
+    },
+    {
+     "letra": "D",
+     "texto": "expedir por escrito, a ordem que envolve séria responsabilidade, independentemente de solicitação prévia do subordinado."
+    },
+    {
+     "letra": "E",
+     "texto": "fazer com que, na medida do possível, a ordem seja pausada e explicada em detalhes, de maneira que possa ser facilmente retida pela memória."
+    }
+   ],
+   "gabarito": "Gabarito: ANULADA (resposta esperada pelo texto da norma: B)",
+   "resposta": "ANULADA",
+   "comentario": [
+    "(A) Errada. O tom deve ser adequado e firme, não imperativo por regra.",
+    "(B) Correta pelo texto: escolher as palavras para que signifiquem o mesmo para quem manda e para quem cumpre.",
+    "(C) Também tem apoio no texto: ao mudar uma ordem, o chefe deve deixar claro que tem razão fundada para isso.",
+    "(D) Errada pela leitura mais provável: a ordem escrita é recomendada para casos específicos (números precisos, pormenores complicados, compreensão vagarosa), e a de grande responsabilidade quando o subordinado a pede.",
+    "(E) Errada. A ordem deve ser curta e clara para ser retida; “explicada em detalhes” vai contra isso."
+   ],
+   "anulacao": [
+    "ANULADA no gabarito oficial. Provável motivo: as letras B e C reproduzem trechos do EMA-137, o que deixa duas respostas corretas."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2015-q34"
+  },
+  {
+   "ano": 2015,
+   "numero": 38,
+   "pagina": 18,
+   "assunto": "ASPECTOS — FILOSÓFICO (VALORES)",
+   "nota": [],
+   "enunciado": [
+    "Um Oficial, Encarregado de determinada Divisão, tem sob sua responsabilidade todo o material de uso e consumo de sua OM, onde, mensalmente, há uma rotina de prestação de contas desse material por meio de uma Relatoria. Esse Oficial, ao coordenar sua equipe de militares e servidores civis, durante essa prestação de contas, procura transmitir a ela sua experiência, favorecendo o processo de tomada de decisão do mesmo. Além disso, ele propaga seu doutrinamento com comprometimento nas atividades que executa, busca transmitir e praticar a honestidade, a dignidade, a honra e a lealdade a seus subordinados. Sendo assim, pode-se afirmar que o aspecto da liderança praticado por esse Oficial é o"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "psicológico."
+    },
+    {
+     "letra": "B",
+     "texto": "filosófico."
+    },
+    {
+     "letra": "C",
+     "texto": "axiológico."
+    },
+    {
+     "letra": "D",
+     "texto": "sociológico."
+    },
+    {
+     "letra": "E",
+     "texto": "participativo."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. O aspecto psicológico trata de autoconhecimento e conhecimento dos subordinados.",
+    "(B) Correta. Transmitir e praticar valores (honestidade, dignidade, honra, lealdade) é o aspecto filosófico da liderança.",
+    "(C) Errada como resposta: a axiologia (estudo dos valores) é PARTE do aspecto filosófico, mas os três aspectos do EMA-137 são filosófico, psicológico e sociológico (2023, Q40).",
+    "(D) Errada. O sociológico trata dos processos sociais (cooperação, competição e conflito).",
+    "(E) Errada. Participativo é estilo, não aspecto."
+   ],
+   "anulacao": [
+    "Margem pequena: a letra C (axiológico) descreve bem a conduta, mas não é um dos três aspectos do EMA-137. Gabarito mantido em B."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2015-q38",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 32
+   }
+  },
+  {
+   "ano": 2015,
+   "numero": 50,
+   "pagina": 19,
+   "assunto": "TAREFAS — LÍDER EM TAREFAS CONJUNTAS",
+   "nota": [],
+   "enunciado": [
+    "Com relação à execução, pelo pessoal da MB, de tarefas conjuntas em grupos com militares das demais Forças Brasileiras, assinale a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "A credibilidade do líder deve estar associada à sua posição hierárquica, ao seu papel de chefe naval, à sua percepção política, à capacidade de comunicação e iniciativa, ao conhecimento técnico e à habilidade de negociação."
+    },
+    {
+     "letra": "B",
+     "texto": "Tarefas conjuntas são atividades das mais complexas, pois o líder deverá ser, necessariamente, um líder intramuros, reconhecido pela sua conduta moral e profissional, percepção política, conhecimento profissional, cultura geral, habilidade de negociação, capacidade de comunicação e iniciativa."
+    },
+    {
+     "letra": "C",
+     "texto": "O líder deve confiar, basicamente, na capacidade profissional de seus militares, conciliada com os atributos, tendo como parâmetro o desenvolvimento, o ajustamento e a orientação dos subordinados."
+    },
+    {
+     "letra": "D",
+     "texto": "O líder deve ter atenção sobre certas nuanças, decorrentes das especificidades de cada força, entre elas, a terminologia diferenciada, os regulamentos, costumes e tradições e o relacionamento entre os diferentes níveis hierárquicos."
+    },
+    {
+     "letra": "E",
+     "texto": "São conhecimentos básicos do líder de tarefas conjuntas a negociação, a capacidade de comunicação, utilizando todos os meios disponibilizados pela tecnologia atual, o conhecimento das regras básicas de comportamento de cada ambiente específico, equilíbrio emocional, os conhecimentos técnicos e a cultura geral."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. A credibilidade não vem da posição hierárquica nem do papel de chefe; vem da conduta moral e profissional.",
+    "(B) Errada. Nas tarefas com as outras Forças o líder atua “extramuros”, fora da própria Força; “intramuros” inverte o sentido.",
+    "(C) Errada. É o texto do exercício da liderança na própria Marinha (2013, Q44, E), adaptado; não é o item de tarefas conjuntas.",
+    "(D) Correta. São as nuanças do EMA-137 para tarefas conjuntas (repetidas em 2019, Q42).",
+    "(E) Errada. A lista mistura itens de outro contexto (liderança junto a instituições civis e estrangeiras)."
+   ],
+   "anulacao": [
+    "Margem pequena na letra E, que soa plausível; mas a D é o texto literal. Gabarito mantido."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2015-q50",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 184
+   }
+  },
+  {
+   "ano": 2016,
+   "numero": 42,
+   "pagina": 21,
+   "assunto": "ESTILOS — AUTOCRÁTICA",
+   "nota": [],
+   "enunciado": [
+    "O líder de uma determinada Organização Militar baseia sua atuação numa disciplina rígida, impondo obediência e mantendo-se afastado de relacionamentos menos formais com os seus subordinados, controla o grupo por meio de inspeções de verificação do cumprimento de normas e padrões de eficiência, exercendo pressão contínua. Sendo assim, é correto afirmar que esse líder exerce o estilo de liderança"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Autocrática."
+    },
+    {
+     "letra": "B",
+     "texto": "Participativa."
+    },
+    {
+     "letra": "C",
+     "texto": "Delegativa."
+    },
+    {
+     "letra": "D",
+     "texto": "Transformacional."
+    },
+    {
+     "letra": "E",
+     "texto": "Orientada para Tarefa."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. Disciplina rígida, obediência imposta, afastamento dos subordinados e controle por inspeções descrevem a liderança autocrática.",
+    "(B) Errada. Na participativa o grupo opina.",
+    "(C) Errada. Na delegativa o líder atribui decisões a assessores qualificados.",
+    "(D) Errada. A transformacional inspira e dá significado ao trabalho.",
+    "(E) Errada como resposta: o foco em tarefa aparece, mas o centro da descrição é a centralização e a imposição, que são da autocrática."
+   ],
+   "anulacao": [
+    "Margem pequena: a letra E poderia ser argumentada, mas a descrição (impor obediência, afastar-se) é a da autocrática. Gabarito mantido."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2016-q42",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 66
+   }
+  },
+  {
+   "ano": 2016,
+   "numero": 44,
+   "pagina": 21,
+   "assunto": "ORDENS — QUANDO USAR ORDEM ESCRITA (BECKMAN)",
+   "nota": [],
+   "enunciado": [
+    "Segundo Beckman, as ordens escritas devem ser usadas quando"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "não há o controle do mau gênio."
+    },
+    {
+     "letra": "B",
+     "texto": "o trabalhador tem a compreensão vagarosa ou é “esquecido”."
+    },
+    {
+     "letra": "C",
+     "texto": "a ordem precisa chegar imediatamente a um grande número de pessoas."
+    },
+    {
+     "letra": "D",
+     "texto": "envolvem cálculos e planilhas."
+    },
+    {
+     "letra": "E",
+     "texto": "o superior não tem a voz firme."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. “Controle o mau gênio” é outra norma de Beckman, sobre o comportamento de quem manda.",
+    "(B) Correta. É uma das oportunidades de ordem escrita (cobrada de novo em 2023, Q46, I).",
+    "(C) Errada. Não é a hipótese do texto.",
+    "(D) Errada. O texto fala em números precisos ou pormenores complicados, não em “cálculos e planilhas”.",
+    "(E) Errada."
+   ],
+   "anulacao": [
+    "Margem pequena na letra D, que lembra “números precisos”; mas a redação não é a do texto. Gabarito mantido."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2016-q44",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 340
+   }
+  },
+  {
+   "ano": 2017,
+   "numero": 31,
+   "pagina": 23,
+   "assunto": "ATRIBUTOS — DEFINIÇÕES (CORRETA)",
+   "nota": [],
+   "enunciado": [
+    "Assinale a opção correta com relação aos atributos de um líder."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Dedicação significa realizar as atividades com desempenho, esforçar-se por concluí-las corretamente, dentro dos prazos estabelecidos."
+    },
+    {
+     "letra": "B",
+     "texto": "Desprendimento (desinteresse, abnegação) é o esquecimento voluntário do que há de egoístico nos desejos e tendências naturais do homem, em proveito de uma pessoa, causa ou ideia."
+    },
+    {
+     "letra": "C",
+     "texto": "Disciplina consciente é a capacidade de se deixar conduzir dentro das normas e regulamentos mesmo quando não estiver sendo observado ou quando suas ideias e concepções pessoais forem contrárias."
+    },
+    {
+     "letra": "D",
+     "texto": "Discrição é a capacidade de se manifestar comedidamente em atitudes, maneiras e linguagem e saber relatar e comentar fatos ou situações, ou mesmo ficar calado, levando em conta os interesses do serviço e da convivência social."
+    },
+    {
+     "letra": "E",
+     "texto": "Entusiasmo significa executar as tarefas com ânimo elevado, vibração e louvor e mostrar-se feliz e orgulhoso do cargo que exerce."
+    }
+   ],
+   "gabarito": "Gabarito: ANULADA (resposta esperada pelo texto da norma: B)",
+   "resposta": "ANULADA",
+   "comentario": [
+    "(A) Errada pela troca de palavra: o texto é “com EMPENHO” (2013, Q43), não “com desempenho”.",
+    "(B) Correta: é a definição de Desprendimento.",
+    "(C) Também próxima do texto da Disciplina consciente.",
+    "(D) Também próxima do texto da Discrição.",
+    "(E) Duvidosa: “louvor” não combina com a definição de Entusiasmo."
+   ],
+   "anulacao": [
+    "ANULADA no gabarito oficial. Provável motivo: mais de uma alternativa reproduz definições do EMA-137 (B, C e D), o que deixa a questão sem resposta única."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2017-q31",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 10
+   }
+  },
+  {
+   "ano": 2017,
+   "numero": 38,
+   "pagina": 23,
+   "assunto": "CONCEITOS — COMANDAR = CHEFIA + LIDERANÇA",
+   "nota": [],
+   "enunciado": [
+    "Assinale a opção que completa corretamente as lacunas da sentença abaixo. Segundo EMA 137, caracterizados estes dois atributos do comandante, o de chefe e o de Líder, pode-se afirmar que ______ é exercer a chefia e a liderança, a fim de conduzir ______ a organização no cumprimento da missão."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "comandar / eficazmente"
+    },
+    {
+     "letra": "B",
+     "texto": "liderar / eficazmente"
+    },
+    {
+     "letra": "C",
+     "texto": "controlar / motivadamente"
+    },
+    {
+     "letra": "D",
+     "texto": "comandar / conscientemente"
+    },
+    {
+     "letra": "E",
+     "texto": "liderar / conscientemente"
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. Comandar é exercer a chefia e a liderança para conduzir eficazmente a organização.",
+    "(B) Errada. Liderar é só uma das partes; a soma das duas é comandar.",
+    "(C) Errada.",
+    "(D) Errada. O advérbio do texto é “eficazmente”.",
+    "(E) Errada."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2017-q38",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 11
+   }
+  },
+  {
+   "ano": 2017,
+   "numero": 44,
+   "pagina": 24,
+   "assunto": "ATRIBUTOS — EXEMPLO E INICIATIVA",
+   "nota": [],
+   "enunciado": [
+    "Quando um líder conquista a confiança, o respeito e a admiração de seus subordinados e ainda tem iniciativa e se antecipa, dentro do possível, aos fatos, buscando ser pró-ativo, pode-se afirmar que possui, respectivamente, os seguintes atributos:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Comunicação e Exemplo."
+    },
+    {
+     "letra": "B",
+     "texto": "Espírito de Equipe e Aprendizagem."
+    },
+    {
+     "letra": "C",
+     "texto": "Exemplo e Tomada de decisão."
+    },
+    {
+     "letra": "D",
+     "texto": "Comunicação e Espírito de Equipe."
+    },
+    {
+     "letra": "E",
+     "texto": "Exemplo e Comunicação."
+    }
+   ],
+   "gabarito": "Gabarito: ANULADA (resposta esperada pelo texto da norma: C)",
+   "resposta": "ANULADA",
+   "comentario": [
+    "(A) Errada. A ordem está trocada e comunicação não é o primeiro atributo descrito.",
+    "(B) Errada.",
+    "(C) Mais próxima: confiança, respeito e admiração = Exemplo; mas “ter iniciativa e antecipar-se aos fatos” é o atributo INICIATIVA, que não aparece nas opções.",
+    "(D) Errada.",
+    "(E) Errada. O segundo atributo não é comunicação."
+   ],
+   "anulacao": [
+    "ANULADA no gabarito oficial. Provável motivo: o segundo atributo descrito é Iniciativa, que não está em nenhuma opção."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2017-q44"
+  },
+  {
+   "ano": 2018,
+   "numero": 33,
+   "pagina": 25,
+   "assunto": "ESTILOS — PARTICIPATIVA OU DEMOCRÁTICA",
+   "nota": [],
+   "enunciado": [
+    "Sobre Liderança Participativa ou Democrática, é correto afirmar que:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "o êxito desse estilo é condicionado pelas características pessoais, pelo conhecimento técnico-profissional e pelo engajamento e motivação dos componentes do grupo como um todo."
+    },
+    {
+     "letra": "B",
+     "texto": "a principal restrição a esse tipo de liderança é o desinteresse pelos problemas e ideias, tolhendo a iniciativa e, por conseguinte, a participação e a criatividade dos subordinados."
+    },
+    {
+     "letra": "C",
+     "texto": "o ponto crucial do sucesso desse tipo de liderança é saber delegar atribuições sem perder o controle da situação e, por essa razão, o Líder também deverá ser altamente qualificado e motivado."
+    },
+    {
+     "letra": "D",
+     "texto": "o êxito do processo está pautado na percepção do ambiente (grau de maturidade e prontidão do grupo) e na capacidade de adaptação do comportamento do Líder para atender às necessidades dos seus liderados."
+    },
+    {
+     "letra": "E",
+     "texto": "o controle das atividades dos elementos subordinados é pequeno, competindo ao chefe as tarefas de orientar e motivar o grupo para atingir as metas estabelecidas."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. É a frase da participativa (repetida em 2024, Q31, B, e 2025, Q40).",
+    "(B) Errada. Tolher a iniciativa e a participação é a restrição da liderança AUTOCRÁTICA.",
+    "(C) Errada. Saber delegar sem perder o controle é o ponto crucial da DELEGATIVA.",
+    "(D) Errada. Percepção da maturidade do grupo e adaptação do comportamento do líder descrevem a ideia de liderança situacional, não a participativa.",
+    "(E) Errada. Controle pequeno das atividades é característica da DELEGATIVA."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2018-q33",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 69
+   }
+  },
+  {
+   "ano": 2018,
+   "numero": 34,
+   "pagina": 25,
+   "assunto": "ASPECTOS — SOCIOLÓGICOS: PROCESSOS SOCIAIS",
+   "nota": [],
+   "enunciado": [
+    "Um dos tópicos da Sociologia avaliado como relevante é o dos processos sociais, definidos como a interação repetitiva de padrões de comportamento comumente encontrados na vida social. Assinale a opção que apresenta os processos sociais de maior incidência nas sociedades e grupos humanos."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Desafio, competição e conflito."
+    },
+    {
+     "letra": "B",
+     "texto": "Harmonia, competição e conflito."
+    },
+    {
+     "letra": "C",
+     "texto": "Cooperação, harmonia e conflito."
+    },
+    {
+     "letra": "D",
+     "texto": "Cooperação, competição e conflito."
+    },
+    {
+     "letra": "E",
+     "texto": "Cooperação, harmonia e desafio."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. “Desafio” não é processo social do texto.",
+    "(B) Errada. “Harmonia” não é processo social do texto.",
+    "(C) Errada.",
+    "(D) Correta. Cooperação, competição e conflito (o enunciado de 2021, Q34, repete a lista).",
+    "(E) Errada."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2018-q34",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 43
+   }
+  },
+  {
+   "ano": 2018,
+   "numero": 38,
+   "pagina": 26,
+   "assunto": "ATRIBUTOS — INICIATIVA",
+   "nota": [],
+   "enunciado": [
+    "Em um plano mais elevado, é a faculdade de deliberar acertadamente em circunstâncias imprevistas ou na ausência dos superiores, agindo sob responsabilidade própria, mas dentro da doutrina, a bem do serviço. Para assim fazer, é preciso ter capacidade profissional, confiança em si e estar bem orientado. Qual atributo de um líder foi descrito?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Senso de justiça."
+    },
+    {
+     "letra": "B",
+     "texto": "Altruísmo."
+    },
+    {
+     "letra": "C",
+     "texto": "Iniciativa."
+    },
+    {
+     "letra": "D",
+     "texto": "Autoconfiança."
+    },
+    {
+     "letra": "E",
+     "texto": "Capacidade decisória."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. Senso de justiça é tratar com equidade.",
+    "(B) Errada. Altruísmo é preocupar-se com o bem do outro.",
+    "(C) Correta. É a definição de Iniciativa (deliberar acertadamente no imprevisto ou na ausência dos superiores, dentro da doutrina).",
+    "(D) Errada. Autoconfiança é apenas um dos requisitos citados.",
+    "(E) Errada como resposta: a capacidade decisória é próxima, mas o traço “na ausência dos superiores, sob responsabilidade própria” é o da Iniciativa."
+   ],
+   "anulacao": [
+    "Margem pequena na letra E. Gabarito mantido."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2018-q38",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 253
+   }
+  },
+  {
+   "ano": 2019,
+   "numero": 35,
+   "pagina": 27,
+   "assunto": "ESTILOS — TRANSFORMACIONAL (BARRETT)",
+   "nota": [],
+   "enunciado": [
+    "Segundo Barrett, 2000 (in: CAVALCANTI et al., 2005), “ao encontrarem significado e perspectivas de realização pessoal no trabalho, os subordinados alcançam os mais elevados níveis de produtividade e criatividade, fazendo desaparecer a dicotomia trabalho e prazer.” Esse trecho trata de qual estilo de liderança abaixo:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Participativa ou Democrática."
+    },
+    {
+     "letra": "B",
+     "texto": "Delegativa."
+    },
+    {
+     "letra": "C",
+     "texto": "Transformacional."
+    },
+    {
+     "letra": "D",
+     "texto": "Transacional."
+    },
+    {
+     "letra": "E",
+     "texto": "Orientada para Relacionamento."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. A participativa trata de ouvir o grupo nas decisões.",
+    "(B) Errada. A delegativa trata de atribuir decisões a assessores qualificados.",
+    "(C) Correta. Dar significado ao trabalho e elevar o comprometimento é o núcleo da liderança transformacional.",
+    "(D) Errada. A transacional se baseia em troca (recompensa pelo cumprimento), não em significado.",
+    "(E) Errada. O foco no relacionamento trata da coesão do grupo."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2019-q35",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 77
+   }
+  },
+  {
+   "ano": 2019,
+   "numero": 42,
+   "pagina": 27,
+   "assunto": "TAREFAS — O QUE O LÍDER NÃO PRECISA OBSERVAR",
+   "nota": [],
+   "enunciado": [
+    "Em grupos com militares das demais Forças Armadas brasileiras, o Líder Naval NÃO deve ter atenção:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "às diferentes atividades do “marinheiro”, do “soldado” e do “aviador”."
+    },
+    {
+     "letra": "B",
+     "texto": "ao relacionamento entre os diferentes níveis hierárquicos."
+    },
+    {
+     "letra": "C",
+     "texto": "às diferenças culturais, sociais e religiosas."
+    },
+    {
+     "letra": "D",
+     "texto": "aos regulamentos, costumes e tradições."
+    },
+    {
+     "letra": "E",
+     "texto": "à terminologia diferenciada."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Deve ter atenção (item do EMA-137).",
+    "(B) Deve ter atenção.",
+    "(C) Correta (é a que NÃO consta). Diferenças culturais, sociais e religiosas não estão entre as nuanças de cada Força.",
+    "(D) Deve ter atenção.",
+    "(E) Deve ter atenção."
+   ],
+   "anulacao": [
+    "Sem margem. Mesma lista de 2015 (Q50, D)."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2019-q42",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 192
+   }
+  },
+  {
+   "ano": 2019,
+   "numero": 44,
+   "pagina": 28,
+   "assunto": "ATRIBUTOS — CAPACIDADE DE RELACIONAMENTO INTERPESSOAL (GOLEMAN)",
+   "nota": [],
+   "enunciado": [
+    "Segundo Goleman, Boyatzis, Mckee (2002), “os líderes que trabalham bem em grupo produzem uma atmosfera de solidariedade amistosa e constituem, eles mesmos, modelos de respeito, prestimosidade e cooperação. Inspiram nos demais um compromisso ativo e entusiástico com o esforço coletivo, e promovem a fidelidade e a identificação.” Com base nesse fragmento, qual atributo de um líder apresenta a capacidade de exercer o papel de mentor, cultivando habilidades alheias, fornecendo feedback construtivo e reconhecimento oportuno?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Respeito."
+    },
+    {
+     "letra": "B",
+     "texto": "Comunicação."
+    },
+    {
+     "letra": "C",
+     "texto": "Senso de Justiça."
+    },
+    {
+     "letra": "D",
+     "texto": "Competência Profissional."
+    },
+    {
+     "letra": "E",
+     "texto": "Capacidade de Relacionamento Interpessoal."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. Respeito é consideração pela dignidade do outro.",
+    "(B) Errada. Comunicação é transmitir e receber informações com clareza.",
+    "(C) Errada.",
+    "(D) Errada.",
+    "(E) Correta. O EMA-137 inclui no relacionamento interpessoal o papel de mentor, o feedback construtivo e o reconhecimento oportuno."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2019-q44",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 247
+   }
+  },
+  {
+   "ano": 2020,
+   "numero": 33,
+   "pagina": 29,
+   "assunto": "ATRIBUTOS — EXEMPLO (ESCRIBAS E FARISEUS)",
+   "nota": [],
+   "enunciado": [
+    "Leia o trecho a seguir extraído de Mateus 23, 2-3: “Sobre a cadeira de Moisés sentaram-se os escribas e os fariseus. Observai, pois, e fazei tudo o que eles vos disserem; mas não imiteis as suas ações, porque dizem e não fazem.” Um texto tão antigo quanto a Bíblia mostra que as observações e ensinamentos sobre liderança são antigos e universais. Considerando o trecho e sob a luz da Doutrina de Liderança da MB, pode-se afirmar que o locutor faz uma certa censura aos líderes “escribas e fariseus” pois lhes faltou o seguinte atributo:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Humildade."
+    },
+    {
+     "letra": "B",
+     "texto": "Altruísmo."
+    },
+    {
+     "letra": "C",
+     "texto": "Exemplo."
+    },
+    {
+     "letra": "D",
+     "texto": "Integridade Ética."
+    },
+    {
+     "letra": "E",
+     "texto": "Senso de Justiça."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada.",
+    "(B) Errada.",
+    "(C) Correta. “Dizem e não fazem”: falta de Exemplo (mesma ideia da tirinha de 2013, Q31).",
+    "(D) Errada como resposta: a incoerência entre falar e fazer é cobrada como falta de exemplo.",
+    "(E) Errada."
+   ],
+   "anulacao": [
+    "Margem pequena na letra D. Gabarito mantido."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2020-q33"
+  },
+  {
+   "ano": 2020,
+   "numero": 35,
+   "pagina": 29,
+   "assunto": "ORDENS — EVITAR ORDENS CONTRADITÓRIAS",
+   "nota": [],
+   "enunciado": [
+    "O Tenente ALFA determinou a execução de uma atividade a seu subordinado, o Sargento BRAVO. Em seguida disse: “Quero um trabalho excelente, sem nenhum erro”. Poucos dias depois, procurou o Sargento BRAVO para verificar o andamento da faina. Embora o trabalho realizado até então fosse perfeito, ainda havia muito o que fazer. Descontente o Tenente ALFA determinou: “Faça de qualquer jeito. Quero o pronto para ontem.” De acordo com as orientações sobre expedições de ordens do EMA-137, as ordens expressas pelo Tenente ALFA para execução da atividade estão em desacordo com o seguinte dever do chefe:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "ter autocontrole."
+    },
+    {
+     "letra": "B",
+     "texto": "usar um tom de voz adequado."
+    },
+    {
+     "letra": "C",
+     "texto": "ter flexibilidade."
+    },
+    {
+     "letra": "D",
+     "texto": "evitar ordens contraditórias."
+    },
+    {
+     "letra": "E",
+     "texto": "evitar ordens simultâneas."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) Errada. Não há descontrole descrito.",
+    "(B) Errada.",
+    "(C) Errada.",
+    "(D) Correta. Primeiro “sem nenhum erro”, depois “de qualquer jeito”: ordens contraditórias.",
+    "(E) Errada. As ordens foram dadas em momentos diferentes; o problema é a contradição, não a simultaneidade."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2020-q35",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 313
+   }
+  },
+  {
+   "ano": 2020,
+   "numero": 42,
+   "pagina": 30,
+   "assunto": "ESTILOS — CENTRALIZADORA X PARTICIPATIVA",
+   "nota": [],
+   "enunciado": [
+    "Um Encarregado de Divisão, Tenente ALFA, para atingir os objetivos dessa divisão, emprega sua antiguidade como elemento de autoridade; distribui as faxinas apenas aos supervisores, com quem adota um trato formal; e inspeciona diariamente a realização das atividades e a apresentação marinheira das incumbências. Já um outro Encarregado de Divisão, Tenente BRAVO, para atingir os objetivos de sua divisão, reúne os subordinados voluntários para auxiliá-lo a fechar um plano de ação; deixa a condução das atividades sob coordenação dos militares tecnicamente mais experientes; não deixa, porém, de exercer sua autoridade e de assumir suas responsabilidades. Pode-se afirmar que a melhor descrição da distinção entre os encarregados ALFA e BRAVO é que:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "ALFA foca no fator “liderados” e BRAVO no fator “comunicação”."
+    },
+    {
+     "letra": "B",
+     "texto": "ALFA trabalha a virtude da cooperação e BRAVO o espírito de sacrifício."
+    },
+    {
+     "letra": "C",
+     "texto": "ALFA trabalha a virtude da coragem e BRAVO da cooperação."
+    },
+    {
+     "letra": "D",
+     "texto": "ALFA exerce uma liderança orientada para relacionamento e BRAVO delegativa."
+    },
+    {
+     "letra": "E",
+     "texto": "ALFA exerce uma liderança mais centralizadora e BRAVO mais participativa."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. A diferença não está nesses fatores.",
+    "(B) Errada. A questão não trata de virtudes da Rosa.",
+    "(C) Errada.",
+    "(D) Errada. ALFA é formal e distante: não é orientado para relacionamento.",
+    "(E) Correta. ALFA usa a antiguidade, trato formal e inspeção diária (centralizador); BRAVO ouve o grupo e reparte a condução sem abrir mão da autoridade (participativo)."
+   ],
+   "anulacao": [
+    "Margem pequena: BRAVO também delega parte da condução. Mas, como mantém a autoridade e decide com o grupo, a melhor descrição é a participativa. Gabarito mantido."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2020-q42",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 65
+   }
+  },
+  {
+   "ano": 2021,
+   "numero": 34,
+   "pagina": 31,
+   "assunto": "ASPECTOS — SOCIOLÓGICOS: COOPERAÇÃO, COMPETIÇÃO E CONFLITO",
+   "nota": [],
+   "enunciado": [
+    "Os processos sociais são definidos como a interação repetitiva de padrões de comportamento comumente encontrados na vida social. Os processos de maior incidência das sociedades e grupos humanos são: cooperação, competição e conflito. De acordo com o EMA-137, assinale a opção correta."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "A competição consiste em obter recompensas pela eliminação ou enfraquecimento dos competidores."
+    },
+    {
+     "letra": "B",
+     "texto": "A cooperação tem o mérito inicial de estimular a atividade dos indivíduos e dos grupos, aumentando-lhes a produtividade."
+    },
+    {
+     "letra": "C",
+     "texto": "O conflito é definido como a luta pela posse de recompensas cuja oferta é limitada."
+    },
+    {
+     "letra": "D",
+     "texto": "A competição é a exacerbação do conflito."
+    },
+    {
+     "letra": "E",
+     "texto": "A cooperação implica uma opção pelo coletivo em detrimento do individual."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada. Obter recompensas eliminando ou enfraquecendo os competidores é o CONFLITO.",
+    "(B) Errada. Estimular a atividade e aumentar a produtividade é o mérito da COMPETIÇÃO.",
+    "(C) Errada. A luta por recompensas de oferta limitada é a definição de COMPETIÇÃO.",
+    "(D) Errada. Está invertida: o CONFLITO é a exacerbação da competição.",
+    "(E) Correta. Cooperar é optar pelo coletivo em detrimento do individual."
+   ],
+   "anulacao": [
+    "Sem margem: as erradas trocam as definições entre os três processos."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2021-q34",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 43
+   }
+  },
+  {
+   "ano": 2021,
+   "numero": 42,
+   "pagina": 31,
+   "assunto": "ESTILOS — EIXO TIPO DE INCENTIVO",
+   "nota": [],
+   "enunciado": [
+    "Segundo o EMA-137, pode-se afirmar que os diferentes estilos de liderança, propostos à luz das diversas teorias, se enquadram em três principais critérios de classificação, apresentados como eixos lógicos em que se agrupam apenas sete estilos principais. No eixo “tipo de incentivo”, assinale a opção correta quanto ao seu estilo de liderança."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "É condicionado pelas características pessoais, pelo conhecimento técnico-profissional e pelo engajamento e motivação dos componentes do grupo como um todo."
+    },
+    {
+     "letra": "B",
+     "texto": "É especialmente indicado para situações de pressão, crise e mudança, que requerem elevados níveis de envolvimento e comprometimento dos subordinados."
+    },
+    {
+     "letra": "C",
+     "texto": "É a manutenção e o fortalecimento das relações pessoais e do próprio grupo."
+    },
+    {
+     "letra": "D",
+     "texto": "É baseada na autoridade formal, aceita como correta e legítima pela estrutura do grupo."
+    },
+    {
+     "letra": "E",
+     "texto": "É indicado para assuntos de natureza técnica, em que o líder atribui a assessores a tomada de decisões especializadas, deixando-os agir por si só."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada. É a participativa (eixo centralização).",
+    "(B) Correta. É a transformacional, um dos dois estilos do eixo tipo de incentivo (o outro é a transacional).",
+    "(C) Errada. É a orientada para relacionamento (eixo foco do líder).",
+    "(D) Errada. Autoridade formal aceita como legítima pelo grupo é o início da definição da participativa (eixo centralização; ver 2024, Q31, A).",
+    "(E) Errada. É a delegativa (eixo centralização)."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2021-q42",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 76
+   }
+  },
+  {
+   "ano": 2022,
+   "numero": 33,
+   "pagina": 33,
+   "assunto": "NÍVEIS — OS TRÊS NÍVEIS DE LIDERANÇA",
+   "nota": [],
+   "enunciado": [
+    "Segundo a Doutrina de Liderança da Marinha (EMA-137 de 2013), quais são os níveis de liderança?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Direta, Organizacional e Estratégica."
+    },
+    {
+     "letra": "B",
+     "texto": "Organizacional, Transacional e Direta."
+    },
+    {
+     "letra": "C",
+     "texto": "Estratégica, Organizacional e Transformacional."
+    },
+    {
+     "letra": "D",
+     "texto": "Direta, Estratégica e Democrática."
+    },
+    {
+     "letra": "E",
+     "texto": "Organizacional, Centralizadora e Orientada para o Relacionamento."
+    }
+   ],
+   "gabarito": "Gabarito: A (oficial, definitivo)",
+   "resposta": "A",
+   "comentario": [
+    "(A) Correta. Mesma resposta de 2011 (Q32).",
+    "(B) Errada. Transacional é estilo.",
+    "(C) Errada. Transformacional é estilo.",
+    "(D) Errada. Democrática é estilo.",
+    "(E) Errada. Mistura nível com estilos."
+   ],
+   "anulacao": [
+    "Sem margem: cada errada troca um nível por um estilo."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2022-q33",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 120
+   }
+  },
+  {
+   "ano": 2022,
+   "numero": 37,
+   "pagina": 33,
+   "assunto": "ESTILOS — DELEGATIVA",
+   "nota": [],
+   "enunciado": [
+    "Qual estilo de liderança é indicado para assuntos de natureza técnica e é eficaz quando exercido sobre pessoas altamente qualificadas e motivadas?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Participativa ou Democrática."
+    },
+    {
+     "letra": "B",
+     "texto": "Transformacional."
+    },
+    {
+     "letra": "C",
+     "texto": "Orientada para Tarefa."
+    },
+    {
+     "letra": "D",
+     "texto": "Transacional."
+    },
+    {
+     "letra": "E",
+     "texto": "Delegativa."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada.",
+    "(B) Errada.",
+    "(C) Errada.",
+    "(D) Errada.",
+    "(E) Correta. A delegativa é indicada para assuntos técnicos, com pessoas altamente qualificadas e motivadas (ver 2021, Q42, E)."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2022-q37",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 73
+   }
+  },
+  {
+   "ano": 2022,
+   "numero": 45,
+   "pagina": 34,
+   "assunto": "ORDENS — NORMAS DE BECKMAN (EXCETO)",
+   "nota": [],
+   "enunciado": [
+    "De acordo com Beckman, citado na Doutrina de Liderança da Marinha (EMA-137 de 2013), são normas a respeito da expedição de ordens, EXCETO:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "repita a ordem, se não entendida."
+    },
+    {
+     "letra": "B",
+     "texto": "não dê várias ordens ao mesmo tempo."
+    },
+    {
+     "letra": "C",
+     "texto": "não determine mais trabalho do que possa ser executado."
+    },
+    {
+     "letra": "D",
+     "texto": "depois de expedir uma ordem, permaneça junto do trabalhador."
+    },
+    {
+     "letra": "E",
+     "texto": "procure estar bem informado antes de dar a ordem."
+    }
+   ],
+   "gabarito": "Gabarito: D (oficial, definitivo)",
+   "resposta": "D",
+   "comentario": [
+    "(A) É norma de Beckman.",
+    "(B) É norma (evitar ordens simultâneas; 2020, Q35).",
+    "(C) É norma.",
+    "(D) Correta (é a exceção). Beckman não manda ficar junto do trabalhador depois da ordem; a norma é acompanhar a execução sem ficar “em cima” de quem trabalha.",
+    "(E) É norma."
+   ],
+   "anulacao": [
+    "Sem margem quanto à D. A redação exata da norma de acompanhamento só o Anexo C do EMA-137 confirma."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2022-q45",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 335
+   }
+  },
+  {
+   "ano": 2023,
+   "numero": 37,
+   "pagina": 35,
+   "assunto": "ATRIBUTOS — COMPETÊNCIA PROFISSIONAL E CAPACIDADE DECISÓRIA",
+   "nota": [],
+   "enunciado": [
+    "O comandante Romeo, ao sair para uma missão com a Fragata Papa, observou uma pequena confusão no passadiço, em função da manobra de desatracação. No auge da manobra, um dos seus motores propulsores veio a falhar originando ordem equivocada pelo seu oficial de manobra como “Atenção proa e popa largar espias em emergência”. Percebendo a atitude precipitada de seu oficial, o comandante Romeo, em voz firme e fundamentada, ordenou: “A manobra está comigo, Atenção Leme a meio solecar espias 1 e 6”, sendo assim, é correto afirmar que, segundo o EMA-137, os seguintes atributos foram observados pelo comandante Romeo:"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "senso de justiça e entusiasmo."
+    },
+    {
+     "letra": "B",
+     "texto": "altruísmo e flexibilidade."
+    },
+    {
+     "letra": "C",
+     "texto": "determinação e humildade."
+    },
+    {
+     "letra": "D",
+     "texto": "caráter e respeito."
+    },
+    {
+     "letra": "E",
+     "texto": "competência profissional e capacidade decisória."
+    }
+   ],
+   "gabarito": "Gabarito: E (oficial, definitivo)",
+   "resposta": "E",
+   "comentario": [
+    "(A) Errada.",
+    "(B) Errada.",
+    "(C) Errada. Humildade não aparece na cena.",
+    "(D) Errada.",
+    "(E) Correta. Saber a manobra certa na emergência é competência profissional; assumir e decidir na hora, com voz firme, é capacidade decisória."
+   ],
+   "anulacao": [
+    "Sem margem. (A letra E não aparece no recorte da apostila de provas; foi conferida na prova original de 2023.)"
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2023-q37"
+  },
+  {
+   "ano": 2023,
+   "numero": 40,
+   "pagina": 35,
+   "assunto": "ASPECTOS — PRINCÍPIOS QUE REGEM O COMPORTAMENTO HUMANO",
+   "nota": [],
+   "enunciado": [
+    "Segundo o EMA-137, na definição de liderança, estão implícitos os seus agentes, ou seja, o líder e os liderados, as relações entre eles e a importância dos princípios que regem o comportamento humano. Quais são esses princípios?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "psicológicos, religiosos e sociológicos."
+    },
+    {
+     "letra": "B",
+     "texto": "sociológicos, psicológicos e pedagógicos."
+    },
+    {
+     "letra": "C",
+     "texto": "filosóficos, psicológicos e sociológicos."
+    },
+    {
+     "letra": "D",
+     "texto": "pedagógicos, religiosos e filosóficos."
+    },
+    {
+     "letra": "E",
+     "texto": "sociológicos, pedagógicos e filosóficos."
+    }
+   ],
+   "gabarito": "Gabarito: C (oficial, definitivo)",
+   "resposta": "C",
+   "comentario": [
+    "(A) Errada. Não há princípio “religioso”.",
+    "(B) Errada. Não há “pedagógico”.",
+    "(C) Correta. Filosóficos, psicológicos e sociológicos.",
+    "(D) Errada.",
+    "(E) Errada."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2023-q40",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 25
+   }
+  },
+  {
+   "ano": 2023,
+   "numero": 46,
+   "pagina": 36,
+   "assunto": "ORDENS — QUANDO A ORDEM DEVE SER ESCRITA (BECKMAN)",
+   "nota": [],
+   "enunciado": [
+    "Segundo a orientação sobre as expedições de ordens do Anexo C do EMA-137, depois de examinar as vantagens e desvantagens do uso de ordens minuciosas, Beckman enumera oportunidades que, a seu ver, devem ser usadas em ordens escritas. Assim, analise as afirmativas abaixo e assinale a opção que apresenta quando tais ordens devem ser por escrito.",
+    "I - O trabalhador tem a compreensão vagarosa ou é “esquecido”.",
+    "II - É necessário perguntar se as ordens são claras - faça com que o trabalhador as repita.",
+    "III - É preciso adotar maneiras apropriadas ao indivíduo.",
+    "IV - As ordens envolvem números precisos ou pormenores complicados."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Apenas as afirmativas I e III são verdadeiras."
+    },
+    {
+     "letra": "B",
+     "texto": "Apenas as afirmativas I e IV são verdadeiras."
+    },
+    {
+     "letra": "C",
+     "texto": "Apenas as afirmativas II e IV são verdadeiras."
+    },
+    {
+     "letra": "D",
+     "texto": "Apenas as afirmativas II e III são verdadeiras."
+    },
+    {
+     "letra": "E",
+     "texto": "Apenas a afirmativa IV é verdadeira."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "Análise das afirmativas: I (V) e IV (V): são oportunidades de ordem escrita (I já cobrada em 2016, Q44). II e III (F para esta pergunta): são normas gerais de Beckman para qualquer ordem (verificar se foi entendida e adequar a maneira ao indivíduo), não casos de ordem escrita.",
+    "(A) Errada. A III não é caso de ordem escrita.",
+    "(B) Correta. I e IV.",
+    "(C) Errada. A II não é caso de ordem escrita.",
+    "(D) Errada.",
+    "(E) Errada. A I também é verdadeira."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2023-q46",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 338
+   }
+  },
+  {
+   "ano": 2024,
+   "numero": 31,
+   "pagina": 37,
+   "assunto": "ESTILOS — PARTICIPATIVA",
+   "nota": [],
+   "enunciado": [
+    "De acordo com o EMA-137, assinale a opção correta sobre o estilo de liderança participativa."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "É baseado na autoridade formal, aceita como correta e legítima pela estrutura do grupo. Os componentes do grupo são incentivados a opinarem sobre as formas como a missão poderá ser realizada, cabendo a decisão final ao chefe (exemplo típico é o Estado-Maior da Armada)."
+    },
+    {
+     "letra": "B",
+     "texto": "O seu êxito é condicionado pelas características pessoais, pelo conhecimento técnico-profissional e pelo engajamento e motivação do grupo como um todo. Em se obtendo sucesso, a satisfação pessoal e o sentimento de contribuição por parte dos subordinados são fatores que permitem uma realimentação positiva do processo."
+    },
+    {
+     "letra": "C",
+     "texto": "É indicado para assuntos de natureza técnica, onde o líder atribui a assessores a tomada de decisões especializadas, deixando-os agir por si só. E na ausência do líder, uma boa equipe terá condições de continuar agindo de acordo com o planejamento previamente determinado para cumprir a tarefa da Organização."
+    },
+    {
+     "letra": "D",
+     "texto": "Os componentes do grupo são incentivados a opinarem sobre as formas como uma tarefa poderá ser realizada. O objetivo do líder é a preservação e o fortalecimento das relações pessoais e do próprio grupo. Um chefe seguro facilmente conseguirá exercer uma liderança democrática, mas tenderá a submeter ao grupo todas as decisões."
+    },
+    {
+     "letra": "E",
+     "texto": "A especialização em tarefas é uma das principais responsabilidades do líder, na medida em que possui a necessária qualificação profissional para o exercício da função. O líder deve estabelecer um ambiente de respeito, confiança e entendimento unilateral, devendo possuir, para tanto, ascendência técnico-profissional sobre seus superiores e conduta ética, moral e filosófica compatíveis com o cargo de Comando."
+    }
+   ],
+   "gabarito": "Gabarito: B (oficial, definitivo)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada pelo detalhe: o início é o texto da participativa, mas o exemplo típico do EMA-137 é o processo decisório de um Estado-Maior em geral, e não o “Estado-Maior da Armada”; a banca também trocou “tarefa” por “missão”.",
+    "(B) Correta. É a frase do êxito da participativa (2018, Q33, A; 2025, Q40), com a realimentação positiva.",
+    "(C) Errada. É a delegativa.",
+    "(D) Errada. Mistura a participativa com o objetivo da orientada para relacionamento; e o texto diz que o chefe seguro NÃO tende a submeter todas as decisões ao grupo.",
+    "(E) Errada. Mistura a orientada para tarefa com frases inventadas (“entendimento unilateral”, ascendência “sobre seus superiores”)."
+   ],
+   "anulacao": [
+    "Margem pequena na letra A, que é quase o texto da norma. A troca de palavras a torna errada; gabarito mantido. A redação exata do exemplo só o texto integral do EMA-137 confirma."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2024-q31",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 69
+   }
+  },
+  {
+   "ano": 2025,
+   "numero": 40,
+   "pagina": 38,
+   "assunto": "ESTILOS — PARTICIPATIVA (ÊXITO CONDICIONADO)",
+   "nota": [],
+   "enunciado": [
+    "Em qual estilo de liderança o êxito é condicionado pelas características pessoais, pelo conhecimento técnico-profissional e pelo engajamento e motivação dos componentes do grupo como um todo?"
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Liderança Orientada para Relacionamento."
+    },
+    {
+     "letra": "B",
+     "texto": "Liderança Participativa ou Democrática."
+    },
+    {
+     "letra": "C",
+     "texto": "Liderança Transformacional."
+    },
+    {
+     "letra": "D",
+     "texto": "Liderança Orientada para Tarefa."
+    },
+    {
+     "letra": "E",
+     "texto": "Liderança Transacional."
+    }
+   ],
+   "gabarito": "Gabarito: B (preliminar)",
+   "resposta": "B",
+   "comentario": [
+    "(A) Errada.",
+    "(B) Correta. Terceira vez que a frase é cobrada (2018, Q33; 2024, Q31).",
+    "(C) Errada.",
+    "(D) Errada.",
+    "(E) Errada."
+   ],
+   "anulacao": [
+    "Sem margem."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2025-q40",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 69
+   }
+  },
+  {
+   "ano": 2025,
+   "numero": 46,
+   "pagina": 38,
+   "assunto": "CONCEITOS — PONTO DE REFERÊNCIA X INCENTIVOS (ITEM 2.4)",
+   "nota": [],
+   "enunciado": [
+    "Com relação ao item 2.4 do EMA-137, referente ao exercício da liderança pelos militares da Marinha do Brasil (MB), resume-se que, para se aperfeiçoar como líder, todos devem buscar se tornar ponto de referência, adotando alguns procedimentos. Ademais, os militares devem ser incentivados a aprimorar sua capacidade de liderança. Dessa forma, correlacione as colunas abaixo e assinale a opção correta.",
+    "I - Procedimentos na busca para se tornar ponto de referência",
+    "II - Incentivos a aprimorar a capacidade de liderança",
+    "( ) Constante atualização técnico-profissional.",
+    "( ) Estimular em seus subordinados o sentimento de sempre dizer a verdade.",
+    "( ) Capacidade de perceber a situação e mudar adequadamente o estilo de liderança a ser exercido.",
+    "( ) Desenvolver a coesão e a disciplina.",
+    "( ) Ser sempre sincero com seus superiores, pares e subordinados."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "(II) (I) (I) (I) (II)"
+    },
+    {
+     "letra": "B",
+     "texto": "(I) (II) (I) (II) (I)"
+    },
+    {
+     "letra": "C",
+     "texto": "(I) (I) (II) (II) (II)"
+    },
+    {
+     "letra": "D",
+     "texto": "(II) (II) (I) (I) (I)"
+    },
+    {
+     "letra": "E",
+     "texto": "(II) (I) (II) (I) (I)"
+    }
+   ],
+   "gabarito": "Gabarito: E (preliminar)",
+   "resposta": "E",
+   "comentario": [
+    "Análise das afirmativas: Atualização técnico-profissional (II) e perceber a situação e mudar adequadamente o estilo (II) estão na lista do que os militares devem ser incentivados a buscar (a mesma de 2012, Q49). Estimular o sentimento de dizer a verdade (I), desenvolver a coesão e a disciplina (I) e ser sempre sincero (I) são procedimentos para se tornar ponto de referência. Sequência: II, I, II, I, I.",
+    "(A) Errada. A 3ª é II e a 5ª é I.",
+    "(B) Errada. Começa com I.",
+    "(C) Errada.",
+    "(D) Errada. A 2ª é I e a 3ª é II.",
+    "(E) Correta. II, I, II, I, I."
+   ],
+   "anulacao": [
+    "Margem pequena: a atribuição de cada frase a uma das duas listas depende do texto do item 2.4; a lista dos incentivos foi conferida pela questão de 2012. Gabarito preliminar; confira o definitivo."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2025-q46",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 165
+   }
+  },
+  {
+   "ano": 2025,
+   "numero": 47,
+   "pagina": 39,
+   "assunto": "ORDENS — NORMAS DE BECKMAN (INCORRETA)",
+   "nota": [],
+   "enunciado": [
+    "Com relação às normas apontadas por Beckman citadas por Campos (1947), assinale a opção INCORRETA."
+   ],
+   "alternativas": [
+    {
+     "letra": "A",
+     "texto": "Não tenha a compreensão da ordem como garantida."
+    },
+    {
+     "letra": "B",
+     "texto": "Expeça as ordens através dos canais apropriados - não infrinja as linhas de autoridade."
+    },
+    {
+     "letra": "C",
+     "texto": "Controle o mau gênio; evite a irreverência, o abuso e o sarcasmo."
+    },
+    {
+     "letra": "D",
+     "texto": "Reduza ao mínimo as ordens negativas."
+    },
+    {
+     "letra": "E",
+     "texto": "Escreva as ordens mais difíceis ou complexas."
+    }
+   ],
+   "gabarito": "Gabarito: D (preliminar)",
+   "resposta": "D",
+   "comentario": [
+    "(A) É norma de Beckman (verificar se a ordem foi entendida; 2023, Q46, II).",
+    "(B) É norma.",
+    "(C) É norma (citada em 2016, Q44, A).",
+    "(D) Correta pelo gabarito preliminar (é a incorreta): a banca considerou que a frase não reproduz a norma de Beckman sobre ordens negativas.",
+    "(E) É norma (ordens difíceis ou complexas por escrito; 2023, Q46, IV)."
+   ],
+   "anulacao": [
+    "Há argumento de recurso: “reduzir ao mínimo as ordens negativas” é recomendação comum na literatura de chefia, e a letra D pode ser só uma paráfrase da norma. A redação exata só o Anexo C do EMA-137 confirma. Gabarito PRELIMINAR; confira se foi mantido no definitivo."
+   ],
+   "fonte": "lideranca_ema137_comentado_2011_2025",
+   "id": "lideranca-2025-q47",
+   "apostila": {
+    "slug": "lideranca",
+    "block": 347
+   }
+  }
+ ]
+}
